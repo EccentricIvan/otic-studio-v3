@@ -10,58 +10,66 @@
         {
           "title": "Understanding Whole Numbers and Place Value",
           "content": "Whole numbers are the numbers we use for counting: 0, 1, 2, 3, and so on. Each digit in a number has a place value depending on its position. In the number 3,527: the 3 is in the thousands place (worth 3,000), the 5 is in the hundreds place (worth 500), the 2 is in the tens place (worth 20), and the 7 is in the ones place (worth 7). Understanding place value helps us read large numbers, compare them, and perform arithmetic. Numbers can be even (divisible by 2: 0, 2, 4, 6, 8) or odd (not divisible by 2: 1, 3, 5, 7, 9). Prime numbers have exactly two factors: 1 and themselves (2, 3, 5, 7, 11, 13...).",
-          "examples": [
-            "The number 45,892 has: 4 ten-thousands, 5 thousands, 8 hundreds, 9 tens, 2 ones.",
-            "Comparing: 3,456 > 3,298 because in the hundreds place, 4 > 2.",
-            "Prime check: 17 is prime (only 1 × 17), but 15 is not (3 × 5)."
-          ],
-          "keyTerms": {
-            "place value": "The value of a digit based on its position in a number",
-            "prime number": "A number greater than 1 with exactly two factors: 1 and itself",
-            "composite number": "A number with more than two factors"
-          },
+          "examples": ["The number 45,892 has: 4 ten-thousands, 5 thousands, 8 hundreds, 9 tens, 2 ones.", "Comparing: 3,456 > 3,298 because in the hundreds place, 4 > 2.", "Prime check: 17 is prime (only 1 × 17), but 15 is not (3 × 5)."],
+          "keyTerms": {"place value": "The value of a digit based on its position in a number", "prime number": "A number greater than 1 with exactly two factors: 1 and itself", "composite number": "A number with more than two factors", "even number": "A number divisible by 2 with no remainder"},
           "quiz": [
             {"question": "What is the place value of 6 in 16,342?", "options": ["6,000", "600", "60", "6"], "correct": 0, "explanation": "The 6 is in the thousands place, so its value is 6,000."},
             {"question": "Which of these is a prime number?", "options": ["23", "21", "25", "27"], "correct": 0, "explanation": "23 has only two factors (1 and 23). 21=3×7, 25=5×5, 27=3×9."},
-            {"question": "What is 4,587 rounded to the nearest hundred?", "options": ["4,600", "4,500", "4,590", "5,000"], "correct": 0, "explanation": "The tens digit is 8 (≥5), so we round up: 4,600."}
+            {"question": "What is 4,587 rounded to the nearest hundred?", "options": ["4,600", "4,500", "4,590", "5,000"], "correct": 0, "explanation": "The tens digit is 8 (≥5), so we round up: 4,600."},
+            {"question": "Which number is both even and prime?", "options": ["2", "4", "9", "1"], "correct": 0, "explanation": "2 is the only even prime number — every other even number is divisible by 2."},
+            {"question": "How many factors does 12 have?", "options": ["6", "4", "2", "3"], "correct": 0, "explanation": "Factors of 12: 1, 2, 3, 4, 6, 12 — that's 6 factors."}
           ]
         },
         {
           "title": "Fractions and Decimals",
           "content": "A fraction represents a part of a whole. It has a numerator (top number, how many parts you have) and a denominator (bottom number, how many equal parts the whole is divided into). For example, 3/4 means 3 out of 4 equal parts. Equivalent fractions look different but represent the same amount: 1/2 = 2/4 = 3/6. To add fractions with the same denominator, add the numerators: 2/5 + 1/5 = 3/5. For different denominators, find a common denominator first. Decimals are another way to write fractions based on powers of 10. The fraction 1/4 = 0.25, and 3/4 = 0.75. To convert a fraction to a decimal, divide the numerator by the denominator.",
-          "examples": [
-            "Adding: 1/3 + 1/6 → common denominator is 6 → 2/6 + 1/6 = 3/6 = 1/2",
-            "Converting: 3/8 = 3 ÷ 8 = 0.375",
-            "Multiplying fractions: 2/3 × 3/4 = 6/12 = 1/2"
-          ],
-          "keyTerms": {
-            "numerator": "The top number in a fraction, showing how many parts",
-            "denominator": "The bottom number in a fraction, showing total equal parts",
-            "equivalent fractions": "Fractions that represent the same value"
-          },
+          "examples": ["Adding: 1/3 + 1/6 → common denominator is 6 → 2/6 + 1/6 = 3/6 = 1/2", "Converting: 3/8 = 3 ÷ 8 = 0.375", "Multiplying fractions: 2/3 × 3/4 = 6/12 = 1/2"],
+          "keyTerms": {"numerator": "The top number in a fraction, showing how many parts", "denominator": "The bottom number in a fraction, showing total equal parts", "equivalent fractions": "Fractions that represent the same value", "improper fraction": "A fraction where the numerator is larger than the denominator (7/4)"},
           "quiz": [
             {"question": "What is 2/5 + 1/5?", "options": ["3/5", "3/10", "2/10", "1/5"], "correct": 0, "explanation": "Same denominator: add numerators: 2+1=3, so 3/5."},
             {"question": "Which decimal equals 3/4?", "options": ["0.75", "0.34", "0.43", "0.25"], "correct": 0, "explanation": "3 ÷ 4 = 0.75"},
-            {"question": "Simplify 8/12.", "options": ["2/3", "4/6", "3/4", "1/2"], "correct": 0, "explanation": "Divide both by 4: 8÷4=2, 12÷4=3, so 2/3."}
+            {"question": "Simplify 8/12.", "options": ["2/3", "4/6", "3/4", "1/2"], "correct": 0, "explanation": "Divide both by 4: 8÷4=2, 12÷4=3, so 2/3."},
+            {"question": "What is 1/4 + 1/3?", "options": ["7/12", "2/7", "1/7", "2/12"], "correct": 0, "explanation": "Common denominator 12: 3/12 + 4/12 = 7/12."},
+            {"question": "Convert 0.6 to a fraction.", "options": ["3/5", "6/5", "1/6", "2/3"], "correct": 0, "explanation": "0.6 = 6/10 = 3/5 (simplify by dividing both by 2)."}
           ]
         },
         {
           "title": "Percentages and Ratios",
           "content": "A percentage is a fraction out of 100. The word 'percent' means 'per hundred.' So 45% means 45 out of 100, or 45/100, or 0.45. To find a percentage of a number, multiply: 20% of 150 = 0.20 × 150 = 30. To convert a fraction to a percentage, divide and multiply by 100: 3/5 = 0.6 = 60%. A ratio compares two quantities. If there are 3 boys and 5 girls, the ratio of boys to girls is 3:5. Ratios can be simplified like fractions: 6:10 = 3:5. Proportion means two ratios are equal: 3:5 = 6:10.",
-          "examples": [
-            "Finding percentage: 15% of 200 = 0.15 × 200 = 30",
-            "Percentage increase: Price went from 80 to 100. Increase = 20/80 × 100 = 25%",
-            "Ratio: Recipe needs 2 cups flour to 3 cups water. For 6 cups flour, need 9 cups water (multiply both by 3)."
-          ],
-          "keyTerms": {
-            "percentage": "A number expressed as a fraction of 100",
-            "ratio": "A comparison of two quantities using division",
-            "proportion": "An equation stating that two ratios are equal"
-          },
+          "examples": ["Finding percentage: 15% of 200 = 0.15 × 200 = 30", "Percentage increase: Price went from 80 to 100. Increase = 20/80 × 100 = 25%", "Ratio: Recipe needs 2 cups flour to 3 cups water. For 6 cups flour, need 9 cups water."],
+          "keyTerms": {"percentage": "A number expressed as a fraction of 100", "ratio": "A comparison of two quantities using division", "proportion": "An equation stating that two ratios are equal", "percentage change": "The amount of change divided by the original amount, times 100"},
           "quiz": [
             {"question": "What is 25% of 80?", "options": ["20", "25", "40", "16"], "correct": 0, "explanation": "0.25 × 80 = 20"},
             {"question": "Express 3/4 as a percentage.", "options": ["75%", "34%", "43%", "80%"], "correct": 0, "explanation": "3 ÷ 4 = 0.75 = 75%"},
-            {"question": "Simplify the ratio 12:8.", "options": ["3:2", "6:4", "4:3", "2:1"], "correct": 0, "explanation": "Divide both by 4: 12÷4=3, 8÷4=2, so 3:2."}
+            {"question": "Simplify the ratio 12:8.", "options": ["3:2", "6:4", "4:3", "2:1"], "correct": 0, "explanation": "Divide both by 4: 12÷4=3, 8÷4=2, so 3:2."},
+            {"question": "A shirt was 200 and now costs 250. What is the percentage increase?", "options": ["25%", "50%", "20%", "50"], "correct": 0, "explanation": "Increase = 50. Percentage = 50/200 × 100 = 25%."},
+            {"question": "If the ratio of cats to dogs is 2:5, and there are 10 dogs, how many cats?", "options": ["4", "5", "25", "7"], "correct": 0, "explanation": "2:5 = ?:10. Multiply both by 2: 4:10. So 4 cats."}
+          ]
+        },
+        {
+          "title": "Order of Operations (BODMAS)",
+          "content": "When a math expression has multiple operations, the order matters. BODMAS (or PEMDAS) tells you the correct sequence: Brackets first, then Orders (powers and roots), then Division and Multiplication (left to right), then Addition and Subtraction (left to right). For example: 3 + 4 × 2 = 3 + 8 = 11 (not 14, because multiplication comes before addition). With brackets: (3 + 4) × 2 = 7 × 2 = 14. Forgetting order of operations is one of the most common math mistakes. When in doubt, use brackets to make your intention clear.",
+          "examples": ["8 + 2 × 5 = 8 + 10 = 18 (multiply first, then add)", "12 ÷ (2 + 4) = 12 ÷ 6 = 2 (brackets first)", "2³ + 4 × 3 = 8 + 12 = 20 (orders first, then multiplication, then addition)"],
+          "keyTerms": {"BODMAS": "Brackets, Orders, Division, Multiplication, Addition, Subtraction — the order of operations", "expression": "A mathematical phrase combining numbers and operations", "brackets": "Symbols () that group parts of an expression to be calculated first"},
+          "quiz": [
+            {"question": "What is 6 + 3 × 2?", "options": ["12", "18", "9", "36"], "correct": 0, "explanation": "Multiplication first: 3 × 2 = 6, then 6 + 6 = 12."},
+            {"question": "What is (8 - 3) × 4?", "options": ["20", "29", "17", "44"], "correct": 0, "explanation": "Brackets first: 8 - 3 = 5, then 5 × 4 = 20."},
+            {"question": "What is 2 + 3² × 2?", "options": ["20", "50", "32", "100"], "correct": 0, "explanation": "Orders: 3² = 9. Multiply: 9 × 2 = 18. Add: 2 + 18 = 20."},
+            {"question": "In BODMAS, what does the O stand for?", "options": ["Orders (powers and roots)", "Operations", "Opposites", "Outcomes"], "correct": 0, "explanation": "O = Orders — exponents (powers) and roots are calculated after brackets."},
+            {"question": "Why are brackets important?", "options": ["They override the normal order and are calculated first", "They make math harder", "They are only decorative", "They mean multiply"], "correct": 0, "explanation": "Brackets force the enclosed operations to happen first, regardless of BODMAS order."}
+          ]
+        },
+        {
+          "title": "Negative Numbers and Integers",
+          "content": "Integers include positive numbers, negative numbers, and zero: ...−3, −2, −1, 0, 1, 2, 3... Negative numbers are less than zero and represent values below a reference point — temperatures below freezing, debts, depths below sea level. On a number line, numbers increase to the right and decrease to the left. Rules for operations: adding a negative is like subtracting (5 + (−3) = 2). Subtracting a negative is like adding (5 − (−3) = 8). Multiplying/dividing: same signs give positive (−2 × −3 = 6), different signs give negative (−2 × 3 = −6). Zero is neither positive nor negative.",
+          "examples": ["Temperature: −5°C is 5 degrees below zero; −5°C + 8°C = 3°C", "Bank account: balance of −200 means you owe 200 (debt)", "Same signs positive: −4 × −5 = 20. Different signs negative: −4 × 5 = −20"],
+          "keyTerms": {"integer": "A whole number that can be positive, negative, or zero", "negative number": "A number less than zero, written with a minus sign", "absolute value": "The distance of a number from zero, always positive: |−5| = 5"},
+          "quiz": [
+            {"question": "What is −7 + 3?", "options": ["-4", "10", "-10", "4"], "correct": 0, "explanation": "Starting at −7, move 3 to the right: −7 + 3 = −4."},
+            {"question": "What is −4 × −6?", "options": ["24", "-24", "10", "-10"], "correct": 0, "explanation": "Same signs (both negative) give a positive result: 24."},
+            {"question": "What is 5 − (−3)?", "options": ["8", "2", "-8", "-2"], "correct": 0, "explanation": "Subtracting a negative = adding: 5 − (−3) = 5 + 3 = 8."},
+            {"question": "Which is the smallest: −2, 0, −5, 3?", "options": ["-5", "-2", "0", "3"], "correct": 0, "explanation": "−5 is furthest left on the number line, so it's the smallest."},
+            {"question": "What is the absolute value of −12?", "options": ["12", "-12", "0", "24"], "correct": 0, "explanation": "|−12| = 12. Absolute value is the distance from zero, always positive."}
           ]
         }
       ]
@@ -72,58 +80,66 @@
         {
           "title": "Variables and Expressions",
           "content": "In algebra, we use letters (called variables) to represent unknown numbers. An algebraic expression combines variables, numbers, and operations. For example, 3x + 5 means 'multiply x by 3, then add 5.' If x = 4, then 3(4) + 5 = 17. Terms are the parts of an expression separated by + or −. In 3x + 5, there are two terms: 3x and 5. Like terms have the same variable raised to the same power: 2x and 5x are like terms (both have x), but 2x and 3x² are not. To simplify, combine like terms: 3x + 2x = 5x.",
-          "examples": [
-            "Evaluate 2x + 3y when x=4 and y=2: 2(4) + 3(2) = 8 + 6 = 14",
-            "Simplify: 5a + 3b − 2a + b = 3a + 4b",
-            "Distributive property: 3(x + 4) = 3x + 12"
-          ],
-          "keyTerms": {
-            "variable": "A letter representing an unknown number",
-            "expression": "A combination of numbers, variables, and operations",
-            "like terms": "Terms with the same variable and exponent"
-          },
+          "examples": ["Evaluate 2x + 3y when x=4 and y=2: 2(4) + 3(2) = 8 + 6 = 14", "Simplify: 5a + 3b − 2a + b = 3a + 4b", "Distributive property: 3(x + 4) = 3x + 12"],
+          "keyTerms": {"variable": "A letter representing an unknown number", "expression": "A combination of numbers, variables, and operations", "like terms": "Terms with the same variable and exponent", "coefficient": "The number multiplied by a variable (in 3x, the coefficient is 3)"},
           "quiz": [
             {"question": "Evaluate 4x − 3 when x = 5.", "options": ["17", "20", "15", "23"], "correct": 0, "explanation": "4(5) − 3 = 20 − 3 = 17"},
             {"question": "Simplify: 6y + 2y − y", "options": ["7y", "8y", "9y", "5y"], "correct": 0, "explanation": "6 + 2 − 1 = 7, so 7y"},
-            {"question": "Expand: 2(x + 5)", "options": ["2x + 10", "2x + 5", "x + 10", "2x + 7"], "correct": 0, "explanation": "Distribute: 2×x + 2×5 = 2x + 10"}
+            {"question": "Expand: 2(x + 5)", "options": ["2x + 10", "2x + 5", "x + 10", "2x + 7"], "correct": 0, "explanation": "Distribute: 2×x + 2×5 = 2x + 10"},
+            {"question": "What is the coefficient of y in 7y + 3?", "options": ["7", "3", "y", "10"], "correct": 0, "explanation": "The coefficient is the number in front of the variable: 7 × y = 7y."},
+            {"question": "Simplify: 4x + 3 + 2x − 1", "options": ["6x + 2", "6x + 4", "4x + 2", "8x"], "correct": 0, "explanation": "Combine like terms: (4x + 2x) + (3 − 1) = 6x + 2."}
           ]
         },
         {
           "title": "Solving Equations",
           "content": "An equation says two expressions are equal. To solve an equation means to find the value of the variable that makes it true. The key rule: whatever you do to one side, you must do to the other. To solve x + 7 = 12, subtract 7 from both sides: x = 5. To solve 3x = 15, divide both sides by 3: x = 5. For two-step equations like 2x + 3 = 11, first subtract 3 (getting 2x = 8), then divide by 2 (getting x = 4). Always check your answer by substituting back into the original equation.",
-          "examples": [
-            "Solve x − 4 = 9: Add 4 to both sides → x = 13. Check: 13 − 4 = 9 ✓",
-            "Solve 5x = 35: Divide both sides by 5 → x = 7. Check: 5(7) = 35 ✓",
-            "Solve 3x + 2 = 14: Subtract 2 → 3x = 12, divide by 3 → x = 4. Check: 3(4) + 2 = 14 ✓"
-          ],
-          "keyTerms": {
-            "equation": "A statement that two expressions are equal",
-            "solve": "To find the value of the variable that makes the equation true",
-            "inverse operations": "Operations that undo each other (add/subtract, multiply/divide)"
-          },
+          "examples": ["Solve x − 4 = 9: Add 4 to both sides → x = 13. Check: 13 − 4 = 9 ✓", "Solve 5x = 35: Divide both sides by 5 → x = 7. Check: 5(7) = 35 ✓", "Solve 3x + 2 = 14: Subtract 2 → 3x = 12, divide by 3 → x = 4. Check: 3(4) + 2 = 14 ✓"],
+          "keyTerms": {"equation": "A statement that two expressions are equal", "solve": "To find the value of the variable that makes the equation true", "inverse operations": "Operations that undo each other (add/subtract, multiply/divide)", "balance method": "Keeping an equation balanced by doing the same operation to both sides"},
           "quiz": [
             {"question": "Solve: x + 9 = 15", "options": ["x = 6", "x = 24", "x = 9", "x = 15"], "correct": 0, "explanation": "Subtract 9 from both sides: x = 15 − 9 = 6"},
             {"question": "Solve: 4x = 28", "options": ["x = 7", "x = 24", "x = 32", "x = 112"], "correct": 0, "explanation": "Divide both sides by 4: x = 28 ÷ 4 = 7"},
-            {"question": "Solve: 2x − 5 = 11", "options": ["x = 8", "x = 3", "x = 6", "x = 16"], "correct": 0, "explanation": "Add 5: 2x = 16. Divide by 2: x = 8."}
+            {"question": "Solve: 2x − 5 = 11", "options": ["x = 8", "x = 3", "x = 6", "x = 16"], "correct": 0, "explanation": "Add 5: 2x = 16. Divide by 2: x = 8."},
+            {"question": "Solve: x/3 = 9", "options": ["x = 27", "x = 3", "x = 12", "x = 6"], "correct": 0, "explanation": "Multiply both sides by 3: x = 9 × 3 = 27."},
+            {"question": "If 5x + 10 = 35, what is x?", "options": ["5", "7", "25", "9"], "correct": 0, "explanation": "Subtract 10: 5x = 25. Divide by 5: x = 5."}
           ]
         },
         {
           "title": "Inequalities and Graphs",
           "content": "An inequality compares two expressions using < (less than), > (greater than), ≤ (less than or equal to), or ≥ (greater than or equal to). Solving inequalities works like equations, with one important exception: when you multiply or divide by a negative number, you must flip the inequality sign. For x + 3 > 7, subtract 3: x > 4. This means x can be any number greater than 4. On a number line, use an open circle for < or > (not including the point) and a closed circle for ≤ or ≥ (including the point).",
-          "examples": [
-            "Solve: x − 2 > 5 → x > 7 (all numbers greater than 7)",
-            "Solve: −3x < 12 → x > −4 (flip the sign when dividing by negative)",
-            "Solve: 2x + 1 ≤ 9 → 2x ≤ 8 → x ≤ 4 (x can be 4 or less)"
-          ],
-          "keyTerms": {
-            "inequality": "A mathematical statement comparing two expressions with <, >, ≤, or ≥",
-            "solution set": "All values that make an inequality true",
-            "number line": "A line showing numbers in order, used to graph solutions"
-          },
+          "examples": ["Solve: x − 2 > 5 → x > 7 (all numbers greater than 7)", "Solve: −3x < 12 → x > −4 (flip the sign when dividing by negative)", "Solve: 2x + 1 ≤ 9 → 2x ≤ 8 → x ≤ 4 (x can be 4 or less)"],
+          "keyTerms": {"inequality": "A mathematical statement comparing two expressions with <, >, ≤, or ≥", "solution set": "All values that make an inequality true", "number line": "A line showing numbers in order, used to graph solutions"},
           "quiz": [
             {"question": "Solve: x + 4 < 10", "options": ["x < 6", "x < 14", "x > 6", "x < 4"], "correct": 0, "explanation": "Subtract 4: x < 6"},
             {"question": "When solving −2x > 8, what happens to the sign?", "options": ["It flips: x < −4", "It stays: x > −4", "It becomes equal", "Nothing changes"], "correct": 0, "explanation": "Dividing by a negative flips the sign: x < −4."},
-            {"question": "Which number satisfies x ≥ 3?", "options": ["3", "2", "1", "−3"], "correct": 0, "explanation": "3 is equal to 3, and ≥ includes equality."}
+            {"question": "Which number satisfies x ≥ 3?", "options": ["3", "2", "1", "−3"], "correct": 0, "explanation": "3 is equal to 3, and ≥ includes equality."},
+            {"question": "An open circle on a number line means:", "options": ["The point is NOT included", "The point IS included", "The line ends", "It's a mistake"], "correct": 0, "explanation": "Open circle = strict inequality (< or >), the endpoint is not part of the solution."},
+            {"question": "Solve: 3x − 6 ≥ 9", "options": ["x ≥ 5", "x ≥ 1", "x ≤ 5", "x ≥ 3"], "correct": 0, "explanation": "Add 6: 3x ≥ 15. Divide by 3: x ≥ 5."}
+          ]
+        },
+        {
+          "title": "Linear Graphs and Coordinates",
+          "content": "The coordinate plane has two axes: the horizontal x-axis and vertical y-axis, meeting at the origin (0,0). Every point has coordinates (x, y). A linear equation like y = 2x + 1 creates a straight line when graphed. The gradient (slope) measures steepness: gradient = rise/run = change in y / change in x. In y = mx + c, m is the gradient and c is the y-intercept (where the line crosses the y-axis). Positive gradient slopes upward, negative slopes downward, zero gradient is horizontal. Two points determine a line: plot them and draw through.",
+          "examples": ["y = 2x + 1: when x=0, y=1; when x=1, y=3; when x=2, y=5 — plot these points and draw the line", "Gradient between (1,3) and (3,7): rise = 7−3 = 4, run = 3−1 = 2, gradient = 4/2 = 2", "y = −x + 5: gradient is −1 (slopes downward), y-intercept is 5"],
+          "keyTerms": {"coordinate": "An ordered pair (x, y) that gives a point's position on the plane", "gradient": "The slope/steepness of a line: change in y divided by change in x", "y-intercept": "The point where a line crosses the y-axis (where x = 0)"},
+          "quiz": [
+            {"question": "In y = 3x + 2, what is the gradient?", "options": ["3", "2", "5", "1"], "correct": 0, "explanation": "In y = mx + c, m is the gradient. Here m = 3."},
+            {"question": "What is the y-intercept of y = 4x − 7?", "options": ["-7", "4", "7", "0"], "correct": 0, "explanation": "In y = mx + c, c is the y-intercept. Here c = −7."},
+            {"question": "What is the gradient between (0, 1) and (2, 5)?", "options": ["2", "4", "3", "1"], "correct": 0, "explanation": "Gradient = (5−1)/(2−0) = 4/2 = 2."},
+            {"question": "A line with gradient 0 is:", "options": ["Horizontal", "Vertical", "Diagonal", "Curved"], "correct": 0, "explanation": "Zero gradient means no rise — a flat horizontal line."},
+            {"question": "Where does y = x + 3 cross the y-axis?", "options": ["At (0, 3)", "At (3, 0)", "At (0, 0)", "At (1, 3)"], "correct": 0, "explanation": "Set x = 0: y = 0 + 3 = 3. The y-intercept is (0, 3)."}
+          ]
+        },
+        {
+          "title": "Simultaneous Equations",
+          "content": "Simultaneous equations are two or more equations with the same unknowns, solved together. For example: x + y = 10 and x − y = 4. Elimination method: add the equations to eliminate y: 2x = 14, so x = 7. Substitute back: 7 + y = 10, so y = 3. Substitution method: rearrange one equation (y = 10 − x), substitute into the other: x − (10 − x) = 4 → 2x − 10 = 4 → x = 7. Graphically, the solution is where two lines intersect. If lines are parallel, there's no solution. If they're the same line, there are infinite solutions.",
+          "examples": ["Elimination: 2x + y = 7 and x − y = 2. Add: 3x = 9, x = 3. Then y = 7 − 2(3) = 1. Solution: (3, 1)", "Substitution: y = x + 1 and 2x + y = 7. Replace y: 2x + (x+1) = 7 → 3x = 6 → x = 2, y = 3", "Graphically: plot both lines — they cross at the solution point"],
+          "keyTerms": {"simultaneous equations": "Two or more equations with the same variables, solved together", "elimination": "Adding or subtracting equations to remove one variable", "substitution": "Replacing a variable with an expression from another equation"},
+          "quiz": [
+            {"question": "Solve: x + y = 8 and x − y = 2", "options": ["x = 5, y = 3", "x = 3, y = 5", "x = 8, y = 2", "x = 4, y = 4"], "correct": 0, "explanation": "Add equations: 2x = 10, x = 5. Then y = 8 − 5 = 3."},
+            {"question": "The graphical solution of simultaneous equations is:", "options": ["Where the two lines intersect", "Where they are parallel", "The y-intercept", "The gradient"], "correct": 0, "explanation": "The intersection point satisfies both equations simultaneously."},
+            {"question": "If two lines are parallel, the simultaneous equations have:", "options": ["No solution", "One solution", "Infinite solutions", "Two solutions"], "correct": 0, "explanation": "Parallel lines never meet — there's no point satisfying both equations."},
+            {"question": "Solve: y = 2x and x + y = 9", "options": ["x = 3, y = 6", "x = 6, y = 3", "x = 9, y = 0", "x = 4, y = 5"], "correct": 0, "explanation": "Substitute y = 2x: x + 2x = 9 → 3x = 9 → x = 3, y = 6."},
+            {"question": "Which method replaces a variable using another equation?", "options": ["Substitution", "Elimination", "Factoring", "Graphing"], "correct": 0, "explanation": "Substitution involves rearranging one equation and plugging it into the other."}
           ]
         }
       ]
@@ -133,61 +149,67 @@
       "lessons": [
         {
           "title": "Angles and Lines",
-          "content": "An angle is formed where two lines meet. Angles are measured in degrees (°). A right angle is exactly 90°. An acute angle is less than 90°. An obtuse angle is between 90° and 180°. A straight angle is exactly 180°. Complementary angles add up to 90°, and supplementary angles add up to 180°. When two lines cross, they form vertical angles which are always equal. Parallel lines never meet and are marked with arrows. Perpendicular lines meet at 90°. When a line (transversal) crosses parallel lines, it creates corresponding angles (equal) and alternate angles (equal).",
-          "examples": [
-            "If one angle is 35°, its complement is 90° − 35° = 55°",
-            "If one angle is 110°, its supplement is 180° − 110° = 70°",
-            "Vertical angles: if one is 40°, the opposite angle is also 40°"
-          ],
-          "keyTerms": {
-            "acute angle": "An angle measuring less than 90°",
-            "obtuse angle": "An angle measuring between 90° and 180°",
-            "complementary": "Two angles that add up to 90°",
-            "supplementary": "Two angles that add up to 180°"
-          },
+          "content": "An angle is formed where two lines meet. Angles are measured in degrees (°). A right angle is exactly 90°. An acute angle is less than 90°. An obtuse angle is between 90° and 180°. A straight angle is exactly 180°. Complementary angles add up to 90°, and supplementary angles add up to 180°. When two lines cross, they form vertical angles which are always equal. Parallel lines never meet. Perpendicular lines meet at 90°. When a transversal crosses parallel lines, it creates corresponding angles (equal) and alternate angles (equal).",
+          "examples": ["If one angle is 35°, its complement is 90° − 35° = 55°", "If one angle is 110°, its supplement is 180° − 110° = 70°", "Vertical angles: if one is 40°, the opposite angle is also 40°"],
+          "keyTerms": {"acute angle": "An angle measuring less than 90°", "obtuse angle": "An angle measuring between 90° and 180°", "complementary": "Two angles that add up to 90°", "supplementary": "Two angles that add up to 180°"},
           "quiz": [
             {"question": "What is the complement of a 30° angle?", "options": ["60°", "150°", "30°", "90°"], "correct": 0, "explanation": "Complementary angles sum to 90°: 90 − 30 = 60°"},
             {"question": "An angle of 135° is classified as:", "options": ["Obtuse", "Acute", "Right", "Straight"], "correct": 0, "explanation": "135° is between 90° and 180°, so it's obtuse."},
-            {"question": "Vertical angles are always:", "options": ["Equal", "Supplementary", "Complementary", "Right angles"], "correct": 0, "explanation": "Vertical angles (formed by crossing lines) are always equal."}
+            {"question": "Vertical angles are always:", "options": ["Equal", "Supplementary", "Complementary", "Right angles"], "correct": 0, "explanation": "Vertical angles (formed by crossing lines) are always equal."},
+            {"question": "What is the supplement of a 45° angle?", "options": ["135°", "45°", "90°", "315°"], "correct": 0, "explanation": "Supplementary angles sum to 180°: 180 − 45 = 135°."},
+            {"question": "Angles on a straight line sum to:", "options": ["180°", "90°", "360°", "270°"], "correct": 0, "explanation": "A straight line is 180° — angles on it must add up to 180°."}
           ]
         },
         {
           "title": "Area and Perimeter",
-          "content": "Perimeter is the total distance around a shape. Area is the space inside a shape. For a rectangle: Perimeter = 2(length + width), Area = length × width. For a triangle: Area = ½ × base × height. For a circle: Circumference = 2πr (or πd), Area = πr². Here, r is the radius (distance from center to edge) and d is the diameter (distance across, d = 2r). π (pi) ≈ 3.14159. For compound shapes, break them into simpler shapes, calculate each area, and add them together.",
-          "examples": [
-            "Rectangle 8cm × 5cm: Perimeter = 2(8+5) = 26cm, Area = 8×5 = 40cm²",
-            "Triangle with base 6cm and height 4cm: Area = ½ × 6 × 4 = 12cm²",
-            "Circle with radius 7cm: Area = π × 7² = 153.94cm², Circumference = 2π × 7 = 43.98cm"
-          ],
-          "keyTerms": {
-            "perimeter": "The total distance around the outside of a shape",
-            "area": "The amount of space inside a 2D shape, measured in square units",
-            "radius": "The distance from the center of a circle to its edge",
-            "pi": "The ratio of a circle's circumference to its diameter, approximately 3.14159"
-          },
+          "content": "Perimeter is the total distance around a shape. Area is the space inside a shape. For a rectangle: Perimeter = 2(length + width), Area = length × width. For a triangle: Area = ½ × base × height. For a circle: Circumference = 2πr (or πd), Area = πr². Here, r is the radius and d is the diameter (d = 2r). π ≈ 3.14159. For compound shapes, break them into simpler shapes, calculate each area, and add them together.",
+          "examples": ["Rectangle 8cm × 5cm: Perimeter = 2(8+5) = 26cm, Area = 8×5 = 40cm²", "Triangle base 6cm, height 4cm: Area = ½ × 6 × 4 = 12cm²", "Circle radius 7cm: Area = π × 7² = 153.94cm², Circumference = 2π × 7 = 43.98cm"],
+          "keyTerms": {"perimeter": "The total distance around the outside of a shape", "area": "The amount of space inside a 2D shape, measured in square units", "radius": "The distance from the center of a circle to its edge", "pi": "The ratio of a circle's circumference to its diameter, approximately 3.14159"},
           "quiz": [
-            {"question": "What is the area of a rectangle 12cm by 5cm?", "options": ["60cm²", "34cm²", "17cm²", "120cm²"], "correct": 0, "explanation": "Area = length × width = 12 × 5 = 60cm²"},
-            {"question": "What is the area of a triangle with base 10cm and height 6cm?", "options": ["30cm²", "60cm²", "16cm²", "20cm²"], "correct": 0, "explanation": "Area = ½ × 10 × 6 = 30cm²"},
-            {"question": "A circle has radius 5cm. What is its circumference? (Use π ≈ 3.14)", "options": ["31.4cm", "78.5cm", "15.7cm", "25cm"], "correct": 0, "explanation": "C = 2πr = 2 × 3.14 × 5 = 31.4cm"}
+            {"question": "Area of a rectangle 12cm by 5cm?", "options": ["60cm²", "34cm²", "17cm²", "120cm²"], "correct": 0, "explanation": "Area = length × width = 12 × 5 = 60cm²"},
+            {"question": "Area of a triangle with base 10cm and height 6cm?", "options": ["30cm²", "60cm²", "16cm²", "20cm²"], "correct": 0, "explanation": "Area = ½ × 10 × 6 = 30cm²"},
+            {"question": "Circumference of a circle with radius 5cm? (π ≈ 3.14)", "options": ["31.4cm", "78.5cm", "15.7cm", "25cm"], "correct": 0, "explanation": "C = 2πr = 2 × 3.14 × 5 = 31.4cm"},
+            {"question": "Perimeter of a square with side 9cm?", "options": ["36cm", "81cm", "18cm", "27cm"], "correct": 0, "explanation": "Square perimeter = 4 × side = 4 × 9 = 36cm."},
+            {"question": "Area of a circle with radius 10cm? (π ≈ 3.14)", "options": ["314cm²", "62.8cm²", "31.4cm²", "100cm²"], "correct": 0, "explanation": "A = πr² = 3.14 × 100 = 314cm²."}
           ]
         },
         {
           "title": "Volume and Surface Area",
-          "content": "Volume measures the space inside a 3D object, in cubic units. Surface area is the total area of all faces. For a rectangular prism (box): Volume = length × width × height, Surface Area = 2(lw + lh + wh). For a cylinder: Volume = πr²h, Surface Area = 2πr² + 2πrh. For a sphere: Volume = (4/3)πr³, Surface Area = 4πr². Understanding volume helps with real problems like how much water a tank holds or how much concrete is needed to fill a foundation.",
-          "examples": [
-            "Box 4×3×2 cm: Volume = 24cm³, Surface area = 2(12+8+6) = 52cm²",
-            "Cylinder r=3cm, h=10cm: Volume = π(9)(10) = 282.74cm³",
-            "Sphere r=6cm: Volume = (4/3)π(216) = 904.78cm³"
-          ],
-          "keyTerms": {
-            "volume": "The amount of space inside a 3D object, measured in cubic units",
-            "surface area": "The total area of all outer faces of a 3D shape",
-            "prism": "A 3D shape with identical ends and flat rectangular sides"
-          },
+          "content": "Volume measures the space inside a 3D object, in cubic units. Surface area is the total area of all faces. For a rectangular prism: Volume = l × w × h, Surface Area = 2(lw + lh + wh). For a cylinder: Volume = πr²h, Surface Area = 2πr² + 2πrh. For a sphere: Volume = (4/3)πr³, Surface Area = 4πr². Understanding volume helps with real problems like how much water a tank holds or how much concrete fills a foundation.",
+          "examples": ["Box 4×3×2cm: Volume = 24cm³, Surface area = 2(12+8+6) = 52cm²", "Cylinder r=3cm, h=10cm: Volume = π(9)(10) = 282.74cm³", "Sphere r=6cm: Volume = (4/3)π(216) = 904.78cm³"],
+          "keyTerms": {"volume": "The amount of space inside a 3D object, measured in cubic units", "surface area": "The total area of all outer faces of a 3D shape", "prism": "A 3D shape with identical ends and flat rectangular sides"},
           "quiz": [
             {"question": "Volume of a box 5cm × 4cm × 3cm?", "options": ["60cm³", "12cm³", "47cm³", "24cm³"], "correct": 0, "explanation": "V = 5 × 4 × 3 = 60cm³"},
-            {"question": "What are volume units?", "options": ["Cubic (cm³)", "Square (cm²)", "Linear (cm)", "Degrees (°)"], "correct": 0, "explanation": "Volume is measured in cubic units because it represents 3D space."},
-            {"question": "A cube has side length 4cm. What is its volume?", "options": ["64cm³", "16cm³", "48cm³", "12cm³"], "correct": 0, "explanation": "V = 4 × 4 × 4 = 64cm³"}
+            {"question": "Volume units are:", "options": ["Cubic (cm³)", "Square (cm²)", "Linear (cm)", "Degrees (°)"], "correct": 0, "explanation": "Volume is measured in cubic units because it represents 3D space."},
+            {"question": "Volume of a cube with side 4cm?", "options": ["64cm³", "16cm³", "48cm³", "12cm³"], "correct": 0, "explanation": "V = 4 × 4 × 4 = 64cm³"},
+            {"question": "Volume of a cylinder: r=2cm, h=5cm? (π ≈ 3.14)", "options": ["62.8cm³", "31.4cm³", "20cm³", "100cm³"], "correct": 0, "explanation": "V = πr²h = 3.14 × 4 × 5 = 62.8cm³."},
+            {"question": "Surface area of a cube with side 3cm?", "options": ["54cm²", "27cm²", "18cm²", "9cm²"], "correct": 0, "explanation": "SA = 6 × side² = 6 × 9 = 54cm²."}
+          ]
+        },
+        {
+          "title": "Pythagoras' Theorem",
+          "content": "Pythagoras' Theorem applies to right-angled triangles: a² + b² = c², where c is the hypotenuse (the longest side, opposite the right angle) and a and b are the other two sides. To find the hypotenuse: c = √(a² + b²). To find a shorter side: a = √(c² − b²). Pythagorean triples are whole number solutions: 3-4-5, 5-12-13, 8-15-17, 7-24-25. The theorem has countless real-world uses: finding distances, construction (making sure corners are square), navigation, and engineering.",
+          "examples": ["Sides 3 and 4: hypotenuse = √(9 + 16) = √25 = 5", "Hypotenuse 13, one side 5: other side = √(169 − 25) = √144 = 12", "Is a triangle with sides 6, 8, 10 right-angled? 6² + 8² = 36 + 64 = 100 = 10². Yes!"],
+          "keyTerms": {"hypotenuse": "The longest side of a right triangle, opposite the right angle", "Pythagoras' theorem": "In a right triangle: a² + b² = c² where c is the hypotenuse", "Pythagorean triple": "A set of three whole numbers that satisfy a² + b² = c²"},
+          "quiz": [
+            {"question": "Find the hypotenuse: sides 6cm and 8cm.", "options": ["10cm", "14cm", "48cm", "100cm"], "correct": 0, "explanation": "c = √(36 + 64) = √100 = 10cm."},
+            {"question": "Pythagoras' theorem only works on:", "options": ["Right-angled triangles", "All triangles", "Squares", "Circles"], "correct": 0, "explanation": "The theorem requires a 90° angle — it doesn't apply to other triangle types directly."},
+            {"question": "The hypotenuse is always:", "options": ["The longest side", "The shortest side", "A vertical side", "Equal to the other sides"], "correct": 0, "explanation": "The hypotenuse is opposite the right angle and is always the longest side."},
+            {"question": "If hypotenuse = 15 and one side = 9, find the other side.", "options": ["12", "6", "24", "18"], "correct": 0, "explanation": "a = √(225 − 81) = √144 = 12."},
+            {"question": "Which is a Pythagorean triple?", "options": ["5, 12, 13", "4, 5, 6", "2, 3, 4", "7, 8, 9"], "correct": 0, "explanation": "5² + 12² = 25 + 144 = 169 = 13². It satisfies a² + b² = c²."}
+          ]
+        },
+        {
+          "title": "Transformations",
+          "content": "Transformations change the position or size of shapes. Translation: sliding a shape without rotating or flipping — every point moves the same distance and direction. Reflection: flipping a shape over a line of symmetry — like a mirror image. Rotation: turning a shape around a fixed point by a certain angle (90°, 180°, 270°). Enlargement: making a shape bigger or smaller from a center point by a scale factor. Scale factor 2 doubles all lengths. Scale factor ½ halves them. Congruent shapes are identical (same size and shape). Similar shapes have the same shape but different sizes.",
+          "examples": ["Translation: moving triangle 3 units right and 2 units up — every vertex shifts (3, 2)", "Reflection in the y-axis: point (3, 4) becomes (−3, 4) — x-coordinate changes sign", "Enlargement scale factor 3 from origin: point (2, 1) becomes (6, 3) — multiply both by 3"],
+          "keyTerms": {"translation": "Sliding a shape to a new position without rotation or reflection", "reflection": "Flipping a shape over a line to create a mirror image", "rotation": "Turning a shape around a fixed center point by a specific angle", "scale factor": "The multiplier that determines how much larger or smaller a shape becomes"},
+          "quiz": [
+            {"question": "A translation moves a shape by:", "options": ["Sliding it without rotating or flipping", "Rotating it 90°", "Flipping it over", "Making it bigger"], "correct": 0, "explanation": "Translation = slide. Every point moves the same distance and direction."},
+            {"question": "Reflecting (4, 2) in the y-axis gives:", "options": ["(-4, 2)", "(4, -2)", "(-4, -2)", "(2, 4)"], "correct": 0, "explanation": "Reflection in the y-axis negates the x-coordinate: (4, 2) → (−4, 2)."},
+            {"question": "Scale factor 2 means:", "options": ["All lengths are doubled", "All lengths are halved", "The shape rotates 2°", "The shape moves 2 units"], "correct": 0, "explanation": "Scale factor 2 multiplies every length by 2 — the shape is twice as big."},
+            {"question": "A 180° rotation of point (3, 5) about the origin gives:", "options": ["(-3, -5)", "(3, -5)", "(-3, 5)", "(5, 3)"], "correct": 0, "explanation": "A 180° rotation negates both coordinates: (3, 5) → (−3, −5)."},
+            {"question": "Congruent shapes are:", "options": ["Same size and same shape", "Same shape but different size", "Different shape and size", "Only same area"], "correct": 0, "explanation": "Congruent = identical in shape AND size. Similar = same shape, different size."}
           ]
         }
       ]
@@ -197,60 +219,67 @@
       "lessons": [
         {
           "title": "Mean, Median, Mode and Range",
-          "content": "Statistics helps us understand data. The mean (average) is found by adding all values and dividing by how many there are. The median is the middle value when data is arranged in order (for an even count, average the two middle values). The mode is the value that appears most often. The range is the difference between the highest and lowest values. Each measure tells us something different: the mean is affected by extreme values, the median is more robust, and the mode shows the most common value.",
-          "examples": [
-            "Data: 3, 7, 5, 9, 5, 1. Mean = (3+7+5+9+5+1)/6 = 30/6 = 5",
-            "Ordered: 1, 3, 5, 5, 7, 9. Median = (5+5)/2 = 5 (average of middle two)",
-            "Mode = 5 (appears twice). Range = 9 − 1 = 8"
-          ],
-          "keyTerms": {
-            "mean": "The sum of all values divided by the number of values (the average)",
-            "median": "The middle value in an ordered data set",
-            "mode": "The value that appears most frequently",
-            "range": "The difference between the highest and lowest values"
-          },
+          "content": "Statistics helps us understand data. The mean (average) is found by adding all values and dividing by how many there are. The median is the middle value when data is arranged in order (for an even count, average the two middle values). The mode is the value that appears most often. The range is the difference between the highest and lowest values. Each tells something different: the mean is affected by extreme values, the median is more robust, and the mode shows the most common value.",
+          "examples": ["Data: 3, 7, 5, 9, 5, 1. Mean = 30/6 = 5", "Ordered: 1, 3, 5, 5, 7, 9. Median = (5+5)/2 = 5", "Mode = 5 (appears twice). Range = 9 − 1 = 8"],
+          "keyTerms": {"mean": "The sum of all values divided by the count (the average)", "median": "The middle value in an ordered data set", "mode": "The value that appears most frequently", "range": "The difference between the highest and lowest values"},
           "quiz": [
             {"question": "Find the mean of: 4, 8, 6, 10, 2", "options": ["6", "8", "5", "7"], "correct": 0, "explanation": "Sum = 30, count = 5. Mean = 30/5 = 6"},
             {"question": "Find the median of: 3, 1, 7, 5, 9", "options": ["5", "7", "3", "6"], "correct": 0, "explanation": "Ordered: 1, 3, 5, 7, 9. Middle value = 5"},
-            {"question": "What is the mode of: 2, 5, 3, 5, 8, 5, 1?", "options": ["5", "3", "2", "8"], "correct": 0, "explanation": "5 appears three times, more than any other value."}
+            {"question": "Mode of: 2, 5, 3, 5, 8, 5, 1?", "options": ["5", "3", "2", "8"], "correct": 0, "explanation": "5 appears three times, more than any other value."},
+            {"question": "The range of: 12, 5, 20, 8, 3 is:", "options": ["17", "20", "3", "10"], "correct": 0, "explanation": "Range = highest − lowest = 20 − 3 = 17."},
+            {"question": "Which average is NOT affected by extreme values?", "options": ["Median", "Mean", "Sum", "Range"], "correct": 0, "explanation": "The median only looks at the middle value, so outliers don't affect it."}
           ]
         },
         {
           "title": "Probability Basics",
-          "content": "Probability measures how likely an event is to happen, on a scale from 0 (impossible) to 1 (certain). It can also be written as a percentage (0% to 100%). The probability of an event = (number of favorable outcomes) / (total number of possible outcomes). For a fair six-sided die, the probability of rolling a 3 is 1/6. For a coin, the probability of heads is 1/2. Independent events don't affect each other — flipping heads doesn't change the next flip. For two independent events both happening, multiply their probabilities.",
-          "examples": [
-            "Coin flip: P(heads) = 1/2 = 50%",
-            "Die roll: P(even number) = 3/6 = 1/2 (three even numbers: 2, 4, 6 out of 6)",
-            "Two coins: P(both heads) = 1/2 × 1/2 = 1/4 = 25%"
-          ],
-          "keyTerms": {
-            "probability": "A measure of how likely an event is, from 0 to 1",
-            "outcome": "A possible result of an experiment",
-            "independent events": "Events where one does not affect the probability of the other"
-          },
+          "content": "Probability measures how likely an event is to happen, on a scale from 0 (impossible) to 1 (certain). Probability = favorable outcomes / total outcomes. For a fair die, P(rolling 3) = 1/6. For a coin, P(heads) = 1/2. Independent events don't affect each other. For two independent events both happening, multiply probabilities. For mutually exclusive events (can't both happen), add probabilities for either occurring.",
+          "examples": ["Coin: P(heads) = 1/2 = 50%", "Die: P(even) = 3/6 = 1/2", "Two coins: P(both heads) = 1/2 × 1/2 = 1/4 = 25%"],
+          "keyTerms": {"probability": "A measure of how likely an event is, from 0 to 1", "outcome": "A possible result of an experiment", "independent events": "Events where one does not affect the other", "mutually exclusive": "Events that cannot both happen at the same time"},
           "quiz": [
-            {"question": "A bag has 3 red and 7 blue marbles. What is P(red)?", "options": ["3/10", "7/10", "3/7", "1/3"], "correct": 0, "explanation": "3 favorable out of 10 total: P = 3/10"},
-            {"question": "The probability of an impossible event is:", "options": ["0", "1", "0.5", "−1"], "correct": 0, "explanation": "Impossible events have probability 0."},
-            {"question": "P(rolling a 6 on a fair die) = ?", "options": ["1/6", "1/3", "1/2", "6"], "correct": 0, "explanation": "One favorable outcome out of six: 1/6."}
+            {"question": "Bag has 3 red and 7 blue marbles. P(red)?", "options": ["3/10", "7/10", "3/7", "1/3"], "correct": 0, "explanation": "3 favorable out of 10 total: P = 3/10"},
+            {"question": "Probability of an impossible event is:", "options": ["0", "1", "0.5", "−1"], "correct": 0, "explanation": "Impossible events have probability 0."},
+            {"question": "P(rolling 6 on a fair die)?", "options": ["1/6", "1/3", "1/2", "6"], "correct": 0, "explanation": "One favorable outcome out of six: 1/6."},
+            {"question": "P(heads OR tails) on a coin flip?", "options": ["1", "1/2", "0", "2"], "correct": 0, "explanation": "One of the two must happen — it's certain. P = 1/2 + 1/2 = 1."},
+            {"question": "Rolling a die twice: P(6 then 6)?", "options": ["1/36", "1/6", "1/12", "2/6"], "correct": 0, "explanation": "Independent events: multiply: 1/6 × 1/6 = 1/36."}
           ]
         },
         {
           "title": "Data Representation",
-          "content": "Data can be displayed in different types of charts and graphs. Bar charts use rectangular bars to compare quantities — the height of each bar shows the value. Pie charts show parts of a whole as slices of a circle — each slice's angle represents its proportion (full circle = 360°). Line graphs show how data changes over time — points are plotted and connected. Histograms look like bar charts but show frequency of data in ranges (bins). A scatter plot shows the relationship between two variables using dots — patterns can show positive correlation (both increase), negative correlation (one increases, other decreases), or no correlation.",
-          "examples": [
-            "Bar chart: comparing test scores of 5 students — each bar height = score",
-            "Pie chart: if 25% of students prefer maths, the slice angle = 0.25 × 360° = 90°",
-            "Line graph: plotting temperature at noon each day for a week shows daily trend"
-          ],
-          "keyTerms": {
-            "bar chart": "A graph using bars to compare different categories",
-            "pie chart": "A circular chart divided into slices showing proportions of a whole",
-            "correlation": "A relationship between two variables — positive, negative, or none"
-          },
+          "content": "Data can be displayed in charts and graphs. Bar charts compare categories. Pie charts show parts of a whole (angles: proportion × 360°). Line graphs show trends over time. Histograms show frequency of data in ranges. Scatter plots show relationships between two variables — positive correlation (both increase), negative correlation (one increases, other decreases), or no correlation.",
+          "examples": ["Bar chart: comparing test scores of 5 students", "Pie chart: 25% = 90° slice angle", "Scatter plot: study hours vs. grade shows positive correlation"],
+          "keyTerms": {"bar chart": "A graph using bars to compare different categories", "pie chart": "A circular chart showing proportions of a whole", "correlation": "A relationship between two variables", "scatter plot": "A graph showing the relationship between two variables using dots"},
           "quiz": [
-            {"question": "Which chart best shows parts of a whole?", "options": ["Pie chart", "Line graph", "Scatter plot", "Histogram"], "correct": 0, "explanation": "Pie charts are designed to show proportions of a whole."},
-            {"question": "A line graph is best for showing:", "options": ["Change over time", "Parts of a whole", "Categories comparison", "Frequency distribution"], "correct": 0, "explanation": "Line graphs connect data points across time to show trends."},
-            {"question": "If 50% of a pie chart is blue, what angle is the blue slice?", "options": ["180°", "90°", "360°", "50°"], "correct": 0, "explanation": "50% of 360° = 180°"}
+            {"question": "Best chart for parts of a whole?", "options": ["Pie chart", "Line graph", "Scatter plot", "Histogram"], "correct": 0, "explanation": "Pie charts show proportions of a whole."},
+            {"question": "Line graphs best show:", "options": ["Change over time", "Parts of a whole", "Categories", "Frequency"], "correct": 0, "explanation": "Line graphs connect data points across time to show trends."},
+            {"question": "50% of a pie chart = what angle?", "options": ["180°", "90°", "360°", "50°"], "correct": 0, "explanation": "50% of 360° = 180°"},
+            {"question": "Positive correlation means:", "options": ["Both variables increase together", "One increases, other decreases", "No relationship", "Variables are equal"], "correct": 0, "explanation": "Positive: as one goes up, the other tends to go up too."},
+            {"question": "Which displays frequency of data in ranges?", "options": ["Histogram", "Pie chart", "Line graph", "Bar chart"], "correct": 0, "explanation": "Histograms group continuous data into bins and show how many values fall in each."}
+          ]
+        },
+        {
+          "title": "Cumulative Frequency and Box Plots",
+          "content": "Cumulative frequency is a running total of frequencies. Plot cumulative frequency against the upper boundary of each group to create an S-shaped curve. From this curve, find the median (50th percentile), lower quartile Q1 (25th percentile), and upper quartile Q3 (75th percentile). The interquartile range (IQR) = Q3 − Q1 — it shows the spread of the middle 50% of data. A box plot (box-and-whisker diagram) displays the minimum, Q1, median, Q3, and maximum. Box plots are great for comparing distributions between datasets.",
+          "examples": ["50 students' scores: median at the 25th value on the cumulative frequency curve", "IQR: if Q1 = 45 and Q3 = 72, then IQR = 72 − 45 = 27", "Box plot comparison: Class A has a higher median but wider IQR than Class B — higher average but more spread"],
+          "keyTerms": {"cumulative frequency": "A running total of frequencies up to each class boundary", "quartile": "Values dividing ordered data into four equal parts (Q1, Q2/median, Q3)", "interquartile range": "Q3 minus Q1 — the spread of the middle 50% of data", "box plot": "A diagram showing minimum, Q1, median, Q3, and maximum of a dataset"},
+          "quiz": [
+            {"question": "The interquartile range (IQR) equals:", "options": ["Q3 − Q1", "Maximum − minimum", "Mean − median", "Q1 − Q3"], "correct": 0, "explanation": "IQR = upper quartile minus lower quartile = Q3 − Q1."},
+            {"question": "The median is also known as:", "options": ["Q2 (the 50th percentile)", "Q1", "Q3", "The mean"], "correct": 0, "explanation": "The median divides the data in half — it's the second quartile (Q2)."},
+            {"question": "A box plot shows:", "options": ["Min, Q1, median, Q3, max", "Only the mean", "Only the mode", "Only the range"], "correct": 0, "explanation": "A box plot displays the five-number summary of a dataset."},
+            {"question": "A wider box in a box plot means:", "options": ["More spread in the middle 50% of data", "Less spread", "Higher average", "More data points"], "correct": 0, "explanation": "The box width represents the IQR — wider box = more variation in the central data."},
+            {"question": "Cumulative frequency curves are shaped like:", "options": ["An S-curve", "A straight line always", "A circle", "A V shape"], "correct": 0, "explanation": "Cumulative frequency typically creates an S-shaped (ogive) curve."}
+          ]
+        },
+        {
+          "title": "Tree Diagrams and Combined Events",
+          "content": "Tree diagrams show all possible outcomes of two or more events. Each branch represents a possible outcome, and probabilities are written on the branches. For combined events: multiply along branches (AND — both happen), add between branches (OR — either happens). The probabilities from each set of branches must sum to 1. Tree diagrams are especially useful for dependent events (where the outcome of the first affects the second, like picking marbles without replacement). Always check: all final probabilities should add up to 1.",
+          "examples": ["Two coin flips: 4 outcomes (HH, HT, TH, TT). P(one head) = 2/4 = 1/2", "Bag with 3 red, 2 blue. Pick two without replacement: P(red then blue) = 3/5 × 2/4 = 6/20 = 3/10", "P(at least one head in 2 flips) = 1 − P(no heads) = 1 − 1/4 = 3/4"],
+          "keyTerms": {"tree diagram": "A diagram showing all possible outcomes of sequential events with probabilities", "combined events": "Two or more events happening together or in sequence", "dependent events": "Events where the outcome of one affects the probability of the next", "without replacement": "Removing an item and not putting it back, changing probabilities for the next pick"},
+          "quiz": [
+            {"question": "On a tree diagram, to find P(A AND B), you:", "options": ["Multiply the branch probabilities", "Add the branch probabilities", "Subtract them", "Divide them"], "correct": 0, "explanation": "AND = multiply along branches: P(A and B) = P(A) × P(B|A)."},
+            {"question": "All final probabilities on a tree diagram should sum to:", "options": ["1", "0", "0.5", "100"], "correct": 0, "explanation": "All possible outcomes together account for everything — total probability = 1."},
+            {"question": "Picking without replacement makes events:", "options": ["Dependent", "Independent", "Impossible", "Certain"], "correct": 0, "explanation": "Without replacement, removing one item changes the probabilities for the next pick."},
+            {"question": "P(at least one 6 in two die rolls)?", "options": ["11/36", "1/36", "1/6", "2/6"], "correct": 0, "explanation": "P(at least one 6) = 1 − P(no 6s) = 1 − (5/6 × 5/6) = 1 − 25/36 = 11/36."},
+            {"question": "A tree diagram is most useful for:", "options": ["Showing all possible outcomes of sequential events", "Finding the mean", "Drawing pie charts", "Measuring angles"], "correct": 0, "explanation": "Tree diagrams map out every possible outcome path for two or more events."}
           ]
         }
       ]
