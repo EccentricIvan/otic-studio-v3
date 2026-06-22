@@ -167,7 +167,6 @@ class ModelManager {
       );
     }
 
-    final ext = p.extension(sourcePath).toLowerCase();
     final targetPath = await installTargetPath(extension: ext);
     final target = File(targetPath);
     await target.parent.create(recursive: true);
