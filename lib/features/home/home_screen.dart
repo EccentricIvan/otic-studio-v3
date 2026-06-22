@@ -6,6 +6,7 @@ import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/section_header.dart';
 import '../../shared/widgets/learning_mode_card.dart';
 import '../../shared/widgets/learning_path_card.dart';
+import '../../shared/widgets/app_shell.dart';
 import '../../shared/widgets/voice_ask_widget.dart';
 import '../learn/path/path_models.dart';
 import '../learn/path/path_provider.dart';
@@ -25,12 +26,10 @@ class HomeScreen extends ConsumerWidget {
           semanticLabel: 'Logo',
         ),
         actions: [
-          Builder(
-            builder: (ctx) => IconButton(
-              icon: const Icon(Icons.menu),
-              tooltip: 'Menu',
-              onPressed: () => Scaffold.of(ctx).openDrawer(),
-            ),
+          IconButton(
+            icon: const Icon(Icons.menu),
+            tooltip: 'Menu',
+            onPressed: () => AppShell.mobileScaffoldKey.currentState?.openDrawer(),
           ),
         ],
       ),

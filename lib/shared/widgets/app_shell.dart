@@ -9,6 +9,8 @@ class AppShell extends StatelessWidget {
 
   final Widget child;
 
+  static final mobileScaffoldKey = GlobalKey<ScaffoldState>();
+
   static const _destinations = [
     _NavDest('Home', Icons.home_outlined, Icons.home, '/'),
     _NavDest('Learn', Icons.menu_book_outlined, Icons.menu_book, '/learn'),
@@ -69,6 +71,7 @@ class AppShell extends StatelessWidget {
         : 0;
 
     return Scaffold(
+      key: mobileScaffoldKey,
       body: child,
       drawer: _AppDrawer(
         selectedIndex: selectedIndex,
