@@ -88,42 +88,39 @@ class _TopicPicker extends ConsumerWidget {
       ..._topics,
     ];
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
-          child: Text(
-            'Choose a topic',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: Theme.of(context).textTheme.bodyLarge?.color,
-            ),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+      child: DropdownButtonFormField<String>(
+        value: selected.isEmpty ? null : selected,
+        decoration: InputDecoration(
+          labelText: 'Choose a topic',
+          labelStyle: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Theme.of(context).textTheme.bodyLarge?.color,
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: allTopics.map((topic) {
-              final isSelected = selected == topic;
-              return ChoiceChip(
-                label: Text(topic),
-                selected: isSelected,
-                onSelected: (_) => onSelect(topic),
-                selectedColor: color.withValues(alpha: 0.15),
-                side: BorderSide(color: isSelected ? color : Theme.of(context).dividerColor),
-                labelStyle: TextStyle(
-                  color: isSelected ? color : Theme.of(context).textTheme.bodyMedium?.color,
-                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
-                ),
-                checkmarkColor: color,
-              );
-            }).toList(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: Theme.of(context).dividerColor),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: color, width: 2),
+          ),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         ),
-      ],
+        dropdownColor: Theme.of(context).colorScheme.surface,
+        isExpanded: true,
+        hint: Text('Select a topic', style: TextStyle(color: Theme.of(context).hintColor)),
+        items: allTopics
+            .map((t) => DropdownMenuItem(value: t, child: Text(t)))
+            .toList(),
+        onChanged: (v) {
+          if (v != null) onSelect(v);
+        },
+      ),
     );
   }
 }

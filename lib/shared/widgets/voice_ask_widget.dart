@@ -16,8 +16,6 @@ class _VoiceAskWidgetState extends State<VoiceAskWidget> {
   static const _prompts = [
     'Explain photosynthesis',
     'Teach me Python',
-    'How does gravity work?',
-    'What is entrepreneurship?',
   ];
 
   @override
