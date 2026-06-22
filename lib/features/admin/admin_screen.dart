@@ -98,7 +98,7 @@ class AdminScreen extends ConsumerWidget {
               error: (e, _) =>
                   _InfoCard(children: [ListTile(title: Text('Error: $e'))]),
               data: (students) => students.isEmpty
-                  ? const _InfoCard(
+                  ? _InfoCard(
                       children: [
                         ListTile(
                           leading: Icon(
@@ -119,7 +119,7 @@ class AdminScreen extends ConsumerWidget {
 
             // ── Updates ──────────────────────────────────────────────────
             const _SectionTitle('Updates'),
-            const _InfoCard(
+            _InfoCard(
               children: [
                 _InfoRow(
                   icon: Icons.usb,
