@@ -1,4 +1,6 @@
 import '../inference/inference_engine.dart';
+import '../../curriculum/curriculum_models.dart';
+import '../../curriculum/curriculum_provider.dart';
 import 'tutor_response.dart';
 
 /// Implements the AI tutor contract:
@@ -6,12 +8,20 @@ import 'tutor_response.dart';
 ///
 /// Each student message advances the pipeline one stage.
 /// The pipeline resets when the student changes topic.
+/// When curriculum content is available, it is injected into the
+/// prompt so the model teaches from accurate material.
 class TutorPipeline {
-  TutorPipeline({required InferenceEngine engine}) : _engine = engine;
+  TutorPipeline({
+    required InferenceEngine engine,
+    CurriculumService? curriculum,
+  })  : _engine = engine,
+        _curriculum = curriculum;
 
   final InferenceEngine _engine;
+  final CurriculumService? _curriculum;
   TutorStage _nextStage = TutorStage.answer;
   String _currentTopic = '';
+  Lesson? _activeLesson;
   final List<_Turn> _history = [];
 
   /// Process a student message and stream the tutor response.
@@ -28,10 +38,14 @@ class TutorPipeline {
     if (topic != _currentTopic) {
       _currentTopic = topic;
       _nextStage = TutorStage.answer;
+      _activeLesson = _curriculum?.findBestMatch(studentMessage);
     }
 
     final stage = _nextStage;
-    final prompt = _buildPrompt(studentMessage, stage, safetyNote: safetyNote);
+    final lessonContext =
+        _activeLesson != null ? _curriculum?.buildContext(_activeLesson!) : null;
+    final prompt = _buildPrompt(studentMessage, stage,
+        safetyNote: safetyNote, lessonContext: lessonContext);
 
     final buffer = StringBuffer();
     final text = await _engine.generate(
@@ -69,6 +83,7 @@ class TutorPipeline {
     String studentMessage,
     TutorStage stage, {
     String? safetyNote,
+    String? lessonContext,
   }) {
     final historyText = _history
         .map((t) => '${t.role == 'tutor' ? 'Tutor' : 'Student'}: ${t.text}')
@@ -78,11 +93,12 @@ class TutorPipeline {
 You respond in plain, encouraging language. Be concise (2-4 sentences max per stage).
 Never use bullet lists. Ask one question at the end. Never say "I am an AI".
 ${safetyNote != null ? '\n$safetyNote\n' : ''}
+${lessonContext != null ? 'USE THIS REFERENCE MATERIAL to teach accurately:\n$lessonContext\n' : ''}
 Current stage: ${stage.name.toUpperCase()}
 Stage instructions:
-  answer   → Give a clear, direct explanation.
+  answer   → Give a clear, direct explanation using the reference material above.
   clarify  → Ask one question to check understanding.
-  practice → Give one short exercise or challenge.
+  practice → Give one short exercise or challenge based on the material.
   apply    → Describe a real-world scenario where this applies.
   create   → Ask the student to make or build something small.
   reflect  → Ask the student to summarise what they learned in their own words.

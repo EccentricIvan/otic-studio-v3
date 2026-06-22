@@ -1,0 +1,160 @@
+{
+  "id": "chemistry",
+  "name": "Chemistry",
+  "icon": "science_outlined",
+  "color": "#F59E0B",
+  "units": [
+    {
+      "title": "Atoms and Elements",
+      "lessons": [
+        {
+          "title": "Atomic Structure",
+          "content": "Everything is made of atoms. An atom has a nucleus containing protons (positive charge) and neutrons (no charge), with electrons (negative charge) orbiting in shells. The atomic number is the number of protons — it defines the element. The mass number is protons + neutrons. Electrons fill shells: first shell holds 2, second holds 8, third holds 8. The electron arrangement determines how an element reacts. Isotopes are atoms of the same element with different numbers of neutrons.",
+          "examples": ["Carbon-12 has 6 protons and 6 neutrons; Carbon-14 has 6 protons and 8 neutrons (isotope)", "Sodium (Na): 11 protons, electron arrangement 2,8,1 — it easily loses that outer electron", "Hydrogen is the simplest atom: 1 proton, 1 electron, 0 neutrons"],
+          "keyTerms": {"proton": "Positive particle in the nucleus; defines the element", "electron": "Negative particle orbiting the nucleus in shells", "isotope": "Atoms of the same element with different numbers of neutrons"},
+          "quiz": [
+            {"question": "An atom with 8 protons and 8 neutrons has a mass number of:", "options": ["16", "8", "64", "0"], "correct": 0, "explanation": "Mass number = protons + neutrons = 8 + 8 = 16"},
+            {"question": "What defines which element an atom is?", "options": ["Number of protons", "Number of neutrons", "Number of electrons", "Total mass"], "correct": 0, "explanation": "The atomic number (proton count) determines the element."},
+            {"question": "The electron arrangement of chlorine (17 electrons) is:", "options": ["2, 8, 7", "2, 8, 8", "2, 7, 8", "8, 8, 1"], "correct": 0, "explanation": "First shell: 2, second: 8, remaining 7 go in third shell."}
+          ]
+        },
+        {
+          "title": "The Periodic Table",
+          "content": "The periodic table organises all known elements by atomic number. Rows are called periods — elements in the same period have the same number of electron shells. Columns are called groups — elements in the same group have the same number of outer electrons and similar properties. Group 1 (alkali metals like sodium, potassium) are very reactive — they have 1 outer electron to lose. Group 7 (halogens like chlorine, fluorine) are reactive — they need 1 electron to fill their outer shell. Group 0/8 (noble gases like helium, neon) are unreactive — their outer shell is full.",
+          "examples": ["Lithium, sodium, potassium are all in Group 1 — they all react vigorously with water", "Noble gases (He, Ne, Ar) are used in lighting because they don't react", "Elements become more metallic going down a group and to the left of the table"],
+          "keyTerms": {"period": "A horizontal row in the periodic table; same number of electron shells", "group": "A vertical column; elements with same outer electrons and similar properties", "noble gas": "Group 0 elements with full outer shells; very unreactive"},
+          "quiz": [
+            {"question": "Elements in the same group have:", "options": ["Similar chemical properties", "Same number of neutrons", "Same mass", "Same color"], "correct": 0, "explanation": "Same group = same number of outer electrons = similar reactivity."},
+            {"question": "Why are noble gases unreactive?", "options": ["Their outer electron shell is full", "They have no electrons", "They are too heavy", "They are radioactive"], "correct": 0, "explanation": "A full outer shell means they don't need to gain, lose, or share electrons."},
+            {"question": "Group 1 metals are called:", "options": ["Alkali metals", "Noble gases", "Halogens", "Transition metals"], "correct": 0, "explanation": "Group 1 elements (Li, Na, K, etc.) are the alkali metals."}
+          ]
+        },
+        {
+          "title": "Chemical Bonding",
+          "content": "Atoms bond to achieve a full outer electron shell (stability). Ionic bonding: a metal transfers electrons to a non-metal, creating charged ions that attract. NaCl: sodium loses 1 electron (Na⁺), chlorine gains it (Cl⁻). Covalent bonding: non-metals share electrons. H₂O: oxygen shares electrons with two hydrogen atoms. Metallic bonding: metal atoms share a 'sea' of delocalised electrons — this is why metals conduct electricity and are malleable.",
+          "examples": ["Table salt (NaCl) is ionic: Na gives its outer electron to Cl", "Water (H₂O) is covalent: oxygen shares electrons with hydrogen atoms", "Copper wire conducts electricity because metallic bonding allows electrons to flow freely"],
+          "keyTerms": {"ionic bond": "Bond formed by electron transfer between a metal and non-metal", "covalent bond": "Bond formed by sharing electrons between non-metals", "ion": "An atom that has gained or lost electrons, giving it a charge"},
+          "quiz": [
+            {"question": "In NaCl, sodium becomes Na⁺ by:", "options": ["Losing one electron", "Gaining one electron", "Sharing electrons", "Losing a proton"], "correct": 0, "explanation": "Sodium loses its single outer electron to chlorine, becoming positively charged."},
+            {"question": "Covalent bonds involve:", "options": ["Sharing electrons", "Transferring electrons", "Losing protons", "Gaining neutrons"], "correct": 0, "explanation": "In covalent bonding, atoms share pairs of electrons."},
+            {"question": "Why do metals conduct electricity?", "options": ["Delocalised electrons can move freely", "They have no electrons", "They are ionic", "They absorb electricity"], "correct": 0, "explanation": "Metallic bonding creates a sea of free electrons that carry current."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Chemical Reactions",
+      "lessons": [
+        {
+          "title": "Types of Reactions",
+          "content": "Chemical reactions rearrange atoms to form new substances. Combination: A + B → AB (iron + sulfur → iron sulfide). Decomposition: AB → A + B (calcium carbonate → calcium oxide + CO₂ when heated). Displacement: a more reactive element replaces a less reactive one (zinc + copper sulfate → zinc sulfate + copper). Combustion: a substance reacts with oxygen, releasing heat (methane + oxygen → carbon dioxide + water). The reactivity series ranks metals by how easily they react.",
+          "examples": ["Burning wood is combustion: cellulose + O₂ → CO₂ + H₂O + heat", "Rusting is slow combination: iron + oxygen + water → iron oxide (rust)", "Zinc displaces copper from copper sulfate solution because zinc is more reactive"],
+          "keyTerms": {"combustion": "A reaction where a substance burns in oxygen, releasing heat and light", "displacement": "A reaction where a more reactive element replaces a less reactive one", "reactivity series": "A ranking of metals from most to least reactive"},
+          "quiz": [
+            {"question": "What type of reaction is: 2H₂O → 2H₂ + O₂?", "options": ["Decomposition", "Combination", "Combustion", "Displacement"], "correct": 0, "explanation": "One compound breaks down into simpler substances = decomposition."},
+            {"question": "In a displacement reaction, the MORE reactive element:", "options": ["Replaces the less reactive one", "Is replaced", "Does nothing", "Dissolves"], "correct": 0, "explanation": "The more reactive element takes the place of the less reactive element."},
+            {"question": "Combustion always requires:", "options": ["Oxygen", "Water", "Acid", "A metal"], "correct": 0, "explanation": "Combustion is the reaction of a substance with oxygen."}
+          ]
+        },
+        {
+          "title": "Balancing Equations",
+          "content": "A balanced equation has the same number of each type of atom on both sides — atoms are never created or destroyed (conservation of mass). To balance: write the unbalanced equation, count atoms on each side, add coefficients (numbers in front) to equalise. Never change the chemical formula itself. For example: H₂ + O₂ → H₂O is unbalanced (2 O on left, 1 on right). Balanced: 2H₂ + O₂ → 2H₂O (4 H and 2 O on each side).",
+          "examples": ["Fe + O₂ → Fe₂O₃ becomes 4Fe + 3O₂ → 2Fe₂O₃ (4 Fe and 6 O each side)", "CH₄ + 2O₂ → CO₂ + 2H₂O (1C, 4H, 4O each side)", "N₂ + 3H₂ → 2NH₃ (2N and 6H each side)"],
+          "keyTerms": {"balanced equation": "A chemical equation with equal numbers of each atom on both sides", "coefficient": "The number placed before a formula to balance the equation", "conservation of mass": "Matter cannot be created or destroyed in a chemical reaction"},
+          "quiz": [
+            {"question": "Balance: _Na + _Cl₂ → _NaCl", "options": ["2Na + Cl₂ → 2NaCl", "Na + Cl₂ → NaCl₂", "Na + Cl → NaCl", "Na₂ + Cl₂ → 2NaCl"], "correct": 0, "explanation": "2 Na + Cl₂ → 2NaCl gives 2 Na and 2 Cl on each side."},
+            {"question": "Why must equations be balanced?", "options": ["Atoms cannot be created or destroyed", "To make them look neat", "So they react faster", "To reduce waste"], "correct": 0, "explanation": "Conservation of mass: the same atoms must appear on both sides."},
+            {"question": "In 2H₂O, the 2 in front means:", "options": ["2 molecules of water", "2 hydrogen atoms", "2 oxygen atoms", "Water squared"], "correct": 0, "explanation": "The coefficient 2 means two whole molecules of H₂O."}
+          ]
+        },
+        {
+          "title": "Rates of Reaction",
+          "content": "Reaction rate is how fast reactants turn into products. Five factors affect rate: temperature (higher = faster, particles have more energy and collide harder), concentration (more particles = more frequent collisions), surface area (smaller pieces = more surface for collisions), catalysts (speed up reactions without being used up), and pressure (for gases — higher pressure = particles closer together). Collision theory explains this: reactions only happen when particles collide with enough energy (activation energy) and the correct orientation.",
+          "examples": ["Food cooks faster at higher temperatures — particles collide with more energy", "A sugar cube dissolves slowly; crushed sugar dissolves quickly (more surface area)", "Catalytic converters in cars use platinum to speed up conversion of toxic exhaust gases"],
+          "keyTerms": {"catalyst": "A substance that speeds up a reaction without being consumed", "activation energy": "The minimum energy needed for a reaction to occur", "collision theory": "Reactions occur when particles collide with sufficient energy and correct orientation"},
+          "quiz": [
+            {"question": "How does increasing temperature affect reaction rate?", "options": ["Increases it — particles collide faster and harder", "Decreases it", "No effect", "Stops the reaction"], "correct": 0, "explanation": "Higher temperature gives particles more kinetic energy, causing more frequent and energetic collisions."},
+            {"question": "A catalyst works by:", "options": ["Lowering the activation energy", "Increasing temperature", "Adding more reactant", "Being consumed in the reaction"], "correct": 0, "explanation": "Catalysts provide an alternative pathway with lower activation energy."},
+            {"question": "Why does powdered calcium carbonate react faster with acid than a lump?", "options": ["Greater surface area", "Greater mass", "Higher temperature", "Different chemical"], "correct": 0, "explanation": "Powder has much more surface area exposed for acid particles to collide with."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "States of Matter",
+      "lessons": [
+        {
+          "title": "Solids, Liquids, and Gases",
+          "content": "Matter exists in three states. Solids: particles packed tightly in fixed positions, vibrating slightly — fixed shape and volume. Liquids: particles close together but can slide past each other — fixed volume but take the shape of their container. Gases: particles far apart, moving randomly at high speed — no fixed shape or volume, fill any container. Changes of state: melting (solid→liquid), boiling/evaporation (liquid→gas), condensation (gas→liquid), freezing (liquid→solid), sublimation (solid→gas directly). These changes are physical — no new substance is formed.",
+          "examples": ["Ice (solid) melts at 0°C to become water (liquid), which boils at 100°C to become steam (gas)", "Dry ice (solid CO₂) sublimes directly into gas — no liquid phase at normal pressure", "Morning dew is condensation — water vapour in air cools overnight and forms droplets"],
+          "keyTerms": {"melting point": "The temperature at which a solid becomes a liquid", "boiling point": "The temperature at which a liquid becomes a gas throughout", "sublimation": "Direct change from solid to gas without passing through liquid state"},
+          "quiz": [
+            {"question": "In which state are particles furthest apart?", "options": ["Gas", "Liquid", "Solid", "Plasma"], "correct": 0, "explanation": "Gas particles are widely spread and move freely."},
+            {"question": "What is it called when a gas turns into a liquid?", "options": ["Condensation", "Evaporation", "Melting", "Sublimation"], "correct": 0, "explanation": "Gas → liquid = condensation (e.g., water droplets forming on a cold glass)."},
+            {"question": "A change of state is:", "options": ["A physical change", "A chemical change", "A nuclear change", "Irreversible"], "correct": 0, "explanation": "No new substance is formed — it's reversible and physical."}
+          ]
+        },
+        {
+          "title": "Mixtures and Separation",
+          "content": "A mixture contains two or more substances not chemically bonded — they can be separated physically. Filtration separates insoluble solids from liquids (sand from water). Evaporation recovers dissolved solids (salt from salt water — heat drives off water, salt remains). Distillation separates liquids with different boiling points (purifying water or making spirits). Chromatography separates dissolved substances based on how they travel through paper or gel (used to identify dyes, drugs, DNA).",
+          "examples": ["Filtering muddy water removes soil particles, leaving cleaner water", "Sea salt is made by evaporating seawater in shallow ponds under the sun", "Paper chromatography can show that black ink is a mixture of several different coloured dyes"],
+          "keyTerms": {"filtration": "Separating insoluble solids from liquids using a filter", "distillation": "Separating liquids by boiling point differences — boil then condense", "chromatography": "Separating dissolved substances based on how they move through a medium"},
+          "quiz": [
+            {"question": "To get pure water from salt water, you would use:", "options": ["Distillation", "Filtration", "Chromatography", "Magnetism"], "correct": 0, "explanation": "Distillation boils the water (leaves salt behind) then condenses the steam into pure water."},
+            {"question": "Filtration is best for separating:", "options": ["Sand from water", "Salt from water", "Alcohol from water", "Dyes from ink"], "correct": 0, "explanation": "Filtration removes insoluble solids (like sand) but dissolved substances pass through."},
+            {"question": "In a mixture, the substances are:", "options": ["Not chemically bonded", "Chemically bonded", "Always liquids", "Always the same"], "correct": 0, "explanation": "Mixtures can be separated physically because no chemical bonds form between components."}
+          ]
+        },
+        {
+          "title": "Solutions and Solubility",
+          "content": "A solution forms when a solute dissolves in a solvent. Water is called the universal solvent because it dissolves many substances. The amount of solute that dissolves depends on temperature (usually more dissolves at higher temperatures) and the nature of the solute and solvent. A saturated solution cannot dissolve any more solute at that temperature. Concentration measures how much solute is dissolved: concentration = mass of solute / volume of solution (g/dm³ or mol/dm³). Diluting adds more solvent, reducing concentration.",
+          "examples": ["Sugar dissolves faster in hot tea than cold tea — higher temperature increases solubility", "A saturated salt solution at 20°C holds about 36g of salt per 100ml of water", "Concentration: 10g of salt in 500cm³ of water = 10/0.5 = 20 g/dm³"],
+          "keyTerms": {"solute": "The substance that dissolves (e.g., salt)", "solvent": "The substance that does the dissolving (e.g., water)", "saturated": "A solution that cannot dissolve any more solute at a given temperature"},
+          "quiz": [
+            {"question": "In a salt solution, what is the solute?", "options": ["Salt", "Water", "The container", "Air"], "correct": 0, "explanation": "The solute is the substance that dissolves — salt dissolves in water (the solvent)."},
+            {"question": "How does increasing temperature usually affect solubility of solids?", "options": ["Increases it", "Decreases it", "No effect", "Makes it insoluble"], "correct": 0, "explanation": "Most solid solutes dissolve more at higher temperatures."},
+            {"question": "What is the concentration of 20g of sugar in 500cm³?", "options": ["40 g/dm³", "20 g/dm³", "10 g/dm³", "0.04 g/dm³"], "correct": 0, "explanation": "500cm³ = 0.5dm³. Concentration = 20/0.5 = 40 g/dm³"}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Acids and Bases",
+      "lessons": [
+        {
+          "title": "pH Scale and Indicators",
+          "content": "The pH scale measures acidity and alkalinity from 0 to 14. pH 7 is neutral (pure water). Below 7 is acidic (the lower, the stronger the acid). Above 7 is alkaline/basic (the higher, the stronger the alkali). Acids produce H⁺ ions in solution. Alkalis produce OH⁻ ions. Indicators change colour to show pH: litmus (red in acid, blue in alkali), universal indicator (shows a range of colours for different pH values), and pH meters give precise readings.",
+          "examples": ["Lemon juice has pH ~2 (strongly acidic), soap has pH ~10 (alkaline)", "Stomach acid (HCl) has pH ~1-2, needed to digest food and kill bacteria", "Universal indicator turns red in strong acid, green at neutral, purple in strong alkali"],
+          "keyTerms": {"pH": "A scale from 0-14 measuring how acidic or alkaline a solution is", "acid": "A substance that produces H⁺ ions in solution; pH below 7", "alkali": "A soluble base that produces OH⁻ ions; pH above 7"},
+          "quiz": [
+            {"question": "A solution with pH 3 is:", "options": ["Acidic", "Neutral", "Alkaline", "Basic"], "correct": 0, "explanation": "pH below 7 is acidic. pH 3 is a moderately strong acid."},
+            {"question": "What ions do acids produce in water?", "options": ["H⁺ (hydrogen ions)", "OH⁻ (hydroxide ions)", "Na⁺ (sodium ions)", "Cl⁻ (chloride ions)"], "correct": 0, "explanation": "Acids release hydrogen ions (H⁺) when dissolved in water."},
+            {"question": "Pure water has a pH of:", "options": ["7", "0", "14", "1"], "correct": 0, "explanation": "Pure water is neutral with pH 7."}
+          ]
+        },
+        {
+          "title": "Neutralisation Reactions",
+          "content": "Neutralisation occurs when an acid reacts with a base to form a salt and water: acid + base → salt + water. For example: HCl + NaOH → NaCl + H₂O. The H⁺ from the acid combines with OH⁻ from the base to make water (H₂O). Acids also react with metal carbonates: acid + carbonate → salt + water + CO₂. This is why antacid tablets (calcium carbonate) fizz in stomach acid. The salt produced depends on the acid used: HCl makes chlorides, H₂SO₄ makes sulfates, HNO₃ makes nitrates.",
+          "examples": ["Antacid tablet (CaCO₃) + stomach acid (HCl) → CaCl₂ + H₂O + CO₂ (fizzing)", "Bee stings are acidic — applying baking soda (alkaline) neutralises the pain", "Farmers add lime (calcium hydroxide) to acidic soil to neutralise it for crops"],
+          "keyTerms": {"neutralisation": "Reaction between acid and base producing salt and water", "salt": "The compound formed when the H⁺ of an acid is replaced by a metal ion", "base": "A substance that reacts with an acid to form salt and water"},
+          "quiz": [
+            {"question": "Acid + alkali →", "options": ["Salt + water", "Salt + acid", "Base + gas", "Nothing"], "correct": 0, "explanation": "Neutralisation: acid + alkali → salt + water."},
+            {"question": "HCl + NaOH → NaCl + H₂O. What is NaCl?", "options": ["A salt (sodium chloride)", "An acid", "A base", "Water"], "correct": 0, "explanation": "NaCl (table salt) is the salt produced from hydrochloric acid + sodium hydroxide."},
+            {"question": "Why do antacid tablets fizz in acid?", "options": ["They contain carbonate which releases CO₂", "They are melting", "They contain hydrogen", "They are dissolving"], "correct": 0, "explanation": "Carbonate + acid → salt + water + carbon dioxide (the fizzing gas)."}
+          ]
+        },
+        {
+          "title": "Acids and Metals",
+          "content": "When an acid reacts with a reactive metal, the products are a salt and hydrogen gas: acid + metal → salt + hydrogen. For example: Mg + 2HCl → MgCl₂ + H₂. The hydrogen gas can be tested with a burning splint — it makes a squeaky pop. Not all metals react with acids — gold, silver, and platinum are too unreactive. The reactivity series determines which metals react: potassium and sodium react violently (even with water), iron and zinc react steadily, copper barely reacts.",
+          "examples": ["Magnesium ribbon in HCl fizzes vigorously, producing hydrogen gas", "The 'squeaky pop' test: hold a burning splint near the gas — hydrogen pops", "Copper doesn't react with dilute acid because it's below hydrogen in the reactivity series"],
+          "keyTerms": {"hydrogen test": "A burning splint held near hydrogen gas produces a squeaky pop", "reactivity series": "A list of metals ordered by how readily they react", "oxidation": "Loss of electrons or gain of oxygen in a chemical reaction"},
+          "quiz": [
+            {"question": "Zinc + sulfuric acid →", "options": ["Zinc sulfate + hydrogen", "Zinc chloride + oxygen", "Zinc oxide + water", "No reaction"], "correct": 0, "explanation": "Metal + acid → salt + hydrogen. Zinc + H₂SO₄ → ZnSO₄ + H₂"},
+            {"question": "How do you test for hydrogen gas?", "options": ["Burning splint — squeaky pop", "Glowing splint relights", "Turns limewater milky", "Turns litmus red"], "correct": 0, "explanation": "Hydrogen burns with a characteristic squeaky pop sound."},
+            {"question": "Which metal would NOT react with dilute acid?", "options": ["Gold", "Zinc", "Magnesium", "Iron"], "correct": 0, "explanation": "Gold is very unreactive — it doesn't react with dilute acids."}
+          ]
+        }
+      ]
+    }
+  ]
+}

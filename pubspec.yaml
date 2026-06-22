@@ -50,6 +50,7 @@ flutter:
     - assets/models/        # placeholder dir, actual model files gitignored
     - assets/prompts/       # system prompt templates
     - assets/branding/      # official brand logo
+    - assets/curriculum/    # bundled curriculum content for all subjects
 
   # Bundled offline — google_fonts would fetch over the network at runtime
   fonts:

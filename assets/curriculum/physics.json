@@ -1,0 +1,160 @@
+{
+  "id": "physics",
+  "name": "Physics",
+  "icon": "science",
+  "color": "#0EA5E9",
+  "units": [
+    {
+      "title": "Forces and Motion",
+      "lessons": [
+        {
+          "title": "Speed, Velocity, and Acceleration",
+          "content": "Speed tells us how fast something is moving — it equals distance divided by time (speed = distance/time). If you walk 10 km in 2 hours, your speed is 5 km/h. Velocity is speed with a direction: 5 km/h north. Acceleration is the rate of change of velocity — how quickly something speeds up or slows down. Acceleration = change in velocity / time. If a car goes from 0 to 60 km/h in 10 seconds, its acceleration is 6 km/h per second. Deceleration (negative acceleration) means slowing down.",
+          "examples": ["A cheetah runs 100m in 4s: speed = 100/4 = 25 m/s", "A car accelerates from 0 to 20 m/s in 5s: acceleration = 20/5 = 4 m/s²", "A ball thrown up decelerates at 9.8 m/s² due to gravity"],
+          "keyTerms": {"speed": "Distance traveled per unit of time", "velocity": "Speed in a specific direction", "acceleration": "Rate of change of velocity over time"},
+          "quiz": [
+            {"question": "A cyclist travels 30 km in 2 hours. What is the speed?", "options": ["15 km/h", "60 km/h", "32 km/h", "28 km/h"], "correct": 0, "explanation": "Speed = distance/time = 30/2 = 15 km/h"},
+            {"question": "What is the difference between speed and velocity?", "options": ["Velocity includes direction", "Speed includes direction", "They are the same", "Velocity is always faster"], "correct": 0, "explanation": "Velocity is speed with a direction specified."},
+            {"question": "A car goes from 0 to 30 m/s in 6 seconds. What is the acceleration?", "options": ["5 m/s²", "36 m/s²", "180 m/s²", "24 m/s²"], "correct": 0, "explanation": "a = change in velocity / time = 30/6 = 5 m/s²"}
+          ]
+        },
+        {
+          "title": "Newton's Laws of Motion",
+          "content": "Isaac Newton described three laws that govern how objects move. First Law (Inertia): An object stays at rest or keeps moving in a straight line unless a force acts on it. A ball on a table stays still until pushed. Second Law: Force equals mass times acceleration (F = ma). A heavier object needs more force to accelerate. Third Law: For every action, there is an equal and opposite reaction. When you push against a wall, the wall pushes back on you with equal force.",
+          "examples": ["First Law: Passengers lurch forward when a bus stops suddenly — their body wants to keep moving", "Second Law: Pushing a shopping cart (20 kg) with 40 N gives acceleration of 2 m/s²", "Third Law: A rocket pushes exhaust gas down, the gas pushes the rocket up"],
+          "keyTerms": {"inertia": "The tendency of an object to resist changes in its motion", "force": "A push or pull measured in Newtons (N)", "Newton": "The SI unit of force; 1 N = 1 kg·m/s²"},
+          "quiz": [
+            {"question": "What force is needed to accelerate a 5 kg object at 3 m/s²?", "options": ["15 N", "8 N", "1.67 N", "2 N"], "correct": 0, "explanation": "F = ma = 5 × 3 = 15 N"},
+            {"question": "Newton's First Law is also called the law of:", "options": ["Inertia", "Gravity", "Acceleration", "Reaction"], "correct": 0, "explanation": "The First Law describes inertia — objects resist changes in motion."},
+            {"question": "When you walk, you push the ground backward. The ground pushes you:", "options": ["Forward with equal force", "Backward with equal force", "Upward", "With no force"], "correct": 0, "explanation": "Newton's Third Law: equal and opposite reaction pushes you forward."}
+          ]
+        },
+        {
+          "title": "Gravity and Weight",
+          "content": "Gravity is an attractive force between any two objects with mass. On Earth, gravity pulls everything toward the center with an acceleration of about 9.8 m/s² (often rounded to 10 m/s²). Weight is the force of gravity on an object: Weight = mass × gravitational acceleration (W = mg). Mass is the amount of matter in an object (measured in kg) and stays the same everywhere. Weight changes depending on gravity — you would weigh less on the Moon (gravity is 1/6 of Earth's) but your mass stays the same.",
+          "examples": ["A 60 kg person on Earth: weight = 60 × 9.8 = 588 N", "Same person on Moon: weight = 60 × 1.6 = 96 N (but still 60 kg mass)", "A dropped ball accelerates at 9.8 m/s² regardless of its mass (ignoring air resistance)"],
+          "keyTerms": {"gravity": "The force of attraction between objects with mass", "weight": "The force of gravity acting on an object's mass (W = mg)", "mass": "The amount of matter in an object, measured in kilograms"},
+          "quiz": [
+            {"question": "What is the weight of a 10 kg object on Earth? (g = 10 m/s²)", "options": ["100 N", "10 N", "1000 N", "1 N"], "correct": 0, "explanation": "W = mg = 10 × 10 = 100 N"},
+            {"question": "On the Moon, your mass would:", "options": ["Stay the same", "Decrease", "Increase", "Become zero"], "correct": 0, "explanation": "Mass is the amount of matter and doesn't change with location."},
+            {"question": "Two objects of different mass are dropped from the same height (no air resistance). Which hits first?", "options": ["They hit at the same time", "The heavier one", "The lighter one", "Neither falls"], "correct": 0, "explanation": "Gravity accelerates all objects equally at 9.8 m/s² regardless of mass."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Energy",
+      "lessons": [
+        {
+          "title": "Forms of Energy and Conservation",
+          "content": "Energy is the ability to do work or cause change. It comes in many forms: kinetic energy (energy of motion), potential energy (stored energy due to position or condition), thermal energy (heat), chemical energy (in bonds between atoms), electrical energy, light energy, and nuclear energy. The Law of Conservation of Energy states that energy cannot be created or destroyed — only transformed from one form to another. When you drop a ball, potential energy converts to kinetic energy. The total energy in a closed system always stays the same.",
+          "examples": ["A roller coaster at the top has maximum potential energy; at the bottom, maximum kinetic energy", "A battery stores chemical energy and converts it to electrical energy", "Rubbing your hands converts kinetic energy to thermal energy (heat)"],
+          "keyTerms": {"kinetic energy": "Energy of motion; KE = ½mv²", "potential energy": "Stored energy due to position; gravitational PE = mgh", "conservation of energy": "Energy cannot be created or destroyed, only transformed"},
+          "quiz": [
+            {"question": "A ball at the top of a hill has maximum:", "options": ["Potential energy", "Kinetic energy", "Thermal energy", "Chemical energy"], "correct": 0, "explanation": "At the top, the ball has maximum height, so maximum gravitational potential energy."},
+            {"question": "What does the conservation of energy mean?", "options": ["Energy can only change form, not be created or destroyed", "Energy is always lost", "Energy can be created", "Energy only exists as heat"], "correct": 0, "explanation": "Total energy in a closed system remains constant — it only transforms."},
+            {"question": "What energy transformation occurs in a solar panel?", "options": ["Light to electrical", "Electrical to light", "Chemical to thermal", "Kinetic to potential"], "correct": 0, "explanation": "Solar panels convert light energy from the sun into electrical energy."}
+          ]
+        },
+        {
+          "title": "Work and Power",
+          "content": "In physics, work is done when a force moves an object in the direction of the force. Work = Force × distance (W = Fd), measured in Joules (J). If you push a box with 50 N of force for 3 meters, you do 150 J of work. No work is done if the object doesn't move, or if the force is perpendicular to the movement. Power is the rate of doing work — how fast energy is transferred. Power = Work / time (P = W/t), measured in Watts (W). 1 Watt = 1 Joule per second. A more powerful engine does the same work in less time.",
+          "examples": ["Lifting a 10 kg box 2m high: Work = mgh = 10 × 10 × 2 = 200 J", "If you do 200 J of work in 4 seconds: Power = 200/4 = 50 W", "Carrying a book horizontally does zero physics work — force (up) is perpendicular to motion (forward)"],
+          "keyTerms": {"work": "Force applied over a distance in the direction of force; W = Fd", "power": "The rate of doing work; P = W/t, measured in Watts", "joule": "The SI unit of energy and work; 1 J = 1 N·m"},
+          "quiz": [
+            {"question": "How much work is done pushing a box with 20 N over 5 meters?", "options": ["100 J", "25 J", "4 J", "15 J"], "correct": 0, "explanation": "W = F × d = 20 × 5 = 100 J"},
+            {"question": "What is the power if 300 J of work is done in 10 seconds?", "options": ["30 W", "3000 W", "310 W", "3 W"], "correct": 0, "explanation": "P = W/t = 300/10 = 30 W"},
+            {"question": "Holding a heavy bag while standing still does how much work?", "options": ["Zero", "A lot", "Depends on the weight", "Negative work"], "correct": 0, "explanation": "No work is done because there is no movement (distance = 0)."}
+          ]
+        },
+        {
+          "title": "Heat and Temperature",
+          "content": "Temperature measures how hot or cold something is — it reflects the average kinetic energy of particles. Heat is the transfer of thermal energy from a hotter object to a cooler one. There are three ways heat transfers: conduction (through direct contact — a metal spoon in hot soup gets hot), convection (through fluid movement — hot air rises, cool air sinks), and radiation (through electromagnetic waves — the Sun warms Earth across space). Insulators like wood and plastic slow heat transfer; conductors like metal allow it easily.",
+          "examples": ["Conduction: touching a hot pan burns your hand — heat flows through contact", "Convection: boiling water — hot water rises, cool water sinks, creating circulation", "Radiation: you feel warmth from a campfire even without touching it — infrared radiation"],
+          "keyTerms": {"conduction": "Heat transfer through direct contact between materials", "convection": "Heat transfer through the movement of fluids (liquids or gases)", "radiation": "Heat transfer through electromagnetic waves, no medium needed"},
+          "quiz": [
+            {"question": "How does heat from the Sun reach Earth?", "options": ["Radiation", "Conduction", "Convection", "All three equally"], "correct": 0, "explanation": "Space is a vacuum — only radiation can travel through it."},
+            {"question": "Why do metal spoons get hot in soup but wooden ones don't?", "options": ["Metal is a better conductor", "Metal is a better insulator", "Wood absorbs heat", "Metal creates heat"], "correct": 0, "explanation": "Metal conducts heat easily; wood is an insulator."},
+            {"question": "In convection, hot fluid:", "options": ["Rises", "Sinks", "Stays still", "Disappears"], "correct": 0, "explanation": "Hot fluid is less dense and rises; cool fluid is denser and sinks."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Waves and Sound",
+      "lessons": [
+        {
+          "title": "Properties of Waves",
+          "content": "A wave is a disturbance that transfers energy without transferring matter. Transverse waves vibrate perpendicular to the direction of travel (like ripples on water). Longitudinal waves vibrate parallel to the direction of travel (like sound waves in air). Every wave has: amplitude (height — related to energy/loudness), wavelength (distance between two crests), frequency (how many waves pass per second, measured in Hertz), and speed. Wave speed = frequency × wavelength (v = fλ).",
+          "examples": ["A guitar string vibrates 440 times per second: frequency = 440 Hz (the note A)", "Ocean wave with wavelength 10m and frequency 0.5 Hz: speed = 0.5 × 10 = 5 m/s", "Light is a transverse wave; sound is a longitudinal wave"],
+          "keyTerms": {"amplitude": "The maximum displacement from rest position; relates to energy", "wavelength": "The distance between two consecutive crests or compressions", "frequency": "Number of complete waves per second, measured in Hertz (Hz)"},
+          "quiz": [
+            {"question": "A wave has frequency 10 Hz and wavelength 3 m. What is its speed?", "options": ["30 m/s", "13 m/s", "7 m/s", "3.3 m/s"], "correct": 0, "explanation": "v = f × λ = 10 × 3 = 30 m/s"},
+            {"question": "Sound is what type of wave?", "options": ["Longitudinal", "Transverse", "Neither", "Both"], "correct": 0, "explanation": "Sound waves are longitudinal — air particles vibrate back and forth parallel to the wave direction."},
+            {"question": "Increasing amplitude of a sound wave makes it:", "options": ["Louder", "Higher pitched", "Faster", "Lower pitched"], "correct": 0, "explanation": "Amplitude relates to loudness/volume, not pitch."}
+          ]
+        },
+        {
+          "title": "Sound",
+          "content": "Sound is produced by vibrating objects and travels as longitudinal waves through a medium (solid, liquid, or gas). Sound cannot travel through a vacuum — there are no particles to vibrate. Sound travels fastest through solids (~5000 m/s in steel), slower in liquids (~1500 m/s in water), and slowest in gases (~343 m/s in air at 20°C). Pitch is determined by frequency — high frequency means high pitch. Volume is determined by amplitude — larger amplitude means louder sound. The human ear can hear frequencies from about 20 Hz to 20,000 Hz.",
+          "examples": ["Thunder is heard after lightning because sound (343 m/s) is much slower than light (300,000,000 m/s)", "A dog whistle produces sounds above 20,000 Hz — too high for humans but audible to dogs", "Speaking into a cup and string phone: sound vibrations travel through the string (solid) to the other cup"],
+          "keyTerms": {"pitch": "How high or low a sound is, determined by frequency", "echo": "A reflected sound wave heard after a delay", "ultrasound": "Sound waves with frequency above 20,000 Hz, beyond human hearing"},
+          "quiz": [
+            {"question": "Why can't sound travel in space?", "options": ["No medium (particles) to vibrate", "Space is too cold", "Space is too large", "Sound only travels in solids"], "correct": 0, "explanation": "Sound needs a medium — space is a vacuum with no particles."},
+            {"question": "Sound travels fastest through:", "options": ["Solids", "Liquids", "Gases", "Vacuum"], "correct": 0, "explanation": "Particles in solids are closest together, transmitting vibrations fastest."},
+            {"question": "A higher frequency sound has a:", "options": ["Higher pitch", "Louder volume", "Slower speed", "Longer wavelength"], "correct": 0, "explanation": "Frequency determines pitch — higher frequency = higher pitch."}
+          ]
+        },
+        {
+          "title": "Light and the Electromagnetic Spectrum",
+          "content": "Light is an electromagnetic wave that travels at 300,000,000 m/s (the speed of light) and doesn't need a medium. The electromagnetic spectrum includes (from longest to shortest wavelength): radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays. Visible light is the small range we can see, split into colors: red (longest wavelength) through orange, yellow, green, blue, to violet (shortest wavelength). Reflection is light bouncing off a surface. Refraction is light bending as it passes from one medium to another (like from air into water).",
+          "examples": ["A prism splits white light into a rainbow — each color bends at a different angle (refraction)", "A mirror reflects light — angle of incidence equals angle of reflection", "Microwaves heat food by making water molecules vibrate rapidly"],
+          "keyTerms": {"reflection": "Light bouncing off a surface", "refraction": "Light bending when passing between different media", "electromagnetic spectrum": "The full range of electromagnetic waves from radio to gamma rays"},
+          "quiz": [
+            {"question": "Which has the longest wavelength?", "options": ["Radio waves", "Gamma rays", "Visible light", "X-rays"], "correct": 0, "explanation": "Radio waves have the longest wavelength in the EM spectrum."},
+            {"question": "What causes a straw to look bent in water?", "options": ["Refraction", "Reflection", "Diffraction", "Absorption"], "correct": 0, "explanation": "Light refracts (bends) as it passes from water to air, making the straw appear bent."},
+            {"question": "The speed of light is approximately:", "options": ["300,000,000 m/s", "343 m/s", "30,000 m/s", "3,000,000 m/s"], "correct": 0, "explanation": "Light travels at approximately 3 × 10⁸ m/s."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Electricity and Magnetism",
+      "lessons": [
+        {
+          "title": "Electric Circuits",
+          "content": "An electric circuit is a complete path through which electric current flows. Current is the flow of electric charge (electrons), measured in Amperes (A). Voltage is the push that drives the current, measured in Volts (V) — like water pressure in a pipe. Resistance opposes current flow, measured in Ohms (Ω). Ohm's Law relates them: V = IR (voltage = current × resistance). A series circuit has one path — if one component breaks, everything stops. A parallel circuit has multiple branches — each operates independently.",
+          "examples": ["A 12V battery pushes current through a 4Ω resistor: I = V/R = 12/4 = 3A", "Christmas lights in series: one bulb breaks, all go out", "House wiring is parallel: turning off one light doesn't affect others"],
+          "keyTerms": {"current": "The flow of electric charge, measured in Amperes (A)", "voltage": "The electrical potential difference that drives current, measured in Volts", "resistance": "Opposition to current flow, measured in Ohms (Ω)"},
+          "quiz": [
+            {"question": "Using V = IR, what current flows through a 6Ω resistor with 12V?", "options": ["2 A", "72 A", "18 A", "0.5 A"], "correct": 0, "explanation": "I = V/R = 12/6 = 2 A"},
+            {"question": "In a series circuit, the current is:", "options": ["The same everywhere", "Different at each point", "Zero", "Infinite"], "correct": 0, "explanation": "In series, there's only one path, so current is the same at every point."},
+            {"question": "House lights are wired in parallel so that:", "options": ["One can be off while others stay on", "They all must be on together", "They use less electricity", "They are brighter"], "correct": 0, "explanation": "Parallel wiring means each branch is independent."}
+          ]
+        },
+        {
+          "title": "Magnetism",
+          "content": "Magnets have two poles: north and south. Like poles repel (N-N or S-S push apart), opposite poles attract (N-S pull together). A magnetic field is the region around a magnet where magnetic forces act — field lines go from north to south pole. Earth itself is a giant magnet, which is why compass needles point north. An electromagnet is made by wrapping wire around an iron core and passing current through it — the magnetic field can be turned on and off. Electromagnets are used in motors, doorbells, speakers, and MRI machines.",
+          "examples": ["A compass needle aligns with Earth's magnetic field, pointing north", "An electromagnet in a scrapyard crane picks up metal cars — releasing current drops them", "Electric motors use electromagnets: current switches direction rapidly, spinning the shaft"],
+          "keyTerms": {"magnetic field": "The region around a magnet where magnetic forces can be detected", "electromagnet": "A magnet created by electric current flowing through a coil of wire", "poles": "The two ends of a magnet where the magnetic force is strongest"},
+          "quiz": [
+            {"question": "What happens when two north poles are brought together?", "options": ["They repel", "They attract", "Nothing happens", "They become neutral"], "correct": 0, "explanation": "Like poles (N-N or S-S) repel each other."},
+            {"question": "How can you make an electromagnet stronger?", "options": ["Increase the current or add more coils", "Decrease the current", "Remove the iron core", "Use plastic wire"], "correct": 0, "explanation": "More current or more coils increases the magnetic field strength."},
+            {"question": "A compass works because:", "options": ["Earth has a magnetic field", "Earth has gravity", "Compasses have batteries", "The needle is heavy"], "correct": 0, "explanation": "The magnetized needle aligns with Earth's magnetic field."}
+          ]
+        },
+        {
+          "title": "Static and Current Electricity",
+          "content": "Static electricity is the buildup of electric charge on a surface. When you rub a balloon on your hair, electrons transfer from your hair to the balloon, giving the balloon a negative charge and your hair a positive charge — they attract. Lightning is a massive static discharge between clouds and the ground. Current electricity is the continuous flow of charge through a conductor. Conductors (metals like copper) allow electrons to flow easily. Insulators (rubber, plastic, glass) resist the flow. Electrical energy powers our modern world — from lighting to computers to medical equipment.",
+          "examples": ["Rubbing feet on carpet and touching a doorknob: electrons discharge as a spark", "Lightning: massive charge difference between cloud and ground causes a giant spark", "Copper wires are used in electrical cables because copper is an excellent conductor"],
+          "keyTerms": {"static electricity": "Buildup of electric charge on a surface", "conductor": "A material that allows electric current to flow easily (metals)", "insulator": "A material that resists the flow of electric current (rubber, plastic)"},
+          "quiz": [
+            {"question": "When you rub a balloon on your hair, what transfers?", "options": ["Electrons", "Protons", "Neutrons", "Atoms"], "correct": 0, "explanation": "Electrons transfer from hair to balloon, creating static charge."},
+            {"question": "Which material is the best electrical conductor?", "options": ["Copper", "Rubber", "Glass", "Wood"], "correct": 0, "explanation": "Copper is a metal and an excellent conductor of electricity."},
+            {"question": "Lightning is an example of:", "options": ["Static discharge", "Current electricity", "Magnetism", "Conduction"], "correct": 0, "explanation": "Lightning is a massive static discharge between charged clouds and the ground."}
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import '../inference/ollama_engine.dart';
 import '../model/model_manager.dart';
 import '../tutor/tutor_pipeline.dart';
 import '../tutor/tutor_response.dart';
+import '../../curriculum/curriculum_provider.dart';
 import '../../db/providers/db_provider.dart';
 import '../../safety/emotional_safety.dart';
 
@@ -60,7 +61,9 @@ final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
 
 final tutorPipelineProvider = FutureProvider<TutorPipeline>((ref) async {
   final engine = await ref.watch(engineLoadedProvider.future);
-  return TutorPipeline(engine: engine);
+  final curriculum = ref.watch(curriculumServiceProvider);
+  await curriculum.loadAll();
+  return TutorPipeline(engine: engine, curriculum: curriculum);
 });
 
 // ── Chat state ───────────────────────────────────────────────────────────────

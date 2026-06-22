@@ -1,0 +1,160 @@
+{
+  "id": "web_development",
+  "name": "Web Development",
+  "icon": "web",
+  "color": "#0EA5E9",
+  "units": [
+    {
+      "title": "HTML Foundations",
+      "lessons": [
+        {
+          "title": "What is HTML and Web Pages",
+          "content": "HTML (HyperText Markup Language) is the language used to create web pages. Every website you visit is built with HTML. HTML uses tags to structure content — tags are keywords in angle brackets like <p> for paragraph, <h1> for heading. Most tags come in pairs: <p>This is text</p>. Every HTML page has a basic structure: <!DOCTYPE html>, <html>, <head> (metadata, title), and <body> (visible content). The browser reads the HTML and displays it as a web page. HTML is not a programming language — it's a markup language that structures content.",
+          "examples": ["<h1>Welcome to My Website</h1> — creates a large heading", "<p>This is a paragraph of text.</p> — creates a paragraph", "<img src='photo.jpg' alt='A photo'> — displays an image (self-closing tag)"],
+          "keyTerms": {"tag": "An HTML keyword in angle brackets that defines an element", "element": "An HTML tag plus its content: <p>text</p> is a paragraph element", "attribute": "Extra information added to a tag: src, alt, href, class, id"},
+          "quiz": [
+            {"question": "What does HTML stand for?", "options": ["HyperText Markup Language", "High Tech Modern Language", "Home Tool Markup Language", "HyperText Making Links"], "correct": 0, "explanation": "HTML = HyperText Markup Language — the standard language for web pages."},
+            {"question": "Which tag creates the largest heading?", "options": ["<h1>", "<h6>", "<p>", "<big>"], "correct": 0, "explanation": "h1 is the largest heading, h6 is the smallest."},
+            {"question": "Where does visible content go in HTML?", "options": ["Inside <body>", "Inside <head>", "Inside <title>", "Outside <html>"], "correct": 0, "explanation": "The <body> tag contains everything the user sees on the page."}
+          ]
+        },
+        {
+          "title": "Text, Links, and Images",
+          "content": "HTML provides tags for all content types. Headings: <h1> to <h6> (largest to smallest). Paragraphs: <p>. Bold: <strong> or <b>. Italic: <em> or <i>. Line break: <br>. Links use the anchor tag: <a href='https://example.com'>Click here</a> — the href attribute specifies the destination. Images: <img src='photo.jpg' alt='description'> — src is the file path, alt is the text shown if the image can't load (also used by screen readers). Lists: <ul> for unordered (bullets), <ol> for ordered (numbers), with <li> for each item.",
+          "examples": ["<a href='page2.html'>Go to page 2</a> — a link to another page", "<ul><li>Apples</li><li>Bananas</li></ul> — a bullet list", "<strong>Important:</strong> Always add alt text to images for accessibility"],
+          "keyTerms": {"anchor tag": "The <a> tag used to create hyperlinks with href attribute", "href": "The attribute specifying where a link goes", "alt text": "Alternative text for images — describes the image for accessibility"},
+          "quiz": [
+            {"question": "Which tag creates a hyperlink?", "options": ["<a>", "<link>", "<href>", "<url>"], "correct": 0, "explanation": "The <a> (anchor) tag with href attribute creates clickable links."},
+            {"question": "What does the alt attribute do on an image?", "options": ["Provides text description if image can't load", "Makes the image bigger", "Adds a border", "Links to another page"], "correct": 0, "explanation": "Alt text describes the image for screen readers and when images fail to load."},
+            {"question": "<ol> creates what type of list?", "options": ["Ordered (numbered)", "Unordered (bullets)", "Definition list", "No list"], "correct": 0, "explanation": "ol = ordered list (1, 2, 3...), ul = unordered list (bullets)."}
+          ]
+        },
+        {
+          "title": "Forms and Input",
+          "content": "HTML forms collect user input. The <form> tag wraps all form elements. Common input types: <input type='text'> for text, type='password' for hidden text, type='email' for email validation, type='number' for numbers, type='checkbox' for toggles, type='radio' for single-choice options. <textarea> creates a multi-line text box. <select> creates a dropdown menu with <option> items. <button type='submit'> submits the form. The <label> tag describes each input for accessibility. Forms send data to a server when submitted.",
+          "examples": ["<input type='text' placeholder='Enter your name'> — text field with hint", "<select><option>English</option><option>French</option></select> — dropdown", "<input type='checkbox' id='agree'> <label for='agree'>I agree</label> — checkbox with label"],
+          "keyTerms": {"form": "An HTML element that collects and sends user input", "input": "A form element for various types of user data entry", "placeholder": "Hint text shown inside an input field before the user types"},
+          "quiz": [
+            {"question": "Which input type hides what the user types?", "options": ["password", "hidden", "secret", "text"], "correct": 0, "explanation": "type='password' shows dots/asterisks instead of the actual characters."},
+            {"question": "What does <label> do?", "options": ["Describes an input for accessibility", "Creates a list", "Styles the form", "Submits the form"], "correct": 0, "explanation": "Labels describe inputs — clicking a label focuses its associated input."},
+            {"question": "Which tag creates a dropdown menu?", "options": ["<select>", "<dropdown>", "<menu>", "<list>"], "correct": 0, "explanation": "<select> with <option> children creates a dropdown menu."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "CSS Styling",
+      "lessons": [
+        {
+          "title": "Introduction to CSS",
+          "content": "CSS (Cascading Style Sheets) controls how HTML looks — colors, fonts, spacing, layout. CSS rules have a selector and declarations: h1 { color: blue; font-size: 24px; }. Three ways to add CSS: inline (style attribute on an element), internal (<style> tag in <head>), or external (separate .css file linked with <link>). External is best — one file styles the entire website. Colors can be named (red), hex (#FF0000), or RGB (rgb(255,0,0)). The cascade means later styles override earlier ones, and more specific selectors win.",
+          "examples": ["p { color: #333; font-size: 16px; line-height: 1.6; } — styles all paragraphs", "body { background-color: #f0f0f0; font-family: Arial, sans-serif; }", "<link rel='stylesheet' href='styles.css'> — links an external CSS file"],
+          "keyTerms": {"selector": "The part of a CSS rule that targets HTML elements to style", "property": "What aspect to change (color, font-size, margin, padding)", "cascade": "The system that determines which styles win when rules conflict"},
+          "quiz": [
+            {"question": "What does CSS stand for?", "options": ["Cascading Style Sheets", "Computer Style System", "Creative Site Styling", "Code Style Sheets"], "correct": 0, "explanation": "CSS = Cascading Style Sheets — it styles HTML content."},
+            {"question": "Which is the best way to add CSS?", "options": ["External stylesheet", "Inline styles", "Internal <style> tag", "JavaScript"], "correct": 0, "explanation": "External CSS files keep styling separate and can be reused across pages."},
+            {"question": "What color is #FF0000?", "options": ["Red", "Blue", "Green", "White"], "correct": 0, "explanation": "FF in the red channel, 00 in green and blue = pure red."}
+          ]
+        },
+        {
+          "title": "Box Model and Layout",
+          "content": "Every HTML element is a rectangular box with four layers: content (the actual text/image), padding (space between content and border), border (the edge of the box), and margin (space outside the border). Control size with width and height. Display property controls layout: block elements (div, p, h1) take full width; inline elements (span, a, strong) only take needed width. Flexbox (display: flex) makes layout easy — arrange items in rows or columns, center them, and distribute space. Grid (display: grid) creates two-dimensional layouts with rows and columns.",
+          "examples": ["div { padding: 20px; margin: 10px; border: 1px solid black; } — box model", ".container { display: flex; justify-content: center; align-items: center; } — centers children", ".grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; } — 3 equal columns"],
+          "keyTerms": {"box model": "Content + padding + border + margin = the full space an element takes", "flexbox": "A CSS layout mode for arranging items in rows or columns flexibly", "margin": "Space outside an element's border, creating distance from other elements"},
+          "quiz": [
+            {"question": "In the box model, what is between content and border?", "options": ["Padding", "Margin", "Width", "Display"], "correct": 0, "explanation": "Padding is the space between the content and the border."},
+            {"question": "display: flex makes an element a:", "options": ["Flex container for flexible layout", "Block element", "Hidden element", "Fixed element"], "correct": 0, "explanation": "display: flex turns an element into a flex container, enabling flexible child layout."},
+            {"question": "What does margin: auto do on a block element with set width?", "options": ["Centers it horizontally", "Removes all margins", "Makes it full width", "Hides it"], "correct": 0, "explanation": "Auto margins distribute remaining space equally, centering the element."}
+          ]
+        },
+        {
+          "title": "Responsive Design",
+          "content": "Responsive design makes websites work on all screen sizes — phones, tablets, and desktops. Use the viewport meta tag: <meta name='viewport' content='width=device-width, initial-scale=1'>. Media queries apply different CSS at different screen widths: @media (max-width: 768px) { ... } targets screens 768px or narrower. Use relative units: % and vw/vh instead of fixed px. Flexbox and Grid naturally adapt. Mobile-first design means writing mobile styles first, then adding complexity for larger screens. Test on real devices or browser developer tools.",
+          "examples": ["@media (max-width: 600px) { .sidebar { display: none; } } — hides sidebar on mobile", "img { max-width: 100%; height: auto; } — images scale to fit their container", ".container { width: 90%; max-width: 1200px; margin: auto; } — responsive centered container"],
+          "keyTerms": {"responsive design": "Building websites that adapt to different screen sizes", "media query": "CSS rule that applies styles only at certain screen widths", "viewport": "The visible area of a web page on a device screen"},
+          "quiz": [
+            {"question": "What does @media (max-width: 768px) target?", "options": ["Screens 768px wide or smaller", "Screens larger than 768px", "All screens", "Print only"], "correct": 0, "explanation": "max-width: 768px means the styles apply when the screen is 768px or narrower."},
+            {"question": "Why use % instead of px for widths?", "options": ["Elements scale with screen size", "It's faster", "It's required", "It looks better"], "correct": 0, "explanation": "Percentage widths adapt to the parent container size, making layouts responsive."},
+            {"question": "Mobile-first design means:", "options": ["Write mobile styles first, then add desktop styles", "Only support mobile", "Desktop styles first", "Ignore mobile users"], "correct": 0, "explanation": "Start with mobile layout, then use media queries to enhance for larger screens."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "JavaScript Basics",
+      "lessons": [
+        {
+          "title": "Variables and Functions in JS",
+          "content": "JavaScript makes web pages interactive. Declare variables with let (changeable) or const (fixed): let score = 0; const name = 'Otic';. Data types: strings ('hello'), numbers (42), booleans (true/false), arrays ([1,2,3]), objects ({name: 'Alice', age: 15}). Functions: function greet(name) { return 'Hello ' + name; } or arrow syntax: const greet = (name) => 'Hello ' + name;. JavaScript runs in the browser — add it with <script> tags or link an external .js file. Console.log() prints output for debugging.",
+          "examples": ["let count = 0; count++; // count is now 1", "const add = (a, b) => a + b; console.log(add(3, 5)); // 8", "const fruits = ['apple', 'banana']; fruits.push('cherry'); // adds to array"],
+          "keyTerms": {"let": "Declares a variable whose value can be reassigned", "const": "Declares a variable whose value cannot be reassigned", "arrow function": "Short function syntax: (params) => expression"},
+          "quiz": [
+            {"question": "What is the difference between let and const?", "options": ["let can be reassigned, const cannot", "const can be reassigned, let cannot", "They are the same", "let is for numbers, const for strings"], "correct": 0, "explanation": "let allows reassignment; const creates a constant that can't be changed."},
+            {"question": "How do you add an item to an array in JS?", "options": [".push()", ".append()", ".add()", ".insert()"], "correct": 0, "explanation": "array.push(item) adds an item to the end in JavaScript."},
+            {"question": "Where does JavaScript run?", "options": ["In the web browser", "On the server only", "In a database", "In CSS files"], "correct": 0, "explanation": "JavaScript runs in the browser to make web pages interactive (also on servers with Node.js)."}
+          ]
+        },
+        {
+          "title": "DOM Manipulation",
+          "content": "The DOM (Document Object Model) is the browser's representation of your HTML as objects that JavaScript can read and change. Select elements: document.getElementById('myId'), document.querySelector('.myClass'), document.querySelectorAll('p'). Change content: element.textContent = 'New text'; or element.innerHTML = '<b>Bold</b>';. Change styles: element.style.color = 'red';. Add/remove classes: element.classList.add('active');. Create elements: document.createElement('p'); and add them: parent.appendChild(newElement);. The DOM lets you update the page without reloading.",
+          "examples": ["document.getElementById('title').textContent = 'Welcome!'; — changes heading text", "document.querySelector('.btn').style.backgroundColor = '#4F46E5'; — changes button color", "const li = document.createElement('li'); li.textContent = 'New item'; list.appendChild(li); — adds list item"],
+          "keyTerms": {"DOM": "Document Object Model — the browser's tree representation of HTML elements", "querySelector": "A method to select the first element matching a CSS selector", "innerHTML": "Property to get or set the HTML content inside an element"},
+          "quiz": [
+            {"question": "What does DOM stand for?", "options": ["Document Object Model", "Data Output Method", "Digital Object Manager", "Document Online Map"], "correct": 0, "explanation": "DOM = Document Object Model — the browser's tree of HTML elements."},
+            {"question": "How do you select an element with id='header'?", "options": ["document.getElementById('header')", "document.getElement('header')", "document.find('header')", "document.header"], "correct": 0, "explanation": "getElementById selects a single element by its unique id attribute."},
+            {"question": "element.textContent = 'Hello' does what?", "options": ["Changes the text inside the element", "Creates a new element", "Deletes the element", "Adds a class"], "correct": 0, "explanation": "textContent sets the text content of an element, replacing whatever was there."}
+          ]
+        },
+        {
+          "title": "Events and Interactivity",
+          "content": "Events are things that happen on a web page — clicks, key presses, form submissions, page loads. JavaScript listens for events and responds. Add event listeners: button.addEventListener('click', function() { alert('Clicked!'); });. Common events: click, mouseover, mouseout, keydown, keyup, submit, load, scroll. Event handlers can change the page, validate forms, show/hide elements, and more. The event object contains information about what happened: event.target (the element clicked), event.key (the key pressed). Prevent default behavior with event.preventDefault() — useful for form submission.",
+          "examples": ["btn.addEventListener('click', () => { count++; display.textContent = count; }); — click counter", "form.addEventListener('submit', (e) => { e.preventDefault(); // handle form data }); — prevent page reload", "input.addEventListener('keyup', () => { results.textContent = input.value.toUpperCase(); }); — live transform"],
+          "keyTerms": {"event listener": "Code that waits for a specific event and runs a function when it occurs", "event": "An action or occurrence on a page: click, keypress, submit, load", "preventDefault": "Stops the browser's default behavior for an event"},
+          "quiz": [
+            {"question": "What method attaches an event handler to an element?", "options": ["addEventListener()", "onClick()", "attachEvent()", "handleEvent()"], "correct": 0, "explanation": "addEventListener('event', callback) is the standard way to listen for events."},
+            {"question": "event.preventDefault() is commonly used with:", "options": ["Form submissions to prevent page reload", "Clicks to prevent scrolling", "Images to prevent loading", "Links to prevent styling"], "correct": 0, "explanation": "Forms normally reload the page on submit — preventDefault stops this."},
+            {"question": "Which event fires when a user presses a key?", "options": ["keydown", "click", "submit", "load"], "correct": 0, "explanation": "keydown fires when a key is pressed; keyup fires when released."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Building Websites",
+      "lessons": [
+        {
+          "title": "Project Structure",
+          "content": "A well-organized website has a clear folder structure. The root folder contains index.html (the homepage), a css/ folder for stylesheets, a js/ folder for JavaScript files, and an images/ folder for media. Use relative paths to link files: <link rel='stylesheet' href='css/style.css'>. Naming conventions: lowercase, hyphens instead of spaces (my-page.html). Every page needs: DOCTYPE declaration, html lang attribute, meta charset, viewport meta tag, a descriptive title, and linked CSS/JS files. Semantic HTML uses meaningful tags: <header>, <nav>, <main>, <section>, <article>, <footer> instead of generic <div> everywhere.",
+          "examples": ["project/\\n  index.html\\n  css/style.css\\n  js/app.js\\n  images/logo.png", "<header><nav>Menu</nav></header><main><article>Content</article></main><footer>© 2024</footer>", "<meta charset='UTF-8'>\\n<meta name='viewport' content='width=device-width, initial-scale=1'>"],
+          "keyTerms": {"semantic HTML": "Using meaningful tags (header, nav, main, footer) instead of generic divs", "relative path": "A file path relative to the current file location (css/style.css)", "index.html": "The default homepage file that servers look for in a directory"},
+          "quiz": [
+            {"question": "What is the standard filename for a website's homepage?", "options": ["index.html", "home.html", "main.html", "page1.html"], "correct": 0, "explanation": "index.html is the convention — servers automatically serve it as the default page."},
+            {"question": "Which is a semantic HTML tag?", "options": ["<nav>", "<div>", "<span>", "<b>"], "correct": 0, "explanation": "nav, header, main, footer are semantic — they describe their content's purpose."},
+            {"question": "Where should CSS files typically be placed?", "options": ["In a css/ folder", "In the root folder", "Inside HTML files only", "In the images/ folder"], "correct": 0, "explanation": "A css/ folder keeps stylesheets organized and separate from HTML."}
+          ]
+        },
+        {
+          "title": "Version Control with Git",
+          "content": "Git tracks changes to your code over time. Initialize: git init. Stage changes: git add filename. Commit (save snapshot): git commit -m 'Added navigation bar'. View history: git log. GitHub is an online platform to store and share Git repositories. Push to GitHub: git push. Pull changes: git pull. Branches let you work on features without affecting the main code: git branch feature-name, git checkout feature-name. When the feature is ready, merge it back. Git is essential for teamwork — multiple people can work on the same project without conflicts.",
+          "examples": ["git init — creates a new Git repository in the current folder", "git add . && git commit -m 'Initial commit' — stages all files and commits", "git checkout -b new-feature — creates and switches to a new branch"],
+          "keyTerms": {"repository": "A folder tracked by Git, containing all files and their change history", "commit": "A saved snapshot of your project at a point in time", "branch": "A parallel version of the code for developing features independently"},
+          "quiz": [
+            {"question": "What does 'git commit' do?", "options": ["Saves a snapshot of staged changes", "Uploads code to the internet", "Deletes old files", "Downloads code"], "correct": 0, "explanation": "A commit saves the current state of staged files as a snapshot in history."},
+            {"question": "What is GitHub?", "options": ["An online platform to host Git repositories", "A programming language", "A web browser", "A text editor"], "correct": 0, "explanation": "GitHub stores Git repositories online for sharing, collaboration, and backup."},
+            {"question": "Why use branches?", "options": ["To work on features without affecting the main code", "To delete files", "To speed up the website", "To change the domain name"], "correct": 0, "explanation": "Branches isolate new work — merge back when it's ready and tested."}
+          ]
+        },
+        {
+          "title": "Deploying Your Website",
+          "content": "Deployment means putting your website on the internet for everyone to see. Static sites (HTML/CSS/JS only) can be hosted for free on GitHub Pages, Netlify, or Vercel. Steps for GitHub Pages: push code to GitHub, go to Settings → Pages, select the branch. Your site is live at username.github.io/repo-name. For custom domains, buy a domain name and point it to your host. Test before deploying: check all links work, images load, responsive design works on mobile. Use browser developer tools (F12) to test and debug. Performance matters: optimize images, minimize CSS/JS, use caching.",
+          "examples": ["GitHub Pages: push to main branch → Settings → Pages → site is live in minutes", "Netlify: drag and drop your project folder → site deployed with free HTTPS", "Custom domain: buy example.com → set DNS to point to your host → site available at example.com"],
+          "keyTerms": {"deployment": "Publishing a website to a server so it's accessible on the internet", "hosting": "A service that stores your website files and serves them to visitors", "domain": "The web address people type to visit your site (e.g., example.com)"},
+          "quiz": [
+            {"question": "Which service offers free static website hosting?", "options": ["GitHub Pages", "Microsoft Word", "Photoshop", "Excel"], "correct": 0, "explanation": "GitHub Pages hosts static sites (HTML/CSS/JS) for free directly from a repository."},
+            {"question": "What is deployment?", "options": ["Publishing a website to the internet", "Writing HTML code", "Designing a logo", "Buying a computer"], "correct": 0, "explanation": "Deployment is the process of putting your finished website online for public access."},
+            {"question": "What should you check before deploying?", "options": ["Links, images, responsive design all work", "Only the homepage", "Nothing — just deploy", "Only desktop view"], "correct": 0, "explanation": "Test everything: links, images, mobile view, forms, and performance before going live."}
+          ]
+        }
+      ]
+    }
+  ]
+}

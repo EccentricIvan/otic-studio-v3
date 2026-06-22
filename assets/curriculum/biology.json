@@ -1,0 +1,160 @@
+{
+  "id": "biology",
+  "name": "Biology",
+  "icon": "biotech",
+  "color": "#10B981",
+  "units": [
+    {
+      "title": "Cells and Life",
+      "lessons": [
+        {
+          "title": "Cell Structure",
+          "content": "All living things are made of cells. Plant cells have a cell wall, chloroplasts (for photosynthesis), and a large central vacuole. Animal cells lack these but share organelles: the nucleus (contains DNA), mitochondria (produce energy), ribosomes (make proteins), endoplasmic reticulum (transport), and cell membrane (controls entry/exit). Prokaryotic cells (bacteria) are simpler with no nucleus. Eukaryotic cells (plants, animals) have a defined nucleus and membrane-bound organelles.",
+          "examples": ["Red blood cells lack a nucleus to carry more haemoglobin", "Plant cells are rigid due to the cell wall; animal cells are flexible", "Mitochondria are called the 'powerhouse' because they produce ATP energy"],
+          "keyTerms": {"nucleus": "The control center containing DNA", "mitochondria": "Organelles that produce energy (ATP) through respiration", "cell membrane": "A selectively permeable barrier surrounding the cell"},
+          "quiz": [
+            {"question": "Which organelle is found in plant cells but NOT animal cells?", "options": ["Chloroplast", "Mitochondria", "Nucleus", "Ribosome"], "correct": 0, "explanation": "Chloroplasts carry out photosynthesis — only plant cells have them."},
+            {"question": "What is the function of mitochondria?", "options": ["Produce energy (ATP)", "Store water", "Make proteins", "Control the cell"], "correct": 0, "explanation": "Mitochondria break down glucose to produce ATP energy."},
+            {"question": "Bacteria are classified as:", "options": ["Prokaryotic", "Eukaryotic", "Plant cells", "Viral"], "correct": 0, "explanation": "Bacteria are prokaryotes — they lack a membrane-bound nucleus."}
+          ]
+        },
+        {
+          "title": "Photosynthesis and Respiration",
+          "content": "Photosynthesis is how plants make food: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂. It happens in chloroplasts using chlorophyll to absorb light. Cellular respiration is the reverse — cells break down glucose to release energy: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP. Aerobic respiration uses oxygen. Anaerobic respiration works without oxygen, producing lactic acid (animals) or ethanol (yeast/fermentation) but less energy.",
+          "examples": ["Leaves are green because chlorophyll reflects green light and absorbs red/blue", "You breathe faster during exercise because muscles need more oxygen for respiration", "Bread rises because yeast produces CO₂ through anaerobic respiration (fermentation)"],
+          "keyTerms": {"photosynthesis": "Process where plants convert light energy into glucose using CO₂ and water", "cellular respiration": "Process of breaking down glucose to release energy (ATP)", "chlorophyll": "Green pigment in chloroplasts that absorbs light for photosynthesis"},
+          "quiz": [
+            {"question": "What gas do plants absorb during photosynthesis?", "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"], "correct": 0, "explanation": "Plants take in CO₂ and release O₂ during photosynthesis."},
+            {"question": "Where does photosynthesis occur?", "options": ["Chloroplasts", "Mitochondria", "Nucleus", "Cell membrane"], "correct": 0, "explanation": "Chloroplasts contain chlorophyll and are the site of photosynthesis."},
+            {"question": "Anaerobic respiration in yeast produces:", "options": ["Ethanol and CO₂", "Lactic acid only", "Oxygen", "Water only"], "correct": 0, "explanation": "Yeast fermentation produces ethanol (alcohol) and carbon dioxide."}
+          ]
+        },
+        {
+          "title": "Cell Division",
+          "content": "Cells divide to grow and repair. Mitosis produces two identical cells — DNA copies, then the cell splits. Stages: G1 (growth), S (DNA copies), G2 (preparation), M (mitosis — prophase, metaphase, anaphase, telophase). Meiosis produces four cells with half the chromosomes (gametes: sperm/egg). This is essential for sexual reproduction. Cancer occurs when cell division becomes uncontrolled due to mutations in genes that regulate the cell cycle.",
+          "examples": ["Skin cells divide by mitosis every 2-3 weeks to replace old cells", "Humans have 46 chromosomes; gametes (sperm/egg) have 23 each", "A fertilized egg (46 chromosomes) divides by mitosis to form an entire human body"],
+          "keyTerms": {"mitosis": "Cell division producing two identical daughter cells", "meiosis": "Cell division producing four gametes with half the chromosomes", "chromosome": "A structure of tightly coiled DNA carrying genetic information"},
+          "quiz": [
+            {"question": "Mitosis produces how many daughter cells?", "options": ["2", "4", "1", "8"], "correct": 0, "explanation": "Mitosis produces two genetically identical daughter cells."},
+            {"question": "Gametes (sex cells) are produced by:", "options": ["Meiosis", "Mitosis", "Photosynthesis", "Respiration"], "correct": 0, "explanation": "Meiosis halves the chromosome number to produce gametes."},
+            {"question": "Human body cells have how many chromosomes?", "options": ["46", "23", "92", "12"], "correct": 0, "explanation": "Humans have 23 pairs = 46 chromosomes in body cells."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Human Body Systems",
+      "lessons": [
+        {
+          "title": "Digestive System",
+          "content": "Digestion breaks food into absorbable nutrients. It starts in the mouth (teeth chew, saliva has amylase for starch). The oesophagus pushes food down via peristalsis. The stomach uses hydrochloric acid and pepsin to digest proteins. The small intestine is where most absorption occurs — villi increase surface area enormously. The liver produces bile to emulsify fats. The pancreas releases enzymes. The large intestine absorbs water, and waste exits as faeces.",
+          "examples": ["Chewing a cracker for 30 seconds makes it taste sweet — amylase breaks starch into sugar", "The small intestine is about 6 meters long, providing huge surface area for absorption", "Bile from the liver breaks large fat droplets into tiny ones (emulsification) so enzymes work faster"],
+          "keyTerms": {"peristalsis": "Wave-like muscle contractions that push food through the digestive tract", "villi": "Tiny finger-like projections in the small intestine that increase absorption surface area", "enzyme": "A biological catalyst that speeds up chemical reactions in the body"},
+          "quiz": [
+            {"question": "Where does most nutrient absorption occur?", "options": ["Small intestine", "Stomach", "Large intestine", "Mouth"], "correct": 0, "explanation": "The small intestine has villi that absorb nutrients into the blood."},
+            {"question": "What does bile do?", "options": ["Emulsifies fats", "Digests proteins", "Absorbs water", "Kills bacteria"], "correct": 0, "explanation": "Bile breaks large fat globules into smaller droplets."},
+            {"question": "Which enzyme breaks down starch?", "options": ["Amylase", "Pepsin", "Lipase", "Bile"], "correct": 0, "explanation": "Amylase (in saliva and pancreas) breaks starch into sugars."}
+          ]
+        },
+        {
+          "title": "Circulatory System",
+          "content": "The heart pumps blood through the body. It has four chambers: right atrium/ventricle (pump to lungs for oxygen) and left atrium/ventricle (pump oxygenated blood to body). Arteries carry blood away from the heart (thick walls, high pressure). Veins carry blood back (thin walls, valves). Capillaries are tiny vessels where exchange occurs — O₂ and nutrients diffuse to cells, CO₂ and waste enter blood. Red blood cells carry oxygen using haemoglobin. White blood cells fight infections. Platelets help blood clot.",
+          "examples": ["The heart beats about 100,000 times per day, pumping 7,500 litres of blood", "Arteries have thick muscular walls to withstand high pressure from the heart", "If you cut yourself, platelets stick together to form a clot and stop bleeding"],
+          "keyTerms": {"artery": "Blood vessel carrying blood away from the heart", "vein": "Blood vessel carrying blood back to the heart", "haemoglobin": "Protein in red blood cells that binds and carries oxygen"},
+          "quiz": [
+            {"question": "Which chamber pumps blood to the whole body?", "options": ["Left ventricle", "Right ventricle", "Left atrium", "Right atrium"], "correct": 0, "explanation": "The left ventricle has the thickest wall and pumps oxygenated blood to the body."},
+            {"question": "What carries oxygen in the blood?", "options": ["Haemoglobin in red blood cells", "White blood cells", "Platelets", "Plasma"], "correct": 0, "explanation": "Haemoglobin is a protein in red blood cells that binds oxygen."},
+            {"question": "Veins have valves to:", "options": ["Prevent blood flowing backward", "Speed up blood flow", "Filter blood", "Add oxygen"], "correct": 0, "explanation": "Valves ensure blood flows in one direction — back toward the heart."}
+          ]
+        },
+        {
+          "title": "Nervous System",
+          "content": "The nervous system coordinates the body using electrical signals. The CNS (brain and spinal cord) processes information. The peripheral nervous system connects the CNS to the body via nerves. Neurons transmit signals: sensory neurons (receptors to CNS), relay neurons (within CNS), motor neurons (CNS to muscles/glands). A reflex arc is automatic: stimulus → receptor → sensory neuron → relay neuron → motor neuron → effector. Reflexes bypass the brain for speed — pulling your hand from something hot happens before you feel pain.",
+          "examples": ["Touching a hot stove triggers a reflex — your hand moves before your brain processes pain", "The brain has different regions: cerebrum (thinking), cerebellum (balance), medulla (breathing, heartbeat)", "Nerve impulses travel at up to 120 m/s — much faster than any chemical signal"],
+          "keyTerms": {"neuron": "A nerve cell that transmits electrical signals", "reflex arc": "An automatic, rapid nervous pathway that bypasses the brain", "synapse": "The tiny gap between neurons where chemical signals cross"},
+          "quiz": [
+            {"question": "What type of neuron carries signals FROM receptors TO the CNS?", "options": ["Sensory neuron", "Motor neuron", "Relay neuron", "Effector neuron"], "correct": 0, "explanation": "Sensory neurons detect stimuli and carry signals to the brain/spinal cord."},
+            {"question": "Why are reflexes fast?", "options": ["They bypass the brain", "They use hormones", "They are voluntary", "They don't use neurons"], "correct": 0, "explanation": "Reflex arcs go through the spinal cord, not the brain, saving time."},
+            {"question": "The CNS consists of:", "options": ["Brain and spinal cord", "Nerves only", "Heart and lungs", "Muscles and bones"], "correct": 0, "explanation": "The Central Nervous System is the brain and spinal cord."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ecology",
+      "lessons": [
+        {
+          "title": "Ecosystems and Food Chains",
+          "content": "An ecosystem includes all organisms and their physical environment. Producers (plants) make food via photosynthesis. Primary consumers (herbivores) eat plants. Secondary consumers eat herbivores. Tertiary consumers eat other carnivores. Decomposers break down dead matter. A food chain shows energy flow: grass → rabbit → fox. A food web shows interconnected chains. Only about 10% of energy transfers between levels — the rest is lost as heat through respiration.",
+          "examples": ["In a pond: algae → tadpole → fish → heron", "Removing one species affects the whole food web — if foxes disappear, rabbits overpopulate", "There are always fewer top predators because each level loses 90% of energy"],
+          "keyTerms": {"producer": "An organism that makes its own food (plants, algae)", "consumer": "An organism that eats other organisms for energy", "decomposer": "An organism that breaks down dead matter, recycling nutrients"},
+          "quiz": [
+            {"question": "In a food chain, where does energy originally come from?", "options": ["The Sun", "Soil", "Water", "Air"], "correct": 0, "explanation": "Plants capture the Sun's energy through photosynthesis — all food chains start here."},
+            {"question": "Why are there fewer top predators than herbivores?", "options": ["Only 10% of energy transfers between levels", "Predators eat less", "Herbivores reproduce faster", "Predators need less space"], "correct": 0, "explanation": "90% of energy is lost at each level, so less energy is available for top predators."},
+            {"question": "What role do decomposers play?", "options": ["Recycle nutrients back into the soil", "Produce oxygen", "Eat live plants", "Create energy from sunlight"], "correct": 0, "explanation": "Decomposers break down dead organisms, returning nutrients to the ecosystem."}
+          ]
+        },
+        {
+          "title": "Adaptation and Natural Selection",
+          "content": "Organisms have adaptations that help them survive. Structural: cactus spines reduce water loss. Behavioural: birds migrate for food. Physiological: camels tolerate high temperatures. Natural selection (Darwin): individuals with beneficial traits survive and reproduce more, passing those traits on. Over generations, populations evolve. Evidence includes fossils, DNA comparisons, and similar bone structures across species (homologous structures like human arm, whale flipper, bat wing).",
+          "examples": ["Peppered moths: dark moths survived better in polluted (dark) areas — natural selection in action", "Arctic foxes have white fur in winter (camouflage) and brown in summer", "Antibiotic-resistant bacteria evolve because resistant individuals survive and reproduce"],
+          "keyTerms": {"natural selection": "Survival and reproduction of organisms best adapted to their environment", "adaptation": "A trait that helps an organism survive in its environment", "evolution": "Change in inherited characteristics of a population over generations"},
+          "quiz": [
+            {"question": "What drives natural selection?", "options": ["Variation and survival of the fittest", "Random chance only", "Human intervention", "Environmental stability"], "correct": 0, "explanation": "Individuals with advantageous traits survive more and pass those traits to offspring."},
+            {"question": "A polar bear's white fur is an example of:", "options": ["Structural adaptation", "Behavioural adaptation", "Physiological adaptation", "Mutation"], "correct": 0, "explanation": "White fur is a physical (structural) feature that provides camouflage in snow."},
+            {"question": "Antibiotic resistance in bacteria is evidence of:", "options": ["Evolution by natural selection", "Intelligent design", "Spontaneous generation", "Photosynthesis"], "correct": 0, "explanation": "Bacteria with resistance genes survive antibiotics and reproduce — evolution in action."}
+          ]
+        },
+        {
+          "title": "Human Impact on Environment",
+          "content": "Humans affect the environment through deforestation (habitat loss, less CO₂ absorption), burning fossil fuels (greenhouse gases cause global warming), pollution (air, water, soil), and overexploitation of resources. Global warming leads to rising sea levels, extreme weather, and biodiversity loss. Conservation includes protected areas, recycling, renewable energy, reforestation, and reducing plastic. Sustainable development means meeting current needs without compromising future generations' ability to meet theirs.",
+          "examples": ["The Amazon rainforest produces 20% of the world's oxygen — deforestation threatens this", "Plastic in oceans kills over 100,000 marine animals per year", "Solar panels and wind turbines produce energy without greenhouse gas emissions"],
+          "keyTerms": {"greenhouse effect": "Gases in the atmosphere trap heat, warming the Earth", "biodiversity": "The variety of living species in an ecosystem", "sustainable development": "Development that meets present needs without harming future generations"},
+          "quiz": [
+            {"question": "Which gas is the main cause of global warming?", "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Helium"], "correct": 0, "explanation": "CO₂ from burning fossil fuels is the primary greenhouse gas driving climate change."},
+            {"question": "Deforestation contributes to climate change because:", "options": ["Fewer trees means less CO₂ is absorbed", "Trees produce CO₂", "Trees block sunlight", "Trees cause flooding"], "correct": 0, "explanation": "Trees absorb CO₂ — removing them means more CO₂ stays in the atmosphere."},
+            {"question": "Which is a renewable energy source?", "options": ["Solar power", "Coal", "Natural gas", "Oil"], "correct": 0, "explanation": "Solar energy is renewable — the sun provides unlimited energy without emissions."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Genetics",
+      "lessons": [
+        {
+          "title": "DNA and Genes",
+          "content": "DNA is a double helix molecule carrying genetic instructions. It uses four bases: Adenine (A) pairs with Thymine (T), Guanine (G) pairs with Cytosine (C). A gene is a section of DNA coding for a protein. Humans have ~20,000 genes on 23 pairs of chromosomes (46 total). The sequence of bases determines which proteins are made, and proteins control traits and body functions. The Human Genome Project mapped all human DNA by 2003.",
+          "examples": ["Identical twins have the same DNA — that's why they look alike", "A mutation (change in DNA sequence) can cause diseases like sickle cell anaemia", "DNA fingerprinting uses unique DNA patterns to identify individuals in forensics"],
+          "keyTerms": {"DNA": "Deoxyribonucleic acid — the molecule carrying genetic code", "gene": "A section of DNA that codes for a specific protein", "mutation": "A change in the DNA sequence that may alter the protein produced"},
+          "quiz": [
+            {"question": "In DNA, adenine pairs with:", "options": ["Thymine", "Guanine", "Cytosine", "Uracil"], "correct": 0, "explanation": "A-T and G-C are the base pairing rules in DNA."},
+            {"question": "How many chromosomes do human body cells have?", "options": ["46", "23", "92", "12"], "correct": 0, "explanation": "Humans have 23 pairs = 46 chromosomes."},
+            {"question": "What does a gene code for?", "options": ["A protein", "A chromosome", "A cell", "An organ"], "correct": 0, "explanation": "Genes contain instructions to build specific proteins."}
+          ]
+        },
+        {
+          "title": "Inheritance",
+          "content": "Traits pass from parents to offspring through alleles (versions of a gene). Dominant alleles (capital B) show their trait with one copy. Recessive alleles (lowercase b) need two copies. Homozygous = same alleles (BB or bb). Heterozygous = different alleles (Bb). A Punnett square predicts offspring. If both parents are Bb: 25% BB, 50% Bb, 25% bb — phenotype ratio 3:1. Some traits are codominant (both alleles show) or sex-linked (carried on X chromosome).",
+          "examples": ["Brown eyes (B) are dominant over blue eyes (b) — Bb gives brown eyes", "Two brown-eyed parents (both Bb) can have a blue-eyed child (bb) — 25% chance", "Colour blindness is X-linked recessive — more common in males (XᵇY) than females (need XᵇXᵇ)"],
+          "keyTerms": {"dominant": "An allele that shows its trait with just one copy", "recessive": "An allele that only shows when two copies are present", "genotype": "The combination of alleles an organism has (e.g., Bb)"},
+          "quiz": [
+            {"question": "If both parents are Bb, what fraction of offspring will be bb?", "options": ["1/4 (25%)", "1/2 (50%)", "3/4 (75%)", "0%"], "correct": 0, "explanation": "Punnett square: BB, Bb, Bb, bb — one out of four is bb."},
+            {"question": "A heterozygous organism has:", "options": ["Two different alleles (e.g., Bb)", "Two same alleles (e.g., BB)", "No alleles", "Three alleles"], "correct": 0, "explanation": "Hetero means different — one dominant and one recessive allele."},
+            {"question": "Which is the genotype, which is the phenotype? Bb = brown eyes", "options": ["Bb is genotype, brown eyes is phenotype", "Brown eyes is genotype, Bb is phenotype", "Both are genotypes", "Both are phenotypes"], "correct": 0, "explanation": "Genotype = alleles (Bb), phenotype = observable trait (brown eyes)."}
+          ]
+        },
+        {
+          "title": "Evolution Evidence",
+          "content": "Evidence for evolution includes: fossils showing species change over time, comparative anatomy (homologous structures like human arm and whale flipper share bone patterns), embryology (embryos of different species look similar early in development), DNA comparisons (more similar DNA = more closely related species), and direct observation (bacteria evolving antibiotic resistance). All life shares common ancestors — the tree of life shows how species diverged over billions of years through natural selection and genetic drift.",
+          "examples": ["Horse fossils show gradual change from small multi-toed ancestors to large single-hooved modern horses", "Humans and chimpanzees share 98.7% of their DNA — our closest living relatives", "Darwin's finches on the Galapagos Islands evolved different beak shapes for different food sources"],
+          "keyTerms": {"fossil": "Preserved remains or traces of ancient organisms", "homologous structures": "Similar bone structures in different species suggesting common ancestry", "speciation": "The formation of new species through evolutionary divergence"},
+          "quiz": [
+            {"question": "Human arms and whale flippers have similar bone structures. This suggests:", "options": ["Common ancestor", "Same diet", "Same habitat", "No relationship"], "correct": 0, "explanation": "Homologous structures indicate these species evolved from a common ancestor."},
+            {"question": "Which provides the most direct evidence for evolution?", "options": ["Fossil record", "Weather patterns", "Ocean currents", "Mountain heights"], "correct": 0, "explanation": "Fossils show how organisms changed over millions of years."},
+            {"question": "Humans share 98.7% DNA with chimpanzees. This means:", "options": ["We share a recent common ancestor", "We are the same species", "DNA is unreliable", "Evolution is wrong"], "correct": 0, "explanation": "High DNA similarity indicates a close evolutionary relationship."}
+          ]
+        }
+      ]
+    }
+  ]
+}

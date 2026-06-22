@@ -1,0 +1,160 @@
+{
+  "id": "programming",
+  "name": "Programming",
+  "icon": "code",
+  "color": "#6366F1",
+  "units": [
+    {
+      "title": "Programming Fundamentals",
+      "lessons": [
+        {
+          "title": "Variables and Data Types",
+          "content": "A variable is a named container that stores data. Think of it as a labelled box. In Python: name = 'Alice' creates a variable called name holding text. age = 15 stores a number. The main data types are: strings (text in quotes: 'hello'), integers (whole numbers: 42), floats (decimal numbers: 3.14), and booleans (True or False). You can change a variable's value anytime: age = 16 updates it. Variable names should be descriptive — student_name is better than x.",
+          "examples": ["name = 'Otic' — a string variable", "score = 95 — an integer variable", "pi = 3.14159 — a float variable; is_active = True — a boolean"],
+          "keyTerms": {"variable": "A named storage location for data that can change", "string": "A data type for text, written in quotes", "integer": "A data type for whole numbers without decimals", "boolean": "A data type with only two values: True or False"},
+          "quiz": [
+            {"question": "What data type is 'Hello World'?", "options": ["String", "Integer", "Float", "Boolean"], "correct": 0, "explanation": "Text in quotes is a string."},
+            {"question": "What does age = 15 do?", "options": ["Creates a variable age with value 15", "Checks if age equals 15", "Prints 15", "Deletes age"], "correct": 0, "explanation": "The = sign assigns the value 15 to the variable age."},
+            {"question": "Which is a valid boolean value?", "options": ["True", "\"yes\"", "1.5", "maybe"], "correct": 0, "explanation": "Booleans are only True or False."}
+          ]
+        },
+        {
+          "title": "Operators and Expressions",
+          "content": "Operators perform operations on values. Arithmetic operators: + (add), - (subtract), * (multiply), / (divide), // (integer division), % (modulo — remainder), ** (power). Comparison operators return True or False: == (equal), != (not equal), < (less than), > (greater than), <= and >=. Logical operators combine conditions: and (both must be True), or (at least one True), not (reverses True/False). An expression combines values and operators to produce a result: 3 + 4 * 2 = 11 (multiplication first).",
+          "examples": ["10 % 3 = 1 (remainder when 10 is divided by 3)", "2 ** 3 = 8 (2 to the power of 3)", "age >= 18 and has_id == True — checks both conditions"],
+          "keyTerms": {"operator": "A symbol that performs an operation on values (+, -, *, /, ==)", "modulo": "The % operator returns the remainder of division", "expression": "A combination of values and operators that produces a result"},
+          "quiz": [
+            {"question": "What is 17 % 5?", "options": ["2", "3", "12", "3.4"], "correct": 0, "explanation": "17 ÷ 5 = 3 remainder 2. Modulo returns the remainder."},
+            {"question": "What does == mean in programming?", "options": ["Checks if two values are equal", "Assigns a value", "Not equal", "Greater than"], "correct": 0, "explanation": "== compares equality; = assigns a value."},
+            {"question": "What is 2 ** 4?", "options": ["16", "8", "6", "24"], "correct": 0, "explanation": "2 ** 4 = 2 × 2 × 2 × 2 = 16"}
+          ]
+        },
+        {
+          "title": "Input and Output",
+          "content": "Programs communicate with users through input (receiving data) and output (displaying data). In Python, print() displays output: print('Hello!') shows Hello! on screen. input() gets text from the user: name = input('Your name: ') waits for typing and stores it. Input always returns a string — to use it as a number, convert it: age = int(input('Age: ')). You can combine strings with + (concatenation): print('Hi ' + name) or use f-strings: print(f'Hi {name}, you are {age}'). F-strings are the modern, cleaner way to format output.",
+          "examples": ["print('Welcome to Otic!') — displays text on screen", "name = input('Enter name: ') — waits for user to type, stores as string", "age = int(input('Age: ')) — converts input string to integer"],
+          "keyTerms": {"print": "A function that displays output to the screen", "input": "A function that receives text input from the user", "f-string": "A formatted string (f'...{variable}...') for embedding variables in text"},
+          "quiz": [
+            {"question": "What does input() return?", "options": ["A string", "An integer", "A boolean", "Nothing"], "correct": 0, "explanation": "input() always returns a string, even if the user types a number."},
+            {"question": "How do you convert '25' to an integer?", "options": ["int('25')", "str(25)", "float('25')", "bool('25')"], "correct": 0, "explanation": "int() converts a string to an integer: int('25') = 25"},
+            {"question": "What does print(f'Score: {score}') do?", "options": ["Prints 'Score: ' followed by the value of score", "Prints the letter f", "Creates a variable", "Prints nothing"], "correct": 0, "explanation": "F-strings embed variable values inside curly braces within the string."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Control Flow",
+      "lessons": [
+        {
+          "title": "If/Else Decisions",
+          "content": "Programs make decisions using if/elif/else statements. If the condition is True, the indented code runs. If False, it checks elif (else if) conditions, and finally runs else if nothing matched. Indentation matters in Python — it defines which code belongs to which block. You can nest if statements inside each other for complex logic. Every if needs a colon (:) after the condition.",
+          "examples": ["if age >= 18:\\n    print('Adult')\\nelif age >= 13:\\n    print('Teen')\\nelse:\\n    print('Child')", "if score >= 50 and score < 70:\\n    grade = 'C'", "if password == 'secret123':\\n    print('Access granted')"],
+          "keyTerms": {"if statement": "Executes code only when a condition is True", "elif": "Short for 'else if' — checks another condition if the previous was False", "indentation": "Spaces at the start of a line that define code blocks in Python"},
+          "quiz": [
+            {"question": "What prints if age = 16? if age >= 18: print('A') else: print('B')", "options": ["B", "A", "Nothing", "Error"], "correct": 0, "explanation": "16 is not >= 18, so the else block runs, printing B."},
+            {"question": "How many elif blocks can you have?", "options": ["As many as needed", "Only one", "Only two", "None"], "correct": 0, "explanation": "You can chain as many elif blocks as you need between if and else."},
+            {"question": "What happens if you forget the colon after if?", "options": ["Syntax error", "It works fine", "Prints nothing", "Runs the else block"], "correct": 0, "explanation": "Python requires a colon after if, elif, and else — missing it causes a syntax error."}
+          ]
+        },
+        {
+          "title": "Loops",
+          "content": "Loops repeat code multiple times. A for loop runs a set number of times: for i in range(5) runs 5 times (i = 0,1,2,3,4). A while loop runs as long as a condition is True: while count < 10 keeps running until count reaches 10. Break exits a loop early. Continue skips the rest of the current iteration and moves to the next. Be careful with while loops — if the condition never becomes False, you get an infinite loop (the program hangs).",
+          "examples": ["for i in range(3):\\n    print(i)  # prints 0, 1, 2", "while guess != answer:\\n    guess = int(input('Guess: '))", "for name in ['Alice', 'Bob']:\\n    print(f'Hi {name}')"],
+          "keyTerms": {"for loop": "A loop that iterates a specific number of times or over a collection", "while loop": "A loop that continues as long as its condition is True", "infinite loop": "A loop that never ends because its condition is always True"},
+          "quiz": [
+            {"question": "How many times does 'for i in range(4)' loop?", "options": ["4 times (0,1,2,3)", "5 times", "3 times", "1 time"], "correct": 0, "explanation": "range(4) produces 0, 1, 2, 3 — four iterations."},
+            {"question": "What does 'break' do inside a loop?", "options": ["Exits the loop immediately", "Pauses the loop", "Restarts the loop", "Does nothing"], "correct": 0, "explanation": "Break stops the loop and continues with code after the loop."},
+            {"question": "When should you use a while loop instead of for?", "options": ["When you don't know how many times to repeat", "When you know the exact count", "Never", "Always"], "correct": 0, "explanation": "While loops are best when the number of iterations depends on a condition."}
+          ]
+        },
+        {
+          "title": "Functions",
+          "content": "A function is a reusable block of code that performs a specific task. Define it with def: def greet(name): print(f'Hello {name}'). Call it with: greet('Alice'). Functions can take parameters (inputs) and return values: def add(a, b): return a + b. The return statement sends a value back to the caller: result = add(3, 5) gives result = 8. Functions make code organized, reusable, and easier to debug. Built-in functions include len(), max(), min(), sum(), type().",
+          "examples": ["def square(n):\\n    return n * n\\nprint(square(5))  # prints 25", "def is_even(n):\\n    return n % 2 == 0", "def greet(name, greeting='Hello'):\\n    return f'{greeting}, {name}!'  # default parameter"],
+          "keyTerms": {"function": "A reusable block of code defined with 'def' that performs a specific task", "parameter": "A variable in the function definition that receives input values", "return": "A statement that sends a value back from a function to the caller"},
+          "quiz": [
+            {"question": "What does 'return' do in a function?", "options": ["Sends a value back to the caller", "Prints a value", "Stops the program", "Repeats the function"], "correct": 0, "explanation": "Return exits the function and passes a value back to where it was called."},
+            {"question": "What is the output of: def double(x): return x*2 then print(double(7))?", "options": ["14", "7", "9", "Error"], "correct": 0, "explanation": "double(7) returns 7*2 = 14, which is then printed."},
+            {"question": "Why are functions useful?", "options": ["Code reuse and organization", "They make code run faster", "They are required by Python", "They use less memory"], "correct": 0, "explanation": "Functions let you write code once and call it many times, keeping programs organized."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Data Structures",
+      "lessons": [
+        {
+          "title": "Lists",
+          "content": "A list is an ordered collection of items. Create with square brackets: fruits = ['apple', 'banana', 'cherry']. Access items by index (starting at 0): fruits[0] = 'apple'. Add items with append(): fruits.append('date'). Remove with remove() or pop(). Lists can hold mixed types: [1, 'hello', True, 3.14]. Get length with len(fruits). Sort with fruits.sort(). Loop through: for fruit in fruits: print(fruit). Slice to get sublists: fruits[1:3] gets items at index 1 and 2.",
+          "examples": ["scores = [85, 92, 78, 95]\\nscores.append(88)  # adds 88 to end", "names = ['Alice', 'Bob', 'Charlie']\\nprint(names[1])  # prints 'Bob'", "numbers = [3, 1, 4, 1, 5]\\nnumbers.sort()  # becomes [1, 1, 3, 4, 5]"],
+          "keyTerms": {"list": "An ordered, mutable collection of items in square brackets", "index": "The position of an item in a list, starting from 0", "append": "A method that adds an item to the end of a list"},
+          "quiz": [
+            {"question": "What is the index of the first item in a list?", "options": ["0", "1", "-1", "None"], "correct": 0, "explanation": "Programming lists start counting at 0, not 1."},
+            {"question": "What does fruits.append('mango') do?", "options": ["Adds 'mango' to the end of the list", "Removes 'mango'", "Replaces the first item", "Sorts the list"], "correct": 0, "explanation": "append() adds a new item at the end of the list."},
+            {"question": "How do you get the length of a list?", "options": ["len(my_list)", "my_list.length()", "size(my_list)", "my_list.count()"], "correct": 0, "explanation": "The built-in len() function returns the number of items in a list."}
+          ]
+        },
+        {
+          "title": "Dictionaries",
+          "content": "A dictionary stores data as key-value pairs. Create with curly braces: student = {'name': 'Alice', 'age': 15, 'grade': 'A'}. Access values by key: student['name'] = 'Alice'. Add/update: student['school'] = 'Otic Academy'. Keys must be unique and immutable (strings, numbers). Values can be anything. Check if a key exists: if 'name' in student. Loop through: for key, value in student.items(). Dictionaries are perfect for structured data like user profiles, settings, and configurations.",
+          "examples": ["prices = {'apple': 1.50, 'banana': 0.75}\\nprint(prices['apple'])  # 1.50", "student = {'name': 'Bob'}\\nstudent['age'] = 16  # adds new key-value pair", "for key, val in student.items():\\n    print(f'{key}: {val}')"],
+          "keyTerms": {"dictionary": "A collection of key-value pairs in curly braces", "key": "The unique identifier used to look up a value in a dictionary", "value": "The data associated with a key in a dictionary"},
+          "quiz": [
+            {"question": "How do you access the value for key 'name' in a dict?", "options": ["student['name']", "student.name", "student(name)", "student[0]"], "correct": 0, "explanation": "Use square brackets with the key: dict['key'] returns the value."},
+            {"question": "Can a dictionary have duplicate keys?", "options": ["No — keys must be unique", "Yes", "Only with strings", "Only with numbers"], "correct": 0, "explanation": "Each key must be unique; adding the same key overwrites the old value."},
+            {"question": "What does {'a': 1, 'b': 2}.items() return?", "options": ["Key-value pairs", "Only keys", "Only values", "The length"], "correct": 0, "explanation": ".items() returns all key-value pairs for looping."}
+          ]
+        },
+        {
+          "title": "Working with Strings",
+          "content": "Strings are sequences of characters. You can access characters by index: 'hello'[0] = 'h'. Slice strings: 'hello'[1:4] = 'ell'. Useful methods: .upper() (uppercase), .lower() (lowercase), .strip() (remove whitespace), .replace(old, new), .split(separator) (splits into a list), .join() (joins a list into a string). Strings are immutable — methods return new strings without changing the original. Check contents with: 'ell' in 'hello' → True. Get length: len('hello') = 5.",
+          "examples": ["'Hello World'.upper() → 'HELLO WORLD'", "'apple,banana,cherry'.split(',') → ['apple', 'banana', 'cherry']", "' '.join(['Hello', 'World']) → 'Hello World'"],
+          "keyTerms": {"immutable": "Cannot be changed after creation — operations return new values", "method": "A function that belongs to an object, called with dot notation", "concatenation": "Joining strings together using the + operator"},
+          "quiz": [
+            {"question": "What does 'hello'.upper() return?", "options": ["'HELLO'", "'hello'", "'Hello'", "Error"], "correct": 0, "explanation": ".upper() converts all characters to uppercase."},
+            {"question": "What does 'a,b,c'.split(',') return?", "options": ["['a', 'b', 'c']", "'abc'", "('a', 'b', 'c')", "3"], "correct": 0, "explanation": ".split(',') splits the string at each comma, returning a list."},
+            {"question": "Are strings mutable or immutable?", "options": ["Immutable", "Mutable", "Both", "Neither"], "correct": 0, "explanation": "Strings cannot be changed in place — methods return new strings."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Building Programs",
+      "lessons": [
+        {
+          "title": "Debugging and Error Handling",
+          "content": "Bugs are errors in code. Syntax errors: typos or wrong structure (forgetting a colon, wrong indentation) — Python catches these before running. Runtime errors happen during execution (dividing by zero, accessing an index that doesn't exist). Logic errors: code runs but gives wrong results — the hardest to find. Use try/except to handle errors gracefully: try: risky_code() except: handle_error(). Print statements help debug by showing values at different points. Read error messages carefully — they tell you the line number and error type.",
+          "examples": ["try:\\n    result = 10 / 0\\nexcept ZeroDivisionError:\\n    print('Cannot divide by zero!')", "SyntaxError: invalid syntax — usually a missing colon, bracket, or quote", "IndexError: list index out of range — trying to access an item that doesn't exist"],
+          "keyTerms": {"syntax error": "A mistake in the code structure that prevents it from running", "runtime error": "An error that occurs while the program is running", "try/except": "A structure that catches errors and handles them gracefully instead of crashing"},
+          "quiz": [
+            {"question": "What type of error is a missing colon after 'if'?", "options": ["Syntax error", "Runtime error", "Logic error", "Type error"], "correct": 0, "explanation": "Missing colons, brackets, or quotes are syntax errors caught before running."},
+            {"question": "What does try/except do?", "options": ["Catches errors and handles them gracefully", "Makes code run faster", "Fixes bugs automatically", "Skips the code"], "correct": 0, "explanation": "try runs the risky code; except runs if an error occurs, preventing a crash."},
+            {"question": "A program runs but gives wrong answers. This is a:", "options": ["Logic error", "Syntax error", "Runtime error", "Compiler error"], "correct": 0, "explanation": "Logic errors produce incorrect results even though the code runs without crashing."}
+          ]
+        },
+        {
+          "title": "File Handling",
+          "content": "Programs can read and write files. Open a file: file = open('data.txt', 'r') for reading, 'w' for writing (overwrites), 'a' for appending. Read: content = file.read(). Write: file.write('Hello'). Always close: file.close(). Better: use 'with' which closes automatically: with open('data.txt', 'r') as file: content = file.read(). For structured data, JSON is common: import json; data = json.load(file) reads JSON into a dictionary. File handling lets programs save data permanently.",
+          "examples": ["with open('scores.txt', 'w') as f:\\n    f.write('Alice: 95\\nBob: 87')", "with open('scores.txt', 'r') as f:\\n    for line in f:\\n        print(line)", "import json\\nwith open('data.json') as f:\\n    data = json.load(f)"],
+          "keyTerms": {"file handling": "Reading from and writing to files on disk", "with statement": "Automatically closes the file when the block ends", "JSON": "JavaScript Object Notation — a common text format for structured data"},
+          "quiz": [
+            {"question": "What mode opens a file for reading?", "options": ["'r'", "'w'", "'a'", "'x'"], "correct": 0, "explanation": "'r' = read, 'w' = write (overwrite), 'a' = append."},
+            {"question": "Why use 'with open()' instead of just 'open()'?", "options": ["It automatically closes the file", "It's faster", "It reads more data", "It's required"], "correct": 0, "explanation": "The with statement ensures the file is properly closed even if an error occurs."},
+            {"question": "What does 'w' mode do to an existing file?", "options": ["Overwrites it completely", "Appends to it", "Reads it", "Deletes it"], "correct": 0, "explanation": "'w' mode erases the existing content and writes fresh. Use 'a' to append."}
+          ]
+        },
+        {
+          "title": "Planning and Problem Solving",
+          "content": "Good programmers plan before coding. Break problems into smaller steps (decomposition). Write pseudocode — plain English steps before real code. Use flowcharts to visualise logic flow. Test with different inputs including edge cases (empty input, zero, very large numbers, negative numbers). Write clean code: meaningful variable names, comments for complex logic, consistent formatting. Follow DRY (Don't Repeat Yourself) — if you write the same code twice, make it a function. Version control (Git) tracks changes and lets you undo mistakes.",
+          "examples": ["Pseudocode: 1. Ask user for number 2. If number > 0 print 'positive' 3. Else print 'not positive'", "Edge case: What if the user enters nothing? (empty string) → handle with if/else", "DRY: Instead of writing the same calculation 5 times, create a function and call it 5 times"],
+          "keyTerms": {"pseudocode": "Plain English description of a program's steps before writing actual code", "decomposition": "Breaking a complex problem into smaller, manageable parts", "edge case": "An unusual input or situation that might cause errors (empty, zero, very large)"},
+          "quiz": [
+            {"question": "What is decomposition in programming?", "options": ["Breaking a problem into smaller parts", "Deleting old code", "Compressing files", "Running code faster"], "correct": 0, "explanation": "Decomposition means dividing a big problem into smaller, solvable pieces."},
+            {"question": "What does DRY stand for?", "options": ["Don't Repeat Yourself", "Delete Redundant Yields", "Debug Run Yourself", "Don't Return Yet"], "correct": 0, "explanation": "DRY means avoid duplicating code — use functions and loops instead."},
+            {"question": "Why test edge cases?", "options": ["They reveal bugs that normal inputs miss", "They make code faster", "They are required by Python", "They reduce file size"], "correct": 0, "explanation": "Edge cases (empty input, zero, negatives) often cause unexpected errors."}
+          ]
+        }
+      ]
+    }
+  ]
+}
