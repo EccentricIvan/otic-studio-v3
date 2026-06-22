@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../inference/inference_engine.dart';
 import '../inference/mock_engine.dart';
+import '../inference/ollama_engine.dart';
 import '../model/model_manager.dart';
 import '../tutor/tutor_pipeline.dart';
 import '../tutor/tutor_response.dart';
@@ -18,11 +20,29 @@ final modelInfoProvider = FutureProvider<ModelInfo>((ref) {
 // ── Engine lifecycle ─────────────────────────────────────────────────────────
 
 final inferenceEngineProvider = Provider<InferenceEngine>((ref) {
-  // Use platform engine when model is present; mock for dev.
-  return MockEngine(); // replaced by platform engine after model loads
+  return MockEngine();
 });
 
 final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
+  final isDesktop = defaultTargetPlatform == TargetPlatform.windows ||
+      defaultTargetPlatform == TargetPlatform.linux ||
+      defaultTargetPlatform == TargetPlatform.macOS;
+
+  if (isDesktop) {
+    // Desktop: try Ollama first, fall back to mock
+    final available = await OllamaEngine.isAvailable();
+    if (available) {
+      final engine = OllamaEngine();
+      await engine.loadModel('');
+      ref.onDispose(engine.dispose);
+      return engine;
+    }
+    final mock = MockEngine();
+    await mock.loadModel('');
+    return mock;
+  }
+
+  // Android: use on-device model via flutter_gemma
   final modelInfo = await ref.watch(modelInfoProvider.future);
   if (!modelInfo.isReady) {
     final mock = MockEngine();

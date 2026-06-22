@@ -7,7 +7,7 @@ import 'inference_engine.dart';
 /// Ollama serves models via HTTP at localhost:11434.
 class OllamaEngine extends InferenceEngine {
   static const _baseUrl = 'http://127.0.0.1:11434';
-  static const _defaultModel = 'gemma2:2b';
+  static const _defaultModel = 'gemma3:1b';
 
   String _model = _defaultModel;
   bool _ready = false;
@@ -34,19 +34,19 @@ class OllamaEngine extends InferenceEngine {
       } else {
         throw ModelLoadException(
           'Ollama is running but no models are installed. '
-          'Open Termux and run: ollama pull gemma2:2b',
+          'Open a terminal and run: ollama pull gemma3:1b',
         );
       }
       client.close();
     } on TimeoutException {
       throw ModelLoadException(
         'Cannot connect to Ollama. Make sure Ollama is running '
-        'in Termux before opening the app.',
+        '(open a terminal and run: ollama serve).',
       );
     } on SocketException {
       throw ModelLoadException(
         'Cannot connect to Ollama at $_baseUrl. '
-        'Open Termux and run: ollama serve',
+        'Install Ollama from ollama.com, then run: ollama serve',
       );
     }
   }

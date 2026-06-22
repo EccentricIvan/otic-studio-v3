@@ -111,9 +111,9 @@ class ModelManager {
       case TargetPlatform.android:
         return 'Android (LiteRT-LM)';
       case TargetPlatform.windows:
-        return 'Windows (llama.cpp)';
+        return 'Windows (Ollama)';
       case TargetPlatform.linux:
-        return 'Linux (llama.cpp)';
+        return 'Linux (Ollama)';
       default:
         return 'Unknown';
     }
