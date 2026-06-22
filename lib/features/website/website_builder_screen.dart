@@ -116,7 +116,7 @@ class _EmptyStart extends StatelessWidget {
             color: AppColors.primary.withValues(alpha: 0.4),
           ),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             'Build your first website',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
@@ -126,7 +126,7 @@ class _EmptyStart extends StatelessWidget {
             child: Text(
               'Drag blocks onto the page, fill them in, and export a real .html file that opens in any browser — all offline.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
           ),
         ],
@@ -154,7 +154,7 @@ class _SavedSiteTile extends ConsumerWidget {
         ),
         subtitle: Text(
           'Updated ${site.updatedAt.day}/${site.updatedAt.month}/${site.updatedAt.year}',
-          style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
+          style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
         ),
         trailing: IconButton(
           icon: const Icon(Icons.delete_outline, size: 20),
@@ -409,7 +409,7 @@ class _Palette extends ConsumerWidget {
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
-                color: AppColors.textHint,
+                color: Theme.of(context).hintColor,
                 letterSpacing: 1,
               ),
             ),
@@ -436,8 +436,8 @@ class _PaletteChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: AppColors.surface,
-        border: Border.all(color: AppColors.border),
+        color: Theme.of(context).colorScheme.surface,
+        border: Border.all(color: Theme.of(context).dividerColor),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -447,7 +447,7 @@ class _PaletteChip extends StatelessWidget {
           const SizedBox(width: 8),
           Text(type.label, style: const TextStyle(fontSize: 13)),
           const SizedBox(width: 4),
-          const Icon(Icons.drag_indicator, size: 14, color: AppColors.textHint),
+          Icon(Icons.drag_indicator, size: 14, color: Theme.of(context).hintColor),
         ],
       ),
     );
@@ -474,7 +474,7 @@ class _Canvas extends ConsumerWidget {
             border: Border.all(
               color: candidates.isNotEmpty
                   ? AppColors.primary
-                  : AppColors.border,
+                  : Theme.of(context).dividerColor,
               width: 2,
             ),
             borderRadius: BorderRadius.circular(16),
@@ -483,7 +483,7 @@ class _Canvas extends ConsumerWidget {
             child: Text(
               'Drag a block here to start\n(or tap one in the palette)',
               textAlign: TextAlign.center,
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
           ),
         ),
@@ -491,7 +491,7 @@ class _Canvas extends ConsumerWidget {
     }
 
     return Container(
-      color: AppColors.surfaceVariant,
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
       child: MaxWidth(
         maxWidth: 720,
         child: Column(
@@ -525,14 +525,14 @@ class _Canvas extends ConsumerWidget {
                   border: Border.all(
                     color: candidates.isNotEmpty
                         ? AppColors.primary
-                        : AppColors.border,
+                        : Theme.of(context).dividerColor,
                   ),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Center(
                   child: Text(
                     'Drop new blocks here',
-                    style: TextStyle(fontSize: 12, color: AppColors.textHint),
+                    style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),
                   ),
                 ),
               ),
@@ -598,10 +598,10 @@ class _CanvasItem extends ConsumerWidget {
               borderRadius: BorderRadius.circular(12),
               child: Container(
                 decoration: BoxDecoration(
-                  color: AppColors.surface,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: selected ? AppColors.primary : AppColors.border,
+                    color: selected ? AppColors.primary : Theme.of(context).dividerColor,
                     width: selected ? 2 : 1,
                   ),
                 ),
@@ -617,16 +617,16 @@ class _CanvasItem extends ConsumerWidget {
                             child: Icon(
                               Icons.drag_indicator,
                               size: 18,
-                              color: AppColors.textHint,
+                              color: Theme.of(context).hintColor,
                             ),
                           ),
                         ),
                         Text(
                           block.type.label,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.w700,
-                            color: AppColors.textHint,
+                            color: Theme.of(context).hintColor,
                           ),
                         ),
                         const Spacer(),
@@ -824,7 +824,7 @@ class _BlockPreview extends StatelessWidget {
         return Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: AppColors.surfaceVariant,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             border: Border(left: BorderSide(color: themeColor, width: 4)),
           ),
           child: Column(
@@ -839,9 +839,9 @@ class _BlockPreview extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 4),
                   child: Text(
                     '— ${block.secondary}',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
-                      color: AppColors.textSecondary,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                   ),
                 ),
@@ -969,9 +969,9 @@ class _Inspector extends ConsumerWidget {
         );
       case SiteBlockType.divider:
         fields.add(
-          const Text(
+          Text(
             'A divider has no settings.',
-            style: TextStyle(color: AppColors.textSecondary),
+            style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
           ),
         );
     }
@@ -1063,7 +1063,7 @@ class _SitePanel extends ConsumerWidget {
                     shape: BoxShape.circle,
                     border: Border.all(
                       color: selected
-                          ? AppColors.textPrimary
+                          ? Theme.of(context).colorScheme.onSurface
                           : Colors.transparent,
                       width: 3,
                     ),
@@ -1077,9 +1077,9 @@ class _SitePanel extends ConsumerWidget {
           }).toList(),
         ),
         const SizedBox(height: 16),
-        const Text(
+        Text(
           'Tip: tap any block on the page to edit it. Drag blocks from the palette onto the page, or drop them on top of a block to insert above it.',
-          style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+          style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
         ),
       ],
     );

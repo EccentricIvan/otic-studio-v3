@@ -287,9 +287,9 @@ class _SetupView extends ConsumerWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 6),
-            const Text(
+            Text(
               'Your AI mentor will guide you step by step.',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
             const SizedBox(height: 28),
             const Text(
@@ -313,12 +313,12 @@ class _SetupView extends ConsumerWidget {
                     decoration: BoxDecoration(
                       color: selected
                           ? AppColors.primary.withValues(alpha: 0.1)
-                          : AppColors.surfaceVariant,
+                          : Theme.of(context).colorScheme.surfaceContainerHighest,
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
                         color: selected
                             ? AppColors.primary
-                            : AppColors.border,
+                            : Theme.of(context).dividerColor,
                         width: selected ? 2 : 1,
                       ),
                     ),
@@ -330,7 +330,7 @@ class _SetupView extends ConsumerWidget {
                           size: 18,
                           color: selected
                               ? AppColors.primary
-                              : AppColors.textSecondary,
+                              : Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                         const SizedBox(width: 8),
                         Flexible(
@@ -341,7 +341,7 @@ class _SetupView extends ConsumerWidget {
                               fontSize: 13,
                               color: selected
                                   ? AppColors.primary
-                                  : AppColors.textPrimary,
+                                  : Theme.of(context).colorScheme.onSurface,
                             ),
                           ),
                         ),
@@ -374,7 +374,7 @@ class _SetupView extends ConsumerWidget {
                       : 'Enter a topic to get started',
                   style: TextStyle(
                     fontSize: 13,
-                    color: AppColors.textHint,
+                    color: Theme.of(context).hintColor,
                   ),
                 ),
               ),
@@ -505,9 +505,9 @@ class _Bubble extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         decoration: BoxDecoration(
-          color: isUser ? AppColors.primary : AppColors.surface,
+          color: isUser ? AppColors.primary : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(14),
-          border: isUser ? null : Border.all(color: AppColors.border),
+          border: isUser ? null : Border.all(color: Theme.of(context).dividerColor),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -517,7 +517,7 @@ class _Bubble extends StatelessWidget {
               child: Text(
                 text.isEmpty ? '…' : text,
                 style: TextStyle(
-                  color: isUser ? Colors.white : AppColors.textPrimary,
+                  color: isUser ? Colors.white : Theme.of(context).colorScheme.onSurface,
                   height: 1.5,
                 ),
               ),
@@ -550,9 +550,9 @@ class _InputBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        border: Border(top: BorderSide(color: AppColors.border)),
-        color: AppColors.surface,
+      decoration: BoxDecoration(
+        border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
+        color: Theme.of(context).colorScheme.surface,
       ),
       padding: const EdgeInsets.fromLTRB(16, 10, 12, 14),
       child: Row(

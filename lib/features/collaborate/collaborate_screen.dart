@@ -119,8 +119,8 @@ class _PeersView extends StatelessWidget {
                   peers.isEmpty
                       ? 'Searching for learners on your local network…'
                       : '${peers.length} learner${peers.length == 1 ? '' : 's'} nearby',
-                  style: const TextStyle(
-                    color: AppColors.textPrimary,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -136,7 +136,7 @@ class _PeersView extends StatelessWidget {
             'here automatically — no internet needed.',
             style: TextStyle(
               fontSize: 12,
-              color: AppColors.textSecondary,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               height: 1.5,
             ),
           ),
@@ -161,9 +161,9 @@ class _PeerCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.border),
+        border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: ListTile(
         leading: CircleAvatar(
@@ -193,9 +193,9 @@ class _PeerCard extends StatelessWidget {
             const SizedBox(width: 4),
             Text(
               '${peer.points}',
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w600,
-                color: AppColors.textSecondary,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
           ],
@@ -214,7 +214,7 @@ class _EmptyPeers extends StatelessWidget {
       padding: EdgeInsets.all(40),
       child: Column(
         children: [
-          Icon(Icons.wifi_tethering, size: 56, color: AppColors.textHint),
+          Icon(Icons.wifi_tethering, size: 56, color: Theme.of(context).hintColor),
           SizedBox(height: 16),
           Text(
             'No learners found yet',
@@ -225,7 +225,7 @@ class _EmptyPeers extends StatelessWidget {
             'Ask a classmate to open the app on the same network — '
             'they will appear here within a few seconds.',
             textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors.textSecondary, height: 1.5),
+            style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
           ),
         ],
       ),
@@ -245,7 +245,7 @@ class _ErrorView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.wifi_off, size: 56, color: AppColors.textHint),
+            Icon(Icons.wifi_off, size: 56, color: Theme.of(context).hintColor),
             const SizedBox(height: 16),
             const Text(
               'Local network unavailable',
@@ -255,8 +255,8 @@ class _ErrorView extends StatelessWidget {
             Text(
               message,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: AppColors.textSecondary,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 height: 1.5,
               ),
             ),
@@ -294,7 +294,7 @@ class _PulsingDotState extends State<_PulsingDot>
       child: Container(
         width: 10,
         height: 10,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: AppColors.practiceColor,
           shape: BoxShape.circle,
         ),

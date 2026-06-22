@@ -252,9 +252,9 @@ class _StatBox extends StatelessWidget {
                   fontSize: 18,
                   color: color)),
           Text(label,
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 10,
-                  color: AppColors.textSecondary),
+                  color: Theme.of(context).colorScheme.onSurfaceVariant),
               textAlign: TextAlign.center),
         ],
       ),
@@ -272,10 +272,10 @@ class _SectionLabel extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10),
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           fontWeight: FontWeight.w700,
           fontSize: 14,
-          color: AppColors.textPrimary,
+          color: Theme.of(context).colorScheme.onSurface,
         ),
       ),
     );
@@ -295,9 +295,9 @@ class _PathRow extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: AppColors.border),
+        border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -306,9 +306,9 @@ class _PathRow extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(row.topic,
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontWeight: FontWeight.w500,
-                        color: AppColors.textPrimary),
+                        color: Theme.of(context).colorScheme.onSurface),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis),
               ),
@@ -327,7 +327,7 @@ class _PathRow extends StatelessWidget {
             child: LinearProgressIndicator(
               value: pct.toDouble(),
               minHeight: 5,
-              backgroundColor: AppColors.border,
+              backgroundColor: Theme.of(context).dividerColor,
               valueColor: const AlwaysStoppedAnimation<Color>(
                   AppColors.learnColor),
             ),
@@ -352,8 +352,8 @@ class _MasteryRow extends StatelessWidget {
             flex: 3,
             child: Text(
               progress.topic,
-              style: const TextStyle(
-                  fontSize: 13, color: AppColors.textSecondary),
+              style: TextStyle(
+                  fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
@@ -366,7 +366,7 @@ class _MasteryRow extends StatelessWidget {
               child: LinearProgressIndicator(
                 value: (progress.level as int) / 100,
                 minHeight: 8,
-                backgroundColor: AppColors.border,
+                backgroundColor: Theme.of(context).dividerColor,
                 valueColor: const AlwaysStoppedAnimation<Color>(
                     AppColors.practiceColor),
               ),
@@ -400,7 +400,7 @@ class _SessionRow extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.surfaceVariant,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -409,15 +409,15 @@ class _SessionRow extends StatelessWidget {
           Row(
             children: [
               Text(session.topic,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 13,
-                      color: AppColors.textPrimary)),
+                      color: Theme.of(context).colorScheme.onSurface)),
               const Spacer(),
               Text(
                 '${session.highestStage} · ${session.messageCount} msgs',
-                style: const TextStyle(
-                    fontSize: 11, color: AppColors.textHint),
+                style: TextStyle(
+                    fontSize: 11, color: Theme.of(context).hintColor),
               ),
             ],
           ),
@@ -426,9 +426,9 @@ class _SessionRow extends StatelessWidget {
             session.summary,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
+            style: TextStyle(
                 fontSize: 12,
-                color: AppColors.textSecondary,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 height: 1.4),
           ),
         ],
@@ -448,7 +448,7 @@ class _NoStudents extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.school, size: 56, color: AppColors.textHint),
+            Icon(Icons.school, size: 56, color: Theme.of(context).hintColor),
             SizedBox(height: 16),
             Text('No student profiles yet',
                 style: TextStyle(fontWeight: FontWeight.w600)),
@@ -456,7 +456,7 @@ class _NoStudents extends StatelessWidget {
             Text(
               'Students must complete onboarding before their data appears here.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: AppColors.textSecondary, height: 1.5),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
             ),
           ],
         ),

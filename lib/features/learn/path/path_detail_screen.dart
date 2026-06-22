@@ -129,7 +129,7 @@ class _PathHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 24, 20, 20),
-      color: AppColors.surface,
+      color: Theme.of(context).colorScheme.surface,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -137,7 +137,7 @@ class _PathHeader extends StatelessWidget {
           const SizedBox(height: 6),
           Text(
             parsed.description,
-            style: const TextStyle(color: AppColors.textSecondary, height: 1.5),
+            style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
           ),
           const SizedBox(height: 20),
           Row(
@@ -148,7 +148,7 @@ class _PathHeader extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: parsed.progressFraction,
                     minHeight: 8,
-                    backgroundColor: AppColors.border,
+                    backgroundColor: Theme.of(context).dividerColor,
                     valueColor: const AlwaysStoppedAnimation<Color>(
                       AppColors.learnColor,
                     ),
@@ -158,10 +158,10 @@ class _PathHeader extends StatelessWidget {
               const SizedBox(width: 12),
               Text(
                 '${parsed.completedLessons}/${parsed.totalLessons} lessons',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.textSecondary,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
@@ -195,8 +195,8 @@ class _UnitTile extends StatelessWidget {
           onTap: onTap,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-            decoration: const BoxDecoration(
-              border: Border(bottom: BorderSide(color: AppColors.border)),
+            decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(color: Theme.of(context).dividerColor)),
             ),
             child: Row(
               children: [
@@ -224,17 +224,17 @@ class _UnitTile extends StatelessWidget {
                     children: [
                       Text(
                         'Unit ${unitIndex + 1} · ${unit.title}',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          color: AppColors.textPrimary,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       const SizedBox(height: 2),
                       Text(
                         '${unit.completedCount}/${unit.lessons.length} done',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textHint,
+                          color: Theme.of(context).hintColor,
                         ),
                       ),
                     ],
@@ -242,7 +242,7 @@ class _UnitTile extends StatelessWidget {
                 ),
                 Icon(
                   isExpanded ? Icons.expand_less : Icons.expand_more,
-                  color: AppColors.textHint,
+                  color: Theme.of(context).hintColor,
                 ),
               ],
             ),
@@ -283,9 +283,9 @@ class _LessonRow extends StatelessWidget {
           top: 14,
           bottom: 14,
         ),
-        decoration: const BoxDecoration(
-          color: AppColors.surfaceVariant,
-          border: Border(bottom: BorderSide(color: AppColors.border)),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
+          border: Border(bottom: BorderSide(color: Theme.of(context).dividerColor)),
         ),
         child: Row(
           children: [
@@ -296,14 +296,14 @@ class _LessonRow extends StatelessWidget {
                 shape: BoxShape.circle,
                 color: lesson.isCompleted
                     ? AppColors.teachColor
-                    : AppColors.border,
+                    : Theme.of(context).dividerColor,
               ),
               child: Icon(
                 lesson.isCompleted ? Icons.check : Icons.play_arrow,
                 size: 13,
                 color: lesson.isCompleted
                     ? Colors.white
-                    : AppColors.textSecondary,
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
             const SizedBox(width: 12),
@@ -312,8 +312,8 @@ class _LessonRow extends StatelessWidget {
                 lesson.title,
                 style: TextStyle(
                   color: lesson.isCompleted
-                      ? AppColors.textHint
-                      : AppColors.textPrimary,
+                      ? Theme.of(context).hintColor
+                      : Theme.of(context).colorScheme.onSurface,
                   decoration: lesson.isCompleted
                       ? TextDecoration.lineThrough
                       : null,
@@ -322,10 +322,10 @@ class _LessonRow extends StatelessWidget {
               ),
             ),
             if (!lesson.isCompleted)
-              const Icon(
+              Icon(
                 Icons.arrow_forward_ios,
                 size: 13,
-                color: AppColors.textHint,
+                color: Theme.of(context).hintColor,
               ),
           ],
         ),
@@ -369,10 +369,10 @@ class _GeneratingView extends ConsumerWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 10),
-            const Text(
+            Text(
               'A 4-unit, 12-lesson curriculum will be tailored for you.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: AppColors.textSecondary, height: 1.5),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
             ),
             const SizedBox(height: 28),
             FilledButton.icon(

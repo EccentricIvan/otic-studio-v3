@@ -176,12 +176,12 @@ class _BadgeTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: isEarned
             ? def.color.withValues(alpha: 0.07)
-            : AppColors.surfaceVariant,
+            : Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
           color: isEarned
               ? def.color.withValues(alpha: 0.4)
-              : AppColors.border,
+              : Theme.of(context).dividerColor,
         ),
       ),
       padding: const EdgeInsets.all(14),
@@ -191,7 +191,7 @@ class _BadgeTile extends StatelessWidget {
           Icon(
             def.icon,
             size: 36,
-            color: isEarned ? def.color : AppColors.textHint,
+            color: isEarned ? def.color : Theme.of(context).hintColor,
           ),
           const SizedBox(height: 8),
           Text(
@@ -199,7 +199,7 @@ class _BadgeTile extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 13,
-              color: isEarned ? def.color : AppColors.textHint,
+              color: isEarned ? def.color : Theme.of(context).hintColor,
             ),
             textAlign: TextAlign.center,
           ),
@@ -210,7 +210,7 @@ class _BadgeTile extends StatelessWidget {
                 : def.description,
             style: TextStyle(
               fontSize: 11,
-              color: isEarned ? AppColors.textSecondary : AppColors.textHint,
+              color: isEarned ? Theme.of(context).colorScheme.onSurfaceVariant : Theme.of(context).hintColor,
               fontStyle:
                   isEarned ? FontStyle.normal : FontStyle.italic,
             ),

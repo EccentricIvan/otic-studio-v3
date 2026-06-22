@@ -4,6 +4,7 @@ import 'ai_core/model/model_manager.dart';
 import 'ai_core/providers/ai_provider.dart';
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
+import 'core/theme/theme_provider.dart';
 import 'features/model_setup/model_not_installed_screen.dart';
 
 class OticApp extends ConsumerWidget {
@@ -12,11 +13,12 @@ class OticApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
+    final themeMode = ref.watch(themeModeProvider);
     return MaterialApp.router(
       title: 'Otic Studio',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.dark,
+      themeMode: themeMode,
       routerConfig: router,
       debugShowCheckedModeBanner: false,
     );

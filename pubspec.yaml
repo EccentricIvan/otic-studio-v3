@@ -29,6 +29,9 @@ dependencies:
   # Model installer — lets the user pick the Gemma file from USB/Downloads
   file_picker: 8.3.7
 
+  # User preferences (theme mode)
+  shared_preferences: ^2.2.3
+
   # PDF certificate generation (offline, pure Dart)
   pdf: ^3.10.8
 

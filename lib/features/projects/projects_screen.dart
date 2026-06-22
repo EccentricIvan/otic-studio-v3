@@ -99,9 +99,9 @@ class _ProjectCard extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.border),
+        border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -116,8 +116,8 @@ class _ProjectCard extends StatelessWidget {
         ),
         title: Text(
           project.title,
-          style: const TextStyle(
-              fontWeight: FontWeight.w600, color: AppColors.textPrimary),
+          style: TextStyle(
+              fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
@@ -127,13 +127,13 @@ class _ProjectCard extends StatelessWidget {
             const SizedBox(height: 3),
             Text(
               label[0].toUpperCase() + label.substring(1),
-              style: const TextStyle(
-                  fontSize: 12, color: AppColors.textSecondary),
+              style: TextStyle(
+                  fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
             Text(
               _fmt(project.updatedAt),
               style:
-                  const TextStyle(fontSize: 11, color: AppColors.textHint),
+                  TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
             ),
           ],
         ),
@@ -188,17 +188,17 @@ class _EmptyProjects extends StatelessWidget {
                   color: AppColors.createColor, size: 32),
             ),
             const SizedBox(height: 18),
-            const Text('No projects yet',
+            Text('No projects yet',
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 17,
-                    color: AppColors.textPrimary)),
+                    color: Theme.of(context).colorScheme.onSurface)),
             const SizedBox(height: 8),
-            const Text(
+            Text(
               'Go to Create mode to build your first project — an essay, business plan, experiment, or anything you can imagine.',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  color: AppColors.textSecondary, height: 1.5),
+                  color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
             ),
             const SizedBox(height: 24),
             FilledButton.icon(

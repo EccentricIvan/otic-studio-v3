@@ -44,7 +44,7 @@ class PracticeScreen extends StatelessWidget {
             ],
             indicatorColor: AppColors.primary,
             labelColor: AppColors.primary,
-            unselectedLabelColor: AppColors.textSecondary,
+            unselectedLabelColor: Theme.of(context).colorScheme.onSurfaceVariant,
           ),
         ),
         body: const MaxWidth(
@@ -209,7 +209,7 @@ class _ExerciseCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
-              color: AppColors.surfaceVariant,
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Row(
@@ -235,9 +235,9 @@ class _ExerciseCard extends StatelessWidget {
                     minimumSize: Size.zero,
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
-                  child: const Text(
+                  child: Text(
                     'Reset',
-                    style: TextStyle(fontSize: 12, color: AppColors.textHint),
+                    style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),
                   ),
                 ),
               ],
@@ -248,10 +248,10 @@ class _ExerciseCard extends StatelessWidget {
           // Question
           Text(
             exercise.question,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w600,
-              color: AppColors.textPrimary,
+              color: Theme.of(context).colorScheme.onSurface,
               height: 1.5,
             ),
           ),
@@ -309,8 +309,8 @@ class _ExerciseCard extends StatelessWidget {
                         const SizedBox(height: 4),
                         Text(
                           exercise.explanation,
-                          style: const TextStyle(
-                            color: AppColors.textSecondary,
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onSurfaceVariant,
                             height: 1.5,
                           ),
                         ),
@@ -358,9 +358,9 @@ class _OptionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color borderColor = AppColors.border;
-    Color bgColor = AppColors.surface;
-    Color textColor = AppColors.textPrimary;
+    Color borderColor = Theme.of(context).dividerColor;
+    Color bgColor = Theme.of(context).colorScheme.surface;
+    Color textColor = Theme.of(context).colorScheme.onSurface;
 
     if (state.answered) {
       if (index == state.exercise!.correctIndex) {
@@ -564,8 +564,8 @@ class _ScenarioCard extends StatelessWidget {
                 const SizedBox(height: 10),
                 Text(
                   scenario.situation,
-                  style: const TextStyle(
-                    color: AppColors.textPrimary,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
                     height: 1.6,
                   ),
                 ),
@@ -577,10 +577,10 @@ class _ScenarioCard extends StatelessWidget {
           // Challenge question
           Text(
             scenario.challenge,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: AppColors.textPrimary,
+              color: Theme.of(context).colorScheme.onSurface,
               height: 1.5,
             ),
           ),
@@ -593,20 +593,20 @@ class _ScenarioCard extends StatelessWidget {
               onChanged: onResponseChanged,
               maxLines: 5,
               minLines: 3,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Describe what you would do and why…',
                 filled: true,
-                fillColor: AppColors.surfaceVariant,
+                fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  borderSide: BorderSide(color: AppColors.border),
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  borderSide: BorderSide(color: Theme.of(context).dividerColor),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  borderSide: BorderSide(color: AppColors.border),
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  borderSide: BorderSide(color: Theme.of(context).dividerColor),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
                   borderSide: BorderSide(
                     color: AppColors.primary,
                     width: 2,
@@ -642,9 +642,9 @@ class _ScenarioCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.surface,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: AppColors.border),
+                border: Border.all(color: Theme.of(context).dividerColor),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -669,8 +669,8 @@ class _ScenarioCard extends StatelessWidget {
                   const SizedBox(height: 10),
                   Text(
                     state.feedback!,
-                    style: const TextStyle(
-                      color: AppColors.textPrimary,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurface,
                       height: 1.6,
                     ),
                   ),
@@ -731,10 +731,10 @@ class _StartCard extends StatelessWidget {
             const SizedBox(height: 14),
             Text(
               topic,
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 18,
-                color: AppColors.textPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 20),
@@ -764,7 +764,7 @@ class _LoadingCard extends StatelessWidget {
           children: [
             const CircularProgressIndicator(),
             const SizedBox(height: 16),
-            Text(message, style: const TextStyle(color: AppColors.textHint)),
+            Text(message, style: TextStyle(color: Theme.of(context).hintColor)),
           ],
         ),
       ),
@@ -795,7 +795,7 @@ class _ErrorCard extends StatelessWidget {
             Expanded(
               child: Text(
                 message,
-                style: const TextStyle(color: AppColors.textSecondary),
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
             ),
             TextButton(onPressed: onRetry, child: const Text('Retry')),

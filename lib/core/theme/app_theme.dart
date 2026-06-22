@@ -13,9 +13,15 @@ class AppTheme {
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primary,
         brightness: Brightness.light,
-        surface: AppColors.surface,
+        surface: const Color(0xFFFFFFFF),
+        onSurface: const Color(0xFF0F172A),
+        onSurfaceVariant: const Color(0xFF64748B),
+        outline: const Color(0xFFE2E8F0),
+        surfaceContainerHighest: const Color(0xFFF1F5F9),
       ),
-      scaffoldBackgroundColor: AppColors.background,
+      scaffoldBackgroundColor: const Color(0xFFF8FAFC),
+      hintColor: const Color(0xFF94A3B8),
+      dividerColor: const Color(0xFFE2E8F0),
     );
 
     final textTheme = base.textTheme.apply(fontFamily: _font);
@@ -192,8 +198,15 @@ class AppTheme {
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primary,
         brightness: Brightness.dark,
+        surface: const Color(0xFF1E293B),
+        onSurface: const Color(0xFFF1F5F9),
+        onSurfaceVariant: const Color(0xFF94A3B8),
+        outline: const Color(0xFF334155),
+        surfaceContainerHighest: const Color(0xFF253347),
       ),
       scaffoldBackgroundColor: const Color(0xFF0F172A),
+      hintColor: const Color(0xFF64748B),
+      dividerColor: const Color(0xFF334155),
     );
 
     final textTheme = base.textTheme.apply(fontFamily: _font);

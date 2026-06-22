@@ -194,22 +194,22 @@ class _ActivePathsStrip extends ConsumerWidget {
         if (rows.isEmpty) return const SizedBox.shrink();
         final paths = rows.map(parsedFromRow).toList();
         return Container(
-          color: AppColors.surfaceVariant,
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Row(
+              Row(
                 children: [
-                  Icon(Icons.route, size: 14, color: AppColors.textHint),
-                  SizedBox(width: 6),
+                  Icon(Icons.route, size: 14, color: Theme.of(context).hintColor),
+                  const SizedBox(width: 6),
                   Text(
                     'MY PATHS',
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 0.8,
-                      color: AppColors.textHint,
+                      color: Theme.of(context).hintColor,
                     ),
                   ),
                 ],
@@ -244,15 +244,16 @@ class _PathChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: 160,
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: AppColors.surface,
+          color: cs.surface,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppColors.border),
+          border: Border.all(color: Theme.of(context).dividerColor),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -262,10 +263,10 @@ class _PathChip extends StatelessWidget {
               path.topic,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 13,
-                color: AppColors.textPrimary,
+                color: cs.onSurface,
               ),
             ),
             const SizedBox(height: 6),
@@ -274,7 +275,7 @@ class _PathChip extends StatelessWidget {
               child: LinearProgressIndicator(
                 value: path.progressFraction,
                 minHeight: 5,
-                backgroundColor: AppColors.border,
+                backgroundColor: Theme.of(context).dividerColor,
                 valueColor: const AlwaysStoppedAnimation<Color>(
                   AppColors.learnColor,
                 ),
@@ -283,7 +284,7 @@ class _PathChip extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               '${path.completedLessons}/${path.totalLessons} lessons',
-              style: const TextStyle(fontSize: 11, color: AppColors.textHint),
+              style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
             ),
           ],
         ),
@@ -308,7 +309,7 @@ class _UserBubble extends StatelessWidget {
         ),
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: AppColors.primary,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(18),
@@ -341,6 +342,7 @@ class _TutorBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return Align(
       alignment: Alignment.centerLeft,
       child: Column(
@@ -362,9 +364,9 @@ class _TutorBubble extends StatelessWidget {
                   const SizedBox(width: 4),
                   Text(
                     _label(stage!),
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 11,
-                      color: AppColors.textHint,
+                      color: Theme.of(context).hintColor,
                     ),
                   ),
                 ],
@@ -377,14 +379,14 @@ class _TutorBubble extends StatelessWidget {
             margin: const EdgeInsets.only(bottom: 4),
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
-              color: AppColors.surface,
+              color: cs.surface,
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(4),
                 topRight: Radius.circular(18),
                 bottomLeft: Radius.circular(18),
                 bottomRight: Radius.circular(18),
               ),
-              border: Border.all(color: AppColors.border),
+              border: Border.all(color: Theme.of(context).dividerColor),
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -392,8 +394,8 @@ class _TutorBubble extends StatelessWidget {
                 Expanded(
                   child: Text(
                     text.isEmpty ? '…' : text,
-                    style: const TextStyle(
-                      color: AppColors.textPrimary,
+                    style: TextStyle(
+                      color: cs.onSurface,
                       height: 1.6,
                     ),
                   ),
@@ -417,9 +419,9 @@ class _TutorBubble extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 12, left: 4),
               child: Text(
                 followUp!,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 12,
-                  color: AppColors.textHint,
+                  color: Theme.of(context).hintColor,
                   fontStyle: FontStyle.italic,
                 ),
               ),
@@ -465,9 +467,9 @@ class _InputBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        border: Border(top: BorderSide(color: AppColors.border)),
-        color: AppColors.surface,
+      decoration: BoxDecoration(
+        border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
+        color: Theme.of(context).colorScheme.surface,
       ),
       padding: const EdgeInsets.fromLTRB(16, 12, 12, 16),
       child: Row(
@@ -547,10 +549,10 @@ class _EmptyState extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
-          const Text(
+          Text(
             'Your AI tutor answers, then guides you through practice, apply, create, and reflect.',
             textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors.textSecondary, height: 1.5),
+            style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
           ),
           const SizedBox(height: 32),
           Wrap(

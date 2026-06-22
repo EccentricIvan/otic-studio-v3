@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../ai_core/providers/ai_provider.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/theme/theme_provider.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
 
@@ -51,13 +52,13 @@ class SettingsScreen extends ConsumerWidget {
                       : const Icon(Icons.warning_amber, color: Colors.orange),
                 ),
               ),
-              const ListTile(
+              ListTile(
                 leading: Icon(
                   Icons.info_outline,
-                  color: AppColors.textSecondary,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: Text('Model location'),
-                subtitle: Text('Use the model folder on Windows or Android'),
+                title: const Text('Model location'),
+                subtitle: const Text('Use the model folder on Windows or Android'),
                 isThreeLine: true,
               ),
             ]),
@@ -94,18 +95,18 @@ class SettingsScreen extends ConsumerWidget {
                 ),
               ),
               ListTile(
-                leading: const Icon(
+                leading: Icon(
                   Icons.edit_outlined,
-                  color: AppColors.textSecondary,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
                 title: const Text('Edit profile'),
                 subtitle: const Text(
                   'Update your interests and learning style',
                 ),
                 onTap: () => context.go('/onboarding'),
-                trailing: const Icon(
+                trailing: Icon(
                   Icons.chevron_right,
-                  color: AppColors.textHint,
+                  color: Theme.of(context).hintColor,
                 ),
               ),
             ]),
@@ -137,15 +138,53 @@ class SettingsScreen extends ConsumerWidget {
               error: (_, __) => const SizedBox.shrink(),
             ),
 
+            // ── Theme ────────────────────────────────────────────────────────
+            _Section('Appearance', [
+              ListTile(
+                leading: Icon(
+                  Icons.brightness_6,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+                title: const Text('Theme'),
+                subtitle: Text(
+                  ref.watch(themeModeProvider) == ThemeMode.dark
+                      ? 'Dark'
+                      : ref.watch(themeModeProvider) == ThemeMode.light
+                          ? 'Light'
+                          : 'System',
+                ),
+                trailing: SegmentedButton<ThemeMode>(
+                  segments: const [
+                    ButtonSegment(
+                      value: ThemeMode.light,
+                      icon: Icon(Icons.light_mode, size: 18),
+                    ),
+                    ButtonSegment(
+                      value: ThemeMode.dark,
+                      icon: Icon(Icons.dark_mode, size: 18),
+                    ),
+                    ButtonSegment(
+                      value: ThemeMode.system,
+                      icon: Icon(Icons.settings_suggest, size: 18),
+                    ),
+                  ],
+                  selected: {ref.watch(themeModeProvider)},
+                  onSelectionChanged: (s) =>
+                      ref.read(themeModeProvider.notifier).set(s.first),
+                  showSelectedIcon: false,
+                ),
+              ),
+            ]),
+
             // ── App ──────────────────────────────────────────────────────────
             _Section('App', [
-              const ListTile(
+              ListTile(
                 leading: Icon(
                   Icons.info_outline,
-                  color: AppColors.textSecondary,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: Text('Version'),
-                subtitle: Text('Version 1.0.0'),
+                title: const Text('Version'),
+                subtitle: const Text('Version 1.0.0'),
               ),
               ListTile(
                 leading: const Icon(Icons.wifi_off, color: AppColors.primary),
@@ -175,18 +214,18 @@ class SettingsScreen extends ConsumerWidget {
             // ── Admin ────────────────────────────────────────────────────────
             _Section('Administration', [
               ListTile(
-                leading: const Icon(
+                leading: Icon(
                   Icons.admin_panel_settings,
-                  color: AppColors.textSecondary,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
                 title: const Text('Admin dashboard'),
                 subtitle: const Text(
                   'Device info, model status, profiles, update management',
                 ),
                 onTap: () => context.go('/admin'),
-                trailing: const Icon(
+                trailing: Icon(
                   Icons.chevron_right,
-                  color: AppColors.textHint,
+                  color: Theme.of(context).hintColor,
                 ),
               ),
             ]),

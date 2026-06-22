@@ -75,8 +75,8 @@ class AppShell extends StatelessWidget {
         destinations: _destinations,
       ),
       bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          border: Border(top: BorderSide(color: AppColors.border)),
+        decoration: BoxDecoration(
+          border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
         ),
         child: NavigationBar(
           selectedIndex: mobileSelected,
@@ -138,7 +138,7 @@ class _SideNav extends StatelessWidget {
                       selected ? dest.selectedIcon : dest.icon,
                       color: selected
                           ? AppColors.primary
-                          : AppColors.textSecondary,
+                          : Theme.of(context).colorScheme.onSurfaceVariant,
                       size: 20,
                     ),
                     title: Text(
@@ -150,7 +150,7 @@ class _SideNav extends StatelessWidget {
                             : FontWeight.w400,
                         color: selected
                             ? AppColors.primary
-                            : AppColors.textSecondary,
+                            : Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
                     ),
                     shape: RoundedRectangleBorder(
@@ -170,15 +170,15 @@ class _SideNav extends StatelessWidget {
                 Container(
                   width: 8,
                   height: 8,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: AppColors.teachColor,
                     shape: BoxShape.circle,
                   ),
                 ),
                 const SizedBox(width: 8),
-                const Text(
+                Text(
                   'Offline · v1.1',
-                  style: TextStyle(fontSize: 12, color: AppColors.textHint),
+                  style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),
                 ),
               ],
             ),

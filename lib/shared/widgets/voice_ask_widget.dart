@@ -34,14 +34,15 @@ class _VoiceAskWidgetState extends State<VoiceAskWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           decoration: BoxDecoration(
-            color: AppColors.surface,
+            color: cs.surface,
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: AppColors.border),
+            border: Border.all(color: Theme.of(context).dividerColor),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withValues(alpha: 0.05),
@@ -53,7 +54,7 @@ class _VoiceAskWidgetState extends State<VoiceAskWidget> {
           child: Row(
             children: [
               const SizedBox(width: 14),
-              const Icon(Icons.search, color: AppColors.textHint, size: 20),
+              Icon(Icons.search, color: Theme.of(context).hintColor, size: 20),
               const SizedBox(width: 10),
               Expanded(
                 child: TextField(
@@ -95,14 +96,14 @@ class _VoiceAskWidgetState extends State<VoiceAskWidget> {
                 (p) => ActionChip(
                   label: Text(
                     p,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
-                      color: AppColors.textSecondary,
+                      color: cs.onSurfaceVariant,
                     ),
                   ),
                   onPressed: () => setState(() => _controller.text = p),
-                  backgroundColor: AppColors.surface,
-                  side: const BorderSide(color: AppColors.border),
+                  backgroundColor: cs.surface,
+                  side: BorderSide(color: Theme.of(context).dividerColor),
                   shape: const StadiumBorder(),
                   padding: const EdgeInsets.symmetric(horizontal: 4),
                   visualDensity: VisualDensity.compact,

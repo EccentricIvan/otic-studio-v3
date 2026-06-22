@@ -48,15 +48,15 @@ class ScreenPlaceholder extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               decoration: BoxDecoration(
-                color: AppColors.surfaceVariant,
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: AppColors.border),
+                border: Border.all(color: Theme.of(context).dividerColor),
               ),
-              child: const Text(
+              child: Text(
                 'Coming soon — in development',
                 style: TextStyle(
                   fontSize: 12,
-                  color: AppColors.textHint,
+                  color: Theme.of(context).hintColor,
                   fontStyle: FontStyle.italic,
                 ),
               ),

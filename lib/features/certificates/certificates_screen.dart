@@ -159,10 +159,10 @@ class _SectionTitle extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           fontWeight: FontWeight.w700,
           fontSize: 15,
-          color: AppColors.textPrimary,
+          color: Theme.of(context).colorScheme.onSurface,
         ),
       ),
     );
@@ -197,7 +197,7 @@ class _CertTile extends StatelessWidget {
         file.path,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: const TextStyle(fontSize: 11, color: AppColors.textHint),
+        style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
       ),
       trailing: const Icon(Icons.picture_as_pdf,
           color: Colors.red, size: 20),
@@ -220,9 +220,9 @@ class _PathCertCard extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(16, 0, 16, 10),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.border),
+        border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: Row(
         children: [
@@ -233,12 +233,12 @@ class _PathCertCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(path.title,
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        color: AppColors.textPrimary)),
+                        color: Theme.of(context).colorScheme.onSurface)),
                 Text('${path.totalLessons} lessons completed',
-                    style: const TextStyle(
-                        fontSize: 12, color: AppColors.textHint)),
+                    style: TextStyle(
+                        fontSize: 12, color: Theme.of(context).hintColor)),
               ],
             ),
           ),
@@ -276,15 +276,15 @@ class _EmptyState extends StatelessWidget {
       padding: const EdgeInsets.all(40),
       child: Column(
         children: [
-          const Icon(Icons.workspace_premium,
-              size: 56, color: AppColors.textHint),
+          Icon(Icons.workspace_premium,
+              size: 56, color: Theme.of(context).hintColor),
           const SizedBox(height: 16),
           Text(
             savedCount > 0
                 ? 'No new paths to certify'
                 : 'No certificates yet',
-            style: const TextStyle(
-                fontWeight: FontWeight.w600, color: AppColors.textPrimary),
+            style: TextStyle(
+                fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface),
           ),
           const SizedBox(height: 8),
           Text(
@@ -292,8 +292,8 @@ class _EmptyState extends StatelessWidget {
                 ? 'Complete all 12 lessons in a learning path to earn a certificate.'
                 : 'Start a learning path and complete all lessons to earn your first certificate.',
             textAlign: TextAlign.center,
-            style: const TextStyle(
-                color: AppColors.textSecondary, height: 1.5),
+            style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
           ),
         ],
       ),

@@ -103,7 +103,7 @@ class AdminScreen extends ConsumerWidget {
                         ListTile(
                           leading: Icon(
                             Icons.person_off,
-                            color: AppColors.textHint,
+                            color: Theme.of(context).hintColor,
                           ),
                           title: Text('No student profiles on this device'),
                         ),
@@ -129,7 +129,7 @@ class AdminScreen extends ConsumerWidget {
                 ListTile(
                   leading: Icon(
                     Icons.info_outline,
-                    color: AppColors.textSecondary,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                   title: Text('How to update', style: TextStyle(fontSize: 14)),
                   subtitle: Text(
@@ -249,9 +249,9 @@ class _InfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.border),
+        border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: Column(children: children),
     );
@@ -274,11 +274,11 @@ class _InfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       dense: true,
-      leading: Icon(icon, color: AppColors.textSecondary, size: 20),
+      leading: Icon(icon, color: Theme.of(context).colorScheme.onSurfaceVariant, size: 20),
       title: Text(label, style: const TextStyle(fontSize: 13)),
       subtitle: Text(
         value,
-        style: TextStyle(fontSize: 12, color: valueColor ?? AppColors.textHint),
+        style: TextStyle(fontSize: 12, color: valueColor ?? Theme.of(context).hintColor),
       ),
     );
   }

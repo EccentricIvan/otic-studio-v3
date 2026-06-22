@@ -178,7 +178,7 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
     });
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Teach'), leading: const BackButton()),
+      appBar: AppBar(title: Text('Teach'), leading: const BackButton()),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: MaxWidth(
@@ -203,7 +203,7 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                       child: Text(
                         'Explain a topic clearly. The better your explanation, the higher your score!',
                         style: TextStyle(
-                          color: AppColors.textSecondary,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                           height: 1.5,
                         ),
                       ),
@@ -237,9 +237,9 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                   ),
                 ),
                 const SizedBox(height: 6),
-                const Text(
+                Text(
                   'Write as if you are teaching a friend. Use examples.',
-                  style: TextStyle(color: AppColors.textSecondary),
+                  style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
                 ),
                 const SizedBox(height: 14),
                 TextField(
@@ -247,19 +247,19 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                   onChanged: ref.read(_teachProvider.notifier).setExplanation,
                   maxLines: 8,
                   minLines: 5,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Type your explanation here…',
                     filled: true,
-                    fillColor: AppColors.surfaceVariant,
+                    fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
-                      borderSide: BorderSide(color: AppColors.border),
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
+                      borderSide: BorderSide(color: Theme.of(context).dividerColor),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
-                      borderSide: BorderSide(color: AppColors.border),
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
+                      borderSide: BorderSide(color: Theme.of(context).dividerColor),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       borderSide: BorderSide(
                         color: AppColors.teachColor,
@@ -281,7 +281,7 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                                 SizedBox(height: 10),
                                 Text(
                                   'Your explanation is being evaluated...',
-                                  style: TextStyle(color: AppColors.textHint),
+                                  style: TextStyle(color: Theme.of(context).hintColor),
                                 ),
                               ],
                             ),
@@ -373,7 +373,7 @@ class _ScoreCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const Text('🏅', style: TextStyle(fontSize: 22)),
+                Text('🏅', style: TextStyle(fontSize: 22)),
                 const SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -387,7 +387,7 @@ class _ScoreCard extends StatelessWidget {
                     ),
                     Text(
                       state.newBadge,
-                      style: const TextStyle(color: AppColors.textSecondary),
+                      style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
                     ),
                   ],
                 ),
@@ -398,7 +398,7 @@ class _ScoreCard extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: AppColors.surface,
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: _scoreColor.withValues(alpha: 0.3)),
           ),
@@ -491,8 +491,8 @@ class _FeedbackRow extends StatelessWidget {
               const SizedBox(height: 2),
               Text(
                 text,
-                style: const TextStyle(
-                  color: AppColors.textSecondary,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                   height: 1.4,
                 ),
               ),
@@ -539,10 +539,10 @@ class _TopicChips extends StatelessWidget {
           onSelected: (_) => onSelect(t),
           selectedColor: AppColors.primary.withValues(alpha: 0.12),
           side: BorderSide(
-            color: sel ? AppColors.primary : AppColors.border,
+            color: sel ? AppColors.primary : Theme.of(context).dividerColor,
           ),
           labelStyle: TextStyle(
-            color: sel ? AppColors.primary : AppColors.textSecondary,
+            color: sel ? AppColors.primary : Theme.of(context).colorScheme.onSurfaceVariant,
             fontWeight: sel ? FontWeight.w600 : FontWeight.w400,
           ),
           checkmarkColor: AppColors.primary,

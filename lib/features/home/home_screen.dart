@@ -314,15 +314,16 @@ class _ActivePathCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(12),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: AppColors.surface,
+          color: cs.surface,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppColors.border),
+          border: Border.all(color: Theme.of(context).dividerColor),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -332,9 +333,9 @@ class _ActivePathCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     path.title,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: AppColors.textPrimary,
+                      color: cs.onSurface,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -366,7 +367,7 @@ class _ActivePathCard extends StatelessWidget {
               child: LinearProgressIndicator(
                 value: path.progressFraction,
                 minHeight: 6,
-                backgroundColor: AppColors.border,
+                backgroundColor: Theme.of(context).dividerColor,
                 valueColor: const AlwaysStoppedAnimation<Color>(
                   AppColors.learnColor,
                 ),
@@ -375,7 +376,7 @@ class _ActivePathCard extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               '${path.completedLessons} of ${path.totalLessons} lessons complete',
-              style: const TextStyle(fontSize: 12, color: AppColors.textHint),
+              style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),
             ),
           ],
         ),
