@@ -121,7 +121,7 @@ class _EmptyStart extends StatelessWidget {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
           const SizedBox(height: 8),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 32),
             child: Text(
               'Drag blocks onto the page, fill them in, and export a real .html file that opens in any browser — all offline.',
@@ -402,7 +402,7 @@ class _Palette extends ConsumerWidget {
       return ListView(
         padding: const EdgeInsets.all(8),
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.fromLTRB(8, 8, 8, 4),
             child: Text(
               'BLOCKS',
@@ -479,7 +479,7 @@ class _Canvas extends ConsumerWidget {
             ),
             borderRadius: BorderRadius.circular(16),
           ),
-          child: const Center(
+          child: Center(
             child: Text(
               'Drag a block here to start\n(or tap one in the palette)',
               textAlign: TextAlign.center,
@@ -529,7 +529,7 @@ class _Canvas extends ConsumerWidget {
                   ),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
                     'Drop new blocks here',
                     style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),
@@ -612,7 +612,7 @@ class _CanvasItem extends ConsumerWidget {
                       children: [
                         ReorderableDragStartListener(
                           index: index,
-                          child: const Padding(
+                          child: Padding(
                             padding: EdgeInsets.all(8),
                             child: Icon(
                               Icons.drag_indicator,
