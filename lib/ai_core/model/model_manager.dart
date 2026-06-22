@@ -47,7 +47,7 @@ class ModelInfo {
 ///   Windows  → <appDocuments>\OTIC\gemma-3-1b-q4_k_m.gguf
 ///   Linux    → <appDocuments>/OTIC/gemma-3-1b-q4_k_m.gguf
 class ModelManager {
-  static const _androidModelName = 'gemma-model.bin';
+  static const _androidModelNames = ['gemma-model.bin', 'gemma-model.task'];
   static const _desktopModelName = 'gemma-3-1b-q4_k_m.gguf';
   // Minimum sane file size — reject obvious truncations
   static const _minSizeBytes = 200 * 1024 * 1024; // 200 MB
@@ -84,18 +84,22 @@ class ModelManager {
       try {
         final ext = await getExternalStorageDirectory();
         if (ext != null) {
-          paths.add(
-            p.join(
-              ext.parent.parent.parent.parent.path,
-              'OTIC',
-              _androidModelName,
-            ),
-          );
+          for (final name in _androidModelNames) {
+            paths.add(
+              p.join(
+                ext.parent.parent.parent.parent.path,
+                'OTIC',
+                name,
+              ),
+            );
+          }
         }
       } catch (_) {}
       // App-internal files dir
       final appFiles = await getApplicationDocumentsDirectory();
-      paths.add(p.join(appFiles.path, 'models', _androidModelName));
+      for (final name in _androidModelNames) {
+        paths.add(p.join(appFiles.path, 'models', name));
+      }
     } else {
       // Windows / Linux — Documents/OTIC/
       final docs = await getApplicationDocumentsDirectory();
@@ -120,10 +124,11 @@ class ModelManager {
   }
 
   /// Destination used when the user installs a model through the app.
-  Future<String> installTargetPath() async {
+  Future<String> installTargetPath({String extension = '.task'}) async {
     if (defaultTargetPlatform == TargetPlatform.android) {
+      final name = extension == '.bin' ? 'gemma-model.bin' : 'gemma-model.task';
       final appFiles = await getApplicationDocumentsDirectory();
-      return p.join(appFiles.path, 'models', _androidModelName);
+      return p.join(appFiles.path, 'models', name);
     }
     final docs = await getApplicationDocumentsDirectory();
     return p.join(docs.path, 'OTIC', _desktopModelName);
@@ -162,7 +167,8 @@ class ModelManager {
       );
     }
 
-    final targetPath = await installTargetPath();
+    final ext = p.extension(sourcePath).toLowerCase();
+    final targetPath = await installTargetPath(extension: ext);
     final target = File(targetPath);
     await target.parent.create(recursive: true);
 
@@ -200,8 +206,8 @@ class ModelManager {
     if (defaultTargetPlatform == TargetPlatform.android) {
       return 'Transfer the model file to your phone with a USB cable, then '
           'choose it with Install from file.\n\n'
-          'Model: gemma-3-1b-it-gpu-int4.bin (~900 MB)\n'
-          'Source: Download from Google AI Edge on a PC.';
+          'Model: gemma3-1B-it-int4.task (~541 MB)\n'
+          'Source: Download from Kaggle (Google Gemma 3 LiteRT tab).';
     }
     return 'Transfer the model file to this device, then choose it with '
         'Install from file.\n\n'

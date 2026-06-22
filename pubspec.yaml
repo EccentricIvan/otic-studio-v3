@@ -16,7 +16,7 @@ dependencies:
 
   # AI inference — Ollama local server + flutter_gemma fallback
   http: ^1.2.0
-  flutter_gemma: ^1.0.2
+  flutter_gemma: ^1.0.3
   flutter_gemma_mediapipe: ^1.0.0
   ffi: ^2.1.0
 
