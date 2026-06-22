@@ -19,13 +19,13 @@ class CertificatesScreen extends ConsumerWidget {
     final studentAsync = ref.watch(activeStudentProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Certificates')),
+      appBar: AppBar(title: Text('Certificates')),
       body: studentAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
         data: (student) {
           if (student == null) {
-            return const Center(child: Text('No student profile found.'));
+            return Center(child: Text('No student profile found.'));
           }
           return _CertsBody(student: student);
         },
@@ -117,7 +117,7 @@ class _CertsBodyState extends ConsumerState<_CertsBody> {
         SliverToBoxAdapter(
           child: pathsAsync.when(
             loading: () =>
-                const Center(child: CircularProgressIndicator()),
+                Center(child: CircularProgressIndicator()),
             error: (_, __) => const SizedBox.shrink(),
             data: (rows) {
               final completed = rows
@@ -199,7 +199,7 @@ class _CertTile extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
         style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
       ),
-      trailing: const Icon(Icons.picture_as_pdf,
+      trailing: Icon(Icons.picture_as_pdf,
           color: Colors.red, size: 20),
     );
   }
@@ -243,7 +243,7 @@ class _PathCertCard extends StatelessWidget {
             ),
           ),
           generating
-              ? const SizedBox(
+              ? SizedBox(
                   width: 24,
                   height: 24,
                   child: CircularProgressIndicator(strokeWidth: 2))
@@ -256,7 +256,7 @@ class _PathCertCard extends StatelessWidget {
                     minimumSize: Size.zero,
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
-                  child: const Text('Generate PDF',
+                  child: Text('Generate PDF',
                       style: TextStyle(fontSize: 12)),
                 ),
         ],

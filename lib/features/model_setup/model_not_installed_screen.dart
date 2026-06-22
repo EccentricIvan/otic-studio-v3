@@ -117,15 +117,15 @@ class _ModelNotInstalledScreenState
                     style: Theme.of(context).textTheme.bodyLarge,
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 32),
+                  SizedBox(height: 32),
                   if (_installing) ...[
                     _InstallProgress(progress: _progress),
                   ] else ...[
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton.icon(
-                        icon: const Icon(Icons.folder_open),
-                        label: const Text('Install from file…'),
+                        icon: Icon(Icons.folder_open),
+                        label: Text('Install from file…'),
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                         ),
@@ -133,7 +133,7 @@ class _ModelNotInstalledScreenState
                       ),
                     ),
                     if (_error != null) ...[
-                      const SizedBox(height: 12),
+                      SizedBox(height: 12),
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(12),
@@ -146,16 +146,16 @@ class _ModelNotInstalledScreenState
                         ),
                         child: Row(
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.error_outline,
                               color: Colors.red,
                               size: 18,
                             ),
-                            const SizedBox(width: 8),
+                            SizedBox(width: 8),
                             Expanded(
                               child: Text(
                                 _error!,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   color: Colors.red,
                                   fontSize: 13,
                                 ),
@@ -165,23 +165,23 @@ class _ModelNotInstalledScreenState
                         ),
                       ),
                     ],
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16),
                     _InstructionsCard(ref: ref),
-                    const SizedBox(height: 24),
+                    SizedBox(height: 24),
                     Row(
                       children: [
                         Expanded(
                           child: OutlinedButton.icon(
-                            icon: const Icon(Icons.refresh),
-                            label: const Text('Check again'),
+                            icon: Icon(Icons.refresh),
+                            label: Text('Check again'),
                             onPressed: () => ref.invalidate(modelInfoProvider),
                           ),
                         ),
-                        const SizedBox(width: 12),
+                        SizedBox(width: 12),
                         Expanded(
                           child: OutlinedButton.icon(
-                            icon: const Icon(Icons.science_outlined),
-                            label: const Text('Try demo mode'),
+                            icon: Icon(Icons.science_outlined),
+                            label: Text('Try demo mode'),
                             onPressed: () => Navigator.of(context).pop(),
                           ),
                         ),
@@ -222,7 +222,7 @@ class _InstallProgress extends StatelessWidget {
                 height: 18,
                 child: CircularProgressIndicator(strokeWidth: 2),
               ),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
               Text(
                 'Installing model… ${(progress * 100).toStringAsFixed(0)}%',
                 style: Theme.of(context).textTheme.titleMedium,
@@ -234,7 +234,7 @@ class _InstallProgress extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             child: LinearProgressIndicator(value: progress, minHeight: 8),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Text(
             'Copying the model into the app — this can take a few minutes. '
             'Keep the app open.',

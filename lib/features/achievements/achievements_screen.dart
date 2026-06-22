@@ -15,13 +15,13 @@ class AchievementsScreen extends ConsumerWidget {
     final studentAsync = ref.watch(activeStudentProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Achievements')),
+      appBar: AppBar(title: Text('Achievements')),
       body: studentAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
         data: (student) {
           if (student == null) {
-            return const Center(child: Text('No student profile found.'));
+            return Center(child: Text('No student profile found.'));
           }
           return _AchievementsBody(studentId: student.id, student: student);
         },
@@ -40,7 +40,7 @@ class _AchievementsBody extends ConsumerWidget {
     final badgesAsync = ref.watch(earnedBadgesProvider(studentId));
 
     return badgesAsync.when(
-      loading: () => const Center(child: CircularProgressIndicator()),
+      loading: () => Center(child: CircularProgressIndicator()),
       error: (e, _) => Center(child: Text('Error: $e')),
       data: (earned) {
         final earnedIds = earned.map((b) => b.badgeId).toSet();
@@ -121,15 +121,15 @@ class _StatsHeader extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(student.name,
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
                         fontSize: 18)),
-                const SizedBox(height: 4),
+                SizedBox(height: 4),
                 Text('$earned of $total badges earned',
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white70, fontSize: 13)),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(4),
                   child: LinearProgressIndicator(
@@ -143,17 +143,17 @@ class _StatsHeader extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 20),
+          SizedBox(width: 20),
           Column(
             children: [
-              const Icon(Icons.stars, color: Colors.amber, size: 28),
-              const SizedBox(height: 4),
+              Icon(Icons.stars, color: Colors.amber, size: 28),
+              SizedBox(height: 4),
               Text('${student.totalPoints}',
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w800,
                       fontSize: 22)),
-              const Text('points',
+              Text('points',
                   style: TextStyle(color: Colors.white70, fontSize: 11)),
             ],
           ),
@@ -219,7 +219,7 @@ class _BadgeTile extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           if (isEarned) ...[
-            const SizedBox(height: 6),
+            SizedBox(height: 6),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               decoration: BoxDecoration(

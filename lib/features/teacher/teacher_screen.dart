@@ -15,9 +15,9 @@ class TeacherScreen extends ConsumerWidget {
     final studentAsync = ref.watch(activeStudentProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Teacher Portal')),
+      appBar: AppBar(title: Text('Teacher Portal')),
       body: studentAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
         data: (student) {
           if (student == null) {
@@ -50,7 +50,7 @@ class _StudentDashboard extends ConsumerWidget {
         children: [
           // Student profile card
           _ProfileCard(student: student),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
 
           // Stats row
           Row(
@@ -67,7 +67,7 @@ class _StudentDashboard extends ConsumerWidget {
                   error: (_, __) => const SizedBox.shrink(),
                 ),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: 10),
               Expanded(
                 child: badgesAsync.when(
                   data: (b) => _StatBox(
@@ -80,7 +80,7 @@ class _StudentDashboard extends ConsumerWidget {
                   error: (_, __) => const SizedBox.shrink(),
                 ),
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: 10),
               Expanded(
                 child: _StatBox(
                   icon: Icons.local_fire_department,
@@ -91,7 +91,7 @@ class _StudentDashboard extends ConsumerWidget {
               ),
             ],
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
 
           // Learning paths progress
           pathsAsync.when(
@@ -102,7 +102,7 @@ class _StudentDashboard extends ConsumerWidget {
                 children: [
                   const _SectionLabel('Learning Paths'),
                   ...rows.map((row) => _PathRow(row: row)),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                 ],
               );
             },
@@ -119,7 +119,7 @@ class _StudentDashboard extends ConsumerWidget {
                 children: [
                   const _SectionLabel('Topic Mastery'),
                   ...progress.take(8).map((p) => _MasteryRow(progress: p)),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                 ],
               );
             },
@@ -142,7 +142,7 @@ class _StudentDashboard extends ConsumerWidget {
             loading: () => const SizedBox.shrink(),
             error: (_, __) => const SizedBox.shrink(),
           ),
-          const SizedBox(height: 40),
+          SizedBox(height: 40),
         ],
         ),
       ),
@@ -173,19 +173,19 @@ class _ProfileCard extends StatelessWidget {
             backgroundColor: Colors.white24,
             child: Text(
               student.name.isNotEmpty ? student.name[0].toUpperCase() : '?',
-              style: const TextStyle(
+              style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
                   fontSize: 22),
             ),
           ),
-          const SizedBox(width: 14),
+          SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(student.name,
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
                         fontSize: 18)),
@@ -194,24 +194,24 @@ class _ProfileCard extends StatelessWidget {
                     if (student.grade != null) student.grade!,
                     if (student.age != null) 'Age ${student.age}',
                   ].join(' · '),
-                  style: const TextStyle(color: Colors.white70, fontSize: 12),
+                  style: TextStyle(color: Colors.white70, fontSize: 12),
                 ),
                 Text(
                   'Learning style: ${student.learningStyle}',
-                  style: const TextStyle(color: Colors.white60, fontSize: 11),
+                  style: TextStyle(color: Colors.white60, fontSize: 11),
                 ),
               ],
             ),
           ),
           Column(
             children: [
-              const Icon(Icons.stars, color: Colors.amber, size: 20),
+              Icon(Icons.stars, color: Colors.amber, size: 20),
               Text('${student.totalPoints}',
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                       fontSize: 16)),
-              const Text('pts',
+              Text('pts',
                   style: TextStyle(color: Colors.white70, fontSize: 10)),
             ],
           ),
@@ -372,12 +372,12 @@ class _MasteryRow extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           SizedBox(
             width: 34,
             child: Text(
               '${progress.level}',
-              style: const TextStyle(
+              style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 12,
                   color: AppColors.practiceColor),

@@ -239,12 +239,12 @@ class _CreateScreenState extends ConsumerState<CreateScreen> {
                   ? null
                   : () =>
                         ref.read(_createProvider.notifier).saveProject(context),
-              icon: const Icon(Icons.save_outlined),
-              label: const Text('Save'),
+              icon: Icon(Icons.save_outlined),
+              label: Text('Save'),
             ),
           if (state.started)
             IconButton(
-              icon: const Icon(Icons.refresh),
+              icon: Icon(Icons.refresh),
               tooltip: 'New project',
               onPressed: () => ref.invalidate(_createProvider),
             ),
@@ -291,12 +291,12 @@ class _SetupView extends ConsumerWidget {
               'Your AI mentor will guide you step by step.',
               style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
-            const SizedBox(height: 28),
-            const Text(
+            SizedBox(height: 28),
+            Text(
               'Project type',
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             GridView.count(
               crossAxisCount: cols,
               shrinkWrap: true,
@@ -351,9 +351,9 @@ class _SetupView extends ConsumerWidget {
                 );
               }).toList(),
             ),
-            const SizedBox(height: 28),
-            const Text('Topic', style: TextStyle(fontWeight: FontWeight.w600)),
-            const SizedBox(height: 10),
+            SizedBox(height: 28),
+            Text('Topic', style: TextStyle(fontWeight: FontWeight.w600)),
+            SizedBox(height: 10),
             TextField(
               controller: topicController,
               onChanged: ref.read(_createProvider.notifier).setTopic,
@@ -386,8 +386,8 @@ class _SetupView extends ConsumerWidget {
                         state.topic.trim().isNotEmpty
                     ? () => ref.read(_createProvider.notifier).start()
                     : null,
-                icon: const Icon(Icons.auto_awesome),
-                label: const Text('Start creating'),
+                icon: Icon(Icons.auto_awesome),
+                label: Text('Start creating'),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   padding: const EdgeInsets.symmetric(vertical: 16),
@@ -451,7 +451,7 @@ class _ChatView extends ConsumerWidget {
             Container(
               color: AppColors.teachColor.withValues(alpha: 0.1),
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-              child: const Row(
+              child: Row(
                 children: [
                   Icon(
                     Icons.check_circle,
@@ -523,8 +523,8 @@ class _Bubble extends StatelessWidget {
               ),
             ),
             if (streaming) ...[
-              const SizedBox(width: 6),
-              const SizedBox(
+              SizedBox(width: 6),
+              SizedBox(
                 width: 10,
                 height: 10,
                 child: CircularProgressIndicator(strokeWidth: 2),
@@ -563,7 +563,7 @@ class _InputBar extends StatelessWidget {
               onSubmitted: (t) {
                 if (t.trim().isNotEmpty) onSend(t.trim());
               },
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Reply...',
                 border: InputBorder.none,
               ),
@@ -571,9 +571,9 @@ class _InputBar extends StatelessWidget {
               minLines: 1,
             ),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           isLoading
-              ? const Padding(
+              ? Padding(
                   padding: EdgeInsets.all(10),
                   child: SizedBox(
                     width: 22,
@@ -586,7 +586,7 @@ class _InputBar extends StatelessWidget {
                     final t = controller.text.trim();
                     if (t.isNotEmpty) onSend(t);
                   },
-                  icon: const Icon(Icons.arrow_upward),
+                  icon: Icon(Icons.arrow_upward),
                   style: IconButton.styleFrom(
                     backgroundColor: AppColors.primary,
                     foregroundColor: Colors.white,

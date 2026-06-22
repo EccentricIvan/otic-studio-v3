@@ -37,7 +37,7 @@ class PracticeScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Practice'),
-          bottom: const TabBar(
+          bottom: TabBar(
             tabs: [
               Tab(icon: Icon(Icons.quiz_outlined), text: 'Practice'),
               Tab(icon: Icon(Icons.explore_outlined), text: 'Apply'),
@@ -150,7 +150,7 @@ class _PracticeTab extends ConsumerWidget {
               ref.read(practiceProvider.notifier).setTopic(t);
             },
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           if (state.topic.isNotEmpty &&
               state.exercise == null &&
               !state.isGenerating)
@@ -176,7 +176,7 @@ class _PracticeTab extends ConsumerWidget {
               onNext: () => ref.read(practiceProvider.notifier).next(),
               onReset: () => ref.read(practiceProvider.notifier).reset(),
             ),
-          const SizedBox(height: 40),
+          SizedBox(height: 40),
         ],
       ),
     );
@@ -214,7 +214,7 @@ class _ExerciseCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const Icon(
+                Icon(
                   Icons.stars,
                   size: 16,
                   color: AppColors.primary,
@@ -255,7 +255,7 @@ class _ExerciseCard extends StatelessWidget {
               height: 1.5,
             ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
 
           // Options
           ...exercise.options.asMap().entries.map(
@@ -270,7 +270,7 @@ class _ExerciseCard extends StatelessWidget {
 
           // Feedback
           if (state.answered) ...[
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -292,7 +292,7 @@ class _ExerciseCard extends StatelessWidget {
                     color: state.correct ? AppColors.teachColor : Colors.red,
                     size: 20,
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -320,13 +320,13 @@ class _ExerciseCard extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             SizedBox(
               width: double.infinity,
               child: FilledButton.icon(
                 onPressed: onNext,
-                icon: const Icon(Icons.arrow_forward),
-                label: const Text('Next question'),
+                icon: Icon(Icons.arrow_forward),
+                label: Text('Next question'),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.primary,
                 ),
@@ -408,7 +408,7 @@ class _OptionButton extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: 12),
+            SizedBox(width: 12),
             Expanded(
               child: Text(
                 text,
@@ -464,7 +464,7 @@ class _ApplyTabState extends ConsumerState<_ApplyTab> {
               ref.read(applyProvider.notifier).setTopic(t);
             },
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
 
           if (state.topic.isNotEmpty &&
               state.scenario == null &&
@@ -498,7 +498,7 @@ class _ApplyTabState extends ConsumerState<_ApplyTab> {
               onNext: () => ref.read(applyProvider.notifier).nextScenario(),
             ),
 
-          const SizedBox(height: 40),
+          SizedBox(height: 40),
         ],
       ),
     );
@@ -561,7 +561,7 @@ class _ScenarioCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10),
                 Text(
                   scenario.situation,
                   style: TextStyle(
@@ -614,11 +614,11 @@ class _ScenarioCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             SizedBox(
               width: double.infinity,
               child: state.isEvaluating
-                  ? const Center(
+                  ? Center(
                       child: Padding(
                         padding: EdgeInsets.all(12),
                         child: CircularProgressIndicator(),
@@ -677,13 +677,13 @@ class _ScenarioCard extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             SizedBox(
               width: double.infinity,
               child: FilledButton.icon(
                 onPressed: onNext,
-                icon: const Icon(Icons.refresh),
-                label: const Text('New scenario'),
+                icon: Icon(Icons.refresh),
+                label: Text('New scenario'),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.primary,
                 ),
@@ -737,7 +737,7 @@ class _StartCard extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             FilledButton.icon(
               onPressed: onTap,
               icon: Icon(icon, size: 18),
@@ -762,7 +762,7 @@ class _LoadingCard extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            const CircularProgressIndicator(),
+            CircularProgressIndicator(),
             SizedBox(height: 16),
             Text(message, style: TextStyle(color: Theme.of(context).hintColor)),
           ],
@@ -798,7 +798,7 @@ class _ErrorCard extends StatelessWidget {
                 style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
             ),
-            TextButton(onPressed: onRetry, child: const Text('Retry')),
+            TextButton(onPressed: onRetry, child: Text('Retry')),
           ],
         ),
       ),

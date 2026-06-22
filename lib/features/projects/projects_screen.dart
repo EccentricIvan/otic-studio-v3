@@ -16,21 +16,21 @@ class ProjectsScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Projects'),
+        title: Text('Projects'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.add),
+            icon: Icon(Icons.add),
             tooltip: 'New project',
             onPressed: () => context.go('/create'),
           ),
         ],
       ),
       body: studentAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
         data: (student) {
           if (student == null) {
-            return const Center(child: Text('No student profile found.'));
+            return Center(child: Text('No student profile found.'));
           }
           return _ProjectsList(studentId: student.id);
         },
@@ -48,7 +48,7 @@ class _ProjectsList extends ConsumerWidget {
     final projectsAsync = ref.watch(studentProjectsProvider(studentId));
 
     return projectsAsync.when(
-      loading: () => const Center(child: CircularProgressIndicator()),
+      loading: () => Center(child: CircularProgressIndicator()),
       error: (e, _) => Center(child: Text('Error: $e')),
       data: (projects) {
         if (projects.isEmpty) {
@@ -60,7 +60,7 @@ class _ProjectsList extends ConsumerWidget {
           child: ListView.separated(
             padding: const EdgeInsets.all(16),
             itemCount: projects.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 10),
+            separatorBuilder: (_, __) => SizedBox(height: 10),
             itemBuilder: (_, i) => _ProjectCard(project: projects[i]),
           ),
         );
@@ -200,11 +200,11 @@ class _EmptyProjects extends StatelessWidget {
               style: TextStyle(
                   color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24),
             FilledButton.icon(
               onPressed: () => context.go('/create'),
-              icon: const Icon(Icons.add),
-              label: const Text('Start a project'),
+              icon: Icon(Icons.add),
+              label: Text('Start a project'),
               style: FilledButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,

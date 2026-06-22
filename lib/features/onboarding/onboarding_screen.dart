@@ -138,7 +138,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   child: ElevatedButton(
                     onPressed: _saving ? null : _next,
                     child: _saving
-                        ? const SizedBox(
+                        ? SizedBox(
                             width: 20,
                             height: 20,
                             child: CircularProgressIndicator(
@@ -179,7 +179,7 @@ class _NamePage extends StatelessWidget {
             fit: BoxFit.contain,
             semanticLabel: 'Logo',
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Text(
             'Welcome to Otic Studio',
             style: Theme.of(context).textTheme.headlineLarge,
@@ -194,12 +194,12 @@ class _NamePage extends StatelessWidget {
             "What's your name?",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
           TextField(
             controller: controller,
             autofocus: true,
             textCapitalization: TextCapitalization.words,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: 'Enter your name',
               prefixIcon: Icon(Icons.person_outline),
             ),
@@ -267,7 +267,7 @@ class _AgePage extends StatelessWidget {
             ),
             onChanged: onAge,
           ),
-          const SizedBox(height: 24),
+          SizedBox(height: 24),
           Text(
             'What grade/level are you in?',
             style: Theme.of(context).textTheme.titleLarge,
@@ -343,7 +343,7 @@ class _InterestsPage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Expanded(
             child: GridView.count(
               crossAxisCount: 3,
@@ -449,7 +449,7 @@ class _StylePage extends StatelessWidget {
             'The AI tutor adapts its teaching style to suit you.',
             style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.5),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
           ..._styles.map((s) {
             final isSelected = selected == s.$1;
             return GestureDetector(
@@ -503,7 +503,7 @@ class _StylePage extends StatelessWidget {
                       ),
                     ),
                     if (isSelected)
-                      const Icon(
+                      Icon(
                         Icons.check_circle,
                         color: AppColors.primary,
                         size: 20,

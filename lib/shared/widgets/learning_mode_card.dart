@@ -47,7 +47,7 @@ class LearningModeCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               Row(
                 children: [
                   Text(
@@ -58,7 +58,7 @@ class LearningModeCard extends StatelessWidget {
                       color: color,
                     ),
                   ),
-                  const SizedBox(width: 4),
+                  SizedBox(width: 4),
                   Icon(Icons.arrow_forward, size: 14, color: color),
                 ],
               ),

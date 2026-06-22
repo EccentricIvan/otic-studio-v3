@@ -55,11 +55,11 @@ class _VoiceAskWidgetState extends State<VoiceAskWidget> {
             children: [
               SizedBox(width: 14),
               Icon(Icons.search, color: Theme.of(context).hintColor, size: 20),
-              const SizedBox(width: 10),
+              SizedBox(width: 10),
               Expanded(
                 child: TextField(
                   controller: _controller,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Ask Otic anything...',
                     border: InputBorder.none,
                     enabledBorder: InputBorder.none,
@@ -75,7 +75,7 @@ class _VoiceAskWidgetState extends State<VoiceAskWidget> {
                 padding: const EdgeInsets.all(8),
                 child: IconButton.filled(
                   onPressed: _submit,
-                  icon: const Icon(Icons.arrow_upward, size: 18),
+                  icon: Icon(Icons.arrow_upward, size: 18),
                   style: IconButton.styleFrom(
                     backgroundColor: AppColors.primary,
                     foregroundColor: Colors.white,

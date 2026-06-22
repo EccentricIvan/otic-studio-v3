@@ -78,11 +78,11 @@ class _CollaborateScreenState extends ConsumerState<CollaborateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Collaborate')),
+      appBar: AppBar(title: Text('Collaborate')),
       body: MaxWidth(
         maxWidth: 760,
         child: _starting
-            ? const Center(child: CircularProgressIndicator())
+            ? Center(child: CircularProgressIndicator())
             : _error != null
             ? _ErrorView(message: _error!)
             : _PeersView(peers: _peers),
@@ -141,7 +141,7 @@ class _PeersView extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
 
         if (peers.isEmpty)
           const _EmptyPeers()
@@ -170,7 +170,7 @@ class _PeerCard extends StatelessWidget {
           backgroundColor: AppColors.practiceColor.withValues(alpha: 0.12),
           child: Text(
             peer.name.isNotEmpty ? peer.name[0].toUpperCase() : '?',
-            style: const TextStyle(
+            style: TextStyle(
               color: AppColors.practiceColor,
               fontWeight: FontWeight.w700,
             ),
@@ -184,7 +184,7 @@ class _PeerCard extends StatelessWidget {
           peer.topic.isNotEmpty
               ? 'Learning: ${peer.topic}'
               : 'Online · ${peer.address}',
-          style: const TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12),
         ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
@@ -251,7 +251,7 @@ class _ErrorView extends StatelessWidget {
               'Local network unavailable',
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               message,
               textAlign: TextAlign.center,

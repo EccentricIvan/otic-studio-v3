@@ -25,7 +25,7 @@ class _PathDetailScreenState extends ConsumerState<PathDetailScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(widget.topic), leading: const BackButton()),
       body: pathAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
         data: (row) {
           if (row == null) {
@@ -374,7 +374,7 @@ class _GeneratingView extends ConsumerWidget {
               textAlign: TextAlign.center,
               style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
             ),
-            const SizedBox(height: 28),
+            SizedBox(height: 28),
             FilledButton.icon(
               onPressed: () async {
                 await ref
@@ -382,16 +382,16 @@ class _GeneratingView extends ConsumerWidget {
                     .generatePath(topic);
                 onGenerated();
               },
-              icon: const Icon(Icons.auto_awesome),
-              label: const Text('Generate my path'),
+              icon: Icon(Icons.auto_awesome),
+              label: Text('Generate my path'),
               style: FilledButton.styleFrom(
                 backgroundColor: AppColors.primary,
               ),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             TextButton(
               onPressed: () => context.go('/learn'),
-              child: const Text('Skip — just chat'),
+              child: Text('Skip — just chat'),
             ),
           ],
         ),

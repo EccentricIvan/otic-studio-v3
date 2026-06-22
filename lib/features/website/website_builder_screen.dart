@@ -37,21 +37,21 @@ class _StartView extends ConsumerWidget {
     final name = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Name your website'),
+        title: Text('Name your website'),
         content: TextField(
           controller: controller,
           autofocus: true,
-          decoration: const InputDecoration(hintText: 'e.g. My Farm Page'),
+          decoration: InputDecoration(hintText: 'e.g. My Farm Page'),
           onSubmitted: (v) => Navigator.pop(ctx, v),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: const Text('Cancel'),
+            child: Text('Cancel'),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(ctx, controller.text),
-            child: const Text('Start building'),
+            child: Text('Start building'),
           ),
         ],
       ),
@@ -66,22 +66,22 @@ class _StartView extends ConsumerWidget {
     final studentAsync = ref.watch(activeStudentProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Website Builder')),
+      appBar: AppBar(title: Text('Website Builder')),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _newSite(context, ref),
-        icon: const Icon(Icons.add),
-        label: const Text('New website'),
+        icon: Icon(Icons.add),
+        label: Text('New website'),
       ),
       body: studentAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
         data: (student) {
           if (student == null) {
-            return const Center(child: Text('No student profile found.'));
+            return Center(child: Text('No student profile found.'));
           }
           final sitesAsync = ref.watch(studentWebsitesProvider(student.id));
           return sitesAsync.when(
-            loading: () => const Center(child: CircularProgressIndicator()),
+            loading: () => Center(child: CircularProgressIndicator()),
             error: (e, _) => Center(child: Text('Error: $e')),
             data: (sites) => sites.isEmpty
                 ? const _EmptyStart()
@@ -90,7 +90,7 @@ class _StartView extends ConsumerWidget {
                     child: ListView.separated(
                       padding: const EdgeInsets.all(16),
                       itemCount: sites.length,
-                      separatorBuilder: (_, __) => const SizedBox(height: 10),
+                      separatorBuilder: (_, __) => SizedBox(height: 10),
                       itemBuilder: (_, i) => _SavedSiteTile(site: sites[i]),
                     ),
                   ),
@@ -120,7 +120,7 @@ class _EmptyStart extends StatelessWidget {
             'Build your first website',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 32),
             child: Text(
@@ -157,22 +157,22 @@ class _SavedSiteTile extends ConsumerWidget {
           style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
         ),
         trailing: IconButton(
-          icon: const Icon(Icons.delete_outline, size: 20),
+          icon: Icon(Icons.delete_outline, size: 20),
           tooltip: 'Delete',
           onPressed: () async {
             final ok = await showDialog<bool>(
               context: context,
               builder: (ctx) => AlertDialog(
-                title: const Text('Delete website?'),
+                title: Text('Delete website?'),
                 content: Text('"${site.title}" will be removed.'),
                 actions: [
                   TextButton(
                     onPressed: () => Navigator.pop(ctx, false),
-                    child: const Text('Cancel'),
+                    child: Text('Cancel'),
                   ),
                   FilledButton(
                     onPressed: () => Navigator.pop(ctx, true),
-                    child: const Text('Delete'),
+                    child: Text('Delete'),
                   ),
                 ],
               ),
@@ -231,20 +231,20 @@ class _EditorView extends ConsumerWidget {
     showDialog<void>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Your website\'s HTML code'),
+        title: Text('Your website\'s HTML code'),
         content: SizedBox(
           width: 600,
           child: SingleChildScrollView(
             child: SelectableText(
               html,
-              style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
+              style: TextStyle(fontFamily: 'monospace', fontSize: 12),
             ),
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: const Text('Close'),
+            child: Text('Close'),
           ),
         ],
       ),
@@ -260,23 +260,23 @@ class _EditorView extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
           tooltip: 'My websites',
           onPressed: () async {
             if (state.dirty) {
               final leave = await showDialog<bool>(
                 context: context,
                 builder: (ctx) => AlertDialog(
-                  title: const Text('Leave without saving?'),
-                  content: const Text('You have unsaved changes.'),
+                  title: Text('Leave without saving?'),
+                  content: Text('You have unsaved changes.'),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(ctx, false),
-                      child: const Text('Stay'),
+                      child: Text('Stay'),
                     ),
                     FilledButton(
                       onPressed: () => Navigator.pop(ctx, true),
-                      child: const Text('Leave'),
+                      child: Text('Leave'),
                     ),
                   ],
                 ),
@@ -289,17 +289,17 @@ class _EditorView extends ConsumerWidget {
         title: Text(state.doc.title, overflow: TextOverflow.ellipsis),
         actions: [
           IconButton(
-            icon: const Icon(Icons.tune),
+            icon: Icon(Icons.tune),
             tooltip: 'Page settings',
             onPressed: () => _openSitePanel(context),
           ),
           IconButton(
-            icon: const Icon(Icons.code),
+            icon: Icon(Icons.code),
             tooltip: 'View HTML code',
             onPressed: () => _showCode(context, ref),
           ),
           IconButton(
-            icon: const Icon(Icons.file_download_outlined),
+            icon: Icon(Icons.file_download_outlined),
             tooltip: 'Export .html',
             onPressed: () => _export(context, ref),
           ),
@@ -307,7 +307,7 @@ class _EditorView extends ConsumerWidget {
             padding: const EdgeInsets.only(right: 8),
             child: FilledButton.icon(
               onPressed: () => _save(context, ref),
-              icon: const Icon(Icons.save_outlined, size: 18),
+              icon: Icon(Icons.save_outlined, size: 18),
               label: Text(state.dirty ? 'Save*' : 'Save'),
             ),
           ),
@@ -316,13 +316,13 @@ class _EditorView extends ConsumerWidget {
       body: isWide
           ? Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 170,
                   child: _Palette(axis: Axis.vertical),
                 ),
-                const VerticalDivider(width: 1),
+                VerticalDivider(width: 1),
                 const Expanded(child: _Canvas()),
-                const VerticalDivider(width: 1),
+                VerticalDivider(width: 1),
                 SizedBox(
                   width: 300,
                   child: state.selectedBlock == null
@@ -334,7 +334,7 @@ class _EditorView extends ConsumerWidget {
                 ),
               ],
             )
-          : const Column(
+          : Column(
               children: [
                 SizedBox(height: 84, child: _Palette(axis: Axis.horizontal)),
                 Divider(height: 1),
@@ -348,7 +348,7 @@ class _EditorView extends ConsumerWidget {
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      builder: (_) => const Padding(
+      builder: (_) => Padding(
         padding: EdgeInsets.only(bottom: 16),
         child: _SitePanel(),
       ),
@@ -446,7 +446,7 @@ class _PaletteChip extends StatelessWidget {
           Icon(icon, size: 18, color: AppColors.primary),
           SizedBox(width: 8),
           Text(type.label, style: TextStyle(fontSize: 13)),
-          const SizedBox(width: 4),
+          SizedBox(width: 4),
           Icon(Icons.drag_indicator, size: 14, color: Theme.of(context).hintColor),
         ],
       ),
@@ -632,7 +632,7 @@ class _CanvasItem extends ConsumerWidget {
                         const Spacer(),
                         if (_aiCapable)
                           aiBusy
-                              ? const Padding(
+                              ? Padding(
                                   padding: EdgeInsets.all(10),
                                   child: SizedBox(
                                     width: 16,
@@ -643,7 +643,7 @@ class _CanvasItem extends ConsumerWidget {
                                   ),
                                 )
                               : IconButton(
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.auto_awesome,
                                     size: 16,
                                     color: AppColors.createColor,
@@ -653,7 +653,7 @@ class _CanvasItem extends ConsumerWidget {
                                   onPressed: () => notifier.aiFill(block.id),
                                 ),
                         IconButton(
-                          icon: const Icon(Icons.close, size: 16),
+                          icon: Icon(Icons.close, size: 16),
                           tooltip: 'Remove block',
                           visualDensity: VisualDensity.compact,
                           onPressed: () => notifier.removeBlock(block.id),
@@ -692,7 +692,7 @@ class _CanvasItem extends ConsumerWidget {
                 (s) => s.doc.blocks.where((x) => x.id == blockId).firstOrNull,
               ),
             );
-            if (b == null) return const SizedBox(height: 80);
+            if (b == null) return SizedBox(height: 80);
             return _Inspector(key: ValueKey(b.id), block: b);
           },
         ),
@@ -732,14 +732,14 @@ class _BlockPreview extends StatelessWidget {
               Text(
                 block.text,
                 textAlign: _ta,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
                   fontSize: 22,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               if (block.secondary.isNotEmpty) ...[
-                const SizedBox(height: 4),
+                SizedBox(height: 4),
                 Text(
                   block.secondary,
                   textAlign: _ta,
@@ -766,7 +766,7 @@ class _BlockPreview extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 6),
                   child: Text(
                     block.text,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
+                    style: TextStyle(fontWeight: FontWeight.w600),
                   ),
                 ),
             ],
@@ -787,7 +787,7 @@ class _BlockPreview extends StatelessWidget {
             ),
             child: Text(
               block.text,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
               ),
@@ -803,7 +803,7 @@ class _BlockPreview extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 4),
                 child: Text(
                   block.text,
-                  style: const TextStyle(fontWeight: FontWeight.w700),
+                  style: TextStyle(fontWeight: FontWeight.w700),
                 ),
               ),
             ...block.items.map(
@@ -849,7 +849,7 @@ class _BlockPreview extends StatelessWidget {
           ),
         );
       case SiteBlockType.divider:
-        return const Divider(thickness: 2);
+        return Divider(thickness: 2);
     }
   }
 }
@@ -867,9 +867,9 @@ class _Inspector extends ConsumerWidget {
     final fields = <Widget>[
       Text(
         'Edit ${block.type.label}',
-        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
+        style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
       ),
-      const SizedBox(height: 12),
+      SizedBox(height: 12),
     ];
 
     void addField(
@@ -884,12 +884,12 @@ class _Inspector extends ConsumerWidget {
           maxLines: maxLines,
           decoration: InputDecoration(
             labelText: label,
-            border: const OutlineInputBorder(),
+            border: OutlineInputBorder(),
             isDense: true,
           ),
           onChanged: onChanged,
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
       ]);
     }
 
@@ -979,7 +979,7 @@ class _Inspector extends ConsumerWidget {
     if (block.type != SiteBlockType.divider &&
         block.type != SiteBlockType.image) {
       fields.addAll([
-        const SizedBox(height: 4),
+        SizedBox(height: 4),
         SegmentedButton<String>(
           segments: const [
             ButtonSegment(
@@ -1024,27 +1024,27 @@ class _SitePanel extends ConsumerWidget {
       shrinkWrap: true,
       padding: const EdgeInsets.all(16),
       children: [
-        const Text(
+        Text(
           'Page settings',
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         TextFormField(
           key: ValueKey('title_${state.projectId ?? 'new'}'),
           initialValue: state.doc.title,
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             labelText: 'Website title',
             border: OutlineInputBorder(),
             isDense: true,
           ),
           onChanged: notifier.setTitle,
         ),
-        const SizedBox(height: 16),
-        const Text(
+        SizedBox(height: 16),
+        Text(
           'Theme color',
           style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
         Wrap(
           spacing: 10,
           runSpacing: 10,
@@ -1069,7 +1069,7 @@ class _SitePanel extends ConsumerWidget {
                     ),
                   ),
                   child: selected
-                      ? const Icon(Icons.check, color: Colors.white, size: 18)
+                      ? Icon(Icons.check, color: Colors.white, size: 18)
                       : null,
                 ),
               ),

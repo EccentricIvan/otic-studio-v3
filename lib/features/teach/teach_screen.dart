@@ -211,14 +211,14 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 28),
+              SizedBox(height: 28),
 
               // Topic picker
-              const Text(
+              Text(
                 'Choose a topic',
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               _TopicChips(
                 selected: state.topic,
                 onSelect: (t) {
@@ -236,7 +236,7 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                     fontSize: 16,
                   ),
                 ),
-                const SizedBox(height: 6),
+                SizedBox(height: 6),
                 Text(
                   'Write as if you are teaching a friend. Use examples.',
                   style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
@@ -259,7 +259,7 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                       borderRadius: const BorderRadius.all(Radius.circular(12)),
                       borderSide: BorderSide(color: Theme.of(context).dividerColor),
                     ),
-                    focusedBorder: const OutlineInputBorder(
+                    focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       borderSide: BorderSide(
                         color: AppColors.teachColor,
@@ -293,8 +293,8 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                               : () => ref
                                     .read(_teachProvider.notifier)
                                     .evaluate(),
-                          icon: const Icon(Icons.send),
-                          label: const Text('Submit for scoring'),
+                          icon: Icon(Icons.send),
+                          label: Text('Submit for scoring'),
                           style: FilledButton.styleFrom(
                             backgroundColor: AppColors.primary,
                             padding: const EdgeInsets.symmetric(vertical: 14),
@@ -306,26 +306,26 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
               // Result
               if (state.hasResult) ...[
                 _ScoreCard(state: state),
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 Row(
                   children: [
                     Expanded(
                       child: OutlinedButton.icon(
                         onPressed: () =>
                             ref.read(_teachProvider.notifier).reset(),
-                        icon: const Icon(Icons.refresh),
-                        label: const Text('Try again'),
+                        icon: Icon(Icons.refresh),
+                        label: Text('Try again'),
                       ),
                     ),
-                    const SizedBox(width: 12),
+                    SizedBox(width: 12),
                     Expanded(
                       child: FilledButton.icon(
                         onPressed: () {
                           ref.read(_teachProvider.notifier).setTopic('');
                           _explController.clear();
                         },
-                        icon: const Icon(Icons.topic),
-                        label: const Text('New topic'),
+                        icon: Icon(Icons.topic),
+                        label: Text('New topic'),
                         style: FilledButton.styleFrom(
                           backgroundColor: AppColors.primary,
                         ),
@@ -335,7 +335,7 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                 ),
               ],
 
-              const SizedBox(height: 40),
+              SizedBox(height: 40),
             ],
           ),
         ),
@@ -420,21 +420,21 @@ class _ScoreCard extends StatelessWidget {
                   color: _scoreColor,
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
               _FeedbackRow(
                 icon: Icons.check_circle_outline,
                 color: AppColors.teachColor,
                 label: 'Strengths',
                 text: state.strengths,
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               _FeedbackRow(
                 icon: Icons.arrow_upward,
                 color: AppColors.practiceColor,
                 label: 'Improve',
                 text: state.improve,
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               _FeedbackRow(
                 icon: Icons.auto_awesome,
                 color: AppColors.createColor,
@@ -488,7 +488,7 @@ class _FeedbackRow extends StatelessWidget {
                   color: color,
                 ),
               ),
-              const SizedBox(height: 2),
+              SizedBox(height: 2),
               Text(
                 text,
                 style: TextStyle(

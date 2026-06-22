@@ -65,21 +65,21 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Learn'),
+        title: Text('Learn'),
         actions: [
           if (kDebugMode)
             engineAsync.when(
               data: (engine) => Padding(
                 padding: const EdgeInsets.only(right: 8),
                 child: Chip(
-                  avatar: const Icon(
+                  avatar: Icon(
                     Icons.memory,
                     size: 14,
                     color: AppColors.teachColor,
                   ),
                   label: Text(
                     engine.backendLabel,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 11,
                       color: AppColors.teachColor,
                     ),
@@ -91,7 +91,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                   padding: EdgeInsets.zero,
                 ),
               ),
-              loading: () => const Padding(
+              loading: () => Padding(
                 padding: EdgeInsets.only(right: 16),
                 child: SizedBox(
                   width: 16,
@@ -102,7 +102,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
               error: (_, __) => const SizedBox.shrink(),
             ),
           IconButton(
-            icon: const Icon(Icons.refresh),
+            icon: Icon(Icons.refresh),
             tooltip: 'New session',
             onPressed: () => ref.read(chatProvider.notifier).reset(),
           ),
@@ -124,7 +124,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                 const SizedBox.shrink(),
             Expanded(
               child: chat.when(
-                loading: () => const Center(child: CircularProgressIndicator()),
+                loading: () => Center(child: CircularProgressIndicator()),
                 error: (e, _) => Center(child: Text('Error: $e')),
                 data: (state) {
                   if (state.messages.isEmpty) {
@@ -214,13 +214,13 @@ class _ActivePathsStrip extends ConsumerWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10),
               SizedBox(
                 height: 82,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: paths.length,
-                  separatorBuilder: (_, __) => const SizedBox(width: 10),
+                  separatorBuilder: (_, __) => SizedBox(width: 10),
                   itemBuilder: (_, i) => _PathChip(
                     path: paths[i],
                     onTap: () => onPathTap(paths[i].topic),
@@ -320,7 +320,7 @@ class _UserBubble extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: const TextStyle(color: Colors.white, height: 1.5),
+          style: TextStyle(color: Colors.white, height: 1.5),
         ),
       ),
     );
@@ -402,7 +402,7 @@ class _TutorBubble extends StatelessWidget {
                 ),
                 if (isStreaming) ...[
                   SizedBox(width: 8),
-                  const SizedBox(
+                  SizedBox(
                     width: 12,
                     height: 12,
                     child: CircularProgressIndicator(
@@ -427,7 +427,7 @@ class _TutorBubble extends StatelessWidget {
               ),
             )
           else
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
         ],
       ),
     );
@@ -478,7 +478,7 @@ class _InputBar extends StatelessWidget {
             child: TextField(
               controller: controller,
               onSubmitted: (_) => onSend(),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Ask Otic anything...',
                 border: InputBorder.none,
                 enabledBorder: InputBorder.none,
@@ -489,9 +489,9 @@ class _InputBar extends StatelessWidget {
               textInputAction: TextInputAction.send,
             ),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           isLoading
-              ? const Padding(
+              ? Padding(
                   padding: EdgeInsets.all(12),
                   child: SizedBox(
                     width: 24,
@@ -501,7 +501,7 @@ class _InputBar extends StatelessWidget {
                 )
               : IconButton.filled(
                   onPressed: onSend,
-                  icon: const Icon(Icons.arrow_upward),
+                  icon: Icon(Icons.arrow_upward),
                   style: IconButton.styleFrom(
                     backgroundColor: AppColors.primary,
                     foregroundColor: Colors.white,
@@ -542,7 +542,7 @@ class _EmptyState extends StatelessWidget {
             fit: BoxFit.contain,
             semanticLabel: 'Logo',
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
           Text(
             'What do you want to learn today?',
             style: Theme.of(context).textTheme.headlineSmall,

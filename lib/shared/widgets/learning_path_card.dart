@@ -40,7 +40,7 @@ class LearningPathCard extends StatelessWidget {
                 ),
                 child: Icon(icon, color: color, size: 26),
               ),
-              const SizedBox(width: 14),
+              SizedBox(width: 14),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,14 +88,14 @@ class LearningPathCard extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 6),
+                    SizedBox(height: 6),
                     Row(
                       children: [
-                        const Icon(Icons.play_circle_outline, size: 13, color: Color(0xFF94A3B8)),
-                        const SizedBox(width: 4),
+                        Icon(Icons.play_circle_outline, size: 13, color: Color(0xFF94A3B8)),
+                        SizedBox(width: 4),
                         Text(
                           '$lessonCount lessons',
-                          style: const TextStyle(fontSize: 12, color: Color(0xFF94A3B8)),
+                          style: TextStyle(fontSize: 12, color: Color(0xFF94A3B8)),
                         ),
                       ],
                     ),

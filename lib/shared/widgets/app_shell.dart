@@ -57,7 +57,7 @@ class AppShell extends StatelessWidget {
         body: Row(
           children: [
             _SideNav(selectedIndex: selectedIndex, destinations: _destinations),
-            const VerticalDivider(thickness: 1, width: 1),
+            VerticalDivider(thickness: 1, width: 1),
             Expanded(child: child),
           ],
         ),
@@ -109,16 +109,16 @@ class _SideNav extends StatelessWidget {
       width: 220,
       child: Column(
         children: [
-          const SizedBox(height: 20),
-          const Padding(
+          SizedBox(height: 20),
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Align(
               alignment: Alignment.centerLeft,
               child: _BrandLogo(size: 44),
             ),
           ),
-          const SizedBox(height: 20),
-          const Divider(),
+          SizedBox(height: 20),
+          Divider(),
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -162,7 +162,7 @@ class _SideNav extends StatelessWidget {
               },
             ),
           ),
-          const Divider(),
+          Divider(),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
@@ -211,7 +211,7 @@ class _AppDrawer extends StatelessWidget {
             children: [const _BrandLogo(size: 48)],
           ),
         ),
-        const Divider(indent: 16, endIndent: 16),
+        Divider(indent: 16, endIndent: 16),
         ...destinations.map(
           (d) => NavigationDrawerDestination(
             icon: Icon(d.icon),

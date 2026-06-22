@@ -36,16 +36,16 @@ class HomeScreen extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _HeroSection(),
-                const SizedBox(height: 32),
+                SizedBox(height: 32),
                 const SectionHeader(
                   title: 'Start Learning',
                   subtitle: 'Choose how you want to learn today',
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 _LearningModesGrid(),
-                const SizedBox(height: 32),
+                SizedBox(height: 32),
                 const _RecommendedSection(),
-                const SizedBox(height: 32),
+                SizedBox(height: 32),
               ],
             ),
           ),
@@ -97,7 +97,7 @@ class _HeroSection extends StatelessWidget {
           'Your AI mentor — always available, always patient, always learning with you.',
           style: Theme.of(context).textTheme.bodyLarge,
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: 20),
         VoiceAskWidget(
           onSubmit: (query) {
             context.go('/learn?topic=${Uri.encodeComponent(query)}');
@@ -228,7 +228,7 @@ class _RecommendedSection extends ConsumerWidget {
                 actionLabel: 'View all',
                 onAction: () => context.go('/learn'),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               ...paths
                   .take(3)
                   .map(
@@ -242,7 +242,7 @@ class _RecommendedSection extends ConsumerWidget {
                       ),
                     ),
                   ),
-              const SizedBox(height: 32),
+              SizedBox(height: 32),
             ],
             SectionHeader(
               title: hasPaths ? 'Explore New Topics' : 'Start Your First Path',
@@ -252,7 +252,7 @@ class _RecommendedSection extends ConsumerWidget {
               actionLabel: 'Browse',
               onAction: () => context.go('/learn'),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             ..._suggestedTopics
                 .where((t) => !rows.any((r) => r.topic == t.$1))
                 .take(3)
@@ -274,7 +274,7 @@ class _RecommendedSection extends ConsumerWidget {
           ],
         );
       },
-      loading: () => const SizedBox(
+      loading: () => SizedBox(
         height: 120,
         child: Center(child: CircularProgressIndicator()),
       ),

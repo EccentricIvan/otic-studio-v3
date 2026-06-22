@@ -20,7 +20,7 @@ class AdminScreen extends ConsumerWidget {
     final studentsAsync = ref.watch(_allStudentsProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Admin Dashboard')),
+      appBar: AppBar(title: Text('Admin Dashboard')),
       body: MaxWidth(
         maxWidth: 900,
         child: ListView(
@@ -48,7 +48,7 @@ class AdminScreen extends ConsumerWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
 
             // ── AI Model ─────────────────────────────────────────────────
             const _SectionTitle('AI Model'),
@@ -142,7 +142,7 @@ class AdminScreen extends ConsumerWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 40),
+            SizedBox(height: 40),
           ],
         ),
       ),
@@ -168,20 +168,20 @@ class _StudentRow extends ConsumerWidget {
         backgroundColor: AppColors.primary.withValues(alpha: 0.12),
         child: Text(
           student.name.isNotEmpty ? student.name[0].toUpperCase() : '?',
-          style: const TextStyle(
+          style: TextStyle(
             color: AppColors.primary,
             fontWeight: FontWeight.w700,
             fontSize: 13,
           ),
         ),
       ),
-      title: Text(student.name, style: const TextStyle(fontSize: 14)),
+      title: Text(student.name, style: TextStyle(fontSize: 14)),
       subtitle: Text(
         '${student.totalPoints} pts · ${student.streakDays} day streak',
-        style: const TextStyle(fontSize: 12),
+        style: TextStyle(fontSize: 12),
       ),
       trailing: IconButton(
-        icon: const Icon(Icons.delete_outline, color: Colors.red, size: 20),
+        icon: Icon(Icons.delete_outline, color: Colors.red, size: 20),
         tooltip: 'Delete profile',
         onPressed: () => _confirmDelete(context, ref),
       ),
@@ -193,19 +193,19 @@ class _StudentRow extends ConsumerWidget {
       context: context,
       builder: (ctx) => AlertDialog(
         title: Text('Delete ${student.name}?'),
-        content: const Text(
+        content: Text(
           'This permanently removes the profile and all learning data '
           '(paths, badges, projects, sessions). This cannot be undone.',
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Cancel'),
+            child: Text('Cancel'),
           ),
           FilledButton(
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
             onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Delete'),
+            child: Text('Delete'),
           ),
         ],
       ),
@@ -230,7 +230,7 @@ class _SectionTitle extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8, left: 4),
       child: Text(
         title.toUpperCase(),
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 11,
           fontWeight: FontWeight.w700,
           color: AppColors.primary,
