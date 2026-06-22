@@ -38,14 +38,14 @@ class SettingsScreen extends ConsumerWidget {
                     Icons.memory,
                     color: info.isReady ? AppColors.teachColor : Colors.orange,
                   ),
-                  title: const Text('Gemma 3 1B'),
+                  title: Text('Gemma 3 1B'),
                   subtitle: Text(
                     info.isReady
                         ? 'Installed · ${info.platform ?? ''}'
                         : 'Not installed — transfer via USB',
                   ),
                   trailing: info.isReady
-                      ? const Icon(
+                      ? Icon(
                           Icons.check_circle,
                           color: AppColors.teachColor,
                         )
@@ -99,7 +99,7 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.edit_outlined,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: const Text('Edit profile'),
+                title: Text('Edit profile'),
                 subtitle: const Text(
                   'Update your interests and learning style',
                 ),
@@ -126,9 +126,9 @@ class SettingsScreen extends ConsumerWidget {
                         ),
                       ),
                       ListTile(
-                        leading: const Icon(Icons.stars, color: Colors.amber),
+                        leading: Icon(Icons.stars, color: Colors.amber),
                         title: Text('${student.totalPoints} points earned'),
-                        subtitle: const Text(
+                        subtitle: Text(
                           'Points grow as you complete lessons and earn badges',
                         ),
                       ),
@@ -199,7 +199,7 @@ class SettingsScreen extends ConsumerWidget {
                     color: AppColors.teachColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Text(
+                  child: Text(
                     'Active',
                     style: TextStyle(
                       fontSize: 11,
@@ -218,7 +218,7 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.admin_panel_settings,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: const Text('Admin dashboard'),
+                title: Text('Admin dashboard'),
                 subtitle: const Text(
                   'Device info, model status, profiles, update management',
                 ),

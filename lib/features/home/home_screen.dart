@@ -71,7 +71,7 @@ class _HeroSection extends StatelessWidget {
               color: AppColors.primary.withValues(alpha: 0.18),
             ),
           ),
-          child: const Row(
+          child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(Icons.wifi_off, size: 13, color: AppColors.primary),
@@ -87,12 +87,12 @@ class _HeroSection extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 14),
+        SizedBox(height: 14),
         Text(
           'Learn anything, anywhere',
           style: Theme.of(context).textTheme.displayLarge,
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
         Text(
           'Your AI mentor — always available, always patient, always learning with you.',
           style: Theme.of(context).textTheme.bodyLarge,
@@ -352,7 +352,7 @@ class _ActivePathCard extends StatelessWidget {
                   ),
                   child: Text(
                     '${(path.progressFraction * 100).round()}%',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w700,
                       color: AppColors.learnColor,
@@ -361,7 +361,7 @@ class _ActivePathCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             ClipRRect(
               borderRadius: BorderRadius.circular(4),
               child: LinearProgressIndicator(
@@ -373,7 +373,7 @@ class _ActivePathCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               '${path.completedLessons} of ${path.totalLessons} lessons complete',
               style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),

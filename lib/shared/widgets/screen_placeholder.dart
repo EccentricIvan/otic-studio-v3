@@ -32,19 +32,19 @@ class ScreenPlaceholder extends StatelessWidget {
               ),
               child: Icon(icon, color: color, size: 36),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Text(
               title,
               style: Theme.of(context).textTheme.headlineSmall,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Text(
               description,
               style: Theme.of(context).textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 28),
+            SizedBox(height: 28),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               decoration: BoxDecoration(

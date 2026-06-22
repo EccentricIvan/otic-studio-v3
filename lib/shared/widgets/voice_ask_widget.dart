@@ -53,7 +53,7 @@ class _VoiceAskWidgetState extends State<VoiceAskWidget> {
           ),
           child: Row(
             children: [
-              const SizedBox(width: 14),
+              SizedBox(width: 14),
               Icon(Icons.search, color: Theme.of(context).hintColor, size: 20),
               const SizedBox(width: 10),
               Expanded(
@@ -87,7 +87,7 @@ class _VoiceAskWidgetState extends State<VoiceAskWidget> {
             ],
           ),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         Wrap(
           spacing: 8,
           runSpacing: 8,

@@ -193,7 +193,7 @@ class _BadgeTile extends StatelessWidget {
             size: 36,
             color: isEarned ? def.color : Theme.of(context).hintColor,
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             def.name,
             style: TextStyle(
@@ -203,7 +203,7 @@ class _BadgeTile extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Text(
             isEarned && earnedAt != null
                 ? _fmt(earnedAt!)

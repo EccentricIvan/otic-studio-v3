@@ -113,7 +113,7 @@ class _PeersView extends StatelessWidget {
           child: Row(
             children: [
               const _PulsingDot(),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
               Expanded(
                 child: Text(
                   peers.isEmpty
@@ -128,8 +128,8 @@ class _PeersView extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 8),
-        const Padding(
+        SizedBox(height: 8),
+        Padding(
           padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
           child: Text(
             'Everyone using the app on the same Wi-Fi or LAN appears '
@@ -178,7 +178,7 @@ class _PeerCard extends StatelessWidget {
         ),
         title: Text(
           peer.name,
-          style: const TextStyle(fontWeight: FontWeight.w600),
+          style: TextStyle(fontWeight: FontWeight.w600),
         ),
         subtitle: Text(
           peer.topic.isNotEmpty
@@ -189,8 +189,8 @@ class _PeerCard extends StatelessWidget {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.stars, color: Colors.amber, size: 16),
-            const SizedBox(width: 4),
+            Icon(Icons.stars, color: Colors.amber, size: 16),
+            SizedBox(width: 4),
             Text(
               '${peer.points}',
               style: TextStyle(
@@ -210,7 +210,7 @@ class _EmptyPeers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.all(40),
       child: Column(
         children: [
@@ -246,8 +246,8 @@ class _ErrorView extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.wifi_off, size: 56, color: Theme.of(context).hintColor),
-            const SizedBox(height: 16),
-            const Text(
+            SizedBox(height: 16),
+            Text(
               'Local network unavailable',
               style: TextStyle(fontWeight: FontWeight.w600),
             ),

@@ -36,9 +36,9 @@ class LearningModeCard extends StatelessWidget {
                 ),
                 child: Icon(icon, color: color, size: 22),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               Text(title, style: Theme.of(context).textTheme.titleLarge),
-              const SizedBox(height: 4),
+              SizedBox(height: 4),
               Expanded(
                 child: Text(
                   description,

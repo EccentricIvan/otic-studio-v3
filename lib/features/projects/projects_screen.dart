@@ -124,7 +124,7 @@ class _ProjectCard extends StatelessWidget {
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 3),
+            SizedBox(height: 3),
             Text(
               label[0].toUpperCase() + label.substring(1),
               style: TextStyle(
@@ -184,16 +184,16 @@ class _EmptyProjects extends StatelessWidget {
                 color: AppColors.createColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(18),
               ),
-              child: const Icon(Icons.folder_open,
+              child: Icon(Icons.folder_open,
                   color: AppColors.createColor, size: 32),
             ),
-            const SizedBox(height: 18),
+            SizedBox(height: 18),
             Text('No projects yet',
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 17,
                     color: Theme.of(context).colorScheme.onSurface)),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               'Go to Create mode to build your first project — an essay, business plan, experiment, or anything you can imagine.',
               textAlign: TextAlign.center,

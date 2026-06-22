@@ -93,19 +93,19 @@ class _ModelNotInstalledScreenState
                       color: AppColors.primary.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(24),
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.memory_outlined,
                       color: AppColors.primary,
                       size: 40,
                     ),
                   ),
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24),
                   Text(
                     'AI Model Not Installed',
                     style: Theme.of(context).textTheme.headlineLarge,
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   Text(
                     widget.info.status == ModelStatus.corrupted
                         ? 'A model file was found but appears corrupted or '
@@ -217,7 +217,7 @@ class _InstallProgress extends StatelessWidget {
         children: [
           Row(
             children: [
-              const SizedBox(
+              SizedBox(
                 width: 18,
                 height: 18,
                 child: CircularProgressIndicator(strokeWidth: 2),
@@ -229,7 +229,7 @@ class _InstallProgress extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: LinearProgressIndicator(value: progress, minHeight: 8),
@@ -270,15 +270,15 @@ class _InstructionsCard extends ConsumerWidget {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.usb, color: AppColors.primary, size: 18),
-                  const SizedBox(width: 8),
+                  Icon(Icons.usb, color: AppColors.primary, size: 18),
+                  SizedBox(width: 8),
                   Text(
                     'Install by hand instead',
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const Spacer(),
                   IconButton(
-                    icon: const Icon(Icons.copy, size: 18),
+                    icon: Icon(Icons.copy, size: 18),
                     tooltip: 'Copy path',
                     onPressed: () =>
                         Clipboard.setData(ClipboardData(text: text)),
@@ -287,7 +287,7 @@ class _InstructionsCard extends ConsumerWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
               Text(
                 text,
                 style: TextStyle(

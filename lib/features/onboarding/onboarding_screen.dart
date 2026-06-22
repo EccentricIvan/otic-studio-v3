@@ -171,7 +171,7 @@ class _NamePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Image.asset(
             'assets/branding/otic_logo.png',
             width: 64,
@@ -184,12 +184,12 @@ class _NamePage extends StatelessWidget {
             'Welcome to Otic Studio',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          const SizedBox(height: 6),
+          SizedBox(height: 6),
           Text(
             'Your personal offline AI tutor. Everything stays on this device — no internet ever.',
             style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.5),
           ),
-          const SizedBox(height: 24),
+          SizedBox(height: 24),
           Text(
             "What's your name?",
             style: Theme.of(context).textTheme.titleLarge,
@@ -240,22 +240,22 @@ class _AgePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Text('About you', style: Theme.of(context).textTheme.headlineLarge),
-          const SizedBox(height: 6),
+          SizedBox(height: 6),
           Text(
             'This helps the AI tutor explain things at the right level. You can skip.',
             style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.5),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
           Text(
             'How old are you?',
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
           DropdownButtonFormField<int>(
             initialValue: age,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintText: 'Select age (optional)',
             ),
             items: List.generate(
@@ -272,7 +272,7 @@ class _AgePage extends StatelessWidget {
             'What grade/level are you in?',
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Wrap(
             spacing: 8,
             runSpacing: 8,
@@ -325,7 +325,7 @@ class _InterestsPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Column(
@@ -335,7 +335,7 @@ class _InterestsPage extends StatelessWidget {
                   'What topics interest you?',
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                const SizedBox(height: 6),
+                SizedBox(height: 6),
                 Text(
                   'Pick as many as you like. Otic will personalise your paths.',
                   style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.6),
@@ -379,7 +379,7 @@ class _InterestsPage extends StatelessWidget {
                               : color.withValues(alpha: 0.72),
                           size: 26,
                         ),
-                        const SizedBox(height: 6),
+                        SizedBox(height: 6),
                         Text(
                           t.$1,
                           style: TextStyle(
@@ -439,12 +439,12 @@ class _StylePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Text(
             'How do you learn best?',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          const SizedBox(height: 6),
+          SizedBox(height: 6),
           Text(
             'The AI tutor adapts its teaching style to suit you.',
             style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.5),
@@ -477,7 +477,7 @@ class _StylePage extends StatelessWidget {
                           : Theme.of(context).textTheme.bodyMedium?.color,
                       size: 28,
                     ),
-                    const SizedBox(width: 16),
+                    SizedBox(width: 16),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -491,7 +491,7 @@ class _StylePage extends StatelessWidget {
                                   : Theme.of(context).textTheme.bodyLarge?.color,
                             ),
                           ),
-                          const SizedBox(height: 2),
+                          SizedBox(height: 2),
                           Text(
                             s.$4,
                             style: TextStyle(

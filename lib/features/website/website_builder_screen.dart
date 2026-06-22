@@ -115,7 +115,7 @@ class _EmptyStart extends StatelessWidget {
             size: 64,
             color: AppColors.primary.withValues(alpha: 0.4),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Text(
             'Build your first website',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
@@ -150,7 +150,7 @@ class _SavedSiteTile extends ConsumerWidget {
         ),
         title: Text(
           site.title,
-          style: const TextStyle(fontWeight: FontWeight.w600),
+          style: TextStyle(fontWeight: FontWeight.w600),
         ),
         subtitle: Text(
           'Updated ${site.updatedAt.day}/${site.updatedAt.month}/${site.updatedAt.year}',
@@ -444,8 +444,8 @@ class _PaletteChip extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(icon, size: 18, color: AppColors.primary),
-          const SizedBox(width: 8),
-          Text(type.label, style: const TextStyle(fontSize: 13)),
+          SizedBox(width: 8),
+          Text(type.label, style: TextStyle(fontSize: 13)),
           const SizedBox(width: 4),
           Icon(Icons.drag_indicator, size: 14, color: Theme.of(context).hintColor),
         ],
@@ -832,7 +832,7 @@ class _BlockPreview extends StatelessWidget {
             children: [
               Text(
                 block.text,
-                style: const TextStyle(fontStyle: FontStyle.italic),
+                style: TextStyle(fontStyle: FontStyle.italic),
               ),
               if (block.secondary.isNotEmpty)
                 Padding(
@@ -1076,7 +1076,7 @@ class _SitePanel extends ConsumerWidget {
             );
           }).toList(),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
         Text(
           'Tip: tap any block on the page to edit it. Drag blocks from the palette onto the page, or drop them on top of a block to insert above it.',
           style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),

@@ -195,7 +195,7 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                     color: AppColors.teachColor.withValues(alpha: 0.2),
                   ),
                 ),
-                child: const Row(
+                child: Row(
                   children: [
                     Icon(Icons.school, color: AppColors.teachColor),
                     SizedBox(width: 12),
@@ -226,12 +226,12 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                   _explController.clear();
                 },
               ),
-              const SizedBox(height: 28),
+              SizedBox(height: 28),
 
               if (state.topic.isNotEmpty && !state.hasResult) ...[
                 Text(
                   'Explain "${state.topic}" in your own words',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
                   ),
@@ -241,7 +241,7 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                   'Write as if you are teaching a friend. Use examples.',
                   style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
                 ),
-                const SizedBox(height: 14),
+                SizedBox(height: 14),
                 TextField(
                   controller: _explController,
                   onChanged: ref.read(_teachProvider.notifier).setExplanation,
@@ -268,11 +268,11 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
                 SizedBox(
                   width: double.infinity,
                   child: state.isEvaluating
-                      ? const Center(
+                      ? Center(
                           child: Padding(
                             padding: EdgeInsets.all(12),
                             child: Column(
@@ -374,11 +374,11 @@ class _ScoreCard extends StatelessWidget {
             child: Row(
               children: [
                 Text('🏅', style: TextStyle(fontSize: 22)),
-                const SizedBox(width: 10),
+                SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Badge Earned!',
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
@@ -475,7 +475,7 @@ class _FeedbackRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(icon, color: color, size: 18),
-        const SizedBox(width: 10),
+        SizedBox(width: 10),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

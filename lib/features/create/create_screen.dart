@@ -281,12 +281,12 @@ class _SetupView extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               'What do you want to create?',
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            const SizedBox(height: 6),
+            SizedBox(height: 6),
             Text(
               'Your AI mentor will guide you step by step.',
               style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
@@ -332,7 +332,7 @@ class _SetupView extends ConsumerWidget {
                               ? AppColors.primary
                               : Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
-                        const SizedBox(width: 8),
+                        SizedBox(width: 8),
                         Flexible(
                           child: Text(
                             pt.label,
@@ -357,14 +357,14 @@ class _SetupView extends ConsumerWidget {
             TextField(
               controller: topicController,
               onChanged: ref.read(_createProvider.notifier).setTopic,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'e.g. climate change, entrepreneurship, gravity…',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
               ),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             if (state.projectType.isEmpty || state.topic.trim().isEmpty)
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),

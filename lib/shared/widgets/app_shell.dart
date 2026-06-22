@@ -175,7 +175,7 @@ class _SideNav extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 Text(
                   'Offline · v1.1',
                   style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),

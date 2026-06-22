@@ -134,12 +134,12 @@ class _PathHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(parsed.title, style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 6),
+          SizedBox(height: 6),
           Text(
             parsed.description,
             style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
           Row(
             children: [
               Expanded(
@@ -155,7 +155,7 @@ class _PathHeader extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
               Text(
                 '${parsed.completedLessons}/${parsed.totalLessons} lessons',
                 style: TextStyle(
@@ -217,7 +217,7 @@ class _UnitTile extends StatelessWidget {
                         : AppColors.learnColor,
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -229,7 +229,7 @@ class _UnitTile extends StatelessWidget {
                           color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
-                      const SizedBox(height: 2),
+                      SizedBox(height: 2),
                       Text(
                         '${unit.completedCount}/${unit.lessons.length} done',
                         style: TextStyle(
@@ -306,7 +306,7 @@ class _LessonRow extends StatelessWidget {
                     : Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
-            const SizedBox(width: 12),
+            SizedBox(width: 12),
             Expanded(
               child: Text(
                 lesson.title,
@@ -356,19 +356,19 @@ class _GeneratingView extends ConsumerWidget {
                 color: AppColors.learnColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(18),
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.route,
                 color: AppColors.learnColor,
                 size: 32,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Text(
               'Build a learning path for\n"$topic"?',
               style: Theme.of(context).textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Text(
               'A 4-unit, 12-lesson curriculum will be tailored for you.',
               textAlign: TextAlign.center,

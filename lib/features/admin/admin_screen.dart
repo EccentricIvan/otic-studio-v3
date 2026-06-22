@@ -87,7 +87,7 @@ class AdminScreen extends ConsumerWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
 
             // ── Users ────────────────────────────────────────────────────
             const _SectionTitle('Student Profiles'),
@@ -115,7 +115,7 @@ class AdminScreen extends ConsumerWidget {
                           .toList(),
                     ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
 
             // ── Updates ──────────────────────────────────────────────────
             const _SectionTitle('Updates'),
@@ -275,7 +275,7 @@ class _InfoRow extends StatelessWidget {
     return ListTile(
       dense: true,
       leading: Icon(icon, color: Theme.of(context).colorScheme.onSurfaceVariant, size: 20),
-      title: Text(label, style: const TextStyle(fontSize: 13)),
+      title: Text(label, style: TextStyle(fontSize: 13)),
       subtitle: Text(
         value,
         style: TextStyle(fontSize: 12, color: valueColor ?? Theme.of(context).hintColor),

@@ -36,7 +36,7 @@ class PracticeScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Practice'),
+          title: Text('Practice'),
           bottom: const TabBar(
             tabs: [
               Tab(icon: Icon(Icons.quiz_outlined), text: 'Practice'),
@@ -219,10 +219,10 @@ class _ExerciseCard extends StatelessWidget {
                   size: 16,
                   color: AppColors.primary,
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 Text(
                   'Score: ${state.score}/${state.total}',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: AppColors.primary,
                   ),
@@ -243,7 +243,7 @@ class _ExerciseCard extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
 
           // Question
           Text(
@@ -306,7 +306,7 @@ class _ExerciseCard extends StatelessWidget {
                                 : Colors.red,
                           ),
                         ),
-                        const SizedBox(height: 4),
+                        SizedBox(height: 4),
                         Text(
                           exercise.explanation,
                           style: TextStyle(
@@ -549,8 +549,8 @@ class _ScenarioCard extends StatelessWidget {
                       size: 15,
                       color: AppColors.primary.withValues(alpha: 0.8),
                     ),
-                    const SizedBox(width: 6),
-                    const Text(
+                    SizedBox(width: 6),
+                    Text(
                       'SCENARIO',
                       style: TextStyle(
                         fontSize: 11,
@@ -572,7 +572,7 @@ class _ScenarioCard extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
 
           // Challenge question
           Text(
@@ -584,7 +584,7 @@ class _ScenarioCard extends StatelessWidget {
               height: 1.5,
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
 
           // Response input
           if (state.feedback == null) ...[
@@ -628,8 +628,8 @@ class _ScenarioCard extends StatelessWidget {
                       onPressed: state.response.trim().isEmpty
                           ? null
                           : onSubmit,
-                      icon: const Icon(Icons.send),
-                      label: const Text('Submit my response'),
+                      icon: Icon(Icons.send),
+                      label: Text('Submit my response'),
                       style: FilledButton.styleFrom(
                         backgroundColor: AppColors.primary,
                       ),
@@ -649,7 +649,7 @@ class _ScenarioCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                  Row(
                     children: [
                       Icon(
                         Icons.lightbulb,
@@ -666,7 +666,7 @@ class _ScenarioCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                   Text(
                     state.feedback!,
                     style: TextStyle(
@@ -728,7 +728,7 @@ class _StartCard extends StatelessWidget {
         child: Column(
           children: [
             Icon(icon, color: color, size: 40),
-            const SizedBox(height: 14),
+            SizedBox(height: 14),
             Text(
               topic,
               style: TextStyle(
@@ -763,7 +763,7 @@ class _LoadingCard extends StatelessWidget {
         child: Column(
           children: [
             const CircularProgressIndicator(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(message, style: TextStyle(color: Theme.of(context).hintColor)),
           ],
         ),
@@ -790,8 +790,8 @@ class _ErrorCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            const Icon(Icons.error_outline, color: Colors.red),
-            const SizedBox(width: 12),
+            Icon(Icons.error_outline, color: Colors.red),
+            SizedBox(width: 12),
             Expanded(
               child: Text(
                 message,

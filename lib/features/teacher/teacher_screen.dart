@@ -245,7 +245,7 @@ class _StatBox extends StatelessWidget {
       child: Column(
         children: [
           Icon(icon, color: color, size: 22),
-          const SizedBox(height: 6),
+          SizedBox(height: 6),
           Text(value,
               style: TextStyle(
                   fontWeight: FontWeight.w800,
@@ -314,14 +314,14 @@ class _PathRow extends StatelessWidget {
               ),
               Text(
                 '${row.completedLessons}/${row.totalLessons}',
-                style: const TextStyle(
+                style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                     color: AppColors.learnColor),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           ClipRRect(
             borderRadius: BorderRadius.circular(3),
             child: LinearProgressIndicator(
@@ -358,7 +358,7 @@ class _MasteryRow extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: 10),
           Expanded(
             flex: 4,
             child: ClipRRect(
@@ -421,7 +421,7 @@ class _SessionRow extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Text(
             session.summary,
             maxLines: 2,
@@ -442,7 +442,7 @@ class _NoStudents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Padding(
         padding: EdgeInsets.all(40),
         child: Column(

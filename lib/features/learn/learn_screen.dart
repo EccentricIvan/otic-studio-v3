@@ -202,7 +202,7 @@ class _ActivePathsStrip extends ConsumerWidget {
               Row(
                 children: [
                   Icon(Icons.route, size: 14, color: Theme.of(context).hintColor),
-                  const SizedBox(width: 6),
+                  SizedBox(width: 6),
                   Text(
                     'MY PATHS',
                     style: TextStyle(
@@ -269,7 +269,7 @@ class _PathChip extends StatelessWidget {
                 color: cs.onSurface,
               ),
             ),
-            const SizedBox(height: 6),
+            SizedBox(height: 6),
             ClipRRect(
               borderRadius: BorderRadius.circular(3),
               child: LinearProgressIndicator(
@@ -281,7 +281,7 @@ class _PathChip extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 4),
+            SizedBox(height: 4),
             Text(
               '${path.completedLessons}/${path.totalLessons} lessons',
               style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
@@ -361,7 +361,7 @@ class _TutorBubble extends StatelessWidget {
                     fit: BoxFit.contain,
                     semanticLabel: 'Logo',
                   ),
-                  const SizedBox(width: 4),
+                  SizedBox(width: 4),
                   Text(
                     _label(stage!),
                     style: TextStyle(
@@ -401,7 +401,7 @@ class _TutorBubble extends StatelessWidget {
                   ),
                 ),
                 if (isStreaming) ...[
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8),
                   const SizedBox(
                     width: 12,
                     height: 12,
@@ -534,7 +534,7 @@ class _EmptyState extends StatelessWidget {
       padding: const EdgeInsets.all(32),
       child: Column(
         children: [
-          const SizedBox(height: 40),
+          SizedBox(height: 40),
           Image.asset(
             'assets/branding/otic_logo.png',
             width: 72,
@@ -548,13 +548,13 @@ class _EmptyState extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineSmall,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             'Your AI tutor answers, then guides you through practice, apply, create, and reflect.',
             textAlign: TextAlign.center,
             style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
           ),
-          const SizedBox(height: 32),
+          SizedBox(height: 32),
           Wrap(
             spacing: 8,
             runSpacing: 8,

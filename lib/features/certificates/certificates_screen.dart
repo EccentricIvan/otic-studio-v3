@@ -184,14 +184,14 @@ class _CertTile extends StatelessWidget {
           color: AppColors.secondary.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(10),
         ),
-        child: const Icon(Icons.workspace_premium,
+        child: Icon(Icons.workspace_premium,
             color: AppColors.secondary, size: 22),
       ),
       title: Text(
         name.replaceAll('_', ' ').replaceAll('.pdf', ''),
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
+        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
       ),
       subtitle: Text(
         file.path,
@@ -226,8 +226,8 @@ class _PathCertCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Icon(Icons.emoji_events, color: Colors.amber, size: 28),
-          const SizedBox(width: 14),
+          Icon(Icons.emoji_events, color: Colors.amber, size: 28),
+          SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -278,7 +278,7 @@ class _EmptyState extends StatelessWidget {
         children: [
           Icon(Icons.workspace_premium,
               size: 56, color: Theme.of(context).hintColor),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Text(
             savedCount > 0
                 ? 'No new paths to certify'
@@ -286,7 +286,7 @@ class _EmptyState extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             hasAny
                 ? 'Complete all 12 lessons in a learning path to earn a certificate.'
