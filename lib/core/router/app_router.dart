@@ -30,10 +30,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     navigatorKey: _rootKey,
     initialLocation: '/',
     redirect: (context, state) async {
-      // Skip redirect for onboarding itself
       if (state.matchedLocation == '/onboarding') return null;
-      final hasProfile = await ref.read(hasProfileProvider.future);
-      if (!hasProfile) return '/onboarding';
+      try {
+        final hasProfile = await ref.read(hasProfileProvider.future);
+        if (!hasProfile) return '/onboarding';
+      } catch (_) {
+        return '/onboarding';
+      }
       return null;
     },
     routes: [
