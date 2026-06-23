@@ -73,7 +73,29 @@ class AppShell extends StatelessWidget {
 
     return Scaffold(
       key: mobileScaffoldKey,
-      body: child,
+      body: Stack(
+        children: [
+          child,
+          Positioned(
+            top: MediaQuery.of(context).padding.top + 4,
+            right: 4,
+            child: SafeArea(
+              child: Material(
+                color: Colors.transparent,
+                child: IconButton(
+                  icon: Icon(Icons.menu, size: 22),
+                  tooltip: 'Menu',
+                  onPressed: () => mobileScaffoldKey.currentState?.openDrawer(),
+                  style: IconButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.surface.withValues(alpha: 0.85),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       drawer: _AppDrawer(
         selectedIndex: selectedIndex,
         destinations: _destinations,

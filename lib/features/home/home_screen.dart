@@ -25,13 +25,7 @@ class HomeScreen extends ConsumerWidget {
           fit: BoxFit.contain,
           semanticLabel: 'Logo',
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.menu),
-            tooltip: 'Menu',
-            onPressed: () => AppShell.mobileScaffoldKey.currentState?.openDrawer(),
-          ),
-        ],
+        actions: [SizedBox(width: 48)],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
