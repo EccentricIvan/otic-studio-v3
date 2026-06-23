@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/theme/app_colors.dart';
+import '../../curriculum/curriculum_models.dart';
+import '../../curriculum/curriculum_provider.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
 import 'exercise_models.dart';
@@ -132,52 +134,245 @@ class _TopicPicker extends ConsumerWidget {
 // PRACTICE TAB — Multiple choice exercises
 // ══════════════════════════════════════════════════════════════════════════════
 
-class _PracticeTab extends ConsumerWidget {
+class _PracticeTab extends ConsumerStatefulWidget {
   const _PracticeTab();
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(practiceProvider);
+  ConsumerState<_PracticeTab> createState() => _PracticeTabState();
+}
 
+class _PracticeTabState extends ConsumerState<_PracticeTab> {
+  String _selectedTopic = '';
+  List<QuizQuestion> _questions = [];
+  int _currentQ = 0;
+  int? _selectedAnswer;
+  int _score = 0;
+  int _total = 0;
+  bool _answered = false;
+
+  void _loadQuestions(String topic) async {
+    final curriculum = ref.read(curriculumServiceProvider);
+    await curriculum.loadAll();
+
+    final subjectId = _topicToSubjectId(topic);
+    final subject = await curriculum.load(subjectId);
+    if (subject == null) return;
+
+    final allQuiz = <QuizQuestion>[];
+    for (final unit in subject.units) {
+      for (final lesson in unit.lessons) {
+        allQuiz.addAll(lesson.quiz);
+      }
+    }
+    allQuiz.shuffle();
+
+    setState(() {
+      _selectedTopic = topic;
+      _questions = allQuiz.take(10).toList();
+      _currentQ = 0;
+      _selectedAnswer = null;
+      _answered = false;
+      _score = 0;
+      _total = 0;
+    });
+  }
+
+  String _topicToSubjectId(String topic) {
+    final map = {
+      'Mathematics': 'mathematics', 'Physics': 'physics', 'Biology': 'biology',
+      'Chemistry': 'chemistry', 'Programming': 'programming',
+      'Web Development': 'web_development', 'App Development': 'app_development',
+      'AI & Data': 'ai_and_data', 'Entrepreneurship': 'entrepreneurship',
+      'Agriculture': 'agriculture', 'History': 'history', 'Geography': 'geography',
+      'English Writing': 'english_writing', 'Economics': 'economics', 'Arts': 'arts',
+    };
+    return map[topic] ?? topic.toLowerCase().replaceAll(' ', '_');
+  }
+
+  void _answer(int index) {
+    if (_answered) return;
+    setState(() {
+      _selectedAnswer = index;
+      _answered = true;
+      _total++;
+      if (index == _questions[_currentQ].correct) _score++;
+    });
+  }
+
+  void _next() {
+    if (_currentQ < _questions.length - 1) {
+      setState(() {
+        _currentQ++;
+        _selectedAnswer = null;
+        _answered = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_selectedTopic.isEmpty) {
+      return SingleChildScrollView(
+        child: Column(
+          children: [
+            _TopicPicker(
+              selected: _selectedTopic,
+              color: AppColors.primary,
+              onSelect: _loadQuestions,
+            ),
+            SizedBox(height: 40),
+          ],
+        ),
+      );
+    }
+
+    if (_questions.isEmpty) {
+      return Center(child: Text('No questions found for $_selectedTopic'));
+    }
+
+    // Done
+    if (_currentQ >= _questions.length - 1 && _answered) {
+      final allDone = _total == _questions.length;
+      if (allDone) {
+        return _QuizResult(
+          score: _score,
+          total: _questions.length,
+          onRestart: () => _loadQuestions(_selectedTopic),
+          onChangeTopic: () => setState(() { _selectedTopic = ''; _questions = []; }),
+        );
+      }
+    }
+
+    final q = _questions[_currentQ];
     return SingleChildScrollView(
+      padding: EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _TopicPicker(
-            selected: state.topic,
-            color: AppColors.primary,
-            onSelect: (t) {
-              ref.read(practiceProvider.notifier).setTopic(t);
-            },
+          // Header
+          Row(
+            children: [
+              Text(_selectedTopic, style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.primary)),
+              Spacer(),
+              Text('${_currentQ + 1}/${_questions.length}', style: TextStyle(color: Theme.of(context).hintColor)),
+            ],
           ),
+          SizedBox(height: 4),
+          LinearProgressIndicator(
+            value: (_currentQ + 1) / _questions.length,
+            backgroundColor: Theme.of(context).dividerColor,
+            valueColor: AlwaysStoppedAnimation(AppColors.primary),
+          ),
+          SizedBox(height: 8),
+          Text('Score: $_score/$_total', style: TextStyle(fontSize: 13, color: Theme.of(context).hintColor)),
+          SizedBox(height: 20),
+
+          // Question
+          Text(q.question, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, height: 1.4, color: Theme.of(context).colorScheme.onSurface)),
           SizedBox(height: 16),
-          if (state.topic.isNotEmpty &&
-              state.exercise == null &&
-              !state.isGenerating)
-            _StartCard(
-              topic: state.topic,
-              color: AppColors.primary,
-              icon: Icons.quiz,
-              label: 'Generate exercise',
-              onTap: () => ref.read(practiceProvider.notifier).generate(),
+
+          // Options
+          ...q.options.asMap().entries.map((e) {
+            final oi = e.key;
+            final option = e.value;
+            final isSelected = _selectedAnswer == oi;
+            final isCorrect = oi == q.correct;
+
+            Color borderColor = Theme.of(context).dividerColor;
+            Color bgColor = Colors.transparent;
+
+            if (_answered) {
+              if (isCorrect) {
+                borderColor = AppColors.teachColor;
+                bgColor = AppColors.teachColor.withValues(alpha: 0.08);
+              } else if (isSelected) {
+                borderColor = Colors.red;
+                bgColor = Colors.red.withValues(alpha: 0.06);
+              }
+            } else if (isSelected) {
+              borderColor = AppColors.primary;
+              bgColor = AppColors.primary.withValues(alpha: 0.06);
+            }
+
+            return GestureDetector(
+              onTap: () => _answer(oi),
+              child: Container(
+                width: double.infinity,
+                margin: EdgeInsets.only(bottom: 8),
+                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                decoration: BoxDecoration(
+                  color: bgColor,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: borderColor),
+                ),
+                child: Row(
+                  children: [
+                    Text(String.fromCharCode(65 + oi), style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                    SizedBox(width: 12),
+                    Expanded(child: Text(option, style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurface))),
+                    if (_answered && isCorrect) Icon(Icons.check_circle, size: 18, color: AppColors.teachColor),
+                    if (_answered && isSelected && !isCorrect) Icon(Icons.cancel, size: 18, color: Colors.red),
+                  ],
+                ),
+              ),
+            );
+          }),
+
+          // Explanation
+          if (_answered) ...[
+            SizedBox(height: 12),
+            Container(
+              padding: EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: (_selectedAnswer == q.correct ? AppColors.teachColor : Colors.red).withValues(alpha: 0.06),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(q.explanation, style: TextStyle(fontSize: 13, height: 1.4, color: Theme.of(context).colorScheme.onSurfaceVariant)),
             ),
-          if (state.isGenerating)
-            const _LoadingCard(message: 'Creating exercise…'),
-          if (state.error != null)
-            _ErrorCard(
-              message: state.error!,
-              onRetry: () => ref.read(practiceProvider.notifier).generate(),
+            SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton.icon(
+                onPressed: _next,
+                icon: Icon(Icons.arrow_forward),
+                label: Text(_currentQ < _questions.length - 1 ? 'Next Question' : 'See Results'),
+                style: FilledButton.styleFrom(backgroundColor: AppColors.primary),
+              ),
             ),
-          if (state.exercise != null)
-            _ExerciseCard(
-              exercise: state.exercise!,
-              state: state,
-              onAnswer: (i) => ref.read(practiceProvider.notifier).answer(i),
-              onNext: () => ref.read(practiceProvider.notifier).next(),
-              onReset: () => ref.read(practiceProvider.notifier).reset(),
-            ),
-          SizedBox(height: 40),
+          ],
         ],
+      ),
+    );
+  }
+}
+
+class _QuizResult extends StatelessWidget {
+  const _QuizResult({required this.score, required this.total, required this.onRestart, required this.onChangeTopic});
+  final int score, total;
+  final VoidCallback onRestart, onChangeTopic;
+
+  @override
+  Widget build(BuildContext context) {
+    final percent = (score / total * 100).round();
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.all(32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('$score/$total', style: TextStyle(fontSize: 48, fontWeight: FontWeight.w800, color: AppColors.teachColor)),
+            Text('$percent%', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.teachColor)),
+            SizedBox(height: 8),
+            Text(
+              percent >= 80 ? 'Excellent!' : percent >= 60 ? 'Good job!' : 'Keep practicing!',
+              style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onSurface),
+            ),
+            SizedBox(height: 24),
+            FilledButton.icon(onPressed: onRestart, icon: Icon(Icons.refresh), label: Text('Try Again'), style: FilledButton.styleFrom(backgroundColor: AppColors.primary)),
+            SizedBox(height: 12),
+            OutlinedButton.icon(onPressed: onChangeTopic, icon: Icon(Icons.swap_horiz), label: Text('Change Subject')),
+          ],
+        ),
       ),
     );
   }
