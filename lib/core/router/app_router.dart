@@ -24,6 +24,7 @@ import '../../features/settings/settings_screen.dart';
 import '../../features/teach/teach_screen.dart';
 import '../../features/teacher/teacher_screen.dart';
 import '../../features/site_builder/site_builder_screen.dart';
+import '../../features/site_builder/site_chat_builder_screen.dart';
 import '../../features/web_dev_lab/web_dev_lab_screen.dart';
 import '../../features/website/website_builder_screen.dart';
 import '../../shared/widgets/app_shell.dart';
@@ -87,6 +88,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/weblab', builder: (_, __) => const WebDevLabScreen()),
           GoRoute(path: '/applab', builder: (_, __) => const AppDevLabScreen()),
           GoRoute(path: '/sitebuilder', builder: (_, __) => const SiteBuilderScreen()),
+          GoRoute(path: '/sitechat', builder: (_, __) => const SiteChatBuilderScreen()),
           GoRoute(path: '/pythonlab', builder: (_, __) => const PythonLabScreen()),
           GoRoute(path: '/website', builder: (_, __) => const WebsiteBuilderScreen()),
           GoRoute(path: '/projects', builder: (_, __) => const ProjectsScreen()),
@@ -133,6 +135,7 @@ final appRouter = GoRouter(
         }),
         GoRoute(path: '/applab', builder: (_, __) => const AppDevLabScreen()),
           GoRoute(path: '/sitebuilder', builder: (_, __) => const SiteBuilderScreen()),
+          GoRoute(path: '/sitechat', builder: (_, __) => const SiteChatBuilderScreen()),
           GoRoute(path: '/pythonlab', builder: (_, __) => const PythonLabScreen()),
         GoRoute(
           path: '/path/:topic',
