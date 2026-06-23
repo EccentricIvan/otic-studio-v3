@@ -1,282 +1,393 @@
-# Otic Studio v2 — Build Log
+# Otic Studio v3 — Build Log
 
-Everything done to fork, clean up, and ship Otic Studio v2.
+Complete documentation of Otic Studio v3, rebuilt from v2 with curriculum-first architecture.
 
 ---
 
 ## 1. Origin
 
-Forked from `malinzijeremiah01-lab/Otic-Studio` into `EccentricIvan/otic-studio-v2`.
-The original repo's CI was broken (fllama dependency issues with Android build tools).
+Cloned from `EccentricIvan/otic-studio-v2` into `EccentricIvan/otic-studio-v3`.
+v2 relied on Gemma AI for all teaching — but the 1B model lacked depth for real education.
+v3 shifts to a **curriculum-first** approach: structured content teaches, AI assists.
+
+**Repo:** `https://github.com/EccentricIvan/otic-studio-v3`
 
 ---
 
-## 2. Changes Made (in order)
+## 2. Architecture (v3)
 
-### 2.1 Dark Theme
-**Commit:** `cd356fd`
-- Added `AppTheme.dark` with slate dark palette (#0F172A background, #1E293B surfaces, #334155 borders, #F1F5F9 text)
-- Set `themeMode: ThemeMode.dark` as default in `app.dart`
-- Files: `lib/core/theme/app_theme.dart`, `lib/app.dart`
+### Core Philosophy
+- **Curriculum teaches** — 300 lessons with accurate, structured content displayed directly
+- **AI assists** — Gemma handles follow-up Q&A, teach scoring, and general chat
+- **Fully offline** — everything works without internet
+- **Dual platform** — Android (on-device Gemma) + Windows (Ollama)
 
-### 2.2 Hide Dev Artifacts
-**Commit:** `7fb9dc5`
-- MockEngine label: "Mock (dev only)" → "Otic AI"
-- Removed "[Gemma 3 1B model not loaded — this is a dev placeholder response.]" bracket text, replaced with natural guidance
-- LlamaCppEngine: removed "[Desktop AI — llama.cpp FFI wiring coming in Phase 1b]", replaced with user-facing install hint
-- Learn screen: engine backend chip hidden behind `kDebugMode` so release builds never show it
-- Files: `lib/ai_core/inference/mock_engine.dart`, `lib/ai_core/inference/llama_cpp_engine.dart`, `lib/features/learn/learn_screen.dart`
+### Tech Stack
+| Component | Technology |
+|-----------|-----------|
+| Framework | Flutter 3.44+ / Dart |
+| State management | Riverpod |
+| Routing | go_router with ShellRoute |
+| Database | SQLite via Drift |
+| AI (Android) | flutter_gemma 1.0.3 (Gemma 3 / LiteRT) |
+| AI (Windows) | Ollama (localhost HTTP) |
+| Curriculum | Bundled JSON assets |
+| Theme | Material 3 with light + dark mode |
+| Font | Plus Jakarta Sans (bundled) |
+| Certificates | PDF generation (offline) |
 
-### 2.3 Fix Text Truncation
-**Commit:** `535c71d`
-- LearningModeCard: description uses `Expanded` with `maxLines: 3` instead of clipping
-- Home grid: lower `childAspectRatio` (0.82 mobile, 0.75 desktop) so cards are taller
-- Shortened mode descriptions and path descriptions to fit without mid-word breaks
-- LearningPathCard: moved Start button to top-right row beside category badge so title gets full width
-- Files: `lib/shared/widgets/learning_mode_card.dart`, `lib/shared/widgets/learning_path_card.dart`, `lib/features/home/home_screen.dart`
-
-### 2.4 Unify Accent Color to Indigo
-**Commit:** `54af139`
-- All buttons, tab indicators, selected chips, and interactive controls now use `AppColors.primary` (indigo #4F46E5)
-- Orange and blue no longer appear as action colors
-- Semantic colors kept: green for correct/success feedback, red for errors
-- Files: `lib/features/practice/practice_screen.dart`, `lib/features/create/create_screen.dart`, `lib/features/teach/teach_screen.dart`, `lib/features/learn/path/path_detail_screen.dart`, `lib/features/projects/projects_screen.dart`
-
-### 2.5 Reorder Onboarding
-**Commit:** `c7f25e4`
-- Flow changed from Name → Age → Interests → Style to **Name → Interests → Age → Style**
-- Interests grid (the engaging interactive screen) comes right after name
-- Age/grade (optional, skippable) moved to step 3
-- File: `lib/features/onboarding/onboarding_screen.dart`
-
-### 2.6 Reclaim Vertical Space
-**Commit:** `6b9c852`
-- `displayLarge`: 48px → 32px (home hero title)
-- `headlineLarge`: 28px → 24px (onboarding headings)
-- Home hero: collapsed to single line, reduced all gaps
-- Section gaps: 48px → 32px everywhere
-- Onboarding: reduced top padding, heading-to-body gaps, logo 88px → 64px
-- Files: `lib/core/theme/app_theme.dart`, `lib/features/home/home_screen.dart`, `lib/features/onboarding/onboarding_screen.dart`
-
-### 2.7 Create Button Helper Text + Deduplicate Offline Copy
-**Commit:** `f855c26`
-- Create screen: disabled "Start creating" button now shows contextual hint ("Pick a project type" or "Enter a topic")
-- Home subtitle: removed third "offline/no internet" mention — badge says it, onboarding says it strongly
-- Files: `lib/features/create/create_screen.dart`, `lib/features/home/home_screen.dart`
-
-### 2.8 Remove fllama Dependency
-**Commits:** `65d1a3f`, `5a49762`
-- Removed `fllama` from `pubspec.yaml` — it was an experimental test-only dependency causing every CI build to fail
-- Deleted `lib/ai_core/llama/fllama_engine.dart` and `lib/features/llama/llama_test_screen.dart`
-- Removed `/llama-test` route from router and "Llama Test" nav entry from app shell
-- Removed NDK/CMake install and Gradle patching steps from CI workflow
-- The main AI pipeline (`flutter_gemma` / LiteRT-LM on Android) is unaffected
-- Files: `pubspec.yaml`, `lib/core/router/app_router.dart`, `lib/shared/widgets/app_shell.dart`, `.github/workflows/build-release-artifacts.yml`
-
-### 2.9 Fix CI Build — ProGuard + R8
-**Commits:** `6e8e353`, `7abb06c`
-- Patched fllama's deprecated `getDefaultProguardFile('proguard-android.txt')` → `proguard-android-optimize.txt` (before fllama was fully removed)
-- Added `-dontwarn` ProGuard rules for `javax.lang.model`, `javax.tools`, `autovalue.shaded`, `com.google.auto`, `com.squareup.javapoet`
-- File: `android/app/proguard-rules.pro`, `.github/workflows/build-release-artifacts.yml`
-
-### 2.10 Dark Mode Visibility Fixes
-**Commits:** `8c9b229`, `41c39c0`, `847a457`, `3fda1ce`
-- Home: replaced voice mic button with send arrow
-- Learn: fixed suggestion chips invisible in dark mode — theme-aware colors
-- Projects: forced white text on "Start a project" button
-- Practice: changed topic chips from horizontal scroll to wrapping grid
-- Onboarding: switched gradient to dark slate in dark mode, replaced all hardcoded `AppColors.textSecondary/border/surface` with `Theme.of(context)` equivalents
-- Fixed `const Text` + `Theme.of(context)` compile errors (can't mix const with runtime calls)
-- Files: `lib/shared/widgets/voice_ask_widget.dart`, `lib/features/learn/learn_screen.dart`, `lib/features/projects/projects_screen.dart`, `lib/features/practice/practice_screen.dart`, `lib/features/onboarding/onboarding_screen.dart`
+### Key Directories
+```
+lib/
+  ai_core/           AI inference, model manager, tutor pipeline
+  curriculum/         Curriculum loader, models, progress tracking
+  core/theme/         AppColors, AppTheme (light + dark), ThemeProvider
+  core/router/        GoRouter with ShellRoute
+  db/                 Drift tables, DAOs, providers
+  features/
+    curriculum_browser/  Subject → Unit → Lesson → Quiz screens
+    web_dev_lab/         HTML/CSS/JS code editor + live preview
+    python_lab/          Python code editor + output
+    app_dev_lab/         App development guided lessons
+    home/                Home screen with mode cards
+    practice/            Quiz questions from curriculum
+    teach/               Explain topics for scoring
+    settings/            Theme toggle, profile, model status
+    ...
+  shared/widgets/     AppShell, cards, section headers
+  gamification/       Badge definitions and service
+  certificates/       PDF certificate generator
+assets/
+  curriculum/         15 JSON files (300 lessons, 1,500 questions)
+  branding/           Logo
+  fonts/              Plus Jakarta Sans
+```
 
 ---
 
-## 3. CI/CD Setup
+## 3. Curriculum System
 
-- **Repo:** `https://github.com/EccentricIvan/otic-studio-v2`
+### Overview
+- **15 subjects**, each with **4 units × 5 lessons = 20 lessons**
+- **Total: 300 lessons, 1,500 quiz questions, 22 diagrams**
+- **Total size: ~712 KB** (smaller than one phone photo)
+- Bundled in APK as JSON assets — no download needed
+
+### Subjects
+| Subject | Lessons | Key Topics |
+|---------|---------|-----------|
+| Mathematics | 20 | Numbers, Algebra, Geometry, Statistics, Pythagoras, Transformations |
+| Physics | 20 | Forces, Energy, Waves, Electricity, Nuclear, Pressure |
+| Biology | 20 | Cells, Body Systems, Ecology, Genetics, Enzymes, Disease |
+| Chemistry | 20 | Atoms, Reactions, States, Acids, Electrolysis, Moles |
+| Programming | 20 | Variables, Control Flow, Functions, OOP, Testing, APIs |
+| Web Development | 20 | HTML, CSS, JavaScript, DOM, Frameworks, Deployment |
+| App Development | 20 | UI/UX, Widgets, State, APIs, Testing, Publishing |
+| AI & Data Science | 20 | ML, Neural Networks, LLMs, Ethics, Python ML |
+| Entrepreneurship | 20 | Ideas, Planning, Marketing, Scaling, Funding, Impact |
+| Agriculture | 20 | Soil, Crops, Livestock, Irrigation, Climate-Smart, Business |
+| History | 20 | Ancient, Medieval, Modern, Colonial, Cold War, Contemporary |
+| Geography | 20 | Physical, Human, Resources, Climate, Maps, GIS |
+| English Writing | 20 | Grammar, Paragraphs, Essays, Creative, Persuasive, Poetry |
+| Economics | 20 | Supply/Demand, Markets, Macro, Money, Trade, Behavioral |
+| Arts | 20 | Elements, Techniques, History, Digital, Photography, Careers |
+
+### Lesson Structure (JSON)
+Each lesson contains:
+- `title` — lesson name
+- `content` — 2-3 paragraphs of teaching material
+- `examples` — 3 real-world examples
+- `keyTerms` — 3-5 vocabulary definitions
+- `quiz` — 5 multiple-choice questions with explanations
+- `diagram` — (optional) ASCII art diagram
+
+### Diagrams (22 total)
+ASCII diagrams in key lessons: cell structure, photosynthesis, food chains, circulatory system, atomic structure, chemical bonding, pH scale, Newton's laws, electric circuits, speed graphs, fractions, angles, area formulas, Pythagoras, water cycle, plate tectonics, supply/demand, flowcharts, loop diagrams, sentence types, essay structure, business model canvas.
+
+---
+
+## 4. Screens and Features
+
+### Learn (Curriculum Browser)
+- **Subject grid** — 15 subjects as cards with icons and lesson counts
+- **Units screen** — 4 units per subject with lesson list
+- **Lesson screen** — full content, examples, key terms, diagram, interactive quiz
+- **Quiz** — instant feedback, explanations, score, completion tracking
+- **"Ask AI"** button — opens AI chat about the current lesson topic
+- **Prev/Next** navigation between lessons
+
+### Practice (Curriculum Quizzes)
+- Pick a subject from dropdown
+- 10 random questions from that subject's curriculum
+- Progress bar, score tracking, explanations
+- Results screen with percentage and retry option
+- **No AI dependency** — uses 1,500 pre-built questions
+
+### Create (Dev Labs)
+Three cards linking to:
+- **Web Dev Lab** — 8 guided HTML/CSS/JS tutorials with live WebView preview
+- **Python Lab** — 8 guided Python tutorials with output display
+- **App Dev Lab** — guided mobile app development lessons from curriculum
+
+### Web Dev Lab
+- 8 step-by-step lessons: HTML basics → CSS → Links → Cards → JavaScript → Forms → Flexbox → Full website
+- Dark-themed code editor (monospace)
+- Live preview via WebView
+- RUN button to render code instantly
+- Hints and challenges per lesson
+- Lesson picker for navigation
+
+### Python Lab
+- 8 step-by-step lessons: Hello World → Variables → Math → If/Else → Loops → Functions → Lists → Quiz Game
+- Dark-themed code editor
+- Output display (offline — no internet needed)
+- Starter code shows expected output
+- Modified code: basic print() parser extracts output
+
+### App Dev Lab
+- Guided learning path from curriculum
+- 4 units with 20 lessons covering app concepts, UI/UX, data, publishing
+- Each lesson links to full lesson viewer with quiz
+
+### AI Chat
+- General Q&A with Gemma model
+- Accessible from sidebar and "Ask AI" buttons on lessons
+- Tutor pipeline with curriculum context injection
+- Emotional safety engine for crisis detection
+
+### Teach
+- Student picks a topic and writes an explanation
+- Gemma scores it out of 100
+- Feedback: strengths, improvements, overall
+- Badge awarded for scores ≥ 80
+
+### Achievements
+- Badge system with 10 badges
+- Earned through: completing lessons, quiz scores, teaching, streaks
+- Points system tied to badges
+- Visual grid of earned vs locked badges
+
+### Certificates
+- PDF certificate generation for completed subjects
+- Offline — saved to device storage
+- Professional layout with student name, subject, date
+
+### Settings
+- **Theme toggle** — Light / Dark / System (persisted with SharedPreferences)
+- Student profile display
+- AI model status (installed/not installed)
+- Streak and points display
+- Admin dashboard access
+- Data reset option
+
+---
+
+## 5. Theme System
+
+### Dual Theme Support
+All screens use `Theme.of(context)` instead of hardcoded colors — both light and dark themes work correctly.
+
+| Element | Light | Dark |
+|---------|-------|------|
+| Background | #F8FAFC | #0F172A |
+| Surface | #FFFFFF | #1E293B |
+| Border | #E2E8F0 | #334155 |
+| Primary text | #0F172A | #F1F5F9 |
+| Secondary text | #64748B | #94A3B8 |
+
+### Accent Colors (same in both themes)
+| Role | Hex |
+|------|-----|
+| Primary / Action | #4F46E5 (Indigo) |
+| Success | #10B981 (Emerald) |
+| Error | #EF4444 (Red) |
+| Learn icon | #4F46E5 |
+| Practice icon | #0EA5E9 |
+| Create icon | #F59E0B |
+| Teach icon | #10B981 |
+
+---
+
+## 6. AI Integration
+
+### Gemma 3 (Android)
+- `flutter_gemma` 1.0.3 with `flutter_gemma_mediapipe` 1.0.0
+- Supports both `.bin` (Gemma 2) and `.task` (Gemma 3) model files
+- Initialized in `main.dart` only on Android
+- Model installed via file picker from USB transfer
+
+### Ollama (Windows/Linux)
+- OllamaEngine connects to `localhost:11434`
+- Default model: `gemma3:1b`
+- Auto-detected: if Ollama is running, it's used; otherwise MockEngine fallback
+
+### Tutor Pipeline
+- Curriculum search on every message (word-by-word scoring)
+- Topic detection for all 15 subjects (keyword matching)
+- Lesson context trimmed to ~500 chars for small model compatibility
+- Concise prompt: friendly tutor + lesson context + stage instruction
+- Stages: answer → clarify → practice → apply → create → reflect
+
+### Where Gemma is Used
+| Feature | Uses Gemma |
+|---------|-----------|
+| AI Chat (/chat) | Yes — general Q&A |
+| Ask AI (lesson button) | Yes — follow-up about lesson |
+| Teach mode | Yes — scores explanations |
+| Learn (curriculum) | No — content displayed directly |
+| Practice (quizzes) | No — curriculum questions |
+| Dev Labs | No — code editors |
+
+---
+
+## 7. Navigation
+
+### Bottom Bar (5 tabs)
+Home, Learn, Practice, Create, Projects
+
+### Sidebar/Drawer (accessible from every screen via menu button)
+- My Paths (with progress)
+- Home, Learn, Practice, Create, Projects
+- Web Dev Lab, Python Lab, App Dev Lab
+- AI Chat
+- Achievements, Certificates
+- Teacher, Settings
+
+### Global Menu Button
+Floating menu button (top-right) appears on every screen via AppShell — opens the drawer without each screen needing its own button.
+
+---
+
+## 8. Onboarding
+
+Simplified to **2 steps**:
+1. **Name** — "What's your name?"
+2. **Interests** — pick topics from a grid of 15 subjects
+
+Removed: age/grade screen and learning style screen.
+
+---
+
+## 9. Progress Tracking
+
+### Lesson Completion
+- Tracked via SharedPreferences
+- Lesson marked complete when quiz score ≥ 60%
+- Completion checkmark and banner shown
+
+### Badges
+| Badge | Trigger | Points |
+|-------|---------|--------|
+| First Step | Complete first lesson | 50 |
+| Path Master | Complete all lessons in a path | 200 |
+| Quiz Taker | Attempt first practice exercise | 30 |
+| Sharp Mind | Get 5 practice questions correct | 100 |
+| Scenario Solver | Complete 5 Apply scenarios | 100 |
+| The Teacher | Score 80+ in Teach mode | 150 |
+| Creator | Save first project | 80 |
+| Consistent Learner | 7-day streak | 150 |
+| Polymath | Start 3 different topic paths | 120 |
+| Century | Earn 100 total points | 0 |
+
+### Streaks
+- Updated daily on first interaction
+- Consecutive days increment streak
+- Missing a day resets to 1
+
+---
+
+## 10. CI/CD
+
+- **Repo:** `https://github.com/EccentricIvan/otic-studio-v3`
 - **Workflow:** `.github/workflows/build-release-artifacts.yml`
 - **Triggers:** Push to `main`, manual dispatch
 - **Jobs:**
   1. Build Android APK (ubuntu-latest, Flutter 3.44.x)
   2. Build Windows EXE (windows-latest)
   3. Publish to rolling `latest-build` release
-- **APK download:** `https://github.com/EccentricIvan/otic-studio-v2/releases/download/latest-build/otic-studio-latest.apk`
+
+### Download Links
+- **APK:** `https://github.com/EccentricIvan/otic-studio-v3/releases/download/latest-build/otic-studio-latest.apk`
+- **Windows:** `https://github.com/EccentricIvan/otic-studio-v3/releases/download/latest-build/otic-studio-windows-latest.zip`
 
 ---
 
-## 4. AI Model Setup
+## 11. Dependencies
 
-The app uses Google's **Gemma 3 1B** running on-device via LiteRT-LM (formerly MediaPipe).
+```yaml
+# Navigation + UI
+go_router: ^14.0.0
+flutter_riverpod: ^2.5.1
 
-### How to install the model:
-1. Go to [Kaggle — google/gemma-3](https://www.kaggle.com/models/google/gemma-3)
-2. Select **LiteRT (formerly TFLite)** tab
-3. Choose variation **gemma3-1b-it-int4**
-4. Click **"Download model as tar.gz"**
-5. Extract the `.tar.gz` — find `gemma3-1B-it-int4.task` (~541 MB)
-6. Transfer the `.task` file to your Android phone via USB
-7. Open Otic Studio → tap **"Install from file..."** → pick the file
-8. Wait for the progress bar — after that, AI responses are real and fully offline
+# AI inference
+http: ^1.2.0
+flutter_gemma: ^1.0.3
+flutter_gemma_mediapipe: ^1.0.0
+ffi: ^2.1.0
 
-### Model details:
-| Field | Value |
-|-------|-------|
-| Model | Gemma 3 1B Instruction-Tuned |
-| Format | LiteRT (`.task`) |
-| Quantization | int4 |
-| Size | ~541 MB |
-| Runtime | LiteRT-LM via `flutter_gemma` |
-| Min RAM | 4 GB |
-| Internet | Not needed after install |
+# Local storage
+drift: ^2.20.0
+drift_flutter: ^0.2.1
+sqlite3_flutter_libs: ^0.5.0
+path_provider: ^2.1.4
+path: ^1.9.0
 
----
+# User preferences
+shared_preferences: ^2.2.3
 
-## 5. Architecture (unchanged from original)
+# File picker (model install)
+file_picker: 8.3.7
 
-- **Framework:** Flutter 3.44+ / Dart
-- **State management:** Riverpod (`Provider`, `FutureProvider`, `AsyncNotifier`)
-- **Routing:** `go_router` with `ShellRoute`
-- **Database:** SQLite via Drift (local, per device)
-- **AI:** `flutter_gemma` (Android LiteRT-LM), `LlamaCppEngineImpl` placeholder (desktop), `MockEngine` fallback
-- **Font:** Plus Jakarta Sans (bundled, never fetched from network)
+# Web Dev Lab
+webview_flutter: ^4.10.0
 
-### Key directories:
-```
-lib/
-  ai_core/          AI inference, model manager, tutor pipeline
-  core/theme/       AppColors, AppTheme (light + dark)
-  core/router/      GoRouter with ShellRoute
-  db/               Drift tables, DAOs, providers
-  features/         All screens (home, learn, practice, create, etc.)
-  shared/widgets/   Reusable UI (AppShell, cards, section headers)
+# Certificates
+pdf: ^3.10.8
 ```
 
 ---
 
-## 6. Color System
+## 12. Model Setup (for AI features)
 
-| Role | Color | Hex |
-|------|-------|-----|
-| Primary / Action | Indigo | #4F46E5 |
-| Brand / Logo only | Amber | #F59E0B |
-| Success / Correct | Emerald | #10B981 |
-| Error | Red | #EF4444 |
-| Learn mode icon | Indigo | #4F46E5 |
-| Practice mode icon | Sky | #0EA5E9 |
-| Create mode icon | Amber | #F59E0B |
-| Teach mode icon | Emerald | #10B981 |
+### Android — Gemma 3
+1. Download **gemma3-1B-it-int4** from Kaggle (LiteRT tab, ~541 MB)
+2. Transfer `.task` file to phone via USB
+3. Open app → AI Chat → "Install from file" → pick the file
+4. Wait for progress bar → AI is live
 
-**Rule:** Indigo is the only action color (buttons, chips, tab indicators). Other colors are for icons/badges/feedback only.
-
----
-
-## 7. Dark Theme Palette
-
-| Element | Hex |
-|---------|-----|
-| Background | #0F172A |
-| Surface (cards, app bar, nav) | #1E293B |
-| Border / Divider | #334155 |
-| Primary text | #F1F5F9 |
-| Secondary text | #94A3B8 |
-| Hint text | #64748B |
+### Windows — Ollama
+1. Install Ollama from `ollama.com`
+2. Open terminal: `ollama pull gemma3:1b`
+3. Run: `ollama serve`
+4. Open Otic Studio → AI Chat works automatically
 
 ---
 
-## 8. Gemma Integration (resolved)
+## 13. Known State (v3 final)
 
-### What worked
-- **Gemma 2 2B GPU int8** model (`.bin` format from Kaggle) loads and runs
-- `flutter_gemma` 1.0.2 + `flutter_gemma_mediapipe` 1.0.0
-- `FlutterGemma.initialize()` called in `main()` with `MediaPipeEngine()`
-- `FlutterGemma.installModel().fromFile(path).install()` for loading
-- `InferenceModel.createChat()` + `generateChatResponseAsync()` for streaming
-- `response.token` extracts clean text (not `response.toString()`)
-- Responses are real, coherent, and contextual
+### Working
+- ✅ 15 subjects with 300 lessons, 1,500 quiz questions, 22 diagrams
+- ✅ Curriculum browser: subject → unit → lesson → quiz
+- ✅ Practice mode with curriculum-based quizzes
+- ✅ Web Dev Lab (8 guided HTML/CSS/JS tutorials)
+- ✅ Python Lab (8 guided Python tutorials)
+- ✅ App Dev Lab (guided learning path)
+- ✅ AI Chat with curriculum context
+- ✅ Teach mode with scoring
+- ✅ Dual theme (light/dark) with toggle in Settings
+- ✅ Lesson completion tracking
+- ✅ Badge and achievement system
+- ✅ Certificate PDF generation
+- ✅ Global menu button on every screen
+- ✅ Onboarding (2 steps: Name → Interests)
+- ✅ Android APK + Windows EXE builds via CI
+- ✅ Fully offline — no internet required
 
-### What didn't work
-- **Gemma 3 `.task` file**: "Error building tflite model" — MediaPipe can't parse Gemma 3 format
-- **flutter_gemma 0.4.6**: `loadAssetModel` throws "should not be used in release build"
-- **flutter_gemma 1.0.2 initial attempt**: wrong API calls (`Message.text()` positional args, `response.text` getter)
-- Multiple CI failures from API mismatches, const+Theme.of conflicts, missing engine registration
-
-### Model install steps
-1. Download **gemma-2-tflite-gemma2-2b-it-gpu-int8** from Kaggle (LiteRT tab)
-2. Extract `.bin` file from tar.gz (~2.1 GB)
-3. Transfer to phone via USB
-4. Open app → Learn → "Install from file..." → pick the `.bin` file
-5. Wait for progress bar → AI is live
-
-### Performance notes
-- First response is slowest (model loading into memory)
-- Typical response time: 10-30 seconds on 6GB RAM Samsung
-- Low battery causes throttling — charge the phone for best speed
-- Duplicate follow-up prompts in tutor pipeline (minor polish issue)
-
----
-
-## 9. Additional changes after initial build
-
-### 2.11 Ollama Engine (optional)
-**Commit:** `0e9fbf2`
-- Added `OllamaEngine` that connects to local Ollama server at `localhost:11434`
-- Added `network_security_config.xml` for localhost HTTP access
-- Added `http` package dependency
-- Currently not the default engine — available as a future option
-- File: `lib/ai_core/inference/ollama_engine.dart`
-
-### 2.12 FlutterGemma.initialize() in main
-**Commit:** `f8b8f89`
-- Required by flutter_gemma 1.0.2 before any plugin usage
-- Registers `MediaPipeEngine()` for `.task`/`.bin` model files
-- File: `lib/main.dart`
-
-### 2.13 Fix response.token extraction
-**Commit:** `a545640`
-- `response.toString()` returned `TextResponse("word")` as raw text
-- Fixed to use `response.token` for clean text output
-- File: `lib/ai_core/inference/litert_lm_engine.dart`
-
-### 2.14 ModelGate restored on Learn route
-**Commit:** `e1701b7`
-- Removed and re-added multiple times during debugging
-- Final state: ModelGate wraps Learn route to show install screen
-- Engine provider checks model status, falls back to MockEngine
-- Files: `lib/core/router/app_router.dart`, `lib/ai_core/providers/ai_provider.dart`
-
-### 2.15 Engine factory reverted to LiteRT primary
-**Commit:** `213247a`
-- Ollama was temporarily set as primary engine, causing errors on Practice/Create
-- Reverted to LiteRtLmEngineImpl (Android) / LlamaCppEngineImpl (desktop)
-- File: `lib/ai_core/inference/inference_engine.dart`
-
-### 2.16 Remove Guest Demo badge and Sign in button
-**Commit:** `9549da7`
-- Removed "Guest Demo" badge and "Sign in" button from home app bar
-- Clean app bar with just the logo
-- File: `lib/features/home/home_screen.dart`
-
----
-
-## 10. Known State (final)
-
-- APK builds and deploys automatically on push to `main`
-- Dark theme is the default
-- **Gemma 2 2B GPU model runs on-device** with real AI responses
-- MockEngine provides clean fallback when no model is installed
-- Engine badge chip is hidden in release builds
-- fllama has been fully removed — no NDK/CMake dependency
-- Onboarding flow: Name → Interests → Age/Grade → Learning Style
-- All action elements use indigo (#4F46E5) as the single accent color
-- Guest Demo badge and Sign in button removed
-- Text truncation fixed across all cards
-- Ollama engine available as optional alternative
-
----
-
-## 11. Known Issues / Future Polish
-
-- Duplicate follow-up prompt in tutor pipeline responses
-- Some responses take 10-30 seconds (normal for on-device 2B model)
-- Onboarding text visibility could use further dark mode testing
-- Practice/Create/Teach screens still have some hardcoded light-mode colors
+### Future Improvements
+- Deepen curriculum content (more lessons per subject)
+- Add country-specific curricula (Uganda, Kenya, etc.)
+- Upgrade to Gemma 3 4B for better AI responses (needs 8GB+ RAM)
+- Add Bluetooth device-to-device sharing (replace LAN collaborate)
+- Track lesson completion progress on units/subjects screens
+- More diagrams across all subjects
+- Difficulty levels (beginner/intermediate/advanced)
