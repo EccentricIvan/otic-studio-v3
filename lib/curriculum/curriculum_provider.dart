@@ -121,6 +121,13 @@ class CurriculumService {
         buf.writeln('- ${entry.key}: ${entry.value}');
       }
     }
+    if (lesson.quiz.isNotEmpty) {
+      buf.writeln('\nPRACTICE QUESTIONS (use these for exercises):');
+      for (final q in lesson.quiz.take(3)) {
+        buf.writeln('Q: ${q.question}');
+        buf.writeln('A: ${q.options[q.correct]} — ${q.explanation}');
+      }
+    }
     return buf.toString();
   }
 }

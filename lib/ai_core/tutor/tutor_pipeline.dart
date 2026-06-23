@@ -38,8 +38,11 @@ class TutorPipeline {
     if (topic != _currentTopic) {
       _currentTopic = topic;
       _nextStage = TutorStage.answer;
-      _activeLesson = _curriculum?.findBestMatch(studentMessage);
     }
+
+    // Always search curriculum for the best matching lesson
+    final matchedLesson = _curriculum?.findBestMatch(studentMessage);
+    if (matchedLesson != null) _activeLesson = matchedLesson;
 
     final stage = _nextStage;
     final lessonContext =
@@ -93,15 +96,19 @@ class TutorPipeline {
 You respond in plain, encouraging language. Be concise (2-4 sentences max per stage).
 Never use bullet lists. Ask one question at the end. Never say "I am an AI".
 ${safetyNote != null ? '\n$safetyNote\n' : ''}
-${lessonContext != null ? 'USE THIS REFERENCE MATERIAL to teach accurately:\n$lessonContext\n' : ''}
+${lessonContext != null ? '''IMPORTANT — Use ONLY the following lesson material to teach. Do NOT make up facts.
+Base your explanation, examples, and questions on this content:
+
+$lessonContext
+''' : 'No specific lesson material available — answer based on your general knowledge.\n'}
 Current stage: ${stage.name.toUpperCase()}
 Stage instructions:
-  answer   → Give a clear, direct explanation using the reference material above.
-  clarify  → Ask one question to check understanding.
-  practice → Give one short exercise or challenge based on the material.
-  apply    → Describe a real-world scenario where this applies.
-  create   → Ask the student to make or build something small.
-  reflect  → Ask the student to summarise what they learned in their own words.
+  answer   → Give a clear, direct explanation based on the lesson material above. Use the examples provided.
+  clarify  → Ask one question to check understanding based on the lesson content.
+  practice → Give one exercise from the lesson material or similar to the examples above.
+  apply    → Describe a real-world scenario using concepts from the lesson.
+  create   → Ask the student to make or build something related to the lesson topic.
+  reflect  → Ask the student to summarise the key points from the lesson in their own words.
 
 ${historyText.isNotEmpty ? 'Previous conversation:\n$historyText\n' : ''}Student: $studentMessage
 Tutor:''';
@@ -143,38 +150,41 @@ Tutor:''';
 
   String _detectTopic(String message) {
     final lower = message.toLowerCase();
-    if (lower.contains('python') ||
-        lower.contains('code') ||
-        lower.contains('program'))
-      return 'programming';
-    if (lower.contains('math') ||
-        lower.contains('algebra') ||
-        lower.contains('equation'))
-      return 'mathematics';
-    if (lower.contains('physics') ||
-        lower.contains('gravity') ||
-        lower.contains('force'))
-      return 'physics';
-    if (lower.contains('biology') ||
-        lower.contains('cell') ||
-        lower.contains('photosynthesis'))
-      return 'biology';
-    if (lower.contains('business') ||
-        lower.contains('entrepreneur') ||
-        lower.contains('market'))
-      return 'business';
-    if (lower.contains('history') ||
-        lower.contains('war') ||
-        lower.contains('colonial'))
-      return 'history';
-    if (lower.contains('agriculture') ||
-        lower.contains('farm') ||
-        lower.contains('crop'))
-      return 'agriculture';
-    if (lower.contains('ai') ||
-        lower.contains('machine learning') ||
-        lower.contains('data'))
-      return 'ai_data';
+
+    const topicKeywords = <String, List<String>>{
+      'mathematics': ['math', 'algebra', 'equation', 'fraction', 'geometry', 'calculus', 'arithmetic', 'percentage', 'ratio', 'number'],
+      'physics': ['physics', 'gravity', 'force', 'energy', 'motion', 'electricity', 'magnet', 'wave', 'light', 'newton'],
+      'biology': ['biology', 'cell', 'photosynthesis', 'dna', 'gene', 'ecosystem', 'organ', 'evolution', 'species', 'bacteria'],
+      'chemistry': ['chemistry', 'atom', 'element', 'reaction', 'acid', 'base', 'molecule', 'compound', 'periodic', 'bond'],
+      'programming': ['python', 'code', 'program', 'function', 'variable', 'loop', 'debug', 'algorithm', 'software', 'script'],
+      'web_development': ['html', 'css', 'javascript', 'website', 'web dev', 'webpage', 'frontend', 'responsive', 'dom', 'flexbox'],
+      'app_development': ['app dev', 'mobile app', 'flutter', 'android', 'ios', 'widget', 'navigation', 'ui design', 'ux', 'deploy'],
+      'ai_data': ['ai', 'artificial intelligence', 'machine learning', 'data science', 'neural', 'deep learning', 'model', 'dataset', 'training data'],
+      'entrepreneurship': ['business', 'entrepreneur', 'startup', 'marketing', 'sales', 'profit', 'investor', 'revenue', 'branding'],
+      'agriculture': ['agriculture', 'farm', 'crop', 'soil', 'irrigation', 'livestock', 'harvest', 'seed', 'fertilizer', 'poultry'],
+      'history': ['history', 'war', 'colonial', 'empire', 'revolution', 'civilization', 'ancient', 'medieval', 'independence'],
+      'geography': ['geography', 'climate', 'continent', 'river', 'mountain', 'population', 'urban', 'map', 'earthquake', 'volcano'],
+      'english_writing': ['writing', 'essay', 'grammar', 'paragraph', 'sentence', 'punctuation', 'vocabulary', 'tense', 'noun', 'verb'],
+      'economics': ['economics', 'economy', 'supply', 'demand', 'inflation', 'gdp', 'trade', 'tax', 'price', 'market economy'],
+      'arts': ['art', 'painting', 'drawing', 'sculpture', 'color theory', 'sketch', 'design', 'photography', 'creative', 'canvas'],
+    };
+
+    String bestTopic = '';
+    int bestScore = 0;
+
+    for (final entry in topicKeywords.entries) {
+      int score = 0;
+      for (final keyword in entry.value) {
+        if (lower.contains(keyword)) score++;
+      }
+      if (score > bestScore) {
+        bestScore = score;
+        bestTopic = entry.key;
+      }
+    }
+
+    if (bestScore > 0) return bestTopic;
+
     return message
         .split(' ')
         .take(3)
