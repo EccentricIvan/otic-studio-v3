@@ -68,19 +68,41 @@ class CurriculumService {
   }
 
   Lesson? findBestMatch(String query) {
-    final q = query.toLowerCase();
+    final words = query
+        .toLowerCase()
+        .split(RegExp(r'\s+'))
+        .where((w) => w.length > 2)
+        .toList();
+    if (words.isEmpty) return null;
+
+    Lesson? best;
+    int bestScore = 0;
+
     for (final subject in _cache.values) {
       for (final unit in subject.units) {
         for (final lesson in unit.lessons) {
-          if (lesson.title.toLowerCase().contains(q)) return lesson;
-          if (lesson.content.toLowerCase().contains(q)) return lesson;
+          int score = 0;
+          final titleLower = lesson.title.toLowerCase();
+          final contentLower = lesson.content.toLowerCase();
+
+          for (final word in words) {
+            if (titleLower.contains(word)) score += 3;
+            if (contentLower.contains(word)) score += 1;
+          }
           for (final term in lesson.keyTerms.keys) {
-            if (q.contains(term.toLowerCase())) return lesson;
+            for (final word in words) {
+              if (term.toLowerCase().contains(word)) score += 2;
+            }
+          }
+
+          if (score > bestScore) {
+            bestScore = score;
+            best = lesson;
           }
         }
       }
     }
-    return null;
+    return best;
   }
 
   String buildContext(Lesson lesson) {

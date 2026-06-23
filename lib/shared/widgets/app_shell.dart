@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
+import '../../db/providers/db_provider.dart';
+import '../../features/learn/path/path_models.dart';
+import '../../features/learn/path/path_provider.dart';
 
 const _brandLogoAsset = 'assets/branding/otic_logo.png';
 
@@ -192,14 +196,16 @@ class _SideNav extends StatelessWidget {
   }
 }
 
-class _AppDrawer extends StatelessWidget {
+class _AppDrawer extends ConsumerWidget {
   const _AppDrawer({required this.selectedIndex, required this.destinations});
 
   final int selectedIndex;
   final List<_NavDest> destinations;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final pathsAsync = ref.watch(studentPathsProvider);
+
     return NavigationDrawer(
       selectedIndex: selectedIndex,
       onDestinationSelected: (i) {
@@ -215,6 +221,59 @@ class _AppDrawer extends StatelessWidget {
           ),
         ),
         Divider(indent: 16, endIndent: 16),
+        // My Paths section
+        pathsAsync.when(
+          data: (rows) {
+            if (rows.isEmpty) return const SizedBox.shrink();
+            final paths = rows.map(parsedFromRow).toList();
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+                  child: Text(
+                    'MY PATHS',
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 0.8,
+                      color: Theme.of(context).hintColor,
+                    ),
+                  ),
+                ),
+                ...paths.take(5).map((p) => ListTile(
+                      dense: true,
+                      leading: Icon(Icons.route, size: 18, color: AppColors.learnColor),
+                      title: Text(
+                        p.topic,
+                        style: TextStyle(fontSize: 13),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      subtitle: Text(
+                        '${p.completedLessons}/${p.totalLessons} lessons',
+                        style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
+                      ),
+                      trailing: Text(
+                        '${(p.progressFraction * 100).round()}%',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.learnColor,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        context.push('/path/${Uri.encodeComponent(p.topic)}');
+                      },
+                    )),
+                Divider(indent: 16, endIndent: 16),
+              ],
+            );
+          },
+          loading: () => const SizedBox.shrink(),
+          error: (_, __) => const SizedBox.shrink(),
+        ),
         ...destinations.map(
           (d) => NavigationDrawerDestination(
             icon: Icon(d.icon),

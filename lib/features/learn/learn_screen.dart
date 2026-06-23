@@ -111,17 +111,6 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
       body: MaxWidth(
         child: Column(
           children: [
-            // Active paths strip — only shown when there are paths and chat is empty
-            chat.whenOrNull(
-                  data: (state) => state.messages.isEmpty
-                      ? _ActivePathsStrip(
-                          onPathTap: (topic) => context.push(
-                            '/path/${Uri.encodeComponent(topic)}',
-                          ),
-                        )
-                      : null,
-                ) ??
-                const SizedBox.shrink(),
             Expanded(
               child: chat.when(
                 loading: () => Center(child: CircularProgressIndicator()),
