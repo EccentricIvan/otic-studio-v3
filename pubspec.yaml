@@ -33,6 +33,9 @@ dependencies:
   # User preferences (theme mode)
   shared_preferences: ^2.2.3
 
+  # Web Dev Lab — render student HTML in a WebView
+  webview_flutter: ^4.10.0
+
   # PDF certificate generation (offline, pure Dart)
   pdf: ^3.10.8
 

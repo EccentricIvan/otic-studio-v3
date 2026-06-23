@@ -141,6 +141,13 @@ class _LearningModesGrid extends StatelessWidget {
         '/create',
       ),
       const _Mode(
+        'Web Dev Lab',
+        'Write HTML, CSS, JS and see it live',
+        Icons.code,
+        AppColors.practiceColor,
+        '/weblab',
+      ),
+      const _Mode(
         'Teach',
         'Explain a topic and get a mastery score',
         Icons.record_voice_over,
