@@ -4,6 +4,9 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_provider.dart';
 import '../../curriculum/curriculum_models.dart';
+import '../../curriculum/lesson_progress.dart';
+import '../../db/providers/db_provider.dart';
+import '../../gamification/badge_service.dart';
 
 class LessonScreen extends ConsumerStatefulWidget {
   const LessonScreen({
@@ -23,8 +26,34 @@ class LessonScreen extends ConsumerStatefulWidget {
 
 class _LessonScreenState extends ConsumerState<LessonScreen> {
   bool _showQuiz = false;
+  bool _lessonMarkedDone = false;
+  String _badgeEarned = '';
   final Map<int, int?> _answers = {};
   final Map<int, bool?> _results = {};
+
+  void _checkCompletion(int totalQuestions) async {
+    if (_lessonMarkedDone) return;
+    if (_results.length < totalQuestions) return;
+
+    final correct = _results.values.where((r) => r == true).length;
+    final percent = correct / totalQuestions;
+
+    // Mark complete if 60%+ correct
+    if (percent >= 0.6) {
+      _lessonMarkedDone = true;
+      final progress = ref.read(lessonProgressProvider);
+      await progress.markComplete(widget.subjectId, widget.unitIndex, widget.lessonIndex);
+
+      // Award badges
+      final student = await ref.read(activeStudentProvider.future);
+      if (student != null) {
+        final badges = await ref.read(badgeServiceProvider).onPracticeAnswered(student.id, correct);
+        if (mounted && badges.isNotEmpty) {
+          setState(() => _badgeEarned = badges.first.name);
+        }
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -204,6 +233,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                           _answers[qi] = answerIndex;
                           _results[qi] = answerIndex == q.correct;
                         });
+                        _checkCompletion(lesson.quiz.length);
                       },
                     );
                   }),
@@ -225,9 +255,21 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                             style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800, color: AppColors.teachColor),
                           ),
                           Text(
-                            _results.values.every((r) => r == true) ? 'Perfect!' : 'Keep practicing!',
+                            _results.values.every((r) => r == true)
+                                ? 'Perfect!'
+                                : _lessonMarkedDone
+                                    ? 'Lesson Complete!'
+                                    : 'Need 60% to pass — try again!',
                             style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.teachColor),
                           ),
+                          if (_lessonMarkedDone) ...[
+                            SizedBox(height: 8),
+                            Icon(Icons.check_circle, color: AppColors.teachColor, size: 28),
+                          ],
+                          if (_badgeEarned.isNotEmpty) ...[
+                            SizedBox(height: 8),
+                            Text('🏅 Badge: $_badgeEarned', style: TextStyle(fontSize: 13, color: AppColors.primary)),
+                          ],
                         ],
                       ),
                     ),
