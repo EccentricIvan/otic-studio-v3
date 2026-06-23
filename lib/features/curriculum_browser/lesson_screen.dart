@@ -211,6 +211,20 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                   SizedBox(height: 24),
                 ],
 
+                // Ask AI
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton.icon(
+                    onPressed: () => context.push('/chat?topic=${Uri.encodeComponent(lesson.title)}'),
+                    icon: Icon(Icons.psychology, size: 18),
+                    label: Text('Ask AI about this lesson'),
+                    style: OutlinedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(vertical: 12),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16),
+
                 // Navigation
                 Row(
                   children: [
