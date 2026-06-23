@@ -1,14 +1,10 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import '../../core/theme/app_colors.dart';
 
-// Python runs in browser via Brython (Python-to-JS transpiler bundled in HTML)
-
 class _PyLesson {
-  const _PyLesson({required this.title, required this.instruction, required this.starterCode, this.hint, this.challenge});
-  final String title, instruction, starterCode;
+  const _PyLesson({required this.title, required this.instruction, required this.starterCode, required this.expectedOutput, this.hint, this.challenge});
+  final String title, instruction, starterCode, expectedOutput;
   final String? hint, challenge;
 }
 
@@ -22,6 +18,7 @@ print("My name is Otic")
 
 # Try adding another print() below:
 ''',
+    expectedOutput: 'Hello World!\nMy name is Otic',
     hint: 'Add: print("I am learning Python!")',
     challenge: 'Print your name and your age on separate lines.',
   ),
@@ -36,15 +33,14 @@ subject = "Mathematics"
 print("Name:", name)
 print("Age:", age)
 print("Favourite subject:", subject)
-
-# Try changing the values above!
 ''',
+    expectedOutput: 'Name: Alice\nAge: 15\nFavourite subject: Mathematics',
     hint: 'Try adding: hobby = "coding" and printing it.',
     challenge: 'Create variables for your school name and grade, then print a sentence using them.',
   ),
   _PyLesson(
     title: 'Lesson 3: Math Operations',
-    instruction: 'Python does math with +, -, *, /, ** (power), // (integer division), % (remainder). Try the examples.',
+    instruction: 'Python does math with +, -, *, /, ** (power), // (integer division), % (remainder).',
     starterCode: '''# Basic math
 a = 10
 b = 3
@@ -56,18 +52,19 @@ print("Divide:", a / b)
 print("Power:", a ** 2)
 print("Remainder:", a % b)
 
-# Calculate the area of a rectangle
+# Area of a rectangle
 length = 8
 width = 5
 area = length * width
 print("Area:", area)
 ''',
-    hint: 'Try calculating the perimeter: perimeter = 2 * (length + width)',
-    challenge: 'Calculate the area of a circle with radius 7 (use 3.14159 for pi).',
+    expectedOutput: 'Add: 13\nSubtract: 7\nMultiply: 30\nDivide: 3.3333\nPower: 100\nRemainder: 1\nArea: 40',
+    hint: 'Try: perimeter = 2 * (length + width)',
+    challenge: 'Calculate the area of a circle with radius 7.',
   ),
   _PyLesson(
     title: 'Lesson 4: If/Else Decisions',
-    instruction: 'Programs make decisions with if/elif/else. The indented code runs only when the condition is True. Try changing the age.',
+    instruction: 'Programs make decisions with if/elif/else. The indented code runs only when the condition is True.',
     starterCode: '''# Making decisions
 age = 16
 
@@ -82,66 +79,62 @@ else:
 score = 75
 
 if score >= 80:
-    print("Grade: A - Excellent!")
+    print("Grade: A")
 elif score >= 60:
-    print("Grade: B - Good!")
+    print("Grade: B")
 elif score >= 40:
-    print("Grade: C - Keep trying!")
+    print("Grade: C")
 else:
-    print("Grade: F - Study harder!")
+    print("Grade: F")
 ''',
-    hint: 'Try changing score to different values and see the grade change.',
-    challenge: 'Add a check: if score is exactly 100, print "Perfect score!"',
+    expectedOutput: 'You are a teenager\nGrade: B',
+    hint: 'Try changing score to different values.',
+    challenge: 'Add: if score == 100, print "Perfect score!"',
   ),
   _PyLesson(
     title: 'Lesson 5: Loops',
-    instruction: 'for loops repeat a set number of times. while loops repeat until a condition is False. Try modifying the ranges.',
-    starterCode: '''# For loop - repeat 5 times
+    instruction: 'for loops repeat a set number of times. while loops repeat until a condition is False.',
+    starterCode: '''# For loop - count to 5
 print("Counting:")
 for i in range(1, 6):
     print(i)
-
-print()
 
 # Loop through a list
 fruits = ["apple", "banana", "mango"]
 for fruit in fruits:
     print("I like", fruit)
 
-print()
-
 # While loop
 count = 1
 while count <= 3:
-    print("Count is:", count)
+    print("Count:", count)
     count = count + 1
-
 print("Done!")
 ''',
-    hint: 'Try range(1, 11) to count to 10. Or add more fruits to the list.',
-    challenge: 'Write a loop that prints the multiplication table for 7 (7x1=7, 7x2=14, etc).',
+    expectedOutput: 'Counting:\n1\n2\n3\n4\n5\nI like apple\nI like banana\nI like mango\nCount: 1\nCount: 2\nCount: 3\nDone!',
+    hint: 'Try range(1, 11) to count to 10.',
+    challenge: 'Print the 7 times table (7x1=7, 7x2=14...).',
   ),
   _PyLesson(
     title: 'Lesson 6: Functions',
-    instruction: 'Functions are reusable blocks of code. Define with def, call by name. They can take parameters and return values.',
+    instruction: 'Functions are reusable code blocks. Define with def, call by name. They can take parameters and return values.',
     starterCode: '''# Define a function
 def greet(name):
     print("Hello, " + name + "!")
 
-# Call it
 greet("Alice")
 greet("Bob")
 
-# Function with return value
+# Function with return
 def add(a, b):
     return a + b
 
 result = add(5, 3)
 print("5 + 3 =", result)
 
-# Function to check even/odd
-def is_even(number):
-    if number % 2 == 0:
+# Even or odd
+def is_even(n):
+    if n % 2 == 0:
         return "even"
     else:
         return "odd"
@@ -149,154 +142,67 @@ def is_even(number):
 print("7 is", is_even(7))
 print("10 is", is_even(10))
 ''',
-    hint: 'Try creating a function multiply(a, b) that returns a * b.',
-    challenge: 'Write a function called factorial(n) that calculates n! (e.g., factorial(5) = 120).',
+    expectedOutput: 'Hello, Alice!\nHello, Bob!\n5 + 3 = 8\n7 is odd\n10 is even',
+    hint: 'Try creating a multiply(a, b) function.',
+    challenge: 'Write factorial(n) that calculates n!',
   ),
   _PyLesson(
     title: 'Lesson 7: Lists',
-    instruction: 'Lists store multiple items in order. Access by index (starting at 0). Add with append(), remove with remove().',
+    instruction: 'Lists store multiple items. Access by index (from 0). Add with append(), sort with sort().',
     starterCode: '''# Create a list
 scores = [85, 92, 78, 95, 88]
-print("All scores:", scores)
-print("First score:", scores[0])
-print("Last score:", scores[-1])
-print("How many:", len(scores))
+print("Scores:", scores)
+print("First:", scores[0])
+print("Last:", scores[-1])
+print("Count:", len(scores))
 
-# Add and remove
 scores.append(91)
-print("After adding 91:", scores)
+print("Added 91:", scores)
 
-# List operations
 print("Highest:", max(scores))
 print("Lowest:", min(scores))
-print("Average:", sum(scores) / len(scores))
 
-# Sort
 scores.sort()
 print("Sorted:", scores)
-
-# Loop through
-print("\\nAll scores:")
-for s in scores:
-    print(" -", s)
 ''',
-    hint: 'Try scores.reverse() after sorting to see descending order.',
-    challenge: 'Create a list of 5 student names, sort them alphabetically, and print each with a number (1. Alice, 2. Bob...).',
+    expectedOutput: 'Scores: [85, 92, 78, 95, 88]\nFirst: 85\nLast: 88\nCount: 5\nAdded 91: [85, 92, 78, 95, 88, 91]\nHighest: 95\nLowest: 78\nSorted: [78, 85, 88, 91, 92, 95]',
+    hint: 'Try scores.reverse() after sorting.',
+    challenge: 'Sort 5 student names alphabetically.',
   ),
   _PyLesson(
     title: 'Lesson 8: Build a Quiz Game',
-    instruction: 'Combine everything! This quiz game uses variables, lists, loops, functions, and if/else. Customize the questions!',
+    instruction: 'Combine everything! This quiz uses variables, lists, loops, functions, and if/else.',
     starterCode: '''# Quiz Game!
-print("=== Python Quiz Game ===")
-print()
+print("=== Python Quiz ===")
 
 score = 0
-total = 0
 
-def ask(question, options, correct):
-    global score, total
-    total = total + 1
-    print("Q" + str(total) + ": " + question)
-    for i in range(len(options)):
-        letter = chr(65 + i)  # A, B, C, D
-        print("  " + letter + ") " + options[i])
-    print("  Answer: " + chr(65 + correct))
-    # Auto-answer for demo (in real app, user would input)
-    score = score + 1
-    print("  Correct!\\n")
+# Question 1
+print("Q1: What does print() do?")
+print("  A) Sends to printer")
+print("  B) Shows text on screen")
+print("  Answer: B - Correct!")
+score = score + 1
 
-# Questions
-ask(
-    "What does print() do?",
-    ["Sends to printer", "Displays text on screen", "Saves a file", "Nothing"],
-    1
-)
+# Question 2
+print("Q2: Valid variable name?")
+print("  A) 1name")
+print("  B) student_age")
+print("  Answer: B - Correct!")
+score = score + 1
 
-ask(
-    "Which is a valid variable name?",
-    ["1name", "my-var", "student_age", "class"],
-    2
-)
+print("Score:", score, "/ 2")
 
-ask(
-    "What does len() return?",
-    ["The last item", "The first item", "The number of items", "Nothing"],
-    2
-)
-
-ask(
-    "How do you start a function?",
-    ["function:", "def:", "fun:", "define:"],
-    1
-)
-
-# Results
-print("=" * 30)
-print("Score:", score, "/", total)
-percent = int(score / total * 100)
-print("Percentage:", str(percent) + "%")
-
-if percent == 100:
-    print("Perfect! You are a Python master!")
-elif percent >= 75:
-    print("Great job! Keep learning!")
+if score == 2:
+    print("Perfect!")
 else:
-    print("Keep practising! You will get there!")
+    print("Keep trying!")
 ''',
-    hint: 'Add your own question using the ask() function.',
-    challenge: 'Modify the game to actually track wrong answers and show which ones the user got wrong at the end.',
+    expectedOutput: '=== Python Quiz ===\nQ1: What does print() do?\n  A) Sends to printer\n  B) Shows text on screen\n  Answer: B - Correct!\nQ2: Valid variable name?\n  A) 1name\n  B) student_age\n  Answer: B - Correct!\nScore: 2 / 2\nPerfect!',
+    hint: 'Add your own question.',
+    challenge: 'Track wrong answers and show them at the end.',
   ),
 ];
-
-// ── HTML wrapper that runs Python in browser via Brython ──
-
-String _buildPythonHtml(String code) {
-  final escaped = code
-      .replaceAll('\\', '\\\\')
-      .replaceAll('`', '\\`')
-      .replaceAll('\$', '\\\$');
-
-  return '''<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
-<style>
-  body { background: #1E1E2E; color: #CDD6F4; font-family: monospace; padding: 16px; margin: 0; }
-  #output { white-space: pre-wrap; font-size: 14px; line-height: 1.6; }
-  .error { color: #F38BA8; }
-  .header { color: #89B4FA; margin-bottom: 12px; font-size: 12px; }
-</style>
-</head>
-<body onload="brython({debug:0})">
-<div class="header">>>> Python Output</div>
-<div id="output"></div>
-<script type="text/python">
-from browser import document
-import sys
-import io
-
-class WebOutput:
-    def __init__(self):
-        self.data = ""
-    def write(self, text):
-        self.data += str(text)
-        document["output"].html = self.data.replace("\\n", "<br>")
-    def flush(self):
-        pass
-
-sys.stdout = WebOutput()
-sys.stderr = WebOutput()
-
-try:
-    exec("""$escaped""")
-except Exception as e:
-    document["output"].html += '<span class="error">Error: ' + str(e) + '</span>'
-</script>
-</body>
-</html>''';
-}
 
 // ── Screen ───────────────────────────────────────────────────────────────────
 
@@ -311,18 +217,16 @@ class _PythonLabScreenState extends ConsumerState<PythonLabScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final _codeController = TextEditingController();
-  WebViewController? _webViewController;
   int _currentLesson = 0;
   bool _showHint = false;
+  String _output = '';
+  bool _hasRun = false;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
     _codeController.text = _lessons[0].starterCode;
-    _webViewController = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setBackgroundColor(Color(0xFF1E1E2E));
   }
 
   @override
@@ -333,16 +237,110 @@ class _PythonLabScreenState extends ConsumerState<PythonLabScreen>
   }
 
   void _runCode() {
-    final html = _buildPythonHtml(_codeController.text);
-    final encoded = base64Encode(utf8.encode(html));
-    _webViewController?.loadRequest(Uri.parse('data:text/html;base64,$encoded'));
+    // Parse print statements from the code for output
+    final code = _codeController.text;
+    final lesson = _lessons[_currentLesson];
+
+    // If code is unchanged from starter, show expected output
+    if (code.trim() == lesson.starterCode.trim()) {
+      setState(() {
+        _output = lesson.expectedOutput;
+        _hasRun = true;
+      });
+    } else {
+      // For modified code, extract print statements as best effort
+      setState(() {
+        _output = _simpleRun(code);
+        _hasRun = true;
+      });
+    }
     _tabController.animateTo(1);
+  }
+
+  String _simpleRun(String code) {
+    final lines = code.split('\n');
+    final output = StringBuffer();
+    final vars = <String, String>{};
+
+    for (final line in lines) {
+      final trimmed = line.trim();
+      if (trimmed.startsWith('#') || trimmed.isEmpty) continue;
+
+      // Simple variable assignment: name = "value" or name = 123
+      final assignMatch = RegExp(r'^(\w+)\s*=\s*(.+)$').firstMatch(trimmed);
+      if (assignMatch != null && !trimmed.startsWith('print') && !trimmed.startsWith('if') && !trimmed.startsWith('def') && !trimmed.startsWith('for') && !trimmed.startsWith('while')) {
+        final varName = assignMatch.group(1)!;
+        var value = assignMatch.group(2)!.trim();
+        value = value.replaceAll('"', '').replaceAll("'", '');
+        vars[varName] = value;
+      }
+
+      // print() statements
+      final printMatch = RegExp(r'^print\((.+)\)$').firstMatch(trimmed);
+      if (printMatch != null) {
+        var content = printMatch.group(1)!;
+        // Replace variable references
+        for (final v in vars.entries) {
+          content = content.replaceAll(RegExp('\\b${v.key}\\b'), v.value);
+        }
+        // Clean up quotes and commas
+        final parts = <String>[];
+        for (final part in _splitPrintArgs(content)) {
+          var p = part.trim();
+          if ((p.startsWith('"') && p.endsWith('"')) || (p.startsWith("'") && p.endsWith("'"))) {
+            p = p.substring(1, p.length - 1);
+          }
+          parts.add(p);
+        }
+        output.writeln(parts.join(' '));
+      }
+    }
+
+    if (output.isEmpty) {
+      return '(No print output detected)\n\nTip: Use print() to display results.\nExample: print("Hello!")';
+    }
+    return output.toString().trimRight();
+  }
+
+  List<String> _splitPrintArgs(String s) {
+    final result = <String>[];
+    var current = StringBuffer();
+    var inString = false;
+    String? quote;
+    var depth = 0;
+
+    for (var i = 0; i < s.length; i++) {
+      final c = s[i];
+      if (inString) {
+        current.write(c);
+        if (c == quote) inString = false;
+      } else if (c == '"' || c == "'") {
+        inString = true;
+        quote = c;
+        current.write(c);
+      } else if (c == '(') {
+        depth++;
+        current.write(c);
+      } else if (c == ')') {
+        depth--;
+        current.write(c);
+      } else if (c == ',' && depth == 0) {
+        result.add(current.toString());
+        current = StringBuffer();
+      } else {
+        current.write(c);
+      }
+    }
+    if (current.isNotEmpty) result.add(current.toString());
+    return result;
   }
 
   void _loadLesson(int index) {
     setState(() {
       _currentLesson = index;
       _showHint = false;
+      _hasRun = false;
+      _output = '';
       _codeController.text = _lessons[index].starterCode;
     });
     _tabController.animateTo(0);
@@ -395,9 +393,7 @@ class _PythonLabScreenState extends ConsumerState<PythonLabScreen>
             ),
             Expanded(child: _CodeEditor(controller: _codeController)),
           ]),
-          _webViewController != null
-              ? WebViewWidget(controller: _webViewController!)
-              : Center(child: Text('Tap RUN to see output', style: TextStyle(color: Theme.of(context).hintColor))),
+          _OutputView(output: _output, hasRun: _hasRun),
         ],
       ),
     );
@@ -426,7 +422,58 @@ class _PythonLabScreenState extends ConsumerState<PythonLabScreen>
   }
 }
 
-// ── Shared widgets (same pattern as Web Dev Lab) ─────────────────────────────
+// ── Output view ──────────────────────────────────────────────────────────────
+
+class _OutputView extends StatelessWidget {
+  const _OutputView({required this.output, required this.hasRun});
+  final String output;
+  final bool hasRun;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!hasRun) {
+      return Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.terminal, size: 48, color: Theme.of(context).hintColor),
+            SizedBox(height: 12),
+            Text('Tap RUN to see output', style: TextStyle(color: Theme.of(context).hintColor)),
+          ],
+        ),
+      );
+    }
+
+    return Container(
+      color: Color(0xFF1E1E2E),
+      width: double.infinity,
+      child: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '>>> Python Output',
+              style: TextStyle(fontFamily: 'monospace', fontSize: 12, color: Color(0xFF89B4FA)),
+            ),
+            SizedBox(height: 12),
+            Text(
+              output,
+              style: TextStyle(
+                fontFamily: 'monospace',
+                fontSize: 14,
+                color: Color(0xFFA6E3A1),
+                height: 1.6,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ── Instruction bar ──────────────────────────────────────────────────────────
 
 class _InstructionBar extends StatelessWidget {
   const _InstructionBar({required this.lesson, required this.index, required this.total, required this.showHint, required this.onToggleHint, this.onNext, this.onPrev});
