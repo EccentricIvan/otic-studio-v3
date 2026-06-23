@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_provider.dart';
 import '../../curriculum/curriculum_models.dart';
@@ -217,8 +218,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                       Expanded(
                         child: OutlinedButton.icon(
                           onPressed: () {
-                            Navigator.pop(context);
-                            Navigator.of(context).context.push(
+                            context.go(
                               '/learn/subject/${widget.subjectId}/lesson/${widget.unitIndex}/${widget.lessonIndex - 1}',
                             );
                           },
@@ -231,8 +231,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                       Expanded(
                         child: FilledButton.icon(
                           onPressed: () {
-                            Navigator.pop(context);
-                            Navigator.of(context).context.push(
+                            context.go(
                               '/learn/subject/${widget.subjectId}/lesson/${widget.unitIndex}/${widget.lessonIndex + 1}',
                             );
                           },
