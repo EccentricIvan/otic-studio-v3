@@ -81,6 +81,30 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                 ),
                 SizedBox(height: 24),
 
+                // Diagram
+                if (lesson.diagram != null) ...[
+                  _SectionTitle(icon: Icons.schema, title: 'Diagram', color: AppColors.practiceColor),
+                  SizedBox(height: 8),
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF1E1E2E),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Text(
+                      lesson.diagram!,
+                      style: TextStyle(
+                        fontFamily: 'monospace',
+                        fontSize: 12,
+                        color: Color(0xFFA6E3A1),
+                        height: 1.4,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                ],
+
                 // Examples
                 if (lesson.examples.isNotEmpty) ...[
                   _SectionTitle(icon: Icons.lightbulb, title: 'Examples', color: AppColors.createColor),

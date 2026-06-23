@@ -47,6 +47,7 @@ class Lesson {
     this.examples = const [],
     this.keyTerms = const {},
     this.quiz = const [],
+    this.diagram,
   });
 
   final String title;
@@ -54,6 +55,7 @@ class Lesson {
   final List<String> examples;
   final Map<String, String> keyTerms;
   final List<QuizQuestion> quiz;
+  final String? diagram;
 
   factory Lesson.fromJson(Map<String, dynamic> json) => Lesson(
         title: json['title'] as String,
@@ -69,6 +71,7 @@ class Lesson {
                 ?.map((q) => QuizQuestion.fromJson(q as Map<String, dynamic>))
                 .toList() ??
             const [],
+        diagram: json['diagram'] as String?,
       );
 }
 
