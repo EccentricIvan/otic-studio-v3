@@ -121,14 +121,14 @@ class _LearningModesGrid extends StatelessWidget {
     final modes = [
       const _Mode(
         'Learn',
-        'Understand concepts with your AI mentor',
+        'Browse 300 lessons across 15 subjects',
         Icons.menu_book,
         AppColors.learnColor,
         '/learn',
       ),
       const _Mode(
         'Practice',
-        'Exercises and quizzes to reinforce knowledge',
+        'Exercises and quizzes to test knowledge',
         Icons.edit,
         AppColors.practiceColor,
         '/practice',
@@ -146,6 +146,13 @@ class _LearningModesGrid extends StatelessWidget {
         Icons.code,
         AppColors.practiceColor,
         '/weblab',
+      ),
+      const _Mode(
+        'App Dev Lab',
+        'Learn to build mobile apps',
+        Icons.phone_android,
+        AppColors.primary,
+        '/applab',
       ),
       const _Mode(
         'Teach',

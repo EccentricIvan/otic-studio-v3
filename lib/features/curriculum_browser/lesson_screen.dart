@@ -1,0 +1,397 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/theme/app_colors.dart';
+import '../../curriculum/curriculum_provider.dart';
+import '../../curriculum/curriculum_models.dart';
+
+class LessonScreen extends ConsumerStatefulWidget {
+  const LessonScreen({
+    super.key,
+    required this.subjectId,
+    required this.unitIndex,
+    required this.lessonIndex,
+  });
+
+  final String subjectId;
+  final int unitIndex;
+  final int lessonIndex;
+
+  @override
+  ConsumerState<LessonScreen> createState() => _LessonScreenState();
+}
+
+class _LessonScreenState extends ConsumerState<LessonScreen> {
+  bool _showQuiz = false;
+  final Map<int, int?> _answers = {};
+  final Map<int, bool?> _results = {};
+
+  @override
+  Widget build(BuildContext context) {
+    final curriculum = ref.watch(curriculumServiceProvider);
+
+    return FutureBuilder(
+      future: curriculum.load(widget.subjectId),
+      builder: (context, snapshot) {
+        final subject = snapshot.data;
+        if (subject == null) {
+          return Scaffold(
+            appBar: AppBar(),
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
+
+        final unit = subject.units[widget.unitIndex];
+        final lesson = unit.lessons[widget.lessonIndex];
+        final hasNext = widget.lessonIndex < unit.lessons.length - 1;
+        final hasPrev = widget.lessonIndex > 0;
+
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'Unit ${widget.unitIndex + 1}, Lesson ${widget.lessonIndex + 1}',
+              style: TextStyle(fontSize: 15),
+            ),
+          ),
+          body: SingleChildScrollView(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Title
+                Text(
+                  lesson.title,
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                    color: Theme.of(context).colorScheme.onSurface,
+                    height: 1.3,
+                  ),
+                ),
+                SizedBox(height: 16),
+
+                // Content
+                Text(
+                  lesson.content,
+                  style: TextStyle(
+                    fontSize: 15,
+                    height: 1.7,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+                ),
+                SizedBox(height: 24),
+
+                // Examples
+                if (lesson.examples.isNotEmpty) ...[
+                  _SectionTitle(icon: Icons.lightbulb, title: 'Examples', color: AppColors.createColor),
+                  SizedBox(height: 8),
+                  ...lesson.examples.map((ex) => Padding(
+                    padding: EdgeInsets.only(bottom: 8),
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: AppColors.createColor.withValues(alpha: 0.06),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: AppColors.createColor.withValues(alpha: 0.15)),
+                      ),
+                      child: Text(
+                        ex,
+                        style: TextStyle(fontSize: 13, height: 1.5, color: Theme.of(context).colorScheme.onSurface),
+                      ),
+                    ),
+                  )),
+                  SizedBox(height: 20),
+                ],
+
+                // Key Terms
+                if (lesson.keyTerms.isNotEmpty) ...[
+                  _SectionTitle(icon: Icons.bookmark, title: 'Key Terms', color: AppColors.primary),
+                  SizedBox(height: 8),
+                  ...lesson.keyTerms.entries.map((e) => Padding(
+                    padding: EdgeInsets.only(bottom: 6),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(top: 2),
+                          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                          decoration: BoxDecoration(
+                            color: AppColors.primary.withValues(alpha: 0.1),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: Text(
+                            e.key,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.primary,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            e.value,
+                            style: TextStyle(fontSize: 13, height: 1.4, color: Theme.of(context).colorScheme.onSurfaceVariant),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+                  SizedBox(height: 24),
+                ],
+
+                // Quiz toggle
+                if (lesson.quiz.isNotEmpty) ...[
+                  SizedBox(
+                    width: double.infinity,
+                    child: FilledButton.icon(
+                      onPressed: () => setState(() {
+                        _showQuiz = !_showQuiz;
+                        if (!_showQuiz) {
+                          _answers.clear();
+                          _results.clear();
+                        }
+                      }),
+                      icon: Icon(_showQuiz ? Icons.close : Icons.quiz),
+                      label: Text(_showQuiz ? 'Hide Quiz' : 'Test Yourself (${lesson.quiz.length} questions)'),
+                      style: FilledButton.styleFrom(
+                        backgroundColor: AppColors.practiceColor,
+                        padding: EdgeInsets.symmetric(vertical: 14),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                ],
+
+                // Quiz
+                if (_showQuiz && lesson.quiz.isNotEmpty) ...[
+                  ...lesson.quiz.asMap().entries.map((entry) {
+                    final qi = entry.key;
+                    final q = entry.value;
+                    return _QuizCard(
+                      index: qi,
+                      question: q,
+                      selectedAnswer: _answers[qi],
+                      isCorrect: _results[qi],
+                      onAnswer: (answerIndex) {
+                        setState(() {
+                          _answers[qi] = answerIndex;
+                          _results[qi] = answerIndex == q.correct;
+                        });
+                      },
+                    );
+                  }),
+                  // Score
+                  if (_results.length == lesson.quiz.length) ...[
+                    SizedBox(height: 8),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: AppColors.teachColor.withValues(alpha: 0.08),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: AppColors.teachColor.withValues(alpha: 0.2)),
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            '${_results.values.where((r) => r == true).length}/${lesson.quiz.length}',
+                            style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800, color: AppColors.teachColor),
+                          ),
+                          Text(
+                            _results.values.every((r) => r == true) ? 'Perfect!' : 'Keep practicing!',
+                            style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.teachColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                  SizedBox(height: 24),
+                ],
+
+                // Navigation
+                Row(
+                  children: [
+                    if (hasPrev)
+                      Expanded(
+                        child: OutlinedButton.icon(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.of(context).context.push(
+                              '/learn/subject/${widget.subjectId}/lesson/${widget.unitIndex}/${widget.lessonIndex - 1}',
+                            );
+                          },
+                          icon: Icon(Icons.arrow_back, size: 18),
+                          label: Text('Previous'),
+                        ),
+                      ),
+                    if (hasPrev && hasNext) SizedBox(width: 12),
+                    if (hasNext)
+                      Expanded(
+                        child: FilledButton.icon(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.of(context).context.push(
+                              '/learn/subject/${widget.subjectId}/lesson/${widget.unitIndex}/${widget.lessonIndex + 1}',
+                            );
+                          },
+                          icon: Icon(Icons.arrow_forward, size: 18),
+                          label: Text('Next Lesson'),
+                          style: FilledButton.styleFrom(backgroundColor: AppColors.primary),
+                        ),
+                      ),
+                  ],
+                ),
+                SizedBox(height: 40),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _SectionTitle extends StatelessWidget {
+  const _SectionTitle({required this.icon, required this.title, required this.color});
+  final IconData icon;
+  final String title;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Icon(icon, size: 18, color: color),
+        SizedBox(width: 8),
+        Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: 15,
+            color: color,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _QuizCard extends StatelessWidget {
+  const _QuizCard({
+    required this.index,
+    required this.question,
+    required this.selectedAnswer,
+    required this.isCorrect,
+    required this.onAnswer,
+  });
+
+  final int index;
+  final QuizQuestion question;
+  final int? selectedAnswer;
+  final bool? isCorrect;
+  final void Function(int) onAnswer;
+
+  @override
+  Widget build(BuildContext context) {
+    final answered = selectedAnswer != null;
+
+    return Container(
+      margin: EdgeInsets.only(bottom: 16),
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Theme.of(context).dividerColor),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Q${index + 1}. ${question.question}',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+              height: 1.4,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+          ),
+          SizedBox(height: 12),
+          ...question.options.asMap().entries.map((entry) {
+            final oi = entry.key;
+            final option = entry.value;
+            final isSelected = selectedAnswer == oi;
+            final isCorrectOption = oi == question.correct;
+
+            Color borderColor = Theme.of(context).dividerColor;
+            Color bgColor = Colors.transparent;
+            Color textColor = Theme.of(context).colorScheme.onSurface;
+
+            if (answered) {
+              if (isCorrectOption) {
+                borderColor = AppColors.teachColor;
+                bgColor = AppColors.teachColor.withValues(alpha: 0.08);
+                textColor = AppColors.teachColor;
+              } else if (isSelected && !isCorrectOption) {
+                borderColor = Colors.red;
+                bgColor = Colors.red.withValues(alpha: 0.06);
+                textColor = Colors.red;
+              }
+            } else if (isSelected) {
+              borderColor = AppColors.primary;
+              bgColor = AppColors.primary.withValues(alpha: 0.06);
+            }
+
+            return GestureDetector(
+              onTap: answered ? null : () => onAnswer(oi),
+              child: Container(
+                width: double.infinity,
+                margin: EdgeInsets.only(bottom: 6),
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                decoration: BoxDecoration(
+                  color: bgColor,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: borderColor),
+                ),
+                child: Row(
+                  children: [
+                    Text(
+                      String.fromCharCode(65 + oi),
+                      style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13, color: textColor),
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        option,
+                        style: TextStyle(fontSize: 13, color: textColor),
+                      ),
+                    ),
+                    if (answered && isCorrectOption)
+                      Icon(Icons.check_circle, size: 18, color: AppColors.teachColor),
+                    if (answered && isSelected && !isCorrectOption)
+                      Icon(Icons.cancel, size: 18, color: Colors.red),
+                  ],
+                ),
+              ),
+            );
+          }),
+          if (answered) ...[
+            SizedBox(height: 8),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: (isCorrect == true ? AppColors.teachColor : Colors.red).withValues(alpha: 0.06),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                question.explanation,
+                style: TextStyle(fontSize: 12, height: 1.4, color: Theme.of(context).colorScheme.onSurfaceVariant),
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}

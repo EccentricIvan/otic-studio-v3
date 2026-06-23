@@ -10,6 +10,10 @@ import '../../features/certificates/certificates_screen.dart';
 import '../../features/collaborate/collaborate_screen.dart';
 import '../../features/create/create_screen.dart';
 import '../../features/home/home_screen.dart';
+import '../../features/app_dev_lab/app_dev_lab_screen.dart';
+import '../../features/curriculum_browser/lesson_screen.dart';
+import '../../features/curriculum_browser/subjects_screen.dart';
+import '../../features/curriculum_browser/units_screen.dart';
 import '../../features/learn/learn_screen.dart';
 import '../../features/learn/path/path_detail_screen.dart';
 import '../../features/onboarding/onboarding_screen.dart';
@@ -51,7 +55,22 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state, child) => AppShell(child: child),
         routes: [
           GoRoute(path: '/', builder: (_, __) => const HomeScreen()),
-          GoRoute(path: '/learn', builder: (_, state) {
+          GoRoute(path: '/learn', builder: (_, __) => const SubjectsScreen()),
+          GoRoute(
+            path: '/learn/subject/:id',
+            builder: (_, state) => UnitsScreen(
+              subjectId: state.pathParameters['id'] ?? '',
+            ),
+          ),
+          GoRoute(
+            path: '/learn/subject/:id/lesson/:unit/:lesson',
+            builder: (_, state) => LessonScreen(
+              subjectId: state.pathParameters['id'] ?? '',
+              unitIndex: int.tryParse(state.pathParameters['unit'] ?? '0') ?? 0,
+              lessonIndex: int.tryParse(state.pathParameters['lesson'] ?? '0') ?? 0,
+            ),
+          ),
+          GoRoute(path: '/chat', builder: (_, state) {
             final topic = state.uri.queryParameters['topic'];
             return ModelGate(child: LearnScreen(initialTopic: topic));
           }),
@@ -64,6 +83,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/practice', builder: (_, __) => const PracticeScreen()),
           GoRoute(path: '/create', builder: (_, __) => const CreateScreen()),
           GoRoute(path: '/weblab', builder: (_, __) => const WebDevLabScreen()),
+          GoRoute(path: '/applab', builder: (_, __) => const AppDevLabScreen()),
           GoRoute(path: '/website', builder: (_, __) => const WebsiteBuilderScreen()),
           GoRoute(path: '/projects', builder: (_, __) => const ProjectsScreen()),
           GoRoute(path: '/achievements', builder: (_, __) => const AchievementsScreen()),
@@ -90,10 +110,24 @@ final appRouter = GoRouter(
       builder: (context, state, child) => AppShell(child: child),
       routes: [
         GoRoute(path: '/', builder: (_, __) => const HomeScreen()),
-        GoRoute(path: '/learn', builder: (_, state) {
+        GoRoute(path: '/learn', builder: (_, __) => const SubjectsScreen()),
+        GoRoute(
+          path: '/learn/subject/:id',
+          builder: (_, state) => UnitsScreen(subjectId: state.pathParameters['id'] ?? ''),
+        ),
+        GoRoute(
+          path: '/learn/subject/:id/lesson/:unit/:lesson',
+          builder: (_, state) => LessonScreen(
+            subjectId: state.pathParameters['id'] ?? '',
+            unitIndex: int.tryParse(state.pathParameters['unit'] ?? '0') ?? 0,
+            lessonIndex: int.tryParse(state.pathParameters['lesson'] ?? '0') ?? 0,
+          ),
+        ),
+        GoRoute(path: '/chat', builder: (_, state) {
           final topic = state.uri.queryParameters['topic'];
           return LearnScreen(initialTopic: topic);
         }),
+        GoRoute(path: '/applab', builder: (_, __) => const AppDevLabScreen()),
         GoRoute(
           path: '/path/:topic',
           builder: (_, state) => PathDetailScreen(
