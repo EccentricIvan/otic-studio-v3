@@ -21,7 +21,7 @@
           ]
         },
         {
-          "title": "Fractions and Decimals", "diagram": "   FRACTION PARTS\\\\n\\\\n       3  ← Numerator (parts you have)\\\\n      ───\\\\n       4  ← Denominator (total parts)\\\\n\\\\n   EQUIVALENT FRACTIONS\\\\n\\\\n    1     2     3     4\\\\n   ─── = ─── = ─── = ───\\\\n    2     4     6     8\\\\n\\\\n   ADDING (different denominators)\\\\n\\\\n    1     1     3     2     5\\\\n   ─── + ─── = ─── + ─── = ───\\\\n    2     3     6     6     6",
+          "title": "Fractions and Decimals",
           "content": "A fraction represents a part of a whole. It has a numerator (top number, how many parts you have) and a denominator (bottom number, how many equal parts the whole is divided into). For example, 3/4 means 3 out of 4 equal parts. Equivalent fractions look different but represent the same amount: 1/2 = 2/4 = 3/6. To add fractions with the same denominator, add the numerators: 2/5 + 1/5 = 3/5. For different denominators, find a common denominator first. Decimals are another way to write fractions based on powers of 10. The fraction 1/4 = 0.25, and 3/4 = 0.75. To convert a fraction to a decimal, divide the numerator by the denominator.",
           "examples": ["Adding: 1/3 + 1/6 → common denominator is 6 → 2/6 + 1/6 = 3/6 = 1/2", "Converting: 3/8 = 3 ÷ 8 = 0.375", "Multiplying fractions: 2/3 × 3/4 = 6/12 = 1/2"],
           "keyTerms": {"numerator": "The top number in a fraction, showing how many parts", "denominator": "The bottom number in a fraction, showing total equal parts", "equivalent fractions": "Fractions that represent the same value", "improper fraction": "A fraction where the numerator is larger than the denominator (7/4)"},
@@ -148,7 +148,7 @@
       "title": "Geometry",
       "lessons": [
         {
-          "title": "Angles and Lines", "diagram": "   ANGLE TYPES\\\\n\\\\n   Acute     Right     Obtuse     Straight\\\\n    ╱        │         ╱\\\\n   ╱         │        ╱            ────────\\\\n   ╱ <90°    │ =90°  ╱ 90°-180°     =180°\\\\n\\\\n   COMPLEMENTARY     SUPPLEMENTARY\\\\n   ┌────┐            ┌──────────┐\\\\n   │ a  │  a+b=90°   │  a  │ b  │ a+b=180°\\\\n   │  b │            └──────────┘\\\\n   └────┘",
+          "title": "Angles and Lines",
           "content": "An angle is formed where two lines meet. Angles are measured in degrees (°). A right angle is exactly 90°. An acute angle is less than 90°. An obtuse angle is between 90° and 180°. A straight angle is exactly 180°. Complementary angles add up to 90°, and supplementary angles add up to 180°. When two lines cross, they form vertical angles which are always equal. Parallel lines never meet. Perpendicular lines meet at 90°. When a transversal crosses parallel lines, it creates corresponding angles (equal) and alternate angles (equal).",
           "examples": ["If one angle is 35°, its complement is 90° − 35° = 55°", "If one angle is 110°, its supplement is 180° − 110° = 70°", "Vertical angles: if one is 40°, the opposite angle is also 40°"],
           "keyTerms": {"acute angle": "An angle measuring less than 90°", "obtuse angle": "An angle measuring between 90° and 180°", "complementary": "Two angles that add up to 90°", "supplementary": "Two angles that add up to 180°"},
@@ -161,7 +161,7 @@
           ]
         },
         {
-          "title": "Area and Perimeter", "diagram": "   RECTANGLE           TRIANGLE\\\\n   ┌─────────┐\\\\n   │         │ h        ╱╲\\\\n   │         │         ╱  ╲ h\\\\n   └─────────┘        ╱____╲\\\\n      w                 b\\\\n   A = w × h          A = ½ × b × h\\\\n   P = 2(w+h)\\\\n\\\\n   CIRCLE\\\\n       ╭───╮\\\\n      │  r  │    A = π × r²\\\\n       ╰───╯    C = 2 × π × r",
+          "title": "Area and Perimeter",
           "content": "Perimeter is the total distance around a shape. Area is the space inside a shape. For a rectangle: Perimeter = 2(length + width), Area = length × width. For a triangle: Area = ½ × base × height. For a circle: Circumference = 2πr (or πd), Area = πr². Here, r is the radius and d is the diameter (d = 2r). π ≈ 3.14159. For compound shapes, break them into simpler shapes, calculate each area, and add them together.",
           "examples": ["Rectangle 8cm × 5cm: Perimeter = 2(8+5) = 26cm, Area = 8×5 = 40cm²", "Triangle base 6cm, height 4cm: Area = ½ × 6 × 4 = 12cm²", "Circle radius 7cm: Area = π × 7² = 153.94cm², Circumference = 2π × 7 = 43.98cm"],
           "keyTerms": {"perimeter": "The total distance around the outside of a shape", "area": "The amount of space inside a 2D shape, measured in square units", "radius": "The distance from the center of a circle to its edge", "pi": "The ratio of a circle's circumference to its diameter, approximately 3.14159"},
@@ -187,7 +187,7 @@
           ]
         },
         {
-          "title": "Pythagoras' Theorem", "diagram": "   PYTHAGORAS: a² + b² = c²\\\\n\\\\n         ╱│\\\\n    c  ╱  │\\\\n     ╱    │ a\\\\n   ╱______│\\\\n      b\\\\n\\\\n   Example: a=3, b=4\\\\n   c² = 3² + 4²\\\\n   c² = 9 + 16 = 25\\\\n   c = √25 = 5\\\\n\\\\n   Common triples:\\\\n   3-4-5, 5-12-13, 8-15-17",
+          "title": "Pythagoras' Theorem",
           "content": "Pythagoras' Theorem applies to right-angled triangles: a² + b² = c², where c is the hypotenuse (the longest side, opposite the right angle) and a and b are the other two sides. To find the hypotenuse: c = √(a² + b²). To find a shorter side: a = √(c² − b²). Pythagorean triples are whole number solutions: 3-4-5, 5-12-13, 8-15-17, 7-24-25. The theorem has countless real-world uses: finding distances, construction (making sure corners are square), navigation, and engineering.",
           "examples": ["Sides 3 and 4: hypotenuse = √(9 + 16) = √25 = 5", "Hypotenuse 13, one side 5: other side = √(169 − 25) = √144 = 12", "Is a triangle with sides 6, 8, 10 right-angled? 6² + 8² = 36 + 64 = 100 = 10². Yes!"],
           "keyTerms": {"hypotenuse": "The longest side of a right triangle, opposite the right angle", "Pythagoras' theorem": "In a right triangle: a² + b² = c² where c is the hypotenuse", "Pythagorean triple": "A set of three whole numbers that satisfy a² + b² = c²"},
