@@ -21,7 +21,9 @@ class AppShell extends StatelessWidget {
     _NavDest('Practice', Icons.edit_outlined, Icons.edit, '/practice'),
     _NavDest('Create', Icons.lightbulb_outlined, Icons.lightbulb, '/create'),
     _NavDest('Projects', Icons.folder_outlined, Icons.folder, '/projects'),
-    _NavDest('Website', Icons.web_outlined, Icons.web, '/website'),
+    _NavDest('Web Dev Lab', Icons.code_outlined, Icons.code, '/weblab'),
+    _NavDest('Python Lab', Icons.terminal_outlined, Icons.terminal, '/pythonlab'),
+    _NavDest('App Dev Lab', Icons.phone_android_outlined, Icons.phone_android, '/applab'),
     _NavDest(
       'Achievements',
       Icons.emoji_events_outlined,

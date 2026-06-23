@@ -12,6 +12,7 @@ import '../../features/create/create_screen.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/app_dev_lab/app_dev_lab_screen.dart';
 import '../../features/curriculum_browser/lesson_screen.dart';
+import '../../features/python_lab/python_lab_screen.dart';
 import '../../features/curriculum_browser/subjects_screen.dart';
 import '../../features/curriculum_browser/units_screen.dart';
 import '../../features/learn/learn_screen.dart';
@@ -84,6 +85,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/create', builder: (_, __) => const CreateScreen()),
           GoRoute(path: '/weblab', builder: (_, __) => const WebDevLabScreen()),
           GoRoute(path: '/applab', builder: (_, __) => const AppDevLabScreen()),
+          GoRoute(path: '/pythonlab', builder: (_, __) => const PythonLabScreen()),
           GoRoute(path: '/website', builder: (_, __) => const WebsiteBuilderScreen()),
           GoRoute(path: '/projects', builder: (_, __) => const ProjectsScreen()),
           GoRoute(path: '/achievements', builder: (_, __) => const AchievementsScreen()),
@@ -128,6 +130,7 @@ final appRouter = GoRouter(
           return LearnScreen(initialTopic: topic);
         }),
         GoRoute(path: '/applab', builder: (_, __) => const AppDevLabScreen()),
+          GoRoute(path: '/pythonlab', builder: (_, __) => const PythonLabScreen()),
         GoRoute(
           path: '/path/:topic',
           builder: (_, state) => PathDetailScreen(

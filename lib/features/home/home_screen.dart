@@ -155,6 +155,13 @@ class _LearningModesGrid extends StatelessWidget {
         '/applab',
       ),
       const _Mode(
+        'Python Lab',
+        'Write and run Python code',
+        Icons.terminal,
+        Color(0xFF3572A5),
+        '/pythonlab',
+      ),
+      const _Mode(
         'Teach',
         'Explain a topic and get a mastery score',
         Icons.record_voice_over,
