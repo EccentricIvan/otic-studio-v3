@@ -54,6 +54,7 @@ flutter:
     - assets/prompts/       # system prompt templates
     - assets/branding/      # official brand logo
     - assets/curriculum/    # bundled curriculum content for all subjects
+    - assets/templates/     # website templates for Site Builder
 
   # Bundled offline — google_fonts would fetch over the network at runtime
   fonts:

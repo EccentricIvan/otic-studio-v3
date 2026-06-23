@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* { margin: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a202c; }
+
+header {
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: white; text-align: center; padding: 48px 20px;
+}
+header h1 { font-size: 30px; margin-bottom: 8px; }
+header p { font-size: 16px; opacity: 0.9; }
+
+nav {
+  background: #1e3a8a; display: flex; justify-content: center;
+  gap: 20px; padding: 12px; flex-wrap: wrap;
+}
+nav a { color: white; text-decoration: none; font-weight: 600; font-size: 14px; }
+
+.hero {
+  background: #eff6ff; padding: 40px 20px; text-align: center;
+}
+.hero h2 { color: #1e40af; font-size: 22px; margin-bottom: 12px; }
+.hero p { color: #1e3a8a; max-width: 550px; margin: 0 auto; line-height: 1.6; }
+
+.stats {
+  display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+  padding: 32px 20px; background: white;
+}
+.stat {
+  text-align: center; padding: 20px 24px;
+  background: #eff6ff; border-radius: 14px; min-width: 140px;
+}
+.stat .number { font-size: 32px; font-weight: 800; color: #1e40af; }
+.stat .label { font-size: 13px; color: #64748b; margin-top: 4px; }
+
+.programs { padding: 40px 20px; max-width: 700px; margin: 0 auto; }
+.programs h2 { color: #1e40af; text-align: center; margin-bottom: 24px; }
+
+.program-card {
+  background: #eff6ff; border-radius: 14px; padding: 20px;
+  margin-bottom: 14px; border-left: 4px solid #3b82f6;
+}
+.program-card h3 { color: #1e40af; font-size: 16px; margin-bottom: 6px; }
+.program-card p { color: #475569; font-size: 14px; line-height: 1.5; }
+
+.values {
+  background: #1e40af; color: white; padding: 40px 20px; text-align: center;
+}
+.values h2 { margin-bottom: 20px; }
+.values-grid {
+  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  max-width: 600px; margin: 0 auto;
+}
+.value-item {
+  background: rgba(255,255,255,0.1); padding: 16px 20px;
+  border-radius: 10px; min-width: 120px;
+}
+.value-item .icon { font-size: 28px; margin-bottom: 8px; }
+.value-item .text { font-size: 14px; font-weight: 600; }
+
+.contact {
+  padding: 40px 20px; text-align: center; background: #eff6ff;
+}
+.contact h2 { color: #1e40af; margin-bottom: 16px; }
+.contact p { color: #475569; margin-bottom: 8px; font-size: 15px; }
+
+.btn {
+  display: inline-block; background: #3b82f6; color: white;
+  padding: 12px 28px; border-radius: 8px; font-size: 16px;
+  font-weight: 600; text-decoration: none; margin-top: 16px;
+}
+
+footer {
+  background: #0f172a; color: #94a3b8; text-align: center;
+  padding: 20px; font-size: 13px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎓 {{school_name}}</h1>
+  <p>{{motto}}</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#programs">Programs</a>
+  <a href="#values">Values</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero" id="about">
+  <h2>Welcome to {{school_name}}</h2>
+  <p>{{description}}</p>
+  <a href="#contact" class="btn">Enroll Now</a>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="number">{{students}}</div>
+    <div class="label">Students</div>
+  </div>
+  <div class="stat">
+    <div class="number">{{teachers}}</div>
+    <div class="label">Teachers</div>
+  </div>
+  <div class="stat">
+    <div class="number">{{years}}</div>
+    <div class="label">Years</div>
+  </div>
+  <div class="stat">
+    <div class="number">{{pass_rate}}</div>
+    <div class="label">Pass Rate</div>
+  </div>
+</div>
+
+<div class="programs" id="programs">
+  <h2>📚 Our Programs</h2>
+  <div class="program-card">
+    <h3>Primary Section (P1-P7)</h3>
+    <p>A strong foundation in literacy, numeracy, science, and social studies with experienced teachers and modern methods.</p>
+  </div>
+  <div class="program-card">
+    <h3>Secondary Section (S1-S6)</h3>
+    <p>Comprehensive curriculum covering sciences, humanities, business, and technology with hands-on laboratory work.</p>
+  </div>
+  <div class="program-card">
+    <h3>Computer Studies & ICT</h3>
+    <p>Modern computer lab with programming, web development, and digital literacy courses for all students.</p>
+  </div>
+  <div class="program-card">
+    <h3>Sports & Co-curricular</h3>
+    <p>Football, basketball, athletics, debate club, music, drama, and community service programs.</p>
+  </div>
+</div>
+
+<div class="values" id="values">
+  <h2>Our Core Values</h2>
+  <div class="values-grid">
+    <div class="value-item">
+      <div class="icon">📖</div>
+      <div class="text">Excellence</div>
+    </div>
+    <div class="value-item">
+      <div class="icon">🤝</div>
+      <div class="text">Integrity</div>
+    </div>
+    <div class="value-item">
+      <div class="icon">🌍</div>
+      <div class="text">Service</div>
+    </div>
+    <div class="value-item">
+      <div class="icon">💡</div>
+      <div class="text">Innovation</div>
+    </div>
+  </div>
+</div>
+
+<div class="contact" id="contact">
+  <h2>📞 Contact Us</h2>
+  <p>📍 {{address}}</p>
+  <p>📞 {{phone}}</p>
+  <p>✉️ {{email}}</p>
+  <a href="mailto:{{email}}" class="btn">Send Inquiry</a>
+</div>
+
+<footer>
+  &copy; 2024 {{school_name}} — Built with Otic Studio
+</footer>
+
+</body>
+</html>

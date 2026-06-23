@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* { margin: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f172a; color: #f1f5f9; }
+
+header {
+  padding: 60px 20px; text-align: center;
+  background: linear-gradient(135deg, #1e293b, #334155);
+}
+header h1 { font-size: 36px; margin-bottom: 8px; color: #818cf8; }
+header p { font-size: 18px; color: #94a3b8; }
+
+.links {
+  display: flex; justify-content: center; gap: 16px;
+  margin-top: 20px; flex-wrap: wrap;
+}
+.links a {
+  color: #818cf8; text-decoration: none; font-weight: 600;
+  padding: 8px 20px; border: 2px solid #818cf8; border-radius: 8px;
+  font-size: 14px; transition: all 0.3s;
+}
+.links a:hover { background: #818cf8; color: white; }
+
+.section {
+  padding: 40px 20px; max-width: 700px; margin: 0 auto;
+}
+.section h2 {
+  color: #818cf8; font-size: 22px; margin-bottom: 20px;
+  border-bottom: 2px solid #334155; padding-bottom: 8px;
+}
+
+.about-text { color: #cbd5e1; line-height: 1.7; font-size: 15px; }
+
+.skills {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px;
+}
+.skill {
+  background: #1e293b; color: #818cf8; padding: 8px 16px;
+  border-radius: 8px; font-size: 13px; font-weight: 600;
+  border: 1px solid #334155;
+}
+
+.project {
+  background: #1e293b; border-radius: 14px; padding: 20px;
+  margin-bottom: 16px; border: 1px solid #334155;
+}
+.project h3 { color: #f1f5f9; margin-bottom: 6px; }
+.project p { color: #94a3b8; font-size: 14px; line-height: 1.5; }
+.project .tag {
+  display: inline-block; background: #334155; color: #818cf8;
+  padding: 4px 10px; border-radius: 6px; font-size: 11px;
+  font-weight: 600; margin-top: 8px; margin-right: 6px;
+}
+
+.contact-section {
+  background: #1e293b; padding: 40px 20px; text-align: center;
+}
+.contact-section h2 { color: #818cf8; margin-bottom: 16px; }
+.contact-section p { color: #94a3b8; margin-bottom: 8px; }
+.contact-section .btn {
+  display: inline-block; background: #818cf8; color: white;
+  padding: 12px 28px; border-radius: 8px; font-size: 16px;
+  font-weight: 600; text-decoration: none; margin-top: 12px;
+}
+
+footer {
+  text-align: center; padding: 20px; color: #475569; font-size: 12px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>{{name}}</h1>
+  <p>{{title}}</p>
+  <div class="links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<div class="section" id="about">
+  <h2>👋 About Me</h2>
+  <p class="about-text">{{about}}</p>
+  <div style="margin-top: 20px;">
+    <h2>🛠 Skills</h2>
+    <div class="skills">
+      <span class="skill">{{skill1}}</span>
+      <span class="skill">{{skill2}}</span>
+      <span class="skill">{{skill3}}</span>
+      <span class="skill">{{skill4}}</span>
+      <span class="skill">{{skill5}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="projects">
+  <h2>🚀 Projects</h2>
+  <div class="project">
+    <h3>{{project1_name}}</h3>
+    <p>{{project1_desc}}</p>
+    <span class="tag">{{skill1}}</span>
+    <span class="tag">{{skill2}}</span>
+  </div>
+  <div class="project">
+    <h3>{{project2_name}}</h3>
+    <p>{{project2_desc}}</p>
+    <span class="tag">{{skill3}}</span>
+    <span class="tag">{{skill4}}</span>
+  </div>
+  <div class="project">
+    <h3>{{project3_name}}</h3>
+    <p>{{project3_desc}}</p>
+    <span class="tag">{{skill1}}</span>
+    <span class="tag">{{skill5}}</span>
+  </div>
+</div>
+
+<div class="contact-section" id="contact">
+  <h2>📬 Get In Touch</h2>
+  <p>{{email}}</p>
+  <p>{{phone}}</p>
+  <p>{{location}}</p>
+  <a href="mailto:{{email}}" class="btn">Send Email</a>
+</div>
+
+<footer>
+  &copy; 2024 {{name}} — Built with Otic Studio
+</footer>
+
+</body>
+</html>
