@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../ai_core/providers/ai_provider.dart';
 import '../../core/theme/app_colors.dart';
@@ -268,13 +269,14 @@ class _SetupView extends ConsumerWidget {
   const _SetupView({required this.topicController});
   final TextEditingController topicController;
 
+  static const _labs = [
+    ('Web Dev Lab', 'Write HTML, CSS & JavaScript and see it live', Icons.code, Color(0xFF0EA5E9), '/weblab'),
+    ('Python Lab', 'Write and run Python code with guided lessons', Icons.terminal, Color(0xFF3572A5), '/pythonlab'),
+    ('App Dev Lab', 'Learn how to build mobile apps step by step', Icons.phone_android, Color(0xFF6366F1), '/applab'),
+  ];
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(_createProvider);
-
-    final width = MediaQuery.sizeOf(context).width;
-    final cols = width >= 700 ? 3 : 2;
-
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
       child: MaxWidth(
@@ -283,117 +285,69 @@ class _SetupView extends ConsumerWidget {
           children: [
             SizedBox(height: 8),
             Text(
-              'What do you want to create?',
+              'Start Creating',
               style: Theme.of(context).textTheme.titleLarge,
             ),
             SizedBox(height: 6),
             Text(
-              'Your AI mentor will guide you step by step.',
+              'Pick a lab and start building something real.',
               style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
-            SizedBox(height: 28),
-            Text(
-              'Project type',
-              style: TextStyle(fontWeight: FontWeight.w600),
-            ),
-            SizedBox(height: 12),
-            GridView.count(
-              crossAxisCount: cols,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 2.4,
-              children: _projectTypes.map((pt) {
-                final selected = state.projectType == pt.label;
-                return GestureDetector(
-                  onTap: () =>
-                      ref.read(_createProvider.notifier).setType(pt.label),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: selected
-                          ? AppColors.primary.withValues(alpha: 0.1)
-                          : Theme.of(context).colorScheme.surfaceContainerHighest,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: selected
-                            ? AppColors.primary
-                            : Theme.of(context).dividerColor,
-                        width: selected ? 2 : 1,
+            SizedBox(height: 24),
+            ..._labs.map((lab) => Padding(
+              padding: EdgeInsets.only(bottom: 12),
+              child: InkWell(
+                onTap: () => GoRouter.of(context).push(lab.$5),
+                borderRadius: BorderRadius.circular(16),
+                child: Container(
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.surface,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: Theme.of(context).dividerColor),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 52,
+                        height: 52,
+                        decoration: BoxDecoration(
+                          color: lab.$4.withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Icon(lab.$3, color: lab.$4, size: 26),
                       ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          pt.icon,
-                          size: 18,
-                          color: selected
-                              ? AppColors.primary
-                              : Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
-                        SizedBox(width: 8),
-                        Flexible(
-                          child: Text(
-                            pt.label,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13,
-                              color: selected
-                                  ? AppColors.primary
-                                  : Theme.of(context).colorScheme.onSurface,
+                      SizedBox(width: 16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              lab.$1,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: Theme.of(context).colorScheme.onSurface,
+                              ),
                             ),
-                          ),
+                            SizedBox(height: 4),
+                            Text(
+                              lab.$2,
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                height: 1.3,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                );
-              }).toList(),
-            ),
-            SizedBox(height: 28),
-            Text('Topic', style: TextStyle(fontWeight: FontWeight.w600)),
-            SizedBox(height: 10),
-            TextField(
-              controller: topicController,
-              onChanged: ref.read(_createProvider.notifier).setTopic,
-              decoration: InputDecoration(
-                hintText: 'e.g. climate change, entrepreneurship, gravity…',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                ),
-              ),
-            ),
-            SizedBox(height: 12),
-            if (state.projectType.isEmpty || state.topic.trim().isEmpty)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Text(
-                  state.projectType.isEmpty
-                      ? 'Pick a project type above to get started'
-                      : 'Enter a topic to get started',
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: Theme.of(context).hintColor,
+                      ),
+                      Icon(Icons.arrow_forward_ios, size: 16, color: Theme.of(context).hintColor),
+                    ],
                   ),
                 ),
               ),
-            SizedBox(
-              width: double.infinity,
-              child: FilledButton.icon(
-                onPressed:
-                    state.projectType.isNotEmpty &&
-                        state.topic.trim().isNotEmpty
-                    ? () => ref.read(_createProvider.notifier).start()
-                    : null,
-                icon: Icon(Icons.auto_awesome),
-                label: Text('Start creating'),
-                style: FilledButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                ),
-              ),
-            ),
+            )),
           ],
         ),
       ),
