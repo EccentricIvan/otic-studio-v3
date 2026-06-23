@@ -510,11 +510,7 @@ class _EmptyState extends StatelessWidget {
 
   static const _starters = [
     'Explain photosynthesis',
-    'Teach me Python from scratch',
-    'How does gravity work?',
-    'What is entrepreneurship?',
-    'Explain the water cycle',
-    'How do vaccines work?',
+    'Teach me Python',
   ];
 
   @override
