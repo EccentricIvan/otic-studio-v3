@@ -38,7 +38,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       ).showSnackBar(const SnackBar(content: Text('Please enter your name')));
       return;
     }
-    if (_page < 2) {
+    if (_page < 1) {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 350),
         curve: Curves.easeInOut,
@@ -87,7 +87,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
-                    3,
+                    2,
                     (i) => AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       margin: const EdgeInsets.symmetric(horizontal: 4),
@@ -118,10 +118,6 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                             : _interests.add(s),
                       ),
                     ),
-                    _StylePage(
-                      selected: _learningStyle,
-                      onSelect: (s) => setState(() => _learningStyle = s),
-                    ),
                   ],
                 ),
               ),
@@ -140,7 +136,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                               color: Colors.white,
                             ),
                           )
-                        : Text(_page < 2 ? 'Continue' : 'Start learning'),
+                        : Text(_page < 1 ? 'Continue' : 'Start learning'),
                   ),
                 ),
               ),
