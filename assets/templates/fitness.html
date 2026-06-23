@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{margin:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0a0a0a;color:white}
+header{background:linear-gradient(135deg,#dc2626,#991b1b);text-align:center;padding:56px 20px}
+header h1{font-size:34px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+header p{font-size:16px;opacity:0.9;margin-top:8px}
+.hero{padding:48px 20px;text-align:center;background:#111}
+.hero h2{font-size:28px;font-weight:800;margin-bottom:12px;color:#ef4444}
+.hero p{color:#a1a1aa;max-width:500px;margin:0 auto;line-height:1.7}
+.btn{display:inline-block;background:#dc2626;color:white;padding:14px 32px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:1px;margin-top:20px}
+.plans{padding:40px 20px;max-width:700px;margin:0 auto}
+.plans h2{text-align:center;font-size:22px;margin-bottom:28px;color:#ef4444;text-transform:uppercase;letter-spacing:2px}
+.plan{background:#1a1a1a;border-radius:16px;padding:24px;margin-bottom:14px;border:1px solid #333;display:flex;justify-content:space-between;align-items:center}
+.plan.featured{border-color:#dc2626;background:#1a0a0a}
+.plan h3{font-size:18px}
+.plan p{font-size:13px;color:#a1a1aa;margin-top:4px}
+.plan .price{font-size:24px;font-weight:800;color:#ef4444}
+.plan .per{font-size:11px;color:#666}
+.features{background:#111;padding:48px 20px;text-align:center}
+.features h2{color:#ef4444;text-transform:uppercase;letter-spacing:2px;margin-bottom:24px}
+.feat-grid{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;max-width:600px;margin:0 auto}
+.feat{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:20px;min-width:130px}
+.feat .icon{font-size:32px;margin-bottom:8px}
+.feat .text{font-size:13px;color:#ef4444;font-weight:600}
+.contact{padding:48px 20px;text-align:center;background:#0a0a0a}
+.contact h2{color:#ef4444;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}
+.contact p{color:#a1a1aa;margin-bottom:8px}
+footer{background:#000;color:#444;text-align:center;padding:20px;font-size:12px}
+</style>
+</head>
+<body>
+<header><h1>{{gym_name}}</h1><p>{{tagline}}</p></header>
+<div class="hero"><h2>Transform Your Body</h2><p>{{description}}</p><a href="#plans" class="btn">Join Now</a></div>
+<div class="plans" id="plans">
+<h2>💪 Membership Plans</h2>
+<div class="plan"><div><h3>Basic</h3><p>Gym access, locker, free WiFi</p></div><div class="price">{{price_basic}}<br><span class="per">/month</span></div></div>
+<div class="plan featured"><div><h3>⭐ Premium</h3><p>Everything + classes, sauna, personal trainer</p></div><div class="price">{{price_premium}}<br><span class="per">/month</span></div></div>
+<div class="plan"><div><h3>Student</h3><p>Full access with valid student ID</p></div><div class="price">{{price_student}}<br><span class="per">/month</span></div></div>
+</div>
+<div class="features">
+<h2>🔥 What We Offer</h2>
+<div class="feat-grid">
+<div class="feat"><div class="icon">🏋️</div><div class="text">Weight Room</div></div>
+<div class="feat"><div class="icon">🧘</div><div class="text">Yoga Classes</div></div>
+<div class="feat"><div class="icon">🥊</div><div class="text">Boxing Ring</div></div>
+<div class="feat"><div class="icon">🚴</div><div class="text">Spin Classes</div></div>
+<div class="feat"><div class="icon">🧖</div><div class="text">Sauna & Steam</div></div>
+<div class="feat"><div class="icon">🥤</div><div class="text">Juice Bar</div></div>
+</div>
+</div>
+<div class="contact" id="contact"><h2>📍 Find Us</h2><p>📍 {{address}}</p><p>📞 {{phone}}</p><p>⏰ {{hours}}</p><a href="#" class="btn">Get Started</a></div>
+<footer>&copy; 2024 {{gym_name}} — Built with Otic Studio</footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{margin:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;color:#1a202c}
+header{background:linear-gradient(135deg,#0f172a,#1e293b);color:white;text-align:center;padding:64px 20px}
+header h1{font-size:36px;letter-spacing:3px;font-weight:300;margin-bottom:8px}
+header .line{width:60px;height:2px;background:#d4af37;margin:16px auto}
+header p{font-size:16px;color:#94a3b8;font-style:italic}
+nav{background:#0f172a;display:flex;justify-content:center;gap:24px;padding:14px;border-bottom:1px solid #d4af37}
+nav a{color:#d4af37;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.hero{background:#fffbeb;padding:48px 20px;text-align:center}
+.hero h2{color:#92400e;font-size:24px;margin-bottom:12px;font-weight:300;letter-spacing:1px}
+.hero p{color:#78350f;max-width:500px;margin:0 auto;line-height:1.7}
+.rooms{padding:40px 20px;max-width:700px;margin:0 auto}
+.rooms h2{text-align:center;color:#0f172a;font-weight:300;letter-spacing:2px;margin-bottom:28px;font-size:22px}
+.room{background:white;border-radius:16px;padding:24px;margin-bottom:16px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center}
+.room h3{font-size:17px;color:#0f172a}
+.room p{font-size:13px;color:#64748b;margin-top:4px}
+.room .price{font-size:20px;font-weight:700;color:#d4af37}
+.room .per{font-size:11px;color:#94a3b8}
+.amenities{background:#0f172a;color:white;padding:48px 20px;text-align:center}
+.amenities h2{font-weight:300;letter-spacing:2px;margin-bottom:24px}
+.amenity-grid{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:600px;margin:0 auto}
+.amenity{background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);border-radius:12px;padding:20px;min-width:120px;text-align:center}
+.amenity .icon{font-size:28px;margin-bottom:8px}
+.amenity .text{font-size:13px;color:#d4af37}
+.contact{padding:48px 20px;text-align:center;background:#fffbeb}
+.contact h2{color:#0f172a;font-weight:300;letter-spacing:2px;margin-bottom:20px}
+.contact p{color:#64748b;margin-bottom:8px;font-size:15px}
+.btn{display:inline-block;background:#d4af37;color:#0f172a;padding:14px 32px;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:1px;margin-top:16px}
+footer{background:#0f172a;color:#64748b;text-align:center;padding:20px;font-size:12px;border-top:1px solid #d4af37}
+</style>
+</head>
+<body>
+<header>
+<h1>{{hotel_name}}</h1>
+<div class="line"></div>
+<p>{{tagline}}</p>
+</header>
+<nav><a href="#rooms">Rooms</a><a href="#amenities">Amenities</a><a href="#contact">Contact</a></nav>
+<div class="hero">
+<h2>Welcome to {{hotel_name}}</h2>
+<p>{{description}}</p>
+<a href="#rooms" class="btn">View Rooms</a>
+</div>
+<div class="rooms" id="rooms">
+<h2>✦ Our Rooms ✦</h2>
+<div class="room"><div><h3>Standard Room</h3><p>Comfortable room with city view, free WiFi, and breakfast</p></div><div class="price">{{price_standard}}<br><span class="per">per night</span></div></div>
+<div class="room"><div><h3>Deluxe Suite</h3><p>Spacious suite with king bed, balcony, and minibar</p></div><div class="price">{{price_deluxe}}<br><span class="per">per night</span></div></div>
+<div class="room"><div><h3>Presidential Suite</h3><p>Luxury suite with living room, dining area, and panoramic views</p></div><div class="price">{{price_presidential}}<br><span class="per">per night</span></div></div>
+</div>
+<div class="amenities" id="amenities">
+<h2>✦ Amenities ✦</h2>
+<div class="amenity-grid">
+<div class="amenity"><div class="icon">🏊</div><div class="text">Swimming Pool</div></div>
+<div class="amenity"><div class="icon">🍽️</div><div class="text">Restaurant</div></div>
+<div class="amenity"><div class="icon">💆</div><div class="text">Spa & Wellness</div></div>
+<div class="amenity"><div class="icon">📶</div><div class="text">Free WiFi</div></div>
+<div class="amenity"><div class="icon">🅿️</div><div class="text">Free Parking</div></div>
+<div class="amenity"><div class="icon">🏋️</div><div class="text">Fitness Center</div></div>
+</div>
+</div>
+<div class="contact" id="contact">
+<h2>✦ Contact Us ✦</h2>
+<p>📍 {{address}}</p>
+<p>📞 {{phone}}</p>
+<p>✉️ {{email}}</p>
+<a href="mailto:{{email}}" class="btn">Book Now</a>
+</div>
+<footer>&copy; 2024 {{hotel_name}} — Built with Otic Studio</footer>
+</body>
+</html>

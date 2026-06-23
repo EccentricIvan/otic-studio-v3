@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{margin:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;color:#1a202c}
+header{background:linear-gradient(135deg,#064e3b,#065f46);color:white;text-align:center;padding:56px 20px}
+header h1{font-size:32px;letter-spacing:2px;font-weight:300}
+header .line{width:60px;height:2px;background:#34d399;margin:16px auto}
+header p{color:#a7f3d0;font-size:15px}
+.hero{background:#ecfdf5;padding:48px 20px;text-align:center}
+.hero h2{color:#064e3b;font-size:22px;margin-bottom:12px}
+.hero p{color:#047857;max-width:500px;margin:0 auto;line-height:1.7}
+.btn{display:inline-block;background:#059669;color:white;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;margin-top:20px}
+.listings{padding:40px 20px;max-width:700px;margin:0 auto}
+.listings h2{text-align:center;color:#064e3b;font-weight:300;letter-spacing:2px;margin-bottom:24px}
+.listing{background:white;border-radius:16px;padding:24px;margin-bottom:16px;border:1px solid #d1fae5}
+.listing h3{font-size:17px;color:#064e3b}
+.listing .details{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+.listing .detail{background:#ecfdf5;color:#047857;padding:4px 10px;border-radius:6px;font-size:12px;font-weight:600}
+.listing .price{font-size:22px;font-weight:700;color:#059669;margin-top:12px}
+.listing .loc{font-size:13px;color:#64748b;margin-top:4px}
+.why{background:#064e3b;color:white;padding:48px 20px;text-align:center}
+.why h2{font-weight:300;letter-spacing:2px;margin-bottom:20px}
+.why-grid{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;max-width:500px;margin:0 auto}
+.why-item{background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);border-radius:12px;padding:18px;min-width:120px}
+.why-item .num{font-size:28px;font-weight:800;color:#34d399}
+.why-item .text{font-size:12px;color:#a7f3d0;margin-top:4px}
+.contact{padding:48px 20px;text-align:center;background:#ecfdf5}
+.contact h2{color:#064e3b;font-weight:300;letter-spacing:2px;margin-bottom:16px}
+.contact p{color:#64748b;margin-bottom:8px}
+footer{background:#0f172a;color:#64748b;text-align:center;padding:20px;font-size:12px}
+</style>
+</head>
+<body>
+<header><h1>🏠 {{company_name}}</h1><div class="line"></div><p>{{tagline}}</p></header>
+<div class="hero"><h2>Find Your Dream Property</h2><p>{{description}}</p><a href="#listings" class="btn">View Properties</a></div>
+<div class="listings" id="listings">
+<h2>🏡 Featured Properties</h2>
+<div class="listing"><h3>{{prop1_name}}</h3><div class="details"><span class="detail">{{prop1_beds}} Beds</span><span class="detail">{{prop1_baths}} Baths</span><span class="detail">{{prop1_size}}</span></div><div class="price">{{prop1_price}}</div><div class="loc">📍 {{prop1_location}}</div></div>
+<div class="listing"><h3>{{prop2_name}}</h3><div class="details"><span class="detail">{{prop2_beds}} Beds</span><span class="detail">{{prop2_baths}} Baths</span><span class="detail">{{prop2_size}}</span></div><div class="price">{{prop2_price}}</div><div class="loc">📍 {{prop2_location}}</div></div>
+<div class="listing"><h3>{{prop3_name}}</h3><div class="details"><span class="detail">{{prop3_beds}} Beds</span><span class="detail">{{prop3_baths}} Baths</span><span class="detail">{{prop3_size}}</span></div><div class="price">{{prop3_price}}</div><div class="loc">📍 {{prop3_location}}</div></div>
+</div>
+<div class="why">
+<h2>Why Choose Us</h2>
+<div class="why-grid">
+<div class="why-item"><div class="num">{{properties_sold}}</div><div class="text">Properties Sold</div></div>
+<div class="why-item"><div class="num">{{years_exp}}</div><div class="text">Years Experience</div></div>
+<div class="why-item"><div class="num">{{clients}}</div><div class="text">Happy Clients</div></div>
+</div>
+</div>
+<div class="contact" id="contact"><h2>📞 Contact Us</h2><p>📍 {{address}}</p><p>📞 {{phone}}</p><p>✉️ {{email}}</p><a href="mailto:{{email}}" class="btn">Get In Touch</a></div>
+<footer>&copy; 2024 {{company_name}} — Built with Otic Studio</footer>
+</body>
+</html>
