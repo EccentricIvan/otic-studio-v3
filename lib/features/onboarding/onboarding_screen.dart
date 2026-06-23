@@ -309,12 +309,15 @@ class _InterestsPage extends StatelessWidget {
     ('Biology', Icons.biotech, Color(0xFF10B981)),
     ('Chemistry', Icons.science_outlined, Color(0xFFF59E0B)),
     ('Programming', Icons.code, Color(0xFF6366F1)),
+    ('Web Development', Icons.web, Color(0xFF0EA5E9)),
+    ('App Development', Icons.phone_android, Color(0xFF6366F1)),
     ('AI & Data', Icons.psychology, Color(0xFF7C3AED)),
     ('Business', Icons.trending_up, Color(0xFFEA580C)),
     ('Agriculture', Icons.grass, Color(0xFF22C55E)),
     ('History', Icons.history_edu, Color(0xFF64748B)),
     ('Geography', Icons.public, Color(0xFF14B8A6)),
     ('English', Icons.menu_book, Color(0xFFEC4899)),
+    ('Economics', Icons.account_balance, Color(0xFFF59E0B)),
     ('Arts', Icons.palette, Color(0xFFEAB308)),
   ];
 

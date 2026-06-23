@@ -11,18 +11,21 @@ import 'scenario_models.dart';
 // ── Topic list ────────────────────────────────────────────────────────────────
 
 const _topics = [
-  'Photosynthesis',
-  'Python Programming',
   'Mathematics',
   'Physics',
-  'Entrepreneurship',
   'Biology',
-  'English Writing',
-  'Artificial Intelligence',
-  'History',
-  'Economics',
   'Chemistry',
+  'Programming',
+  'Web Development',
+  'App Development',
+  'AI & Data',
+  'Entrepreneurship',
+  'Agriculture',
+  'History',
   'Geography',
+  'English Writing',
+  'Economics',
+  'Arts',
 ];
 
 // ── Root screen ───────────────────────────────────────────────────────────────

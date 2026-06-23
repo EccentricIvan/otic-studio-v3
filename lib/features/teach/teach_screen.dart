@@ -507,18 +507,21 @@ class _FeedbackRow extends StatelessWidget {
 // ── Topic chips ───────────────────────────────────────────────────────────────
 
 const _teachTopics = [
-  'Photosynthesis',
-  'Python Programming',
-  'Physics',
   'Mathematics',
-  'Entrepreneurship',
+  'Physics',
   'Biology',
-  'Artificial Intelligence',
-  'History',
-  'Economics',
-  'English Writing',
   'Chemistry',
+  'Programming',
+  'Web Development',
+  'App Development',
+  'AI & Data',
+  'Entrepreneurship',
+  'Agriculture',
+  'History',
   'Geography',
+  'English Writing',
+  'Economics',
+  'Arts',
 ];
 
 class _TopicChips extends StatelessWidget {
