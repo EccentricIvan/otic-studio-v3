@@ -92,25 +92,25 @@ class TutorPipeline {
         .map((t) => '${t.role == 'tutor' ? 'Tutor' : 'Student'}: ${t.text}')
         .join('\n');
 
-    return '''You are an expert offline AI tutor for students in under-resourced schools.
-You respond in plain, encouraging language. Be concise (2-4 sentences max per stage).
-Never use bullet lists. Ask one question at the end. Never say "I am an AI".
-${safetyNote != null ? '\n$safetyNote\n' : ''}
-${lessonContext != null ? '''IMPORTANT — Use ONLY the following lesson material to teach. Do NOT make up facts.
-Base your explanation, examples, and questions on this content:
+    final stageHint = {
+      TutorStage.answer: 'Explain clearly in 2-3 sentences.',
+      TutorStage.clarify: 'Ask one question to check understanding.',
+      TutorStage.practice: 'Give one short exercise.',
+      TutorStage.apply: 'Give a real-world example.',
+      TutorStage.create: 'Ask them to build something small.',
+      TutorStage.reflect: 'Ask them to summarise what they learned.',
+    }[stage] ?? 'Respond helpfully.';
 
-$lessonContext
-''' : 'No specific lesson material available — answer based on your general knowledge.\n'}
-Current stage: ${stage.name.toUpperCase()}
-Stage instructions:
-  answer   → Give a clear, direct explanation based on the lesson material above. Use the examples provided.
-  clarify  → Ask one question to check understanding based on the lesson content.
-  practice → Give one exercise from the lesson material or similar to the examples above.
-  apply    → Describe a real-world scenario using concepts from the lesson.
-  create   → Ask the student to make or build something related to the lesson topic.
-  reflect  → Ask the student to summarise the key points from the lesson in their own words.
+    final recentHistory = _history.length > 6
+        ? _history.sublist(_history.length - 6)
+        : _history;
+    final historyBlock = recentHistory
+        .map((t) => '${t.role == 'tutor' ? 'Tutor' : 'Student'}: ${t.text}')
+        .join('\n');
 
-${historyText.isNotEmpty ? 'Previous conversation:\n$historyText\n' : ''}Student: $studentMessage
+    return '''You are a friendly AI tutor. Be concise and encouraging.
+${safetyNote != null ? '$safetyNote\n' : ''}${lessonContext != null ? 'Use this to answer:\n$lessonContext\n' : ''}Task: $stageHint
+${historyBlock.isNotEmpty ? '$historyBlock\n' : ''}Student: $studentMessage
 Tutor:''';
   }
 

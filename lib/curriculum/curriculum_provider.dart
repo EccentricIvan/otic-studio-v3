@@ -107,26 +107,14 @@ class CurriculumService {
 
   String buildContext(Lesson lesson) {
     final buf = StringBuffer();
-    buf.writeln('=== LESSON: ${lesson.title} ===');
-    buf.writeln(lesson.content);
+    buf.writeln('Topic: ${lesson.title}');
+    // Trim content to ~500 chars to keep prompt small for on-device models
+    final content = lesson.content.length > 500
+        ? '${lesson.content.substring(0, 500)}...'
+        : lesson.content;
+    buf.writeln(content);
     if (lesson.examples.isNotEmpty) {
-      buf.writeln('\nEXAMPLES:');
-      for (final ex in lesson.examples) {
-        buf.writeln('- $ex');
-      }
-    }
-    if (lesson.keyTerms.isNotEmpty) {
-      buf.writeln('\nKEY TERMS:');
-      for (final entry in lesson.keyTerms.entries) {
-        buf.writeln('- ${entry.key}: ${entry.value}');
-      }
-    }
-    if (lesson.quiz.isNotEmpty) {
-      buf.writeln('\nPRACTICE QUESTIONS (use these for exercises):');
-      for (final q in lesson.quiz.take(3)) {
-        buf.writeln('Q: ${q.question}');
-        buf.writeln('A: ${q.options[q.correct]} — ${q.explanation}');
-      }
+      buf.writeln('Example: ${lesson.examples.first}');
     }
     return buf.toString();
   }
