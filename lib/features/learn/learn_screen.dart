@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../ai_core/providers/ai_provider.dart';
 import '../../ai_core/tutor/tutor_response.dart';
 import '../../core/theme/app_colors.dart';
+import '../../curriculum/curriculum_models.dart';
+import '../../curriculum/curriculum_provider.dart';
 import '../../shared/widgets/responsive.dart';
 import 'path/path_models.dart';
 import 'path/path_provider.dart';
@@ -38,10 +40,18 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
     super.dispose();
   }
 
+  Lesson? _lastLesson;
+
   void _send() {
     final text = _controller.text.trim();
     if (text.isEmpty) return;
     _controller.clear();
+
+    // Search curriculum for matching lesson
+    final curriculum = ref.read(curriculumServiceProvider);
+    final lesson = curriculum.findBestMatch(text);
+    setState(() => _lastLesson = lesson);
+
     ref.read(chatProvider.notifier).send(text);
     _scrollToBottom();
   }
@@ -134,9 +144,26 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                       horizontal: 16,
                       vertical: 12,
                     ),
-                    itemCount: itemCount,
+                    itemCount: itemCount + (_lastLesson != null ? 1 : 0),
                     itemBuilder: (context, i) {
-                      if (i == state.messages.length) {
+                      // Show lesson card after the latest user message
+                      if (_lastLesson != null && i == state.messages.length - 1 && i >= 0) {
+                        final msg = state.messages[i];
+                        if (msg.isUser) {
+                          return Column(
+                            children: [
+                              _UserBubble(text: msg.text),
+                              _LessonCard(lesson: _lastLesson!),
+                            ],
+                          );
+                        }
+                      }
+
+                      final adjustedIndex = _lastLesson != null && i > state.messages.length - 1
+                          ? i - 1
+                          : i;
+
+                      if (adjustedIndex >= state.messages.length) {
                         return _TutorBubble(
                           text: state.streamingText,
                           stage: null,
@@ -144,7 +171,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                           isStreaming: true,
                         );
                       }
-                      final msg = state.messages[i];
+                      final msg = state.messages[adjustedIndex];
                       if (msg.isUser) return _UserBubble(text: msg.text);
                       return _TutorBubble(
                         text: msg.text,
@@ -579,6 +606,95 @@ class _EmptyState extends StatelessWidget {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+// ── Lesson card shown in chat ────────────────────────────────────────────────
+
+class _LessonCard extends StatelessWidget {
+  const _LessonCard({required this.lesson});
+  final Lesson lesson;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 12),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            AppColors.primary.withValues(alpha: 0.1),
+            AppColors.practiceColor.withValues(alpha: 0.05),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.fromLTRB(14, 12, 14, 8),
+            decoration: BoxDecoration(
+              color: AppColors.primary.withValues(alpha: 0.08),
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(18), topRight: Radius.circular(18)),
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.menu_book, size: 16, color: AppColors.primary),
+                SizedBox(width: 8),
+                Expanded(
+                  child: Text(lesson.title, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.primary), maxLines: 1, overflow: TextOverflow.ellipsis),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  decoration: BoxDecoration(color: AppColors.primary.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(8)),
+                  child: Text('Curriculum', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600, color: AppColors.primary)),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(14, 10, 14, 6),
+            child: Text(
+              lesson.content.length > 300 ? '${lesson.content.substring(0, 300)}...' : lesson.content,
+              style: TextStyle(fontSize: 13, height: 1.6, color: Theme.of(context).colorScheme.onSurface),
+            ),
+          ),
+          if (lesson.examples.isNotEmpty)
+            Padding(
+              padding: EdgeInsets.fromLTRB(14, 4, 14, 6),
+              child: Container(
+                width: double.infinity,
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: AppColors.createColor.withValues(alpha: 0.06),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: AppColors.createColor.withValues(alpha: 0.12)),
+                ),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text('Example', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: AppColors.createColor)),
+                  SizedBox(height: 4),
+                  Text(lesson.examples.first, style: TextStyle(fontSize: 12, height: 1.4, color: Theme.of(context).colorScheme.onSurface)),
+                ]),
+              ),
+            ),
+          if (lesson.keyTerms.isNotEmpty)
+            Padding(
+              padding: EdgeInsets.fromLTRB(14, 2, 14, 12),
+              child: Wrap(
+                spacing: 6, runSpacing: 6,
+                children: lesson.keyTerms.keys.take(4).map((term) => Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(color: AppColors.primary.withValues(alpha: 0.08), borderRadius: BorderRadius.circular(8)),
+                  child: Text(term, style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: AppColors.primary)),
+                )).toList(),
+              ),
+            ),
         ],
       ),
     );
