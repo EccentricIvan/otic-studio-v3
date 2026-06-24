@@ -60,51 +60,61 @@ class HomeScreen extends ConsumerWidget {
 class _HeroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          decoration: BoxDecoration(
-            color: AppColors.primary.withValues(alpha: 0.07),
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: AppColors.primary.withValues(alpha: 0.18),
+    return Container(
+      padding: EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            AppColors.primary.withValues(alpha: 0.12),
+            AppColors.practiceColor.withValues(alpha: 0.06),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: AppColors.primary.withValues(alpha: 0.15),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            decoration: BoxDecoration(
+              color: AppColors.primary.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.wifi_off, size: 13, color: AppColors.primary),
+                SizedBox(width: 6),
+                Text(
+                  'Fully Offline · No Internet Required',
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: AppColors.primary),
+                ),
+              ],
             ),
           ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.wifi_off, size: 13, color: AppColors.primary),
-              SizedBox(width: 6),
-              Text(
-                'Fully Offline · No Internet Required',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.primary,
-                ),
-              ),
-            ],
+          SizedBox(height: 16),
+          Text(
+            'Learn anything,\nanywhere',
+            style: Theme.of(context).textTheme.displayLarge,
           ),
-        ),
-        SizedBox(height: 14),
-        Text(
-          'Learn anything, anywhere',
-          style: Theme.of(context).textTheme.displayLarge,
-        ),
-        SizedBox(height: 8),
-        Text(
-          'Your AI mentor — always available, always patient, always learning with you.',
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
-        SizedBox(height: 20),
-        VoiceAskWidget(
-          onSubmit: (query) {
-            context.go('/learn?topic=${Uri.encodeComponent(query)}');
-          },
-        ),
-      ],
+          SizedBox(height: 10),
+          Text(
+            'Your AI mentor — always available, always patient, always learning with you.',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          SizedBox(height: 20),
+          VoiceAskWidget(
+            onSubmit: (query) {
+              context.go('/learn?topic=${Uri.encodeComponent(query)}');
+            },
+          ),
+        ],
+      ),
     );
   }
 }

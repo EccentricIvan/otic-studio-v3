@@ -299,13 +299,17 @@ class _SetupView extends ConsumerWidget {
               padding: EdgeInsets.only(bottom: 12),
               child: InkWell(
                 onTap: () => GoRouter.of(context).push(lab.$5),
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(22),
                 child: Container(
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.surface,
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: Theme.of(context).dividerColor),
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [lab.$4.withValues(alpha: 0.12), lab.$4.withValues(alpha: 0.03)],
+                    ),
+                    borderRadius: BorderRadius.circular(22),
+                    border: Border.all(color: lab.$4.withValues(alpha: 0.2)),
                   ),
                   child: Row(
                     children: [
@@ -313,8 +317,11 @@ class _SetupView extends ConsumerWidget {
                         width: 52,
                         height: 52,
                         decoration: BoxDecoration(
-                          color: lab.$4.withValues(alpha: 0.12),
-                          borderRadius: BorderRadius.circular(14),
+                          gradient: LinearGradient(
+                            colors: [lab.$4.withValues(alpha: 0.3), lab.$4.withValues(alpha: 0.1)],
+                          ),
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(color: lab.$4.withValues(alpha: 0.2)),
                         ),
                         child: Icon(lab.$3, color: lab.$4, size: 26),
                       ),

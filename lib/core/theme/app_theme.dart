@@ -269,11 +269,11 @@ class AppTheme {
         iconTheme: IconThemeData(color: Color(0xFFF1F5F9)),
       ),
       cardTheme: CardThemeData(
-        color: const Color(0xFF1E293B),
+        color: const Color(0xFF1E293B).withValues(alpha: 0.85),
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: const BorderSide(color: Color(0xFF334155)),
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: const Color(0xFF475569).withValues(alpha: 0.3)),
         ),
         clipBehavior: Clip.antiAlias,
       ),
@@ -282,9 +282,9 @@ class AppTheme {
           backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
           elevation: 0,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(16),
           ),
           textStyle: const TextStyle(fontFamily: _font,
             fontSize: 14,
@@ -295,10 +295,10 @@ class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: const Color(0xFFF1F5F9),
-          side: const BorderSide(color: Color(0xFF334155)),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          side: BorderSide(color: const Color(0xFF475569).withValues(alpha: 0.3)),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(16),
           ),
           textStyle: const TextStyle(fontFamily: _font,
             fontSize: 14,
@@ -308,17 +308,17 @@ class AppTheme {
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: const Color(0xFF1E293B),
+        fillColor: const Color(0xFF1E293B).withValues(alpha: 0.7),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFF334155)),
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: const Color(0xFF475569).withValues(alpha: 0.3)),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFF334155)),
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: const Color(0xFF475569).withValues(alpha: 0.3)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(color: AppColors.primary, width: 2),
         ),
         hintStyle: const TextStyle(fontFamily: _font,
@@ -328,11 +328,12 @@ class AppTheme {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),
       navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: const Color(0xFF1E293B),
+        backgroundColor: const Color(0xFF0F172A).withValues(alpha: 0.95),
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         shadowColor: const Color(0xFF334155),
-        indicatorColor: AppColors.primary.withValues(alpha: 0.2),
+        indicatorColor: AppColors.primary.withValues(alpha: 0.15),
+        indicatorShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         iconTheme: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
             return const IconThemeData(color: AppColors.primary, size: 22);
