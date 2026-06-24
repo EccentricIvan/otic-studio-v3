@@ -1,48 +1,1468 @@
 {
-  "id": "entrepreneurship",
-  "name": "Entrepreneurship",
-  "icon": "trending_up",
-  "color": "#F59E0B",
-  "units": [
-    {
-      "title": "Business Ideas",
-      "lessons": [
-        {"title": "Finding Problems Worth Solving", "content": "Every successful business starts by solving a real problem. Look around: what frustrates people? What takes too long? What's missing? The best ideas come from personal experience. Validate before building: talk to potential customers, ask if they'd pay. A good problem is painful (people want it fixed), frequent (happens often), and monetizable (people will pay).", "examples": ["M-Pesa solved sending money without bank accounts", "Uber solved finding reliable transport", "A student built a crop disease ID app from personal observation"], "keyTerms": {"problem-solution fit": "When your solution addresses a real customer problem", "validation": "Testing if customers want and will pay for your solution", "pain point": "A frustration potential customers experience", "iteration": "Repeatedly improving your idea based on feedback"}, "quiz": [{"question": "Best business ideas come from:", "options": ["Real problems people face", "Copying others", "Random brainstorming", "What sounds cool"], "correct": 0, "explanation": "Solve real, painful problems."}, {"question": "Validation means:", "options": ["Testing if customers want your solution", "Getting a license", "Building the product", "Hiring staff"], "correct": 0, "explanation": "Confirm demand before investing."}, {"question": "A good problem to solve is:", "options": ["Painful, frequent, and people will pay", "Rare and unusual", "Only for rich people", "Already solved"], "correct": 0, "explanation": "Common, painful, with paying customers."}, {"question": "Why validate before building?", "options": ["To avoid wasting time and money on something nobody wants", "It's legally required", "To copy competitors", "To get funding"], "correct": 0, "explanation": "Many startups fail because they build before confirming demand."}, {"question": "Iteration means:", "options": ["Repeatedly improving based on feedback", "Building once perfectly", "Copying competitors exactly", "Giving up after failure"], "correct": 0, "explanation": "Successful entrepreneurs iterate — test, learn, improve, repeat."}]},
-        {"title": "Market Research", "content": "Market research helps you understand customers and competition. Primary research: surveys, interviews, observation. Secondary: existing reports, statistics. Know your target market: demographics (age, income), psychographics (interests, values), behaviors (habits). Study competitors: strengths, weaknesses, gaps. Your competitive advantage makes you different.", "examples": ["Survey 50 potential customers about willingness to pay", "Visit competitors to observe pricing and service", "Target: university students 18-25 needing affordable meals"], "keyTerms": {"target market": "Specific group most likely to buy", "competitive advantage": "What makes you different and better", "demographics": "Population stats: age, gender, income", "SWOT": "Strengths, Weaknesses, Opportunities, Threats analysis"}, "quiz": [{"question": "Primary research:", "options": ["Gathering data yourself", "Reading reports", "Guessing", "Copying competitors"], "correct": 0, "explanation": "Collect original data directly."}, {"question": "Study competitors to:", "options": ["Find gaps to fill", "Copy everything", "Report them", "Not important"], "correct": 0, "explanation": "Understand what's missing in the market."}, {"question": "Competitive advantage:", "options": ["What makes you different and better", "Lowest price always", "Biggest company", "Most employees"], "correct": 0, "explanation": "Could be quality, convenience, innovation."}, {"question": "SWOT analysis examines:", "options": ["Strengths, Weaknesses, Opportunities, Threats", "Sales, Wages, Orders, Taxes", "Staff, Work, Output, Time", "Strategy, Winners, Outcomes, Targets"], "correct": 0, "explanation": "SWOT helps evaluate your business position from four angles."}, {"question": "Psychographics include:", "options": ["Interests, values, lifestyle, and attitudes", "Age and gender only", "Income only", "Location only"], "correct": 0, "explanation": "Psychographics go beyond demographics to understand WHY people buy."}]},
-        {"title": "Value Proposition", "content": "A value proposition explains why customers should choose you. It answers: What? Who? Why better? Keep it simple — explainable in 30 seconds. Focus on benefits (what customer gains), not features (what product does). Test: do potential customers nod and say 'I need that'?", "examples": ["M-Pesa: 'Send money instantly — no bank account needed'", "Feature: GPS tracking. Benefit: Know where your delivery is", "Strong: 'Comfortable shoes for people who stand all day'"], "keyTerms": {"value proposition": "Why customers should choose you", "benefit": "What customer gains", "feature": "Product characteristic", "elevator pitch": "30-second explanation of your business value"}, "quiz": [{"question": "Value proposition focuses on:", "options": ["Customer benefits", "Product features", "Company history", "Technical specs"], "correct": 0, "explanation": "Customers care about what they gain."}, {"question": "Explainable in:", "options": ["30 seconds or less", "30 minutes", "10 pages", "Doesn't matter"], "correct": 0, "explanation": "Quick and clear."}, {"question": "Feature vs benefit:", "options": ["Feature is what it does; benefit is what customer gains", "Same thing", "Benefits are technical", "Features are for customers"], "correct": 0, "explanation": "Feature: 10hr battery. Benefit: Use all day without charging."}, {"question": "An elevator pitch is:", "options": ["A brief, persuasive summary of your business", "A presentation in an elevator", "A written business plan", "A financial forecast"], "correct": 0, "explanation": "30-60 seconds to explain your value — as if in an elevator with an investor."}, {"question": "To test your value proposition:", "options": ["Talk to potential customers and see if they want it", "Just launch and hope", "Ask only friends and family", "Skip testing"], "correct": 0, "explanation": "Real feedback from strangers in your target market is the true test."}]},
-        {"title": "Lean Startup Method", "content": "The Lean Startup approach minimizes waste by building small, testing fast, and learning continuously. The Build-Measure-Learn loop: build a minimum product, measure how customers respond, learn from the data, and decide whether to pivot (change direction) or persevere (continue). An MVP (Minimum Viable Product) is the simplest version that tests your core hypothesis. Don't spend months building — launch in weeks with basic features, get real feedback. Validated learning means using data from real customers to make decisions, not assumptions. Pivot when evidence shows your original idea isn't working — many successful companies pivoted: YouTube started as a dating site, Instagram started as a check-in app.", "examples": ["Dropbox MVP: just a demo video showing the concept — 75,000 signups before any code was built", "Build-Measure-Learn: launch a food delivery service in one neighborhood → measure orders/feedback → adjust before expanding", "Pivot: Slack was originally a gaming company — the internal chat tool they built became the real product"], "keyTerms": {"lean startup": "A method of developing businesses through validated learning and rapid experimentation", "Build-Measure-Learn": "The continuous loop: build MVP, measure customer response, learn and adapt", "pivot": "Fundamentally changing your business direction based on customer feedback", "validated learning": "Using real customer data to make decisions instead of assumptions"}, "quiz": [{"question": "The Lean Startup loop is:", "options": ["Build-Measure-Learn", "Plan-Build-Sell", "Design-Develop-Deploy", "Research-Write-Publish"], "correct": 0, "explanation": "Build something small, measure response, learn, repeat."}, {"question": "An MVP is:", "options": ["The simplest version that tests your core hypothesis", "The final complete product", "A business plan document", "A marketing campaign"], "correct": 0, "explanation": "MVP = minimum features to test if your idea works with real customers."}, {"question": "Pivoting means:", "options": ["Changing direction based on evidence your idea isn't working", "Giving up completely", "Copying a competitor", "Adding more features"], "correct": 0, "explanation": "Pivots are strategic changes, not failures — they're guided by customer data."}, {"question": "Validated learning uses:", "options": ["Real customer data to make decisions", "Assumptions and guesses", "Only expert opinions", "No data at all"], "correct": 0, "explanation": "Don't assume — let real customer behavior guide your decisions."}, {"question": "Dropbox validated demand by:", "options": ["Creating a demo video before building the product — 75,000 signups", "Building the complete product first", "Running expensive TV ads", "Hiring a large sales team"], "correct": 0, "explanation": "They proved demand with a video MVP — smart validation before heavy investment."}]},
-        {"title": "Social Entrepreneurship", "content": "Social entrepreneurship uses business methods to solve social and environmental problems. Unlike traditional charities that rely on donations, social enterprises generate revenue while creating positive impact. The double/triple bottom line: People (social impact), Planet (environmental sustainability), Profit (financial viability). Impact measurement: track not just revenue but also lives improved, trees planted, or students educated. Examples span every sector: education (affordable schools), healthcare (low-cost diagnostics), agriculture (fair trade), energy (solar for rural areas), and financial inclusion (microfinance). Many social enterprises start locally — solving a community problem — then scale to other regions. Funding sources include impact investors (who accept lower financial returns for social impact), grants, and revenue from the business itself.", "examples": ["BRAC (Bangladesh): world's largest NGO operating schools, microfinance, and healthcare — serving 100 million people", "d.light: affordable solar lights for off-grid communities — replacing dangerous kerosene lamps", "Kiva: microfinance platform connecting lenders worldwide with entrepreneurs in developing countries"], "keyTerms": {"social enterprise": "A business that prioritizes social/environmental impact alongside profit", "triple bottom line": "Measuring success by People, Planet, and Profit — not profit alone", "impact investing": "Investment seeking both financial returns and positive social/environmental impact", "microfinance": "Small loans to entrepreneurs who lack access to traditional banking"}, "quiz": [{"question": "Social entrepreneurship differs from charity because:", "options": ["It generates revenue while creating social impact", "It only focuses on profit", "It doesn't help people", "It requires government funding only"], "correct": 0, "explanation": "Social enterprises are self-sustaining through revenue, not dependent on donations."}, {"question": "The triple bottom line measures:", "options": ["People, Planet, and Profit", "Revenue, Cost, and Profit", "Past, Present, and Future", "Local, National, and Global"], "correct": 0, "explanation": "Success is measured across social impact, environmental sustainability, AND financial viability."}, {"question": "Impact investors:", "options": ["Accept lower financial returns for social/environmental impact", "Only want maximum profit", "Don't invest money", "Only fund tech startups"], "correct": 0, "explanation": "Impact investors prioritize positive change alongside reasonable financial returns."}, {"question": "An example of social entrepreneurship:", "options": ["Affordable solar lights for off-grid communities", "A luxury car brand", "A hedge fund", "A fast food chain"], "correct": 0, "explanation": "d.light provides affordable solar lighting — solving energy poverty while earning revenue."}, {"question": "Social enterprises often start by:", "options": ["Solving a local community problem, then scaling to other areas", "Going global immediately", "Raising billions first", "Copying existing charities"], "correct": 0, "explanation": "Start local, prove the model works, then expand — just like any startup."}]}
-      ]
-    },
-    {
-      "title": "Planning",
-      "lessons": [
-        {"title": "Business Model Canvas", "content": "The Business Model Canvas is a one-page tool with 9 blocks: Customer Segments, Value Proposition, Channels, Customer Relationships, Revenue Streams, Key Resources, Key Activities, Key Partnerships, Cost Structure. Fill it out to see your entire business at a glance. Update as you learn more.", "examples": ["Bakery: Customers = families, Value = fresh bread, Channel = shop + delivery, Revenue = sales", "Key Resources: tutors, materials, venue", "Revenue: sales, subscriptions, commissions, licensing"], "keyTerms": {"business model": "How a company creates and captures value", "revenue stream": "How business earns money", "customer segment": "Group of people you serve", "channel": "How you reach and deliver to customers"}, "quiz": [{"question": "Canvas blocks:", "options": ["9", "5", "12", "3"], "correct": 0, "explanation": "9 blocks covering all business aspects."}, {"question": "Revenue stream:", "options": ["How you make money", "How much you spend", "Customer list", "Marketing plan"], "correct": 0, "explanation": "Each way money comes in."}, {"question": "Canvas purpose:", "options": ["See entire business on one page", "Replace business plan", "Impress investors", "Legal requirement"], "correct": 0, "explanation": "Quick visual overview."}, {"question": "Channels in the canvas refer to:", "options": ["How you reach customers and deliver your product", "TV channels", "Social media only", "Physical stores only"], "correct": 0, "explanation": "All the ways you communicate with and deliver value to customers."}, {"question": "The canvas should be:", "options": ["Updated regularly as you learn from customers", "Written once and never changed", "Secret from the team", "Only for investors"], "correct": 0, "explanation": "A living document that evolves with your business understanding."}]},
-        {"title": "Financial Planning", "content": "Revenue = money in from sales. Costs: fixed (rent, salaries — same monthly) and variable (materials — change with sales). Profit = Revenue - Costs. Break-even: revenue equals costs. Budget forecasts income and expenses. Cash flow = timing of money in/out — profitable businesses can fail if cash runs out. Start lean: minimize costs until proven.", "examples": ["Revenue 500K, fixed 200K, variable 150K, profit 150K", "Break-even: 5000/cake cost, 3000/cake variable, 50K fixed → 25 cakes", "Cash flow: delivered 1M goods but customer pays in 60 days — can't buy materials"], "keyTerms": {"profit": "Revenue minus all costs", "break-even": "Revenue equals costs — no profit or loss", "cash flow": "Movement of money in and out", "fixed costs": "Costs that don't change with sales volume (rent, insurance)"}, "quiz": [{"question": "Profit:", "options": ["Revenue minus costs", "Revenue plus costs", "Revenue times costs", "Costs minus revenue"], "correct": 0, "explanation": "What's left after paying everything."}, {"question": "Fixed costs:", "options": ["Same regardless of sales", "Change with sales", "One-time", "Always low"], "correct": 0, "explanation": "Rent is the same whether you sell 1 or 100."}, {"question": "Cash flow importance:", "options": ["Profitable business can fail without cash", "Not important", "Only for big companies", "Same as profit"], "correct": 0, "explanation": "Bills are due NOW but income may come LATER."}, {"question": "Variable costs change with:", "options": ["Sales volume — more sales = more variable costs", "Time of year", "Company age", "Number of employees always"], "correct": 0, "explanation": "Materials, shipping, commissions increase as you sell more."}, {"question": "Starting lean means:", "options": ["Minimize spending until the business model is proven", "Spending nothing ever", "Borrowing as much as possible", "Hiring a large team immediately"], "correct": 0, "explanation": "Keep costs low while testing — scale spending only after validating the model."}]},
-        {"title": "Legal Basics", "content": "Business structures: sole proprietorship (simplest, personal liability), partnership (shared ownership), company/corporation (separate entity, protects personal assets). Get permits and licenses. Protect IP: trademarks (brand), patents (inventions), copyrights (creative works). Always put agreements in writing. Register for taxes, keep records.", "examples": ["Sole proprietorship: easiest but personally liable for debts", "Limited company: business fails, personal house is safe", "Trademark: competitors can't use your brand name"], "keyTerms": {"sole proprietorship": "One-person business, no legal separation", "limited company": "Separate legal entity protecting personal assets", "intellectual property": "Legal rights: trademarks, patents, copyrights", "contract": "A legally binding written agreement between parties"}, "quiz": [{"question": "Protects personal assets:", "options": ["Limited company", "Sole proprietorship", "Partnership", "None"], "correct": 0, "explanation": "Separate legal entity."}, {"question": "Trademark protects:", "options": ["Brand names and logos", "Inventions", "Songs", "Financial records"], "correct": 0, "explanation": "Brand identity."}, {"question": "Written agreements:", "options": ["Prevent disputes and provide legal proof", "Not necessary", "Waste paper", "Only for big deals"], "correct": 0, "explanation": "Enforceable and clear."}, {"question": "A patent protects:", "options": ["Inventions and novel processes", "Brand names", "Written works", "Business names"], "correct": 0, "explanation": "Patents protect new inventions for a limited period (usually 20 years)."}, {"question": "When should you register your business?", "options": ["Before starting operations — it's a legal requirement in most places", "After the first year", "Only if profitable", "Never"], "correct": 0, "explanation": "Registration makes your business legal and may be required for bank accounts and contracts."}]},
-        {"title": "Writing a Business Plan", "content": "A business plan is a detailed document outlining your business strategy. Key sections: Executive Summary (one-page overview — write last), Company Description (what you do, mission, vision), Market Analysis (industry, target market, competitors), Products/Services (what you offer, unique features), Marketing Strategy (how you'll reach customers), Operations Plan (how you'll deliver), Team (who's involved and their skills), Financial Projections (revenue, costs, profit for 3-5 years), and Funding Request (if seeking investment). Keep it concise: 15-25 pages. Update it yearly. A business plan isn't just for investors — it forces you to think through every aspect of your business. Many entrepreneurs skip this and regret it when problems arise that they could have anticipated.", "examples": ["Executive summary: 'FarmFresh delivers organic produce from local farms to urban doorsteps within 2 hours. We target health-conscious professionals in Kampala. Year 1 revenue: 200M UGX.'", "Financial projection: Month 1-3: loss (building customer base). Month 4-6: break even. Month 7-12: profit.", "Team section: 'CEO: 5 years agribusiness. CTO: built 3 apps. CMO: 4 years digital marketing.'"], "keyTerms": {"executive summary": "A one-page overview of the entire business plan — written last, read first", "financial projections": "Estimated revenue, costs, and profit for the next 3-5 years", "mission statement": "A brief declaration of the business's purpose and values", "operations plan": "How the business will produce and deliver its product or service"}, "quiz": [{"question": "The executive summary should be written:", "options": ["Last — after all other sections are complete", "First — before anything else", "Never — it's optional", "Only for investors"], "correct": 0, "explanation": "Write it last because it summarizes everything — but it's read first by investors."}, {"question": "A business plan is typically:", "options": ["15-25 pages covering all key business aspects", "1 page", "100+ pages", "Only the financial section"], "correct": 0, "explanation": "Concise but comprehensive — covering market, product, team, financials, and strategy."}, {"question": "Financial projections should cover:", "options": ["3-5 years of estimated revenue, costs, and profit", "Only the first month", "Only profit", "Exact numbers guaranteed"], "correct": 0, "explanation": "3-5 year projections show growth trajectory — they're estimates, not guarantees."}, {"question": "Why write a business plan even without investors?", "options": ["It forces you to think through every aspect and anticipate problems", "It's legally required", "It guarantees success", "It's only for large companies"], "correct": 0, "explanation": "Planning reveals gaps and risks you might miss — better to find them on paper than in reality."}, {"question": "The market analysis section should include:", "options": ["Industry trends, target market size, and competitor analysis", "Only your product description", "Only financial data", "Only the team bios"], "correct": 0, "explanation": "Show you understand the market: its size, trends, your target customers, and how you differ from competitors."}]},
-        {"title": "Pitching to Investors", "content": "A pitch deck is a 10-15 slide presentation to convince investors to fund your business. Essential slides: Problem (the pain you solve), Solution (your product), Market Size (how big the opportunity is), Business Model (how you make money), Traction (proof it works — users, revenue, growth), Team (why you're the right people), Competition (your advantage), Financials (projections and funding needs), and The Ask (how much money, what you'll use it for). Keep each slide simple — one key point per slide. Practice your pitch: aim for 10 minutes presentation + 10 minutes Q&A. Know your numbers cold. Show passion but be realistic. Investors bet on teams as much as ideas — show you can execute.", "examples": ["Problem slide: 'In Uganda, 40% of farm produce is lost post-harvest due to lack of cold storage'", "Traction: '500 users in 3 months, 30% month-over-month growth, 4.8/5 user rating'", "The Ask: 'We're raising $100K for 10% equity to expand to 3 new cities and hire 5 delivery drivers'"], "keyTerms": {"pitch deck": "A brief presentation to persuade investors to fund your business", "traction": "Evidence that your business is working — users, revenue, growth metrics", "equity": "Ownership share in the company offered to investors in exchange for funding", "due diligence": "The investigation investors do before committing money"}, "quiz": [{"question": "A pitch deck should be:", "options": ["10-15 slides with one key point per slide", "100 slides with maximum detail", "1 slide only", "A written essay"], "correct": 0, "explanation": "Keep it concise — investors have short attention spans. One idea per slide."}, {"question": "Traction shows investors:", "options": ["Proof that the business is working — real users, revenue, growth", "That you have a nice logo", "Your educational background", "How many employees you have"], "correct": 0, "explanation": "Numbers don't lie — traction is the strongest evidence of potential."}, {"question": "Investors bet on:", "options": ["Teams as much as ideas — execution ability matters hugely", "Only the idea", "Only the market size", "Only the technology"], "correct": 0, "explanation": "A great team with a good idea beats a mediocre team with a great idea."}, {"question": "The Ask slide should include:", "options": ["How much money you need and exactly what you'll use it for", "Just a large number", "No specific amount", "Your company's history"], "correct": 0, "explanation": "Be specific: '$100K for hiring, marketing, and inventory — here's the breakdown.'"}, {"question": "During Q&A, if you don't know an answer:", "options": ["Be honest and say you'll follow up with the answer", "Make something up", "Change the subject", "End the meeting"], "correct": 0, "explanation": "Honesty builds trust. 'Great question — I'll research that and get back to you by Friday.'"}]}
-      ]
-    },
-    {
-      "title": "Execution",
-      "lessons": [
-        {"title": "Marketing and Branding", "content": "Marketing attracts customers. 4 Ps: Product, Price, Place, Promotion. Branding is identity: name, logo, colors, tone. Digital marketing: social media, content, email, SEO. Word of mouth is most powerful — deliver great experience.", "examples": ["Instagram: product photos with stories and hashtags", "Coca-Cola: same red color and font worldwide", "Tag us for 10% off next visit — encourages sharing"], "keyTerms": {"branding": "Business identity and perception", "marketing mix": "Product, Price, Place, Promotion", "SEO": "Search Engine Optimization", "content marketing": "Creating valuable content to attract and retain customers"}, "quiz": [{"question": "4 Ps:", "options": ["Product, Price, Place, Promotion", "People, Process, Performance, Profit", "Plan, Produce, Package, Post", "Position, Push, Pull, Profit"], "correct": 0, "explanation": "The marketing mix."}, {"question": "Branding is:", "options": ["Identity and perception", "Just logo", "Product price", "Office location"], "correct": 0, "explanation": "Everything: name, logo, colors, values, feelings."}, {"question": "Most powerful marketing:", "options": ["Word of mouth", "TV ads", "Billboards", "Cold calling"], "correct": 0, "explanation": "People trust friends' recommendations most."}, {"question": "Content marketing means:", "options": ["Creating valuable content that attracts customers", "Buying advertisements", "Cold emailing strangers", "Printing flyers only"], "correct": 0, "explanation": "Blog posts, videos, guides that provide value and build trust."}, {"question": "SEO helps by:", "options": ["Making your website appear higher in Google search results", "Sending emails faster", "Making products cheaper", "Designing logos"], "correct": 0, "explanation": "Better SEO = more people find you when searching for what you offer."}]},
-        {"title": "Sales and Customer Service", "content": "Sales funnel: Awareness → Interest → Decision → Action. Listen more than talk. Handle objections calmly. Customer service keeps them coming back — it costs 5-7x more to get new customers than keep existing ones. Respond quickly, solve problems, exceed expectations.", "examples": ["Funnel: 1000 see ad → 100 visit → 30 try → 10 buy", "'Too expensive' → explain the value and savings", "Damaged order: immediate replacement + discount code"], "keyTerms": {"sales funnel": "Journey from awareness to purchase", "objection handling": "Responding to customer hesitations", "customer retention": "Keeping customers returning", "lifetime value": "Total revenue from one customer over their entire relationship"}, "quiz": [{"question": "Sales funnel stages:", "options": ["Awareness → Interest → Decision → Action", "Action → Decision → Interest → Awareness", "Product → Price → Place → Promotion", "Research → Build → Test → Launch"], "correct": 0, "explanation": "Customers move through stages."}, {"question": "New vs existing customer cost:", "options": ["New costs 5-7x more", "Same cost", "Existing costs more", "10-20x more"], "correct": 0, "explanation": "Retention is much cheaper."}, {"question": "When customer says 'too expensive':", "options": ["Explain the value", "Lower price immediately", "Argue", "Ignore them"], "correct": 0, "explanation": "Show how it saves time, money, or solves their problem."}, {"question": "Customer lifetime value (LTV) matters because:", "options": ["It shows the total revenue one customer generates over time", "It's just one purchase", "It doesn't matter", "It only applies to subscriptions"], "correct": 0, "explanation": "A customer who buys monthly for 2 years is worth more than one-time buyers."}, {"question": "Best response to a complaint:", "options": ["Listen, apologize, solve quickly, and follow up", "Argue with the customer", "Ignore the complaint", "Blame the customer"], "correct": 0, "explanation": "Fast, empathetic resolution often turns unhappy customers into loyal advocates."}]},
-        {"title": "Operations Management", "content": "Operations is day-to-day running. Supply chain: reliable, affordable materials. Quality control: consistent standards. Inventory: too much wastes money, too little loses sales. Document processes so anyone can follow. Time management: Eisenhower Matrix — important+urgent first. Hire people who share your values and complement your skills.", "examples": ["Bakery process: 5am dough, 6am bake, 8am display — documented for any staff", "Track which products sell fastest, restock those more", "Technical founder → hire someone strong in sales"], "keyTerms": {"supply chain": "Network delivering your product", "quality control": "Ensuring consistent standards", "inventory management": "Tracking stock levels", "process documentation": "Written steps anyone can follow"}, "quiz": [{"question": "Document processes because:", "options": ["Anyone can follow them consistently", "Waste of time", "Only for large companies", "To impress investors"], "correct": 0, "explanation": "New employees can follow documented steps."}, {"question": "Too much inventory:", "options": ["Money tied up unsold", "Never run out", "Higher profit", "Better quality"], "correct": 0, "explanation": "Cash locked in unsold stock."}, {"question": "Eisenhower Matrix:", "options": ["Prioritize by importance and urgency", "Financial planning", "Marketing strategy", "Product design"], "correct": 0, "explanation": "Focus on what's important, not just urgent."}, {"question": "Quality control ensures:", "options": ["Every product meets your defined standard", "Products are as cheap as possible", "Products are made faster", "Customers don't complain"], "correct": 0, "explanation": "Consistent quality builds trust and reputation."}, {"question": "When hiring, prioritize:", "options": ["Attitude and cultural fit — skills can be trained", "Only technical skills", "Only experience", "Only educational degrees"], "correct": 0, "explanation": "Skills can be taught; attitude, values, and work ethic are much harder to change."}]},
-        {"title": "Digital Tools for Business", "content": "Technology levels the playing field — small businesses can compete with large ones using the right tools. Accounting: Wave, QuickBooks, or even Excel for tracking income and expenses. Communication: WhatsApp Business for customer messaging, Slack for team communication. Project management: Trello, Asana, or Notion for organizing tasks and deadlines. Payments: mobile money integration (M-Pesa, MTN Mobile Money), card payments (Stripe, PayStack). Social media management: scheduling posts with Buffer or Hootsuite. E-commerce: sell online through Shopify, WooCommerce, or social media shops. Analytics: Google Analytics for website traffic, social media insights for engagement. Most of these tools have free plans that are sufficient for startups.", "examples": ["WhatsApp Business: set up automated greetings, quick replies, and product catalogues — free", "Trello board: columns for 'To Do', 'In Progress', 'Done' — visual project tracking", "Mobile money: accept payments from customers' phones without any hardware — just an account number"], "keyTerms": {"WhatsApp Business": "Free business messaging tool with catalogues and automated replies", "mobile money": "Phone-based payment system widely used in Africa and Asia", "SaaS": "Software as a Service — cloud-based tools accessed via subscription", "e-commerce": "Buying and selling products or services online"}, "quiz": [{"question": "Digital tools help small businesses by:", "options": ["Enabling them to compete with larger businesses at low cost", "Making them exactly like large corporations", "Replacing all employees", "Only helping tech companies"], "correct": 0, "explanation": "Affordable tools give small businesses capabilities that once required large teams."}, {"question": "The best accounting tool for a brand new startup:", "options": ["A free tool like Wave or even a well-organized spreadsheet", "The most expensive enterprise software", "No tracking at all", "Only a paper notebook"], "correct": 0, "explanation": "Start free/cheap — upgrade as the business grows and needs become complex."}, {"question": "Mobile money is important because:", "options": ["It enables payments for customers without bank accounts", "It's only for rich customers", "It requires internet always", "It only works in one country"], "correct": 0, "explanation": "Mobile money reaches unbanked populations — critical in developing markets."}, {"question": "SaaS means:", "options": ["Software accessed via the cloud on a subscription basis", "Software you install once", "A type of hardware", "A social media platform"], "correct": 0, "explanation": "SaaS = cloud software. No installation, pay monthly, access from anywhere."}, {"question": "Google Analytics helps you:", "options": ["Understand how people find and use your website", "Design your website", "Host your website", "Send emails"], "correct": 0, "explanation": "Analytics shows traffic sources, popular pages, and user behavior — data for better decisions."}]},
-        {"title": "Building a Brand Story", "content": "People don't just buy products — they buy stories. Your brand story connects emotionally with customers by sharing your mission, values, and journey. A compelling story has: a relatable origin (why you started), a clear mission (what you believe in), authentic values (what you stand for), and customer heroes (customers as the main characters, your product as the tool that helps them succeed). Be authentic — customers detect fake stories quickly. Share your story consistently across all channels: website, social media, packaging, customer interactions. Storytelling transforms a commodity into a brand people feel loyal to. Your story should answer: Why does this business exist beyond making money?", "examples": ["TOMS Shoes: 'For every pair you buy, we give a pair to a child in need' — the story IS the brand", "A local coffee roaster: 'We started when we couldn't find quality African coffee in our own city — so we partnered directly with farmers'", "Otic Studio's story: 'Built for students in schools without internet — AI-powered learning that works completely offline'"], "keyTerms": {"brand story": "The narrative explaining why your business exists and what it stands for", "mission": "The purpose of your business beyond profit", "authenticity": "Being genuine and honest in brand communication", "emotional connection": "Creating feelings of trust, belonging, or inspiration in customers"}, "quiz": [{"question": "People buy stories because:", "options": ["Stories create emotional connection and differentiate from competitors", "Stories make products cheaper", "Customers don't read descriptions", "Stories are required by law"], "correct": 0, "explanation": "Emotion drives purchasing decisions more than features or price alone."}, {"question": "In your brand story, the hero should be:", "options": ["The customer — your product is the tool that helps them succeed", "The founder", "The product itself", "The investors"], "correct": 0, "explanation": "Customers are the heroes; your product enables their success."}, {"question": "Authenticity matters because:", "options": ["Customers quickly detect and reject fake stories", "Fake stories are illegal", "It reduces marketing costs", "It's only for large brands"], "correct": 0, "explanation": "Genuine stories build trust; fabricated ones destroy it."}, {"question": "Your brand story should answer:", "options": ["Why does this business exist beyond making money?", "How much profit you make", "How many employees you have", "What technology you use"], "correct": 0, "explanation": "Purpose and values resonate more than product specifications."}, {"question": "Brand stories should be shared:", "options": ["Consistently across all channels — website, social, packaging, conversations", "Only on the website", "Only when customers ask", "Only in advertising"], "correct": 0, "explanation": "Consistency builds recognition and trust — every touchpoint should reflect your story."}]}
-      ]
-    },
-    {
-      "title": "Growth",
-      "lessons": [
-        {"title": "Scaling Your Business", "content": "Scaling means growing revenue without proportionally increasing costs. Strategies: automate repetitive tasks, build systems that work without you, expand to new markets, create multiple revenue streams. Growing too fast can kill — ensure quality doesn't drop. Grow sustainably: strong foundation first.", "examples": ["Delivery service expands from 1 city to 3 using same app", "Auto-invoicing replaces manual work", "School sells courses, books, tutoring, and training"], "keyTerms": {"scaling": "Growing revenue faster than costs", "automation": "Technology performing repetitive tasks", "franchise": "Others operating under your brand", "systems thinking": "Building processes that work without you personally"}, "quiz": [{"question": "Scaling means:", "options": ["Growing revenue without proportionally increasing costs", "Getting bigger", "Hiring more", "Raising prices"], "correct": 0, "explanation": "Revenue grows faster than costs."}, {"question": "Growing too fast:", "options": ["Quality drops, systems overwhelmed", "Always good", "Saves money", "Customers prefer it"], "correct": 0, "explanation": "Rapid growth without infrastructure leads to problems."}, {"question": "Automation:", "options": ["Technology for repetitive tasks", "Hiring robots", "Firing everyone", "Making everything manual"], "correct": 0, "explanation": "Software handles invoicing, emails, data entry."}, {"question": "Multiple revenue streams protect you because:", "options": ["If one source declines, others keep the business alive", "More streams = more work", "One stream is always enough", "It confuses customers"], "correct": 0, "explanation": "Diversification reduces risk — don't depend on a single income source."}, {"question": "Systems thinking means:", "options": ["Building processes that work without you personally involved", "Thinking about computers", "Using only systems software", "Ignoring human factors"], "correct": 0, "explanation": "If the business can't run without you, it's a job, not a business."}]},
-        {"title": "Funding and Investment", "content": "Capital sources: bootstrapping (own money, full control), loans (repay with interest, keep ownership), grants (free, competitive), angel investors (early equity), venture capital (significant equity for high-growth), crowdfunding (many small contributions). Choose based on stage, needs, and willingness to share control.", "examples": ["Bootstrap: start with 50K savings, reinvest profits", "Microfinance: borrow 500K at 15%, repay over 12 months", "Angel: $10K for 10% of startup"], "keyTerms": {"bootstrapping": "Self-funding from savings and revenue", "equity": "Ownership share given to investors", "venture capital": "Professional firms funding high-growth startups", "dilution": "Reduction in your ownership percentage when new investors join"}, "quiz": [{"question": "Bootstrapping:", "options": ["Self-funding with savings and profits", "Bank loan", "Selling shares", "Government funding"], "correct": 0, "explanation": "Keep full control, grow at own pace."}, {"question": "Angel investor:", "options": ["Money for equity (ownership)", "Loan with interest", "Free grant", "Business advice only"], "correct": 0, "explanation": "Personal investment for ownership share."}, {"question": "No-repayment funding:", "options": ["Grants", "Bank loans", "Microfinance", "Credit cards"], "correct": 0, "explanation": "Grants are free money for specific purposes."}, {"question": "Dilution means:", "options": ["Your ownership percentage decreases when new investors join", "The business gets weaker", "Products lose quality", "Customers leave"], "correct": 0, "explanation": "If you own 100% and give 20% to an investor, you now own 80% — you've been diluted."}, {"question": "Venture capital is best for:", "options": ["High-growth startups that can scale rapidly", "Any small business", "Lifestyle businesses", "Sole proprietorships"], "correct": 0, "explanation": "VCs expect explosive growth and big returns — not suitable for every business."}]},
-        {"title": "Leadership and Teams", "content": "Leadership sets vision, motivates, makes hard decisions. Styles: servant (team first), transformational (inspire to exceed), situational (adapt to situation). Build strong teams: hire for attitude, train for skills. Culture: clear communication, recognition, growth opportunities. Delegation is essential — trust your team.", "examples": ["Team succeeds: 'We did it.' Failure: 'I take responsibility.'", "Celebrate wins, support during tough times", "Delegate design to designer, focus on strategy yourself"], "keyTerms": {"leadership": "Guiding and inspiring a team toward goals", "delegation": "Assigning responsibilities and trusting delivery", "company culture": "Shared values and behaviors within organization", "servant leadership": "Prioritizing team needs to enable their success"}, "quiz": [{"question": "Servant leadership:", "options": ["Putting team's needs first", "Being served", "Doing everything yourself", "Only profits"], "correct": 0, "explanation": "Lead by supporting."}, {"question": "Delegation importance:", "options": ["Can't do everything as business grows", "Being lazy", "No guidance needed", "Reduces quality"], "correct": 0, "explanation": "Focus on strategy while team handles their areas."}, {"question": "When hiring, prioritize:", "options": ["Attitude and values — skills trainable", "Only technical skills", "Only experience", "Only degrees"], "correct": 0, "explanation": "Attitude is hard to change; skills can be taught."}, {"question": "Company culture is:", "options": ["How the team works together, communicates, and treats each other", "Just the office decoration", "Only the CEO's personality", "The same at every company"], "correct": 0, "explanation": "Culture defines daily work experience — it attracts and retains great people."}, {"question": "A good leader handles failure by:", "options": ["Taking responsibility, learning, and helping the team improve", "Blaming team members", "Ignoring the problem", "Punishing everyone involved"], "correct": 0, "explanation": "Accountability builds trust; blame destroys it."}]},
-        {"title": "Innovation and Staying Competitive", "content": "Markets change constantly — businesses that don't innovate die. Innovation isn't just invention — it can be a new process, business model, customer experience, or market approach. Listen to customers continuously: their complaints reveal opportunities. Watch industry trends: technology changes, regulatory shifts, social changes. Foster an innovation culture: encourage experimentation, accept that some failures are learning opportunities, reward creative thinking. Competitive moats protect your business: brand loyalty, network effects (more users = more value), switching costs (it's hard for customers to leave), proprietary technology, or cost advantages. The best defense is continuous improvement.", "examples": ["Netflix: from mailing DVDs to streaming to producing original content — constant reinvention", "Nokia had 50% of the phone market in 2007 — failed to innovate for smartphones and nearly disappeared", "Amazon's competitive moat: massive logistics network, Prime membership loyalty, and lowest prices through scale"], "keyTerms": {"innovation": "Creating new or improved products, processes, or business models", "competitive moat": "A sustainable advantage that protects your business from competitors", "network effects": "A product becomes more valuable as more people use it", "disruption": "When a new product or business model displaces established competitors"}, "quiz": [{"question": "Innovation can be:", "options": ["A new process, model, or experience — not just a new invention", "Only inventing new products", "Only using new technology", "Only for tech companies"], "correct": 0, "explanation": "Innovation includes new ways of doing, delivering, or organizing — not just new things."}, {"question": "Nokia's decline teaches:", "options": ["Even market leaders fail if they don't adapt to change", "Big companies can't fail", "Innovation is optional", "Phones don't change"], "correct": 0, "explanation": "Nokia dominated phones but missed the smartphone revolution — adaptability is everything."}, {"question": "Network effects means:", "options": ["A product becomes more valuable as more people use it", "Having a computer network", "Social networking only", "Internet speed"], "correct": 0, "explanation": "WhatsApp is valuable because everyone uses it — a new chat app with 2 users isn't useful."}, {"question": "A competitive moat protects by:", "options": ["Making it difficult for competitors to copy your advantage", "Having a literal moat around the office", "Keeping everything secret", "Reducing quality to cut costs"], "correct": 0, "explanation": "Moats (brand loyalty, network effects, technology) create sustainable advantages."}, {"question": "To foster innovation in your team:", "options": ["Encourage experimentation and accept some failures as learning", "Punish all mistakes", "Only follow proven methods", "Never try new things"], "correct": 0, "explanation": "Innovation requires risk — teams that fear failure never innovate."}]},
-        {"title": "Social Impact and Legacy", "content": "The most fulfilling businesses create lasting positive impact beyond profit. Think about your legacy: what problem did you solve? How many lives did you improve? What did you build that outlasts you? Measure impact alongside profit: jobs created, students educated, farmers connected to markets, carbon emissions reduced. Consider how your business affects the community: does it create employment? Does it develop skills? Does it solve an important local problem? Businesses that contribute to their communities earn loyalty and trust. The best entrepreneurs see profit as fuel for impact, not the end goal. Build something that matters — something you're proud of. Your business is your contribution to the world.", "examples": ["Safaricom (M-Pesa): transformed financial access for millions of unbanked people across Africa", "A local entrepreneur trains 50 young people in digital skills each year — creating employment and reducing poverty", "Otic Studio: bringing AI-powered education to students who can't access the internet — democratizing learning"], "keyTerms": {"social impact": "The positive effect a business has on society and communities", "legacy": "The lasting contribution your business makes beyond your involvement", "stakeholders": "All people affected by your business: customers, employees, community, environment", "corporate social responsibility": "A business's commitment to contributing positively to society"}, "quiz": [{"question": "The most fulfilling businesses:", "options": ["Create lasting positive impact alongside profit", "Only maximize profit", "Ignore their community", "Focus only on shareholders"], "correct": 0, "explanation": "Purpose-driven businesses attract loyal customers, motivated employees, and personal satisfaction."}, {"question": "Measuring impact means:", "options": ["Tracking social outcomes alongside financial results", "Only counting money", "Ignoring social effects", "Only measuring environmental impact"], "correct": 0, "explanation": "Jobs created, people served, problems solved — impact metrics complement financial metrics."}, {"question": "Stakeholders include:", "options": ["Everyone affected: customers, employees, community, environment", "Only shareholders", "Only customers", "Only the founder"], "correct": 0, "explanation": "A business impacts many groups — responsible entrepreneurs consider all of them."}, {"question": "Profit should be seen as:", "options": ["Fuel for creating more impact — a means, not just an end", "The only goal", "Unimportant", "Something to avoid"], "correct": 0, "explanation": "Profit sustains the business so it can continue creating value and impact."}, {"question": "Your business legacy is:", "options": ["The lasting positive change you created in the world", "How much money you made", "How famous you became", "How big your office was"], "correct": 0, "explanation": "The problems you solved, the lives you improved, the opportunities you created — that's your legacy."}]}
-      ]
-    }
-  ]
+    "id":  "entrepreneurship",
+    "name":  "Entrepreneurship",
+    "icon":  "trending_up",
+    "color":  "#F59E0B",
+    "units":  [
+                  {
+                      "title":  "Business Ideas",
+                      "lessons":  [
+                                      {
+                                          "title":  "Finding Problems Worth Solving",
+                                          "content":  "Every successful business starts by solving a real problem. Look around: what frustrates people? What takes too long? What\u0027s missing? The best ideas come from personal experience. Validate before building: talk to potential customers, ask if they\u0027d pay. A good problem is painful (people want it fixed), frequent (happens often), and monetizable (people will pay).",
+                                          "examples":  [
+                                                           "M-Pesa solved sending money without bank accounts",
+                                                           "Uber solved finding reliable transport",
+                                                           "A student built a crop disease ID app from personal observation"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "problem-solution fit":  "When your solution addresses a real customer problem",
+                                                           "validation":  "Testing if customers want and will pay for your solution",
+                                                           "pain point":  "A frustration potential customers experience",
+                                                           "iteration":  "Repeatedly improving your idea based on feedback"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Best business ideas come from:",
+                                                           "options":  [
+                                                                           "Copying others",
+                                                                           "Real problems people face",
+                                                                           "Random brainstorming",
+                                                                           "What sounds cool"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Solve real, painful problems."
+                                                       },
+                                                       {
+                                                           "question":  "Validation means:",
+                                                           "options":  [
+                                                                           "Getting a license",
+                                                                           "Testing if customers want your solution",
+                                                                           "Building the product",
+                                                                           "Hiring staff"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Confirm demand before investing."
+                                                       },
+                                                       {
+                                                           "question":  "A good problem to solve is:",
+                                                           "options":  [
+                                                                           "Only for rich people",
+                                                                           "Rare and unusual",
+                                                                           "Painful, frequent, and people will pay",
+                                                                           "Already solved"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Common, painful, with paying customers."
+                                                       },
+                                                       {
+                                                           "question":  "Why validate before building?",
+                                                           "options":  [
+                                                                           "It\u0027s legally required",
+                                                                           "To avoid wasting time and money on something nobody wants",
+                                                                           "To copy competitors",
+                                                                           "To get funding"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Many startups fail because they build before confirming demand."
+                                                       },
+                                                       {
+                                                           "question":  "Iteration means:",
+                                                           "options":  [
+                                                                           "Giving up after failure",
+                                                                           "Building once perfectly",
+                                                                           "Copying competitors exactly",
+                                                                           "Repeatedly improving based on feedback"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Successful entrepreneurs iterate — test, learn, improve, repeat."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Market Research",
+                                          "content":  "Market research helps you understand customers and competition. Primary research: surveys, interviews, observation. Secondary: existing reports, statistics. Know your target market: demographics (age, income), psychographics (interests, values), behaviors (habits). Study competitors: strengths, weaknesses, gaps. Your competitive advantage makes you different.",
+                                          "examples":  [
+                                                           "Survey 50 potential customers about willingness to pay",
+                                                           "Visit competitors to observe pricing and service",
+                                                           "Target: university students 18-25 needing affordable meals"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "target market":  "Specific group most likely to buy",
+                                                           "competitive advantage":  "What makes you different and better",
+                                                           "demographics":  "Population stats: age, gender, income",
+                                                           "SWOT":  "Strengths, Weaknesses, Opportunities, Threats analysis"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Primary research:",
+                                                           "options":  [
+                                                                           "Gathering data yourself",
+                                                                           "Reading reports",
+                                                                           "Guessing",
+                                                                           "Copying competitors"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Collect original data directly."
+                                                       },
+                                                       {
+                                                           "question":  "Study competitors to:",
+                                                           "options":  [
+                                                                           "Report them",
+                                                                           "Copy everything",
+                                                                           "Find gaps to fill",
+                                                                           "Not important"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Understand what\u0027s missing in the market."
+                                                       },
+                                                       {
+                                                           "question":  "Competitive advantage:",
+                                                           "options":  [
+                                                                           "Biggest company",
+                                                                           "Lowest price always",
+                                                                           "What makes you different and better",
+                                                                           "Most employees"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Could be quality, convenience, innovation."
+                                                       },
+                                                       {
+                                                           "question":  "SWOT analysis examines:",
+                                                           "options":  [
+                                                                           "Staff, Work, Output, Time",
+                                                                           "Sales, Wages, Orders, Taxes",
+                                                                           "Strengths, Weaknesses, Opportunities, Threats",
+                                                                           "Strategy, Winners, Outcomes, Targets"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "SWOT helps evaluate your business position from four angles."
+                                                       },
+                                                       {
+                                                           "question":  "Psychographics include:",
+                                                           "options":  [
+                                                                           "Interests, values, lifestyle, and attitudes",
+                                                                           "Age and gender only",
+                                                                           "Income only",
+                                                                           "Location only"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Psychographics go beyond demographics to understand WHY people buy."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Value Proposition",
+                                          "content":  "A value proposition explains why customers should choose you. It answers: What? Who? Why better? Keep it simple — explainable in 30 seconds. Focus on benefits (what customer gains), not features (what product does). Test: do potential customers nod and say \u0027I need that\u0027?",
+                                          "examples":  [
+                                                           "M-Pesa: \u0027Send money instantly — no bank account needed\u0027",
+                                                           "Feature: GPS tracking. Benefit: Know where your delivery is",
+                                                           "Strong: \u0027Comfortable shoes for people who stand all day\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "value proposition":  "Why customers should choose you",
+                                                           "benefit":  "What customer gains",
+                                                           "feature":  "Product characteristic",
+                                                           "elevator pitch":  "30-second explanation of your business value"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Value proposition focuses on:",
+                                                           "options":  [
+                                                                           "Technical specs",
+                                                                           "Product features",
+                                                                           "Company history",
+                                                                           "Customer benefits"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Customers care about what they gain."
+                                                       },
+                                                       {
+                                                           "question":  "Explainable in:",
+                                                           "options":  [
+                                                                           "30 seconds or less",
+                                                                           "30 minutes",
+                                                                           "10 pages",
+                                                                           "Doesn\u0027t matter"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Quick and clear."
+                                                       },
+                                                       {
+                                                           "question":  "Feature vs benefit:",
+                                                           "options":  [
+                                                                           "Feature is what it does; benefit is what customer gains",
+                                                                           "Same thing",
+                                                                           "Benefits are technical",
+                                                                           "Features are for customers"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Feature: 10hr battery. Benefit: Use all day without charging."
+                                                       },
+                                                       {
+                                                           "question":  "An elevator pitch is:",
+                                                           "options":  [
+                                                                           "A written business plan",
+                                                                           "A presentation in an elevator",
+                                                                           "A brief, persuasive summary of your business",
+                                                                           "A financial forecast"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "30-60 seconds to explain your value — as if in an elevator with an investor."
+                                                       },
+                                                       {
+                                                           "question":  "To test your value proposition:",
+                                                           "options":  [
+                                                                           "Skip testing",
+                                                                           "Just launch and hope",
+                                                                           "Ask only friends and family",
+                                                                           "Talk to potential customers and see if they want it"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Real feedback from strangers in your target market is the true test."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Lean Startup Method",
+                                          "content":  "The Lean Startup approach minimizes waste by building small, testing fast, and learning continuously. The Build-Measure-Learn loop: build a minimum product, measure how customers respond, learn from the data, and decide whether to pivot (change direction) or persevere (continue). An MVP (Minimum Viable Product) is the simplest version that tests your core hypothesis. Don\u0027t spend months building — launch in weeks with basic features, get real feedback. Validated learning means using data from real customers to make decisions, not assumptions. Pivot when evidence shows your original idea isn\u0027t working — many successful companies pivoted: YouTube started as a dating site, Instagram started as a check-in app.",
+                                          "examples":  [
+                                                           "Dropbox MVP: just a demo video showing the concept — 75,000 signups before any code was built",
+                                                           "Build-Measure-Learn: launch a food delivery service in one neighborhood → measure orders/feedback → adjust before expanding",
+                                                           "Pivot: Slack was originally a gaming company — the internal chat tool they built became the real product"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "lean startup":  "A method of developing businesses through validated learning and rapid experimentation",
+                                                           "Build-Measure-Learn":  "The continuous loop: build MVP, measure customer response, learn and adapt",
+                                                           "pivot":  "Fundamentally changing your business direction based on customer feedback",
+                                                           "validated learning":  "Using real customer data to make decisions instead of assumptions"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The Lean Startup loop is:",
+                                                           "options":  [
+                                                                           "Plan-Build-Sell",
+                                                                           "Build-Measure-Learn",
+                                                                           "Design-Develop-Deploy",
+                                                                           "Research-Write-Publish"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Build something small, measure response, learn, repeat."
+                                                       },
+                                                       {
+                                                           "question":  "An MVP is:",
+                                                           "options":  [
+                                                                           "The final complete product",
+                                                                           "The simplest version that tests your core hypothesis",
+                                                                           "A business plan document",
+                                                                           "A marketing campaign"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "MVP = minimum features to test if your idea works with real customers."
+                                                       },
+                                                       {
+                                                           "question":  "Pivoting means:",
+                                                           "options":  [
+                                                                           "Changing direction based on evidence your idea isn\u0027t working",
+                                                                           "Giving up completely",
+                                                                           "Copying a competitor",
+                                                                           "Adding more features"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Pivots are strategic changes, not failures — they\u0027re guided by customer data."
+                                                       },
+                                                       {
+                                                           "question":  "Validated learning uses:",
+                                                           "options":  [
+                                                                           "Real customer data to make decisions",
+                                                                           "Assumptions and guesses",
+                                                                           "Only expert opinions",
+                                                                           "No data at all"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Don\u0027t assume — let real customer behavior guide your decisions."
+                                                       },
+                                                       {
+                                                           "question":  "Dropbox validated demand by:",
+                                                           "options":  [
+                                                                           "Building the complete product first",
+                                                                           "Creating a demo video before building the product — 75,000 signups",
+                                                                           "Running expensive TV ads",
+                                                                           "Hiring a large sales team"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "They proved demand with a video MVP — smart validation before heavy investment."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Social Entrepreneurship",
+                                          "content":  "Social entrepreneurship uses business methods to solve social and environmental problems. Unlike traditional charities that rely on donations, social enterprises generate revenue while creating positive impact. The double/triple bottom line: People (social impact), Planet (environmental sustainability), Profit (financial viability). Impact measurement: track not just revenue but also lives improved, trees planted, or students educated. Examples span every sector: education (affordable schools), healthcare (low-cost diagnostics), agriculture (fair trade), energy (solar for rural areas), and financial inclusion (microfinance). Many social enterprises start locally — solving a community problem — then scale to other regions. Funding sources include impact investors (who accept lower financial returns for social impact), grants, and revenue from the business itself.",
+                                          "examples":  [
+                                                           "BRAC (Bangladesh): world\u0027s largest NGO operating schools, microfinance, and healthcare — serving 100 million people",
+                                                           "d.light: affordable solar lights for off-grid communities — replacing dangerous kerosene lamps",
+                                                           "Kiva: microfinance platform connecting lenders worldwide with entrepreneurs in developing countries"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "social enterprise":  "A business that prioritizes social/environmental impact alongside profit",
+                                                           "triple bottom line":  "Measuring success by People, Planet, and Profit — not profit alone",
+                                                           "impact investing":  "Investment seeking both financial returns and positive social/environmental impact",
+                                                           "microfinance":  "Small loans to entrepreneurs who lack access to traditional banking"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Social entrepreneurship differs from charity because:",
+                                                           "options":  [
+                                                                           "It generates revenue while creating social impact",
+                                                                           "It only focuses on profit",
+                                                                           "It doesn\u0027t help people",
+                                                                           "It requires government funding only"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Social enterprises are self-sustaining through revenue, not dependent on donations."
+                                                       },
+                                                       {
+                                                           "question":  "The triple bottom line measures:",
+                                                           "options":  [
+                                                                           "Local, National, and Global",
+                                                                           "Revenue, Cost, and Profit",
+                                                                           "Past, Present, and Future",
+                                                                           "People, Planet, and Profit"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Success is measured across social impact, environmental sustainability, AND financial viability."
+                                                       },
+                                                       {
+                                                           "question":  "Impact investors:",
+                                                           "options":  [
+                                                                           "Only fund tech startups",
+                                                                           "Only want maximum profit",
+                                                                           "Don\u0027t invest money",
+                                                                           "Accept lower financial returns for social/environmental impact"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Impact investors prioritize positive change alongside reasonable financial returns."
+                                                       },
+                                                       {
+                                                           "question":  "An example of social entrepreneurship:",
+                                                           "options":  [
+                                                                           "A luxury car brand",
+                                                                           "Affordable solar lights for off-grid communities",
+                                                                           "A hedge fund",
+                                                                           "A fast food chain"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "d.light provides affordable solar lighting — solving energy poverty while earning revenue."
+                                                       },
+                                                       {
+                                                           "question":  "Social enterprises often start by:",
+                                                           "options":  [
+                                                                           "Copying existing charities",
+                                                                           "Going global immediately",
+                                                                           "Raising billions first",
+                                                                           "Solving a local community problem, then scaling to other areas"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Start local, prove the model works, then expand — just like any startup."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Planning",
+                      "lessons":  [
+                                      {
+                                          "title":  "Business Model Canvas",
+                                          "content":  "The Business Model Canvas is a one-page tool with 9 blocks: Customer Segments, Value Proposition, Channels, Customer Relationships, Revenue Streams, Key Resources, Key Activities, Key Partnerships, Cost Structure. Fill it out to see your entire business at a glance. Update as you learn more.",
+                                          "examples":  [
+                                                           "Bakery: Customers = families, Value = fresh bread, Channel = shop + delivery, Revenue = sales",
+                                                           "Key Resources: tutors, materials, venue",
+                                                           "Revenue: sales, subscriptions, commissions, licensing"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "business model":  "How a company creates and captures value",
+                                                           "revenue stream":  "How business earns money",
+                                                           "customer segment":  "Group of people you serve",
+                                                           "channel":  "How you reach and deliver to customers"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Canvas blocks:",
+                                                           "options":  [
+                                                                           "9",
+                                                                           "5",
+                                                                           "12",
+                                                                           "3"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "9 blocks covering all business aspects."
+                                                       },
+                                                       {
+                                                           "question":  "Revenue stream:",
+                                                           "options":  [
+                                                                           "How much you spend",
+                                                                           "How you make money",
+                                                                           "Customer list",
+                                                                           "Marketing plan"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Each way money comes in."
+                                                       },
+                                                       {
+                                                           "question":  "Canvas purpose:",
+                                                           "options":  [
+                                                                           "See entire business on one page",
+                                                                           "Replace business plan",
+                                                                           "Impress investors",
+                                                                           "Legal requirement"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Quick visual overview."
+                                                       },
+                                                       {
+                                                           "question":  "Channels in the canvas refer to:",
+                                                           "options":  [
+                                                                           "Social media only",
+                                                                           "TV channels",
+                                                                           "How you reach customers and deliver your product",
+                                                                           "Physical stores only"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "All the ways you communicate with and deliver value to customers."
+                                                       },
+                                                       {
+                                                           "question":  "The canvas should be:",
+                                                           "options":  [
+                                                                           "Only for investors",
+                                                                           "Written once and never changed",
+                                                                           "Secret from the team",
+                                                                           "Updated regularly as you learn from customers"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "A living document that evolves with your business understanding."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Financial Planning",
+                                          "content":  "Revenue = money in from sales. Costs: fixed (rent, salaries — same monthly) and variable (materials — change with sales). Profit = Revenue - Costs. Break-even: revenue equals costs. Budget forecasts income and expenses. Cash flow = timing of money in/out — profitable businesses can fail if cash runs out. Start lean: minimize costs until proven.",
+                                          "examples":  [
+                                                           "Revenue 500K, fixed 200K, variable 150K, profit 150K",
+                                                           "Break-even: 5000/cake cost, 3000/cake variable, 50K fixed → 25 cakes",
+                                                           "Cash flow: delivered 1M goods but customer pays in 60 days — can\u0027t buy materials"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "profit":  "Revenue minus all costs",
+                                                           "break-even":  "Revenue equals costs — no profit or loss",
+                                                           "cash flow":  "Movement of money in and out",
+                                                           "fixed costs":  "Costs that don\u0027t change with sales volume (rent, insurance)"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Profit:",
+                                                           "options":  [
+                                                                           "Revenue times costs",
+                                                                           "Revenue plus costs",
+                                                                           "Revenue minus costs",
+                                                                           "Costs minus revenue"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "What\u0027s left after paying everything."
+                                                       },
+                                                       {
+                                                           "question":  "Fixed costs:",
+                                                           "options":  [
+                                                                           "Always low",
+                                                                           "Change with sales",
+                                                                           "One-time",
+                                                                           "Same regardless of sales"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Rent is the same whether you sell 1 or 100."
+                                                       },
+                                                       {
+                                                           "question":  "Cash flow importance:",
+                                                           "options":  [
+                                                                           "Only for big companies",
+                                                                           "Not important",
+                                                                           "Profitable business can fail without cash",
+                                                                           "Same as profit"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Bills are due NOW but income may come LATER."
+                                                       },
+                                                       {
+                                                           "question":  "Variable costs change with:",
+                                                           "options":  [
+                                                                           "Time of year",
+                                                                           "Sales volume — more sales = more variable costs",
+                                                                           "Company age",
+                                                                           "Number of employees always"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Materials, shipping, commissions increase as you sell more."
+                                                       },
+                                                       {
+                                                           "question":  "Starting lean means:",
+                                                           "options":  [
+                                                                           "Minimize spending until the business model is proven",
+                                                                           "Spending nothing ever",
+                                                                           "Borrowing as much as possible",
+                                                                           "Hiring a large team immediately"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Keep costs low while testing — scale spending only after validating the model."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Legal Basics",
+                                          "content":  "Business structures: sole proprietorship (simplest, personal liability), partnership (shared ownership), company/corporation (separate entity, protects personal assets). Get permits and licenses. Protect IP: trademarks (brand), patents (inventions), copyrights (creative works). Always put agreements in writing. Register for taxes, keep records.",
+                                          "examples":  [
+                                                           "Sole proprietorship: easiest but personally liable for debts",
+                                                           "Limited company: business fails, personal house is safe",
+                                                           "Trademark: competitors can\u0027t use your brand name"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "sole proprietorship":  "One-person business, no legal separation",
+                                                           "limited company":  "Separate legal entity protecting personal assets",
+                                                           "intellectual property":  "Legal rights: trademarks, patents, copyrights",
+                                                           "contract":  "A legally binding written agreement between parties"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Protects personal assets:",
+                                                           "options":  [
+                                                                           "Limited company",
+                                                                           "Sole proprietorship",
+                                                                           "Partnership",
+                                                                           "None"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Separate legal entity."
+                                                       },
+                                                       {
+                                                           "question":  "Trademark protects:",
+                                                           "options":  [
+                                                                           "Inventions",
+                                                                           "Brand names and logos",
+                                                                           "Songs",
+                                                                           "Financial records"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Brand identity."
+                                                       },
+                                                       {
+                                                           "question":  "Written agreements:",
+                                                           "options":  [
+                                                                           "Waste paper",
+                                                                           "Not necessary",
+                                                                           "Prevent disputes and provide legal proof",
+                                                                           "Only for big deals"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Enforceable and clear."
+                                                       },
+                                                       {
+                                                           "question":  "A patent protects:",
+                                                           "options":  [
+                                                                           "Business names",
+                                                                           "Brand names",
+                                                                           "Written works",
+                                                                           "Inventions and novel processes"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Patents protect new inventions for a limited period (usually 20 years)."
+                                                       },
+                                                       {
+                                                           "question":  "When should you register your business?",
+                                                           "options":  [
+                                                                           "Never",
+                                                                           "After the first year",
+                                                                           "Only if profitable",
+                                                                           "Before starting operations — it\u0027s a legal requirement in most places"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Registration makes your business legal and may be required for bank accounts and contracts."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Writing a Business Plan",
+                                          "content":  "A business plan is a detailed document outlining your business strategy. Key sections: Executive Summary (one-page overview — write last), Company Description (what you do, mission, vision), Market Analysis (industry, target market, competitors), Products/Services (what you offer, unique features), Marketing Strategy (how you\u0027ll reach customers), Operations Plan (how you\u0027ll deliver), Team (who\u0027s involved and their skills), Financial Projections (revenue, costs, profit for 3-5 years), and Funding Request (if seeking investment). Keep it concise: 15-25 pages. Update it yearly. A business plan isn\u0027t just for investors — it forces you to think through every aspect of your business. Many entrepreneurs skip this and regret it when problems arise that they could have anticipated.",
+                                          "examples":  [
+                                                           "Executive summary: \u0027FarmFresh delivers organic produce from local farms to urban doorsteps within 2 hours. We target health-conscious professionals in Kampala. Year 1 revenue: 200M UGX.\u0027",
+                                                           "Financial projection: Month 1-3: loss (building customer base). Month 4-6: break even. Month 7-12: profit.",
+                                                           "Team section: \u0027CEO: 5 years agribusiness. CTO: built 3 apps. CMO: 4 years digital marketing.\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "executive summary":  "A one-page overview of the entire business plan — written last, read first",
+                                                           "financial projections":  "Estimated revenue, costs, and profit for the next 3-5 years",
+                                                           "mission statement":  "A brief declaration of the business\u0027s purpose and values",
+                                                           "operations plan":  "How the business will produce and deliver its product or service"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The executive summary should be written:",
+                                                           "options":  [
+                                                                           "Last — after all other sections are complete",
+                                                                           "First — before anything else",
+                                                                           "Never — it\u0027s optional",
+                                                                           "Only for investors"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Write it last because it summarizes everything — but it\u0027s read first by investors."
+                                                       },
+                                                       {
+                                                           "question":  "A business plan is typically:",
+                                                           "options":  [
+                                                                           "Only the financial section",
+                                                                           "1 page",
+                                                                           "100+ pages",
+                                                                           "15-25 pages covering all key business aspects"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Concise but comprehensive — covering market, product, team, financials, and strategy."
+                                                       },
+                                                       {
+                                                           "question":  "Financial projections should cover:",
+                                                           "options":  [
+                                                                           "3-5 years of estimated revenue, costs, and profit",
+                                                                           "Only the first month",
+                                                                           "Only profit",
+                                                                           "Exact numbers guaranteed"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "3-5 year projections show growth trajectory — they\u0027re estimates, not guarantees."
+                                                       },
+                                                       {
+                                                           "question":  "Why write a business plan even without investors?",
+                                                           "options":  [
+                                                                           "It guarantees success",
+                                                                           "It\u0027s legally required",
+                                                                           "It forces you to think through every aspect and anticipate problems",
+                                                                           "It\u0027s only for large companies"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Planning reveals gaps and risks you might miss — better to find them on paper than in reality."
+                                                       },
+                                                       {
+                                                           "question":  "The market analysis section should include:",
+                                                           "options":  [
+                                                                           "Industry trends, target market size, and competitor analysis",
+                                                                           "Only your product description",
+                                                                           "Only financial data",
+                                                                           "Only the team bios"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Show you understand the market: its size, trends, your target customers, and how you differ from competitors."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Pitching to Investors",
+                                          "content":  "A pitch deck is a 10-15 slide presentation to convince investors to fund your business. Essential slides: Problem (the pain you solve), Solution (your product), Market Size (how big the opportunity is), Business Model (how you make money), Traction (proof it works — users, revenue, growth), Team (why you\u0027re the right people), Competition (your advantage), Financials (projections and funding needs), and The Ask (how much money, what you\u0027ll use it for). Keep each slide simple — one key point per slide. Practice your pitch: aim for 10 minutes presentation + 10 minutes Q\u0026A. Know your numbers cold. Show passion but be realistic. Investors bet on teams as much as ideas — show you can execute.",
+                                          "examples":  [
+                                                           "Problem slide: \u0027In Uganda, 40% of farm produce is lost post-harvest due to lack of cold storage\u0027",
+                                                           "Traction: \u0027500 users in 3 months, 30% month-over-month growth, 4.8/5 user rating\u0027",
+                                                           "The Ask: \u0027We\u0027re raising $100K for 10% equity to expand to 3 new cities and hire 5 delivery drivers\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "pitch deck":  "A brief presentation to persuade investors to fund your business",
+                                                           "traction":  "Evidence that your business is working — users, revenue, growth metrics",
+                                                           "equity":  "Ownership share in the company offered to investors in exchange for funding",
+                                                           "due diligence":  "The investigation investors do before committing money"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "A pitch deck should be:",
+                                                           "options":  [
+                                                                           "1 slide only",
+                                                                           "100 slides with maximum detail",
+                                                                           "10-15 slides with one key point per slide",
+                                                                           "A written essay"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Keep it concise — investors have short attention spans. One idea per slide."
+                                                       },
+                                                       {
+                                                           "question":  "Traction shows investors:",
+                                                           "options":  [
+                                                                           "That you have a nice logo",
+                                                                           "Proof that the business is working — real users, revenue, growth",
+                                                                           "Your educational background",
+                                                                           "How many employees you have"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Numbers don\u0027t lie — traction is the strongest evidence of potential."
+                                                       },
+                                                       {
+                                                           "question":  "Investors bet on:",
+                                                           "options":  [
+                                                                           "Only the technology",
+                                                                           "Only the idea",
+                                                                           "Only the market size",
+                                                                           "Teams as much as ideas — execution ability matters hugely"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "A great team with a good idea beats a mediocre team with a great idea."
+                                                       },
+                                                       {
+                                                           "question":  "The Ask slide should include:",
+                                                           "options":  [
+                                                                           "How much money you need and exactly what you\u0027ll use it for",
+                                                                           "Just a large number",
+                                                                           "No specific amount",
+                                                                           "Your company\u0027s history"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Be specific: \u0027$100K for hiring, marketing, and inventory — here\u0027s the breakdown.\u0027"
+                                                       },
+                                                       {
+                                                           "question":  "During Q\u0026A, if you don\u0027t know an answer:",
+                                                           "options":  [
+                                                                           "Make something up",
+                                                                           "Be honest and say you\u0027ll follow up with the answer",
+                                                                           "Change the subject",
+                                                                           "End the meeting"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Honesty builds trust. \u0027Great question — I\u0027ll research that and get back to you by Friday.\u0027"
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Execution",
+                      "lessons":  [
+                                      {
+                                          "title":  "Marketing and Branding",
+                                          "content":  "Marketing attracts customers. 4 Ps: Product, Price, Place, Promotion. Branding is identity: name, logo, colors, tone. Digital marketing: social media, content, email, SEO. Word of mouth is most powerful — deliver great experience.",
+                                          "examples":  [
+                                                           "Instagram: product photos with stories and hashtags",
+                                                           "Coca-Cola: same red color and font worldwide",
+                                                           "Tag us for 10% off next visit — encourages sharing"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "branding":  "Business identity and perception",
+                                                           "marketing mix":  "Product, Price, Place, Promotion",
+                                                           "SEO":  "Search Engine Optimization",
+                                                           "content marketing":  "Creating valuable content to attract and retain customers"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "4 Ps:",
+                                                           "options":  [
+                                                                           "People, Process, Performance, Profit",
+                                                                           "Product, Price, Place, Promotion",
+                                                                           "Plan, Produce, Package, Post",
+                                                                           "Position, Push, Pull, Profit"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "The marketing mix."
+                                                       },
+                                                       {
+                                                           "question":  "Branding is:",
+                                                           "options":  [
+                                                                           "Product price",
+                                                                           "Just logo",
+                                                                           "Identity and perception",
+                                                                           "Office location"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Everything: name, logo, colors, values, feelings."
+                                                       },
+                                                       {
+                                                           "question":  "Most powerful marketing:",
+                                                           "options":  [
+                                                                           "Word of mouth",
+                                                                           "TV ads",
+                                                                           "Billboards",
+                                                                           "Cold calling"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "People trust friends\u0027 recommendations most."
+                                                       },
+                                                       {
+                                                           "question":  "Content marketing means:",
+                                                           "options":  [
+                                                                           "Cold emailing strangers",
+                                                                           "Buying advertisements",
+                                                                           "Creating valuable content that attracts customers",
+                                                                           "Printing flyers only"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Blog posts, videos, guides that provide value and build trust."
+                                                       },
+                                                       {
+                                                           "question":  "SEO helps by:",
+                                                           "options":  [
+                                                                           "Making your website appear higher in Google search results",
+                                                                           "Sending emails faster",
+                                                                           "Making products cheaper",
+                                                                           "Designing logos"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Better SEO = more people find you when searching for what you offer."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Sales and Customer Service",
+                                          "content":  "Sales funnel: Awareness → Interest → Decision → Action. Listen more than talk. Handle objections calmly. Customer service keeps them coming back — it costs 5-7x more to get new customers than keep existing ones. Respond quickly, solve problems, exceed expectations.",
+                                          "examples":  [
+                                                           "Funnel: 1000 see ad → 100 visit → 30 try → 10 buy",
+                                                           "\u0027Too expensive\u0027 → explain the value and savings",
+                                                           "Damaged order: immediate replacement + discount code"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "sales funnel":  "Journey from awareness to purchase",
+                                                           "objection handling":  "Responding to customer hesitations",
+                                                           "customer retention":  "Keeping customers returning",
+                                                           "lifetime value":  "Total revenue from one customer over their entire relationship"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Sales funnel stages:",
+                                                           "options":  [
+                                                                           "Product → Price → Place → Promotion",
+                                                                           "Action → Decision → Interest → Awareness",
+                                                                           "Awareness → Interest → Decision → Action",
+                                                                           "Research → Build → Test → Launch"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Customers move through stages."
+                                                       },
+                                                       {
+                                                           "question":  "New vs existing customer cost:",
+                                                           "options":  [
+                                                                           "Existing costs more",
+                                                                           "Same cost",
+                                                                           "New costs 5-7x more",
+                                                                           "10-20x more"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Retention is much cheaper."
+                                                       },
+                                                       {
+                                                           "question":  "When customer says \u0027too expensive\u0027:",
+                                                           "options":  [
+                                                                           "Lower price immediately",
+                                                                           "Explain the value",
+                                                                           "Argue",
+                                                                           "Ignore them"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Show how it saves time, money, or solves their problem."
+                                                       },
+                                                       {
+                                                           "question":  "Customer lifetime value (LTV) matters because:",
+                                                           "options":  [
+                                                                           "It doesn\u0027t matter",
+                                                                           "It\u0027s just one purchase",
+                                                                           "It shows the total revenue one customer generates over time",
+                                                                           "It only applies to subscriptions"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "A customer who buys monthly for 2 years is worth more than one-time buyers."
+                                                       },
+                                                       {
+                                                           "question":  "Best response to a complaint:",
+                                                           "options":  [
+                                                                           "Ignore the complaint",
+                                                                           "Argue with the customer",
+                                                                           "Listen, apologize, solve quickly, and follow up",
+                                                                           "Blame the customer"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Fast, empathetic resolution often turns unhappy customers into loyal advocates."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Operations Management",
+                                          "content":  "Operations is day-to-day running. Supply chain: reliable, affordable materials. Quality control: consistent standards. Inventory: too much wastes money, too little loses sales. Document processes so anyone can follow. Time management: Eisenhower Matrix — important+urgent first. Hire people who share your values and complement your skills.",
+                                          "examples":  [
+                                                           "Bakery process: 5am dough, 6am bake, 8am display — documented for any staff",
+                                                           "Track which products sell fastest, restock those more",
+                                                           "Technical founder → hire someone strong in sales"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "supply chain":  "Network delivering your product",
+                                                           "quality control":  "Ensuring consistent standards",
+                                                           "inventory management":  "Tracking stock levels",
+                                                           "process documentation":  "Written steps anyone can follow"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Document processes because:",
+                                                           "options":  [
+                                                                           "Only for large companies",
+                                                                           "Waste of time",
+                                                                           "Anyone can follow them consistently",
+                                                                           "To impress investors"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "New employees can follow documented steps."
+                                                       },
+                                                       {
+                                                           "question":  "Too much inventory:",
+                                                           "options":  [
+                                                                           "Higher profit",
+                                                                           "Never run out",
+                                                                           "Money tied up unsold",
+                                                                           "Better quality"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Cash locked in unsold stock."
+                                                       },
+                                                       {
+                                                           "question":  "Eisenhower Matrix:",
+                                                           "options":  [
+                                                                           "Product design",
+                                                                           "Financial planning",
+                                                                           "Marketing strategy",
+                                                                           "Prioritize by importance and urgency"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Focus on what\u0027s important, not just urgent."
+                                                       },
+                                                       {
+                                                           "question":  "Quality control ensures:",
+                                                           "options":  [
+                                                                           "Products are made faster",
+                                                                           "Products are as cheap as possible",
+                                                                           "Every product meets your defined standard",
+                                                                           "Customers don\u0027t complain"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Consistent quality builds trust and reputation."
+                                                       },
+                                                       {
+                                                           "question":  "When hiring, prioritize:",
+                                                           "options":  [
+                                                                           "Only experience",
+                                                                           "Only technical skills",
+                                                                           "Attitude and cultural fit — skills can be trained",
+                                                                           "Only educational degrees"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Skills can be taught; attitude, values, and work ethic are much harder to change."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Digital Tools for Business",
+                                          "content":  "Technology levels the playing field — small businesses can compete with large ones using the right tools. Accounting: Wave, QuickBooks, or even Excel for tracking income and expenses. Communication: WhatsApp Business for customer messaging, Slack for team communication. Project management: Trello, Asana, or Notion for organizing tasks and deadlines. Payments: mobile money integration (M-Pesa, MTN Mobile Money), card payments (Stripe, PayStack). Social media management: scheduling posts with Buffer or Hootsuite. E-commerce: sell online through Shopify, WooCommerce, or social media shops. Analytics: Google Analytics for website traffic, social media insights for engagement. Most of these tools have free plans that are sufficient for startups.",
+                                          "examples":  [
+                                                           "WhatsApp Business: set up automated greetings, quick replies, and product catalogues — free",
+                                                           "Trello board: columns for \u0027To Do\u0027, \u0027In Progress\u0027, \u0027Done\u0027 — visual project tracking",
+                                                           "Mobile money: accept payments from customers\u0027 phones without any hardware — just an account number"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "WhatsApp Business":  "Free business messaging tool with catalogues and automated replies",
+                                                           "mobile money":  "Phone-based payment system widely used in Africa and Asia",
+                                                           "SaaS":  "Software as a Service — cloud-based tools accessed via subscription",
+                                                           "e-commerce":  "Buying and selling products or services online"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Digital tools help small businesses by:",
+                                                           "options":  [
+                                                                           "Only helping tech companies",
+                                                                           "Making them exactly like large corporations",
+                                                                           "Replacing all employees",
+                                                                           "Enabling them to compete with larger businesses at low cost"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Affordable tools give small businesses capabilities that once required large teams."
+                                                       },
+                                                       {
+                                                           "question":  "The best accounting tool for a brand new startup:",
+                                                           "options":  [
+                                                                           "The most expensive enterprise software",
+                                                                           "A free tool like Wave or even a well-organized spreadsheet",
+                                                                           "No tracking at all",
+                                                                           "Only a paper notebook"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Start free/cheap — upgrade as the business grows and needs become complex."
+                                                       },
+                                                       {
+                                                           "question":  "Mobile money is important because:",
+                                                           "options":  [
+                                                                           "It only works in one country",
+                                                                           "It\u0027s only for rich customers",
+                                                                           "It requires internet always",
+                                                                           "It enables payments for customers without bank accounts"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Mobile money reaches unbanked populations — critical in developing markets."
+                                                       },
+                                                       {
+                                                           "question":  "SaaS means:",
+                                                           "options":  [
+                                                                           "A type of hardware",
+                                                                           "Software you install once",
+                                                                           "Software accessed via the cloud on a subscription basis",
+                                                                           "A social media platform"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "SaaS = cloud software. No installation, pay monthly, access from anywhere."
+                                                       },
+                                                       {
+                                                           "question":  "Google Analytics helps you:",
+                                                           "options":  [
+                                                                           "Send emails",
+                                                                           "Design your website",
+                                                                           "Host your website",
+                                                                           "Understand how people find and use your website"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Analytics shows traffic sources, popular pages, and user behavior — data for better decisions."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Building a Brand Story",
+                                          "content":  "People don\u0027t just buy products — they buy stories. Your brand story connects emotionally with customers by sharing your mission, values, and journey. A compelling story has: a relatable origin (why you started), a clear mission (what you believe in), authentic values (what you stand for), and customer heroes (customers as the main characters, your product as the tool that helps them succeed). Be authentic — customers detect fake stories quickly. Share your story consistently across all channels: website, social media, packaging, customer interactions. Storytelling transforms a commodity into a brand people feel loyal to. Your story should answer: Why does this business exist beyond making money?",
+                                          "examples":  [
+                                                           "TOMS Shoes: \u0027For every pair you buy, we give a pair to a child in need\u0027 — the story IS the brand",
+                                                           "A local coffee roaster: \u0027We started when we couldn\u0027t find quality African coffee in our own city — so we partnered directly with farmers\u0027",
+                                                           "Otic Studio\u0027s story: \u0027Built for students in schools without internet — AI-powered learning that works completely offline\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "brand story":  "The narrative explaining why your business exists and what it stands for",
+                                                           "mission":  "The purpose of your business beyond profit",
+                                                           "authenticity":  "Being genuine and honest in brand communication",
+                                                           "emotional connection":  "Creating feelings of trust, belonging, or inspiration in customers"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "People buy stories because:",
+                                                           "options":  [
+                                                                           "Stories are required by law",
+                                                                           "Stories make products cheaper",
+                                                                           "Customers don\u0027t read descriptions",
+                                                                           "Stories create emotional connection and differentiate from competitors"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Emotion drives purchasing decisions more than features or price alone."
+                                                       },
+                                                       {
+                                                           "question":  "In your brand story, the hero should be:",
+                                                           "options":  [
+                                                                           "The investors",
+                                                                           "The founder",
+                                                                           "The product itself",
+                                                                           "The customer — your product is the tool that helps them succeed"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Customers are the heroes; your product enables their success."
+                                                       },
+                                                       {
+                                                           "question":  "Authenticity matters because:",
+                                                           "options":  [
+                                                                           "Customers quickly detect and reject fake stories",
+                                                                           "Fake stories are illegal",
+                                                                           "It reduces marketing costs",
+                                                                           "It\u0027s only for large brands"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Genuine stories build trust; fabricated ones destroy it."
+                                                       },
+                                                       {
+                                                           "question":  "Your brand story should answer:",
+                                                           "options":  [
+                                                                           "Why does this business exist beyond making money?",
+                                                                           "How much profit you make",
+                                                                           "How many employees you have",
+                                                                           "What technology you use"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Purpose and values resonate more than product specifications."
+                                                       },
+                                                       {
+                                                           "question":  "Brand stories should be shared:",
+                                                           "options":  [
+                                                                           "Consistently across all channels — website, social, packaging, conversations",
+                                                                           "Only on the website",
+                                                                           "Only when customers ask",
+                                                                           "Only in advertising"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Consistency builds recognition and trust — every touchpoint should reflect your story."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Growth",
+                      "lessons":  [
+                                      {
+                                          "title":  "Scaling Your Business",
+                                          "content":  "Scaling means growing revenue without proportionally increasing costs. Strategies: automate repetitive tasks, build systems that work without you, expand to new markets, create multiple revenue streams. Growing too fast can kill — ensure quality doesn\u0027t drop. Grow sustainably: strong foundation first.",
+                                          "examples":  [
+                                                           "Delivery service expands from 1 city to 3 using same app",
+                                                           "Auto-invoicing replaces manual work",
+                                                           "School sells courses, books, tutoring, and training"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "scaling":  "Growing revenue faster than costs",
+                                                           "automation":  "Technology performing repetitive tasks",
+                                                           "franchise":  "Others operating under your brand",
+                                                           "systems thinking":  "Building processes that work without you personally"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Scaling means:",
+                                                           "options":  [
+                                                                           "Growing revenue without proportionally increasing costs",
+                                                                           "Getting bigger",
+                                                                           "Hiring more",
+                                                                           "Raising prices"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Revenue grows faster than costs."
+                                                       },
+                                                       {
+                                                           "question":  "Growing too fast:",
+                                                           "options":  [
+                                                                           "Saves money",
+                                                                           "Always good",
+                                                                           "Quality drops, systems overwhelmed",
+                                                                           "Customers prefer it"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Rapid growth without infrastructure leads to problems."
+                                                       },
+                                                       {
+                                                           "question":  "Automation:",
+                                                           "options":  [
+                                                                           "Technology for repetitive tasks",
+                                                                           "Hiring robots",
+                                                                           "Firing everyone",
+                                                                           "Making everything manual"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Software handles invoicing, emails, data entry."
+                                                       },
+                                                       {
+                                                           "question":  "Multiple revenue streams protect you because:",
+                                                           "options":  [
+                                                                           "If one source declines, others keep the business alive",
+                                                                           "More streams = more work",
+                                                                           "One stream is always enough",
+                                                                           "It confuses customers"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Diversification reduces risk — don\u0027t depend on a single income source."
+                                                       },
+                                                       {
+                                                           "question":  "Systems thinking means:",
+                                                           "options":  [
+                                                                           "Thinking about computers",
+                                                                           "Building processes that work without you personally involved",
+                                                                           "Using only systems software",
+                                                                           "Ignoring human factors"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "If the business can\u0027t run without you, it\u0027s a job, not a business."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Funding and Investment",
+                                          "content":  "Capital sources: bootstrapping (own money, full control), loans (repay with interest, keep ownership), grants (free, competitive), angel investors (early equity), venture capital (significant equity for high-growth), crowdfunding (many small contributions). Choose based on stage, needs, and willingness to share control.",
+                                          "examples":  [
+                                                           "Bootstrap: start with 50K savings, reinvest profits",
+                                                           "Microfinance: borrow 500K at 15%, repay over 12 months",
+                                                           "Angel: $10K for 10% of startup"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "bootstrapping":  "Self-funding from savings and revenue",
+                                                           "equity":  "Ownership share given to investors",
+                                                           "venture capital":  "Professional firms funding high-growth startups",
+                                                           "dilution":  "Reduction in your ownership percentage when new investors join"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Bootstrapping:",
+                                                           "options":  [
+                                                                           "Government funding",
+                                                                           "Bank loan",
+                                                                           "Selling shares",
+                                                                           "Self-funding with savings and profits"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Keep full control, grow at own pace."
+                                                       },
+                                                       {
+                                                           "question":  "Angel investor:",
+                                                           "options":  [
+                                                                           "Free grant",
+                                                                           "Loan with interest",
+                                                                           "Money for equity (ownership)",
+                                                                           "Business advice only"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Personal investment for ownership share."
+                                                       },
+                                                       {
+                                                           "question":  "No-repayment funding:",
+                                                           "options":  [
+                                                                           "Credit cards",
+                                                                           "Bank loans",
+                                                                           "Microfinance",
+                                                                           "Grants"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Grants are free money for specific purposes."
+                                                       },
+                                                       {
+                                                           "question":  "Dilution means:",
+                                                           "options":  [
+                                                                           "Your ownership percentage decreases when new investors join",
+                                                                           "The business gets weaker",
+                                                                           "Products lose quality",
+                                                                           "Customers leave"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "If you own 100% and give 20% to an investor, you now own 80% — you\u0027ve been diluted."
+                                                       },
+                                                       {
+                                                           "question":  "Venture capital is best for:",
+                                                           "options":  [
+                                                                           "Any small business",
+                                                                           "High-growth startups that can scale rapidly",
+                                                                           "Lifestyle businesses",
+                                                                           "Sole proprietorships"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "VCs expect explosive growth and big returns — not suitable for every business."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Leadership and Teams",
+                                          "content":  "Leadership sets vision, motivates, makes hard decisions. Styles: servant (team first), transformational (inspire to exceed), situational (adapt to situation). Build strong teams: hire for attitude, train for skills. Culture: clear communication, recognition, growth opportunities. Delegation is essential — trust your team.",
+                                          "examples":  [
+                                                           "Team succeeds: \u0027We did it.\u0027 Failure: \u0027I take responsibility.\u0027",
+                                                           "Celebrate wins, support during tough times",
+                                                           "Delegate design to designer, focus on strategy yourself"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "leadership":  "Guiding and inspiring a team toward goals",
+                                                           "delegation":  "Assigning responsibilities and trusting delivery",
+                                                           "company culture":  "Shared values and behaviors within organization",
+                                                           "servant leadership":  "Prioritizing team needs to enable their success"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Servant leadership:",
+                                                           "options":  [
+                                                                           "Only profits",
+                                                                           "Being served",
+                                                                           "Doing everything yourself",
+                                                                           "Putting team\u0027s needs first"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Lead by supporting."
+                                                       },
+                                                       {
+                                                           "question":  "Delegation importance:",
+                                                           "options":  [
+                                                                           "Reduces quality",
+                                                                           "Being lazy",
+                                                                           "No guidance needed",
+                                                                           "Can\u0027t do everything as business grows"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Focus on strategy while team handles their areas."
+                                                       },
+                                                       {
+                                                           "question":  "When hiring, prioritize:",
+                                                           "options":  [
+                                                                           "Attitude and values — skills trainable",
+                                                                           "Only technical skills",
+                                                                           "Only experience",
+                                                                           "Only degrees"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Attitude is hard to change; skills can be taught."
+                                                       },
+                                                       {
+                                                           "question":  "Company culture is:",
+                                                           "options":  [
+                                                                           "How the team works together, communicates, and treats each other",
+                                                                           "Just the office decoration",
+                                                                           "Only the CEO\u0027s personality",
+                                                                           "The same at every company"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Culture defines daily work experience — it attracts and retains great people."
+                                                       },
+                                                       {
+                                                           "question":  "A good leader handles failure by:",
+                                                           "options":  [
+                                                                           "Ignoring the problem",
+                                                                           "Blaming team members",
+                                                                           "Taking responsibility, learning, and helping the team improve",
+                                                                           "Punishing everyone involved"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Accountability builds trust; blame destroys it."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Innovation and Staying Competitive",
+                                          "content":  "Markets change constantly — businesses that don\u0027t innovate die. Innovation isn\u0027t just invention — it can be a new process, business model, customer experience, or market approach. Listen to customers continuously: their complaints reveal opportunities. Watch industry trends: technology changes, regulatory shifts, social changes. Foster an innovation culture: encourage experimentation, accept that some failures are learning opportunities, reward creative thinking. Competitive moats protect your business: brand loyalty, network effects (more users = more value), switching costs (it\u0027s hard for customers to leave), proprietary technology, or cost advantages. The best defense is continuous improvement.",
+                                          "examples":  [
+                                                           "Netflix: from mailing DVDs to streaming to producing original content — constant reinvention",
+                                                           "Nokia had 50% of the phone market in 2007 — failed to innovate for smartphones and nearly disappeared",
+                                                           "Amazon\u0027s competitive moat: massive logistics network, Prime membership loyalty, and lowest prices through scale"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "innovation":  "Creating new or improved products, processes, or business models",
+                                                           "competitive moat":  "A sustainable advantage that protects your business from competitors",
+                                                           "network effects":  "A product becomes more valuable as more people use it",
+                                                           "disruption":  "When a new product or business model displaces established competitors"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Innovation can be:",
+                                                           "options":  [
+                                                                           "Only inventing new products",
+                                                                           "A new process, model, or experience — not just a new invention",
+                                                                           "Only using new technology",
+                                                                           "Only for tech companies"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Innovation includes new ways of doing, delivering, or organizing — not just new things."
+                                                       },
+                                                       {
+                                                           "question":  "Nokia\u0027s decline teaches:",
+                                                           "options":  [
+                                                                           "Even market leaders fail if they don\u0027t adapt to change",
+                                                                           "Big companies can\u0027t fail",
+                                                                           "Innovation is optional",
+                                                                           "Phones don\u0027t change"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Nokia dominated phones but missed the smartphone revolution — adaptability is everything."
+                                                       },
+                                                       {
+                                                           "question":  "Network effects means:",
+                                                           "options":  [
+                                                                           "A product becomes more valuable as more people use it",
+                                                                           "Having a computer network",
+                                                                           "Social networking only",
+                                                                           "Internet speed"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "WhatsApp is valuable because everyone uses it — a new chat app with 2 users isn\u0027t useful."
+                                                       },
+                                                       {
+                                                           "question":  "A competitive moat protects by:",
+                                                           "options":  [
+                                                                           "Making it difficult for competitors to copy your advantage",
+                                                                           "Having a literal moat around the office",
+                                                                           "Keeping everything secret",
+                                                                           "Reducing quality to cut costs"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Moats (brand loyalty, network effects, technology) create sustainable advantages."
+                                                       },
+                                                       {
+                                                           "question":  "To foster innovation in your team:",
+                                                           "options":  [
+                                                                           "Encourage experimentation and accept some failures as learning",
+                                                                           "Punish all mistakes",
+                                                                           "Only follow proven methods",
+                                                                           "Never try new things"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Innovation requires risk — teams that fear failure never innovate."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Social Impact and Legacy",
+                                          "content":  "The most fulfilling businesses create lasting positive impact beyond profit. Think about your legacy: what problem did you solve? How many lives did you improve? What did you build that outlasts you? Measure impact alongside profit: jobs created, students educated, farmers connected to markets, carbon emissions reduced. Consider how your business affects the community: does it create employment? Does it develop skills? Does it solve an important local problem? Businesses that contribute to their communities earn loyalty and trust. The best entrepreneurs see profit as fuel for impact, not the end goal. Build something that matters — something you\u0027re proud of. Your business is your contribution to the world.",
+                                          "examples":  [
+                                                           "Safaricom (M-Pesa): transformed financial access for millions of unbanked people across Africa",
+                                                           "A local entrepreneur trains 50 young people in digital skills each year — creating employment and reducing poverty",
+                                                           "Otic Studio: bringing AI-powered education to students who can\u0027t access the internet — democratizing learning"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "social impact":  "The positive effect a business has on society and communities",
+                                                           "legacy":  "The lasting contribution your business makes beyond your involvement",
+                                                           "stakeholders":  "All people affected by your business: customers, employees, community, environment",
+                                                           "corporate social responsibility":  "A business\u0027s commitment to contributing positively to society"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The most fulfilling businesses:",
+                                                           "options":  [
+                                                                           "Ignore their community",
+                                                                           "Only maximize profit",
+                                                                           "Create lasting positive impact alongside profit",
+                                                                           "Focus only on shareholders"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Purpose-driven businesses attract loyal customers, motivated employees, and personal satisfaction."
+                                                       },
+                                                       {
+                                                           "question":  "Measuring impact means:",
+                                                           "options":  [
+                                                                           "Only measuring environmental impact",
+                                                                           "Only counting money",
+                                                                           "Ignoring social effects",
+                                                                           "Tracking social outcomes alongside financial results"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Jobs created, people served, problems solved — impact metrics complement financial metrics."
+                                                       },
+                                                       {
+                                                           "question":  "Stakeholders include:",
+                                                           "options":  [
+                                                                           "Only customers",
+                                                                           "Only shareholders",
+                                                                           "Everyone affected: customers, employees, community, environment",
+                                                                           "Only the founder"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "A business impacts many groups — responsible entrepreneurs consider all of them."
+                                                       },
+                                                       {
+                                                           "question":  "Profit should be seen as:",
+                                                           "options":  [
+                                                                           "Fuel for creating more impact — a means, not just an end",
+                                                                           "The only goal",
+                                                                           "Unimportant",
+                                                                           "Something to avoid"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Profit sustains the business so it can continue creating value and impact."
+                                                       },
+                                                       {
+                                                           "question":  "Your business legacy is:",
+                                                           "options":  [
+                                                                           "The lasting positive change you created in the world",
+                                                                           "How much money you made",
+                                                                           "How famous you became",
+                                                                           "How big your office was"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "The problems you solved, the lives you improved, the opportunities you created — that\u0027s your legacy."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  }
+              ]
 }

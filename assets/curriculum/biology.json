@@ -1,168 +1,1468 @@
 {
-  "id": "biology",
-  "name": "Biology",
-  "icon": "biotech",
-  "color": "#10B981",
-  "units": [
-    {
-      "title": "Cells and Life",
-      "lessons": [
-        {"title": "Cell Structure", "content": "All living things are made of cells. Plant cells have a cell wall, chloroplasts (for photosynthesis), and a large central vacuole. Animal cells lack these but share organelles: the nucleus (contains DNA), mitochondria (produce energy), ribosomes (make proteins), endoplasmic reticulum (transport), and cell membrane (controls entry/exit). Prokaryotic cells (bacteria) are simpler with no nucleus. Eukaryotic cells (plants, animals) have a defined nucleus and membrane-bound organelles.", "examples": ["Red blood cells lack a nucleus to carry more haemoglobin", "Plant cells are rigid (cell wall); animal cells are flexible", "Mitochondria are the 'powerhouse' — they produce ATP"], "keyTerms": {"nucleus": "Control center containing DNA", "mitochondria": "Organelles producing energy (ATP)", "cell membrane": "Selectively permeable barrier surrounding the cell", "chloroplast": "Organelle in plant cells where photosynthesis occurs"}, "quiz": [
-            {"question": "Which organelle is in plant cells but NOT animal cells?", "options": ["Chloroplast", "Mitochondria", "Nucleus", "Ribosome"], "correct": 0, "explanation": "Chloroplasts carry out photosynthesis — only in plant cells."},
-            {"question": "Function of mitochondria?", "options": ["Produce energy (ATP)", "Store water", "Make proteins", "Control the cell"], "correct": 0, "explanation": "Mitochondria break down glucose to produce ATP energy."},
-            {"question": "Bacteria are:", "options": ["Prokaryotic", "Eukaryotic", "Plant cells", "Viral"], "correct": 0, "explanation": "Bacteria are prokaryotes — no membrane-bound nucleus."},
-            {"question": "Which organelle makes proteins?", "options": ["Ribosomes", "Mitochondria", "Nucleus", "Vacuole"], "correct": 0, "explanation": "Ribosomes are the site of protein synthesis in all cells."},
-            {"question": "The cell membrane is described as:", "options": ["Selectively permeable", "Completely impermeable", "Only in plant cells", "Rigid and inflexible"], "correct": 0, "explanation": "It allows some substances through while blocking others."}
-          ]},
-        {"title": "Photosynthesis and Respiration", "content": "Photosynthesis: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂. Happens in chloroplasts using chlorophyll. Cellular respiration is the reverse — cells break down glucose to release energy: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP. Aerobic respiration uses oxygen. Anaerobic works without oxygen, producing lactic acid (animals) or ethanol (yeast) but less energy.", "examples": ["Leaves are green because chlorophyll reflects green light", "You breathe faster during exercise — muscles need more O₂ for respiration", "Bread rises — yeast produces CO₂ through anaerobic respiration"], "keyTerms": {"photosynthesis": "Plants convert light energy, CO₂, and water into glucose and O₂", "cellular respiration": "Breaking down glucose to release energy (ATP)", "chlorophyll": "Green pigment absorbing light for photosynthesis", "anaerobic": "Without oxygen — produces less energy plus lactic acid or ethanol"}, "quiz": [
-            {"question": "Plants absorb which gas for photosynthesis?", "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"], "correct": 0, "explanation": "Plants take in CO₂ and release O₂."},
-            {"question": "Where does photosynthesis occur?", "options": ["Chloroplasts", "Mitochondria", "Nucleus", "Cell membrane"], "correct": 0, "explanation": "Chloroplasts contain chlorophyll — the site of photosynthesis."},
-            {"question": "Anaerobic respiration in yeast produces:", "options": ["Ethanol and CO₂", "Lactic acid only", "Oxygen", "Water only"], "correct": 0, "explanation": "Yeast fermentation produces ethanol and carbon dioxide."},
-            {"question": "What factors affect the rate of photosynthesis?", "options": ["Light intensity, CO₂ concentration, temperature", "Only light", "Only water", "Only soil type"], "correct": 0, "explanation": "All three are limiting factors — increase any one to speed up photosynthesis."},
-            {"question": "Respiration occurs in:", "options": ["All living cells", "Only plant cells", "Only animal cells", "Only during exercise"], "correct": 0, "explanation": "Every living cell respires — it's how all organisms release energy from food."}
-          ]},
-        {"title": "Cell Division", "content": "Cells divide to grow and repair. Mitosis produces two identical cells — DNA copies, then the cell splits. Meiosis produces four cells with half the chromosomes (gametes). Cancer occurs when cell division becomes uncontrolled. The cell cycle: G1 (growth), S (DNA copies), G2 (preparation), M (mitosis). Stem cells are unspecialised — they can become any cell type.", "examples": ["Skin cells divide by mitosis every 2-3 weeks", "Humans: 46 chromosomes; gametes have 23 each", "Stem cells can develop into blood cells, nerve cells, muscle cells — any type needed"], "keyTerms": {"mitosis": "Division producing two identical daughter cells", "meiosis": "Division producing four gametes with half the chromosomes", "stem cells": "Unspecialised cells that can develop into different cell types", "cell cycle": "The stages a cell goes through including growth and division"}, "quiz": [
-            {"question": "Mitosis produces:", "options": ["2 identical cells", "4 different cells", "1 cell", "8 cells"], "correct": 0, "explanation": "Mitosis = two genetically identical daughter cells."},
-            {"question": "Gametes are produced by:", "options": ["Meiosis", "Mitosis", "Photosynthesis", "Respiration"], "correct": 0, "explanation": "Meiosis halves chromosomes for sex cells."},
-            {"question": "Human body cells have:", "options": ["46 chromosomes", "23 chromosomes", "92 chromosomes", "12 chromosomes"], "correct": 0, "explanation": "23 pairs = 46 chromosomes in body cells."},
-            {"question": "Cancer is caused by:", "options": ["Uncontrolled cell division", "Too few cells dividing", "Cells not dividing", "Normal mitosis"], "correct": 0, "explanation": "Mutations in genes controlling the cell cycle cause uncontrolled growth."},
-            {"question": "Stem cells are special because:", "options": ["They can become any cell type", "They are the largest cells", "They don't divide", "They only exist in plants"], "correct": 0, "explanation": "Stem cells are unspecialised and can differentiate into various cell types."}
-          ]},
-        {"title": "Transport Across Membranes", "content": "Substances move in and out of cells through the cell membrane. Diffusion: particles move from high concentration to low concentration — no energy needed (passive). Examples: oxygen diffusing into blood in the lungs, CO₂ diffusing out. Osmosis: the diffusion of water through a partially permeable membrane from dilute to concentrated solution. Active transport: moving substances against the concentration gradient (low to high) — requires energy from ATP. Examples: root hair cells absorbing minerals from soil, glucose absorption in the gut.", "examples": ["Diffusion: perfume spreading across a room from high concentration to low", "Osmosis: plant roots absorbing water from moist soil — water moves into the more concentrated cell sap", "Active transport: root hair cells use energy to absorb nitrate ions even when soil concentration is lower than inside the cell"], "keyTerms": {"diffusion": "Net movement of particles from high to low concentration — passive, no energy", "osmosis": "Diffusion of water through a partially permeable membrane", "active transport": "Moving substances against the concentration gradient — requires ATP energy", "concentration gradient": "The difference in concentration between two areas"}, "quiz": [
-            {"question": "Diffusion is movement from:", "options": ["High to low concentration", "Low to high concentration", "Equal to equal", "Only in liquids"], "correct": 0, "explanation": "Diffusion is passive — particles naturally move from high to low concentration."},
-            {"question": "Osmosis involves the movement of:", "options": ["Water", "Glucose", "Oxygen", "Carbon dioxide"], "correct": 0, "explanation": "Osmosis is specifically the movement of water through a partially permeable membrane."},
-            {"question": "Active transport requires:", "options": ["Energy (ATP)", "No energy", "Only water", "Sunlight"], "correct": 0, "explanation": "Active transport moves substances against the gradient — this requires energy."},
-            {"question": "A red blood cell in pure water would:", "options": ["Swell and burst (water enters by osmosis)", "Shrink", "Stay the same", "Dissolve"], "correct": 0, "explanation": "Pure water is more dilute than the cell — water enters by osmosis, causing the cell to swell and burst."},
-            {"question": "Which is NOT an example of diffusion?", "options": ["Root cells absorbing minerals using ATP", "Oxygen entering blood in the lungs", "CO₂ leaving cells", "Perfume spreading across a room"], "correct": 0, "explanation": "Mineral absorption against the gradient uses active transport, not diffusion."}
-          ]},
-        {"title": "Enzymes", "content": "Enzymes are biological catalysts — proteins that speed up chemical reactions in living organisms without being used up. Each enzyme has a specific shape (active site) that fits only certain substrates — the lock and key model. Factors affecting enzyme activity: temperature (too high denatures the enzyme — its shape changes permanently), pH (each enzyme has an optimum pH), and substrate concentration. Enzymes in digestion: amylase breaks starch into sugars, protease breaks proteins into amino acids, lipase breaks fats into fatty acids and glycerol. Enzymes work best at body temperature (~37°C) and specific pH values.", "examples": ["Amylase in saliva starts digesting starch in your mouth — that's why chewing a cracker makes it taste sweet", "Pepsin in the stomach works at pH 2 (acidic) — it would stop working in the alkaline small intestine", "Biological washing powders contain enzymes (proteases, lipases) to break down stains at low temperatures"], "keyTerms": {"enzyme": "A biological catalyst that speeds up reactions without being consumed", "active site": "The specific region of an enzyme where the substrate binds", "denature": "When an enzyme's shape is permanently changed (by heat or extreme pH), losing function", "substrate": "The molecule that an enzyme acts upon"}, "quiz": [
-            {"question": "Enzymes are:", "options": ["Biological catalysts (proteins)", "Carbohydrates", "Lipids", "Nucleic acids"], "correct": 0, "explanation": "Enzymes are proteins that speed up biochemical reactions."},
-            {"question": "At very high temperatures, enzymes:", "options": ["Denature — their shape changes and they stop working", "Work faster indefinitely", "Freeze", "Become stronger"], "correct": 0, "explanation": "Heat above the optimum permanently changes the enzyme's active site shape."},
-            {"question": "The lock and key model describes:", "options": ["How an enzyme's active site fits a specific substrate", "How cells lock together", "DNA replication", "Osmosis through membranes"], "correct": 0, "explanation": "The substrate (key) fits precisely into the enzyme's active site (lock)."},
-            {"question": "Amylase breaks down:", "options": ["Starch into sugars", "Proteins into amino acids", "Fats into fatty acids", "DNA into nucleotides"], "correct": 0, "explanation": "Amylase is the enzyme specific to starch digestion."},
-            {"question": "Biological washing powders work at low temperatures because:", "options": ["They contain enzymes that break down stains", "They use bleach", "They have special chemicals", "They don't actually clean"], "correct": 0, "explanation": "Enzymes in bio-powders digest protein and fat stains even in cool water."}
-          ]}
-      ]
-    },
-    {
-      "title": "Human Body Systems",
-      "lessons": [
-        {"title": "Digestive System", "content": "Digestion breaks food into absorbable nutrients. Mouth: teeth chew, saliva has amylase (starch). Oesophagus: peristalsis pushes food down. Stomach: HCl acid + pepsin digest proteins. Small intestine: most absorption via villi (huge surface area). Liver produces bile (emulsifies fats). Pancreas releases enzymes. Large intestine absorbs water. Waste exits as faeces.", "examples": ["Chewing a cracker for 30s makes it sweet — amylase breaks starch to sugar", "Small intestine is ~6m long for massive absorption surface", "Bile breaks fat droplets into tiny ones for easier enzyme action"], "keyTerms": {"peristalsis": "Wave-like muscle contractions pushing food through the tract", "villi": "Finger-like projections increasing absorption surface area", "enzyme": "Biological catalyst speeding up digestion", "bile": "Liver product that emulsifies fats into smaller droplets"}, "quiz": [
-            {"question": "Where does most nutrient absorption occur?", "options": ["Small intestine", "Stomach", "Large intestine", "Mouth"], "correct": 0, "explanation": "Villi in the small intestine absorb nutrients into blood."},
-            {"question": "Bile does what?", "options": ["Emulsifies fats", "Digests proteins", "Absorbs water", "Kills bacteria"], "correct": 0, "explanation": "Bile breaks large fat globules into smaller droplets."},
-            {"question": "Amylase breaks down:", "options": ["Starch", "Proteins", "Fats", "DNA"], "correct": 0, "explanation": "Amylase converts starch into sugars."},
-            {"question": "Villi increase surface area for:", "options": ["Absorption of nutrients", "Producing enzymes", "Storing food", "Killing bacteria"], "correct": 0, "explanation": "More surface area = more efficient absorption of digested nutrients."},
-            {"question": "The large intestine mainly absorbs:", "options": ["Water", "Proteins", "Fats", "Vitamins only"], "correct": 0, "explanation": "The large intestine absorbs water from undigested food, forming solid waste."}
-          ]},
-        {"title": "Circulatory System", "content": "The heart pumps blood. Four chambers: right atrium/ventricle (pump to lungs), left atrium/ventricle (pump to body). Arteries carry blood away from heart (thick walls, high pressure). Veins carry blood back (thin walls, valves). Capillaries: tiny vessels for exchange. Red blood cells carry O₂ using haemoglobin. White blood cells fight infections. Platelets help clotting. Double circulation: blood passes through the heart twice per circuit (heart→lungs→heart→body→heart).", "examples": ["Heart beats ~100,000 times per day", "Arteries have thick muscular walls for high pressure", "Cut yourself: platelets form a clot to stop bleeding"], "keyTerms": {"artery": "Vessel carrying blood away from heart", "vein": "Vessel carrying blood back to heart", "haemoglobin": "Protein in red blood cells carrying oxygen", "double circulation": "Blood passes through the heart twice per complete circuit"}, "quiz": [
-            {"question": "Which chamber pumps blood to the body?", "options": ["Left ventricle", "Right ventricle", "Left atrium", "Right atrium"], "correct": 0, "explanation": "Left ventricle has the thickest wall — pumps oxygenated blood to the body."},
-            {"question": "Oxygen is carried by:", "options": ["Haemoglobin in red blood cells", "White blood cells", "Platelets", "Plasma"], "correct": 0, "explanation": "Haemoglobin binds oxygen for transport."},
-            {"question": "Veins have valves to:", "options": ["Prevent blood flowing backward", "Speed up flow", "Filter blood", "Add oxygen"], "correct": 0, "explanation": "Valves ensure one-way flow back to the heart."},
-            {"question": "Where does gas exchange occur?", "options": ["Capillaries", "Arteries", "Veins", "The heart"], "correct": 0, "explanation": "Capillary walls are one cell thick — O₂ and CO₂ diffuse through."},
-            {"question": "Double circulation means:", "options": ["Blood passes through the heart twice per circuit", "The heart beats twice", "There are two hearts", "Blood flows in two directions"], "correct": 0, "explanation": "Heart→lungs→heart→body→heart. Two passes through the heart per circuit."}
-          ]},
-        {"title": "Respiratory System", "content": "The respiratory system gets oxygen into the blood and removes carbon dioxide. Air enters through the nose/mouth, passes through the trachea (windpipe), which splits into two bronchi (one to each lung), then smaller bronchioles, ending in tiny air sacs called alveoli. Gas exchange happens in the alveoli: oxygen diffuses from air into blood capillaries; CO₂ diffuses from blood into the alveoli to be breathed out. Alveoli are adapted for efficient exchange: enormous surface area (~70 m²), walls one cell thick, moist surfaces, and rich blood supply. Breathing is controlled by the diaphragm and intercostal muscles.", "examples": ["You have about 300 million alveoli — giving a tennis-court-sized surface area for gas exchange", "Breathing in: diaphragm contracts (flattens), ribcage rises, lung volume increases, air rushes in", "Smoking damages alveoli (emphysema) — reduced surface area means less oxygen absorption"], "keyTerms": {"alveoli": "Tiny air sacs in the lungs where gas exchange occurs", "gas exchange": "Oxygen diffusing into blood and CO₂ diffusing out in the alveoli", "diaphragm": "A dome-shaped muscle below the lungs that controls breathing", "trachea": "The windpipe — carries air from the throat to the bronchi"}, "quiz": [
-            {"question": "Gas exchange occurs in:", "options": ["Alveoli", "Trachea", "Bronchi", "Diaphragm"], "correct": 0, "explanation": "Alveoli are the tiny air sacs where O₂ and CO₂ are exchanged."},
-            {"question": "Alveoli walls are:", "options": ["One cell thick for easy diffusion", "Very thick for protection", "Made of bone", "Impermeable"], "correct": 0, "explanation": "Thin walls minimise diffusion distance for efficient gas exchange."},
-            {"question": "When you breathe in, the diaphragm:", "options": ["Contracts and flattens", "Relaxes and domes up", "Doesn't move", "Pushes air out"], "correct": 0, "explanation": "Diaphragm contracts (flattens) → lung volume increases → air pressure drops → air flows in."},
-            {"question": "The total surface area of alveoli is approximately:", "options": ["70 m² (tennis court)", "1 m²", "0.1 m²", "1000 m²"], "correct": 0, "explanation": "300 million tiny alveoli create ~70 m² of surface area — incredibly efficient."},
-            {"question": "Smoking damages the respiratory system by:", "options": ["Destroying alveoli and reducing surface area for gas exchange", "Making lungs bigger", "Increasing oxygen absorption", "Strengthening the diaphragm"], "correct": 0, "explanation": "Tar and toxins destroy alveoli (emphysema), reducing the area available for gas exchange."}
-          ]},
-        {"title": "Nervous System", "content": "The nervous system coordinates the body using electrical signals. CNS = brain + spinal cord. Peripheral nervous system connects CNS to the body. Neurons: sensory (receptors → CNS), relay (within CNS), motor (CNS → muscles). Reflex arc: stimulus → receptor → sensory neuron → relay neuron → motor neuron → effector. Reflexes bypass the brain for speed. Synapses are gaps between neurons — chemicals (neurotransmitters) cross them.", "examples": ["Touching hot stove: reflex — hand moves before you feel pain", "Brain regions: cerebrum (thinking), cerebellum (balance), medulla (breathing)", "Nerve impulses travel at up to 120 m/s"], "keyTerms": {"neuron": "A nerve cell transmitting electrical signals", "reflex arc": "Automatic rapid pathway bypassing the brain", "synapse": "Gap between neurons where chemical signals cross", "neurotransmitter": "Chemical released at a synapse to transmit the signal to the next neuron"}, "quiz": [
-            {"question": "Sensory neurons carry signals:", "options": ["From receptors to CNS", "From CNS to muscles", "Within the brain only", "Between muscles"], "correct": 0, "explanation": "Sensory neurons detect stimuli and carry signals to the brain/spinal cord."},
-            {"question": "Reflexes are fast because:", "options": ["They bypass the brain", "They use hormones", "They are voluntary", "They don't use neurons"], "correct": 0, "explanation": "Reflex arcs go through the spinal cord — faster than processing in the brain."},
-            {"question": "The CNS consists of:", "options": ["Brain and spinal cord", "Nerves only", "Heart and lungs", "Muscles and bones"], "correct": 0, "explanation": "Central Nervous System = brain + spinal cord."},
-            {"question": "At a synapse, the signal crosses as:", "options": ["Chemical neurotransmitters", "Electrical sparks", "Blood flow", "Sound waves"], "correct": 0, "explanation": "Neurotransmitters (chemicals) diffuse across the synaptic gap to the next neuron."},
-            {"question": "The cerebellum controls:", "options": ["Balance and coordination", "Thinking and memory", "Breathing and heart rate", "Vision"], "correct": 0, "explanation": "The cerebellum coordinates movement and balance."}
-          ]},
-        {"title": "Hormones and the Endocrine System", "content": "The endocrine system uses hormones (chemical messengers) transported in blood to target organs. Unlike the nervous system (fast, short-lived, electrical), hormones are slower but have longer-lasting effects. Key glands: pituitary (master gland — controls others), thyroid (metabolism rate), adrenal (adrenaline for fight-or-flight), pancreas (insulin and glucagon for blood sugar), ovaries (oestrogen), testes (testosterone). Blood sugar regulation: after eating, blood glucose rises → pancreas releases insulin → cells absorb glucose → level drops. In diabetes, this system fails — Type 1: no insulin produced; Type 2: cells don't respond to insulin.", "examples": ["Adrenaline: heart rate increases, breathing quickens, blood flows to muscles — preparing to fight or flee", "Insulin: after a sugary meal, insulin tells liver and muscle cells to absorb glucose from the blood", "Type 1 diabetes: the immune system destroys insulin-producing cells — patient needs insulin injections for life"], "keyTerms": {"hormone": "A chemical messenger carried in blood from a gland to target organs", "insulin": "Hormone from the pancreas that lowers blood glucose", "adrenaline": "Hormone from adrenal glands triggering the fight-or-flight response", "diabetes": "A condition where blood sugar regulation fails — Type 1 (no insulin) or Type 2 (insulin resistance)"}, "quiz": [
-            {"question": "Hormones travel through:", "options": ["The blood", "Nerves", "Bones", "The skin"], "correct": 0, "explanation": "Hormones are chemical messengers transported in the bloodstream to target organs."},
-            {"question": "Insulin is produced by:", "options": ["The pancreas", "The brain", "The heart", "The lungs"], "correct": 0, "explanation": "Beta cells in the pancreas produce insulin to regulate blood glucose."},
-            {"question": "The fight-or-flight hormone is:", "options": ["Adrenaline", "Insulin", "Oestrogen", "Testosterone"], "correct": 0, "explanation": "Adrenaline prepares the body for danger: faster heart, more blood to muscles."},
-            {"question": "Type 1 diabetes means:", "options": ["The body produces no insulin", "Cells resist insulin", "Too much insulin is produced", "Blood sugar is always low"], "correct": 0, "explanation": "In Type 1, the immune system destroys insulin-producing cells — lifelong injections needed."},
-            {"question": "Compared to the nervous system, hormones are:", "options": ["Slower but longer-lasting", "Faster but shorter", "Identical in speed", "Only in plants"], "correct": 0, "explanation": "Nervous = fast, short, electrical. Endocrine = slower, longer-lasting, chemical."}
-          ]}
-      ]
-    },
-    {
-      "title": "Ecology",
-      "lessons": [
-        {"title": "Ecosystems and Food Chains", "content": "An ecosystem includes all organisms and their physical environment. Producers (plants) make food via photosynthesis. Primary consumers (herbivores) eat plants. Secondary consumers eat herbivores. Tertiary consumers eat other carnivores. Decomposers break down dead matter. Only ~10% of energy transfers between levels. Food webs show interconnected chains.", "examples": ["Pond: algae → tadpole → fish → heron", "Removing foxes: rabbits overpopulate → overgraze → plants decline", "Fewer top predators because 90% of energy is lost at each level"], "keyTerms": {"producer": "Organism making its own food (plants, algae)", "consumer": "Organism eating other organisms for energy", "decomposer": "Organism breaking down dead matter, recycling nutrients", "trophic level": "A feeding level in a food chain (producer, primary consumer, etc.)"}, "quiz": [
-            {"question": "Energy originally comes from:", "options": ["The Sun", "Soil", "Water", "Air"], "correct": 0, "explanation": "Plants capture solar energy through photosynthesis."},
-            {"question": "Why fewer top predators?", "options": ["Only 10% of energy transfers between levels", "Predators eat less", "Herbivores reproduce faster", "Predators need less space"], "correct": 0, "explanation": "90% lost at each level — less energy available for top predators."},
-            {"question": "Decomposers:", "options": ["Recycle nutrients back into soil", "Produce oxygen", "Eat live plants", "Create energy from sunlight"], "correct": 0, "explanation": "They break down dead organisms, returning nutrients to the ecosystem."},
-            {"question": "A food web differs from a food chain because:", "options": ["It shows multiple interconnected feeding relationships", "It only shows one organism", "It has no producers", "It doesn't include energy"], "correct": 0, "explanation": "Food webs show the complex reality — organisms eat multiple things."},
-            {"question": "Removing one species from a food web:", "options": ["Affects many other species in the web", "Has no effect", "Only affects that species", "Creates new species"], "correct": 0, "explanation": "Interconnected relationships mean changes ripple through the entire ecosystem."}
-          ]},
-        {"title": "Adaptation and Natural Selection", "content": "Organisms have adaptations for survival. Structural: cactus spines reduce water loss. Behavioural: birds migrate. Physiological: camels tolerate high temperatures. Natural selection: individuals with beneficial traits survive more, reproduce, and pass traits on. Over generations, populations evolve. Evidence: fossils, DNA comparisons, homologous structures.", "examples": ["Peppered moths: dark moths survived in polluted areas — natural selection", "Arctic foxes: white fur in winter, brown in summer", "Antibiotic-resistant bacteria: resistant individuals survive and multiply"], "keyTerms": {"natural selection": "Survival and reproduction of best-adapted organisms", "adaptation": "A trait helping survival in an environment", "evolution": "Change in inherited characteristics over generations", "variation": "Differences between individuals of the same species"}, "quiz": [
-            {"question": "What drives natural selection?", "options": ["Variation and survival of the fittest", "Random chance only", "Human intervention", "Environmental stability"], "correct": 0, "explanation": "Individuals with advantageous traits survive and pass those traits on."},
-            {"question": "Polar bear white fur is:", "options": ["Structural adaptation", "Behavioural adaptation", "Physiological adaptation", "Mutation"], "correct": 0, "explanation": "Physical features for survival = structural adaptation."},
-            {"question": "Antibiotic resistance shows:", "options": ["Evolution by natural selection", "Intelligent design", "Spontaneous generation", "Photosynthesis"], "correct": 0, "explanation": "Resistant bacteria survive antibiotics and reproduce — evolution in action."},
-            {"question": "Darwin's theory requires:", "options": ["Variation, competition, inheritance, and time", "Only mutations", "Only human selection", "No inheritance"], "correct": 0, "explanation": "Natural selection needs: variation exists, competition for resources, beneficial traits are inherited, and changes accumulate over time."},
-            {"question": "Homologous structures (e.g., human arm and whale flipper) suggest:", "options": ["Common ancestry", "Convergent evolution", "No relationship", "Different origins"], "correct": 0, "explanation": "Similar bone structures in different species point to a shared evolutionary ancestor."}
-          ]},
-        {"title": "Human Impact on Environment", "content": "Humans affect the environment through deforestation, burning fossil fuels (greenhouse gases → global warming), pollution (air, water, soil), and overexploitation. Global warming: rising sea levels, extreme weather, habitat loss. Conservation: protected areas, recycling, renewable energy, reforestation. Sustainable development meets current needs without compromising future generations.", "examples": ["Amazon produces 20% of world's oxygen — deforestation threatens this", "Plastic kills 100,000+ marine animals per year", "Solar and wind produce energy without greenhouse emissions"], "keyTerms": {"greenhouse effect": "Atmospheric gases trapping heat", "biodiversity": "Variety of living species in an ecosystem", "sustainable development": "Meeting present needs without harming future generations", "deforestation": "Large-scale removal of trees, destroying habitats and reducing CO₂ absorption"}, "quiz": [
-            {"question": "Main gas causing global warming:", "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Helium"], "correct": 0, "explanation": "CO₂ from burning fossil fuels is the primary greenhouse gas."},
-            {"question": "Deforestation contributes to climate change because:", "options": ["Fewer trees absorb less CO₂", "Trees produce CO₂", "Trees block sunlight", "Trees cause flooding"], "correct": 0, "explanation": "Trees absorb CO₂ — removing them means more stays in the atmosphere."},
-            {"question": "A renewable energy source:", "options": ["Solar power", "Coal", "Natural gas", "Oil"], "correct": 0, "explanation": "Solar is renewable — unlimited energy without emissions."},
-            {"question": "Biodiversity is important because:", "options": ["Ecosystems are more stable with many species", "Only pretty species matter", "Less diversity is better", "It has no importance"], "correct": 0, "explanation": "Greater biodiversity = more resilient ecosystems, more resources, and better stability."},
-            {"question": "The greenhouse effect is:", "options": ["Gases trapping heat in the atmosphere", "Greenhouses heating up", "Plants releasing oxygen", "Clouds blocking sunlight"], "correct": 0, "explanation": "Greenhouse gases (CO₂, methane) trap infrared radiation, warming the Earth."}
-          ]},
-        {"title": "Carbon and Water Cycles", "content": "The carbon cycle moves carbon through the environment. Carbon enters the atmosphere as CO₂ from respiration, combustion, and decomposition. Plants remove CO₂ through photosynthesis, converting it to glucose. Carbon passes through food chains when animals eat plants. Fossil fuels are carbon from ancient organisms — burning them releases stored carbon as CO₂. The oceans absorb CO₂ (forming carbonic acid — causing ocean acidification). The water cycle: evaporation (liquid → gas, driven by solar heat), condensation (gas → liquid, forming clouds), precipitation (rain, snow), collection (rivers, lakes, oceans), and infiltration (water soaking into the ground). These cycles are interconnected — disrupting one affects the other.", "examples": ["Burning coal releases carbon stored for millions of years — adding 'new' CO₂ to the atmosphere", "Deforestation removes carbon sinks — trees that would absorb CO₂ are gone", "Rising ocean CO₂ absorption is causing acidification — threatening coral reefs and shellfish"], "keyTerms": {"carbon cycle": "The continuous movement of carbon through atmosphere, organisms, oceans, and Earth", "carbon sink": "A reservoir that absorbs more carbon than it releases (forests, oceans)", "water cycle": "The continuous movement of water through evaporation, condensation, precipitation, and collection", "ocean acidification": "Oceans becoming more acidic as they absorb excess CO₂"}, "quiz": [
-            {"question": "Plants remove carbon from the atmosphere by:", "options": ["Photosynthesis — absorbing CO₂ to make glucose", "Respiration", "Burning", "Erosion"], "correct": 0, "explanation": "Photosynthesis takes CO₂ from the air and fixes it into organic molecules."},
-            {"question": "Fossil fuels are:", "options": ["Carbon from ancient organisms stored over millions of years", "Recently formed substances", "Made of water", "Renewable resources"], "correct": 0, "explanation": "Fossil fuels are compressed remains of ancient organisms — burning releases their stored carbon."},
-            {"question": "The water cycle is driven by:", "options": ["Solar energy (causing evaporation)", "Wind only", "Gravity only", "Plants only"], "correct": 0, "explanation": "The Sun's heat drives evaporation — the primary engine of the water cycle."},
-            {"question": "Ocean acidification is caused by:", "options": ["Oceans absorbing excess CO₂", "Too much salt", "Rising temperatures only", "Plastic pollution"], "correct": 0, "explanation": "CO₂ dissolves in seawater forming carbonic acid — lowering pH."},
-            {"question": "A carbon sink is:", "options": ["Something that absorbs more carbon than it releases", "A kitchen sink", "A source of carbon emissions", "A type of fossil fuel"], "correct": 0, "explanation": "Forests and oceans are major carbon sinks — they absorb and store carbon."}
-          ]},
-        {"title": "Biodiversity and Classification", "content": "Biodiversity is the variety of all living organisms on Earth. Classification organises organisms into groups based on shared characteristics. The hierarchy: Kingdom → Phylum → Class → Order → Family → Genus → Species. The binomial system gives every species a two-part Latin name: genus + species (e.g., Homo sapiens). The five kingdoms: Animalia (animals), Plantae (plants), Fungi, Protista (single-celled eukaryotes), and Prokaryotae (bacteria). Modern classification also uses DNA analysis — species with more similar DNA are more closely related. Biodiversity is threatened by habitat destruction, pollution, climate change, overexploitation, and invasive species.", "examples": ["Human classification: Animalia → Chordata → Mammalia → Primates → Hominidae → Homo → sapiens", "A lion: Panthera leo. A tiger: Panthera tigris. Same genus (Panthera) means they're closely related", "DNA shows humans and chimps share 98.7% of DNA — confirming very close evolutionary relationship"], "keyTerms": {"biodiversity": "The variety of all living species in an area or on Earth", "classification": "Organising organisms into groups based on shared characteristics", "binomial nomenclature": "The two-part naming system: Genus species (e.g., Homo sapiens)", "species": "A group of organisms that can interbreed to produce fertile offspring"}, "quiz": [
-            {"question": "The correct order of classification hierarchy is:", "options": ["Kingdom, Phylum, Class, Order, Family, Genus, Species", "Species, Genus, Family, Order, Class, Phylum, Kingdom", "Kingdom, Species, Family, Class, Order, Phylum, Genus", "Genus, Species, Kingdom, Phylum, Class, Order, Family"], "correct": 0, "explanation": "King Philip Came Over For Good Spaghetti — a mnemonic for the hierarchy."},
-            {"question": "The binomial name for humans is:", "options": ["Homo sapiens", "Sapiens homo", "Human being", "Animalia sapiens"], "correct": 0, "explanation": "Binomial = Genus (Homo) + species (sapiens). The genus is capitalised."},
-            {"question": "Two organisms in the same genus are:", "options": ["Closely related but different species", "The same species", "Completely unrelated", "In different kingdoms"], "correct": 0, "explanation": "Same genus = closely related. Same species = can interbreed."},
-            {"question": "Modern classification uses DNA because:", "options": ["It reveals evolutionary relationships more accurately than physical features alone", "DNA is easy to see", "Physical features are never useful", "DNA has no variation"], "correct": 0, "explanation": "DNA analysis reveals genetic similarity — a more objective measure of relatedness."},
-            {"question": "The biggest threat to biodiversity is:", "options": ["Habitat destruction", "Too many species", "Evolution", "Classification"], "correct": 0, "explanation": "Habitat loss (deforestation, urbanization) is the number one cause of species decline."}
-          ]}
-      ]
-    },
-    {
-      "title": "Genetics",
-      "lessons": [
-        {"title": "DNA and Genes", "content": "DNA is a double helix carrying genetic instructions. Four bases: A pairs with T, G pairs with C. A gene is a section of DNA coding for a protein. Humans have ~20,000 genes on 23 pairs of chromosomes (46 total). The genome is the entire set of genetic material. DNA replication: the double helix unzips, each strand acts as a template, complementary bases are added, producing two identical copies.", "examples": ["Identical twins have the same DNA — that's why they look alike", "A mutation in DNA can cause diseases like sickle cell anaemia", "DNA fingerprinting uses unique patterns for forensic identification"], "keyTerms": {"DNA": "Deoxyribonucleic acid — the molecule carrying genetic code", "gene": "A section of DNA coding for a specific protein", "mutation": "A change in DNA sequence that may alter the protein", "genome": "The complete set of genetic material in an organism"}, "quiz": [
-            {"question": "In DNA, adenine pairs with:", "options": ["Thymine", "Guanine", "Cytosine", "Uracil"], "correct": 0, "explanation": "A-T and G-C are the base pairing rules."},
-            {"question": "Human body cells have:", "options": ["46 chromosomes", "23 chromosomes", "92 chromosomes", "12 chromosomes"], "correct": 0, "explanation": "23 pairs = 46 chromosomes."},
-            {"question": "A gene codes for:", "options": ["A protein", "A chromosome", "A cell", "An organ"], "correct": 0, "explanation": "Genes contain instructions to build specific proteins."},
-            {"question": "DNA replication produces:", "options": ["Two identical copies of the DNA", "One copy and one different version", "RNA only", "Proteins directly"], "correct": 0, "explanation": "Each strand templates a new complementary strand — producing two identical double helices."},
-            {"question": "The human genome contains approximately:", "options": ["20,000 genes", "100 genes", "1 million genes", "46 genes"], "correct": 0, "explanation": "Humans have about 20,000 protein-coding genes across 23 pairs of chromosomes."}
-          ]},
-        {"title": "Inheritance", "content": "Traits pass from parents through alleles (gene versions). Dominant (B) shows with one copy. Recessive (b) needs two copies. Homozygous = same alleles (BB or bb). Heterozygous = different (Bb). Punnett squares predict offspring. Bb × Bb = 25% BB, 50% Bb, 25% bb (3:1 phenotype ratio). Some traits are codominant or sex-linked (X chromosome).", "examples": ["Brown eyes (B) dominant over blue (b) — Bb gives brown eyes", "Two Bb parents can have a bb (blue-eyed) child — 25% chance", "Colour blindness is X-linked recessive — more common in males"], "keyTerms": {"dominant": "Allele showing its trait with just one copy", "recessive": "Allele only showing when two copies present", "genotype": "The allele combination (Bb)", "phenotype": "The observable trait (brown eyes)"}, "quiz": [
-            {"question": "If both parents are Bb, fraction of bb offspring?", "options": ["1/4 (25%)", "1/2 (50%)", "3/4 (75%)", "0%"], "correct": 0, "explanation": "Punnett: BB, Bb, Bb, bb — one out of four is bb."},
-            {"question": "Heterozygous means:", "options": ["Two different alleles (Bb)", "Two same alleles (BB)", "No alleles", "Three alleles"], "correct": 0, "explanation": "Hetero = different. One dominant + one recessive."},
-            {"question": "Genotype vs phenotype:", "options": ["Genotype = alleles (Bb), phenotype = trait (brown eyes)", "They are the same", "Phenotype = alleles", "Genotype = trait"], "correct": 0, "explanation": "Genotype is genetic makeup; phenotype is what you observe."},
-            {"question": "Why is colour blindness more common in males?", "options": ["It's X-linked recessive — males have only one X", "Males have weaker eyes", "Females can't be colour blind", "It's not more common in males"], "correct": 0, "explanation": "Males (XY) need only one copy of the recessive allele on their X. Females (XX) need two copies."},
-            {"question": "In a Punnett square, Bb × bb gives:", "options": ["50% Bb, 50% bb", "100% Bb", "75% Bb, 25% bb", "25% BB, 75% bb"], "correct": 0, "explanation": "Bb × bb: Bb, Bb, bb, bb — 50% heterozygous, 50% homozygous recessive."}
-          ]},
-        {"title": "Evolution Evidence", "content": "Evidence for evolution: fossils show species change over time, comparative anatomy (homologous structures), embryology (similar early development), DNA comparisons (more similar = more related), and observed evolution (antibiotic-resistant bacteria). All life shares common ancestors. Speciation occurs when populations become so different they can't interbreed — often caused by geographical isolation.", "examples": ["Horse fossils show gradual change over millions of years", "Humans and chimps share 98.7% DNA", "Darwin's finches: different beak shapes evolved for different food sources"], "keyTerms": {"fossil": "Preserved remains of ancient organisms", "homologous structures": "Similar structures suggesting common ancestry", "speciation": "Formation of new species through evolutionary divergence", "natural selection": "The mechanism driving evolution — survival of the fittest"}, "quiz": [
-            {"question": "Human arm and whale flipper similarity suggests:", "options": ["Common ancestor", "Same diet", "Same habitat", "No relationship"], "correct": 0, "explanation": "Homologous structures indicate shared evolutionary ancestry."},
-            {"question": "Most direct evidence for evolution:", "options": ["Fossil record", "Weather patterns", "Ocean currents", "Mountain heights"], "correct": 0, "explanation": "Fossils show how organisms changed over millions of years."},
-            {"question": "98.7% shared DNA with chimps means:", "options": ["Very close evolutionary relationship", "We are the same species", "DNA is unreliable", "No relationship"], "correct": 0, "explanation": "High similarity = recent common ancestor."},
-            {"question": "Speciation requires:", "options": ["Populations becoming reproductively isolated", "Identical environments", "No mutations", "Human intervention"], "correct": 0, "explanation": "When populations can't interbreed (e.g., separated by geography), they diverge into separate species."},
-            {"question": "Bacteria developing antibiotic resistance is:", "options": ["Evolution observed in real time", "Not evolution", "Only mutation without selection", "Impossible"], "correct": 0, "explanation": "Resistant bacteria survive, reproduce, and pass resistance on — natural selection in action."}
-          ]},
-        {"title": "Genetic Engineering and Biotechnology", "content": "Genetic engineering involves modifying an organism's DNA. Genes can be cut using restriction enzymes, inserted into vectors (e.g., plasmids), and transferred into other organisms. Applications: GM crops (pest-resistant, drought-tolerant, higher yield), medical insulin (human insulin gene inserted into bacteria that produce it), gene therapy (replacing faulty genes to treat genetic diseases), and forensic DNA profiling. GM crops are controversial: benefits include feeding growing populations with less pesticide; concerns include unknown long-term effects, corporate control of seeds, and impact on biodiversity. CRISPR-Cas9 is a revolutionary gene-editing tool — precise, cheap, and fast.", "examples": ["Golden Rice: engineered to produce vitamin A — could prevent blindness in developing countries", "Insulin: before genetic engineering, insulin came from pig and cow pancreases — now bacteria produce human insulin", "CRISPR: scientists edited mosquito genes to reduce malaria transmission — a potential game-changer for Africa"], "keyTerms": {"genetic engineering": "Modifying an organism's DNA by adding, removing, or changing genes", "GM crop": "A genetically modified crop with DNA altered for desired traits", "CRISPR": "A precise gene-editing tool that can cut and modify DNA at specific locations", "gene therapy": "Treating genetic diseases by replacing or repairing faulty genes"}, "quiz": [
-            {"question": "Genetic engineering uses restriction enzymes to:", "options": ["Cut DNA at specific sequences", "Join DNA", "Copy DNA", "Destroy DNA entirely"], "correct": 0, "explanation": "Restriction enzymes are molecular scissors — they cut DNA at precise recognition sequences."},
-            {"question": "Human insulin is now produced by:", "options": ["Genetically modified bacteria", "Pigs only", "Chemical synthesis only", "Plants"], "correct": 0, "explanation": "The human insulin gene is inserted into bacteria, which produce insulin in large quantities."},
-            {"question": "A concern about GM crops is:", "options": ["Unknown long-term effects on environment and health", "They always fail", "They cost nothing", "They grow too slowly"], "correct": 0, "explanation": "While GM crops offer benefits, potential risks to biodiversity and health need careful study."},
-            {"question": "CRISPR-Cas9 is:", "options": ["A precise gene-editing tool", "A type of virus", "A chemical fertilizer", "A microscope"], "correct": 0, "explanation": "CRISPR allows scientists to edit genes with unprecedented precision and affordability."},
-            {"question": "Gene therapy aims to:", "options": ["Treat genetic diseases by fixing faulty genes", "Create new species", "Clone humans", "Extract DNA for forensics"], "correct": 0, "explanation": "Gene therapy replaces or repairs defective genes — potentially curing inherited conditions."}
-          ]},
-        {"title": "Microorganisms and Disease", "content": "Microorganisms (microbes) include bacteria, viruses, fungi, and protists. Most are harmless or beneficial — gut bacteria aid digestion, yeast makes bread rise, decomposers recycle nutrients. Pathogens are microbes that cause disease. Bacteria cause TB, cholera, food poisoning. Viruses cause flu, HIV, COVID-19. Fungi cause athlete's foot, ringworm. Protists cause malaria. The body defends against pathogens: skin (physical barrier), mucus (traps microbes), white blood cells (engulf pathogens, produce antibodies, produce antitoxins). Vaccination introduces weakened/dead pathogens to trigger immune memory — if the real pathogen invades later, the immune response is fast and strong.", "examples": ["Antibiotics kill bacteria but NOT viruses — that's why they don't work for colds and flu", "Vaccination: your body makes antibodies against measles without getting sick — protected for life", "Malaria is spread by mosquitoes carrying the Plasmodium protist — killing millions in tropical regions"], "keyTerms": {"pathogen": "A microorganism that causes disease (bacteria, virus, fungus, protist)", "antibody": "A protein produced by white blood cells that targets a specific pathogen", "vaccination": "Introducing weakened/dead pathogens to stimulate immune memory", "antibiotic": "A medicine that kills bacteria but not viruses"}, "quiz": [
-            {"question": "Antibiotics work against:", "options": ["Bacteria only", "Viruses", "All pathogens", "Fungi only"], "correct": 0, "explanation": "Antibiotics kill bacteria — they have NO effect on viruses."},
-            {"question": "Vaccination works by:", "options": ["Stimulating the immune system to produce antibodies and memory cells", "Killing all bacteria in the body", "Providing antibiotics", "Removing white blood cells"], "correct": 0, "explanation": "Vaccines trigger immune memory — the body responds quickly if the real pathogen appears."},
-            {"question": "Which disease is caused by a virus?", "options": ["COVID-19", "Cholera", "Athlete's foot", "Malaria"], "correct": 0, "explanation": "COVID-19 is caused by SARS-CoV-2 virus. Cholera = bacteria, athlete's foot = fungus, malaria = protist."},
-            {"question": "The first line of defence against pathogens is:", "options": ["Skin and mucus (physical barriers)", "Antibiotics", "Surgery", "Vaccines"], "correct": 0, "explanation": "Skin keeps pathogens out; mucus traps them in airways and the gut."},
-            {"question": "Antibiotic resistance is a growing problem because:", "options": ["Overuse of antibiotics selects for resistant bacteria", "Antibiotics are getting weaker", "Bacteria are getting bigger", "Viruses are fighting antibiotics"], "correct": 0, "explanation": "Misusing antibiotics kills susceptible bacteria but resistant ones survive and multiply."}
-          ]}
-      ]
-    }
-  ]
+    "id":  "biology",
+    "name":  "Biology",
+    "icon":  "biotech",
+    "color":  "#10B981",
+    "units":  [
+                  {
+                      "title":  "Cells and Life",
+                      "lessons":  [
+                                      {
+                                          "title":  "Cell Structure",
+                                          "content":  "All living things are made of cells. Plant cells have a cell wall, chloroplasts (for photosynthesis), and a large central vacuole. Animal cells lack these but share organelles: the nucleus (contains DNA), mitochondria (produce energy), ribosomes (make proteins), endoplasmic reticulum (transport), and cell membrane (controls entry/exit). Prokaryotic cells (bacteria) are simpler with no nucleus. Eukaryotic cells (plants, animals) have a defined nucleus and membrane-bound organelles.",
+                                          "examples":  [
+                                                           "Red blood cells lack a nucleus to carry more haemoglobin",
+                                                           "Plant cells are rigid (cell wall); animal cells are flexible",
+                                                           "Mitochondria are the \u0027powerhouse\u0027 — they produce ATP"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "nucleus":  "Control center containing DNA",
+                                                           "mitochondria":  "Organelles producing energy (ATP)",
+                                                           "cell membrane":  "Selectively permeable barrier surrounding the cell",
+                                                           "chloroplast":  "Organelle in plant cells where photosynthesis occurs"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Which organelle is in plant cells but NOT animal cells?",
+                                                           "options":  [
+                                                                           "Ribosome",
+                                                                           "Mitochondria",
+                                                                           "Nucleus",
+                                                                           "Chloroplast"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Chloroplasts carry out photosynthesis — only in plant cells."
+                                                       },
+                                                       {
+                                                           "question":  "Function of mitochondria?",
+                                                           "options":  [
+                                                                           "Produce energy (ATP)",
+                                                                           "Store water",
+                                                                           "Make proteins",
+                                                                           "Control the cell"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Mitochondria break down glucose to produce ATP energy."
+                                                       },
+                                                       {
+                                                           "question":  "Bacteria are:",
+                                                           "options":  [
+                                                                           "Prokaryotic",
+                                                                           "Eukaryotic",
+                                                                           "Plant cells",
+                                                                           "Viral"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Bacteria are prokaryotes — no membrane-bound nucleus."
+                                                       },
+                                                       {
+                                                           "question":  "Which organelle makes proteins?",
+                                                           "options":  [
+                                                                           "Mitochondria",
+                                                                           "Ribosomes",
+                                                                           "Nucleus",
+                                                                           "Vacuole"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Ribosomes are the site of protein synthesis in all cells."
+                                                       },
+                                                       {
+                                                           "question":  "The cell membrane is described as:",
+                                                           "options":  [
+                                                                           "Completely impermeable",
+                                                                           "Selectively permeable",
+                                                                           "Only in plant cells",
+                                                                           "Rigid and inflexible"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "It allows some substances through while blocking others."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Photosynthesis and Respiration",
+                                          "content":  "Photosynthesis: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂. Happens in chloroplasts using chlorophyll. Cellular respiration is the reverse — cells break down glucose to release energy: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP. Aerobic respiration uses oxygen. Anaerobic works without oxygen, producing lactic acid (animals) or ethanol (yeast) but less energy.",
+                                          "examples":  [
+                                                           "Leaves are green because chlorophyll reflects green light",
+                                                           "You breathe faster during exercise — muscles need more O₂ for respiration",
+                                                           "Bread rises — yeast produces CO₂ through anaerobic respiration"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "photosynthesis":  "Plants convert light energy, CO₂, and water into glucose and O₂",
+                                                           "cellular respiration":  "Breaking down glucose to release energy (ATP)",
+                                                           "chlorophyll":  "Green pigment absorbing light for photosynthesis",
+                                                           "anaerobic":  "Without oxygen — produces less energy plus lactic acid or ethanol"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Plants absorb which gas for photosynthesis?",
+                                                           "options":  [
+                                                                           "Hydrogen",
+                                                                           "Oxygen",
+                                                                           "Nitrogen",
+                                                                           "Carbon dioxide"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Plants take in CO₂ and release O₂."
+                                                       },
+                                                       {
+                                                           "question":  "Where does photosynthesis occur?",
+                                                           "options":  [
+                                                                           "Mitochondria",
+                                                                           "Chloroplasts",
+                                                                           "Nucleus",
+                                                                           "Cell membrane"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Chloroplasts contain chlorophyll — the site of photosynthesis."
+                                                       },
+                                                       {
+                                                           "question":  "Anaerobic respiration in yeast produces:",
+                                                           "options":  [
+                                                                           "Oxygen",
+                                                                           "Lactic acid only",
+                                                                           "Ethanol and CO₂",
+                                                                           "Water only"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Yeast fermentation produces ethanol and carbon dioxide."
+                                                       },
+                                                       {
+                                                           "question":  "What factors affect the rate of photosynthesis?",
+                                                           "options":  [
+                                                                           "Only light",
+                                                                           "Light intensity, CO₂ concentration, temperature",
+                                                                           "Only water",
+                                                                           "Only soil type"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "All three are limiting factors — increase any one to speed up photosynthesis."
+                                                       },
+                                                       {
+                                                           "question":  "Respiration occurs in:",
+                                                           "options":  [
+                                                                           "Only during exercise",
+                                                                           "Only plant cells",
+                                                                           "Only animal cells",
+                                                                           "All living cells"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Every living cell respires — it\u0027s how all organisms release energy from food."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Cell Division",
+                                          "content":  "Cells divide to grow and repair. Mitosis produces two identical cells — DNA copies, then the cell splits. Meiosis produces four cells with half the chromosomes (gametes). Cancer occurs when cell division becomes uncontrolled. The cell cycle: G1 (growth), S (DNA copies), G2 (preparation), M (mitosis). Stem cells are unspecialised — they can become any cell type.",
+                                          "examples":  [
+                                                           "Skin cells divide by mitosis every 2-3 weeks",
+                                                           "Humans: 46 chromosomes; gametes have 23 each",
+                                                           "Stem cells can develop into blood cells, nerve cells, muscle cells — any type needed"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "mitosis":  "Division producing two identical daughter cells",
+                                                           "meiosis":  "Division producing four gametes with half the chromosomes",
+                                                           "stem cells":  "Unspecialised cells that can develop into different cell types",
+                                                           "cell cycle":  "The stages a cell goes through including growth and division"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Mitosis produces:",
+                                                           "options":  [
+                                                                           "8 cells",
+                                                                           "4 different cells",
+                                                                           "1 cell",
+                                                                           "2 identical cells"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Mitosis = two genetically identical daughter cells."
+                                                       },
+                                                       {
+                                                           "question":  "Gametes are produced by:",
+                                                           "options":  [
+                                                                           "Photosynthesis",
+                                                                           "Mitosis",
+                                                                           "Meiosis",
+                                                                           "Respiration"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Meiosis halves chromosomes for sex cells."
+                                                       },
+                                                       {
+                                                           "question":  "Human body cells have:",
+                                                           "options":  [
+                                                                           "46 chromosomes",
+                                                                           "23 chromosomes",
+                                                                           "92 chromosomes",
+                                                                           "12 chromosomes"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "23 pairs = 46 chromosomes in body cells."
+                                                       },
+                                                       {
+                                                           "question":  "Cancer is caused by:",
+                                                           "options":  [
+                                                                           "Uncontrolled cell division",
+                                                                           "Too few cells dividing",
+                                                                           "Cells not dividing",
+                                                                           "Normal mitosis"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Mutations in genes controlling the cell cycle cause uncontrolled growth."
+                                                       },
+                                                       {
+                                                           "question":  "Stem cells are special because:",
+                                                           "options":  [
+                                                                           "They only exist in plants",
+                                                                           "They are the largest cells",
+                                                                           "They don\u0027t divide",
+                                                                           "They can become any cell type"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Stem cells are unspecialised and can differentiate into various cell types."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Transport Across Membranes",
+                                          "content":  "Substances move in and out of cells through the cell membrane. Diffusion: particles move from high concentration to low concentration — no energy needed (passive). Examples: oxygen diffusing into blood in the lungs, CO₂ diffusing out. Osmosis: the diffusion of water through a partially permeable membrane from dilute to concentrated solution. Active transport: moving substances against the concentration gradient (low to high) — requires energy from ATP. Examples: root hair cells absorbing minerals from soil, glucose absorption in the gut.",
+                                          "examples":  [
+                                                           "Diffusion: perfume spreading across a room from high concentration to low",
+                                                           "Osmosis: plant roots absorbing water from moist soil — water moves into the more concentrated cell sap",
+                                                           "Active transport: root hair cells use energy to absorb nitrate ions even when soil concentration is lower than inside the cell"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "diffusion":  "Net movement of particles from high to low concentration — passive, no energy",
+                                                           "osmosis":  "Diffusion of water through a partially permeable membrane",
+                                                           "active transport":  "Moving substances against the concentration gradient — requires ATP energy",
+                                                           "concentration gradient":  "The difference in concentration between two areas"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Diffusion is movement from:",
+                                                           "options":  [
+                                                                           "Equal to equal",
+                                                                           "Low to high concentration",
+                                                                           "High to low concentration",
+                                                                           "Only in liquids"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Diffusion is passive — particles naturally move from high to low concentration."
+                                                       },
+                                                       {
+                                                           "question":  "Osmosis involves the movement of:",
+                                                           "options":  [
+                                                                           "Glucose",
+                                                                           "Water",
+                                                                           "Oxygen",
+                                                                           "Carbon dioxide"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Osmosis is specifically the movement of water through a partially permeable membrane."
+                                                       },
+                                                       {
+                                                           "question":  "Active transport requires:",
+                                                           "options":  [
+                                                                           "Sunlight",
+                                                                           "No energy",
+                                                                           "Only water",
+                                                                           "Energy (ATP)"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Active transport moves substances against the gradient — this requires energy."
+                                                       },
+                                                       {
+                                                           "question":  "A red blood cell in pure water would:",
+                                                           "options":  [
+                                                                           "Stay the same",
+                                                                           "Shrink",
+                                                                           "Swell and burst (water enters by osmosis)",
+                                                                           "Dissolve"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Pure water is more dilute than the cell — water enters by osmosis, causing the cell to swell and burst."
+                                                       },
+                                                       {
+                                                           "question":  "Which is NOT an example of diffusion?",
+                                                           "options":  [
+                                                                           "Oxygen entering blood in the lungs",
+                                                                           "Root cells absorbing minerals using ATP",
+                                                                           "CO₂ leaving cells",
+                                                                           "Perfume spreading across a room"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Mineral absorption against the gradient uses active transport, not diffusion."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Enzymes",
+                                          "content":  "Enzymes are biological catalysts — proteins that speed up chemical reactions in living organisms without being used up. Each enzyme has a specific shape (active site) that fits only certain substrates — the lock and key model. Factors affecting enzyme activity: temperature (too high denatures the enzyme — its shape changes permanently), pH (each enzyme has an optimum pH), and substrate concentration. Enzymes in digestion: amylase breaks starch into sugars, protease breaks proteins into amino acids, lipase breaks fats into fatty acids and glycerol. Enzymes work best at body temperature (~37°C) and specific pH values.",
+                                          "examples":  [
+                                                           "Amylase in saliva starts digesting starch in your mouth — that\u0027s why chewing a cracker makes it taste sweet",
+                                                           "Pepsin in the stomach works at pH 2 (acidic) — it would stop working in the alkaline small intestine",
+                                                           "Biological washing powders contain enzymes (proteases, lipases) to break down stains at low temperatures"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "enzyme":  "A biological catalyst that speeds up reactions without being consumed",
+                                                           "active site":  "The specific region of an enzyme where the substrate binds",
+                                                           "denature":  "When an enzyme\u0027s shape is permanently changed (by heat or extreme pH), losing function",
+                                                           "substrate":  "The molecule that an enzyme acts upon"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Enzymes are:",
+                                                           "options":  [
+                                                                           "Nucleic acids",
+                                                                           "Carbohydrates",
+                                                                           "Lipids",
+                                                                           "Biological catalysts (proteins)"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Enzymes are proteins that speed up biochemical reactions."
+                                                       },
+                                                       {
+                                                           "question":  "At very high temperatures, enzymes:",
+                                                           "options":  [
+                                                                           "Denature — their shape changes and they stop working",
+                                                                           "Work faster indefinitely",
+                                                                           "Freeze",
+                                                                           "Become stronger"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Heat above the optimum permanently changes the enzyme\u0027s active site shape."
+                                                       },
+                                                       {
+                                                           "question":  "The lock and key model describes:",
+                                                           "options":  [
+                                                                           "Osmosis through membranes",
+                                                                           "How cells lock together",
+                                                                           "DNA replication",
+                                                                           "How an enzyme\u0027s active site fits a specific substrate"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "The substrate (key) fits precisely into the enzyme\u0027s active site (lock)."
+                                                       },
+                                                       {
+                                                           "question":  "Amylase breaks down:",
+                                                           "options":  [
+                                                                           "Fats into fatty acids",
+                                                                           "Proteins into amino acids",
+                                                                           "Starch into sugars",
+                                                                           "DNA into nucleotides"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Amylase is the enzyme specific to starch digestion."
+                                                       },
+                                                       {
+                                                           "question":  "Biological washing powders work at low temperatures because:",
+                                                           "options":  [
+                                                                           "They use bleach",
+                                                                           "They contain enzymes that break down stains",
+                                                                           "They have special chemicals",
+                                                                           "They don\u0027t actually clean"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Enzymes in bio-powders digest protein and fat stains even in cool water."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Human Body Systems",
+                      "lessons":  [
+                                      {
+                                          "title":  "Digestive System",
+                                          "content":  "Digestion breaks food into absorbable nutrients. Mouth: teeth chew, saliva has amylase (starch). Oesophagus: peristalsis pushes food down. Stomach: HCl acid + pepsin digest proteins. Small intestine: most absorption via villi (huge surface area). Liver produces bile (emulsifies fats). Pancreas releases enzymes. Large intestine absorbs water. Waste exits as faeces.",
+                                          "examples":  [
+                                                           "Chewing a cracker for 30s makes it sweet — amylase breaks starch to sugar",
+                                                           "Small intestine is ~6m long for massive absorption surface",
+                                                           "Bile breaks fat droplets into tiny ones for easier enzyme action"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "peristalsis":  "Wave-like muscle contractions pushing food through the tract",
+                                                           "villi":  "Finger-like projections increasing absorption surface area",
+                                                           "enzyme":  "Biological catalyst speeding up digestion",
+                                                           "bile":  "Liver product that emulsifies fats into smaller droplets"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Where does most nutrient absorption occur?",
+                                                           "options":  [
+                                                                           "Mouth",
+                                                                           "Stomach",
+                                                                           "Large intestine",
+                                                                           "Small intestine"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Villi in the small intestine absorb nutrients into blood."
+                                                       },
+                                                       {
+                                                           "question":  "Bile does what?",
+                                                           "options":  [
+                                                                           "Kills bacteria",
+                                                                           "Digests proteins",
+                                                                           "Absorbs water",
+                                                                           "Emulsifies fats"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Bile breaks large fat globules into smaller droplets."
+                                                       },
+                                                       {
+                                                           "question":  "Amylase breaks down:",
+                                                           "options":  [
+                                                                           "Proteins",
+                                                                           "Starch",
+                                                                           "Fats",
+                                                                           "DNA"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Amylase converts starch into sugars."
+                                                       },
+                                                       {
+                                                           "question":  "Villi increase surface area for:",
+                                                           "options":  [
+                                                                           "Storing food",
+                                                                           "Producing enzymes",
+                                                                           "Absorption of nutrients",
+                                                                           "Killing bacteria"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "More surface area = more efficient absorption of digested nutrients."
+                                                       },
+                                                       {
+                                                           "question":  "The large intestine mainly absorbs:",
+                                                           "options":  [
+                                                                           "Vitamins only",
+                                                                           "Proteins",
+                                                                           "Fats",
+                                                                           "Water"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "The large intestine absorbs water from undigested food, forming solid waste."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Circulatory System",
+                                          "content":  "The heart pumps blood. Four chambers: right atrium/ventricle (pump to lungs), left atrium/ventricle (pump to body). Arteries carry blood away from heart (thick walls, high pressure). Veins carry blood back (thin walls, valves). Capillaries: tiny vessels for exchange. Red blood cells carry O₂ using haemoglobin. White blood cells fight infections. Platelets help clotting. Double circulation: blood passes through the heart twice per circuit (heart→lungs→heart→body→heart).",
+                                          "examples":  [
+                                                           "Heart beats ~100,000 times per day",
+                                                           "Arteries have thick muscular walls for high pressure",
+                                                           "Cut yourself: platelets form a clot to stop bleeding"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "artery":  "Vessel carrying blood away from heart",
+                                                           "vein":  "Vessel carrying blood back to heart",
+                                                           "haemoglobin":  "Protein in red blood cells carrying oxygen",
+                                                           "double circulation":  "Blood passes through the heart twice per complete circuit"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Which chamber pumps blood to the body?",
+                                                           "options":  [
+                                                                           "Right ventricle",
+                                                                           "Left ventricle",
+                                                                           "Left atrium",
+                                                                           "Right atrium"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Left ventricle has the thickest wall — pumps oxygenated blood to the body."
+                                                       },
+                                                       {
+                                                           "question":  "Oxygen is carried by:",
+                                                           "options":  [
+                                                                           "Haemoglobin in red blood cells",
+                                                                           "White blood cells",
+                                                                           "Platelets",
+                                                                           "Plasma"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Haemoglobin binds oxygen for transport."
+                                                       },
+                                                       {
+                                                           "question":  "Veins have valves to:",
+                                                           "options":  [
+                                                                           "Filter blood",
+                                                                           "Speed up flow",
+                                                                           "Prevent blood flowing backward",
+                                                                           "Add oxygen"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Valves ensure one-way flow back to the heart."
+                                                       },
+                                                       {
+                                                           "question":  "Where does gas exchange occur?",
+                                                           "options":  [
+                                                                           "Veins",
+                                                                           "Arteries",
+                                                                           "Capillaries",
+                                                                           "The heart"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Capillary walls are one cell thick — O₂ and CO₂ diffuse through."
+                                                       },
+                                                       {
+                                                           "question":  "Double circulation means:",
+                                                           "options":  [
+                                                                           "Blood flows in two directions",
+                                                                           "The heart beats twice",
+                                                                           "There are two hearts",
+                                                                           "Blood passes through the heart twice per circuit"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Heart→lungs→heart→body→heart. Two passes through the heart per circuit."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Respiratory System",
+                                          "content":  "The respiratory system gets oxygen into the blood and removes carbon dioxide. Air enters through the nose/mouth, passes through the trachea (windpipe), which splits into two bronchi (one to each lung), then smaller bronchioles, ending in tiny air sacs called alveoli. Gas exchange happens in the alveoli: oxygen diffuses from air into blood capillaries; CO₂ diffuses from blood into the alveoli to be breathed out. Alveoli are adapted for efficient exchange: enormous surface area (~70 m²), walls one cell thick, moist surfaces, and rich blood supply. Breathing is controlled by the diaphragm and intercostal muscles.",
+                                          "examples":  [
+                                                           "You have about 300 million alveoli — giving a tennis-court-sized surface area for gas exchange",
+                                                           "Breathing in: diaphragm contracts (flattens), ribcage rises, lung volume increases, air rushes in",
+                                                           "Smoking damages alveoli (emphysema) — reduced surface area means less oxygen absorption"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "alveoli":  "Tiny air sacs in the lungs where gas exchange occurs",
+                                                           "gas exchange":  "Oxygen diffusing into blood and CO₂ diffusing out in the alveoli",
+                                                           "diaphragm":  "A dome-shaped muscle below the lungs that controls breathing",
+                                                           "trachea":  "The windpipe — carries air from the throat to the bronchi"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Gas exchange occurs in:",
+                                                           "options":  [
+                                                                           "Alveoli",
+                                                                           "Trachea",
+                                                                           "Bronchi",
+                                                                           "Diaphragm"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Alveoli are the tiny air sacs where O₂ and CO₂ are exchanged."
+                                                       },
+                                                       {
+                                                           "question":  "Alveoli walls are:",
+                                                           "options":  [
+                                                                           "One cell thick for easy diffusion",
+                                                                           "Very thick for protection",
+                                                                           "Made of bone",
+                                                                           "Impermeable"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Thin walls minimise diffusion distance for efficient gas exchange."
+                                                       },
+                                                       {
+                                                           "question":  "When you breathe in, the diaphragm:",
+                                                           "options":  [
+                                                                           "Contracts and flattens",
+                                                                           "Relaxes and domes up",
+                                                                           "Doesn\u0027t move",
+                                                                           "Pushes air out"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Diaphragm contracts (flattens) → lung volume increases → air pressure drops → air flows in."
+                                                       },
+                                                       {
+                                                           "question":  "The total surface area of alveoli is approximately:",
+                                                           "options":  [
+                                                                           "0.1 m²",
+                                                                           "1 m²",
+                                                                           "70 m² (tennis court)",
+                                                                           "1000 m²"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "300 million tiny alveoli create ~70 m² of surface area — incredibly efficient."
+                                                       },
+                                                       {
+                                                           "question":  "Smoking damages the respiratory system by:",
+                                                           "options":  [
+                                                                           "Making lungs bigger",
+                                                                           "Destroying alveoli and reducing surface area for gas exchange",
+                                                                           "Increasing oxygen absorption",
+                                                                           "Strengthening the diaphragm"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Tar and toxins destroy alveoli (emphysema), reducing the area available for gas exchange."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Nervous System",
+                                          "content":  "The nervous system coordinates the body using electrical signals. CNS = brain + spinal cord. Peripheral nervous system connects CNS to the body. Neurons: sensory (receptors → CNS), relay (within CNS), motor (CNS → muscles). Reflex arc: stimulus → receptor → sensory neuron → relay neuron → motor neuron → effector. Reflexes bypass the brain for speed. Synapses are gaps between neurons — chemicals (neurotransmitters) cross them.",
+                                          "examples":  [
+                                                           "Touching hot stove: reflex — hand moves before you feel pain",
+                                                           "Brain regions: cerebrum (thinking), cerebellum (balance), medulla (breathing)",
+                                                           "Nerve impulses travel at up to 120 m/s"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "neuron":  "A nerve cell transmitting electrical signals",
+                                                           "reflex arc":  "Automatic rapid pathway bypassing the brain",
+                                                           "synapse":  "Gap between neurons where chemical signals cross",
+                                                           "neurotransmitter":  "Chemical released at a synapse to transmit the signal to the next neuron"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Sensory neurons carry signals:",
+                                                           "options":  [
+                                                                           "From receptors to CNS",
+                                                                           "From CNS to muscles",
+                                                                           "Within the brain only",
+                                                                           "Between muscles"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Sensory neurons detect stimuli and carry signals to the brain/spinal cord."
+                                                       },
+                                                       {
+                                                           "question":  "Reflexes are fast because:",
+                                                           "options":  [
+                                                                           "They are voluntary",
+                                                                           "They use hormones",
+                                                                           "They bypass the brain",
+                                                                           "They don\u0027t use neurons"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Reflex arcs go through the spinal cord — faster than processing in the brain."
+                                                       },
+                                                       {
+                                                           "question":  "The CNS consists of:",
+                                                           "options":  [
+                                                                           "Nerves only",
+                                                                           "Brain and spinal cord",
+                                                                           "Heart and lungs",
+                                                                           "Muscles and bones"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Central Nervous System = brain + spinal cord."
+                                                       },
+                                                       {
+                                                           "question":  "At a synapse, the signal crosses as:",
+                                                           "options":  [
+                                                                           "Electrical sparks",
+                                                                           "Chemical neurotransmitters",
+                                                                           "Blood flow",
+                                                                           "Sound waves"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Neurotransmitters (chemicals) diffuse across the synaptic gap to the next neuron."
+                                                       },
+                                                       {
+                                                           "question":  "The cerebellum controls:",
+                                                           "options":  [
+                                                                           "Thinking and memory",
+                                                                           "Balance and coordination",
+                                                                           "Breathing and heart rate",
+                                                                           "Vision"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "The cerebellum coordinates movement and balance."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Hormones and the Endocrine System",
+                                          "content":  "The endocrine system uses hormones (chemical messengers) transported in blood to target organs. Unlike the nervous system (fast, short-lived, electrical), hormones are slower but have longer-lasting effects. Key glands: pituitary (master gland — controls others), thyroid (metabolism rate), adrenal (adrenaline for fight-or-flight), pancreas (insulin and glucagon for blood sugar), ovaries (oestrogen), testes (testosterone). Blood sugar regulation: after eating, blood glucose rises → pancreas releases insulin → cells absorb glucose → level drops. In diabetes, this system fails — Type 1: no insulin produced; Type 2: cells don\u0027t respond to insulin.",
+                                          "examples":  [
+                                                           "Adrenaline: heart rate increases, breathing quickens, blood flows to muscles — preparing to fight or flee",
+                                                           "Insulin: after a sugary meal, insulin tells liver and muscle cells to absorb glucose from the blood",
+                                                           "Type 1 diabetes: the immune system destroys insulin-producing cells — patient needs insulin injections for life"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "hormone":  "A chemical messenger carried in blood from a gland to target organs",
+                                                           "insulin":  "Hormone from the pancreas that lowers blood glucose",
+                                                           "adrenaline":  "Hormone from adrenal glands triggering the fight-or-flight response",
+                                                           "diabetes":  "A condition where blood sugar regulation fails — Type 1 (no insulin) or Type 2 (insulin resistance)"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Hormones travel through:",
+                                                           "options":  [
+                                                                           "The skin",
+                                                                           "Nerves",
+                                                                           "Bones",
+                                                                           "The blood"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Hormones are chemical messengers transported in the bloodstream to target organs."
+                                                       },
+                                                       {
+                                                           "question":  "Insulin is produced by:",
+                                                           "options":  [
+                                                                           "The brain",
+                                                                           "The pancreas",
+                                                                           "The heart",
+                                                                           "The lungs"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Beta cells in the pancreas produce insulin to regulate blood glucose."
+                                                       },
+                                                       {
+                                                           "question":  "The fight-or-flight hormone is:",
+                                                           "options":  [
+                                                                           "Testosterone",
+                                                                           "Insulin",
+                                                                           "Oestrogen",
+                                                                           "Adrenaline"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Adrenaline prepares the body for danger: faster heart, more blood to muscles."
+                                                       },
+                                                       {
+                                                           "question":  "Type 1 diabetes means:",
+                                                           "options":  [
+                                                                           "The body produces no insulin",
+                                                                           "Cells resist insulin",
+                                                                           "Too much insulin is produced",
+                                                                           "Blood sugar is always low"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "In Type 1, the immune system destroys insulin-producing cells — lifelong injections needed."
+                                                       },
+                                                       {
+                                                           "question":  "Compared to the nervous system, hormones are:",
+                                                           "options":  [
+                                                                           "Faster but shorter",
+                                                                           "Slower but longer-lasting",
+                                                                           "Identical in speed",
+                                                                           "Only in plants"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Nervous = fast, short, electrical. Endocrine = slower, longer-lasting, chemical."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Ecology",
+                      "lessons":  [
+                                      {
+                                          "title":  "Ecosystems and Food Chains",
+                                          "content":  "An ecosystem includes all organisms and their physical environment. Producers (plants) make food via photosynthesis. Primary consumers (herbivores) eat plants. Secondary consumers eat herbivores. Tertiary consumers eat other carnivores. Decomposers break down dead matter. Only ~10% of energy transfers between levels. Food webs show interconnected chains.",
+                                          "examples":  [
+                                                           "Pond: algae → tadpole → fish → heron",
+                                                           "Removing foxes: rabbits overpopulate → overgraze → plants decline",
+                                                           "Fewer top predators because 90% of energy is lost at each level"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "producer":  "Organism making its own food (plants, algae)",
+                                                           "consumer":  "Organism eating other organisms for energy",
+                                                           "decomposer":  "Organism breaking down dead matter, recycling nutrients",
+                                                           "trophic level":  "A feeding level in a food chain (producer, primary consumer, etc.)"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Energy originally comes from:",
+                                                           "options":  [
+                                                                           "Soil",
+                                                                           "The Sun",
+                                                                           "Water",
+                                                                           "Air"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Plants capture solar energy through photosynthesis."
+                                                       },
+                                                       {
+                                                           "question":  "Why fewer top predators?",
+                                                           "options":  [
+                                                                           "Predators eat less",
+                                                                           "Only 10% of energy transfers between levels",
+                                                                           "Herbivores reproduce faster",
+                                                                           "Predators need less space"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "90% lost at each level — less energy available for top predators."
+                                                       },
+                                                       {
+                                                           "question":  "Decomposers:",
+                                                           "options":  [
+                                                                           "Eat live plants",
+                                                                           "Produce oxygen",
+                                                                           "Recycle nutrients back into soil",
+                                                                           "Create energy from sunlight"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "They break down dead organisms, returning nutrients to the ecosystem."
+                                                       },
+                                                       {
+                                                           "question":  "A food web differs from a food chain because:",
+                                                           "options":  [
+                                                                           "It has no producers",
+                                                                           "It only shows one organism",
+                                                                           "It shows multiple interconnected feeding relationships",
+                                                                           "It doesn\u0027t include energy"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Food webs show the complex reality — organisms eat multiple things."
+                                                       },
+                                                       {
+                                                           "question":  "Removing one species from a food web:",
+                                                           "options":  [
+                                                                           "Creates new species",
+                                                                           "Has no effect",
+                                                                           "Only affects that species",
+                                                                           "Affects many other species in the web"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Interconnected relationships mean changes ripple through the entire ecosystem."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Adaptation and Natural Selection",
+                                          "content":  "Organisms have adaptations for survival. Structural: cactus spines reduce water loss. Behavioural: birds migrate. Physiological: camels tolerate high temperatures. Natural selection: individuals with beneficial traits survive more, reproduce, and pass traits on. Over generations, populations evolve. Evidence: fossils, DNA comparisons, homologous structures.",
+                                          "examples":  [
+                                                           "Peppered moths: dark moths survived in polluted areas — natural selection",
+                                                           "Arctic foxes: white fur in winter, brown in summer",
+                                                           "Antibiotic-resistant bacteria: resistant individuals survive and multiply"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "natural selection":  "Survival and reproduction of best-adapted organisms",
+                                                           "adaptation":  "A trait helping survival in an environment",
+                                                           "evolution":  "Change in inherited characteristics over generations",
+                                                           "variation":  "Differences between individuals of the same species"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "What drives natural selection?",
+                                                           "options":  [
+                                                                           "Environmental stability",
+                                                                           "Random chance only",
+                                                                           "Human intervention",
+                                                                           "Variation and survival of the fittest"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Individuals with advantageous traits survive and pass those traits on."
+                                                       },
+                                                       {
+                                                           "question":  "Polar bear white fur is:",
+                                                           "options":  [
+                                                                           "Structural adaptation",
+                                                                           "Behavioural adaptation",
+                                                                           "Physiological adaptation",
+                                                                           "Mutation"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Physical features for survival = structural adaptation."
+                                                       },
+                                                       {
+                                                           "question":  "Antibiotic resistance shows:",
+                                                           "options":  [
+                                                                           "Spontaneous generation",
+                                                                           "Intelligent design",
+                                                                           "Evolution by natural selection",
+                                                                           "Photosynthesis"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Resistant bacteria survive antibiotics and reproduce — evolution in action."
+                                                       },
+                                                       {
+                                                           "question":  "Darwin\u0027s theory requires:",
+                                                           "options":  [
+                                                                           "Variation, competition, inheritance, and time",
+                                                                           "Only mutations",
+                                                                           "Only human selection",
+                                                                           "No inheritance"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Natural selection needs: variation exists, competition for resources, beneficial traits are inherited, and changes accumulate over time."
+                                                       },
+                                                       {
+                                                           "question":  "Homologous structures (e.g., human arm and whale flipper) suggest:",
+                                                           "options":  [
+                                                                           "No relationship",
+                                                                           "Convergent evolution",
+                                                                           "Common ancestry",
+                                                                           "Different origins"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Similar bone structures in different species point to a shared evolutionary ancestor."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Human Impact on Environment",
+                                          "content":  "Humans affect the environment through deforestation, burning fossil fuels (greenhouse gases → global warming), pollution (air, water, soil), and overexploitation. Global warming: rising sea levels, extreme weather, habitat loss. Conservation: protected areas, recycling, renewable energy, reforestation. Sustainable development meets current needs without compromising future generations.",
+                                          "examples":  [
+                                                           "Amazon produces 20% of world\u0027s oxygen — deforestation threatens this",
+                                                           "Plastic kills 100,000+ marine animals per year",
+                                                           "Solar and wind produce energy without greenhouse emissions"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "greenhouse effect":  "Atmospheric gases trapping heat",
+                                                           "biodiversity":  "Variety of living species in an ecosystem",
+                                                           "sustainable development":  "Meeting present needs without harming future generations",
+                                                           "deforestation":  "Large-scale removal of trees, destroying habitats and reducing CO₂ absorption"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Main gas causing global warming:",
+                                                           "options":  [
+                                                                           "Carbon dioxide",
+                                                                           "Oxygen",
+                                                                           "Nitrogen",
+                                                                           "Helium"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "CO₂ from burning fossil fuels is the primary greenhouse gas."
+                                                       },
+                                                       {
+                                                           "question":  "Deforestation contributes to climate change because:",
+                                                           "options":  [
+                                                                           "Trees cause flooding",
+                                                                           "Trees produce CO₂",
+                                                                           "Trees block sunlight",
+                                                                           "Fewer trees absorb less CO₂"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Trees absorb CO₂ — removing them means more stays in the atmosphere."
+                                                       },
+                                                       {
+                                                           "question":  "A renewable energy source:",
+                                                           "options":  [
+                                                                           "Solar power",
+                                                                           "Coal",
+                                                                           "Natural gas",
+                                                                           "Oil"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Solar is renewable — unlimited energy without emissions."
+                                                       },
+                                                       {
+                                                           "question":  "Biodiversity is important because:",
+                                                           "options":  [
+                                                                           "Only pretty species matter",
+                                                                           "Ecosystems are more stable with many species",
+                                                                           "Less diversity is better",
+                                                                           "It has no importance"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Greater biodiversity = more resilient ecosystems, more resources, and better stability."
+                                                       },
+                                                       {
+                                                           "question":  "The greenhouse effect is:",
+                                                           "options":  [
+                                                                           "Plants releasing oxygen",
+                                                                           "Greenhouses heating up",
+                                                                           "Gases trapping heat in the atmosphere",
+                                                                           "Clouds blocking sunlight"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Greenhouse gases (CO₂, methane) trap infrared radiation, warming the Earth."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Carbon and Water Cycles",
+                                          "content":  "The carbon cycle moves carbon through the environment. Carbon enters the atmosphere as CO₂ from respiration, combustion, and decomposition. Plants remove CO₂ through photosynthesis, converting it to glucose. Carbon passes through food chains when animals eat plants. Fossil fuels are carbon from ancient organisms — burning them releases stored carbon as CO₂. The oceans absorb CO₂ (forming carbonic acid — causing ocean acidification). The water cycle: evaporation (liquid → gas, driven by solar heat), condensation (gas → liquid, forming clouds), precipitation (rain, snow), collection (rivers, lakes, oceans), and infiltration (water soaking into the ground). These cycles are interconnected — disrupting one affects the other.",
+                                          "examples":  [
+                                                           "Burning coal releases carbon stored for millions of years — adding \u0027new\u0027 CO₂ to the atmosphere",
+                                                           "Deforestation removes carbon sinks — trees that would absorb CO₂ are gone",
+                                                           "Rising ocean CO₂ absorption is causing acidification — threatening coral reefs and shellfish"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "carbon cycle":  "The continuous movement of carbon through atmosphere, organisms, oceans, and Earth",
+                                                           "carbon sink":  "A reservoir that absorbs more carbon than it releases (forests, oceans)",
+                                                           "water cycle":  "The continuous movement of water through evaporation, condensation, precipitation, and collection",
+                                                           "ocean acidification":  "Oceans becoming more acidic as they absorb excess CO₂"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Plants remove carbon from the atmosphere by:",
+                                                           "options":  [
+                                                                           "Burning",
+                                                                           "Respiration",
+                                                                           "Photosynthesis — absorbing CO₂ to make glucose",
+                                                                           "Erosion"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Photosynthesis takes CO₂ from the air and fixes it into organic molecules."
+                                                       },
+                                                       {
+                                                           "question":  "Fossil fuels are:",
+                                                           "options":  [
+                                                                           "Carbon from ancient organisms stored over millions of years",
+                                                                           "Recently formed substances",
+                                                                           "Made of water",
+                                                                           "Renewable resources"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Fossil fuels are compressed remains of ancient organisms — burning releases their stored carbon."
+                                                       },
+                                                       {
+                                                           "question":  "The water cycle is driven by:",
+                                                           "options":  [
+                                                                           "Gravity only",
+                                                                           "Wind only",
+                                                                           "Solar energy (causing evaporation)",
+                                                                           "Plants only"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "The Sun\u0027s heat drives evaporation — the primary engine of the water cycle."
+                                                       },
+                                                       {
+                                                           "question":  "Ocean acidification is caused by:",
+                                                           "options":  [
+                                                                           "Oceans absorbing excess CO₂",
+                                                                           "Too much salt",
+                                                                           "Rising temperatures only",
+                                                                           "Plastic pollution"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "CO₂ dissolves in seawater forming carbonic acid — lowering pH."
+                                                       },
+                                                       {
+                                                           "question":  "A carbon sink is:",
+                                                           "options":  [
+                                                                           "A type of fossil fuel",
+                                                                           "A kitchen sink",
+                                                                           "A source of carbon emissions",
+                                                                           "Something that absorbs more carbon than it releases"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Forests and oceans are major carbon sinks — they absorb and store carbon."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Biodiversity and Classification",
+                                          "content":  "Biodiversity is the variety of all living organisms on Earth. Classification organises organisms into groups based on shared characteristics. The hierarchy: Kingdom → Phylum → Class → Order → Family → Genus → Species. The binomial system gives every species a two-part Latin name: genus + species (e.g., Homo sapiens). The five kingdoms: Animalia (animals), Plantae (plants), Fungi, Protista (single-celled eukaryotes), and Prokaryotae (bacteria). Modern classification also uses DNA analysis — species with more similar DNA are more closely related. Biodiversity is threatened by habitat destruction, pollution, climate change, overexploitation, and invasive species.",
+                                          "examples":  [
+                                                           "Human classification: Animalia → Chordata → Mammalia → Primates → Hominidae → Homo → sapiens",
+                                                           "A lion: Panthera leo. A tiger: Panthera tigris. Same genus (Panthera) means they\u0027re closely related",
+                                                           "DNA shows humans and chimps share 98.7% of DNA — confirming very close evolutionary relationship"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "biodiversity":  "The variety of all living species in an area or on Earth",
+                                                           "classification":  "Organising organisms into groups based on shared characteristics",
+                                                           "binomial nomenclature":  "The two-part naming system: Genus species (e.g., Homo sapiens)",
+                                                           "species":  "A group of organisms that can interbreed to produce fertile offspring"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The correct order of classification hierarchy is:",
+                                                           "options":  [
+                                                                           "Kingdom, Species, Family, Class, Order, Phylum, Genus",
+                                                                           "Species, Genus, Family, Order, Class, Phylum, Kingdom",
+                                                                           "Kingdom, Phylum, Class, Order, Family, Genus, Species",
+                                                                           "Genus, Species, Kingdom, Phylum, Class, Order, Family"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "King Philip Came Over For Good Spaghetti — a mnemonic for the hierarchy."
+                                                       },
+                                                       {
+                                                           "question":  "The binomial name for humans is:",
+                                                           "options":  [
+                                                                           "Sapiens homo",
+                                                                           "Homo sapiens",
+                                                                           "Human being",
+                                                                           "Animalia sapiens"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Binomial = Genus (Homo) + species (sapiens). The genus is capitalised."
+                                                       },
+                                                       {
+                                                           "question":  "Two organisms in the same genus are:",
+                                                           "options":  [
+                                                                           "The same species",
+                                                                           "Closely related but different species",
+                                                                           "Completely unrelated",
+                                                                           "In different kingdoms"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Same genus = closely related. Same species = can interbreed."
+                                                       },
+                                                       {
+                                                           "question":  "Modern classification uses DNA because:",
+                                                           "options":  [
+                                                                           "It reveals evolutionary relationships more accurately than physical features alone",
+                                                                           "DNA is easy to see",
+                                                                           "Physical features are never useful",
+                                                                           "DNA has no variation"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "DNA analysis reveals genetic similarity — a more objective measure of relatedness."
+                                                       },
+                                                       {
+                                                           "question":  "The biggest threat to biodiversity is:",
+                                                           "options":  [
+                                                                           "Too many species",
+                                                                           "Habitat destruction",
+                                                                           "Evolution",
+                                                                           "Classification"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Habitat loss (deforestation, urbanization) is the number one cause of species decline."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Genetics",
+                      "lessons":  [
+                                      {
+                                          "title":  "DNA and Genes",
+                                          "content":  "DNA is a double helix carrying genetic instructions. Four bases: A pairs with T, G pairs with C. A gene is a section of DNA coding for a protein. Humans have ~20,000 genes on 23 pairs of chromosomes (46 total). The genome is the entire set of genetic material. DNA replication: the double helix unzips, each strand acts as a template, complementary bases are added, producing two identical copies.",
+                                          "examples":  [
+                                                           "Identical twins have the same DNA — that\u0027s why they look alike",
+                                                           "A mutation in DNA can cause diseases like sickle cell anaemia",
+                                                           "DNA fingerprinting uses unique patterns for forensic identification"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "DNA":  "Deoxyribonucleic acid — the molecule carrying genetic code",
+                                                           "gene":  "A section of DNA coding for a specific protein",
+                                                           "mutation":  "A change in DNA sequence that may alter the protein",
+                                                           "genome":  "The complete set of genetic material in an organism"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "In DNA, adenine pairs with:",
+                                                           "options":  [
+                                                                           "Guanine",
+                                                                           "Thymine",
+                                                                           "Cytosine",
+                                                                           "Uracil"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "A-T and G-C are the base pairing rules."
+                                                       },
+                                                       {
+                                                           "question":  "Human body cells have:",
+                                                           "options":  [
+                                                                           "92 chromosomes",
+                                                                           "23 chromosomes",
+                                                                           "46 chromosomes",
+                                                                           "12 chromosomes"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "23 pairs = 46 chromosomes."
+                                                       },
+                                                       {
+                                                           "question":  "A gene codes for:",
+                                                           "options":  [
+                                                                           "A cell",
+                                                                           "A chromosome",
+                                                                           "A protein",
+                                                                           "An organ"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Genes contain instructions to build specific proteins."
+                                                       },
+                                                       {
+                                                           "question":  "DNA replication produces:",
+                                                           "options":  [
+                                                                           "Two identical copies of the DNA",
+                                                                           "One copy and one different version",
+                                                                           "RNA only",
+                                                                           "Proteins directly"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Each strand templates a new complementary strand — producing two identical double helices."
+                                                       },
+                                                       {
+                                                           "question":  "The human genome contains approximately:",
+                                                           "options":  [
+                                                                           "100 genes",
+                                                                           "20,000 genes",
+                                                                           "1 million genes",
+                                                                           "46 genes"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Humans have about 20,000 protein-coding genes across 23 pairs of chromosomes."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Inheritance",
+                                          "content":  "Traits pass from parents through alleles (gene versions). Dominant (B) shows with one copy. Recessive (b) needs two copies. Homozygous = same alleles (BB or bb). Heterozygous = different (Bb). Punnett squares predict offspring. Bb × Bb = 25% BB, 50% Bb, 25% bb (3:1 phenotype ratio). Some traits are codominant or sex-linked (X chromosome).",
+                                          "examples":  [
+                                                           "Brown eyes (B) dominant over blue (b) — Bb gives brown eyes",
+                                                           "Two Bb parents can have a bb (blue-eyed) child — 25% chance",
+                                                           "Colour blindness is X-linked recessive — more common in males"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "dominant":  "Allele showing its trait with just one copy",
+                                                           "recessive":  "Allele only showing when two copies present",
+                                                           "genotype":  "The allele combination (Bb)",
+                                                           "phenotype":  "The observable trait (brown eyes)"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "If both parents are Bb, fraction of bb offspring?",
+                                                           "options":  [
+                                                                           "3/4 (75%)",
+                                                                           "1/2 (50%)",
+                                                                           "1/4 (25%)",
+                                                                           "0%"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Punnett: BB, Bb, Bb, bb — one out of four is bb."
+                                                       },
+                                                       {
+                                                           "question":  "Heterozygous means:",
+                                                           "options":  [
+                                                                           "Two different alleles (Bb)",
+                                                                           "Two same alleles (BB)",
+                                                                           "No alleles",
+                                                                           "Three alleles"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Hetero = different. One dominant + one recessive."
+                                                       },
+                                                       {
+                                                           "question":  "Genotype vs phenotype:",
+                                                           "options":  [
+                                                                           "Genotype = alleles (Bb), phenotype = trait (brown eyes)",
+                                                                           "They are the same",
+                                                                           "Phenotype = alleles",
+                                                                           "Genotype = trait"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Genotype is genetic makeup; phenotype is what you observe."
+                                                       },
+                                                       {
+                                                           "question":  "Why is colour blindness more common in males?",
+                                                           "options":  [
+                                                                           "Males have weaker eyes",
+                                                                           "It\u0027s X-linked recessive — males have only one X",
+                                                                           "Females can\u0027t be colour blind",
+                                                                           "It\u0027s not more common in males"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Males (XY) need only one copy of the recessive allele on their X. Females (XX) need two copies."
+                                                       },
+                                                       {
+                                                           "question":  "In a Punnett square, Bb × bb gives:",
+                                                           "options":  [
+                                                                           "75% Bb, 25% bb",
+                                                                           "100% Bb",
+                                                                           "50% Bb, 50% bb",
+                                                                           "25% BB, 75% bb"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Bb × bb: Bb, Bb, bb, bb — 50% heterozygous, 50% homozygous recessive."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Evolution Evidence",
+                                          "content":  "Evidence for evolution: fossils show species change over time, comparative anatomy (homologous structures), embryology (similar early development), DNA comparisons (more similar = more related), and observed evolution (antibiotic-resistant bacteria). All life shares common ancestors. Speciation occurs when populations become so different they can\u0027t interbreed — often caused by geographical isolation.",
+                                          "examples":  [
+                                                           "Horse fossils show gradual change over millions of years",
+                                                           "Humans and chimps share 98.7% DNA",
+                                                           "Darwin\u0027s finches: different beak shapes evolved for different food sources"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "fossil":  "Preserved remains of ancient organisms",
+                                                           "homologous structures":  "Similar structures suggesting common ancestry",
+                                                           "speciation":  "Formation of new species through evolutionary divergence",
+                                                           "natural selection":  "The mechanism driving evolution — survival of the fittest"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Human arm and whale flipper similarity suggests:",
+                                                           "options":  [
+                                                                           "No relationship",
+                                                                           "Same diet",
+                                                                           "Same habitat",
+                                                                           "Common ancestor"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Homologous structures indicate shared evolutionary ancestry."
+                                                       },
+                                                       {
+                                                           "question":  "Most direct evidence for evolution:",
+                                                           "options":  [
+                                                                           "Ocean currents",
+                                                                           "Weather patterns",
+                                                                           "Fossil record",
+                                                                           "Mountain heights"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Fossils show how organisms changed over millions of years."
+                                                       },
+                                                       {
+                                                           "question":  "98.7% shared DNA with chimps means:",
+                                                           "options":  [
+                                                                           "No relationship",
+                                                                           "We are the same species",
+                                                                           "DNA is unreliable",
+                                                                           "Very close evolutionary relationship"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "High similarity = recent common ancestor."
+                                                       },
+                                                       {
+                                                           "question":  "Speciation requires:",
+                                                           "options":  [
+                                                                           "Human intervention",
+                                                                           "Identical environments",
+                                                                           "No mutations",
+                                                                           "Populations becoming reproductively isolated"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "When populations can\u0027t interbreed (e.g., separated by geography), they diverge into separate species."
+                                                       },
+                                                       {
+                                                           "question":  "Bacteria developing antibiotic resistance is:",
+                                                           "options":  [
+                                                                           "Impossible",
+                                                                           "Not evolution",
+                                                                           "Only mutation without selection",
+                                                                           "Evolution observed in real time"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Resistant bacteria survive, reproduce, and pass resistance on — natural selection in action."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Genetic Engineering and Biotechnology",
+                                          "content":  "Genetic engineering involves modifying an organism\u0027s DNA. Genes can be cut using restriction enzymes, inserted into vectors (e.g., plasmids), and transferred into other organisms. Applications: GM crops (pest-resistant, drought-tolerant, higher yield), medical insulin (human insulin gene inserted into bacteria that produce it), gene therapy (replacing faulty genes to treat genetic diseases), and forensic DNA profiling. GM crops are controversial: benefits include feeding growing populations with less pesticide; concerns include unknown long-term effects, corporate control of seeds, and impact on biodiversity. CRISPR-Cas9 is a revolutionary gene-editing tool — precise, cheap, and fast.",
+                                          "examples":  [
+                                                           "Golden Rice: engineered to produce vitamin A — could prevent blindness in developing countries",
+                                                           "Insulin: before genetic engineering, insulin came from pig and cow pancreases — now bacteria produce human insulin",
+                                                           "CRISPR: scientists edited mosquito genes to reduce malaria transmission — a potential game-changer for Africa"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "genetic engineering":  "Modifying an organism\u0027s DNA by adding, removing, or changing genes",
+                                                           "GM crop":  "A genetically modified crop with DNA altered for desired traits",
+                                                           "CRISPR":  "A precise gene-editing tool that can cut and modify DNA at specific locations",
+                                                           "gene therapy":  "Treating genetic diseases by replacing or repairing faulty genes"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Genetic engineering uses restriction enzymes to:",
+                                                           "options":  [
+                                                                           "Destroy DNA entirely",
+                                                                           "Join DNA",
+                                                                           "Copy DNA",
+                                                                           "Cut DNA at specific sequences"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Restriction enzymes are molecular scissors — they cut DNA at precise recognition sequences."
+                                                       },
+                                                       {
+                                                           "question":  "Human insulin is now produced by:",
+                                                           "options":  [
+                                                                           "Pigs only",
+                                                                           "Genetically modified bacteria",
+                                                                           "Chemical synthesis only",
+                                                                           "Plants"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "The human insulin gene is inserted into bacteria, which produce insulin in large quantities."
+                                                       },
+                                                       {
+                                                           "question":  "A concern about GM crops is:",
+                                                           "options":  [
+                                                                           "They grow too slowly",
+                                                                           "They always fail",
+                                                                           "They cost nothing",
+                                                                           "Unknown long-term effects on environment and health"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "While GM crops offer benefits, potential risks to biodiversity and health need careful study."
+                                                       },
+                                                       {
+                                                           "question":  "CRISPR-Cas9 is:",
+                                                           "options":  [
+                                                                           "A precise gene-editing tool",
+                                                                           "A type of virus",
+                                                                           "A chemical fertilizer",
+                                                                           "A microscope"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "CRISPR allows scientists to edit genes with unprecedented precision and affordability."
+                                                       },
+                                                       {
+                                                           "question":  "Gene therapy aims to:",
+                                                           "options":  [
+                                                                           "Create new species",
+                                                                           "Treat genetic diseases by fixing faulty genes",
+                                                                           "Clone humans",
+                                                                           "Extract DNA for forensics"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Gene therapy replaces or repairs defective genes — potentially curing inherited conditions."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Microorganisms and Disease",
+                                          "content":  "Microorganisms (microbes) include bacteria, viruses, fungi, and protists. Most are harmless or beneficial — gut bacteria aid digestion, yeast makes bread rise, decomposers recycle nutrients. Pathogens are microbes that cause disease. Bacteria cause TB, cholera, food poisoning. Viruses cause flu, HIV, COVID-19. Fungi cause athlete\u0027s foot, ringworm. Protists cause malaria. The body defends against pathogens: skin (physical barrier), mucus (traps microbes), white blood cells (engulf pathogens, produce antibodies, produce antitoxins). Vaccination introduces weakened/dead pathogens to trigger immune memory — if the real pathogen invades later, the immune response is fast and strong.",
+                                          "examples":  [
+                                                           "Antibiotics kill bacteria but NOT viruses — that\u0027s why they don\u0027t work for colds and flu",
+                                                           "Vaccination: your body makes antibodies against measles without getting sick — protected for life",
+                                                           "Malaria is spread by mosquitoes carrying the Plasmodium protist — killing millions in tropical regions"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "pathogen":  "A microorganism that causes disease (bacteria, virus, fungus, protist)",
+                                                           "antibody":  "A protein produced by white blood cells that targets a specific pathogen",
+                                                           "vaccination":  "Introducing weakened/dead pathogens to stimulate immune memory",
+                                                           "antibiotic":  "A medicine that kills bacteria but not viruses"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Antibiotics work against:",
+                                                           "options":  [
+                                                                           "Bacteria only",
+                                                                           "Viruses",
+                                                                           "All pathogens",
+                                                                           "Fungi only"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Antibiotics kill bacteria — they have NO effect on viruses."
+                                                       },
+                                                       {
+                                                           "question":  "Vaccination works by:",
+                                                           "options":  [
+                                                                           "Killing all bacteria in the body",
+                                                                           "Stimulating the immune system to produce antibodies and memory cells",
+                                                                           "Providing antibiotics",
+                                                                           "Removing white blood cells"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Vaccines trigger immune memory — the body responds quickly if the real pathogen appears."
+                                                       },
+                                                       {
+                                                           "question":  "Which disease is caused by a virus?",
+                                                           "options":  [
+                                                                           "COVID-19",
+                                                                           "Cholera",
+                                                                           "Athlete\u0027s foot",
+                                                                           "Malaria"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "COVID-19 is caused by SARS-CoV-2 virus. Cholera = bacteria, athlete\u0027s foot = fungus, malaria = protist."
+                                                       },
+                                                       {
+                                                           "question":  "The first line of defence against pathogens is:",
+                                                           "options":  [
+                                                                           "Surgery",
+                                                                           "Antibiotics",
+                                                                           "Skin and mucus (physical barriers)",
+                                                                           "Vaccines"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Skin keeps pathogens out; mucus traps them in airways and the gut."
+                                                       },
+                                                       {
+                                                           "question":  "Antibiotic resistance is a growing problem because:",
+                                                           "options":  [
+                                                                           "Bacteria are getting bigger",
+                                                                           "Antibiotics are getting weaker",
+                                                                           "Overuse of antibiotics selects for resistant bacteria",
+                                                                           "Viruses are fighting antibiotics"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Misusing antibiotics kills susceptible bacteria but resistant ones survive and multiply."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  }
+              ]
 }

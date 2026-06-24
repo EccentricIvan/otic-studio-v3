@@ -1,48 +1,1469 @@
 {
-  "id": "english_writing",
-  "name": "English Writing",
-  "icon": "menu_book",
-  "color": "#EC4899",
-  "units": [
-    {
-      "title": "Grammar Foundations",
-      "lessons": [
-        {"title": "Parts of Speech", "content": "Every word has a role. Nouns name things (dog, Kampala, happiness). Verbs show actions/states (run, is, think). Adjectives describe nouns (tall, beautiful). Adverbs describe verbs/adjectives (quickly, very). Pronouns replace nouns (he, she, they). Prepositions show relationships (in, on, at). Conjunctions join (and, but, because). Interjections express emotion (wow, oh).", "examples": ["'The tall boy quickly ran to the old house.' — noun: boy. verb: ran. adj: tall, old. adv: quickly.", "Pronoun: 'Maria loves music. She plays piano.'", "'I bought mangoes, but they were expensive.' — 'but' is a conjunction."], "keyTerms": {"noun": "Names a person, place, thing, or idea", "verb": "Shows action or state of being", "adjective": "Describes a noun", "adverb": "Describes a verb, adjective, or other adverb", "preposition": "Shows relationship between words (in, on, at, between)"}, "quiz": [{"question": "In 'The quick fox jumped,' the adjective:", "options": ["quick", "fox", "jumped", "The"], "correct": 0, "explanation": "Quick describes the fox."}, {"question": "A preposition:", "options": ["between", "quickly", "happy", "run"], "correct": 0, "explanation": "Between shows relationship."}, {"question": "Adverbs describe:", "options": ["Verbs, adjectives, or other adverbs", "Only nouns", "Only pronouns", "Only prepositions"], "correct": 0, "explanation": "How, when, where, to what degree."}, {"question": "In 'She sang beautifully,' the adverb is:", "options": ["beautifully", "She", "sang", "There is no adverb"], "correct": 0, "explanation": "Beautifully describes how she sang (modifies the verb)."}, {"question": "A conjunction does:", "options": ["Joins words, phrases, or clauses together", "Names things", "Describes nouns", "Shows action"], "correct": 0, "explanation": "And, but, or, because — connecting words."}]},
-        {"title": "Verb Tenses", "content": "Tenses show when. Simple present: habits (I walk daily). Present continuous: now (I am walking). Simple past: completed (I walked). Past continuous: was happening (I was walking when...). Simple future: will happen (I will walk). Present perfect: past connected to now (I have walked 5km). Past perfect: before another past (I had walked before it rained). Stay consistent within paragraphs.", "examples": ["Simple present: 'She works at the hospital.'", "Past continuous: 'They were playing when rain started.'", "Present perfect: 'I have visited three countries.'"], "keyTerms": {"simple present": "Habitual actions: 'She reads every day'", "simple past": "Completed: 'She read yesterday'", "present perfect": "Past connected to now: 'She has read 3 books'", "tense consistency": "Using the same tense throughout a passage unless there's a reason to shift"}, "quiz": [{"question": "Simple past:", "options": ["She walked to school.", "She walks to school.", "She is walking.", "She will walk."], "correct": 0, "explanation": "Walked = completed past."}, {"question": "'I have finished' is:", "options": ["Present perfect", "Simple past", "Simple present", "Future"], "correct": 0, "explanation": "Have + past participle."}, {"question": "Tense error:", "options": ["Yesterday I walk to school.", "Yesterday I walked.", "I walk every day.", "I am walking now."], "correct": 0, "explanation": "'Yesterday' needs past tense: walked."}, {"question": "The past perfect ('had done') is used for:", "options": ["An action completed before another past action", "Something happening now", "Future plans", "Habitual actions"], "correct": 0, "explanation": "'She had left before he arrived' — leaving happened before arriving."}, {"question": "Present continuous ('is doing') shows:", "options": ["An action happening right now or around this time", "A completed action", "A habitual action", "A future certain action"], "correct": 0, "explanation": "'I am writing' = happening at this moment."}]},
-        {"title": "Punctuation and Capitalization", "content": "Period (.) ends statements. Question mark (?) for questions. Exclamation (!) for strong emotion. Comma (,) separates list items, joins clauses, follows intros. Apostrophe ('): possession (Maria's book) or contraction (don't). Quotation marks for direct speech. Semicolons join related independent clauses. Colons introduce lists. Capitalize: sentence starts, proper nouns, titles, 'I'.", "examples": ["List: 'I bought apples, bananas, and oranges.'", "Possession: 'the teacher's desk' vs 'the teachers' lounge'", "Speech: 'She asked, \"Where are you going?\"'"], "keyTerms": {"comma": "Separates items, clauses, introductory phrases", "apostrophe": "Shows possession or contraction", "quotation marks": "Enclose direct speech", "semicolon": "Joins related independent clauses that could stand alone as sentences"}, "quiz": [{"question": "Correct punctuation:", "options": ["She said, \"Let's go.\"", "She said \"lets go\"", "she Said, 'Lets Go.'", "She Said \"lets go\"."], "correct": 0, "explanation": "Comma before quote, capital inside."}, {"question": "children's toys shows:", "options": ["Possession", "Contraction", "Plural", "Question"], "correct": 0, "explanation": "Toys belonging to children."}, {"question": "Capitalize:", "options": ["Country names (Uganda, Kenya)", "All nouns", "All adjectives", "Words after commas"], "correct": 0, "explanation": "Proper nouns always capitalized."}, {"question": "A semicolon is used to:", "options": ["Join two related independent clauses", "End a sentence", "Start a list", "Show possession"], "correct": 0, "explanation": "'She loved reading; he preferred writing.' — two related but independent ideas."}, {"question": "It's vs its:", "options": ["It's = it is (contraction); its = belonging to it (possession)", "They mean the same thing", "Its = it is; it's = possession", "Neither is correct"], "correct": 0, "explanation": "Common confusion: it's = it is/has. Its = possessive (no apostrophe)."}]},
-        {"title": "Subject-Verb Agreement", "content": "The subject and verb must agree in number. Singular subjects take singular verbs: 'The dog runs.' Plural subjects take plural verbs: 'The dogs run.' Tricky cases: collective nouns can be singular or plural depending on context ('The team is winning' vs 'The team are arguing'). Compound subjects joined by 'and' take plural verbs: 'Tom and Jerry are friends.' With 'or/nor,' the verb agrees with the nearer subject: 'Neither the cat nor the dogs are here.' Indefinite pronouns: 'everyone,' 'nobody,' 'each' are singular; 'few,' 'many,' 'several' are plural. Phrases between subject and verb don't change the agreement: 'The box of chocolates is on the table' (box is singular, not chocolates).", "examples": ["'The list of items is long.' (subject = list, singular)", "'Neither the teacher nor the students were happy.' (agrees with nearer: students = plural)", "'Everyone has a responsibility.' (everyone = singular)"], "keyTerms": {"subject-verb agreement": "The verb must match the subject in number (singular/plural)", "collective noun": "A word for a group (team, family, government) — can be singular or plural", "indefinite pronoun": "A pronoun not referring to a specific person (everyone, nobody, some)", "compound subject": "Two or more subjects joined by and, or, nor"}, "quiz": [{"question": "Correct: 'The dogs ___'", "options": ["run", "runs", "running", "runned"], "correct": 0, "explanation": "Plural subject (dogs) takes plural verb (run)."}, {"question": "'Everyone ___ a book.'", "options": ["has", "have", "having", "had have"], "correct": 0, "explanation": "Everyone is singular — takes 'has' not 'have'."}, {"question": "'The box of chocolates ___ here.'", "options": ["is", "are", "were", "be"], "correct": 0, "explanation": "Subject is 'box' (singular), not 'chocolates' — 'of chocolates' is a prepositional phrase."}, {"question": "'Tom and Jerry ___ friends.'", "options": ["are", "is", "was", "am"], "correct": 0, "explanation": "Compound subject joined by 'and' = plural."}, {"question": "'Neither the cat nor the dogs ___ in the garden.'", "options": ["are", "is", "was", "am"], "correct": 0, "explanation": "With 'nor,' verb agrees with the nearer subject — 'dogs' is plural, so 'are.'"}]},
-        {"title": "Common Grammar Mistakes", "content": "Even good writers make common errors. Their/there/they're: 'their' = possession, 'there' = place, 'they're' = they are. Your/you're: 'your' = possession, 'you're' = you are. Affect/effect: 'affect' is usually a verb (to influence), 'effect' is usually a noun (the result). Then/than: 'then' = time/sequence, 'than' = comparison. Who/whom: 'who' = subject (who did it?), 'whom' = object (to whom?). Dangling modifiers: 'Walking to school, the rain started' — the rain wasn't walking! Fix: 'Walking to school, I got caught in the rain.' Double negatives: 'I don't have nothing' should be 'I don't have anything.' Run-on sentences: two sentences joined without punctuation — use a period, semicolon, or conjunction.", "examples": ["Wrong: 'Your going to love they're house over their.' Right: 'You're going to love their house over there.'", "Wrong: 'The test effected my grade.' Right: 'The test affected my grade.' (affect = verb)", "Dangling: 'After studying hard, the exam was easy.' Better: 'After studying hard, I found the exam easy.'"], "keyTerms": {"homophone": "Words that sound the same but have different meanings (their/there/they're)", "dangling modifier": "A phrase that doesn't clearly connect to what it's supposed to modify", "double negative": "Two negative words in one clause, creating confusion or unintended meaning", "run-on sentence": "Two independent clauses joined without proper punctuation or conjunction"}, "quiz": [{"question": "Correct usage: '___ going to ___ house over ___.'", "options": ["You're, their, there", "Your, there, their", "They're, your, they're", "There, you're, their"], "correct": 0, "explanation": "You're = you are. Their = belonging to them. There = that place."}, {"question": "Affect vs effect:", "options": ["Affect is a verb (to influence), effect is a noun (the result)", "They mean the same thing", "Effect is a verb, affect is a noun", "Neither is commonly used"], "correct": 0, "explanation": "The weather AFFECTS my mood. The EFFECT of rain is wet streets."}, {"question": "'I don't have nothing' should be:", "options": ["'I don't have anything' — eliminate double negative", "'I don't have nothing' is correct", "'I has nothing'", "'I haven't nothing'"], "correct": 0, "explanation": "Two negatives make a positive — say 'I don't have anything' or 'I have nothing.'"}, {"question": "A dangling modifier is fixed by:", "options": ["Making clear who or what is performing the action", "Removing all modifiers", "Adding more adjectives", "Using passive voice"], "correct": 0, "explanation": "'Walking to school, the rain started' → 'While I was walking to school, the rain started.'"}, {"question": "Then vs than:", "options": ["Then = time/sequence; than = comparison", "They are the same", "Than = time; then = comparison", "Neither is correct"], "correct": 0, "explanation": "'First study, THEN eat' (time). 'I'm taller THAN you' (comparison)."}]}
-      ]
-    },
-    {
-      "title": "Sentence and Paragraph Structure",
-      "lessons": [
-        {"title": "Building Strong Sentences", "content": "Sentence needs subject + predicate. Simple: one clause ('The dog barked.'). Compound: two clauses + conjunction ('The dog barked, and the cat hid.'). Complex: independent + dependent ('When the dog barked, the cat hid.'). Vary length for rhythm. Avoid run-ons. Use active voice over passive.", "examples": ["Simple: 'The rain stopped.'", "Compound: 'The rain stopped, but roads were wet.'", "Complex: 'Although the rain stopped, roads were wet.'"], "keyTerms": {"simple sentence": "One independent clause", "compound sentence": "Two independent clauses joined by conjunction", "active voice": "Subject performs action: 'She wrote the report'", "complex sentence": "Independent + dependent clause joined by subordinating conjunction"}, "quiz": [{"question": "Compound sentence:", "options": ["She sang, and he danced.", "She sang.", "When she sang, he danced.", "Singing is fun."], "correct": 0, "explanation": "Two independent clauses + and."}, {"question": "Active voice:", "options": ["Subject performs action", "Subject receives action", "No subject", "Question form"], "correct": 0, "explanation": "'The dog bit the man' (active) vs 'The man was bitten' (passive)."}, {"question": "Run-on sentence:", "options": ["Two sentences without proper punctuation", "Very long sentence", "No verb", "A question"], "correct": 0, "explanation": "Fix with period, semicolon, or conjunction."}, {"question": "Why vary sentence length?", "options": ["Creates rhythm and keeps readers engaged", "All sentences should be the same length", "Short is always better", "Long is always better"], "correct": 0, "explanation": "Mix of short punchy sentences and longer flowing ones creates engaging writing."}, {"question": "A dependent clause:", "options": ["Cannot stand alone as a sentence — needs an independent clause", "Is a complete sentence", "Has no verb", "Is always at the end"], "correct": 0, "explanation": "'When the dog barked' is incomplete — it needs an independent clause to finish the thought."}]},
-        {"title": "Paragraph Writing", "content": "Paragraph = sentences about one idea. Structure: topic sentence (main idea), supporting sentences (evidence, examples), concluding sentence. Every sentence relates to topic. Use transitions: also, however, therefore, for example. Unity (one topic), coherence (logical flow), development (enough detail).", "examples": ["Topic: 'Exercise has many health benefits.'", "Support: 'It strengthens the heart, builds muscle, reduces stress.'", "Transitions: 'First... Second... Furthermore... In conclusion...'"], "keyTerms": {"topic sentence": "States main idea, usually first", "supporting sentence": "Evidence/examples for topic", "transition": "Words connecting ideas between sentences", "paragraph unity": "Every sentence relates to the main idea"}, "quiz": [{"question": "Topic sentence:", "options": ["States main idea of paragraph", "Summarizes whole essay", "Always a question", "Longest sentence"], "correct": 0, "explanation": "Tells reader what paragraph is about."}, {"question": "Transition word:", "options": ["However", "Beautiful", "Running", "Quickly"], "correct": 0, "explanation": "Connects ideas."}, {"question": "Paragraph unity:", "options": ["Every sentence relates to main idea", "Same length", "Simple sentences only", "One sentence"], "correct": 0, "explanation": "Stay on topic."}, {"question": "A concluding sentence should:", "options": ["Wrap up the paragraph's idea or transition to the next", "Introduce a new topic", "Be exactly like the topic sentence", "Always start with 'In conclusion'"], "correct": 0, "explanation": "It closes the paragraph's argument or leads smoothly to what comes next."}, {"question": "Good paragraph development means:", "options": ["Enough specific details, examples, and evidence to support your point", "Repeating the topic sentence", "Using as few words as possible", "Only stating opinions"], "correct": 0, "explanation": "Show, don't just tell — provide evidence for your claims."}]},
-        {"title": "Coherence and Flow", "content": "Coherence = logical flow between ideas. Techniques: chronological (first, then, finally), spatial (left to right), importance order (most to least), cause-effect (because, therefore). Use pronouns to avoid repetition. Repeat key words for emphasis. Read aloud — if you stumble, readers will too. Revise for clarity.", "examples": ["Chronological: 'First, mix flour. Then, add eggs. Finally, bake.'", "Cause-effect: 'The road was icy. As a result, cars skidded.'", "Pronoun: 'Students finished their project. They presented it.'"], "keyTerms": {"coherence": "Logical flow between ideas", "chronological order": "Arranged by time", "revision": "Re-reading and improving writing", "logical connectors": "Words showing relationships: however, therefore, consequently"}, "quiz": [{"question": "Chronological order:", "options": ["First, then, finally", "However, but, although", "Big, bigger, biggest", "Here, there, everywhere"], "correct": 0, "explanation": "Time sequence."}, {"question": "Read aloud because:", "options": ["Catch awkward phrasing", "Required", "Memorize it", "Make it longer"], "correct": 0, "explanation": "Hear problems eyes miss."}, {"question": "Coherence:", "options": ["Ideas flow logically and connect smoothly", "Big words", "Long sentences", "No paragraphs"], "correct": 0, "explanation": "Smooth transitions between ideas."}, {"question": "Logical connectors help by:", "options": ["Showing relationships between ideas (cause, contrast, addition)", "Making sentences longer", "Replacing all nouns", "Ending paragraphs"], "correct": 0, "explanation": "However (contrast), therefore (consequence), furthermore (addition)."}, {"question": "Revision should focus on:", "options": ["Clarity, flow, word choice, and eliminating errors", "Only fixing spelling", "Making everything longer", "Changing the topic"], "correct": 0, "explanation": "Good writing is rewriting — revise for all aspects of quality."}]},
-        {"title": "Active and Passive Voice", "content": "Active voice: the subject performs the action ('The student wrote the essay.'). Passive voice: the subject receives the action ('The essay was written by the student.'). Active is generally clearer, more direct, and more engaging. Use passive when: the doer is unknown ('The window was broken'), the doer is less important than the action ('The vaccine was developed in record time'), or in scientific writing ('The solution was heated to 100°C'). Converting: passive includes a form of 'to be' + past participle. Too much passive makes writing dull and wordy: 'It was decided by the committee that the meeting would be rescheduled' → 'The committee decided to reschedule the meeting.'", "examples": ["Active: 'The dog bit the man.' Passive: 'The man was bitten by the dog.' — active is more direct", "Appropriate passive: 'Mistakes were made.' — when no one wants to name the doer", "Wordy passive: 'The cake was eaten by the children.' Better: 'The children ate the cake.'"], "keyTerms": {"active voice": "Subject performs the action — direct and clear", "passive voice": "Subject receives the action — includes 'to be' + past participle", "past participle": "The verb form used in passive and perfect tenses (written, eaten, broken)", "wordiness": "Using more words than necessary — often caused by passive voice"}, "quiz": [{"question": "Active voice:", "options": ["'The teacher explains the lesson.'", "'The lesson is explained by the teacher.'", "'The lesson was explained.'", "'It is explained.'"], "correct": 0, "explanation": "Subject (teacher) performs the action (explains) — direct and clear."}, {"question": "When is passive voice appropriate?", "options": ["When the doer is unknown or less important than the action", "Always", "Never", "Only in fiction"], "correct": 0, "explanation": "'The bridge was built in 1920' — who built it is less important than when."}, {"question": "Convert to active: 'The ball was kicked by the boy.'", "options": ["The boy kicked the ball.", "The ball kicked the boy.", "The ball was kicking.", "The boy was kicked."], "correct": 0, "explanation": "Move the doer (boy) to subject position."}, {"question": "Passive voice always contains:", "options": ["A form of 'to be' + past participle", "An exclamation mark", "A question", "An adverb"], "correct": 0, "explanation": "Was written, is being built, has been done — to be + past participle signals passive."}, {"question": "Too much passive voice makes writing:", "options": ["Dull, wordy, and indirect", "More exciting", "More professional always", "Shorter"], "correct": 0, "explanation": "Active voice is usually more engaging and concise — use passive deliberately, not by default."}]},
-        {"title": "Vocabulary Building", "content": "A rich vocabulary makes writing more precise and engaging. Strategies: read widely (the best way to absorb new words naturally), use context clues (figure out meaning from surrounding text), learn word roots (Latin/Greek roots unlock hundreds of words: 'bio' = life, 'graph' = write, 'port' = carry), keep a vocabulary journal (write new words, definitions, and example sentences), use new words in your own writing (you only truly learn a word by using it). Avoid overusing the thesaurus — don't replace simple words with obscure ones just to sound smart. Choose the right word, not the biggest: 'use' is often better than 'utilize.' Register matters: 'get' (informal), 'obtain' (formal), 'acquire' (very formal) — choose based on your audience. Connotation: words with similar meanings carry different feelings: 'thin' (neutral), 'slim' (positive), 'skinny' (negative).", "examples": ["Root: 'bio' = life → biology, biography, biodiversity, antibiotic, biopsy", "Connotation: 'childish' (negative) vs 'childlike' (positive) — similar meaning, different feeling", "Register: 'I got the job' (casual) vs 'I was offered the position' (formal) — same event, different tone"], "keyTerms": {"connotation": "The feeling or association a word carries beyond its dictionary meaning", "register": "The level of formality in language — informal, neutral, formal", "root word": "The base form of a word from which other words are derived", "context clues": "Information surrounding an unknown word that helps you figure out its meaning"}, "quiz": [{"question": "The best way to build vocabulary is:", "options": ["Read widely — absorb words naturally from context", "Memorize dictionary pages", "Only use a thesaurus", "Avoid reading"], "correct": 0, "explanation": "Regular reading exposes you to words in meaningful context — the most effective method."}, {"question": "The root 'graph' means:", "options": ["Write or draw (biography, photograph, geography)", "Life", "Carry", "See"], "correct": 0, "explanation": "Graph = write/draw: photograph (light-writing), biography (life-writing)."}, {"question": "Connotation means:", "options": ["The feeling or association a word carries", "The dictionary definition", "The spelling of a word", "The pronunciation"], "correct": 0, "explanation": "'Home' (warm, safe) vs 'house' (neutral building) — same place, different feeling."}, {"question": "When should you use a thesaurus?", "options": ["To find a more precise word, not a more complicated one", "To replace every word with a bigger one", "Never", "For every sentence"], "correct": 0, "explanation": "Use it to find the RIGHT word, not the BIGGEST word."}, {"question": "Register matters because:", "options": ["Different audiences expect different levels of formality", "Formal is always better", "Informal is always better", "There is only one correct way to speak"], "correct": 0, "explanation": "A text to a friend vs a university application need very different language."}]}
-      ]
-    },
-    {
-      "title": "Essay Writing",
-      "lessons": [
-        {"title": "Essay Structure", "content": "Introduction: hook (grab attention), context, thesis (main argument). Body paragraphs: each with one point + evidence. Conclusion: restate thesis differently, summarize, final thought. Standard: 5 paragraphs (1 intro, 3 body, 1 conclusion). Thesis is the most important sentence.", "examples": ["Hook: 'Did you know the average person spends 7 years in the bathroom?'", "Thesis: 'Social media transformed communication by making it faster, more visual, and global.'", "Conclusion: 'Renewable energy is not just environmental but economically necessary.'"], "keyTerms": {"thesis statement": "Main argument of the essay", "hook": "Opening sentence grabbing attention", "body paragraph": "Develops one supporting point", "conclusion": "Summarizes and provides final insight"}, "quiz": [{"question": "Thesis goes:", "options": ["End of introduction", "Start of conclusion", "Every body paragraph", "In title"], "correct": 0, "explanation": "Previews your argument."}, {"question": "Standard essay body paragraphs:", "options": ["3", "1", "10", "0"], "correct": 0, "explanation": "Three supporting points."}, {"question": "Good hook:", "options": ["Grabs reader's attention", "States conclusion", "Lists all points", "Is very long"], "correct": 0, "explanation": "Questions, surprising facts, quotes, stories."}, {"question": "Each body paragraph should focus on:", "options": ["One main point with supporting evidence", "All your points at once", "Only the conclusion", "Repeating the introduction"], "correct": 0, "explanation": "One idea per paragraph, fully developed with evidence."}, {"question": "A strong conclusion should:", "options": ["Restate the thesis differently and leave a lasting impression", "Copy the introduction exactly", "Introduce new arguments", "Apologize for the essay"], "correct": 0, "explanation": "Echo your thesis, summarize key points, end with impact — don't just repeat."}]},
-        {"title": "Argumentative Writing", "content": "Take a clear position and defend with evidence. Support: facts, statistics, expert opinions, examples. Address counterarguments — acknowledge the other side, explain why yours is stronger. Use persuasive language: strong verbs, confident tone, rhetorical questions. Structure: claim → evidence → explanation → link to thesis. Avoid logical fallacies.", "examples": ["Claim + evidence: 'Schools should teach financial literacy — 73% of financially educated adults avoid debt.'", "Counter: 'Some argue coding is more important. However, every student will manage money.'", "Rhetorical: 'If students can learn calculus, why can't they learn budgeting?'"], "keyTerms": {"argument": "Position supported by evidence", "counterargument": "Acknowledging opposing view", "evidence": "Facts, stats, examples supporting claim", "rhetorical question": "A question asked for effect, not expecting an answer"}, "quiz": [{"question": "Argumentative essay:", "options": ["Clear position + evidence", "Both sides equally", "Only emotions", "Avoid other side"], "correct": 0, "explanation": "Defend your position."}, {"question": "Address counterarguments to:", "options": ["Show you've considered other views, strengthening yours", "Confuse reader", "Agree with the other side", "Not necessary"], "correct": 0, "explanation": "Makes argument more credible."}, {"question": "Strongest evidence:", "options": ["Research statistic", "Personal feelings", "Friend's opinion", "Something imagined"], "correct": 0, "explanation": "Data is most convincing."}, {"question": "A logical fallacy is:", "options": ["A flawed argument that sounds convincing but isn't valid", "A strong argument", "A type of evidence", "A writing style"], "correct": 0, "explanation": "Examples: attacking the person instead of the argument, false generalizations."}, {"question": "The PEEL structure for paragraphs:", "options": ["Point, Evidence, Explain, Link", "Plan, Edit, Explain, List", "Present, Evaluate, Examine, Learn", "Point, Example, Elaborate, Leave"], "correct": 0, "explanation": "PEEL: make a Point, provide Evidence, Explain how it supports your argument, Link back to thesis."}]},
-        {"title": "Research and Citations", "content": "Use reliable sources: academic journals, books, reputable news, government data. Avoid: random websites, social media, Wikipedia (use to find sources, not as source). Evaluate: who, when, bias, evidence. Plagiarism = using others' work without credit. Cite: in-text (Author, Year) and bibliography. Paraphrase in own words with credit. Quote directly with quotation marks.", "examples": ["Paraphrase: 'Climate change threatens survival (Smith, 2023).'", "Quote: 'Education is the most powerful weapon (Jones, 2022, p. 15).'", "Unreliable: random blog vs WHO report"], "keyTerms": {"plagiarism": "Using others' work without credit", "citation": "Reference to source", "paraphrase": "Restating in own words with credit", "bibliography": "List of all sources used"}, "quiz": [{"question": "Plagiarism:", "options": ["Using someone's work without credit", "Writing own ideas", "Citing sources", "Paraphrasing properly"], "correct": 0, "explanation": "Serious academic offense."}, {"question": "Most reliable:", "options": ["Academic journal", "Random blog", "Social media comment", "Anonymous website"], "correct": 0, "explanation": "Peer-reviewed and fact-checked."}, {"question": "Paraphrasing:", "options": ["Own words + citation", "Copying exactly", "Making up info", "Ignoring source"], "correct": 0, "explanation": "Rewrite + cite the original."}, {"question": "A bibliography lists:", "options": ["All sources used in your writing, in a standard format", "Only books", "Only websites", "Your personal opinions"], "correct": 0, "explanation": "Every source you referenced, formatted consistently (APA, MLA, etc.)."}, {"question": "To evaluate a source's reliability:", "options": ["Check the author, date, bias, evidence, and publication", "Only look at the title", "Trust anything online", "Ignore the date"], "correct": 0, "explanation": "Who wrote it? When? Is it biased? Is there evidence? Is the publisher reputable?"}]},
-        {"title": "Descriptive Writing", "content": "Descriptive writing creates vivid pictures in the reader's mind using sensory details. Engage all five senses: sight (colors, shapes, sizes), sound (loud, soft, musical), smell (sweet, acrid, fresh), touch (rough, smooth, warm), taste (bitter, sweet, salty). Use figurative language: similes (like/as: 'the sky was like a painting'), metaphors (direct comparison: 'the classroom was a zoo'), personification (giving human qualities to non-human things: 'the wind whispered'). Choose specific details over general: 'a battered red bicycle with a squeaky chain' is better than 'a bike.' Show emotions through actions and details, not just stating them. Descriptive writing isn't just about adjectives — strong verbs are equally important: 'trudged' tells more than 'walked slowly.'", "examples": ["Weak: 'The market was busy.' Strong: 'Vendors shouted prices over sizzling meat, while customers squeezed between stalls overflowing with mangoes, tomatoes, and second-hand clothes.'", "Simile: 'The lake was as still as glass, reflecting the mountains like a perfect mirror.'", "Strong verb: 'She stormed out' vs 'She walked out angrily' — the verb does the work."], "keyTerms": {"sensory details": "Details appealing to the five senses — making writing vivid and immersive", "simile": "A comparison using 'like' or 'as': 'brave as a lion'", "metaphor": "A direct comparison without like/as: 'time is money'", "personification": "Giving human qualities to non-human things: 'the sun smiled'"}, "quiz": [{"question": "Descriptive writing should engage:", "options": ["All five senses — sight, sound, smell, touch, taste", "Only sight", "Only emotions", "No senses — just facts"], "correct": 0, "explanation": "Multi-sensory description creates immersive, vivid writing."}, {"question": "'The wind howled' is an example of:", "options": ["Personification — wind can't actually howl", "Simile", "Literal description", "Alliteration"], "correct": 0, "explanation": "Giving the wind a human action (howling) = personification."}, {"question": "Why are specific details better than general ones?", "options": ["They create vivid, memorable images", "They make writing longer", "General is always better", "Specific is too much information"], "correct": 0, "explanation": "'A rusty red truck' is more vivid than 'a vehicle' — specifics bring writing to life."}, {"question": "'Brave as a lion' is a:", "options": ["Simile — uses 'as' to compare", "Metaphor", "Personification", "Hyperbole"], "correct": 0, "explanation": "Similes compare using 'like' or 'as.' Metaphors compare directly without them."}, {"question": "Strong verbs improve writing because:", "options": ["They convey action and emotion without needing adverbs", "They make sentences longer", "All verbs are equally strong", "Adverbs are always better"], "correct": 0, "explanation": "'She whispered' is stronger than 'she said quietly' — one word does more work."}]},
-        {"title": "Persuasive Writing Techniques", "content": "Persuasive writing aims to convince the reader to agree with your position or take action. Key techniques: ethos (establishing credibility — 'As a doctor with 20 years of experience...'), pathos (appealing to emotions — 'Imagine a child going to bed hungry'), logos (using logic and evidence — 'Studies show a 40% reduction'). Rhetorical devices: repetition for emphasis ('We shall fight... we shall fight... we shall fight'), rule of three (three items for impact: 'life, liberty, and the pursuit of happiness'), rhetorical questions ('Can we really afford to ignore this?'), and inclusive language ('together we can...'). Call to action: tell the reader what to do ('Sign the petition, share this message, vote'). Know your audience — different groups respond to different appeals. A letter to parents uses different persuasion than one to a school principal.", "examples": ["Ethos: 'Leading scientists at Harvard confirm...' — authority builds trust", "Pathos: 'Picture your grandmother unable to afford her medicine.' — emotion drives action", "Rule of three: 'This policy is unfair, unworkable, and unnecessary.' — three adjectives for impact"], "keyTerms": {"ethos": "Persuasion through credibility and authority", "pathos": "Persuasion through emotional appeal", "logos": "Persuasion through logic, evidence, and reasoning", "call to action": "Telling the reader exactly what you want them to do"}, "quiz": [{"question": "Ethos, pathos, logos are:", "options": ["Three modes of persuasion: credibility, emotion, logic", "Types of essays", "Punctuation marks", "Greek gods"], "correct": 0, "explanation": "Aristotle's three appeals: establish credibility, stir emotions, use evidence."}, {"question": "The rule of three is:", "options": ["Using three items or phrases for greater impact", "Having three paragraphs", "Writing three drafts", "Three-word sentences only"], "correct": 0, "explanation": "Three creates a rhythm: 'government of the people, by the people, for the people.'"}, {"question": "A call to action:", "options": ["Tells the reader exactly what to do", "Summarizes the essay", "Introduces the topic", "Lists counterarguments"], "correct": 0, "explanation": "'Sign the petition today' — specific, actionable request."}, {"question": "Know your audience means:", "options": ["Different groups respond to different persuasive techniques", "Everyone is persuaded the same way", "Audience doesn't matter", "Only write for yourself"], "correct": 0, "explanation": "A teenage audience responds differently than business executives — adapt your approach."}, {"question": "Repetition in persuasion:", "options": ["Creates emphasis and makes your message memorable", "Is always bad writing", "Should be avoided completely", "Only works in speeches, not writing"], "correct": 0, "explanation": "Martin Luther King's 'I have a dream' — repeated 8 times for powerful emphasis."}]}
-      ]
-    },
-    {
-      "title": "Creative and Practical Writing",
-      "lessons": [
-        {"title": "Story Writing", "content": "Stories need: characters, setting, plot, conflict, resolution. Plot: exposition → rising action → climax → falling action → resolution. Show, don't tell: 'Her hands trembled' not 'She was scared.' Use dialogue to reveal character. Vary sentence length for pace — short builds tension.", "examples": ["Exposition: 'In a village near Lake Victoria, Amara found a mysterious map.'", "Show: 'He slammed his fist on the table' not 'He was angry.'", "Dialogue: '\"I'm not afraid,\" whispered Kato, but his voice cracked.'"], "keyTerms": {"plot": "Sequence of events", "conflict": "Central problem driving the story", "show don't tell": "Describe actions, not just state emotions", "climax": "The turning point — the moment of highest tension"}, "quiz": [{"question": "Climax:", "options": ["The turning point — most intense moment", "Beginning", "End", "Setting description"], "correct": 0, "explanation": "Highest tension."}, {"question": "Show don't tell:", "options": ["Describe actions/sensations instead of stating emotions", "More adjectives", "Tell everything", "Shorter sentences"], "correct": 0, "explanation": "Vivid details instead of labels."}, {"question": "Every story needs:", "options": ["Characters, setting, plot, conflict, resolution", "Only dialogue", "Only descriptions", "10+ pages"], "correct": 0, "explanation": "Five essential elements."}, {"question": "Why vary sentence length?", "options": ["Short sentences build tension; long ones slow the pace", "All sentences should be equal", "Short is always better", "Long is always better"], "correct": 0, "explanation": "'He ran. Faster. The footsteps behind grew louder.' — short sentences = urgency."}, {"question": "Good dialogue:", "options": ["Reveals character, advances plot, and sounds natural", "Reports everything characters say", "Uses 'said' alternatives constantly", "Is always in quotation marks"], "correct": 0, "explanation": "Dialogue should do work — reveal personality and move the story forward."}]},
-        {"title": "Letter and Email Writing", "content": "Formal letters: your address, date, recipient address, greeting (Dear Sir/Madam or Dear Mr. Name), body, closing (Yours faithfully/sincerely), signature. Emails: clear subject line, greeting, concise body, professional closing. Business emails: brief, action-oriented. Always proofread.", "examples": ["Formal: 'Dear Ms. Nakamura, I am writing to apply...'", "Subject: 'Meeting reschedule — Thursday 2pm' (specific, not 'Hi')", "Faithfully = don't know name, Sincerely = know name"], "keyTerms": {"formal letter": "Official letter with specific format", "subject line": "Email title summarizing purpose", "salutation": "Greeting: Dear Sir, Dear Ms. Smith", "tone": "The attitude conveyed in writing — professional, friendly, urgent"}, "quiz": [{"question": "Unknown recipient, close with:", "options": ["Yours faithfully", "Yours sincerely", "Love", "Bye"], "correct": 0, "explanation": "Faithfully = unknown, Sincerely = known."}, {"question": "Good email subject:", "options": ["Specific: 'Invoice #456 — Due March 15'", "Just 'Hi'", "Empty", "Very long"], "correct": 0, "explanation": "Clear and specific."}, {"question": "Most important email rule:", "options": ["Proofread before sending", "Lots of emojis", "Long paragraphs", "No greetings"], "correct": 0, "explanation": "Errors damage credibility."}, {"question": "Professional email tone should be:", "options": ["Polite, clear, and concise", "Very casual with slang", "Extremely formal and wordy", "Emotional and dramatic"], "correct": 0, "explanation": "Professional but human — not too casual, not too stiff."}, {"question": "The BCC field in email:", "options": ["Sends a copy without other recipients knowing", "Sends to everyone visibly", "Is the subject line", "Attaches a file"], "correct": 0, "explanation": "BCC = Blind Carbon Copy — hidden recipients."}]},
-        {"title": "Report and Summary Writing", "content": "Reports present information objectively. Structure: title, introduction, methodology, findings, discussion, conclusion, recommendations. Third person, past tense. Summaries condense to key points — 1/3 to 1/4 of original. Both require objectivity — facts, not opinions.", "examples": ["Title: 'Investigation into Water Quality in Lake Victoria, 2024'", "Summary: 200 words → 60 words with key points only", "Recommendation: 'Install water filters in all school boreholes.'"], "keyTerms": {"report": "Objective document presenting findings", "summary": "Condensed version with main ideas", "recommendation": "Suggested action based on findings", "methodology": "How the research was conducted"}, "quiz": [{"question": "Reports use:", "options": ["Third person, objective tone", "First person, opinions", "Second person", "Any style"], "correct": 0, "explanation": "Factual and objective."}, {"question": "Summary length:", "options": ["1/3 to 1/4 of original", "Longer than original", "Same length", "One word"], "correct": 0, "explanation": "Key points only."}, {"question": "After findings comes:", "options": ["Discussion — what findings mean", "Title page", "Introduction", "Bibliography only"], "correct": 0, "explanation": "Interpret the significance."}, {"question": "A good summary includes:", "options": ["Only the main ideas and key conclusions", "Every detail from the original", "Your personal opinions", "New information not in the original"], "correct": 0, "explanation": "Summarize = distill to essentials, in your own words."}, {"question": "Recommendations should be:", "options": ["Specific, actionable, and based on the findings", "Vague and general", "Unrelated to the report", "Impossible to implement"], "correct": 0, "explanation": "'Install solar panels in all classrooms' is specific and actionable."}]},
-        {"title": "Poetry Appreciation and Writing", "content": "Poetry uses language's musical and emotional power. Key elements: rhythm (the beat/pattern of stressed and unstressed syllables), rhyme (matching sounds at line ends), imagery (vivid sensory language), metaphor and simile, and structure (stanzas, line breaks). Types: sonnet (14 lines, specific rhyme scheme), haiku (3 lines: 5-7-5 syllables — from Japan), free verse (no fixed pattern — most modern poetry), limerick (5 lines, humorous, AABBA rhyme). Poetry condenses meaning — every word must earn its place. Reading poetry aloud reveals its rhythm and musicality. When writing poetry: start with a strong image or feeling, choose words for their sound as well as meaning, use line breaks deliberately (they create pauses and emphasis), and don't try to rhyme if it forces awkward phrasing.", "examples": ["Haiku: 'Morning dew glistens / A spider's web holds the light / Nature's jewelry' (5-7-5)", "Metaphor in poetry: 'The fog comes on little cat feet' — Carl Sandburg", "Free verse: no rhyme scheme, varied line lengths — emphasis on imagery and meaning"], "keyTerms": {"rhythm": "The pattern of stressed and unstressed syllables — the 'beat' of poetry", "imagery": "Vivid language that creates sensory pictures in the reader's mind", "stanza": "A group of lines in a poem, separated by blank lines (like a paragraph)", "free verse": "Poetry without a fixed rhyme scheme or meter — relies on natural speech rhythms"}, "quiz": [{"question": "A haiku has:", "options": ["3 lines with 5-7-5 syllable pattern", "14 lines", "Any number of lines", "Must rhyme"], "correct": 0, "explanation": "Traditional Japanese form: 5 syllables, 7 syllables, 5 syllables."}, {"question": "Free verse poetry:", "options": ["Has no fixed rhyme or meter — uses natural rhythm", "Must always rhyme", "Has exactly 14 lines", "Is not real poetry"], "correct": 0, "explanation": "Most modern poetry is free verse — focused on meaning and imagery."}, {"question": "Every word in a poem must:", "options": ["Earn its place — poetry condenses meaning", "Rhyme with another word", "Be at least 3 syllables", "Be a noun or verb"], "correct": 0, "explanation": "Poetry is the most concentrated form of writing — no wasted words."}, {"question": "Line breaks in poetry:", "options": ["Create pauses and emphasis — they are deliberate choices", "Are random", "Don't matter", "Only happen at sentence ends"], "correct": 0, "explanation": "Where you break a line affects how the reader experiences the poem."}, {"question": "Reading poetry aloud:", "options": ["Reveals rhythm, music, and emotion that silent reading misses", "Is embarrassing and unnecessary", "Only for children", "Doesn't add anything"], "correct": 0, "explanation": "Poetry is meant to be heard — its sound is part of its meaning."}]},
-        {"title": "Academic and Professional Writing", "content": "Academic writing is formal, evidence-based, and objective. Features: clear thesis, logical structure, cited sources, precise vocabulary, and formal register (avoid slang, contractions, and first person). Professional writing includes: emails, reports, proposals, meeting minutes, and presentations. Both prioritize clarity over complexity. Structure professional documents with headings, bullet points, and clear sections. Know your audience: adjust complexity and terminology accordingly. Editing checklist: Is the purpose clear? Is the structure logical? Is evidence cited? Are there grammar/spelling errors? Is the tone appropriate? Is it concise? Cut ruthlessly — if a sentence adds nothing, delete it. The ability to write clearly is one of the most valued professional skills across every career.", "examples": ["Academic: 'Research demonstrates a correlation between exercise and cognitive function (Smith, 2023).' Not: 'I think exercise makes you smarter.'", "Professional email: subject line, greeting, 3-4 sentence body, clear action requested, sign-off", "Concision: 'Due to the fact that it was raining' → 'Because it rained' — same meaning, fewer words"], "keyTerms": {"academic writing": "Formal, evidence-based, objective writing for scholarly purposes", "register": "Level of formality appropriate for the context and audience", "concision": "Expressing ideas in the fewest words necessary without losing meaning", "editing": "Reviewing and revising writing for clarity, accuracy, and quality"}, "quiz": [{"question": "Academic writing should avoid:", "options": ["Slang, contractions, and unsupported personal opinions", "Evidence and citations", "Clear structure", "Formal vocabulary"], "correct": 0, "explanation": "Academic writing is formal, objective, and evidence-based."}, {"question": "Professional documents benefit from:", "options": ["Headings, bullet points, and clear sections for easy scanning", "Dense paragraphs with no breaks", "Informal language throughout", "No structure at all"], "correct": 0, "explanation": "Busy professionals scan documents — clear formatting helps them find key information."}, {"question": "Concision means:", "options": ["Saying it in fewer words without losing meaning", "Making everything longer", "Using the biggest words possible", "Writing only one sentence"], "correct": 0, "explanation": "'At this point in time' → 'Now.' Same meaning, 80% fewer words."}, {"question": "The most valued professional skill is:", "options": ["Clear written communication", "Using complex vocabulary", "Writing the longest emails", "Avoiding all writing"], "correct": 0, "explanation": "Every career requires clear writing — reports, emails, proposals, and presentations."}, {"question": "When editing, ask:", "options": ["Is each sentence necessary? Does it serve the purpose?", "Can I make it longer?", "Have I used enough difficult words?", "Does it sound impressive?"], "correct": 0, "explanation": "If a sentence adds nothing, delete it. Clarity > impressiveness."}]}
-      ]
-    }
-  ]
+    "id":  "english_writing",
+    "name":  "English Writing",
+    "icon":  "menu_book",
+    "color":  "#EC4899",
+    "units":  [
+                  {
+                      "title":  "Grammar Foundations",
+                      "lessons":  [
+                                      {
+                                          "title":  "Parts of Speech",
+                                          "content":  "Every word has a role. Nouns name things (dog, Kampala, happiness). Verbs show actions/states (run, is, think). Adjectives describe nouns (tall, beautiful). Adverbs describe verbs/adjectives (quickly, very). Pronouns replace nouns (he, she, they). Prepositions show relationships (in, on, at). Conjunctions join (and, but, because). Interjections express emotion (wow, oh).",
+                                          "examples":  [
+                                                           "\u0027The tall boy quickly ran to the old house.\u0027 — noun: boy. verb: ran. adj: tall, old. adv: quickly.",
+                                                           "Pronoun: \u0027Maria loves music. She plays piano.\u0027",
+                                                           "\u0027I bought mangoes, but they were expensive.\u0027 — \u0027but\u0027 is a conjunction."
+                                                       ],
+                                          "keyTerms":  {
+                                                           "noun":  "Names a person, place, thing, or idea",
+                                                           "verb":  "Shows action or state of being",
+                                                           "adjective":  "Describes a noun",
+                                                           "adverb":  "Describes a verb, adjective, or other adverb",
+                                                           "preposition":  "Shows relationship between words (in, on, at, between)"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "In \u0027The quick fox jumped,\u0027 the adjective:",
+                                                           "options":  [
+                                                                           "jumped",
+                                                                           "fox",
+                                                                           "quick",
+                                                                           "The"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Quick describes the fox."
+                                                       },
+                                                       {
+                                                           "question":  "A preposition:",
+                                                           "options":  [
+                                                                           "between",
+                                                                           "quickly",
+                                                                           "happy",
+                                                                           "run"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Between shows relationship."
+                                                       },
+                                                       {
+                                                           "question":  "Adverbs describe:",
+                                                           "options":  [
+                                                                           "Verbs, adjectives, or other adverbs",
+                                                                           "Only nouns",
+                                                                           "Only pronouns",
+                                                                           "Only prepositions"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "How, when, where, to what degree."
+                                                       },
+                                                       {
+                                                           "question":  "In \u0027She sang beautifully,\u0027 the adverb is:",
+                                                           "options":  [
+                                                                           "sang",
+                                                                           "She",
+                                                                           "beautifully",
+                                                                           "There is no adverb"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Beautifully describes how she sang (modifies the verb)."
+                                                       },
+                                                       {
+                                                           "question":  "A conjunction does:",
+                                                           "options":  [
+                                                                           "Joins words, phrases, or clauses together",
+                                                                           "Names things",
+                                                                           "Describes nouns",
+                                                                           "Shows action"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "And, but, or, because — connecting words."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Verb Tenses",
+                                          "content":  "Tenses show when. Simple present: habits (I walk daily). Present continuous: now (I am walking). Simple past: completed (I walked). Past continuous: was happening (I was walking when...). Simple future: will happen (I will walk). Present perfect: past connected to now (I have walked 5km). Past perfect: before another past (I had walked before it rained). Stay consistent within paragraphs.",
+                                          "examples":  [
+                                                           "Simple present: \u0027She works at the hospital.\u0027",
+                                                           "Past continuous: \u0027They were playing when rain started.\u0027",
+                                                           "Present perfect: \u0027I have visited three countries.\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "simple present":  "Habitual actions: \u0027She reads every day\u0027",
+                                                           "simple past":  "Completed: \u0027She read yesterday\u0027",
+                                                           "present perfect":  "Past connected to now: \u0027She has read 3 books\u0027",
+                                                           "tense consistency":  "Using the same tense throughout a passage unless there\u0027s a reason to shift"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Simple past:",
+                                                           "options":  [
+                                                                           "She walked to school.",
+                                                                           "She walks to school.",
+                                                                           "She is walking.",
+                                                                           "She will walk."
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Walked = completed past."
+                                                       },
+                                                       {
+                                                           "question":  "\u0027I have finished\u0027 is:",
+                                                           "options":  [
+                                                                           "Simple present",
+                                                                           "Simple past",
+                                                                           "Present perfect",
+                                                                           "Future"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Have + past participle."
+                                                       },
+                                                       {
+                                                           "question":  "Tense error:",
+                                                           "options":  [
+                                                                           "I am walking now.",
+                                                                           "Yesterday I walked.",
+                                                                           "I walk every day.",
+                                                                           "Yesterday I walk to school."
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "\u0027Yesterday\u0027 needs past tense: walked."
+                                                       },
+                                                       {
+                                                           "question":  "The past perfect (\u0027had done\u0027) is used for:",
+                                                           "options":  [
+                                                                           "Something happening now",
+                                                                           "An action completed before another past action",
+                                                                           "Future plans",
+                                                                           "Habitual actions"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "\u0027She had left before he arrived\u0027 — leaving happened before arriving."
+                                                       },
+                                                       {
+                                                           "question":  "Present continuous (\u0027is doing\u0027) shows:",
+                                                           "options":  [
+                                                                           "A habitual action",
+                                                                           "A completed action",
+                                                                           "An action happening right now or around this time",
+                                                                           "A future certain action"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "\u0027I am writing\u0027 = happening at this moment."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Punctuation and Capitalization",
+                                          "content":  "Period (.) ends statements. Question mark (?) for questions. Exclamation (!) for strong emotion. Comma (,) separates list items, joins clauses, follows intros. Apostrophe (\u0027): possession (Maria\u0027s book) or contraction (don\u0027t). Quotation marks for direct speech. Semicolons join related independent clauses. Colons introduce lists. Capitalize: sentence starts, proper nouns, titles, \u0027I\u0027.",
+                                          "examples":  [
+                                                           "List: \u0027I bought apples, bananas, and oranges.\u0027",
+                                                           "Possession: \u0027the teacher\u0027s desk\u0027 vs \u0027the teachers\u0027 lounge\u0027",
+                                                           "Speech: \u0027She asked, \"Where are you going?\"\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "comma":  "Separates items, clauses, introductory phrases",
+                                                           "apostrophe":  "Shows possession or contraction",
+                                                           "quotation marks":  "Enclose direct speech",
+                                                           "semicolon":  "Joins related independent clauses that could stand alone as sentences"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Correct punctuation:",
+                                                           "options":  [
+                                                                           "She said, \"Let\u0027s go.\"",
+                                                                           "She said \"lets go\"",
+                                                                           "she Said, \u0027Lets Go.\u0027",
+                                                                           "She Said \"lets go\"."
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Comma before quote, capital inside."
+                                                       },
+                                                       {
+                                                           "question":  "children\u0027s toys shows:",
+                                                           "options":  [
+                                                                           "Question",
+                                                                           "Contraction",
+                                                                           "Plural",
+                                                                           "Possession"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Toys belonging to children."
+                                                       },
+                                                       {
+                                                           "question":  "Capitalize:",
+                                                           "options":  [
+                                                                           "All adjectives",
+                                                                           "All nouns",
+                                                                           "Country names (Uganda, Kenya)",
+                                                                           "Words after commas"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Proper nouns always capitalized."
+                                                       },
+                                                       {
+                                                           "question":  "A semicolon is used to:",
+                                                           "options":  [
+                                                                           "Join two related independent clauses",
+                                                                           "End a sentence",
+                                                                           "Start a list",
+                                                                           "Show possession"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "\u0027She loved reading; he preferred writing.\u0027 — two related but independent ideas."
+                                                       },
+                                                       {
+                                                           "question":  "It\u0027s vs its:",
+                                                           "options":  [
+                                                                           "Neither is correct",
+                                                                           "They mean the same thing",
+                                                                           "Its = it is; it\u0027s = possession",
+                                                                           "It\u0027s = it is (contraction); its = belonging to it (possession)"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Common confusion: it\u0027s = it is/has. Its = possessive (no apostrophe)."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Subject-Verb Agreement",
+                                          "content":  "The subject and verb must agree in number. Singular subjects take singular verbs: \u0027The dog runs.\u0027 Plural subjects take plural verbs: \u0027The dogs run.\u0027 Tricky cases: collective nouns can be singular or plural depending on context (\u0027The team is winning\u0027 vs \u0027The team are arguing\u0027). Compound subjects joined by \u0027and\u0027 take plural verbs: \u0027Tom and Jerry are friends.\u0027 With \u0027or/nor,\u0027 the verb agrees with the nearer subject: \u0027Neither the cat nor the dogs are here.\u0027 Indefinite pronouns: \u0027everyone,\u0027 \u0027nobody,\u0027 \u0027each\u0027 are singular; \u0027few,\u0027 \u0027many,\u0027 \u0027several\u0027 are plural. Phrases between subject and verb don\u0027t change the agreement: \u0027The box of chocolates is on the table\u0027 (box is singular, not chocolates).",
+                                          "examples":  [
+                                                           "\u0027The list of items is long.\u0027 (subject = list, singular)",
+                                                           "\u0027Neither the teacher nor the students were happy.\u0027 (agrees with nearer: students = plural)",
+                                                           "\u0027Everyone has a responsibility.\u0027 (everyone = singular)"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "subject-verb agreement":  "The verb must match the subject in number (singular/plural)",
+                                                           "collective noun":  "A word for a group (team, family, government) — can be singular or plural",
+                                                           "indefinite pronoun":  "A pronoun not referring to a specific person (everyone, nobody, some)",
+                                                           "compound subject":  "Two or more subjects joined by and, or, nor"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Correct: \u0027The dogs ___\u0027",
+                                                           "options":  [
+                                                                           "runned",
+                                                                           "runs",
+                                                                           "running",
+                                                                           "run"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Plural subject (dogs) takes plural verb (run)."
+                                                       },
+                                                       {
+                                                           "question":  "\u0027Everyone ___ a book.\u0027",
+                                                           "options":  [
+                                                                           "have",
+                                                                           "has",
+                                                                           "having",
+                                                                           "had have"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Everyone is singular — takes \u0027has\u0027 not \u0027have\u0027."
+                                                       },
+                                                       {
+                                                           "question":  "\u0027The box of chocolates ___ here.\u0027",
+                                                           "options":  [
+                                                                           "be",
+                                                                           "are",
+                                                                           "were",
+                                                                           "is"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Subject is \u0027box\u0027 (singular), not \u0027chocolates\u0027 — \u0027of chocolates\u0027 is a prepositional phrase."
+                                                       },
+                                                       {
+                                                           "question":  "\u0027Tom and Jerry ___ friends.\u0027",
+                                                           "options":  [
+                                                                           "was",
+                                                                           "is",
+                                                                           "are",
+                                                                           "am"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Compound subject joined by \u0027and\u0027 = plural."
+                                                       },
+                                                       {
+                                                           "question":  "\u0027Neither the cat nor the dogs ___ in the garden.\u0027",
+                                                           "options":  [
+                                                                           "was",
+                                                                           "is",
+                                                                           "are",
+                                                                           "am"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "With \u0027nor,\u0027 verb agrees with the nearer subject — \u0027dogs\u0027 is plural, so \u0027are.\u0027"
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Common Grammar Mistakes",
+                                          "content":  "Even good writers make common errors. Their/there/they\u0027re: \u0027their\u0027 = possession, \u0027there\u0027 = place, \u0027they\u0027re\u0027 = they are. Your/you\u0027re: \u0027your\u0027 = possession, \u0027you\u0027re\u0027 = you are. Affect/effect: \u0027affect\u0027 is usually a verb (to influence), \u0027effect\u0027 is usually a noun (the result). Then/than: \u0027then\u0027 = time/sequence, \u0027than\u0027 = comparison. Who/whom: \u0027who\u0027 = subject (who did it?), \u0027whom\u0027 = object (to whom?). Dangling modifiers: \u0027Walking to school, the rain started\u0027 — the rain wasn\u0027t walking! Fix: \u0027Walking to school, I got caught in the rain.\u0027 Double negatives: \u0027I don\u0027t have nothing\u0027 should be \u0027I don\u0027t have anything.\u0027 Run-on sentences: two sentences joined without punctuation — use a period, semicolon, or conjunction.",
+                                          "examples":  [
+                                                           "Wrong: \u0027Your going to love they\u0027re house over their.\u0027 Right: \u0027You\u0027re going to love their house over there.\u0027",
+                                                           "Wrong: \u0027The test effected my grade.\u0027 Right: \u0027The test affected my grade.\u0027 (affect = verb)",
+                                                           "Dangling: \u0027After studying hard, the exam was easy.\u0027 Better: \u0027After studying hard, I found the exam easy.\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "homophone":  "Words that sound the same but have different meanings (their/there/they\u0027re)",
+                                                           "dangling modifier":  "A phrase that doesn\u0027t clearly connect to what it\u0027s supposed to modify",
+                                                           "double negative":  "Two negative words in one clause, creating confusion or unintended meaning",
+                                                           "run-on sentence":  "Two independent clauses joined without proper punctuation or conjunction"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Correct usage: \u0027___ going to ___ house over ___.\u0027",
+                                                           "options":  [
+                                                                           "They\u0027re, your, they\u0027re",
+                                                                           "Your, there, their",
+                                                                           "You\u0027re, their, there",
+                                                                           "There, you\u0027re, their"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "You\u0027re = you are. Their = belonging to them. There = that place."
+                                                       },
+                                                       {
+                                                           "question":  "Affect vs effect:",
+                                                           "options":  [
+                                                                           "Effect is a verb, affect is a noun",
+                                                                           "They mean the same thing",
+                                                                           "Affect is a verb (to influence), effect is a noun (the result)",
+                                                                           "Neither is commonly used"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "The weather AFFECTS my mood. The EFFECT of rain is wet streets."
+                                                       },
+                                                       {
+                                                           "question":  "\u0027I don\u0027t have nothing\u0027 should be:",
+                                                           "options":  [
+                                                                           "\u0027I don\u0027t have nothing\u0027 is correct",
+                                                                           "\u0027I don\u0027t have anything\u0027 — eliminate double negative",
+                                                                           "\u0027I has nothing\u0027",
+                                                                           "\u0027I haven\u0027t nothing\u0027"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Two negatives make a positive — say \u0027I don\u0027t have anything\u0027 or \u0027I have nothing.\u0027"
+                                                       },
+                                                       {
+                                                           "question":  "A dangling modifier is fixed by:",
+                                                           "options":  [
+                                                                           "Removing all modifiers",
+                                                                           "Making clear who or what is performing the action",
+                                                                           "Adding more adjectives",
+                                                                           "Using passive voice"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "\u0027Walking to school, the rain started\u0027 → \u0027While I was walking to school, the rain started.\u0027"
+                                                       },
+                                                       {
+                                                           "question":  "Then vs than:",
+                                                           "options":  [
+                                                                           "They are the same",
+                                                                           "Then = time/sequence; than = comparison",
+                                                                           "Than = time; then = comparison",
+                                                                           "Neither is correct"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "\u0027First study, THEN eat\u0027 (time). \u0027I\u0027m taller THAN you\u0027 (comparison)."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Sentence and Paragraph Structure",
+                      "lessons":  [
+                                      {
+                                          "title":  "Building Strong Sentences",
+                                          "content":  "Sentence needs subject + predicate. Simple: one clause (\u0027The dog barked.\u0027). Compound: two clauses + conjunction (\u0027The dog barked, and the cat hid.\u0027). Complex: independent + dependent (\u0027When the dog barked, the cat hid.\u0027). Vary length for rhythm. Avoid run-ons. Use active voice over passive.",
+                                          "examples":  [
+                                                           "Simple: \u0027The rain stopped.\u0027",
+                                                           "Compound: \u0027The rain stopped, but roads were wet.\u0027",
+                                                           "Complex: \u0027Although the rain stopped, roads were wet.\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "simple sentence":  "One independent clause",
+                                                           "compound sentence":  "Two independent clauses joined by conjunction",
+                                                           "active voice":  "Subject performs action: \u0027She wrote the report\u0027",
+                                                           "complex sentence":  "Independent + dependent clause joined by subordinating conjunction"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Compound sentence:",
+                                                           "options":  [
+                                                                           "When she sang, he danced.",
+                                                                           "She sang.",
+                                                                           "She sang, and he danced.",
+                                                                           "Singing is fun."
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Two independent clauses + and."
+                                                       },
+                                                       {
+                                                           "question":  "Active voice:",
+                                                           "options":  [
+                                                                           "No subject",
+                                                                           "Subject receives action",
+                                                                           "Subject performs action",
+                                                                           "Question form"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "\u0027The dog bit the man\u0027 (active) vs \u0027The man was bitten\u0027 (passive)."
+                                                       },
+                                                       {
+                                                           "question":  "Run-on sentence:",
+                                                           "options":  [
+                                                                           "Two sentences without proper punctuation",
+                                                                           "Very long sentence",
+                                                                           "No verb",
+                                                                           "A question"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Fix with period, semicolon, or conjunction."
+                                                       },
+                                                       {
+                                                           "question":  "Why vary sentence length?",
+                                                           "options":  [
+                                                                           "Creates rhythm and keeps readers engaged",
+                                                                           "All sentences should be the same length",
+                                                                           "Short is always better",
+                                                                           "Long is always better"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Mix of short punchy sentences and longer flowing ones creates engaging writing."
+                                                       },
+                                                       {
+                                                           "question":  "A dependent clause:",
+                                                           "options":  [
+                                                                           "Cannot stand alone as a sentence — needs an independent clause",
+                                                                           "Is a complete sentence",
+                                                                           "Has no verb",
+                                                                           "Is always at the end"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "\u0027When the dog barked\u0027 is incomplete — it needs an independent clause to finish the thought."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Paragraph Writing",
+                                          "content":  "Paragraph = sentences about one idea. Structure: topic sentence (main idea), supporting sentences (evidence, examples), concluding sentence. Every sentence relates to topic. Use transitions: also, however, therefore, for example. Unity (one topic), coherence (logical flow), development (enough detail).",
+                                          "examples":  [
+                                                           "Topic: \u0027Exercise has many health benefits.\u0027",
+                                                           "Support: \u0027It strengthens the heart, builds muscle, reduces stress.\u0027",
+                                                           "Transitions: \u0027First... Second... Furthermore... In conclusion...\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "topic sentence":  "States main idea, usually first",
+                                                           "supporting sentence":  "Evidence/examples for topic",
+                                                           "transition":  "Words connecting ideas between sentences",
+                                                           "paragraph unity":  "Every sentence relates to the main idea"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Topic sentence:",
+                                                           "options":  [
+                                                                           "Always a question",
+                                                                           "Summarizes whole essay",
+                                                                           "States main idea of paragraph",
+                                                                           "Longest sentence"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Tells reader what paragraph is about."
+                                                       },
+                                                       {
+                                                           "question":  "Transition word:",
+                                                           "options":  [
+                                                                           "Beautiful",
+                                                                           "However",
+                                                                           "Running",
+                                                                           "Quickly"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Connects ideas."
+                                                       },
+                                                       {
+                                                           "question":  "Paragraph unity:",
+                                                           "options":  [
+                                                                           "Every sentence relates to main idea",
+                                                                           "Same length",
+                                                                           "Simple sentences only",
+                                                                           "One sentence"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Stay on topic."
+                                                       },
+                                                       {
+                                                           "question":  "A concluding sentence should:",
+                                                           "options":  [
+                                                                           "Always start with \u0027In conclusion\u0027",
+                                                                           "Introduce a new topic",
+                                                                           "Be exactly like the topic sentence",
+                                                                           "Wrap up the paragraph\u0027s idea or transition to the next"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "It closes the paragraph\u0027s argument or leads smoothly to what comes next."
+                                                       },
+                                                       {
+                                                           "question":  "Good paragraph development means:",
+                                                           "options":  [
+                                                                           "Only stating opinions",
+                                                                           "Repeating the topic sentence",
+                                                                           "Using as few words as possible",
+                                                                           "Enough specific details, examples, and evidence to support your point"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Show, don\u0027t just tell — provide evidence for your claims."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Coherence and Flow",
+                                          "content":  "Coherence = logical flow between ideas. Techniques: chronological (first, then, finally), spatial (left to right), importance order (most to least), cause-effect (because, therefore). Use pronouns to avoid repetition. Repeat key words for emphasis. Read aloud — if you stumble, readers will too. Revise for clarity.",
+                                          "examples":  [
+                                                           "Chronological: \u0027First, mix flour. Then, add eggs. Finally, bake.\u0027",
+                                                           "Cause-effect: \u0027The road was icy. As a result, cars skidded.\u0027",
+                                                           "Pronoun: \u0027Students finished their project. They presented it.\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "coherence":  "Logical flow between ideas",
+                                                           "chronological order":  "Arranged by time",
+                                                           "revision":  "Re-reading and improving writing",
+                                                           "logical connectors":  "Words showing relationships: however, therefore, consequently"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Chronological order:",
+                                                           "options":  [
+                                                                           "First, then, finally",
+                                                                           "However, but, although",
+                                                                           "Big, bigger, biggest",
+                                                                           "Here, there, everywhere"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Time sequence."
+                                                       },
+                                                       {
+                                                           "question":  "Read aloud because:",
+                                                           "options":  [
+                                                                           "Required",
+                                                                           "Catch awkward phrasing",
+                                                                           "Memorize it",
+                                                                           "Make it longer"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Hear problems eyes miss."
+                                                       },
+                                                       {
+                                                           "question":  "Coherence:",
+                                                           "options":  [
+                                                                           "Long sentences",
+                                                                           "Big words",
+                                                                           "Ideas flow logically and connect smoothly",
+                                                                           "No paragraphs"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Smooth transitions between ideas."
+                                                       },
+                                                       {
+                                                           "question":  "Logical connectors help by:",
+                                                           "options":  [
+                                                                           "Replacing all nouns",
+                                                                           "Making sentences longer",
+                                                                           "Showing relationships between ideas (cause, contrast, addition)",
+                                                                           "Ending paragraphs"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "However (contrast), therefore (consequence), furthermore (addition)."
+                                                       },
+                                                       {
+                                                           "question":  "Revision should focus on:",
+                                                           "options":  [
+                                                                           "Clarity, flow, word choice, and eliminating errors",
+                                                                           "Only fixing spelling",
+                                                                           "Making everything longer",
+                                                                           "Changing the topic"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Good writing is rewriting — revise for all aspects of quality."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Active and Passive Voice",
+                                          "content":  "Active voice: the subject performs the action (\u0027The student wrote the essay.\u0027). Passive voice: the subject receives the action (\u0027The essay was written by the student.\u0027). Active is generally clearer, more direct, and more engaging. Use passive when: the doer is unknown (\u0027The window was broken\u0027), the doer is less important than the action (\u0027The vaccine was developed in record time\u0027), or in scientific writing (\u0027The solution was heated to 100°C\u0027). Converting: passive includes a form of \u0027to be\u0027 + past participle. Too much passive makes writing dull and wordy: \u0027It was decided by the committee that the meeting would be rescheduled\u0027 → \u0027The committee decided to reschedule the meeting.\u0027",
+                                          "examples":  [
+                                                           "Active: \u0027The dog bit the man.\u0027 Passive: \u0027The man was bitten by the dog.\u0027 — active is more direct",
+                                                           "Appropriate passive: \u0027Mistakes were made.\u0027 — when no one wants to name the doer",
+                                                           "Wordy passive: \u0027The cake was eaten by the children.\u0027 Better: \u0027The children ate the cake.\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "active voice":  "Subject performs the action — direct and clear",
+                                                           "passive voice":  "Subject receives the action — includes \u0027to be\u0027 + past participle",
+                                                           "past participle":  "The verb form used in passive and perfect tenses (written, eaten, broken)",
+                                                           "wordiness":  "Using more words than necessary — often caused by passive voice"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Active voice:",
+                                                           "options":  [
+                                                                           "\u0027The lesson was explained.\u0027",
+                                                                           "\u0027The lesson is explained by the teacher.\u0027",
+                                                                           "\u0027The teacher explains the lesson.\u0027",
+                                                                           "\u0027It is explained.\u0027"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Subject (teacher) performs the action (explains) — direct and clear."
+                                                       },
+                                                       {
+                                                           "question":  "When is passive voice appropriate?",
+                                                           "options":  [
+                                                                           "Always",
+                                                                           "When the doer is unknown or less important than the action",
+                                                                           "Never",
+                                                                           "Only in fiction"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "\u0027The bridge was built in 1920\u0027 — who built it is less important than when."
+                                                       },
+                                                       {
+                                                           "question":  "Convert to active: \u0027The ball was kicked by the boy.\u0027",
+                                                           "options":  [
+                                                                           "The ball kicked the boy.",
+                                                                           "The boy kicked the ball.",
+                                                                           "The ball was kicking.",
+                                                                           "The boy was kicked."
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Move the doer (boy) to subject position."
+                                                       },
+                                                       {
+                                                           "question":  "Passive voice always contains:",
+                                                           "options":  [
+                                                                           "A form of \u0027to be\u0027 + past participle",
+                                                                           "An exclamation mark",
+                                                                           "A question",
+                                                                           "An adverb"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Was written, is being built, has been done — to be + past participle signals passive."
+                                                       },
+                                                       {
+                                                           "question":  "Too much passive voice makes writing:",
+                                                           "options":  [
+                                                                           "Shorter",
+                                                                           "More exciting",
+                                                                           "More professional always",
+                                                                           "Dull, wordy, and indirect"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Active voice is usually more engaging and concise — use passive deliberately, not by default."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Vocabulary Building",
+                                          "content":  "A rich vocabulary makes writing more precise and engaging. Strategies: read widely (the best way to absorb new words naturally), use context clues (figure out meaning from surrounding text), learn word roots (Latin/Greek roots unlock hundreds of words: \u0027bio\u0027 = life, \u0027graph\u0027 = write, \u0027port\u0027 = carry), keep a vocabulary journal (write new words, definitions, and example sentences), use new words in your own writing (you only truly learn a word by using it). Avoid overusing the thesaurus — don\u0027t replace simple words with obscure ones just to sound smart. Choose the right word, not the biggest: \u0027use\u0027 is often better than \u0027utilize.\u0027 Register matters: \u0027get\u0027 (informal), \u0027obtain\u0027 (formal), \u0027acquire\u0027 (very formal) — choose based on your audience. Connotation: words with similar meanings carry different feelings: \u0027thin\u0027 (neutral), \u0027slim\u0027 (positive), \u0027skinny\u0027 (negative).",
+                                          "examples":  [
+                                                           "Root: \u0027bio\u0027 = life → biology, biography, biodiversity, antibiotic, biopsy",
+                                                           "Connotation: \u0027childish\u0027 (negative) vs \u0027childlike\u0027 (positive) — similar meaning, different feeling",
+                                                           "Register: \u0027I got the job\u0027 (casual) vs \u0027I was offered the position\u0027 (formal) — same event, different tone"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "connotation":  "The feeling or association a word carries beyond its dictionary meaning",
+                                                           "register":  "The level of formality in language — informal, neutral, formal",
+                                                           "root word":  "The base form of a word from which other words are derived",
+                                                           "context clues":  "Information surrounding an unknown word that helps you figure out its meaning"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The best way to build vocabulary is:",
+                                                           "options":  [
+                                                                           "Read widely — absorb words naturally from context",
+                                                                           "Memorize dictionary pages",
+                                                                           "Only use a thesaurus",
+                                                                           "Avoid reading"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Regular reading exposes you to words in meaningful context — the most effective method."
+                                                       },
+                                                       {
+                                                           "question":  "The root \u0027graph\u0027 means:",
+                                                           "options":  [
+                                                                           "Write or draw (biography, photograph, geography)",
+                                                                           "Life",
+                                                                           "Carry",
+                                                                           "See"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Graph = write/draw: photograph (light-writing), biography (life-writing)."
+                                                       },
+                                                       {
+                                                           "question":  "Connotation means:",
+                                                           "options":  [
+                                                                           "The spelling of a word",
+                                                                           "The dictionary definition",
+                                                                           "The feeling or association a word carries",
+                                                                           "The pronunciation"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "\u0027Home\u0027 (warm, safe) vs \u0027house\u0027 (neutral building) — same place, different feeling."
+                                                       },
+                                                       {
+                                                           "question":  "When should you use a thesaurus?",
+                                                           "options":  [
+                                                                           "To find a more precise word, not a more complicated one",
+                                                                           "To replace every word with a bigger one",
+                                                                           "Never",
+                                                                           "For every sentence"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Use it to find the RIGHT word, not the BIGGEST word."
+                                                       },
+                                                       {
+                                                           "question":  "Register matters because:",
+                                                           "options":  [
+                                                                           "Formal is always better",
+                                                                           "Different audiences expect different levels of formality",
+                                                                           "Informal is always better",
+                                                                           "There is only one correct way to speak"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "A text to a friend vs a university application need very different language."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Essay Writing",
+                      "lessons":  [
+                                      {
+                                          "title":  "Essay Structure",
+                                          "content":  "Introduction: hook (grab attention), context, thesis (main argument). Body paragraphs: each with one point + evidence. Conclusion: restate thesis differently, summarize, final thought. Standard: 5 paragraphs (1 intro, 3 body, 1 conclusion). Thesis is the most important sentence.",
+                                          "examples":  [
+                                                           "Hook: \u0027Did you know the average person spends 7 years in the bathroom?\u0027",
+                                                           "Thesis: \u0027Social media transformed communication by making it faster, more visual, and global.\u0027",
+                                                           "Conclusion: \u0027Renewable energy is not just environmental but economically necessary.\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "thesis statement":  "Main argument of the essay",
+                                                           "hook":  "Opening sentence grabbing attention",
+                                                           "body paragraph":  "Develops one supporting point",
+                                                           "conclusion":  "Summarizes and provides final insight"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Thesis goes:",
+                                                           "options":  [
+                                                                           "In title",
+                                                                           "Start of conclusion",
+                                                                           "Every body paragraph",
+                                                                           "End of introduction"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Previews your argument."
+                                                       },
+                                                       {
+                                                           "question":  "Standard essay body paragraphs:",
+                                                           "options":  [
+                                                                           "10",
+                                                                           "1",
+                                                                           "3",
+                                                                           "0"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Three supporting points."
+                                                       },
+                                                       {
+                                                           "question":  "Good hook:",
+                                                           "options":  [
+                                                                           "Is very long",
+                                                                           "States conclusion",
+                                                                           "Lists all points",
+                                                                           "Grabs reader\u0027s attention"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Questions, surprising facts, quotes, stories."
+                                                       },
+                                                       {
+                                                           "question":  "Each body paragraph should focus on:",
+                                                           "options":  [
+                                                                           "All your points at once",
+                                                                           "One main point with supporting evidence",
+                                                                           "Only the conclusion",
+                                                                           "Repeating the introduction"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "One idea per paragraph, fully developed with evidence."
+                                                       },
+                                                       {
+                                                           "question":  "A strong conclusion should:",
+                                                           "options":  [
+                                                                           "Restate the thesis differently and leave a lasting impression",
+                                                                           "Copy the introduction exactly",
+                                                                           "Introduce new arguments",
+                                                                           "Apologize for the essay"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Echo your thesis, summarize key points, end with impact — don\u0027t just repeat."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Argumentative Writing",
+                                          "content":  "Take a clear position and defend with evidence. Support: facts, statistics, expert opinions, examples. Address counterarguments — acknowledge the other side, explain why yours is stronger. Use persuasive language: strong verbs, confident tone, rhetorical questions. Structure: claim → evidence → explanation → link to thesis. Avoid logical fallacies.",
+                                          "examples":  [
+                                                           "Claim + evidence: \u0027Schools should teach financial literacy — 73% of financially educated adults avoid debt.\u0027",
+                                                           "Counter: \u0027Some argue coding is more important. However, every student will manage money.\u0027",
+                                                           "Rhetorical: \u0027If students can learn calculus, why can\u0027t they learn budgeting?\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "argument":  "Position supported by evidence",
+                                                           "counterargument":  "Acknowledging opposing view",
+                                                           "evidence":  "Facts, stats, examples supporting claim",
+                                                           "rhetorical question":  "A question asked for effect, not expecting an answer"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Argumentative essay:",
+                                                           "options":  [
+                                                                           "Avoid other side",
+                                                                           "Both sides equally",
+                                                                           "Only emotions",
+                                                                           "Clear position + evidence"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Defend your position."
+                                                       },
+                                                       {
+                                                           "question":  "Address counterarguments to:",
+                                                           "options":  [
+                                                                           "Agree with the other side",
+                                                                           "Confuse reader",
+                                                                           "Show you\u0027ve considered other views, strengthening yours",
+                                                                           "Not necessary"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Makes argument more credible."
+                                                       },
+                                                       {
+                                                           "question":  "Strongest evidence:",
+                                                           "options":  [
+                                                                           "Something imagined",
+                                                                           "Personal feelings",
+                                                                           "Friend\u0027s opinion",
+                                                                           "Research statistic"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Data is most convincing."
+                                                       },
+                                                       {
+                                                           "question":  "A logical fallacy is:",
+                                                           "options":  [
+                                                                           "A flawed argument that sounds convincing but isn\u0027t valid",
+                                                                           "A strong argument",
+                                                                           "A type of evidence",
+                                                                           "A writing style"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Examples: attacking the person instead of the argument, false generalizations."
+                                                       },
+                                                       {
+                                                           "question":  "The PEEL structure for paragraphs:",
+                                                           "options":  [
+                                                                           "Present, Evaluate, Examine, Learn",
+                                                                           "Plan, Edit, Explain, List",
+                                                                           "Point, Evidence, Explain, Link",
+                                                                           "Point, Example, Elaborate, Leave"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "PEEL: make a Point, provide Evidence, Explain how it supports your argument, Link back to thesis."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Research and Citations",
+                                          "content":  "Use reliable sources: academic journals, books, reputable news, government data. Avoid: random websites, social media, Wikipedia (use to find sources, not as source). Evaluate: who, when, bias, evidence. Plagiarism = using others\u0027 work without credit. Cite: in-text (Author, Year) and bibliography. Paraphrase in own words with credit. Quote directly with quotation marks.",
+                                          "examples":  [
+                                                           "Paraphrase: \u0027Climate change threatens survival (Smith, 2023).\u0027",
+                                                           "Quote: \u0027Education is the most powerful weapon (Jones, 2022, p. 15).\u0027",
+                                                           "Unreliable: random blog vs WHO report"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "plagiarism":  "Using others\u0027 work without credit",
+                                                           "citation":  "Reference to source",
+                                                           "paraphrase":  "Restating in own words with credit",
+                                                           "bibliography":  "List of all sources used"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Plagiarism:",
+                                                           "options":  [
+                                                                           "Writing own ideas",
+                                                                           "Using someone\u0027s work without credit",
+                                                                           "Citing sources",
+                                                                           "Paraphrasing properly"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Serious academic offense."
+                                                       },
+                                                       {
+                                                           "question":  "Most reliable:",
+                                                           "options":  [
+                                                                           "Social media comment",
+                                                                           "Random blog",
+                                                                           "Academic journal",
+                                                                           "Anonymous website"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Peer-reviewed and fact-checked."
+                                                       },
+                                                       {
+                                                           "question":  "Paraphrasing:",
+                                                           "options":  [
+                                                                           "Ignoring source",
+                                                                           "Copying exactly",
+                                                                           "Making up info",
+                                                                           "Own words + citation"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Rewrite + cite the original."
+                                                       },
+                                                       {
+                                                           "question":  "A bibliography lists:",
+                                                           "options":  [
+                                                                           "All sources used in your writing, in a standard format",
+                                                                           "Only books",
+                                                                           "Only websites",
+                                                                           "Your personal opinions"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Every source you referenced, formatted consistently (APA, MLA, etc.)."
+                                                       },
+                                                       {
+                                                           "question":  "To evaluate a source\u0027s reliability:",
+                                                           "options":  [
+                                                                           "Check the author, date, bias, evidence, and publication",
+                                                                           "Only look at the title",
+                                                                           "Trust anything online",
+                                                                           "Ignore the date"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Who wrote it? When? Is it biased? Is there evidence? Is the publisher reputable?"
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Descriptive Writing",
+                                          "content":  "Descriptive writing creates vivid pictures in the reader\u0027s mind using sensory details. Engage all five senses: sight (colors, shapes, sizes), sound (loud, soft, musical), smell (sweet, acrid, fresh), touch (rough, smooth, warm), taste (bitter, sweet, salty). Use figurative language: similes (like/as: \u0027the sky was like a painting\u0027), metaphors (direct comparison: \u0027the classroom was a zoo\u0027), personification (giving human qualities to non-human things: \u0027the wind whispered\u0027). Choose specific details over general: \u0027a battered red bicycle with a squeaky chain\u0027 is better than \u0027a bike.\u0027 Show emotions through actions and details, not just stating them. Descriptive writing isn\u0027t just about adjectives — strong verbs are equally important: \u0027trudged\u0027 tells more than \u0027walked slowly.\u0027",
+                                          "examples":  [
+                                                           "Weak: \u0027The market was busy.\u0027 Strong: \u0027Vendors shouted prices over sizzling meat, while customers squeezed between stalls overflowing with mangoes, tomatoes, and second-hand clothes.\u0027",
+                                                           "Simile: \u0027The lake was as still as glass, reflecting the mountains like a perfect mirror.\u0027",
+                                                           "Strong verb: \u0027She stormed out\u0027 vs \u0027She walked out angrily\u0027 — the verb does the work."
+                                                       ],
+                                          "keyTerms":  {
+                                                           "sensory details":  "Details appealing to the five senses — making writing vivid and immersive",
+                                                           "simile":  "A comparison using \u0027like\u0027 or \u0027as\u0027: \u0027brave as a lion\u0027",
+                                                           "metaphor":  "A direct comparison without like/as: \u0027time is money\u0027",
+                                                           "personification":  "Giving human qualities to non-human things: \u0027the sun smiled\u0027"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Descriptive writing should engage:",
+                                                           "options":  [
+                                                                           "Only emotions",
+                                                                           "Only sight",
+                                                                           "All five senses — sight, sound, smell, touch, taste",
+                                                                           "No senses — just facts"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Multi-sensory description creates immersive, vivid writing."
+                                                       },
+                                                       {
+                                                           "question":  "\u0027The wind howled\u0027 is an example of:",
+                                                           "options":  [
+                                                                           "Literal description",
+                                                                           "Simile",
+                                                                           "Personification — wind can\u0027t actually howl",
+                                                                           "Alliteration"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Giving the wind a human action (howling) = personification."
+                                                       },
+                                                       {
+                                                           "question":  "Why are specific details better than general ones?",
+                                                           "options":  [
+                                                                           "General is always better",
+                                                                           "They make writing longer",
+                                                                           "They create vivid, memorable images",
+                                                                           "Specific is too much information"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "\u0027A rusty red truck\u0027 is more vivid than \u0027a vehicle\u0027 — specifics bring writing to life."
+                                                       },
+                                                       {
+                                                           "question":  "\u0027Brave as a lion\u0027 is a:",
+                                                           "options":  [
+                                                                           "Simile — uses \u0027as\u0027 to compare",
+                                                                           "Metaphor",
+                                                                           "Personification",
+                                                                           "Hyperbole"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Similes compare using \u0027like\u0027 or \u0027as.\u0027 Metaphors compare directly without them."
+                                                       },
+                                                       {
+                                                           "question":  "Strong verbs improve writing because:",
+                                                           "options":  [
+                                                                           "All verbs are equally strong",
+                                                                           "They make sentences longer",
+                                                                           "They convey action and emotion without needing adverbs",
+                                                                           "Adverbs are always better"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "\u0027She whispered\u0027 is stronger than \u0027she said quietly\u0027 — one word does more work."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Persuasive Writing Techniques",
+                                          "content":  "Persuasive writing aims to convince the reader to agree with your position or take action. Key techniques: ethos (establishing credibility — \u0027As a doctor with 20 years of experience...\u0027), pathos (appealing to emotions — \u0027Imagine a child going to bed hungry\u0027), logos (using logic and evidence — \u0027Studies show a 40% reduction\u0027). Rhetorical devices: repetition for emphasis (\u0027We shall fight... we shall fight... we shall fight\u0027), rule of three (three items for impact: \u0027life, liberty, and the pursuit of happiness\u0027), rhetorical questions (\u0027Can we really afford to ignore this?\u0027), and inclusive language (\u0027together we can...\u0027). Call to action: tell the reader what to do (\u0027Sign the petition, share this message, vote\u0027). Know your audience — different groups respond to different appeals. A letter to parents uses different persuasion than one to a school principal.",
+                                          "examples":  [
+                                                           "Ethos: \u0027Leading scientists at Harvard confirm...\u0027 — authority builds trust",
+                                                           "Pathos: \u0027Picture your grandmother unable to afford her medicine.\u0027 — emotion drives action",
+                                                           "Rule of three: \u0027This policy is unfair, unworkable, and unnecessary.\u0027 — three adjectives for impact"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "ethos":  "Persuasion through credibility and authority",
+                                                           "pathos":  "Persuasion through emotional appeal",
+                                                           "logos":  "Persuasion through logic, evidence, and reasoning",
+                                                           "call to action":  "Telling the reader exactly what you want them to do"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Ethos, pathos, logos are:",
+                                                           "options":  [
+                                                                           "Punctuation marks",
+                                                                           "Types of essays",
+                                                                           "Three modes of persuasion: credibility, emotion, logic",
+                                                                           "Greek gods"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Aristotle\u0027s three appeals: establish credibility, stir emotions, use evidence."
+                                                       },
+                                                       {
+                                                           "question":  "The rule of three is:",
+                                                           "options":  [
+                                                                           "Three-word sentences only",
+                                                                           "Having three paragraphs",
+                                                                           "Writing three drafts",
+                                                                           "Using three items or phrases for greater impact"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Three creates a rhythm: \u0027government of the people, by the people, for the people.\u0027"
+                                                       },
+                                                       {
+                                                           "question":  "A call to action:",
+                                                           "options":  [
+                                                                           "Tells the reader exactly what to do",
+                                                                           "Summarizes the essay",
+                                                                           "Introduces the topic",
+                                                                           "Lists counterarguments"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "\u0027Sign the petition today\u0027 — specific, actionable request."
+                                                       },
+                                                       {
+                                                           "question":  "Know your audience means:",
+                                                           "options":  [
+                                                                           "Everyone is persuaded the same way",
+                                                                           "Different groups respond to different persuasive techniques",
+                                                                           "Audience doesn\u0027t matter",
+                                                                           "Only write for yourself"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "A teenage audience responds differently than business executives — adapt your approach."
+                                                       },
+                                                       {
+                                                           "question":  "Repetition in persuasion:",
+                                                           "options":  [
+                                                                           "Only works in speeches, not writing",
+                                                                           "Is always bad writing",
+                                                                           "Should be avoided completely",
+                                                                           "Creates emphasis and makes your message memorable"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Martin Luther King\u0027s \u0027I have a dream\u0027 — repeated 8 times for powerful emphasis."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Creative and Practical Writing",
+                      "lessons":  [
+                                      {
+                                          "title":  "Story Writing",
+                                          "content":  "Stories need: characters, setting, plot, conflict, resolution. Plot: exposition → rising action → climax → falling action → resolution. Show, don\u0027t tell: \u0027Her hands trembled\u0027 not \u0027She was scared.\u0027 Use dialogue to reveal character. Vary sentence length for pace — short builds tension.",
+                                          "examples":  [
+                                                           "Exposition: \u0027In a village near Lake Victoria, Amara found a mysterious map.\u0027",
+                                                           "Show: \u0027He slammed his fist on the table\u0027 not \u0027He was angry.\u0027",
+                                                           "Dialogue: \u0027\"I\u0027m not afraid,\" whispered Kato, but his voice cracked.\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "plot":  "Sequence of events",
+                                                           "conflict":  "Central problem driving the story",
+                                                           "show don\u0027t tell":  "Describe actions, not just state emotions",
+                                                           "climax":  "The turning point — the moment of highest tension"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Climax:",
+                                                           "options":  [
+                                                                           "The turning point — most intense moment",
+                                                                           "Beginning",
+                                                                           "End",
+                                                                           "Setting description"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Highest tension."
+                                                       },
+                                                       {
+                                                           "question":  "Show don\u0027t tell:",
+                                                           "options":  [
+                                                                           "Describe actions/sensations instead of stating emotions",
+                                                                           "More adjectives",
+                                                                           "Tell everything",
+                                                                           "Shorter sentences"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Vivid details instead of labels."
+                                                       },
+                                                       {
+                                                           "question":  "Every story needs:",
+                                                           "options":  [
+                                                                           "Only dialogue",
+                                                                           "Characters, setting, plot, conflict, resolution",
+                                                                           "Only descriptions",
+                                                                           "10+ pages"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Five essential elements."
+                                                       },
+                                                       {
+                                                           "question":  "Why vary sentence length?",
+                                                           "options":  [
+                                                                           "Short is always better",
+                                                                           "All sentences should be equal",
+                                                                           "Short sentences build tension; long ones slow the pace",
+                                                                           "Long is always better"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "\u0027He ran. Faster. The footsteps behind grew louder.\u0027 — short sentences = urgency."
+                                                       },
+                                                       {
+                                                           "question":  "Good dialogue:",
+                                                           "options":  [
+                                                                           "Reports everything characters say",
+                                                                           "Reveals character, advances plot, and sounds natural",
+                                                                           "Uses \u0027said\u0027 alternatives constantly",
+                                                                           "Is always in quotation marks"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Dialogue should do work — reveal personality and move the story forward."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Letter and Email Writing",
+                                          "content":  "Formal letters: your address, date, recipient address, greeting (Dear Sir/Madam or Dear Mr. Name), body, closing (Yours faithfully/sincerely), signature. Emails: clear subject line, greeting, concise body, professional closing. Business emails: brief, action-oriented. Always proofread.",
+                                          "examples":  [
+                                                           "Formal: \u0027Dear Ms. Nakamura, I am writing to apply...\u0027",
+                                                           "Subject: \u0027Meeting reschedule — Thursday 2pm\u0027 (specific, not \u0027Hi\u0027)",
+                                                           "Faithfully = don\u0027t know name, Sincerely = know name"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "formal letter":  "Official letter with specific format",
+                                                           "subject line":  "Email title summarizing purpose",
+                                                           "salutation":  "Greeting: Dear Sir, Dear Ms. Smith",
+                                                           "tone":  "The attitude conveyed in writing — professional, friendly, urgent"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Unknown recipient, close with:",
+                                                           "options":  [
+                                                                           "Love",
+                                                                           "Yours sincerely",
+                                                                           "Yours faithfully",
+                                                                           "Bye"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Faithfully = unknown, Sincerely = known."
+                                                       },
+                                                       {
+                                                           "question":  "Good email subject:",
+                                                           "options":  [
+                                                                           "Very long",
+                                                                           "Just \u0027Hi\u0027",
+                                                                           "Empty",
+                                                                           "Specific: \u0027Invoice #456 — Due March 15\u0027"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Clear and specific."
+                                                       },
+                                                       {
+                                                           "question":  "Most important email rule:",
+                                                           "options":  [
+                                                                           "Proofread before sending",
+                                                                           "Lots of emojis",
+                                                                           "Long paragraphs",
+                                                                           "No greetings"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Errors damage credibility."
+                                                       },
+                                                       {
+                                                           "question":  "Professional email tone should be:",
+                                                           "options":  [
+                                                                           "Extremely formal and wordy",
+                                                                           "Very casual with slang",
+                                                                           "Polite, clear, and concise",
+                                                                           "Emotional and dramatic"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Professional but human — not too casual, not too stiff."
+                                                       },
+                                                       {
+                                                           "question":  "The BCC field in email:",
+                                                           "options":  [
+                                                                           "Sends a copy without other recipients knowing",
+                                                                           "Sends to everyone visibly",
+                                                                           "Is the subject line",
+                                                                           "Attaches a file"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "BCC = Blind Carbon Copy — hidden recipients."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Report and Summary Writing",
+                                          "content":  "Reports present information objectively. Structure: title, introduction, methodology, findings, discussion, conclusion, recommendations. Third person, past tense. Summaries condense to key points — 1/3 to 1/4 of original. Both require objectivity — facts, not opinions.",
+                                          "examples":  [
+                                                           "Title: \u0027Investigation into Water Quality in Lake Victoria, 2024\u0027",
+                                                           "Summary: 200 words → 60 words with key points only",
+                                                           "Recommendation: \u0027Install water filters in all school boreholes.\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "report":  "Objective document presenting findings",
+                                                           "summary":  "Condensed version with main ideas",
+                                                           "recommendation":  "Suggested action based on findings",
+                                                           "methodology":  "How the research was conducted"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Reports use:",
+                                                           "options":  [
+                                                                           "Any style",
+                                                                           "First person, opinions",
+                                                                           "Second person",
+                                                                           "Third person, objective tone"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Factual and objective."
+                                                       },
+                                                       {
+                                                           "question":  "Summary length:",
+                                                           "options":  [
+                                                                           "Longer than original",
+                                                                           "1/3 to 1/4 of original",
+                                                                           "Same length",
+                                                                           "One word"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Key points only."
+                                                       },
+                                                       {
+                                                           "question":  "After findings comes:",
+                                                           "options":  [
+                                                                           "Bibliography only",
+                                                                           "Title page",
+                                                                           "Introduction",
+                                                                           "Discussion — what findings mean"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Interpret the significance."
+                                                       },
+                                                       {
+                                                           "question":  "A good summary includes:",
+                                                           "options":  [
+                                                                           "New information not in the original",
+                                                                           "Every detail from the original",
+                                                                           "Your personal opinions",
+                                                                           "Only the main ideas and key conclusions"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Summarize = distill to essentials, in your own words."
+                                                       },
+                                                       {
+                                                           "question":  "Recommendations should be:",
+                                                           "options":  [
+                                                                           "Impossible to implement",
+                                                                           "Vague and general",
+                                                                           "Unrelated to the report",
+                                                                           "Specific, actionable, and based on the findings"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "\u0027Install solar panels in all classrooms\u0027 is specific and actionable."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Poetry Appreciation and Writing",
+                                          "content":  "Poetry uses language\u0027s musical and emotional power. Key elements: rhythm (the beat/pattern of stressed and unstressed syllables), rhyme (matching sounds at line ends), imagery (vivid sensory language), metaphor and simile, and structure (stanzas, line breaks). Types: sonnet (14 lines, specific rhyme scheme), haiku (3 lines: 5-7-5 syllables — from Japan), free verse (no fixed pattern — most modern poetry), limerick (5 lines, humorous, AABBA rhyme). Poetry condenses meaning — every word must earn its place. Reading poetry aloud reveals its rhythm and musicality. When writing poetry: start with a strong image or feeling, choose words for their sound as well as meaning, use line breaks deliberately (they create pauses and emphasis), and don\u0027t try to rhyme if it forces awkward phrasing.",
+                                          "examples":  [
+                                                           "Haiku: \u0027Morning dew glistens / A spider\u0027s web holds the light / Nature\u0027s jewelry\u0027 (5-7-5)",
+                                                           "Metaphor in poetry: \u0027The fog comes on little cat feet\u0027 — Carl Sandburg",
+                                                           "Free verse: no rhyme scheme, varied line lengths — emphasis on imagery and meaning"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "rhythm":  "The pattern of stressed and unstressed syllables — the \u0027beat\u0027 of poetry",
+                                                           "imagery":  "Vivid language that creates sensory pictures in the reader\u0027s mind",
+                                                           "stanza":  "A group of lines in a poem, separated by blank lines (like a paragraph)",
+                                                           "free verse":  "Poetry without a fixed rhyme scheme or meter — relies on natural speech rhythms"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "A haiku has:",
+                                                           "options":  [
+                                                                           "Any number of lines",
+                                                                           "14 lines",
+                                                                           "3 lines with 5-7-5 syllable pattern",
+                                                                           "Must rhyme"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Traditional Japanese form: 5 syllables, 7 syllables, 5 syllables."
+                                                       },
+                                                       {
+                                                           "question":  "Free verse poetry:",
+                                                           "options":  [
+                                                                           "Has exactly 14 lines",
+                                                                           "Must always rhyme",
+                                                                           "Has no fixed rhyme or meter — uses natural rhythm",
+                                                                           "Is not real poetry"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Most modern poetry is free verse — focused on meaning and imagery."
+                                                       },
+                                                       {
+                                                           "question":  "Every word in a poem must:",
+                                                           "options":  [
+                                                                           "Rhyme with another word",
+                                                                           "Earn its place — poetry condenses meaning",
+                                                                           "Be at least 3 syllables",
+                                                                           "Be a noun or verb"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Poetry is the most concentrated form of writing — no wasted words."
+                                                       },
+                                                       {
+                                                           "question":  "Line breaks in poetry:",
+                                                           "options":  [
+                                                                           "Create pauses and emphasis — they are deliberate choices",
+                                                                           "Are random",
+                                                                           "Don\u0027t matter",
+                                                                           "Only happen at sentence ends"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Where you break a line affects how the reader experiences the poem."
+                                                       },
+                                                       {
+                                                           "question":  "Reading poetry aloud:",
+                                                           "options":  [
+                                                                           "Doesn\u0027t add anything",
+                                                                           "Is embarrassing and unnecessary",
+                                                                           "Only for children",
+                                                                           "Reveals rhythm, music, and emotion that silent reading misses"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Poetry is meant to be heard — its sound is part of its meaning."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Academic and Professional Writing",
+                                          "content":  "Academic writing is formal, evidence-based, and objective. Features: clear thesis, logical structure, cited sources, precise vocabulary, and formal register (avoid slang, contractions, and first person). Professional writing includes: emails, reports, proposals, meeting minutes, and presentations. Both prioritize clarity over complexity. Structure professional documents with headings, bullet points, and clear sections. Know your audience: adjust complexity and terminology accordingly. Editing checklist: Is the purpose clear? Is the structure logical? Is evidence cited? Are there grammar/spelling errors? Is the tone appropriate? Is it concise? Cut ruthlessly — if a sentence adds nothing, delete it. The ability to write clearly is one of the most valued professional skills across every career.",
+                                          "examples":  [
+                                                           "Academic: \u0027Research demonstrates a correlation between exercise and cognitive function (Smith, 2023).\u0027 Not: \u0027I think exercise makes you smarter.\u0027",
+                                                           "Professional email: subject line, greeting, 3-4 sentence body, clear action requested, sign-off",
+                                                           "Concision: \u0027Due to the fact that it was raining\u0027 → \u0027Because it rained\u0027 — same meaning, fewer words"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "academic writing":  "Formal, evidence-based, objective writing for scholarly purposes",
+                                                           "register":  "Level of formality appropriate for the context and audience",
+                                                           "concision":  "Expressing ideas in the fewest words necessary without losing meaning",
+                                                           "editing":  "Reviewing and revising writing for clarity, accuracy, and quality"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Academic writing should avoid:",
+                                                           "options":  [
+                                                                           "Formal vocabulary",
+                                                                           "Evidence and citations",
+                                                                           "Clear structure",
+                                                                           "Slang, contractions, and unsupported personal opinions"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Academic writing is formal, objective, and evidence-based."
+                                                       },
+                                                       {
+                                                           "question":  "Professional documents benefit from:",
+                                                           "options":  [
+                                                                           "Informal language throughout",
+                                                                           "Dense paragraphs with no breaks",
+                                                                           "Headings, bullet points, and clear sections for easy scanning",
+                                                                           "No structure at all"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Busy professionals scan documents — clear formatting helps them find key information."
+                                                       },
+                                                       {
+                                                           "question":  "Concision means:",
+                                                           "options":  [
+                                                                           "Saying it in fewer words without losing meaning",
+                                                                           "Making everything longer",
+                                                                           "Using the biggest words possible",
+                                                                           "Writing only one sentence"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "\u0027At this point in time\u0027 → \u0027Now.\u0027 Same meaning, 80% fewer words."
+                                                       },
+                                                       {
+                                                           "question":  "The most valued professional skill is:",
+                                                           "options":  [
+                                                                           "Avoiding all writing",
+                                                                           "Using complex vocabulary",
+                                                                           "Writing the longest emails",
+                                                                           "Clear written communication"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Every career requires clear writing — reports, emails, proposals, and presentations."
+                                                       },
+                                                       {
+                                                           "question":  "When editing, ask:",
+                                                           "options":  [
+                                                                           "Can I make it longer?",
+                                                                           "Is each sentence necessary? Does it serve the purpose?",
+                                                                           "Have I used enough difficult words?",
+                                                                           "Does it sound impressive?"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "If a sentence adds nothing, delete it. Clarity \u003e impressiveness."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  }
+              ]
 }

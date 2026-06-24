@@ -1,168 +1,1470 @@
 {
-  "id": "chemistry",
-  "name": "Chemistry",
-  "icon": "science_outlined",
-  "color": "#F59E0B",
-  "units": [
-    {
-      "title": "Atoms and Elements",
-      "lessons": [
-        {"title": "Atomic Structure", "content": "Everything is made of atoms. An atom has a nucleus with protons (positive) and neutrons (neutral), and electrons (negative) orbiting in shells. Atomic number = protons (defines the element). Mass number = protons + neutrons. Electron shells: first holds 2, second holds 8, third holds 8. The electron arrangement determines reactivity. Isotopes are atoms of the same element with different neutron numbers.", "examples": ["Carbon-12: 6p, 6n; Carbon-14: 6p, 8n (isotope used for dating)", "Sodium (Na, 11): electrons 2,8,1 — easily loses outer electron", "Hydrogen: simplest atom — 1 proton, 1 electron, 0 neutrons"], "keyTerms": {"proton": "Positive particle in nucleus; defines element", "electron": "Negative particle orbiting in shells", "isotope": "Same element, different neutron number", "atomic number": "Number of protons — unique to each element", "mass number": "Protons + neutrons in the nucleus"}, "quiz": [
-            {"question": "An atom with 8p and 8n has mass number:", "options": ["16", "8", "64", "0"], "correct": 0, "explanation": "Mass = protons + neutrons = 8 + 8 = 16"},
-            {"question": "What defines which element an atom is?", "options": ["Number of protons", "Number of neutrons", "Number of electrons", "Total mass"], "correct": 0, "explanation": "Atomic number (proton count) determines the element."},
-            {"question": "Electron arrangement of chlorine (17e)?", "options": ["2, 8, 7", "2, 8, 8", "2, 7, 8", "8, 8, 1"], "correct": 0, "explanation": "First: 2, second: 8, third: 7."},
-            {"question": "Isotopes differ in:", "options": ["Number of neutrons", "Number of protons", "Number of electrons", "Chemical properties"], "correct": 0, "explanation": "Isotopes have the same protons but different neutrons."},
-            {"question": "An atom is neutral because:", "options": ["Equal numbers of protons and electrons", "It has no charge", "Neutrons cancel protons", "Electrons are neutral"], "correct": 0, "explanation": "Protons (+) and electrons (−) are equal, so charges balance to zero."}
-          ]},
-        {"title": "The Periodic Table", "content": "The periodic table organises elements by atomic number. Rows = periods (same electron shells). Columns = groups (same outer electrons, similar properties). Group 1 (alkali metals): very reactive, 1 outer electron. Group 7 (halogens): reactive, need 1 electron. Group 0 (noble gases): unreactive, full outer shell. Transition metals (middle block): less reactive, form coloured compounds, useful catalysts. Elements become more metallic going left and down.", "examples": ["Li, Na, K all in Group 1 — react vigorously with water", "Noble gases (He, Ne, Ar) used in lighting — don't react", "Transition metals: iron, copper, gold — useful in construction and electronics"], "keyTerms": {"period": "Horizontal row — same number of electron shells", "group": "Vertical column — same outer electrons, similar properties", "noble gas": "Group 0 — full outer shell, very unreactive", "transition metal": "Elements in the middle block — less reactive, form coloured compounds"}, "quiz": [
-            {"question": "Same group elements have:", "options": ["Similar chemical properties", "Same neutrons", "Same mass", "Same color"], "correct": 0, "explanation": "Same group = same outer electrons = similar reactivity."},
-            {"question": "Noble gases are unreactive because:", "options": ["Full outer electron shell", "No electrons", "Too heavy", "Radioactive"], "correct": 0, "explanation": "Full outer shell = no need to gain, lose, or share electrons."},
-            {"question": "Group 1 metals are:", "options": ["Alkali metals", "Noble gases", "Halogens", "Transition metals"], "correct": 0, "explanation": "Group 1 = alkali metals (Li, Na, K)."},
-            {"question": "Going down Group 1, reactivity:", "options": ["Increases", "Decreases", "Stays the same", "Becomes zero"], "correct": 0, "explanation": "Outer electron is further from nucleus — easier to lose — more reactive."},
-            {"question": "Transition metals are useful because:", "options": ["Strong, good conductors, form coloured compounds, act as catalysts", "They are very reactive", "They are gases", "They dissolve easily"], "correct": 0, "explanation": "Transition metals are versatile: structural, catalytic, and conductive."}
-          ]},
-        {"title": "Chemical Bonding", "content": "Atoms bond for stable full outer shells. Ionic: metal transfers electrons to non-metal, creating ions that attract. NaCl: Na⁺ + Cl⁻. Ionic compounds have high melting points, conduct when dissolved/molten. Covalent: non-metals share electrons. H₂O: oxygen shares with two hydrogens. Covalent compounds have lower melting points, don't conduct. Metallic: metal atoms share delocalised electrons — conducts electricity, malleable, ductile.", "examples": ["NaCl is ionic: Na gives electron to Cl", "H₂O is covalent: shared electrons", "Copper conducts because delocalised electrons flow"], "keyTerms": {"ionic bond": "Electron transfer between metal and non-metal", "covalent bond": "Electron sharing between non-metals", "ion": "Atom with gained/lost electrons — has a charge", "metallic bond": "Metal atoms share a 'sea' of delocalised electrons"}, "quiz": [
-            {"question": "Na becomes Na⁺ by:", "options": ["Losing one electron", "Gaining one electron", "Sharing electrons", "Losing a proton"], "correct": 0, "explanation": "Sodium loses its single outer electron, becoming positive."},
-            {"question": "Covalent bonds involve:", "options": ["Sharing electrons", "Transferring electrons", "Losing protons", "Gaining neutrons"], "correct": 0, "explanation": "Non-metals share electron pairs."},
-            {"question": "Metals conduct because:", "options": ["Delocalised electrons move freely", "No electrons", "Ionic bonds", "They absorb electricity"], "correct": 0, "explanation": "The sea of free electrons carries current."},
-            {"question": "Ionic compounds have high melting points because:", "options": ["Strong electrostatic forces between ions", "Weak bonds", "They are covalent", "They contain water"], "correct": 0, "explanation": "Lots of energy needed to overcome the strong attraction between oppositely charged ions."},
-            {"question": "Diamond is hard because:", "options": ["Each carbon shares 4 covalent bonds in a giant structure", "It's ionic", "It has metallic bonds", "It's a small molecule"], "correct": 0, "explanation": "Diamond is a giant covalent structure — every atom strongly bonded to 4 others."}
-          ]},
-        {"title": "Electronic Structure and Reactivity", "content": "An element's reactivity depends on how easily it gains, loses, or shares electrons. Metals react by losing outer electrons — metals with fewer outer electrons (Group 1) react more easily. Going down a group, the outer electron is further from the nucleus and easier to remove, so reactivity increases (Li < Na < K < Rb). Non-metals react by gaining electrons — non-metals needing fewer electrons (Group 7) react more easily. Going down Group 7, reactivity decreases because the outer shell is further from the nucleus, making it harder to attract electrons (F > Cl > Br > I). Noble gases don't react because they already have full outer shells.", "examples": ["Potassium reacts explosively with water (outer electron very far from nucleus) while lithium just fizzes gently", "Fluorine is the most reactive non-metal — it needs just one electron and has a very small atom", "Chlorine can displace bromine from a solution: Cl₂ + 2KBr → 2KCl + Br₂ (chlorine is more reactive)"], "keyTerms": {"reactivity": "How readily an element undergoes chemical reactions", "electron configuration": "The arrangement of electrons in shells around an atom", "displacement": "A more reactive element replacing a less reactive one in a compound", "reactivity series": "Elements ranked from most to least reactive"}, "quiz": [
-            {"question": "Going down Group 1, reactivity:", "options": ["Increases", "Decreases", "Stays the same", "Alternates"], "correct": 0, "explanation": "The outer electron is further from the nucleus — easier to lose — more reactive."},
-            {"question": "Going down Group 7, reactivity:", "options": ["Decreases", "Increases", "Stays the same", "Alternates"], "correct": 0, "explanation": "Outer shell is further out — harder to attract an extra electron — less reactive."},
-            {"question": "The most reactive metal is likely in:", "options": ["Bottom of Group 1", "Top of Group 1", "Group 0", "Group 7"], "correct": 0, "explanation": "Bottom of Group 1: furthest outer electron, easiest to lose."},
-            {"question": "Chlorine displaces bromine because:", "options": ["Chlorine is more reactive than bromine", "Bromine is more reactive", "They don't react", "They are in the same group"], "correct": 0, "explanation": "More reactive halogens displace less reactive ones from compounds."},
-            {"question": "Noble gases don't react because:", "options": ["They have full outer electron shells", "They are too heavy", "They have no electrons", "They are radioactive"], "correct": 0, "explanation": "Full outer shell = stable = no tendency to gain, lose, or share electrons."}
-          ]},
-        {"title": "Atomic History and Models", "content": "Our understanding of atoms has evolved through several models. Dalton (1803): atoms are tiny indivisible spheres — each element has identical atoms. Thomson (1897): discovered electrons — 'plum pudding model' (electrons embedded in positive dough). Rutherford (1911): fired alpha particles at gold foil — most passed through, some bounced back — discovered the small, dense, positive nucleus with electrons orbiting. Bohr (1913): electrons orbit in fixed shells/energy levels — explained emission spectra. Modern quantum model: electrons exist in probability clouds (orbitals), not fixed orbits. Each model was improved as new evidence emerged — this is how science works.", "examples": ["Rutherford's gold foil experiment: 1 in 8000 alpha particles bounced back — proving the nucleus is tiny and dense", "Bohr model explains why heated elements emit specific colours — electrons jump between energy levels", "The quantum model shows electrons as probability clouds — we can't know exact position and speed simultaneously (Heisenberg)"], "keyTerms": {"plum pudding model": "Thomson's model: electrons embedded in positive charge, like plums in a pudding", "nuclear model": "Rutherford's model: small dense positive nucleus with electrons orbiting at distance", "Bohr model": "Electrons orbit in fixed energy levels/shells", "quantum model": "Modern model: electrons exist in probability clouds called orbitals"}, "quiz": [
-            {"question": "Who discovered the nucleus?", "options": ["Rutherford", "Dalton", "Thomson", "Bohr"], "correct": 0, "explanation": "Rutherford's gold foil experiment (1911) revealed the small, dense nucleus."},
-            {"question": "Thomson discovered:", "options": ["Electrons", "The nucleus", "Neutrons", "Protons"], "correct": 0, "explanation": "Thomson discovered electrons in 1897 and proposed the plum pudding model."},
-            {"question": "The Bohr model improved on Rutherford by:", "options": ["Placing electrons in fixed energy levels/shells", "Removing the nucleus", "Adding neutrons", "Making atoms smaller"], "correct": 0, "explanation": "Bohr showed electrons orbit in specific energy levels, not random paths."},
-            {"question": "Why did most alpha particles pass through gold foil?", "options": ["Atoms are mostly empty space", "Gold is transparent", "Alpha particles are very small", "The foil was too thin"], "correct": 0, "explanation": "The nucleus is tiny — most of the atom is empty space."},
-            {"question": "Scientific models change because:", "options": ["New evidence requires updated explanations", "Scientists guess randomly", "Old scientists were wrong about everything", "Models never change"], "correct": 0, "explanation": "Science progresses by testing, finding new evidence, and refining models accordingly."}
-          ]}
-      ]
-    },
-    {
-      "title": "Chemical Reactions",
-      "lessons": [
-        {"title": "Types of Reactions", "content": "Chemical reactions rearrange atoms to form new substances. Combination: A + B → AB. Decomposition: AB → A + B. Displacement: more reactive element replaces less reactive. Combustion: substance + oxygen → CO₂ + H₂O + heat. Neutralisation: acid + base → salt + water. Oxidation-reduction (redox): oxidation is losing electrons (or gaining oxygen), reduction is gaining electrons (or losing oxygen). Remember: OIL RIG — Oxidation Is Loss, Reduction Is Gain.", "examples": ["Combustion: CH₄ + 2O₂ → CO₂ + 2H₂O + heat", "Displacement: Zn + CuSO₄ → ZnSO₄ + Cu", "Rusting: 4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃ (slow oxidation)"], "keyTerms": {"combustion": "Burning in oxygen, releasing heat", "displacement": "Reactive element replaces less reactive one", "oxidation": "Loss of electrons or gain of oxygen", "reduction": "Gain of electrons or loss of oxygen"}, "quiz": [
-            {"question": "2H₂O → 2H₂ + O₂ is:", "options": ["Decomposition", "Combination", "Combustion", "Displacement"], "correct": 0, "explanation": "One compound breaks into simpler substances."},
-            {"question": "In displacement, the MORE reactive element:", "options": ["Replaces the less reactive", "Is replaced", "Does nothing", "Dissolves"], "correct": 0, "explanation": "More reactive takes the place of less reactive."},
-            {"question": "Combustion requires:", "options": ["Oxygen", "Water", "Acid", "A metal"], "correct": 0, "explanation": "Combustion = reaction with oxygen."},
-            {"question": "OIL RIG stands for:", "options": ["Oxidation Is Loss, Reduction Is Gain (of electrons)", "Only In Labs, Results In Gases", "Oxygen In, Liquid out, Reaction Is Good", "None of these"], "correct": 0, "explanation": "OIL RIG: Oxidation = electron loss, Reduction = electron gain."},
-            {"question": "Rusting is an example of:", "options": ["Oxidation (iron gains oxygen)", "Reduction", "Decomposition", "Neutralisation"], "correct": 0, "explanation": "Iron reacts with oxygen and water — it's oxidised to form iron oxide (rust)."}
-          ]},
-        {"title": "Balancing Equations", "content": "A balanced equation has equal atoms on both sides — conservation of mass. Add coefficients to balance; never change formulas. Example: H₂ + O₂ → H₂O is unbalanced. Balanced: 2H₂ + O₂ → 2H₂O. State symbols: (s) solid, (l) liquid, (g) gas, (aq) dissolved in water. Relative formula mass = sum of all atomic masses in a formula.", "examples": ["4Fe + 3O₂ → 2Fe₂O₃ (4 Fe, 6 O each side)", "CH₄ + 2O₂ → CO₂ + 2H₂O (1C, 4H, 4O each side)", "Relative formula mass of H₂O: 2(1) + 16 = 18"], "keyTerms": {"balanced equation": "Equal atoms of each element on both sides", "coefficient": "Number before a formula for balancing", "conservation of mass": "Matter cannot be created or destroyed", "relative formula mass": "Sum of atomic masses of all atoms in a formula"}, "quiz": [
-            {"question": "Balance: _Na + _Cl₂ → _NaCl", "options": ["2Na + Cl₂ → 2NaCl", "Na + Cl₂ → NaCl₂", "Na + Cl → NaCl", "Na₂ + Cl₂ → 2NaCl"], "correct": 0, "explanation": "2Na + Cl₂ → 2NaCl: 2 Na, 2 Cl each side."},
-            {"question": "Why balance equations?", "options": ["Atoms cannot be created or destroyed", "To look neat", "To react faster", "To reduce waste"], "correct": 0, "explanation": "Conservation of mass: same atoms on both sides."},
-            {"question": "In 2H₂O, the 2 means:", "options": ["2 molecules of water", "2 hydrogen atoms", "2 oxygen atoms", "Water squared"], "correct": 0, "explanation": "Coefficient 2 = two whole molecules of H₂O."},
-            {"question": "Relative formula mass of CO₂ (C=12, O=16):", "options": ["44", "28", "32", "60"], "correct": 0, "explanation": "12 + 16 + 16 = 44."},
-            {"question": "The state symbol (aq) means:", "options": ["Dissolved in water (aqueous)", "Gas", "Liquid", "Solid"], "correct": 0, "explanation": "Aqueous = dissolved in water."}
-          ]},
-        {"title": "Rates of Reaction", "content": "Rate = how fast reactants become products. Five factors: temperature (higher → faster: more energy, harder collisions), concentration (more particles → more collisions), surface area (smaller pieces → more exposed surface), catalyst (speeds up without being consumed — lowers activation energy), pressure (gases: higher → particles closer). Collision theory: reactions happen when particles collide with enough energy (activation energy) and correct orientation.", "examples": ["Food cooks faster at higher temperatures", "Sugar cube dissolves slowly; crushed sugar dissolves quickly", "Catalytic converters use platinum to speed up exhaust gas conversion"], "keyTerms": {"catalyst": "Speeds up reaction without being consumed", "activation energy": "Minimum energy needed for reaction", "collision theory": "Reactions occur when particles collide with sufficient energy", "rate of reaction": "How quickly reactants are converted into products"}, "quiz": [
-            {"question": "Increasing temperature affects rate by:", "options": ["Increasing collision frequency and energy", "Decreasing rate", "No effect", "Stopping the reaction"], "correct": 0, "explanation": "More kinetic energy → more frequent and energetic collisions."},
-            {"question": "A catalyst works by:", "options": ["Lowering activation energy", "Increasing temperature", "Adding more reactant", "Being consumed"], "correct": 0, "explanation": "Catalysts provide an alternative pathway with lower activation energy."},
-            {"question": "Powdered reactant reacts faster because:", "options": ["Greater surface area", "Greater mass", "Higher temperature", "Different chemical"], "correct": 0, "explanation": "More surface exposed = more collision opportunities."},
-            {"question": "For a reaction to occur, particles must:", "options": ["Collide with enough energy and correct orientation", "Just touch each other", "Be heated to 100°C", "Be in a liquid"], "correct": 0, "explanation": "Both sufficient energy AND correct alignment are needed for a successful collision."},
-            {"question": "Increasing pressure affects gas reactions by:", "options": ["Pushing particles closer, increasing collision frequency", "Reducing collisions", "Changing the chemicals", "Having no effect"], "correct": 0, "explanation": "Higher pressure = particles closer together = more frequent collisions."}
-          ]},
-        {"title": "Energy Changes in Reactions", "content": "Chemical reactions involve energy changes. Exothermic reactions release energy to the surroundings — temperature rises. Examples: combustion, neutralisation, oxidation, hand warmers. Endothermic reactions absorb energy from surroundings — temperature drops. Examples: thermal decomposition, dissolving ammonium nitrate (cold packs), photosynthesis. Energy profile diagrams show energy levels of reactants and products. In exothermic reactions, products are lower in energy than reactants. In endothermic, products are higher. The activation energy is the energy 'hill' that must be overcome to start the reaction — catalysts lower this hill.", "examples": ["Exothermic: burning methane — releases heat energy (that's why we use gas for cooking)", "Endothermic: sports cold packs — dissolving ammonium nitrate absorbs heat, cooling the injured area", "An energy profile for combustion shows products much lower than reactants — the difference is the energy released"], "keyTerms": {"exothermic": "A reaction that releases energy to the surroundings — temperature rises", "endothermic": "A reaction that absorbs energy from surroundings — temperature drops", "energy profile": "A diagram showing the energy levels of reactants and products", "bond energy": "The energy required to break a chemical bond or released when forming one"}, "quiz": [
-            {"question": "An exothermic reaction:", "options": ["Releases energy — temperature rises", "Absorbs energy — temperature drops", "Has no energy change", "Only occurs in labs"], "correct": 0, "explanation": "Exo = out. Energy is released to the surroundings."},
-            {"question": "Photosynthesis is:", "options": ["Endothermic — absorbs light energy", "Exothermic", "Neither", "Only chemical"], "correct": 0, "explanation": "Photosynthesis absorbs light energy to build glucose from CO₂ and H₂O."},
-            {"question": "In an exothermic energy profile:", "options": ["Products are lower in energy than reactants", "Products are higher", "Both are equal", "There's no activation energy"], "correct": 0, "explanation": "Energy is released so products have less energy than reactants."},
-            {"question": "Cold packs use:", "options": ["Endothermic dissolving to absorb heat", "Exothermic combustion", "Nuclear energy", "Electricity"], "correct": 0, "explanation": "Dissolving ammonium nitrate absorbs heat energy, cooling the area."},
-            {"question": "Bond breaking is:", "options": ["Endothermic (requires energy)", "Exothermic (releases energy)", "Neither", "Only in metals"], "correct": 0, "explanation": "Breaking bonds requires energy input. Making bonds releases energy."}
-          ]},
-        {"title": "Electrolysis", "content": "Electrolysis uses electricity to decompose ionic compounds. The ionic compound must be molten or dissolved (ions must be free to move). The cathode (negative electrode) attracts positive ions (cations) — reduction occurs here (ions gain electrons). The anode (positive electrode) attracts negative ions (anions) — oxidation occurs here (ions lose electrons). Example: electrolysis of molten NaCl produces sodium metal at the cathode and chlorine gas at the anode. Electrolysis of water produces hydrogen at cathode and oxygen at anode. Industrial uses: extracting reactive metals (aluminium from bauxite), electroplating (coating objects with thin metal layers), and purifying copper.", "examples": ["Electrolysis of water: 2H₂O → 2H₂ + O₂ (twice as much hydrogen as oxygen)", "Aluminium extraction: Al₂O₃ dissolved in cryolite → electrolysis → pure aluminium at cathode", "Electroplating: a steel spoon is made the cathode in a silver nitrate solution → silver coats the spoon"], "keyTerms": {"electrolysis": "Using electricity to decompose ionic compounds into elements", "cathode": "Negative electrode — attracts positive ions (cations), reduction occurs", "anode": "Positive electrode — attracts negative ions (anions), oxidation occurs", "electroplating": "Coating an object with a thin layer of metal using electrolysis"}, "quiz": [
-            {"question": "At the cathode:", "options": ["Positive ions gain electrons (reduction)", "Negative ions lose electrons", "Nothing happens", "Water is formed"], "correct": 0, "explanation": "Cathode is negative → attracts positive ions → they gain electrons (are reduced)."},
-            {"question": "For electrolysis to work, the ionic compound must be:", "options": ["Molten or dissolved (ions free to move)", "Solid", "A gas", "Mixed with oil"], "correct": 0, "explanation": "Ions must be free to move to the electrodes — not locked in a solid lattice."},
-            {"question": "Electrolysis of water produces:", "options": ["Hydrogen at cathode, oxygen at anode", "Only hydrogen", "Only oxygen", "Salt water"], "correct": 0, "explanation": "H⁺ ions → cathode → H₂ gas. OH⁻ ions → anode → O₂ gas."},
-            {"question": "Aluminium is extracted by electrolysis because:", "options": ["It's too reactive to extract by heating with carbon", "It's easy to mine", "It's not reactive", "It dissolves in water"], "correct": 0, "explanation": "Very reactive metals can't be reduced by carbon — electrolysis is needed."},
-            {"question": "At the anode, the process is:", "options": ["Oxidation (ions lose electrons)", "Reduction", "Neutralisation", "Combustion"], "correct": 0, "explanation": "Anode = oxidation. Remember: AN OX and RED CAT (Anode-Oxidation, Reduction-Cathode)."}
-          ]}
-      ]
-    },
-    {
-      "title": "States of Matter",
-      "lessons": [
-        {"title": "Solids, Liquids, and Gases", "content": "Solids: particles packed tightly, fixed positions, vibrating — fixed shape and volume. Liquids: particles close but slide past each other — fixed volume, takes container shape. Gases: particles far apart, moving fast randomly — no fixed shape or volume. Changes of state: melting (solid→liquid), boiling (liquid→gas), condensation (gas→liquid), freezing (liquid→solid), sublimation (solid→gas directly). These are physical changes — no new substance formed.", "examples": ["Ice melts at 0°C, water boils at 100°C, steam condenses back to water on a cold surface", "Dry ice sublimes — solid CO₂ goes directly to gas", "Morning dew: water vapour condenses overnight on cool surfaces"], "keyTerms": {"melting point": "Temperature at which solid becomes liquid", "boiling point": "Temperature at which liquid becomes gas throughout", "sublimation": "Direct solid to gas without liquid phase", "physical change": "A change that doesn't create new substances — reversible"}, "quiz": [
-            {"question": "Particles are furthest apart in:", "options": ["Gas", "Liquid", "Solid", "Plasma"], "correct": 0, "explanation": "Gas particles are widely spread, moving freely."},
-            {"question": "Gas → liquid is:", "options": ["Condensation", "Evaporation", "Melting", "Sublimation"], "correct": 0, "explanation": "Gas cooling to liquid = condensation."},
-            {"question": "A change of state is:", "options": ["Physical change", "Chemical change", "Nuclear change", "Irreversible"], "correct": 0, "explanation": "No new substance — reversible and physical."},
-            {"question": "During boiling, temperature:", "options": ["Stays constant until all liquid is gas", "Keeps rising", "Drops suddenly", "Fluctuates randomly"], "correct": 0, "explanation": "Energy goes into breaking intermolecular bonds, not raising temperature."},
-            {"question": "Sublimation is:", "options": ["Solid directly to gas", "Gas to solid", "Liquid to solid", "Gas to liquid"], "correct": 0, "explanation": "Sublimation skips the liquid phase — solid goes straight to gas."}
-          ]},
-        {"title": "Mixtures and Separation", "content": "A mixture contains two or more substances not chemically bonded. Filtration: separates insoluble solids from liquids. Evaporation: recovers dissolved solids. Distillation: separates liquids with different boiling points. Chromatography: separates dissolved substances based on movement through a medium. Fractional distillation: separates mixtures of liquids with close boiling points (like crude oil into fractions).", "examples": ["Filtering muddy water: soil trapped, water passes through", "Salt from seawater: evaporate the water, salt remains", "Paper chromatography: black ink separates into different coloured dyes"], "keyTerms": {"filtration": "Separating insoluble solids from liquids using a filter", "distillation": "Separating liquids by boiling point differences", "chromatography": "Separating dissolved substances by movement through a medium", "fractional distillation": "Separating a mixture of liquids with different boiling points"}, "quiz": [
-            {"question": "Pure water from salt water:", "options": ["Distillation", "Filtration", "Chromatography", "Magnetism"], "correct": 0, "explanation": "Distillation boils water, then condenses the steam into pure water."},
-            {"question": "Filtration separates:", "options": ["Sand from water", "Salt from water", "Alcohol from water", "Dyes from ink"], "correct": 0, "explanation": "Filtration removes insoluble solids — dissolved substances pass through."},
-            {"question": "Mixtures are not chemically bonded so:", "options": ["They can be separated physically", "They can't be separated", "They are elements", "They always react"], "correct": 0, "explanation": "No chemical bonds = physical separation methods work."},
-            {"question": "Crude oil is separated by:", "options": ["Fractional distillation", "Filtration", "Chromatography", "Evaporation"], "correct": 0, "explanation": "Crude oil is a mixture of hydrocarbons with different boiling points — separated in a fractionating column."},
-            {"question": "In chromatography, substances separate because:", "options": ["They travel at different speeds through the medium", "They are different colours", "They react with each other", "They evaporate"], "correct": 0, "explanation": "More soluble substances travel further; less soluble ones stay near the start."}
-          ]},
-        {"title": "Solutions and Solubility", "content": "A solution forms when a solute dissolves in a solvent. Water is the universal solvent. Solubility depends on temperature (usually more dissolves at higher temps) and the nature of solute/solvent. Saturated solution: can't dissolve more at that temperature. Concentration = mass of solute / volume of solution (g/dm³). Diluting adds more solvent, reducing concentration.", "examples": ["Sugar dissolves faster in hot tea", "Saturated salt solution at 20°C: ~36g per 100ml", "10g salt in 500cm³ = 20 g/dm³"], "keyTerms": {"solute": "Substance that dissolves (salt)", "solvent": "Substance that does dissolving (water)", "saturated": "Cannot dissolve more at given temperature", "concentration": "Amount of solute per unit volume of solution"}, "quiz": [
-            {"question": "In salt solution, the solute is:", "options": ["Salt", "Water", "The container", "Air"], "correct": 0, "explanation": "Solute = the substance that dissolves."},
-            {"question": "Increasing temperature usually:", "options": ["Increases solubility of solids", "Decreases solubility", "No effect", "Makes it insoluble"], "correct": 0, "explanation": "Most solid solutes dissolve more at higher temperatures."},
-            {"question": "Concentration of 20g sugar in 500cm³?", "options": ["40 g/dm³", "20 g/dm³", "10 g/dm³", "0.04 g/dm³"], "correct": 0, "explanation": "500cm³ = 0.5dm³. C = 20/0.5 = 40 g/dm³."},
-            {"question": "Adding more water to a solution:", "options": ["Dilutes it (lower concentration)", "Increases concentration", "Creates a saturated solution", "Removes the solute"], "correct": 0, "explanation": "More solvent with same solute = lower concentration."},
-            {"question": "A saturated solution:", "options": ["Cannot dissolve any more solute at that temperature", "Has no solute", "Is always hot", "Is always clear"], "correct": 0, "explanation": "Saturated = maximum amount of solute dissolved at that temperature."}
-          ]},
-        {"title": "Water Treatment and Purity", "content": "Pure water contains only H₂O molecules — it boils at exactly 100°C and freezes at exactly 0°C. Tap water is not pure — it contains dissolved minerals and is treated to be safe. Water treatment: screening (removes large debris), sedimentation (heavy particles settle), filtration (removes fine particles through sand beds), chlorination (kills bacteria and pathogens). Desalination removes salt from seawater — done by reverse osmosis (forcing water through a membrane) or distillation. Testing water purity: measure boiling/melting point (pure water has exact values) or evaporate and check for residue. Hard water contains dissolved calcium/magnesium — causes limescale in pipes and kettles but provides minerals.", "examples": ["Tap water has dissolved minerals (calcium, fluoride) — not chemically pure but safe to drink", "Reverse osmosis desalination: seawater is forced through a membrane that blocks salt — used in desert countries", "Hard water: leaves white limescale deposits in kettles — softened by ion exchange or boiling (temporary hardness)"], "keyTerms": {"potable water": "Water that is safe to drink — not necessarily chemically pure", "desalination": "Removing salt from seawater to produce drinkable water", "chlorination": "Adding chlorine to water to kill bacteria and make it safe", "hard water": "Water containing dissolved calcium or magnesium compounds"}, "quiz": [
-            {"question": "Pure water boils at exactly:", "options": ["100°C", "90°C", "110°C", "50°C"], "correct": 0, "explanation": "Pure water has a fixed boiling point of 100°C at standard pressure."},
-            {"question": "Chlorination in water treatment:", "options": ["Kills bacteria and pathogens", "Removes salt", "Adds minerals", "Filters particles"], "correct": 0, "explanation": "Chlorine is a disinfectant — it kills harmful microorganisms in water."},
-            {"question": "Desalination is used to:", "options": ["Remove salt from seawater", "Add salt to water", "Filter dirty water", "Heat water"], "correct": 0, "explanation": "Desalination produces freshwater from seawater — vital in arid regions."},
-            {"question": "Potable water is:", "options": ["Safe to drink but not necessarily chemically pure", "100% pure H₂O", "Saltwater", "Distilled water only"], "correct": 0, "explanation": "Potable = safe to drink. It may contain safe levels of dissolved minerals."},
-            {"question": "Hard water causes:", "options": ["Limescale in pipes and kettles", "Softer skin always", "No problems at all", "Rust in pipes"], "correct": 0, "explanation": "Dissolved calcium/magnesium forms scale deposits when heated."}
-          ]},
-        {"title": "Atmosphere and Climate Chemistry", "content": "Earth's atmosphere: 78% nitrogen, 21% oxygen, ~1% argon, 0.04% CO₂, plus water vapour. The early atmosphere (4 billion years ago) was mainly CO₂, water vapour, and nitrogen — no oxygen. Oxygen appeared when photosynthetic organisms evolved (~2.7 billion years ago): 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. CO₂ decreased as it dissolved in oceans (forming carbonate rocks and fossil fuels). Human activity is increasing CO₂ (burning fossil fuels, deforestation), causing enhanced greenhouse effect and climate change. Other pollutants: carbon monoxide (toxic, from incomplete combustion), sulfur dioxide (acid rain), nitrogen oxides (acid rain and smog), and particulates (health problems).", "examples": ["Burning coal: C + O₂ → CO₂ (adds greenhouse gas) plus impurities like SO₂ (causes acid rain)", "Acid rain: SO₂ + H₂O → H₂SO₃ (sulfurous acid) — damages buildings, forests, and aquatic life", "Catalytic converters reduce pollutants: 2CO + 2NO → 2CO₂ + N₂ (toxic CO and NO converted to less harmful gases)"], "keyTerms": {"greenhouse gas": "A gas that traps heat in the atmosphere (CO₂, methane, water vapour)", "acid rain": "Rain made acidic by dissolved pollutants like SO₂ and NOₓ", "carbon footprint": "The total amount of greenhouse gases produced by a person, event, or product", "incomplete combustion": "Burning with insufficient oxygen, producing CO and soot instead of CO₂"}, "quiz": [
-            {"question": "The atmosphere is mostly:", "options": ["Nitrogen (78%)", "Oxygen (78%)", "CO₂ (78%)", "Argon (78%)"], "correct": 0, "explanation": "Nitrogen makes up about 78% of the atmosphere; oxygen is about 21%."},
-            {"question": "Oxygen appeared in the atmosphere because:", "options": ["Photosynthetic organisms evolved and released O₂", "It was always there", "Volcanoes produced it", "It came from space"], "correct": 0, "explanation": "Cyanobacteria and later plants produced oxygen through photosynthesis."},
-            {"question": "Acid rain is caused by:", "options": ["SO₂ and NOₓ dissolving in rainwater", "Too much oxygen", "Normal CO₂", "Pure water"], "correct": 0, "explanation": "Sulfur dioxide and nitrogen oxides react with water to form acidic solutions."},
-            {"question": "Incomplete combustion produces:", "options": ["Carbon monoxide (CO) — a toxic gas", "Carbon dioxide only", "Water only", "Nitrogen"], "correct": 0, "explanation": "Insufficient oxygen → CO instead of CO₂. Carbon monoxide is poisonous."},
-            {"question": "The early atmosphere had no:", "options": ["Oxygen", "Carbon dioxide", "Water vapour", "Nitrogen"], "correct": 0, "explanation": "The early atmosphere was mostly CO₂ and water vapour — oxygen came later from photosynthesis."}
-          ]}
-      ]
-    },
-    {
-      "title": "Acids and Bases",
-      "lessons": [
-        {"title": "pH Scale and Indicators", "content": "pH measures acidity/alkalinity: 0-14. pH 7 = neutral. Below 7 = acidic (lower = stronger). Above 7 = alkaline (higher = stronger). Acids produce H⁺ ions. Alkalis produce OH⁻. Indicators: litmus (red/blue), universal indicator (rainbow of colours), pH meters (precise). Strong acids (HCl, H₂SO₄) fully dissociate — all molecules split into ions. Weak acids (ethanoic/citric) partially dissociate — only some molecules ionise.", "examples": ["Lemon juice pH ~2 (strongly acidic), soap pH ~10 (alkaline)", "Stomach acid pH ~1-2, needed for digestion", "Universal indicator: red (strong acid) → green (neutral) → purple (strong alkali)"], "keyTerms": {"pH": "Scale 0-14 measuring acidity/alkalinity", "acid": "Produces H⁺ ions; pH below 7", "alkali": "Soluble base producing OH⁻; pH above 7", "strong acid": "An acid that fully dissociates into ions in solution", "weak acid": "An acid that only partially dissociates in solution"}, "quiz": [
-            {"question": "pH 3 solution is:", "options": ["Acidic", "Neutral", "Alkaline", "Basic"], "correct": 0, "explanation": "Below 7 = acidic."},
-            {"question": "Acids produce which ions?", "options": ["H⁺", "OH⁻", "Na⁺", "Cl⁻"], "correct": 0, "explanation": "Acids release hydrogen ions (H⁺) in water."},
-            {"question": "Pure water pH:", "options": ["7", "0", "14", "1"], "correct": 0, "explanation": "Pure water is neutral: pH 7."},
-            {"question": "A strong acid:", "options": ["Fully dissociates into ions", "Partially dissociates", "Doesn't dissociate", "Is always concentrated"], "correct": 0, "explanation": "Strong = complete ionisation. Weak = partial. (Strong/weak ≠ concentrated/dilute.)"},
-            {"question": "Universal indicator is better than litmus because:", "options": ["It shows the actual pH value with a range of colours", "It only shows acid or alkali", "It's cheaper", "It doesn't change colour"], "correct": 0, "explanation": "Universal indicator gives a colour for each pH value, not just acid/alkali."}
-          ]},
-        {"title": "Neutralisation Reactions", "content": "Acid + base → salt + water. HCl + NaOH → NaCl + H₂O. The H⁺ from acid combines with OH⁻ from base → H₂O. Acid + carbonate → salt + water + CO₂ (fizzing). Acid + metal → salt + hydrogen. Salt name depends on acid: HCl → chlorides, H₂SO₄ → sulfates, HNO₃ → nitrates. Applications: antacids neutralise stomach acid, farmers add lime to acidic soil, treating wastewater.", "examples": ["Antacid: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂ (fizzing)", "Bee stings (acidic): apply baking soda (alkaline) to neutralise", "Lime on soil: Ca(OH)₂ neutralises acidity for better crop growth"], "keyTerms": {"neutralisation": "Acid + base → salt + water", "salt": "Formed when H⁺ of acid is replaced by a metal ion", "base": "Substance reacting with acid to form salt + water", "antacid": "A medicine that neutralises excess stomach acid"}, "quiz": [
-            {"question": "Acid + alkali →", "options": ["Salt + water", "Salt + acid", "Base + gas", "Nothing"], "correct": 0, "explanation": "Neutralisation: acid + alkali → salt + water."},
-            {"question": "HCl + NaOH → NaCl + H₂O. NaCl is:", "options": ["A salt (sodium chloride)", "An acid", "A base", "Water"], "correct": 0, "explanation": "Sodium chloride (table salt) is the salt produced."},
-            {"question": "Antacid tablets fizz because:", "options": ["Carbonate reacts with acid releasing CO₂", "They are melting", "They contain hydrogen", "They are dissolving"], "correct": 0, "explanation": "Carbonate + acid → salt + water + CO₂ gas (bubbles/fizzing)."},
-            {"question": "H₂SO₄ produces which type of salt?", "options": ["Sulfate", "Chloride", "Nitrate", "Carbonate"], "correct": 0, "explanation": "Sulfuric acid (H₂SO₄) always produces sulfate salts."},
-            {"question": "Why do farmers add lime to soil?", "options": ["To neutralise acidic soil for better crop growth", "To make soil more acidic", "To kill plants", "To add water"], "correct": 0, "explanation": "Lime (calcium hydroxide) is alkaline — it neutralises acid soil."}
-          ]},
-        {"title": "Acids and Metals", "content": "Acid + reactive metal → salt + hydrogen. Mg + 2HCl → MgCl₂ + H₂. Test hydrogen: burning splint gives a squeaky pop. Not all metals react — gold, silver, platinum are too unreactive. The reactivity series determines which metals react. More reactive metals produce faster reactions with more vigorous fizzing.", "examples": ["Magnesium in HCl fizzes vigorously", "Squeaky pop test confirms hydrogen", "Copper doesn't react with dilute acid — below hydrogen in reactivity series"], "keyTerms": {"hydrogen test": "Burning splint → squeaky pop", "reactivity series": "Metals ranked from most to least reactive", "oxidation": "Loss of electrons or gain of oxygen", "salt": "Product of acid-metal reaction alongside hydrogen"}, "quiz": [
-            {"question": "Zinc + sulfuric acid →", "options": ["Zinc sulfate + hydrogen", "Zinc chloride + oxygen", "Zinc oxide + water", "No reaction"], "correct": 0, "explanation": "Metal + acid → salt + hydrogen."},
-            {"question": "Hydrogen test:", "options": ["Burning splint — squeaky pop", "Glowing splint relights", "Limewater turns milky", "Litmus turns red"], "correct": 0, "explanation": "Hydrogen burns with a characteristic squeaky pop."},
-            {"question": "Gold does NOT react with acid because:", "options": ["It's very unreactive (low in reactivity series)", "It's too heavy", "Acid is too weak", "Gold is not a metal"], "correct": 0, "explanation": "Gold is very low in the reactivity series — it doesn't react with dilute acids."},
-            {"question": "Which metal reacts most vigorously with acid?", "options": ["Potassium", "Iron", "Copper", "Gold"], "correct": 0, "explanation": "Potassium is highest in the reactivity series — most reactive."},
-            {"question": "The test for CO₂ gas is:", "options": ["Limewater turns milky/cloudy", "Squeaky pop", "Glowing splint relights", "Turns litmus blue"], "correct": 0, "explanation": "CO₂ reacts with limewater (calcium hydroxide) to form a white precipitate (calcium carbonate)."}
-          ]},
-        {"title": "Making Salts", "content": "Salts can be made by several methods depending on whether the base is soluble or insoluble. Method 1 — acid + insoluble base/carbonate: add excess solid to warm acid, filter off excess, evaporate the filtrate to crystallise the salt. Method 2 — acid + alkali (titration): carefully add acid to alkali with an indicator to find the exact neutralisation point, then repeat without indicator and evaporate to crystallise. Method 3 — precipitation: mix two soluble salt solutions to form an insoluble salt. Example: lead nitrate + sodium chloride → lead chloride (insoluble precipitate) + sodium nitrate. Filter, wash, and dry the precipitate.", "examples": ["Making copper sulfate: add excess copper oxide to warm sulfuric acid → filter → evaporate → blue crystals", "Titration: carefully add HCl to NaOH using a burette until indicator changes → NaCl solution → evaporate", "Precipitation: AgNO₃(aq) + NaCl(aq) → AgCl(s) ↓ + NaNO₃(aq) — silver chloride precipitates out"], "keyTerms": {"titration": "Carefully adding acid to alkali to find the exact neutralisation volume", "crystallisation": "Evaporating a solution slowly to form solid crystals", "precipitation": "Forming an insoluble solid when two solutions are mixed", "filtrate": "The liquid that passes through a filter"}, "quiz": [
-            {"question": "To make a salt from an insoluble base:", "options": ["Add excess base to acid, filter, evaporate", "Just mix and stir", "Heat the base alone", "Electrolysis"], "correct": 0, "explanation": "Excess ensures all acid reacts → filter removes excess base → evaporate filtrate for crystals."},
-            {"question": "A titration is used when:", "options": ["Making a salt from a soluble base (alkali) and acid", "Making a salt from an insoluble base", "Separating mixtures", "Testing for gases"], "correct": 0, "explanation": "Both the acid and alkali are soluble — you can't filter excess, so precise measurement is needed."},
-            {"question": "A precipitate is:", "options": ["An insoluble solid formed when solutions are mixed", "A gas released", "A dissolved substance", "An indicator colour change"], "correct": 0, "explanation": "When ions in two solutions combine to form an insoluble compound, it appears as a solid precipitate."},
-            {"question": "Copper sulfate crystals are:", "options": ["Blue", "White", "Red", "Green"], "correct": 0, "explanation": "Hydrated copper sulfate crystals are characteristically blue."},
-            {"question": "In crystallisation, you should NOT:", "options": ["Evaporate to complete dryness (crystals will be powdery)", "Heat gently", "Allow slow cooling", "Start with a solution"], "correct": 0, "explanation": "Evaporate until crystals just start to form, then let it cool slowly for well-formed crystals."}
-          ]},
-        {"title": "Quantitative Chemistry and Moles", "content": "The mole is the chemist's counting unit: 1 mole = 6.02 × 10²³ particles (Avogadro's number). This connects the atomic scale to measurable quantities. Molar mass: the mass of 1 mole of a substance in grams — numerically equal to its relative formula mass. Moles = mass / molar mass (n = m/M). For example: 1 mole of water (H₂O) has molar mass 18 g/mol, so 36g of water = 2 moles. In balanced equations, coefficients represent mole ratios: 2H₂ + O₂ → 2H₂O means 2 moles of hydrogen react with 1 mole of oxygen to produce 2 moles of water. This allows us to calculate how much product we get from known amounts of reactants.", "examples": ["Molar mass of CO₂: 12 + 16 + 16 = 44 g/mol. So 88g of CO₂ = 88/44 = 2 moles", "2Mg + O₂ → 2MgO: 2 moles of Mg produce 2 moles of MgO. To produce 4 moles MgO, need 4 moles Mg = 4 × 24 = 96g", "Concentration in mol/dm³: 0.1 mol in 500 cm³ = 0.1/0.5 = 0.2 mol/dm³"], "keyTerms": {"mole": "The amount of substance containing 6.02 × 10²³ particles", "molar mass": "The mass of one mole of a substance in grams (g/mol)", "Avogadro's number": "6.02 × 10²³ — the number of particles in one mole", "mole ratio": "The ratio of moles of reactants and products from a balanced equation"}, "quiz": [
-            {"question": "1 mole contains how many particles?", "options": ["6.02 × 10²³", "6.02 × 10¹⁰", "1000", "1 million"], "correct": 0, "explanation": "Avogadro's number: 6.02 × 10²³ particles per mole."},
-            {"question": "Moles = ", "options": ["Mass ÷ molar mass", "Mass × molar mass", "Molar mass ÷ mass", "Mass + molar mass"], "correct": 0, "explanation": "n = m/M. Divide mass by molar mass to find moles."},
-            {"question": "Molar mass of NaCl (Na=23, Cl=35.5):", "options": ["58.5 g/mol", "23 g/mol", "35.5 g/mol", "11.5 g/mol"], "correct": 0, "explanation": "23 + 35.5 = 58.5 g/mol."},
-            {"question": "How many moles in 44g of CO₂? (M = 44 g/mol)", "options": ["1 mole", "2 moles", "44 moles", "0.5 moles"], "correct": 0, "explanation": "n = m/M = 44/44 = 1 mole."},
-            {"question": "In 2H₂ + O₂ → 2H₂O, to make 4 moles of water you need:", "options": ["4 moles H₂ and 2 moles O₂", "2 moles H₂ and 1 mole O₂", "4 moles of each", "1 mole of each"], "correct": 0, "explanation": "The 2:1:2 ratio scales: 4 mol H₂O needs 4 mol H₂ and 2 mol O₂."}
-          ]}
-      ]
-    }
-  ]
+    "id":  "chemistry",
+    "name":  "Chemistry",
+    "icon":  "science_outlined",
+    "color":  "#F59E0B",
+    "units":  [
+                  {
+                      "title":  "Atoms and Elements",
+                      "lessons":  [
+                                      {
+                                          "title":  "Atomic Structure",
+                                          "content":  "Everything is made of atoms. An atom has a nucleus with protons (positive) and neutrons (neutral), and electrons (negative) orbiting in shells. Atomic number = protons (defines the element). Mass number = protons + neutrons. Electron shells: first holds 2, second holds 8, third holds 8. The electron arrangement determines reactivity. Isotopes are atoms of the same element with different neutron numbers.",
+                                          "examples":  [
+                                                           "Carbon-12: 6p, 6n; Carbon-14: 6p, 8n (isotope used for dating)",
+                                                           "Sodium (Na, 11): electrons 2,8,1 — easily loses outer electron",
+                                                           "Hydrogen: simplest atom — 1 proton, 1 electron, 0 neutrons"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "proton":  "Positive particle in nucleus; defines element",
+                                                           "electron":  "Negative particle orbiting in shells",
+                                                           "isotope":  "Same element, different neutron number",
+                                                           "atomic number":  "Number of protons — unique to each element",
+                                                           "mass number":  "Protons + neutrons in the nucleus"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "An atom with 8p and 8n has mass number:",
+                                                           "options":  [
+                                                                           "0",
+                                                                           "8",
+                                                                           "64",
+                                                                           "16"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Mass = protons + neutrons = 8 + 8 = 16"
+                                                       },
+                                                       {
+                                                           "question":  "What defines which element an atom is?",
+                                                           "options":  [
+                                                                           "Total mass",
+                                                                           "Number of neutrons",
+                                                                           "Number of electrons",
+                                                                           "Number of protons"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Atomic number (proton count) determines the element."
+                                                       },
+                                                       {
+                                                           "question":  "Electron arrangement of chlorine (17e)?",
+                                                           "options":  [
+                                                                           "2, 7, 8",
+                                                                           "2, 8, 8",
+                                                                           "2, 8, 7",
+                                                                           "8, 8, 1"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "First: 2, second: 8, third: 7."
+                                                       },
+                                                       {
+                                                           "question":  "Isotopes differ in:",
+                                                           "options":  [
+                                                                           "Number of protons",
+                                                                           "Number of neutrons",
+                                                                           "Number of electrons",
+                                                                           "Chemical properties"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Isotopes have the same protons but different neutrons."
+                                                       },
+                                                       {
+                                                           "question":  "An atom is neutral because:",
+                                                           "options":  [
+                                                                           "Neutrons cancel protons",
+                                                                           "It has no charge",
+                                                                           "Equal numbers of protons and electrons",
+                                                                           "Electrons are neutral"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Protons (+) and electrons (−) are equal, so charges balance to zero."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "The Periodic Table",
+                                          "content":  "The periodic table organises elements by atomic number. Rows = periods (same electron shells). Columns = groups (same outer electrons, similar properties). Group 1 (alkali metals): very reactive, 1 outer electron. Group 7 (halogens): reactive, need 1 electron. Group 0 (noble gases): unreactive, full outer shell. Transition metals (middle block): less reactive, form coloured compounds, useful catalysts. Elements become more metallic going left and down.",
+                                          "examples":  [
+                                                           "Li, Na, K all in Group 1 — react vigorously with water",
+                                                           "Noble gases (He, Ne, Ar) used in lighting — don\u0027t react",
+                                                           "Transition metals: iron, copper, gold — useful in construction and electronics"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "period":  "Horizontal row — same number of electron shells",
+                                                           "group":  "Vertical column — same outer electrons, similar properties",
+                                                           "noble gas":  "Group 0 — full outer shell, very unreactive",
+                                                           "transition metal":  "Elements in the middle block — less reactive, form coloured compounds"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Same group elements have:",
+                                                           "options":  [
+                                                                           "Same color",
+                                                                           "Same neutrons",
+                                                                           "Same mass",
+                                                                           "Similar chemical properties"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Same group = same outer electrons = similar reactivity."
+                                                       },
+                                                       {
+                                                           "question":  "Noble gases are unreactive because:",
+                                                           "options":  [
+                                                                           "Full outer electron shell",
+                                                                           "No electrons",
+                                                                           "Too heavy",
+                                                                           "Radioactive"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Full outer shell = no need to gain, lose, or share electrons."
+                                                       },
+                                                       {
+                                                           "question":  "Group 1 metals are:",
+                                                           "options":  [
+                                                                           "Noble gases",
+                                                                           "Alkali metals",
+                                                                           "Halogens",
+                                                                           "Transition metals"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Group 1 = alkali metals (Li, Na, K)."
+                                                       },
+                                                       {
+                                                           "question":  "Going down Group 1, reactivity:",
+                                                           "options":  [
+                                                                           "Decreases",
+                                                                           "Increases",
+                                                                           "Stays the same",
+                                                                           "Becomes zero"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Outer electron is further from nucleus — easier to lose — more reactive."
+                                                       },
+                                                       {
+                                                           "question":  "Transition metals are useful because:",
+                                                           "options":  [
+                                                                           "They are very reactive",
+                                                                           "Strong, good conductors, form coloured compounds, act as catalysts",
+                                                                           "They are gases",
+                                                                           "They dissolve easily"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Transition metals are versatile: structural, catalytic, and conductive."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Chemical Bonding",
+                                          "content":  "Atoms bond for stable full outer shells. Ionic: metal transfers electrons to non-metal, creating ions that attract. NaCl: Na⁺ + Cl⁻. Ionic compounds have high melting points, conduct when dissolved/molten. Covalent: non-metals share electrons. H₂O: oxygen shares with two hydrogens. Covalent compounds have lower melting points, don\u0027t conduct. Metallic: metal atoms share delocalised electrons — conducts electricity, malleable, ductile.",
+                                          "examples":  [
+                                                           "NaCl is ionic: Na gives electron to Cl",
+                                                           "H₂O is covalent: shared electrons",
+                                                           "Copper conducts because delocalised electrons flow"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "ionic bond":  "Electron transfer between metal and non-metal",
+                                                           "covalent bond":  "Electron sharing between non-metals",
+                                                           "ion":  "Atom with gained/lost electrons — has a charge",
+                                                           "metallic bond":  "Metal atoms share a \u0027sea\u0027 of delocalised electrons"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Na becomes Na⁺ by:",
+                                                           "options":  [
+                                                                           "Gaining one electron",
+                                                                           "Losing one electron",
+                                                                           "Sharing electrons",
+                                                                           "Losing a proton"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Sodium loses its single outer electron, becoming positive."
+                                                       },
+                                                       {
+                                                           "question":  "Covalent bonds involve:",
+                                                           "options":  [
+                                                                           "Losing protons",
+                                                                           "Transferring electrons",
+                                                                           "Sharing electrons",
+                                                                           "Gaining neutrons"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Non-metals share electron pairs."
+                                                       },
+                                                       {
+                                                           "question":  "Metals conduct because:",
+                                                           "options":  [
+                                                                           "No electrons",
+                                                                           "Delocalised electrons move freely",
+                                                                           "Ionic bonds",
+                                                                           "They absorb electricity"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "The sea of free electrons carries current."
+                                                       },
+                                                       {
+                                                           "question":  "Ionic compounds have high melting points because:",
+                                                           "options":  [
+                                                                           "They contain water",
+                                                                           "Weak bonds",
+                                                                           "They are covalent",
+                                                                           "Strong electrostatic forces between ions"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Lots of energy needed to overcome the strong attraction between oppositely charged ions."
+                                                       },
+                                                       {
+                                                           "question":  "Diamond is hard because:",
+                                                           "options":  [
+                                                                           "It\u0027s a small molecule",
+                                                                           "It\u0027s ionic",
+                                                                           "It has metallic bonds",
+                                                                           "Each carbon shares 4 covalent bonds in a giant structure"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Diamond is a giant covalent structure — every atom strongly bonded to 4 others."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Electronic Structure and Reactivity",
+                                          "content":  "An element\u0027s reactivity depends on how easily it gains, loses, or shares electrons. Metals react by losing outer electrons — metals with fewer outer electrons (Group 1) react more easily. Going down a group, the outer electron is further from the nucleus and easier to remove, so reactivity increases (Li \u003c Na \u003c K \u003c Rb). Non-metals react by gaining electrons — non-metals needing fewer electrons (Group 7) react more easily. Going down Group 7, reactivity decreases because the outer shell is further from the nucleus, making it harder to attract electrons (F \u003e Cl \u003e Br \u003e I). Noble gases don\u0027t react because they already have full outer shells.",
+                                          "examples":  [
+                                                           "Potassium reacts explosively with water (outer electron very far from nucleus) while lithium just fizzes gently",
+                                                           "Fluorine is the most reactive non-metal — it needs just one electron and has a very small atom",
+                                                           "Chlorine can displace bromine from a solution: Cl₂ + 2KBr → 2KCl + Br₂ (chlorine is more reactive)"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "reactivity":  "How readily an element undergoes chemical reactions",
+                                                           "electron configuration":  "The arrangement of electrons in shells around an atom",
+                                                           "displacement":  "A more reactive element replacing a less reactive one in a compound",
+                                                           "reactivity series":  "Elements ranked from most to least reactive"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Going down Group 1, reactivity:",
+                                                           "options":  [
+                                                                           "Increases",
+                                                                           "Decreases",
+                                                                           "Stays the same",
+                                                                           "Alternates"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "The outer electron is further from the nucleus — easier to lose — more reactive."
+                                                       },
+                                                       {
+                                                           "question":  "Going down Group 7, reactivity:",
+                                                           "options":  [
+                                                                           "Alternates",
+                                                                           "Increases",
+                                                                           "Stays the same",
+                                                                           "Decreases"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Outer shell is further out — harder to attract an extra electron — less reactive."
+                                                       },
+                                                       {
+                                                           "question":  "The most reactive metal is likely in:",
+                                                           "options":  [
+                                                                           "Group 7",
+                                                                           "Top of Group 1",
+                                                                           "Group 0",
+                                                                           "Bottom of Group 1"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Bottom of Group 1: furthest outer electron, easiest to lose."
+                                                       },
+                                                       {
+                                                           "question":  "Chlorine displaces bromine because:",
+                                                           "options":  [
+                                                                           "They are in the same group",
+                                                                           "Bromine is more reactive",
+                                                                           "They don\u0027t react",
+                                                                           "Chlorine is more reactive than bromine"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "More reactive halogens displace less reactive ones from compounds."
+                                                       },
+                                                       {
+                                                           "question":  "Noble gases don\u0027t react because:",
+                                                           "options":  [
+                                                                           "They have no electrons",
+                                                                           "They are too heavy",
+                                                                           "They have full outer electron shells",
+                                                                           "They are radioactive"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Full outer shell = stable = no tendency to gain, lose, or share electrons."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Atomic History and Models",
+                                          "content":  "Our understanding of atoms has evolved through several models. Dalton (1803): atoms are tiny indivisible spheres — each element has identical atoms. Thomson (1897): discovered electrons — \u0027plum pudding model\u0027 (electrons embedded in positive dough). Rutherford (1911): fired alpha particles at gold foil — most passed through, some bounced back — discovered the small, dense, positive nucleus with electrons orbiting. Bohr (1913): electrons orbit in fixed shells/energy levels — explained emission spectra. Modern quantum model: electrons exist in probability clouds (orbitals), not fixed orbits. Each model was improved as new evidence emerged — this is how science works.",
+                                          "examples":  [
+                                                           "Rutherford\u0027s gold foil experiment: 1 in 8000 alpha particles bounced back — proving the nucleus is tiny and dense",
+                                                           "Bohr model explains why heated elements emit specific colours — electrons jump between energy levels",
+                                                           "The quantum model shows electrons as probability clouds — we can\u0027t know exact position and speed simultaneously (Heisenberg)"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "plum pudding model":  "Thomson\u0027s model: electrons embedded in positive charge, like plums in a pudding",
+                                                           "nuclear model":  "Rutherford\u0027s model: small dense positive nucleus with electrons orbiting at distance",
+                                                           "Bohr model":  "Electrons orbit in fixed energy levels/shells",
+                                                           "quantum model":  "Modern model: electrons exist in probability clouds called orbitals"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Who discovered the nucleus?",
+                                                           "options":  [
+                                                                           "Rutherford",
+                                                                           "Dalton",
+                                                                           "Thomson",
+                                                                           "Bohr"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Rutherford\u0027s gold foil experiment (1911) revealed the small, dense nucleus."
+                                                       },
+                                                       {
+                                                           "question":  "Thomson discovered:",
+                                                           "options":  [
+                                                                           "The nucleus",
+                                                                           "Electrons",
+                                                                           "Neutrons",
+                                                                           "Protons"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Thomson discovered electrons in 1897 and proposed the plum pudding model."
+                                                       },
+                                                       {
+                                                           "question":  "The Bohr model improved on Rutherford by:",
+                                                           "options":  [
+                                                                           "Adding neutrons",
+                                                                           "Removing the nucleus",
+                                                                           "Placing electrons in fixed energy levels/shells",
+                                                                           "Making atoms smaller"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Bohr showed electrons orbit in specific energy levels, not random paths."
+                                                       },
+                                                       {
+                                                           "question":  "Why did most alpha particles pass through gold foil?",
+                                                           "options":  [
+                                                                           "Atoms are mostly empty space",
+                                                                           "Gold is transparent",
+                                                                           "Alpha particles are very small",
+                                                                           "The foil was too thin"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "The nucleus is tiny — most of the atom is empty space."
+                                                       },
+                                                       {
+                                                           "question":  "Scientific models change because:",
+                                                           "options":  [
+                                                                           "New evidence requires updated explanations",
+                                                                           "Scientists guess randomly",
+                                                                           "Old scientists were wrong about everything",
+                                                                           "Models never change"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Science progresses by testing, finding new evidence, and refining models accordingly."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Chemical Reactions",
+                      "lessons":  [
+                                      {
+                                          "title":  "Types of Reactions",
+                                          "content":  "Chemical reactions rearrange atoms to form new substances. Combination: A + B → AB. Decomposition: AB → A + B. Displacement: more reactive element replaces less reactive. Combustion: substance + oxygen → CO₂ + H₂O + heat. Neutralisation: acid + base → salt + water. Oxidation-reduction (redox): oxidation is losing electrons (or gaining oxygen), reduction is gaining electrons (or losing oxygen). Remember: OIL RIG — Oxidation Is Loss, Reduction Is Gain.",
+                                          "examples":  [
+                                                           "Combustion: CH₄ + 2O₂ → CO₂ + 2H₂O + heat",
+                                                           "Displacement: Zn + CuSO₄ → ZnSO₄ + Cu",
+                                                           "Rusting: 4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃ (slow oxidation)"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "combustion":  "Burning in oxygen, releasing heat",
+                                                           "displacement":  "Reactive element replaces less reactive one",
+                                                           "oxidation":  "Loss of electrons or gain of oxygen",
+                                                           "reduction":  "Gain of electrons or loss of oxygen"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "2H₂O → 2H₂ + O₂ is:",
+                                                           "options":  [
+                                                                           "Decomposition",
+                                                                           "Combination",
+                                                                           "Combustion",
+                                                                           "Displacement"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "One compound breaks into simpler substances."
+                                                       },
+                                                       {
+                                                           "question":  "In displacement, the MORE reactive element:",
+                                                           "options":  [
+                                                                           "Does nothing",
+                                                                           "Is replaced",
+                                                                           "Replaces the less reactive",
+                                                                           "Dissolves"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "More reactive takes the place of less reactive."
+                                                       },
+                                                       {
+                                                           "question":  "Combustion requires:",
+                                                           "options":  [
+                                                                           "Oxygen",
+                                                                           "Water",
+                                                                           "Acid",
+                                                                           "A metal"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Combustion = reaction with oxygen."
+                                                       },
+                                                       {
+                                                           "question":  "OIL RIG stands for:",
+                                                           "options":  [
+                                                                           "None of these",
+                                                                           "Only In Labs, Results In Gases",
+                                                                           "Oxygen In, Liquid out, Reaction Is Good",
+                                                                           "Oxidation Is Loss, Reduction Is Gain (of electrons)"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "OIL RIG: Oxidation = electron loss, Reduction = electron gain."
+                                                       },
+                                                       {
+                                                           "question":  "Rusting is an example of:",
+                                                           "options":  [
+                                                                           "Reduction",
+                                                                           "Oxidation (iron gains oxygen)",
+                                                                           "Decomposition",
+                                                                           "Neutralisation"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Iron reacts with oxygen and water — it\u0027s oxidised to form iron oxide (rust)."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Balancing Equations",
+                                          "content":  "A balanced equation has equal atoms on both sides — conservation of mass. Add coefficients to balance; never change formulas. Example: H₂ + O₂ → H₂O is unbalanced. Balanced: 2H₂ + O₂ → 2H₂O. State symbols: (s) solid, (l) liquid, (g) gas, (aq) dissolved in water. Relative formula mass = sum of all atomic masses in a formula.",
+                                          "examples":  [
+                                                           "4Fe + 3O₂ → 2Fe₂O₃ (4 Fe, 6 O each side)",
+                                                           "CH₄ + 2O₂ → CO₂ + 2H₂O (1C, 4H, 4O each side)",
+                                                           "Relative formula mass of H₂O: 2(1) + 16 = 18"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "balanced equation":  "Equal atoms of each element on both sides",
+                                                           "coefficient":  "Number before a formula for balancing",
+                                                           "conservation of mass":  "Matter cannot be created or destroyed",
+                                                           "relative formula mass":  "Sum of atomic masses of all atoms in a formula"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Balance: _Na + _Cl₂ → _NaCl",
+                                                           "options":  [
+                                                                           "Na₂ + Cl₂ → 2NaCl",
+                                                                           "Na + Cl₂ → NaCl₂",
+                                                                           "Na + Cl → NaCl",
+                                                                           "2Na + Cl₂ → 2NaCl"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "2Na + Cl₂ → 2NaCl: 2 Na, 2 Cl each side."
+                                                       },
+                                                       {
+                                                           "question":  "Why balance equations?",
+                                                           "options":  [
+                                                                           "To react faster",
+                                                                           "To look neat",
+                                                                           "Atoms cannot be created or destroyed",
+                                                                           "To reduce waste"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Conservation of mass: same atoms on both sides."
+                                                       },
+                                                       {
+                                                           "question":  "In 2H₂O, the 2 means:",
+                                                           "options":  [
+                                                                           "Water squared",
+                                                                           "2 hydrogen atoms",
+                                                                           "2 oxygen atoms",
+                                                                           "2 molecules of water"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Coefficient 2 = two whole molecules of H₂O."
+                                                       },
+                                                       {
+                                                           "question":  "Relative formula mass of CO₂ (C=12, O=16):",
+                                                           "options":  [
+                                                                           "28",
+                                                                           "44",
+                                                                           "32",
+                                                                           "60"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "12 + 16 + 16 = 44."
+                                                       },
+                                                       {
+                                                           "question":  "The state symbol (aq) means:",
+                                                           "options":  [
+                                                                           "Liquid",
+                                                                           "Gas",
+                                                                           "Dissolved in water (aqueous)",
+                                                                           "Solid"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Aqueous = dissolved in water."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Rates of Reaction",
+                                          "content":  "Rate = how fast reactants become products. Five factors: temperature (higher → faster: more energy, harder collisions), concentration (more particles → more collisions), surface area (smaller pieces → more exposed surface), catalyst (speeds up without being consumed — lowers activation energy), pressure (gases: higher → particles closer). Collision theory: reactions happen when particles collide with enough energy (activation energy) and correct orientation.",
+                                          "examples":  [
+                                                           "Food cooks faster at higher temperatures",
+                                                           "Sugar cube dissolves slowly; crushed sugar dissolves quickly",
+                                                           "Catalytic converters use platinum to speed up exhaust gas conversion"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "catalyst":  "Speeds up reaction without being consumed",
+                                                           "activation energy":  "Minimum energy needed for reaction",
+                                                           "collision theory":  "Reactions occur when particles collide with sufficient energy",
+                                                           "rate of reaction":  "How quickly reactants are converted into products"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Increasing temperature affects rate by:",
+                                                           "options":  [
+                                                                           "Stopping the reaction",
+                                                                           "Decreasing rate",
+                                                                           "No effect",
+                                                                           "Increasing collision frequency and energy"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "More kinetic energy → more frequent and energetic collisions."
+                                                       },
+                                                       {
+                                                           "question":  "A catalyst works by:",
+                                                           "options":  [
+                                                                           "Increasing temperature",
+                                                                           "Lowering activation energy",
+                                                                           "Adding more reactant",
+                                                                           "Being consumed"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Catalysts provide an alternative pathway with lower activation energy."
+                                                       },
+                                                       {
+                                                           "question":  "Powdered reactant reacts faster because:",
+                                                           "options":  [
+                                                                           "Different chemical",
+                                                                           "Greater mass",
+                                                                           "Higher temperature",
+                                                                           "Greater surface area"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "More surface exposed = more collision opportunities."
+                                                       },
+                                                       {
+                                                           "question":  "For a reaction to occur, particles must:",
+                                                           "options":  [
+                                                                           "Be heated to 100°C",
+                                                                           "Just touch each other",
+                                                                           "Collide with enough energy and correct orientation",
+                                                                           "Be in a liquid"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Both sufficient energy AND correct alignment are needed for a successful collision."
+                                                       },
+                                                       {
+                                                           "question":  "Increasing pressure affects gas reactions by:",
+                                                           "options":  [
+                                                                           "Changing the chemicals",
+                                                                           "Reducing collisions",
+                                                                           "Pushing particles closer, increasing collision frequency",
+                                                                           "Having no effect"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Higher pressure = particles closer together = more frequent collisions."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Energy Changes in Reactions",
+                                          "content":  "Chemical reactions involve energy changes. Exothermic reactions release energy to the surroundings — temperature rises. Examples: combustion, neutralisation, oxidation, hand warmers. Endothermic reactions absorb energy from surroundings — temperature drops. Examples: thermal decomposition, dissolving ammonium nitrate (cold packs), photosynthesis. Energy profile diagrams show energy levels of reactants and products. In exothermic reactions, products are lower in energy than reactants. In endothermic, products are higher. The activation energy is the energy \u0027hill\u0027 that must be overcome to start the reaction — catalysts lower this hill.",
+                                          "examples":  [
+                                                           "Exothermic: burning methane — releases heat energy (that\u0027s why we use gas for cooking)",
+                                                           "Endothermic: sports cold packs — dissolving ammonium nitrate absorbs heat, cooling the injured area",
+                                                           "An energy profile for combustion shows products much lower than reactants — the difference is the energy released"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "exothermic":  "A reaction that releases energy to the surroundings — temperature rises",
+                                                           "endothermic":  "A reaction that absorbs energy from surroundings — temperature drops",
+                                                           "energy profile":  "A diagram showing the energy levels of reactants and products",
+                                                           "bond energy":  "The energy required to break a chemical bond or released when forming one"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "An exothermic reaction:",
+                                                           "options":  [
+                                                                           "Only occurs in labs",
+                                                                           "Absorbs energy — temperature drops",
+                                                                           "Has no energy change",
+                                                                           "Releases energy — temperature rises"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Exo = out. Energy is released to the surroundings."
+                                                       },
+                                                       {
+                                                           "question":  "Photosynthesis is:",
+                                                           "options":  [
+                                                                           "Exothermic",
+                                                                           "Endothermic — absorbs light energy",
+                                                                           "Neither",
+                                                                           "Only chemical"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Photosynthesis absorbs light energy to build glucose from CO₂ and H₂O."
+                                                       },
+                                                       {
+                                                           "question":  "In an exothermic energy profile:",
+                                                           "options":  [
+                                                                           "Products are higher",
+                                                                           "Products are lower in energy than reactants",
+                                                                           "Both are equal",
+                                                                           "There\u0027s no activation energy"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Energy is released so products have less energy than reactants."
+                                                       },
+                                                       {
+                                                           "question":  "Cold packs use:",
+                                                           "options":  [
+                                                                           "Exothermic combustion",
+                                                                           "Endothermic dissolving to absorb heat",
+                                                                           "Nuclear energy",
+                                                                           "Electricity"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Dissolving ammonium nitrate absorbs heat energy, cooling the area."
+                                                       },
+                                                       {
+                                                           "question":  "Bond breaking is:",
+                                                           "options":  [
+                                                                           "Neither",
+                                                                           "Exothermic (releases energy)",
+                                                                           "Endothermic (requires energy)",
+                                                                           "Only in metals"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Breaking bonds requires energy input. Making bonds releases energy."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Electrolysis",
+                                          "content":  "Electrolysis uses electricity to decompose ionic compounds. The ionic compound must be molten or dissolved (ions must be free to move). The cathode (negative electrode) attracts positive ions (cations) — reduction occurs here (ions gain electrons). The anode (positive electrode) attracts negative ions (anions) — oxidation occurs here (ions lose electrons). Example: electrolysis of molten NaCl produces sodium metal at the cathode and chlorine gas at the anode. Electrolysis of water produces hydrogen at cathode and oxygen at anode. Industrial uses: extracting reactive metals (aluminium from bauxite), electroplating (coating objects with thin metal layers), and purifying copper.",
+                                          "examples":  [
+                                                           "Electrolysis of water: 2H₂O → 2H₂ + O₂ (twice as much hydrogen as oxygen)",
+                                                           "Aluminium extraction: Al₂O₃ dissolved in cryolite → electrolysis → pure aluminium at cathode",
+                                                           "Electroplating: a steel spoon is made the cathode in a silver nitrate solution → silver coats the spoon"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "electrolysis":  "Using electricity to decompose ionic compounds into elements",
+                                                           "cathode":  "Negative electrode — attracts positive ions (cations), reduction occurs",
+                                                           "anode":  "Positive electrode — attracts negative ions (anions), oxidation occurs",
+                                                           "electroplating":  "Coating an object with a thin layer of metal using electrolysis"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "At the cathode:",
+                                                           "options":  [
+                                                                           "Positive ions gain electrons (reduction)",
+                                                                           "Negative ions lose electrons",
+                                                                           "Nothing happens",
+                                                                           "Water is formed"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Cathode is negative → attracts positive ions → they gain electrons (are reduced)."
+                                                       },
+                                                       {
+                                                           "question":  "For electrolysis to work, the ionic compound must be:",
+                                                           "options":  [
+                                                                           "Molten or dissolved (ions free to move)",
+                                                                           "Solid",
+                                                                           "A gas",
+                                                                           "Mixed with oil"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Ions must be free to move to the electrodes — not locked in a solid lattice."
+                                                       },
+                                                       {
+                                                           "question":  "Electrolysis of water produces:",
+                                                           "options":  [
+                                                                           "Salt water",
+                                                                           "Only hydrogen",
+                                                                           "Only oxygen",
+                                                                           "Hydrogen at cathode, oxygen at anode"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "H⁺ ions → cathode → H₂ gas. OH⁻ ions → anode → O₂ gas."
+                                                       },
+                                                       {
+                                                           "question":  "Aluminium is extracted by electrolysis because:",
+                                                           "options":  [
+                                                                           "It\u0027s too reactive to extract by heating with carbon",
+                                                                           "It\u0027s easy to mine",
+                                                                           "It\u0027s not reactive",
+                                                                           "It dissolves in water"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Very reactive metals can\u0027t be reduced by carbon — electrolysis is needed."
+                                                       },
+                                                       {
+                                                           "question":  "At the anode, the process is:",
+                                                           "options":  [
+                                                                           "Reduction",
+                                                                           "Oxidation (ions lose electrons)",
+                                                                           "Neutralisation",
+                                                                           "Combustion"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Anode = oxidation. Remember: AN OX and RED CAT (Anode-Oxidation, Reduction-Cathode)."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "States of Matter",
+                      "lessons":  [
+                                      {
+                                          "title":  "Solids, Liquids, and Gases",
+                                          "content":  "Solids: particles packed tightly, fixed positions, vibrating — fixed shape and volume. Liquids: particles close but slide past each other — fixed volume, takes container shape. Gases: particles far apart, moving fast randomly — no fixed shape or volume. Changes of state: melting (solid→liquid), boiling (liquid→gas), condensation (gas→liquid), freezing (liquid→solid), sublimation (solid→gas directly). These are physical changes — no new substance formed.",
+                                          "examples":  [
+                                                           "Ice melts at 0°C, water boils at 100°C, steam condenses back to water on a cold surface",
+                                                           "Dry ice sublimes — solid CO₂ goes directly to gas",
+                                                           "Morning dew: water vapour condenses overnight on cool surfaces"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "melting point":  "Temperature at which solid becomes liquid",
+                                                           "boiling point":  "Temperature at which liquid becomes gas throughout",
+                                                           "sublimation":  "Direct solid to gas without liquid phase",
+                                                           "physical change":  "A change that doesn\u0027t create new substances — reversible"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Particles are furthest apart in:",
+                                                           "options":  [
+                                                                           "Liquid",
+                                                                           "Gas",
+                                                                           "Solid",
+                                                                           "Plasma"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Gas particles are widely spread, moving freely."
+                                                       },
+                                                       {
+                                                           "question":  "Gas → liquid is:",
+                                                           "options":  [
+                                                                           "Melting",
+                                                                           "Evaporation",
+                                                                           "Condensation",
+                                                                           "Sublimation"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Gas cooling to liquid = condensation."
+                                                       },
+                                                       {
+                                                           "question":  "A change of state is:",
+                                                           "options":  [
+                                                                           "Chemical change",
+                                                                           "Physical change",
+                                                                           "Nuclear change",
+                                                                           "Irreversible"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "No new substance — reversible and physical."
+                                                       },
+                                                       {
+                                                           "question":  "During boiling, temperature:",
+                                                           "options":  [
+                                                                           "Stays constant until all liquid is gas",
+                                                                           "Keeps rising",
+                                                                           "Drops suddenly",
+                                                                           "Fluctuates randomly"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Energy goes into breaking intermolecular bonds, not raising temperature."
+                                                       },
+                                                       {
+                                                           "question":  "Sublimation is:",
+                                                           "options":  [
+                                                                           "Liquid to solid",
+                                                                           "Gas to solid",
+                                                                           "Solid directly to gas",
+                                                                           "Gas to liquid"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Sublimation skips the liquid phase — solid goes straight to gas."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Mixtures and Separation",
+                                          "content":  "A mixture contains two or more substances not chemically bonded. Filtration: separates insoluble solids from liquids. Evaporation: recovers dissolved solids. Distillation: separates liquids with different boiling points. Chromatography: separates dissolved substances based on movement through a medium. Fractional distillation: separates mixtures of liquids with close boiling points (like crude oil into fractions).",
+                                          "examples":  [
+                                                           "Filtering muddy water: soil trapped, water passes through",
+                                                           "Salt from seawater: evaporate the water, salt remains",
+                                                           "Paper chromatography: black ink separates into different coloured dyes"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "filtration":  "Separating insoluble solids from liquids using a filter",
+                                                           "distillation":  "Separating liquids by boiling point differences",
+                                                           "chromatography":  "Separating dissolved substances by movement through a medium",
+                                                           "fractional distillation":  "Separating a mixture of liquids with different boiling points"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Pure water from salt water:",
+                                                           "options":  [
+                                                                           "Filtration",
+                                                                           "Distillation",
+                                                                           "Chromatography",
+                                                                           "Magnetism"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Distillation boils water, then condenses the steam into pure water."
+                                                       },
+                                                       {
+                                                           "question":  "Filtration separates:",
+                                                           "options":  [
+                                                                           "Sand from water",
+                                                                           "Salt from water",
+                                                                           "Alcohol from water",
+                                                                           "Dyes from ink"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Filtration removes insoluble solids — dissolved substances pass through."
+                                                       },
+                                                       {
+                                                           "question":  "Mixtures are not chemically bonded so:",
+                                                           "options":  [
+                                                                           "They can\u0027t be separated",
+                                                                           "They can be separated physically",
+                                                                           "They are elements",
+                                                                           "They always react"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "No chemical bonds = physical separation methods work."
+                                                       },
+                                                       {
+                                                           "question":  "Crude oil is separated by:",
+                                                           "options":  [
+                                                                           "Fractional distillation",
+                                                                           "Filtration",
+                                                                           "Chromatography",
+                                                                           "Evaporation"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Crude oil is a mixture of hydrocarbons with different boiling points — separated in a fractionating column."
+                                                       },
+                                                       {
+                                                           "question":  "In chromatography, substances separate because:",
+                                                           "options":  [
+                                                                           "They are different colours",
+                                                                           "They travel at different speeds through the medium",
+                                                                           "They react with each other",
+                                                                           "They evaporate"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "More soluble substances travel further; less soluble ones stay near the start."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Solutions and Solubility",
+                                          "content":  "A solution forms when a solute dissolves in a solvent. Water is the universal solvent. Solubility depends on temperature (usually more dissolves at higher temps) and the nature of solute/solvent. Saturated solution: can\u0027t dissolve more at that temperature. Concentration = mass of solute / volume of solution (g/dm³). Diluting adds more solvent, reducing concentration.",
+                                          "examples":  [
+                                                           "Sugar dissolves faster in hot tea",
+                                                           "Saturated salt solution at 20°C: ~36g per 100ml",
+                                                           "10g salt in 500cm³ = 20 g/dm³"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "solute":  "Substance that dissolves (salt)",
+                                                           "solvent":  "Substance that does dissolving (water)",
+                                                           "saturated":  "Cannot dissolve more at given temperature",
+                                                           "concentration":  "Amount of solute per unit volume of solution"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "In salt solution, the solute is:",
+                                                           "options":  [
+                                                                           "Water",
+                                                                           "Salt",
+                                                                           "The container",
+                                                                           "Air"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Solute = the substance that dissolves."
+                                                       },
+                                                       {
+                                                           "question":  "Increasing temperature usually:",
+                                                           "options":  [
+                                                                           "Makes it insoluble",
+                                                                           "Decreases solubility",
+                                                                           "No effect",
+                                                                           "Increases solubility of solids"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Most solid solutes dissolve more at higher temperatures."
+                                                       },
+                                                       {
+                                                           "question":  "Concentration of 20g sugar in 500cm³?",
+                                                           "options":  [
+                                                                           "10 g/dm³",
+                                                                           "20 g/dm³",
+                                                                           "40 g/dm³",
+                                                                           "0.04 g/dm³"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "500cm³ = 0.5dm³. C = 20/0.5 = 40 g/dm³."
+                                                       },
+                                                       {
+                                                           "question":  "Adding more water to a solution:",
+                                                           "options":  [
+                                                                           "Dilutes it (lower concentration)",
+                                                                           "Increases concentration",
+                                                                           "Creates a saturated solution",
+                                                                           "Removes the solute"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "More solvent with same solute = lower concentration."
+                                                       },
+                                                       {
+                                                           "question":  "A saturated solution:",
+                                                           "options":  [
+                                                                           "Is always hot",
+                                                                           "Has no solute",
+                                                                           "Cannot dissolve any more solute at that temperature",
+                                                                           "Is always clear"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Saturated = maximum amount of solute dissolved at that temperature."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Water Treatment and Purity",
+                                          "content":  "Pure water contains only H₂O molecules — it boils at exactly 100°C and freezes at exactly 0°C. Tap water is not pure — it contains dissolved minerals and is treated to be safe. Water treatment: screening (removes large debris), sedimentation (heavy particles settle), filtration (removes fine particles through sand beds), chlorination (kills bacteria and pathogens). Desalination removes salt from seawater — done by reverse osmosis (forcing water through a membrane) or distillation. Testing water purity: measure boiling/melting point (pure water has exact values) or evaporate and check for residue. Hard water contains dissolved calcium/magnesium — causes limescale in pipes and kettles but provides minerals.",
+                                          "examples":  [
+                                                           "Tap water has dissolved minerals (calcium, fluoride) — not chemically pure but safe to drink",
+                                                           "Reverse osmosis desalination: seawater is forced through a membrane that blocks salt — used in desert countries",
+                                                           "Hard water: leaves white limescale deposits in kettles — softened by ion exchange or boiling (temporary hardness)"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "potable water":  "Water that is safe to drink — not necessarily chemically pure",
+                                                           "desalination":  "Removing salt from seawater to produce drinkable water",
+                                                           "chlorination":  "Adding chlorine to water to kill bacteria and make it safe",
+                                                           "hard water":  "Water containing dissolved calcium or magnesium compounds"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Pure water boils at exactly:",
+                                                           "options":  [
+                                                                           "110°C",
+                                                                           "90°C",
+                                                                           "100°C",
+                                                                           "50°C"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Pure water has a fixed boiling point of 100°C at standard pressure."
+                                                       },
+                                                       {
+                                                           "question":  "Chlorination in water treatment:",
+                                                           "options":  [
+                                                                           "Filters particles",
+                                                                           "Removes salt",
+                                                                           "Adds minerals",
+                                                                           "Kills bacteria and pathogens"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Chlorine is a disinfectant — it kills harmful microorganisms in water."
+                                                       },
+                                                       {
+                                                           "question":  "Desalination is used to:",
+                                                           "options":  [
+                                                                           "Heat water",
+                                                                           "Add salt to water",
+                                                                           "Filter dirty water",
+                                                                           "Remove salt from seawater"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Desalination produces freshwater from seawater — vital in arid regions."
+                                                       },
+                                                       {
+                                                           "question":  "Potable water is:",
+                                                           "options":  [
+                                                                           "100% pure H₂O",
+                                                                           "Safe to drink but not necessarily chemically pure",
+                                                                           "Saltwater",
+                                                                           "Distilled water only"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Potable = safe to drink. It may contain safe levels of dissolved minerals."
+                                                       },
+                                                       {
+                                                           "question":  "Hard water causes:",
+                                                           "options":  [
+                                                                           "Limescale in pipes and kettles",
+                                                                           "Softer skin always",
+                                                                           "No problems at all",
+                                                                           "Rust in pipes"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Dissolved calcium/magnesium forms scale deposits when heated."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Atmosphere and Climate Chemistry",
+                                          "content":  "Earth\u0027s atmosphere: 78% nitrogen, 21% oxygen, ~1% argon, 0.04% CO₂, plus water vapour. The early atmosphere (4 billion years ago) was mainly CO₂, water vapour, and nitrogen — no oxygen. Oxygen appeared when photosynthetic organisms evolved (~2.7 billion years ago): 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. CO₂ decreased as it dissolved in oceans (forming carbonate rocks and fossil fuels). Human activity is increasing CO₂ (burning fossil fuels, deforestation), causing enhanced greenhouse effect and climate change. Other pollutants: carbon monoxide (toxic, from incomplete combustion), sulfur dioxide (acid rain), nitrogen oxides (acid rain and smog), and particulates (health problems).",
+                                          "examples":  [
+                                                           "Burning coal: C + O₂ → CO₂ (adds greenhouse gas) plus impurities like SO₂ (causes acid rain)",
+                                                           "Acid rain: SO₂ + H₂O → H₂SO₃ (sulfurous acid) — damages buildings, forests, and aquatic life",
+                                                           "Catalytic converters reduce pollutants: 2CO + 2NO → 2CO₂ + N₂ (toxic CO and NO converted to less harmful gases)"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "greenhouse gas":  "A gas that traps heat in the atmosphere (CO₂, methane, water vapour)",
+                                                           "acid rain":  "Rain made acidic by dissolved pollutants like SO₂ and NOₓ",
+                                                           "carbon footprint":  "The total amount of greenhouse gases produced by a person, event, or product",
+                                                           "incomplete combustion":  "Burning with insufficient oxygen, producing CO and soot instead of CO₂"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The atmosphere is mostly:",
+                                                           "options":  [
+                                                                           "CO₂ (78%)",
+                                                                           "Oxygen (78%)",
+                                                                           "Nitrogen (78%)",
+                                                                           "Argon (78%)"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Nitrogen makes up about 78% of the atmosphere; oxygen is about 21%."
+                                                       },
+                                                       {
+                                                           "question":  "Oxygen appeared in the atmosphere because:",
+                                                           "options":  [
+                                                                           "It came from space",
+                                                                           "It was always there",
+                                                                           "Volcanoes produced it",
+                                                                           "Photosynthetic organisms evolved and released O₂"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Cyanobacteria and later plants produced oxygen through photosynthesis."
+                                                       },
+                                                       {
+                                                           "question":  "Acid rain is caused by:",
+                                                           "options":  [
+                                                                           "SO₂ and NOₓ dissolving in rainwater",
+                                                                           "Too much oxygen",
+                                                                           "Normal CO₂",
+                                                                           "Pure water"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Sulfur dioxide and nitrogen oxides react with water to form acidic solutions."
+                                                       },
+                                                       {
+                                                           "question":  "Incomplete combustion produces:",
+                                                           "options":  [
+                                                                           "Carbon monoxide (CO) — a toxic gas",
+                                                                           "Carbon dioxide only",
+                                                                           "Water only",
+                                                                           "Nitrogen"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Insufficient oxygen → CO instead of CO₂. Carbon monoxide is poisonous."
+                                                       },
+                                                       {
+                                                           "question":  "The early atmosphere had no:",
+                                                           "options":  [
+                                                                           "Water vapour",
+                                                                           "Carbon dioxide",
+                                                                           "Oxygen",
+                                                                           "Nitrogen"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "The early atmosphere was mostly CO₂ and water vapour — oxygen came later from photosynthesis."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Acids and Bases",
+                      "lessons":  [
+                                      {
+                                          "title":  "pH Scale and Indicators",
+                                          "content":  "pH measures acidity/alkalinity: 0-14. pH 7 = neutral. Below 7 = acidic (lower = stronger). Above 7 = alkaline (higher = stronger). Acids produce H⁺ ions. Alkalis produce OH⁻. Indicators: litmus (red/blue), universal indicator (rainbow of colours), pH meters (precise). Strong acids (HCl, H₂SO₄) fully dissociate — all molecules split into ions. Weak acids (ethanoic/citric) partially dissociate — only some molecules ionise.",
+                                          "examples":  [
+                                                           "Lemon juice pH ~2 (strongly acidic), soap pH ~10 (alkaline)",
+                                                           "Stomach acid pH ~1-2, needed for digestion",
+                                                           "Universal indicator: red (strong acid) → green (neutral) → purple (strong alkali)"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "pH":  "Scale 0-14 measuring acidity/alkalinity",
+                                                           "acid":  "Produces H⁺ ions; pH below 7",
+                                                           "alkali":  "Soluble base producing OH⁻; pH above 7",
+                                                           "strong acid":  "An acid that fully dissociates into ions in solution",
+                                                           "weak acid":  "An acid that only partially dissociates in solution"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "pH 3 solution is:",
+                                                           "options":  [
+                                                                           "Basic",
+                                                                           "Neutral",
+                                                                           "Alkaline",
+                                                                           "Acidic"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Below 7 = acidic."
+                                                       },
+                                                       {
+                                                           "question":  "Acids produce which ions?",
+                                                           "options":  [
+                                                                           "Cl⁻",
+                                                                           "OH⁻",
+                                                                           "Na⁺",
+                                                                           "H⁺"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Acids release hydrogen ions (H⁺) in water."
+                                                       },
+                                                       {
+                                                           "question":  "Pure water pH:",
+                                                           "options":  [
+                                                                           "0",
+                                                                           "7",
+                                                                           "14",
+                                                                           "1"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Pure water is neutral: pH 7."
+                                                       },
+                                                       {
+                                                           "question":  "A strong acid:",
+                                                           "options":  [
+                                                                           "Doesn\u0027t dissociate",
+                                                                           "Partially dissociates",
+                                                                           "Fully dissociates into ions",
+                                                                           "Is always concentrated"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Strong = complete ionisation. Weak = partial. (Strong/weak ≠ concentrated/dilute.)"
+                                                       },
+                                                       {
+                                                           "question":  "Universal indicator is better than litmus because:",
+                                                           "options":  [
+                                                                           "It shows the actual pH value with a range of colours",
+                                                                           "It only shows acid or alkali",
+                                                                           "It\u0027s cheaper",
+                                                                           "It doesn\u0027t change colour"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Universal indicator gives a colour for each pH value, not just acid/alkali."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Neutralisation Reactions",
+                                          "content":  "Acid + base → salt + water. HCl + NaOH → NaCl + H₂O. The H⁺ from acid combines with OH⁻ from base → H₂O. Acid + carbonate → salt + water + CO₂ (fizzing). Acid + metal → salt + hydrogen. Salt name depends on acid: HCl → chlorides, H₂SO₄ → sulfates, HNO₃ → nitrates. Applications: antacids neutralise stomach acid, farmers add lime to acidic soil, treating wastewater.",
+                                          "examples":  [
+                                                           "Antacid: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂ (fizzing)",
+                                                           "Bee stings (acidic): apply baking soda (alkaline) to neutralise",
+                                                           "Lime on soil: Ca(OH)₂ neutralises acidity for better crop growth"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "neutralisation":  "Acid + base → salt + water",
+                                                           "salt":  "Formed when H⁺ of acid is replaced by a metal ion",
+                                                           "base":  "Substance reacting with acid to form salt + water",
+                                                           "antacid":  "A medicine that neutralises excess stomach acid"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Acid + alkali →",
+                                                           "options":  [
+                                                                           "Salt + water",
+                                                                           "Salt + acid",
+                                                                           "Base + gas",
+                                                                           "Nothing"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Neutralisation: acid + alkali → salt + water."
+                                                       },
+                                                       {
+                                                           "question":  "HCl + NaOH → NaCl + H₂O. NaCl is:",
+                                                           "options":  [
+                                                                           "A base",
+                                                                           "An acid",
+                                                                           "A salt (sodium chloride)",
+                                                                           "Water"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Sodium chloride (table salt) is the salt produced."
+                                                       },
+                                                       {
+                                                           "question":  "Antacid tablets fizz because:",
+                                                           "options":  [
+                                                                           "Carbonate reacts with acid releasing CO₂",
+                                                                           "They are melting",
+                                                                           "They contain hydrogen",
+                                                                           "They are dissolving"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Carbonate + acid → salt + water + CO₂ gas (bubbles/fizzing)."
+                                                       },
+                                                       {
+                                                           "question":  "H₂SO₄ produces which type of salt?",
+                                                           "options":  [
+                                                                           "Nitrate",
+                                                                           "Chloride",
+                                                                           "Sulfate",
+                                                                           "Carbonate"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Sulfuric acid (H₂SO₄) always produces sulfate salts."
+                                                       },
+                                                       {
+                                                           "question":  "Why do farmers add lime to soil?",
+                                                           "options":  [
+                                                                           "To neutralise acidic soil for better crop growth",
+                                                                           "To make soil more acidic",
+                                                                           "To kill plants",
+                                                                           "To add water"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Lime (calcium hydroxide) is alkaline — it neutralises acid soil."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Acids and Metals",
+                                          "content":  "Acid + reactive metal → salt + hydrogen. Mg + 2HCl → MgCl₂ + H₂. Test hydrogen: burning splint gives a squeaky pop. Not all metals react — gold, silver, platinum are too unreactive. The reactivity series determines which metals react. More reactive metals produce faster reactions with more vigorous fizzing.",
+                                          "examples":  [
+                                                           "Magnesium in HCl fizzes vigorously",
+                                                           "Squeaky pop test confirms hydrogen",
+                                                           "Copper doesn\u0027t react with dilute acid — below hydrogen in reactivity series"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "hydrogen test":  "Burning splint → squeaky pop",
+                                                           "reactivity series":  "Metals ranked from most to least reactive",
+                                                           "oxidation":  "Loss of electrons or gain of oxygen",
+                                                           "salt":  "Product of acid-metal reaction alongside hydrogen"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Zinc + sulfuric acid →",
+                                                           "options":  [
+                                                                           "Zinc chloride + oxygen",
+                                                                           "Zinc sulfate + hydrogen",
+                                                                           "Zinc oxide + water",
+                                                                           "No reaction"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Metal + acid → salt + hydrogen."
+                                                       },
+                                                       {
+                                                           "question":  "Hydrogen test:",
+                                                           "options":  [
+                                                                           "Glowing splint relights",
+                                                                           "Burning splint — squeaky pop",
+                                                                           "Limewater turns milky",
+                                                                           "Litmus turns red"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Hydrogen burns with a characteristic squeaky pop."
+                                                       },
+                                                       {
+                                                           "question":  "Gold does NOT react with acid because:",
+                                                           "options":  [
+                                                                           "Acid is too weak",
+                                                                           "It\u0027s too heavy",
+                                                                           "It\u0027s very unreactive (low in reactivity series)",
+                                                                           "Gold is not a metal"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Gold is very low in the reactivity series — it doesn\u0027t react with dilute acids."
+                                                       },
+                                                       {
+                                                           "question":  "Which metal reacts most vigorously with acid?",
+                                                           "options":  [
+                                                                           "Gold",
+                                                                           "Iron",
+                                                                           "Copper",
+                                                                           "Potassium"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Potassium is highest in the reactivity series — most reactive."
+                                                       },
+                                                       {
+                                                           "question":  "The test for CO₂ gas is:",
+                                                           "options":  [
+                                                                           "Limewater turns milky/cloudy",
+                                                                           "Squeaky pop",
+                                                                           "Glowing splint relights",
+                                                                           "Turns litmus blue"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "CO₂ reacts with limewater (calcium hydroxide) to form a white precipitate (calcium carbonate)."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Making Salts",
+                                          "content":  "Salts can be made by several methods depending on whether the base is soluble or insoluble. Method 1 — acid + insoluble base/carbonate: add excess solid to warm acid, filter off excess, evaporate the filtrate to crystallise the salt. Method 2 — acid + alkali (titration): carefully add acid to alkali with an indicator to find the exact neutralisation point, then repeat without indicator and evaporate to crystallise. Method 3 — precipitation: mix two soluble salt solutions to form an insoluble salt. Example: lead nitrate + sodium chloride → lead chloride (insoluble precipitate) + sodium nitrate. Filter, wash, and dry the precipitate.",
+                                          "examples":  [
+                                                           "Making copper sulfate: add excess copper oxide to warm sulfuric acid → filter → evaporate → blue crystals",
+                                                           "Titration: carefully add HCl to NaOH using a burette until indicator changes → NaCl solution → evaporate",
+                                                           "Precipitation: AgNO₃(aq) + NaCl(aq) → AgCl(s) ↓ + NaNO₃(aq) — silver chloride precipitates out"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "titration":  "Carefully adding acid to alkali to find the exact neutralisation volume",
+                                                           "crystallisation":  "Evaporating a solution slowly to form solid crystals",
+                                                           "precipitation":  "Forming an insoluble solid when two solutions are mixed",
+                                                           "filtrate":  "The liquid that passes through a filter"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "To make a salt from an insoluble base:",
+                                                           "options":  [
+                                                                           "Heat the base alone",
+                                                                           "Just mix and stir",
+                                                                           "Add excess base to acid, filter, evaporate",
+                                                                           "Electrolysis"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Excess ensures all acid reacts → filter removes excess base → evaporate filtrate for crystals."
+                                                       },
+                                                       {
+                                                           "question":  "A titration is used when:",
+                                                           "options":  [
+                                                                           "Making a salt from a soluble base (alkali) and acid",
+                                                                           "Making a salt from an insoluble base",
+                                                                           "Separating mixtures",
+                                                                           "Testing for gases"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Both the acid and alkali are soluble — you can\u0027t filter excess, so precise measurement is needed."
+                                                       },
+                                                       {
+                                                           "question":  "A precipitate is:",
+                                                           "options":  [
+                                                                           "An indicator colour change",
+                                                                           "A gas released",
+                                                                           "A dissolved substance",
+                                                                           "An insoluble solid formed when solutions are mixed"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "When ions in two solutions combine to form an insoluble compound, it appears as a solid precipitate."
+                                                       },
+                                                       {
+                                                           "question":  "Copper sulfate crystals are:",
+                                                           "options":  [
+                                                                           "Blue",
+                                                                           "White",
+                                                                           "Red",
+                                                                           "Green"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Hydrated copper sulfate crystals are characteristically blue."
+                                                       },
+                                                       {
+                                                           "question":  "In crystallisation, you should NOT:",
+                                                           "options":  [
+                                                                           "Heat gently",
+                                                                           "Evaporate to complete dryness (crystals will be powdery)",
+                                                                           "Allow slow cooling",
+                                                                           "Start with a solution"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Evaporate until crystals just start to form, then let it cool slowly for well-formed crystals."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Quantitative Chemistry and Moles",
+                                          "content":  "The mole is the chemist\u0027s counting unit: 1 mole = 6.02 × 10²³ particles (Avogadro\u0027s number). This connects the atomic scale to measurable quantities. Molar mass: the mass of 1 mole of a substance in grams — numerically equal to its relative formula mass. Moles = mass / molar mass (n = m/M). For example: 1 mole of water (H₂O) has molar mass 18 g/mol, so 36g of water = 2 moles. In balanced equations, coefficients represent mole ratios: 2H₂ + O₂ → 2H₂O means 2 moles of hydrogen react with 1 mole of oxygen to produce 2 moles of water. This allows us to calculate how much product we get from known amounts of reactants.",
+                                          "examples":  [
+                                                           "Molar mass of CO₂: 12 + 16 + 16 = 44 g/mol. So 88g of CO₂ = 88/44 = 2 moles",
+                                                           "2Mg + O₂ → 2MgO: 2 moles of Mg produce 2 moles of MgO. To produce 4 moles MgO, need 4 moles Mg = 4 × 24 = 96g",
+                                                           "Concentration in mol/dm³: 0.1 mol in 500 cm³ = 0.1/0.5 = 0.2 mol/dm³"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "mole":  "The amount of substance containing 6.02 × 10²³ particles",
+                                                           "molar mass":  "The mass of one mole of a substance in grams (g/mol)",
+                                                           "Avogadro\u0027s number":  "6.02 × 10²³ — the number of particles in one mole",
+                                                           "mole ratio":  "The ratio of moles of reactants and products from a balanced equation"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "1 mole contains how many particles?",
+                                                           "options":  [
+                                                                           "6.02 × 10²³",
+                                                                           "6.02 × 10¹⁰",
+                                                                           "1000",
+                                                                           "1 million"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Avogadro\u0027s number: 6.02 × 10²³ particles per mole."
+                                                       },
+                                                       {
+                                                           "question":  "Moles = ",
+                                                           "options":  [
+                                                                           "Molar mass ÷ mass",
+                                                                           "Mass × molar mass",
+                                                                           "Mass ÷ molar mass",
+                                                                           "Mass + molar mass"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "n = m/M. Divide mass by molar mass to find moles."
+                                                       },
+                                                       {
+                                                           "question":  "Molar mass of NaCl (Na=23, Cl=35.5):",
+                                                           "options":  [
+                                                                           "23 g/mol",
+                                                                           "58.5 g/mol",
+                                                                           "35.5 g/mol",
+                                                                           "11.5 g/mol"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "23 + 35.5 = 58.5 g/mol."
+                                                       },
+                                                       {
+                                                           "question":  "How many moles in 44g of CO₂? (M = 44 g/mol)",
+                                                           "options":  [
+                                                                           "0.5 moles",
+                                                                           "2 moles",
+                                                                           "44 moles",
+                                                                           "1 mole"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "n = m/M = 44/44 = 1 mole."
+                                                       },
+                                                       {
+                                                           "question":  "In 2H₂ + O₂ → 2H₂O, to make 4 moles of water you need:",
+                                                           "options":  [
+                                                                           "4 moles H₂ and 2 moles O₂",
+                                                                           "2 moles H₂ and 1 mole O₂",
+                                                                           "4 moles of each",
+                                                                           "1 mole of each"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "The 2:1:2 ratio scales: 4 mol H₂O needs 4 mol H₂ and 2 mol O₂."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  }
+              ]
 }

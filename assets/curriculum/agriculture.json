@@ -1,48 +1,1471 @@
 {
-  "id": "agriculture",
-  "name": "Agriculture",
-  "icon": "grass",
-  "color": "#22C55E",
-  "units": [
-    {
-      "title": "Soil and Crops",
-      "lessons": [
-        {"title": "Understanding Soil", "content": "Soil is minerals, organic matter, water, and air. Three types: sandy (drains fast, low nutrients), clay (holds water, compact), loam (balanced — ideal). pH 6-7 is best for most crops. Add lime to raise pH, sulfur to lower. Fertility depends on organic matter. Test soil before planting.", "examples": ["Sandy: good for carrots, cassava", "Clay: good for rice paddies", "Compost improves any soil type"], "keyTerms": {"loam": "Balanced mix of sand, silt, clay", "soil pH": "Acidity/alkalinity affecting nutrients", "organic matter": "Decomposed material providing nutrients", "soil texture": "Proportion of sand, silt, and clay particles", "humus": "Dark, nutrient-rich organic material in soil"}, "quiz": [{"question": "Best soil for most crops:", "options": ["Loam", "Pure clay", "Pure sand", "Gravel"], "correct": 0, "explanation": "Balanced drainage and nutrients."}, {"question": "Most crops prefer pH:", "options": ["6-7", "2-3", "10-12", "0-1"], "correct": 0, "explanation": "Slightly acidic to neutral."}, {"question": "Compost does:", "options": ["Improves structure and adds nutrients", "Makes soil acidic", "Removes water", "Kills plants"], "correct": 0, "explanation": "Improves any soil type."}, {"question": "Soil testing tells you:", "options": ["pH, nutrient levels, and what amendments are needed", "Only the soil color", "Nothing useful", "Only the soil weight"], "correct": 0, "explanation": "Test before planting to know exactly what your soil needs."}, {"question": "Sandy soil drains fast because:", "options": ["Large particles create big spaces between them", "It contains no minerals", "It absorbs water", "It's always wet"], "correct": 0, "explanation": "Large sand particles = large air spaces = water flows through quickly."}]},
-        {"title": "Crop Rotation and Planting", "content": "Crop rotation grows different crops across seasons. Legumes add nitrogen, cereals use it, root crops break soil. Monoculture depletes soil and increases pests. Methods: direct seeding, transplanting (nursery then move), intercropping (two+ crops together). Spacing matters: too close = competition, too far = wasted land.", "examples": ["Season 1: maize → Season 2: beans → Season 3: cassava", "Intercropping: maize shades beans; beans fix nitrogen for maize", "Tomato seedlings: 4-6 weeks in nursery, then transplant"], "keyTerms": {"crop rotation": "Different crops in sequence for soil health", "intercropping": "Two+ crops together in same field", "monoculture": "Same crop repeatedly", "nitrogen fixation": "Legumes converting atmospheric nitrogen into soil nutrients", "companion planting": "Growing plants that benefit each other together"}, "quiz": [{"question": "Crop rotation purpose:", "options": ["Prevent nutrient depletion and reduce pests", "Confuse farmers", "Government requires it", "Grow less food"], "correct": 0, "explanation": "Different crops use/replenish different nutrients."}, {"question": "Nitrogen-fixing crops:", "options": ["Legumes (beans, peas)", "Cereals (maize)", "Root crops", "Fruit trees"], "correct": 0, "explanation": "Root nodule bacteria fix atmospheric nitrogen."}, {"question": "Intercropping:", "options": ["Multiple crops together in same field", "One crop at a time", "Harvesting between seasons", "Trading between farmers"], "correct": 0, "explanation": "Compatible crops can benefit each other."}, {"question": "Monoculture is risky because:", "options": ["It depletes specific nutrients and increases pest vulnerability", "It produces too much food", "It's too diverse", "It costs nothing"], "correct": 0, "explanation": "Same crop = same nutrient drain + pest populations build up."}, {"question": "Transplanting is used when:", "options": ["Seedlings need protection and controlled conditions before field planting", "Seeds can't germinate", "Only for large farms", "It's cheaper than direct seeding"], "correct": 0, "explanation": "Nurseries protect delicate seedlings until they're strong enough for the field."}]},
-        {"title": "Pest and Disease Management", "content": "IPM combines strategies: prevention (resistant varieties, rotation, sanitation), biological control (natural predators), mechanical (traps, handpicking), chemical (pesticides — last resort). Identify before treating. Disease signs: wilting, spots, stunted growth. Post-harvest losses reach 30-40% in developing countries — proper storage is critical.", "examples": ["Ladybugs eat aphids (biological)", "Resistant maize varieties reduce stem borer loss", "Drying grain below 13% moisture prevents fungal growth"], "keyTerms": {"IPM": "Integrated Pest Management — multiple strategies", "biological control": "Natural predators controlling pests", "post-harvest loss": "Crop lost after harvest due to poor storage", "disease resistance": "Crop varieties bred to resist specific diseases"}, "quiz": [{"question": "IPM is:", "options": ["Combining multiple pest control methods", "Only pesticides", "Ignoring pests", "One crop only"], "correct": 0, "explanation": "Prevention + biological + mechanical + chemical."}, {"question": "Pesticides should be:", "options": ["Last resort when other methods fail", "First option always", "Used weekly", "Never used"], "correct": 0, "explanation": "Can harm beneficial insects and environment."}, {"question": "Post-harvest losses reach:", "options": ["30-40% in developing countries", "5%", "80%", "0%"], "correct": 0, "explanation": "Better storage could save massive amounts of food."}, {"question": "Biological control example:", "options": ["Releasing ladybugs to eat aphids", "Spraying pesticides", "Burning fields", "Using traps only"], "correct": 0, "explanation": "Natural predators control pests without chemicals."}, {"question": "Crop disease signs include:", "options": ["Wilting, spots on leaves, stunted growth, discoloration", "Healthy green leaves", "Fast growth", "Large fruit"], "correct": 0, "explanation": "Early detection of these signs allows treatment before serious damage."}]},
-        {"title": "Soil Conservation", "content": "Soil erosion removes the fertile topsoil that crops need. Causes: heavy rain on bare soil, wind on exposed fields, overgrazing, deforestation, poor farming practices. Prevention: contour plowing (plowing along the contour of hills, not up and down), terracing (creating stepped levels on slopes), cover crops (plants that protect soil between main crop seasons), mulching (covering soil with organic material), windbreaks (rows of trees blocking wind), and grass strips (planted between crop rows to slow water runoff). Soil takes thousands of years to form but can be eroded in a single season. Conservation agriculture: minimum tillage (less plowing preserves soil structure), permanent soil cover, and crop rotation. Healthy soil is a farmer's most valuable asset — protect it.", "examples": ["Terracing in Rwanda: stepped hillsides prevent rainwater from washing soil downhill", "Mulching with banana leaves: keeps soil moist, cool, and protected from direct rain impact", "Contour plowing: furrows follow the hill's contour, trapping water instead of channeling it downhill"], "keyTerms": {"soil erosion": "The removal of topsoil by water, wind, or human activity", "contour plowing": "Plowing along the natural contour of a slope to reduce water runoff", "terracing": "Creating level steps on hillsides to prevent erosion and retain water", "mulching": "Covering soil surface with organic material to protect and nourish it", "conservation agriculture": "Minimum tillage, permanent cover, and crop rotation to protect soil"}, "quiz": [{"question": "Soil erosion is a problem because:", "options": ["It removes fertile topsoil that took thousands of years to form", "It adds nutrients", "It improves drainage", "It only affects deserts"], "correct": 0, "explanation": "Topsoil is where nutrients are concentrated — losing it devastates crop production."}, {"question": "Contour plowing works by:", "options": ["Creating furrows that trap water instead of channeling it downhill", "Plowing straight downhill for speed", "Not plowing at all", "Plowing in circles"], "correct": 0, "explanation": "Following the contour means water is trapped in furrows, reducing runoff and erosion."}, {"question": "Mulching protects soil by:", "options": ["Covering it from rain impact, reducing evaporation, and adding nutrients as it decomposes", "Making soil waterproof", "Preventing plant growth", "Reflecting sunlight"], "correct": 0, "explanation": "Mulch acts as a protective blanket — preserving moisture and preventing erosion."}, {"question": "Conservation agriculture minimizes:", "options": ["Tillage (plowing) to preserve soil structure", "Crop diversity", "Water use", "All farming"], "correct": 0, "explanation": "Less plowing means soil organisms and structure are preserved."}, {"question": "Windbreaks are:", "options": ["Rows of trees that block wind and reduce wind erosion", "Walls around fields", "Fences for animals", "Drainage channels"], "correct": 0, "explanation": "Trees slow wind speed, preventing it from carrying away topsoil."}]},
-        {"title": "Seed Selection and Plant Breeding", "content": "Good seeds are the foundation of farming success. Seed quality factors: genetic purity (true to variety), germination rate (percentage that will sprout), vigor (strength of seedlings), and disease-free status. Seed sources: saved from previous harvest (traditional), purchased certified seed (guaranteed quality), or improved varieties from research institutions. Plant breeding develops better varieties: higher yield, disease resistance, drought tolerance, improved nutrition. Traditional breeding: cross-pollinate plants with desired traits, select best offspring over many generations. Modern biotechnology accelerates this: marker-assisted selection identifies desired genes without waiting for plants to grow. Hybrid seeds often give higher yields in the first generation but saved seed from hybrids performs poorly — farmers must buy new seed each season.", "examples": ["Improved maize varieties yield 3-5 tons/hectare vs 1-2 tons for traditional varieties", "NERICA rice: bred by crossing African and Asian rice — combines African resilience with Asian productivity", "Germination test: place 100 seeds on wet paper — count how many sprout in 5-7 days to calculate germination rate"], "keyTerms": {"certified seed": "Seeds tested and guaranteed for genetic purity, germination rate, and disease-free status", "hybrid seed": "Seeds from crossing two different parent varieties — higher yields but can't be saved", "germination rate": "The percentage of seeds that successfully sprout under proper conditions", "plant breeding": "Developing improved crop varieties through controlled crossing and selection"}, "quiz": [{"question": "Certified seeds guarantee:", "options": ["Genetic purity, germination rate, and disease-free status", "100% yield", "No need for fertilizer", "Free replacement if crops fail"], "correct": 0, "explanation": "Certification tests and verifies seed quality — it doesn't guarantee perfect harvests."}, {"question": "Why can't you save hybrid seeds for next season?", "options": ["Second-generation hybrids perform much worse — traits don't breed true", "It's illegal everywhere", "Seeds don't store well", "Hybrids don't produce seeds"], "correct": 0, "explanation": "Hybrid vigor is strongest in the first generation (F1) — offspring vary unpredictably."}, {"question": "A simple germination test involves:", "options": ["Placing seeds on wet paper and counting how many sprout", "Planting in the field and waiting", "Looking at the seed color", "Weighing the seeds"], "correct": 0, "explanation": "100 seeds on moist paper → count sprouts after a week → calculate germination percentage."}, {"question": "NERICA rice is important because:", "options": ["It combines African resilience with Asian productivity", "It's the oldest rice variety", "It needs no water", "It's genetically modified"], "correct": 0, "explanation": "NERICA was bred by crossing African and Asian rice — creating a variety suited to African conditions."}, {"question": "Traditional plant breeding works by:", "options": ["Crossing plants with desired traits and selecting the best offspring over generations", "Genetically modifying DNA in a lab", "Spraying chemicals on plants", "Only saving the biggest seeds"], "correct": 0, "explanation": "Cross-pollinate, grow offspring, select the best, repeat — over many generations."}]}
-      ]
-    },
-    {
-      "title": "Animal Husbandry",
-      "lessons": [
-        {"title": "Livestock Management", "content": "Livestock: cattle, goats, sheep, pigs. Needs: shelter, nutrition (energy, protein, minerals, vitamins), clean water, healthcare (vaccinations, deworming). Breeding selection improves herd quality. Record keeping tracks births, vaccinations, costs, sales.", "examples": ["Dairy cow: 50-100L water daily, 15-25L milk", "Deworming every 3-4 months", "Records: dam, sire, birth date, vaccination dates"], "keyTerms": {"livestock": "Animals for food, fiber, or labor", "breeding selection": "Choosing best traits for offspring", "deworming": "Treating internal parasites", "record keeping": "Tracking animal health, breeding, and financial data"}, "quiz": [{"question": "Basic livestock needs:", "options": ["Shelter, food, water, healthcare", "Only food", "Only shelter", "Nothing"], "correct": 0, "explanation": "All four are essential."}, {"question": "Keep livestock records to:", "options": ["Track health, breeding, costs for better decisions", "Waste of time", "Only large farms", "Confuse animals"], "correct": 0, "explanation": "Data drives better management decisions."}, {"question": "Breeding selection:", "options": ["Improves herd quality over generations", "Reduces herd size", "Changes species", "Not important"], "correct": 0, "explanation": "Gradually improves traits like milk yield and disease resistance."}, {"question": "Deworming is important because:", "options": ["Internal parasites reduce growth and production", "Animals enjoy it", "It's only cosmetic", "Parasites are harmless"], "correct": 0, "explanation": "Worms steal nutrients — reducing growth, milk production, and overall health."}, {"question": "A good livestock shelter provides:", "options": ["Protection from weather and predators with adequate ventilation", "Maximum confinement", "No ventilation", "Only shade"], "correct": 0, "explanation": "Animals need protection but also fresh air to prevent respiratory diseases."}]},
-        {"title": "Poultry Farming", "content": "Chickens: layers (eggs, 250-300/year, start at 18-20 weeks) or broilers (meat, 2-2.5kg in 6-8 weeks). Housing: ventilated, dry, predator-proof. Feed = 60-70% of costs. Vaccination essential (Newcastle). Common issues: overcrowding, poor ventilation, disease spread.", "examples": ["Layer: 120g feed, 250ml water daily for egg production", "10 birds/m², wood shavings bedding", "Newcastle vaccine: day 1, 14, 28, then every 3 months"], "keyTerms": {"layers": "Breeds for egg production", "broilers": "Breeds for meat, fast growing", "vaccination": "Building disease immunity", "biosecurity": "Practices preventing disease from entering the farm"}, "quiz": [{"question": "Broilers reach market weight in:", "options": ["6-8 weeks", "6-8 months", "2 years", "1 week"], "correct": 0, "explanation": "Fast-growing breeds."}, {"question": "Feed costs:", "options": ["60-70% of poultry costs", "10-20%", "90-100%", "30-40%"], "correct": 0, "explanation": "Feed is the biggest expense."}, {"question": "Newcastle disease prevention:", "options": ["Vaccination", "Good feed", "Clean water", "Sunlight"], "correct": 0, "explanation": "Only vaccination prevents this deadly viral disease."}, {"question": "Biosecurity means:", "options": ["Practices preventing disease from entering the farm", "Security cameras", "Armed guards", "Insurance"], "correct": 0, "explanation": "Foot baths, restricted visitors, quarantine new birds — prevent disease introduction."}, {"question": "Signs of a healthy chicken include:", "options": ["Active, bright eyes, clean feathers, good appetite", "Sitting alone, droopy wings", "Reduced eating", "Ruffled feathers"], "correct": 0, "explanation": "Healthy birds are active and alert — changes in behavior signal problems early."}]},
-        {"title": "Animal Nutrition", "content": "Needs: energy (carbs/fats), protein (growth, milk, eggs), minerals (calcium for bones/shells, phosphorus, salt), vitamins (A, D, E), water (most important). Feeds: concentrates (high energy/protein — maize, soybean) and roughages (high fiber — grass, hay, silage). Ruminants (cattle, goats) digest grass via four-compartment stomach. Non-ruminants (pigs, poultry) need concentrates. Formulate rations for specific needs at lowest cost.", "examples": ["Dairy cow: 60% roughage + 40% concentrates", "Calcium deficiency in layers → thin/no shells → add limestone", "Silage: chopped maize stored airtight, ferments, excellent dry-season feed"], "keyTerms": {"concentrate": "High energy/protein, low fiber feed", "roughage": "High fiber feed — grass, hay, silage", "ruminant": "Four-compartment stomach animal digesting fiber", "ration": "The specific mix of feeds for an animal's daily needs"}, "quiz": [{"question": "Most important nutrient:", "options": ["Water", "Protein", "Vitamins", "Minerals"], "correct": 0, "explanation": "Animals survive longer without food than water."}, {"question": "Ruminants digest grass because:", "options": ["Four-compartment stomach with microbes breaks down fiber", "They chew faster", "Grass is easy to digest", "They don't actually digest it"], "correct": 0, "explanation": "Rumen bacteria ferment cellulose."}, {"question": "Silage is:", "options": ["Preserved green forage stored airtight", "Dried grass", "Animal medicine", "A type of grain"], "correct": 0, "explanation": "Chopped, stored without air, fermented and preserved."}, {"question": "A ration is:", "options": ["The specific daily mix of feeds for an animal's needs", "A random mix of food", "Only water", "The cheapest possible feed"], "correct": 0, "explanation": "Rations are carefully formulated to meet specific nutritional requirements at minimum cost."}, {"question": "Non-ruminants (pigs, chickens) need more concentrates because:", "options": ["Their simple stomachs can't break down fibrous roughage efficiently", "They are bigger", "They eat less", "They only eat grain"], "correct": 0, "explanation": "Without a rumen, they can't ferment fiber — they need energy-dense, easily digestible feed."}]},
-        {"title": "Dairy Farming", "content": "Dairy farming produces milk and milk products. Good dairy breeds: Holstein-Friesian (highest yield, ~25-30L/day but needs good management), Jersey (rich milk, smaller body, lower feed costs), and local/cross breeds (adapted to local conditions, lower yield but hardier). Key management practices: clean milking hygiene (wash udder, clean equipment), regular milking schedule (usually twice daily), balanced nutrition (dairy cows need extra energy and calcium), adequate water (a dairy cow drinks 80-150 liters daily), and mastitis prevention (udder infection — the most common and costly dairy disease). Milk handling: cool quickly to below 4°C to prevent bacterial growth, or process immediately into yogurt, cheese, or ghee for longer shelf life. Record milk production per cow to identify top producers and cull low performers.", "examples": ["A Holstein-Friesian can produce 25-30 liters/day with proper feeding and management", "Mastitis prevention: clean milking, teat dipping after milking, dry cow therapy", "Value addition: 1 liter of raw milk sells for 1,500 UGX, but 1 liter of yogurt sells for 4,000 UGX"], "keyTerms": {"mastitis": "An infection of the udder — the most common and costly dairy disease", "colostrum": "The first milk after calving — rich in antibodies essential for calf survival", "dairy breeds": "Cattle varieties selected for high milk production", "teat dipping": "Applying antiseptic to teats after milking to prevent infection"}, "quiz": [{"question": "The highest-yielding dairy breed is:", "options": ["Holstein-Friesian", "Jersey", "Local breeds", "Beef cattle"], "correct": 0, "explanation": "Holstein-Friesians produce the most milk but require excellent management and nutrition."}, {"question": "Mastitis is:", "options": ["An udder infection — the most costly dairy disease", "A type of feed", "A milking machine", "A cattle breed"], "correct": 0, "explanation": "Mastitis reduces milk quality and quantity — prevention is key."}, {"question": "Milk should be cooled to:", "options": ["Below 4°C to prevent bacterial growth", "Room temperature", "Body temperature", "Below 0°C (frozen)"], "correct": 0, "explanation": "Bacteria multiply rapidly in warm milk — cooling slows growth and preserves quality."}, {"question": "Colostrum is critical because:", "options": ["It contains antibodies that protect the newborn calf from diseases", "It's the most delicious milk", "It can be sold for more money", "It causes disease"], "correct": 0, "explanation": "Calves must receive colostrum within 6 hours of birth — it's their first immune protection."}, {"question": "Value addition in dairy means:", "options": ["Processing milk into higher-value products like yogurt, cheese, or ghee", "Adding water to milk", "Increasing herd size", "Buying more cows"], "correct": 0, "explanation": "Processed dairy products sell for more than raw milk — increasing farmer income."}]},
-        {"title": "Aquaculture and Fish Farming", "content": "Aquaculture is farming fish and other aquatic organisms. It's the fastest-growing food production sector globally. Common species: tilapia (hardy, fast-growing, popular in Africa), catfish (tolerates poor water quality), trout (cold water), and prawns. Pond systems: earthen ponds are most common — dig, fill, stock with fingerlings (young fish), feed, and harvest. Water quality is crucial: dissolved oxygen (fish suffocate without it), temperature, pH, and ammonia levels. Feeding: commercial pellets or supplementary feeds (kitchen waste, agricultural by-products). Stocking density: too many fish = disease and slow growth. Polyculture: raising different species together (e.g., tilapia and catfish) — they occupy different niches and don't compete. Fish farming provides protein, income, and employment with relatively low land requirements.", "examples": ["A 10m × 10m tilapia pond can produce 200-500 kg of fish in 6-8 months", "Water testing: check dissolved oxygen every morning — low levels (below 3 mg/L) can kill fish", "Polyculture: tilapia feeds near the surface, catfish feeds at the bottom — both thrive without competing"], "keyTerms": {"aquaculture": "Farming fish and aquatic organisms in controlled conditions", "fingerlings": "Young fish used for stocking ponds", "stocking density": "The number of fish per unit area of water", "polyculture": "Raising multiple species together for better resource use"}, "quiz": [{"question": "The most critical factor in fish farming is:", "options": ["Water quality — especially dissolved oxygen", "Pond color", "Fish color", "Time of year only"], "correct": 0, "explanation": "Fish need dissolved oxygen to survive — poor water quality kills fish quickly."}, {"question": "Tilapia is popular for farming because:", "options": ["It's hardy, fast-growing, and widely eaten", "It's the most expensive fish", "It needs no food", "It survives without water"], "correct": 0, "explanation": "Tilapia adapts to various conditions and grows quickly — ideal for small-scale farmers."}, {"question": "Polyculture means:", "options": ["Raising different fish species together in the same pond", "Only one species per pond", "Growing fish and crops together", "Farming only in the sea"], "correct": 0, "explanation": "Different species use different parts of the pond — reducing waste and competition."}, {"question": "Too many fish in a pond causes:", "options": ["Disease, slow growth, and oxygen depletion", "Faster growth", "Better water quality", "Higher profits always"], "correct": 0, "explanation": "Overcrowding creates competition, stress, disease, and oxygen shortages."}, {"question": "Fish farming advantages include:", "options": ["High protein production from small land area, income generation", "Requires large land areas", "Only works in coastal areas", "No management needed"], "correct": 0, "explanation": "Fish convert feed to protein efficiently and farming uses relatively little land."}]}
-      ]
-    },
-    {
-      "title": "Modern Farming",
-      "lessons": [
-        {"title": "Irrigation Methods", "content": "Surface (flooding): simplest, wastes water. Sprinkler: more uniform, some evaporation. Drip: water directly to roots, 30-50% more efficient. Rainwater harvesting: collect for dry periods. Too little water: wilting, crop failure. Too much: waterlogging, root rot.", "examples": ["Drip for tomatoes: tube along each row, emitters at each plant", "Rainwater: gutters collect into 10,000L tank for dry season", "Rice paddies: deliberately flooded — rice thrives in standing water"], "keyTerms": {"drip irrigation": "Water directly to roots — most efficient", "rainwater harvesting": "Collecting rain for later use", "waterlogging": "Excess water suffocating roots", "water use efficiency": "Crop yield per unit of water used"}, "quiz": [{"question": "Most water-efficient:", "options": ["Drip irrigation", "Flood", "Sprinkler", "Rain-fed"], "correct": 0, "explanation": "Delivers water directly to roots."}, {"question": "Rainwater harvesting:", "options": ["Collecting and storing rain for agriculture", "Making rain artificially", "Draining rainwater", "Filtering rivers"], "correct": 0, "explanation": "Store for dry periods."}, {"question": "Too much water:", "options": ["Waterlogging and root rot", "Better growth", "More flowers", "Stronger roots"], "correct": 0, "explanation": "Roots need air — waterlogged soil suffocates them."}, {"question": "Drip irrigation saves water by:", "options": ["Delivering it directly to roots, minimizing evaporation and runoff", "Using more water", "Only working at night", "Using saltwater"], "correct": 0, "explanation": "Precise delivery means almost no waste."}, {"question": "Which crop is deliberately grown in flooded fields?", "options": ["Rice", "Wheat", "Maize", "Tomatoes"], "correct": 0, "explanation": "Rice paddies are intentionally flooded — rice is adapted to standing water."}]},
-        {"title": "Technology in Agriculture", "content": "Drones survey fields — detecting pests, nutrient deficiency, water stress. Soil sensors monitor moisture, pH, nutrients in real-time. GPS-guided tractors plant/harvest precisely. Mobile apps: weather, prices, pest ID from photos. Greenhouses control temperature/humidity for year-round production. Hydroponics grows without soil in nutrient water.", "examples": ["Drone: 50-hectare farm surveyed in 30 minutes", "Soil sensor alerts farmer: 'Field 3 needs irrigation'", "App identifies plant disease from leaf photo"], "keyTerms": {"precision agriculture": "Technology optimizing farming operations", "hydroponics": "Growing in nutrient water without soil", "greenhouse": "Controlled environment for year-round production", "remote sensing": "Using satellites or drones to monitor crop conditions"}, "quiz": [{"question": "Drones help by:", "options": ["Surveying large fields quickly to detect problems", "Planting automatically", "Harvesting", "Watering fields"], "correct": 0, "explanation": "Aerial images spot problems."}, {"question": "Hydroponics:", "options": ["Grows in nutrient water without soil", "Special soil", "Sand only", "Rocks only"], "correct": 0, "explanation": "Water with dissolved nutrients."}, {"question": "Precision agriculture:", "options": ["Technology-based optimization using data", "Farming precisely at midnight", "Hand tools only", "One crop precisely"], "correct": 0, "explanation": "Sensors, GPS, and data drive decisions."}, {"question": "Greenhouses enable:", "options": ["Year-round crop production regardless of outside weather", "Only summer crops", "Cheaper farming always", "Only flower growing"], "correct": 0, "explanation": "Controlled environment means you can grow tomatoes even in dry season."}, {"question": "Mobile apps help farmers by:", "options": ["Providing weather forecasts, market prices, and pest identification", "Playing games", "Only social media", "Nothing useful"], "correct": 0, "explanation": "Digital agriculture puts expert knowledge in farmers' pockets."}]},
-        {"title": "Organic and Sustainable Farming", "content": "Organic: no synthetic chemicals, uses compost, biological pest control, rotation. Benefits: healthier soil, fewer chemicals in food, environmental protection. Challenges: lower initial yields, more labor, harder pest management. Sustainable farming meets current needs without harming future generations. Practices: conservation tillage, agroforestry (trees + crops), integrated farming (crops + livestock — waste fertilizes crops).", "examples": ["Compost tea: spray on crops as natural fertilizer", "Agroforestry: fruit trees among coffee — shade, nitrogen, extra income", "Conservation tillage: leave residue to protect soil from erosion"], "keyTerms": {"organic farming": "No synthetic chemicals, natural methods", "sustainable agriculture": "Meeting needs without harming future", "agroforestry": "Trees combined with crops or livestock", "permaculture": "Designing agricultural systems that mimic natural ecosystems"}, "quiz": [{"question": "Organic farming avoids:", "options": ["Synthetic pesticides and fertilizers", "All water", "All animal products", "Harvesting"], "correct": 0, "explanation": "Uses natural alternatives."}, {"question": "Agroforestry:", "options": ["Trees with crops for mutual benefit", "Cutting all trees", "Only trees", "Farming in forests"], "correct": 0, "explanation": "Integration of trees and agriculture."}, {"question": "Conservation tillage:", "options": ["Prevents soil erosion", "Makes soil compact", "Removes vegetation", "Increases chemicals"], "correct": 0, "explanation": "Minimal plowing protects soil structure."}, {"question": "Permaculture aims to:", "options": ["Design farming systems that mimic natural ecosystems", "Use maximum chemicals", "Farm only one crop", "Ignore environmental impact"], "correct": 0, "explanation": "Working with nature, not against it — creating self-sustaining systems."}, {"question": "A challenge of organic farming:", "options": ["Initially lower yields and more labor required", "No challenges at all", "Too much chemical use", "Plants grow too fast"], "correct": 0, "explanation": "Organic transitions take time — yields typically recover after 2-3 years."}]},
-        {"title": "Climate-Smart Agriculture", "content": "Climate change impacts farming through unpredictable rainfall, rising temperatures, more extreme weather events, and new pest/disease patterns. Climate-smart agriculture (CSA) addresses three goals: increasing productivity (grow more with less), adapting to changes (resilient crops and practices), and reducing emissions (lower carbon footprint of farming). Adaptation strategies: drought-resistant crop varieties, water harvesting, conservation agriculture, diversified farming (don't depend on one crop), and early warning systems for weather. Mitigation: reducing methane from livestock (improved feeding), minimizing fertilizer overuse (causes nitrous oxide emissions), agroforestry (trees absorb CO₂), and improved rice paddy management (reducing methane). Small-scale farmers are most vulnerable to climate change but contribute least to it — they need support to adapt.", "examples": ["Drought-resistant maize varieties maintain yield even with 30% less rainfall", "Crop insurance: farmers pay a small premium and are compensated if drought destroys their harvest", "Improved livestock feeding: better feed efficiency = less methane per kg of meat or milk produced"], "keyTerms": {"climate-smart agriculture": "Farming that increases productivity, adapts to climate change, and reduces emissions", "adaptation": "Adjusting farming practices to cope with changing climate conditions", "mitigation": "Reducing greenhouse gas emissions from agricultural activities", "resilience": "The ability of farming systems to withstand and recover from climate shocks"}, "quiz": [{"question": "Climate-smart agriculture has three goals:", "options": ["Increase productivity, adapt to changes, reduce emissions", "Only increase yields", "Only reduce emissions", "Only adapt to weather"], "correct": 0, "explanation": "CSA addresses productivity, adaptation, AND mitigation simultaneously."}, {"question": "Drought-resistant varieties help farmers by:", "options": ["Maintaining yields even when rainfall is reduced", "Growing only in rain", "Needing more water", "Producing less food"], "correct": 0, "explanation": "Bred to tolerate water stress — critical as rainfall patterns become less predictable."}, {"question": "Agriculture contributes to climate change through:", "options": ["Methane from livestock, nitrous oxide from fertilizers, deforestation", "Only through carbon dioxide", "It doesn't contribute at all", "Only through water use"], "correct": 0, "explanation": "Agriculture produces about 10-12% of global greenhouse gas emissions."}, {"question": "Who is most vulnerable to climate change in farming?", "options": ["Small-scale farmers in developing countries", "Large industrial farms", "Greenhouse farmers", "Farmers in cold climates"], "correct": 0, "explanation": "Small farmers have fewer resources to adapt — they depend on rain and have no insurance."}, {"question": "Agroforestry helps climate because:", "options": ["Trees absorb CO₂ while providing shade, fruit, and soil protection", "Trees block rain", "Trees compete with crops always", "Trees have no environmental benefit"], "correct": 0, "explanation": "Trees are carbon sinks AND provide multiple benefits: shade, fruit, nitrogen fixation, erosion control."}]},
-        {"title": "Urban and Vertical Farming", "content": "As cities grow, urban farming brings food production closer to consumers. Types: rooftop gardens, community gardens, container farming, vertical farms. Vertical farming grows crops in stacked layers indoors using LED lights, controlled temperature and humidity, and hydroponic or aeroponic systems. Advantages: uses 95% less water than field farming, no pesticides needed (controlled environment), grows year-round regardless of weather, reduces transport distances, and can produce in areas with no arable land. Challenges: high initial investment (lights, climate control, technology), high energy costs (especially for lighting), and limited to certain crops (leafy greens, herbs, strawberries — not grains or root crops). Urban farming also builds community: shared gardens bring neighbors together and teach children where food comes from.", "examples": ["A vertical farm in a shipping container produces as much lettuce as 2 acres of farmland using 90% less water", "A school rooftop garden: students grow vegetables, learn biology, and supply the school kitchen", "Singapore farms vertically because it has almost no farmland — importing 90% of food makes it vulnerable"], "keyTerms": {"vertical farming": "Growing crops in stacked indoor layers with controlled lighting and environment", "urban farming": "Growing food within cities — rooftops, community gardens, vacant lots", "aeroponics": "Growing plants with roots suspended in air, misted with nutrient solution", "food miles": "The distance food travels from farm to consumer — shorter = fresher and lower emissions"}, "quiz": [{"question": "Vertical farming uses less water because:", "options": ["Water is recycled in a closed system — up to 95% savings", "Plants need less water indoors", "They don't use water at all", "Water is filtered naturally"], "correct": 0, "explanation": "Hydroponic systems recirculate water — almost nothing is wasted."}, {"question": "A challenge of vertical farming is:", "options": ["High energy costs for lighting and climate control", "Too much land needed", "Not enough technology exists", "Plants won't grow indoors"], "correct": 0, "explanation": "LED lights and climate systems are expensive to operate — electricity is the biggest cost."}, {"question": "Vertical farming is best suited for:", "options": ["Leafy greens, herbs, and small fruits — not grains or root crops", "Only wheat and corn", "Only tropical fruits", "Any crop at any scale"], "correct": 0, "explanation": "High-value, short, fast-growing crops make economic sense — grain and potatoes don't."}, {"question": "Urban farming benefits communities by:", "options": ["Providing fresh food, education, and bringing neighbors together", "Only reducing food costs", "Replacing all rural farms", "Only for wealthy neighborhoods"], "correct": 0, "explanation": "Community gardens provide food, teach children about agriculture, and build social connections."}, {"question": "Food miles matter because:", "options": ["Shorter distances mean fresher food and lower transport emissions", "Longer distances improve quality", "Distance doesn't affect freshness", "Only applies to imported food"], "correct": 0, "explanation": "Local food is fresher (less time in transit) and has a lower carbon footprint."}]}
-      ]
-    },
-    {
-      "title": "Farm Business",
-      "lessons": [
-        {"title": "Marketing Farm Produce", "content": "Know your market: who buys, what quality, when, what price. Direct selling (farm gate, farmers' market) — higher prices, more work. Wholesale: lower prices, larger volumes. Value addition: raw tomatoes → sauce, raw milk → yogurt — more revenue. Timing: sell when supply is low. Storage helps hold for better prices.", "examples": ["Value addition: maize 1000/kg, flour 2500/kg — 150% more", "Farmers' market: premium direct to consumer", "Cold storage: onions for 3 months, prices double off-season"], "keyTerms": {"value addition": "Processing raw produce into higher-value products", "market timing": "Selling when supply is low and prices high", "direct selling": "Selling directly without middlemen", "market linkage": "Connecting farmers to reliable buyers through contracts or cooperatives"}, "quiz": [{"question": "Value addition:", "options": ["Processing raw products for higher value", "Adding fertilizer", "Increasing farm size", "Buying equipment"], "correct": 0, "explanation": "Milk → yogurt, tomatoes → sauce."}, {"question": "Prices drop at harvest because:", "options": ["Everyone selling at once — high supply", "Quality lower", "People eat less", "Transport costs"], "correct": 0, "explanation": "Flood of supply drops prices."}, {"question": "Direct selling advantage:", "options": ["Higher prices, no middlemen", "Less work", "Larger volumes", "No customer interaction"], "correct": 0, "explanation": "More profit per unit."}, {"question": "Market linkage helps farmers by:", "options": ["Connecting them to reliable buyers, often with guaranteed prices", "Cutting off all buyers", "Only selling to government", "Eliminating all markets"], "correct": 0, "explanation": "Contract farming and buyer relationships provide income security."}, {"question": "Post-harvest storage allows:", "options": ["Selling later when prices are higher instead of at harvest when prices crash", "Faster spoilage", "Lower prices always", "No benefit"], "correct": 0, "explanation": "Store when supply is high (low prices), sell when supply drops (higher prices)."}]},
-        {"title": "Farm Financial Management", "content": "Track income and expenses. Revenue: crop/livestock/value-added sales. Expenses: seeds, fertilizer, labor, transport, equipment, vet care. Gross margin = income - variable costs. Net profit = gross margin - fixed costs. Cost per unit: total costs ÷ output. Compare to selling price for profit margin. Budget each season. Review actual vs budget.", "examples": ["Cost per egg: total costs ÷ total eggs", "Tomatoes: cost 800/kg, sell 1500/kg — 700/kg profit (47%)", "Budget: expected maize income 2M, costs 1.2M, profit 800K"], "keyTerms": {"gross margin": "Income minus variable costs", "cost of production": "Total cost per unit of output", "budget": "Plan of expected income and expenses", "profit margin": "Percentage of revenue that is profit"}, "quiz": [{"question": "Gross margin:", "options": ["Income minus variable costs", "Income minus all costs", "Income plus costs", "Total revenue"], "correct": 0, "explanation": "Shows if specific enterprise is profitable."}, {"question": "Cost per unit purpose:", "options": ["Know minimum selling price for profit", "Increase costs", "Confuse competitors", "Not useful"], "correct": 0, "explanation": "Must sell above cost to avoid losses."}, {"question": "Compare budget to actual:", "options": ["Learn what went right/wrong for next season", "Budgets always accurate", "Punish workers", "Waste of time"], "correct": 0, "explanation": "Understand variances to improve."}, {"question": "Variable costs are:", "options": ["Costs that change with production level — seeds, fertilizer, casual labor", "Fixed costs like rent", "Always the same amount", "Only in the first season"], "correct": 0, "explanation": "Produce more = spend more on seeds, fertilizer, labor."}, {"question": "A simple farm record book should track:", "options": ["All income, expenses, dates, and quantities for each enterprise", "Only income", "Only expenses", "Nothing — memory is enough"], "correct": 0, "explanation": "Both sides of the financial picture, organized by enterprise (poultry, crops, etc.)."}]},
-        {"title": "Cooperatives and Farmer Groups", "content": "Cooperatives: farmers join for mutual benefit. Advantages: bulk buying (lower prices), collective selling (better prices), shared equipment, training access, credit access, stronger negotiation. Need: clear governance, transparent finances, active participation, good leadership. Types: marketing, service, savings (SACCOs). Together, small farmers compete with large commercial farms.", "examples": ["50 dairy farmers collect and sell together at higher price", "Bulk fertilizer: 50 bags at wholesale vs 1 at retail", "SACCO: save 10K/month, borrow up to 3x savings"], "keyTerms": {"cooperative": "Farmer-owned organization for mutual benefit", "bulk buying": "Large quantity purchasing for lower prices", "SACCO": "Savings and Credit Cooperative", "collective bargaining": "Negotiating as a group for better terms"}, "quiz": [{"question": "Cooperative advantage:", "options": ["Stronger bargaining and lower costs", "More paperwork", "Higher risk", "Less market access"], "correct": 0, "explanation": "Together for better prices and buying power."}, {"question": "SACCO:", "options": ["Savings and credit cooperative", "Fertilizer type", "Government program", "Crop variety"], "correct": 0, "explanation": "Members save and lend to each other at favorable rates."}, {"question": "Cooperatives succeed with:", "options": ["Good governance, transparency, active participation", "Just a leader", "Government funding only", "No rules"], "correct": 0, "explanation": "Clear rules, trust, and engagement."}, {"question": "Collective bargaining power means:", "options": ["Negotiating as a group for better prices and terms than individuals could get", "Fighting with buyers", "Refusing to sell", "Undercutting each other"], "correct": 0, "explanation": "1000 farmers together have more negotiating leverage than 1 farmer alone."}, {"question": "Cooperatives can help access:", "options": ["Credit, training, equipment, and markets that individual farmers cannot reach", "Only social events", "Government jobs", "Free land"], "correct": 0, "explanation": "The combined resources and credibility of a cooperative open doors."}]},
-        {"title": "Agricultural Policy and Trade", "content": "Government policies significantly affect farming. Input subsidies reduce the cost of fertilizer, seeds, and equipment for farmers. Price support programs guarantee minimum prices for staple crops — protecting farmers from market crashes. Agricultural extension services provide farmers with technical advice and training. Land tenure policies determine who owns land and how securely — insecure land rights discourage long-term investment. Trade policies: tariffs protect local farmers from cheap imports; removal of barriers can expose them to competition but also opens export markets. International agreements (WTO, regional trade blocs like EAC, AfCFTA) affect what farmers can export and at what price. Understanding policy helps farmers advocate for their interests and make better business decisions.", "examples": ["Uganda's NAADS program provided extension services and improved seeds to smallholder farmers", "EU subsidies to European farmers make their products artificially cheap — undercutting African farmers in global markets", "AfCFTA opens a market of 1.3 billion people for African agricultural exports — huge opportunity"], "keyTerms": {"subsidy": "Government financial support to reduce costs for farmers", "extension services": "Government-provided technical advice and training for farmers", "land tenure": "The legal arrangement by which someone has the right to use land", "trade policy": "Government rules about imports and exports — tariffs, quotas, and agreements"}, "quiz": [{"question": "Input subsidies help farmers by:", "options": ["Reducing the cost of fertilizer, seeds, and equipment", "Increasing crop prices", "Providing free land", "Eliminating all farming risks"], "correct": 0, "explanation": "Lower input costs make farming more affordable and profitable for small-scale farmers."}, {"question": "Land tenure security matters because:", "options": ["Farmers with secure rights invest more in their land's long-term productivity", "It has no effect on farming", "Only large farms need it", "It's only about legal paperwork"], "correct": 0, "explanation": "Why plant trees or build irrigation if someone can take your land? Security drives investment."}, {"question": "Agricultural extension services provide:", "options": ["Technical advice and training to help farmers improve practices", "Free inputs", "Land ownership", "Market prices"], "correct": 0, "explanation": "Extension workers bridge the gap between research and farm-level practice."}, {"question": "AfCFTA benefits African farmers by:", "options": ["Opening a market of 1.3 billion people for agricultural exports", "Closing all borders", "Only benefiting one country", "Eliminating all farming"], "correct": 0, "explanation": "Reduced trade barriers within Africa create enormous export opportunities."}, {"question": "EU agricultural subsidies are controversial because:", "options": ["They make European products artificially cheap, undercutting farmers in developing countries", "They help African farmers", "They are too small", "They only support organic farming"], "correct": 0, "explanation": "Subsidized EU exports can be cheaper than locally produced goods — unfair competition."}]},
-        {"title": "Future of Agriculture", "content": "Global food demand will increase 50% by 2050 as population grows to nearly 10 billion. Meeting this sustainably is agriculture's greatest challenge. Key trends: precision agriculture (data-driven, site-specific management), gene editing (CRISPR for drought resistance, nutrition), vertical farming (urban food production), regenerative agriculture (building soil health, not just sustaining it), and digital platforms connecting farmers to markets, weather data, and finance. Agriculture is becoming a technology-driven, knowledge-intensive profession. Young entrepreneurs entering farming are combining traditional knowledge with modern tools — apps for market access, drones for scouting, and data for decision-making. The future farmer is a data analyst, business manager, and environmental steward all in one.", "examples": ["Farm management apps: track expenses, yields, weather forecasts — all on a smartphone", "CRISPR gene editing: developing cassava resistant to brown streak virus — potentially saving millions of tons", "Regenerative grazing: rotating cattle through small paddocks builds soil organic matter and stores carbon"], "keyTerms": {"food security": "When all people have access to sufficient, safe, and nutritious food at all times", "regenerative agriculture": "Farming practices that restore and enhance soil health and ecosystem function", "precision farming": "Using data and technology for site-specific, efficient farm management", "agri-tech": "Technology companies focused on agricultural innovation"}, "quiz": [{"question": "By 2050, food demand will increase by:", "options": ["About 50% due to population growth", "10%", "Stay the same", "Decrease"], "correct": 0, "explanation": "Nearly 10 billion people will need feeding — a massive challenge."}, {"question": "Regenerative agriculture aims to:", "options": ["Restore and enhance soil health, not just maintain it", "Use maximum chemicals", "Ignore soil health", "Only produce maximum yield"], "correct": 0, "explanation": "Going beyond sustainability — actually improving soil and ecosystems."}, {"question": "The future farmer needs:", "options": ["Data analysis, business management, and environmental stewardship skills", "Only physical strength", "No education", "Only traditional methods"], "correct": 0, "explanation": "Modern farming is knowledge-intensive — combining tech, business, and ecology."}, {"question": "CRISPR in agriculture is used to:", "options": ["Edit crop genes for disease resistance, drought tolerance, and improved nutrition", "Clone animals", "Create pesticides", "Build farm equipment"], "correct": 0, "explanation": "Gene editing can precisely modify crops — faster and more targeted than traditional breeding."}, {"question": "Young agri-entrepreneurs combine:", "options": ["Traditional knowledge with modern technology and business skills", "Only traditional methods", "Only technology", "Neither — they start from scratch"], "correct": 0, "explanation": "The best innovations in farming blend generations of experience with new tools."}]}
-      ]
-    }
-  ]
+    "id":  "agriculture",
+    "name":  "Agriculture",
+    "icon":  "grass",
+    "color":  "#22C55E",
+    "units":  [
+                  {
+                      "title":  "Soil and Crops",
+                      "lessons":  [
+                                      {
+                                          "title":  "Understanding Soil",
+                                          "content":  "Soil is minerals, organic matter, water, and air. Three types: sandy (drains fast, low nutrients), clay (holds water, compact), loam (balanced — ideal). pH 6-7 is best for most crops. Add lime to raise pH, sulfur to lower. Fertility depends on organic matter. Test soil before planting.",
+                                          "examples":  [
+                                                           "Sandy: good for carrots, cassava",
+                                                           "Clay: good for rice paddies",
+                                                           "Compost improves any soil type"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "loam":  "Balanced mix of sand, silt, clay",
+                                                           "soil pH":  "Acidity/alkalinity affecting nutrients",
+                                                           "organic matter":  "Decomposed material providing nutrients",
+                                                           "soil texture":  "Proportion of sand, silt, and clay particles",
+                                                           "humus":  "Dark, nutrient-rich organic material in soil"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Best soil for most crops:",
+                                                           "options":  [
+                                                                           "Pure sand",
+                                                                           "Pure clay",
+                                                                           "Loam",
+                                                                           "Gravel"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Balanced drainage and nutrients."
+                                                       },
+                                                       {
+                                                           "question":  "Most crops prefer pH:",
+                                                           "options":  [
+                                                                           "2-3",
+                                                                           "6-7",
+                                                                           "10-12",
+                                                                           "0-1"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Slightly acidic to neutral."
+                                                       },
+                                                       {
+                                                           "question":  "Compost does:",
+                                                           "options":  [
+                                                                           "Makes soil acidic",
+                                                                           "Improves structure and adds nutrients",
+                                                                           "Removes water",
+                                                                           "Kills plants"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Improves any soil type."
+                                                       },
+                                                       {
+                                                           "question":  "Soil testing tells you:",
+                                                           "options":  [
+                                                                           "Nothing useful",
+                                                                           "Only the soil color",
+                                                                           "pH, nutrient levels, and what amendments are needed",
+                                                                           "Only the soil weight"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Test before planting to know exactly what your soil needs."
+                                                       },
+                                                       {
+                                                           "question":  "Sandy soil drains fast because:",
+                                                           "options":  [
+                                                                           "It\u0027s always wet",
+                                                                           "It contains no minerals",
+                                                                           "It absorbs water",
+                                                                           "Large particles create big spaces between them"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Large sand particles = large air spaces = water flows through quickly."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Crop Rotation and Planting",
+                                          "content":  "Crop rotation grows different crops across seasons. Legumes add nitrogen, cereals use it, root crops break soil. Monoculture depletes soil and increases pests. Methods: direct seeding, transplanting (nursery then move), intercropping (two+ crops together). Spacing matters: too close = competition, too far = wasted land.",
+                                          "examples":  [
+                                                           "Season 1: maize → Season 2: beans → Season 3: cassava",
+                                                           "Intercropping: maize shades beans; beans fix nitrogen for maize",
+                                                           "Tomato seedlings: 4-6 weeks in nursery, then transplant"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "crop rotation":  "Different crops in sequence for soil health",
+                                                           "intercropping":  "Two+ crops together in same field",
+                                                           "monoculture":  "Same crop repeatedly",
+                                                           "nitrogen fixation":  "Legumes converting atmospheric nitrogen into soil nutrients",
+                                                           "companion planting":  "Growing plants that benefit each other together"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Crop rotation purpose:",
+                                                           "options":  [
+                                                                           "Prevent nutrient depletion and reduce pests",
+                                                                           "Confuse farmers",
+                                                                           "Government requires it",
+                                                                           "Grow less food"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Different crops use/replenish different nutrients."
+                                                       },
+                                                       {
+                                                           "question":  "Nitrogen-fixing crops:",
+                                                           "options":  [
+                                                                           "Fruit trees",
+                                                                           "Cereals (maize)",
+                                                                           "Root crops",
+                                                                           "Legumes (beans, peas)"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Root nodule bacteria fix atmospheric nitrogen."
+                                                       },
+                                                       {
+                                                           "question":  "Intercropping:",
+                                                           "options":  [
+                                                                           "Trading between farmers",
+                                                                           "One crop at a time",
+                                                                           "Harvesting between seasons",
+                                                                           "Multiple crops together in same field"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Compatible crops can benefit each other."
+                                                       },
+                                                       {
+                                                           "question":  "Monoculture is risky because:",
+                                                           "options":  [
+                                                                           "It\u0027s too diverse",
+                                                                           "It produces too much food",
+                                                                           "It depletes specific nutrients and increases pest vulnerability",
+                                                                           "It costs nothing"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Same crop = same nutrient drain + pest populations build up."
+                                                       },
+                                                       {
+                                                           "question":  "Transplanting is used when:",
+                                                           "options":  [
+                                                                           "Seedlings need protection and controlled conditions before field planting",
+                                                                           "Seeds can\u0027t germinate",
+                                                                           "Only for large farms",
+                                                                           "It\u0027s cheaper than direct seeding"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Nurseries protect delicate seedlings until they\u0027re strong enough for the field."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Pest and Disease Management",
+                                          "content":  "IPM combines strategies: prevention (resistant varieties, rotation, sanitation), biological control (natural predators), mechanical (traps, handpicking), chemical (pesticides — last resort). Identify before treating. Disease signs: wilting, spots, stunted growth. Post-harvest losses reach 30-40% in developing countries — proper storage is critical.",
+                                          "examples":  [
+                                                           "Ladybugs eat aphids (biological)",
+                                                           "Resistant maize varieties reduce stem borer loss",
+                                                           "Drying grain below 13% moisture prevents fungal growth"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "IPM":  "Integrated Pest Management — multiple strategies",
+                                                           "biological control":  "Natural predators controlling pests",
+                                                           "post-harvest loss":  "Crop lost after harvest due to poor storage",
+                                                           "disease resistance":  "Crop varieties bred to resist specific diseases"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "IPM is:",
+                                                           "options":  [
+                                                                           "One crop only",
+                                                                           "Only pesticides",
+                                                                           "Ignoring pests",
+                                                                           "Combining multiple pest control methods"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Prevention + biological + mechanical + chemical."
+                                                       },
+                                                       {
+                                                           "question":  "Pesticides should be:",
+                                                           "options":  [
+                                                                           "Last resort when other methods fail",
+                                                                           "First option always",
+                                                                           "Used weekly",
+                                                                           "Never used"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Can harm beneficial insects and environment."
+                                                       },
+                                                       {
+                                                           "question":  "Post-harvest losses reach:",
+                                                           "options":  [
+                                                                           "5%",
+                                                                           "30-40% in developing countries",
+                                                                           "80%",
+                                                                           "0%"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Better storage could save massive amounts of food."
+                                                       },
+                                                       {
+                                                           "question":  "Biological control example:",
+                                                           "options":  [
+                                                                           "Spraying pesticides",
+                                                                           "Releasing ladybugs to eat aphids",
+                                                                           "Burning fields",
+                                                                           "Using traps only"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Natural predators control pests without chemicals."
+                                                       },
+                                                       {
+                                                           "question":  "Crop disease signs include:",
+                                                           "options":  [
+                                                                           "Healthy green leaves",
+                                                                           "Wilting, spots on leaves, stunted growth, discoloration",
+                                                                           "Fast growth",
+                                                                           "Large fruit"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Early detection of these signs allows treatment before serious damage."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Soil Conservation",
+                                          "content":  "Soil erosion removes the fertile topsoil that crops need. Causes: heavy rain on bare soil, wind on exposed fields, overgrazing, deforestation, poor farming practices. Prevention: contour plowing (plowing along the contour of hills, not up and down), terracing (creating stepped levels on slopes), cover crops (plants that protect soil between main crop seasons), mulching (covering soil with organic material), windbreaks (rows of trees blocking wind), and grass strips (planted between crop rows to slow water runoff). Soil takes thousands of years to form but can be eroded in a single season. Conservation agriculture: minimum tillage (less plowing preserves soil structure), permanent soil cover, and crop rotation. Healthy soil is a farmer\u0027s most valuable asset — protect it.",
+                                          "examples":  [
+                                                           "Terracing in Rwanda: stepped hillsides prevent rainwater from washing soil downhill",
+                                                           "Mulching with banana leaves: keeps soil moist, cool, and protected from direct rain impact",
+                                                           "Contour plowing: furrows follow the hill\u0027s contour, trapping water instead of channeling it downhill"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "soil erosion":  "The removal of topsoil by water, wind, or human activity",
+                                                           "contour plowing":  "Plowing along the natural contour of a slope to reduce water runoff",
+                                                           "terracing":  "Creating level steps on hillsides to prevent erosion and retain water",
+                                                           "mulching":  "Covering soil surface with organic material to protect and nourish it",
+                                                           "conservation agriculture":  "Minimum tillage, permanent cover, and crop rotation to protect soil"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Soil erosion is a problem because:",
+                                                           "options":  [
+                                                                           "It only affects deserts",
+                                                                           "It adds nutrients",
+                                                                           "It improves drainage",
+                                                                           "It removes fertile topsoil that took thousands of years to form"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Topsoil is where nutrients are concentrated — losing it devastates crop production."
+                                                       },
+                                                       {
+                                                           "question":  "Contour plowing works by:",
+                                                           "options":  [
+                                                                           "Plowing straight downhill for speed",
+                                                                           "Creating furrows that trap water instead of channeling it downhill",
+                                                                           "Not plowing at all",
+                                                                           "Plowing in circles"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Following the contour means water is trapped in furrows, reducing runoff and erosion."
+                                                       },
+                                                       {
+                                                           "question":  "Mulching protects soil by:",
+                                                           "options":  [
+                                                                           "Covering it from rain impact, reducing evaporation, and adding nutrients as it decomposes",
+                                                                           "Making soil waterproof",
+                                                                           "Preventing plant growth",
+                                                                           "Reflecting sunlight"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Mulch acts as a protective blanket — preserving moisture and preventing erosion."
+                                                       },
+                                                       {
+                                                           "question":  "Conservation agriculture minimizes:",
+                                                           "options":  [
+                                                                           "Tillage (plowing) to preserve soil structure",
+                                                                           "Crop diversity",
+                                                                           "Water use",
+                                                                           "All farming"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Less plowing means soil organisms and structure are preserved."
+                                                       },
+                                                       {
+                                                           "question":  "Windbreaks are:",
+                                                           "options":  [
+                                                                           "Drainage channels",
+                                                                           "Walls around fields",
+                                                                           "Fences for animals",
+                                                                           "Rows of trees that block wind and reduce wind erosion"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Trees slow wind speed, preventing it from carrying away topsoil."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Seed Selection and Plant Breeding",
+                                          "content":  "Good seeds are the foundation of farming success. Seed quality factors: genetic purity (true to variety), germination rate (percentage that will sprout), vigor (strength of seedlings), and disease-free status. Seed sources: saved from previous harvest (traditional), purchased certified seed (guaranteed quality), or improved varieties from research institutions. Plant breeding develops better varieties: higher yield, disease resistance, drought tolerance, improved nutrition. Traditional breeding: cross-pollinate plants with desired traits, select best offspring over many generations. Modern biotechnology accelerates this: marker-assisted selection identifies desired genes without waiting for plants to grow. Hybrid seeds often give higher yields in the first generation but saved seed from hybrids performs poorly — farmers must buy new seed each season.",
+                                          "examples":  [
+                                                           "Improved maize varieties yield 3-5 tons/hectare vs 1-2 tons for traditional varieties",
+                                                           "NERICA rice: bred by crossing African and Asian rice — combines African resilience with Asian productivity",
+                                                           "Germination test: place 100 seeds on wet paper — count how many sprout in 5-7 days to calculate germination rate"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "certified seed":  "Seeds tested and guaranteed for genetic purity, germination rate, and disease-free status",
+                                                           "hybrid seed":  "Seeds from crossing two different parent varieties — higher yields but can\u0027t be saved",
+                                                           "germination rate":  "The percentage of seeds that successfully sprout under proper conditions",
+                                                           "plant breeding":  "Developing improved crop varieties through controlled crossing and selection"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Certified seeds guarantee:",
+                                                           "options":  [
+                                                                           "100% yield",
+                                                                           "Genetic purity, germination rate, and disease-free status",
+                                                                           "No need for fertilizer",
+                                                                           "Free replacement if crops fail"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Certification tests and verifies seed quality — it doesn\u0027t guarantee perfect harvests."
+                                                       },
+                                                       {
+                                                           "question":  "Why can\u0027t you save hybrid seeds for next season?",
+                                                           "options":  [
+                                                                           "Second-generation hybrids perform much worse — traits don\u0027t breed true",
+                                                                           "It\u0027s illegal everywhere",
+                                                                           "Seeds don\u0027t store well",
+                                                                           "Hybrids don\u0027t produce seeds"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Hybrid vigor is strongest in the first generation (F1) — offspring vary unpredictably."
+                                                       },
+                                                       {
+                                                           "question":  "A simple germination test involves:",
+                                                           "options":  [
+                                                                           "Planting in the field and waiting",
+                                                                           "Placing seeds on wet paper and counting how many sprout",
+                                                                           "Looking at the seed color",
+                                                                           "Weighing the seeds"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "100 seeds on moist paper → count sprouts after a week → calculate germination percentage."
+                                                       },
+                                                       {
+                                                           "question":  "NERICA rice is important because:",
+                                                           "options":  [
+                                                                           "It needs no water",
+                                                                           "It\u0027s the oldest rice variety",
+                                                                           "It combines African resilience with Asian productivity",
+                                                                           "It\u0027s genetically modified"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "NERICA was bred by crossing African and Asian rice — creating a variety suited to African conditions."
+                                                       },
+                                                       {
+                                                           "question":  "Traditional plant breeding works by:",
+                                                           "options":  [
+                                                                           "Genetically modifying DNA in a lab",
+                                                                           "Crossing plants with desired traits and selecting the best offspring over generations",
+                                                                           "Spraying chemicals on plants",
+                                                                           "Only saving the biggest seeds"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Cross-pollinate, grow offspring, select the best, repeat — over many generations."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Animal Husbandry",
+                      "lessons":  [
+                                      {
+                                          "title":  "Livestock Management",
+                                          "content":  "Livestock: cattle, goats, sheep, pigs. Needs: shelter, nutrition (energy, protein, minerals, vitamins), clean water, healthcare (vaccinations, deworming). Breeding selection improves herd quality. Record keeping tracks births, vaccinations, costs, sales.",
+                                          "examples":  [
+                                                           "Dairy cow: 50-100L water daily, 15-25L milk",
+                                                           "Deworming every 3-4 months",
+                                                           "Records: dam, sire, birth date, vaccination dates"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "livestock":  "Animals for food, fiber, or labor",
+                                                           "breeding selection":  "Choosing best traits for offspring",
+                                                           "deworming":  "Treating internal parasites",
+                                                           "record keeping":  "Tracking animal health, breeding, and financial data"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Basic livestock needs:",
+                                                           "options":  [
+                                                                           "Only food",
+                                                                           "Shelter, food, water, healthcare",
+                                                                           "Only shelter",
+                                                                           "Nothing"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "All four are essential."
+                                                       },
+                                                       {
+                                                           "question":  "Keep livestock records to:",
+                                                           "options":  [
+                                                                           "Waste of time",
+                                                                           "Track health, breeding, costs for better decisions",
+                                                                           "Only large farms",
+                                                                           "Confuse animals"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Data drives better management decisions."
+                                                       },
+                                                       {
+                                                           "question":  "Breeding selection:",
+                                                           "options":  [
+                                                                           "Changes species",
+                                                                           "Reduces herd size",
+                                                                           "Improves herd quality over generations",
+                                                                           "Not important"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Gradually improves traits like milk yield and disease resistance."
+                                                       },
+                                                       {
+                                                           "question":  "Deworming is important because:",
+                                                           "options":  [
+                                                                           "It\u0027s only cosmetic",
+                                                                           "Animals enjoy it",
+                                                                           "Internal parasites reduce growth and production",
+                                                                           "Parasites are harmless"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Worms steal nutrients — reducing growth, milk production, and overall health."
+                                                       },
+                                                       {
+                                                           "question":  "A good livestock shelter provides:",
+                                                           "options":  [
+                                                                           "Maximum confinement",
+                                                                           "Protection from weather and predators with adequate ventilation",
+                                                                           "No ventilation",
+                                                                           "Only shade"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Animals need protection but also fresh air to prevent respiratory diseases."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Poultry Farming",
+                                          "content":  "Chickens: layers (eggs, 250-300/year, start at 18-20 weeks) or broilers (meat, 2-2.5kg in 6-8 weeks). Housing: ventilated, dry, predator-proof. Feed = 60-70% of costs. Vaccination essential (Newcastle). Common issues: overcrowding, poor ventilation, disease spread.",
+                                          "examples":  [
+                                                           "Layer: 120g feed, 250ml water daily for egg production",
+                                                           "10 birds/m², wood shavings bedding",
+                                                           "Newcastle vaccine: day 1, 14, 28, then every 3 months"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "layers":  "Breeds for egg production",
+                                                           "broilers":  "Breeds for meat, fast growing",
+                                                           "vaccination":  "Building disease immunity",
+                                                           "biosecurity":  "Practices preventing disease from entering the farm"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Broilers reach market weight in:",
+                                                           "options":  [
+                                                                           "6-8 months",
+                                                                           "6-8 weeks",
+                                                                           "2 years",
+                                                                           "1 week"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Fast-growing breeds."
+                                                       },
+                                                       {
+                                                           "question":  "Feed costs:",
+                                                           "options":  [
+                                                                           "10-20%",
+                                                                           "60-70% of poultry costs",
+                                                                           "90-100%",
+                                                                           "30-40%"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Feed is the biggest expense."
+                                                       },
+                                                       {
+                                                           "question":  "Newcastle disease prevention:",
+                                                           "options":  [
+                                                                           "Good feed",
+                                                                           "Vaccination",
+                                                                           "Clean water",
+                                                                           "Sunlight"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Only vaccination prevents this deadly viral disease."
+                                                       },
+                                                       {
+                                                           "question":  "Biosecurity means:",
+                                                           "options":  [
+                                                                           "Armed guards",
+                                                                           "Security cameras",
+                                                                           "Practices preventing disease from entering the farm",
+                                                                           "Insurance"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Foot baths, restricted visitors, quarantine new birds — prevent disease introduction."
+                                                       },
+                                                       {
+                                                           "question":  "Signs of a healthy chicken include:",
+                                                           "options":  [
+                                                                           "Reduced eating",
+                                                                           "Sitting alone, droopy wings",
+                                                                           "Active, bright eyes, clean feathers, good appetite",
+                                                                           "Ruffled feathers"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Healthy birds are active and alert — changes in behavior signal problems early."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Animal Nutrition",
+                                          "content":  "Needs: energy (carbs/fats), protein (growth, milk, eggs), minerals (calcium for bones/shells, phosphorus, salt), vitamins (A, D, E), water (most important). Feeds: concentrates (high energy/protein — maize, soybean) and roughages (high fiber — grass, hay, silage). Ruminants (cattle, goats) digest grass via four-compartment stomach. Non-ruminants (pigs, poultry) need concentrates. Formulate rations for specific needs at lowest cost.",
+                                          "examples":  [
+                                                           "Dairy cow: 60% roughage + 40% concentrates",
+                                                           "Calcium deficiency in layers → thin/no shells → add limestone",
+                                                           "Silage: chopped maize stored airtight, ferments, excellent dry-season feed"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "concentrate":  "High energy/protein, low fiber feed",
+                                                           "roughage":  "High fiber feed — grass, hay, silage",
+                                                           "ruminant":  "Four-compartment stomach animal digesting fiber",
+                                                           "ration":  "The specific mix of feeds for an animal\u0027s daily needs"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Most important nutrient:",
+                                                           "options":  [
+                                                                           "Protein",
+                                                                           "Water",
+                                                                           "Vitamins",
+                                                                           "Minerals"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Animals survive longer without food than water."
+                                                       },
+                                                       {
+                                                           "question":  "Ruminants digest grass because:",
+                                                           "options":  [
+                                                                           "Grass is easy to digest",
+                                                                           "They chew faster",
+                                                                           "Four-compartment stomach with microbes breaks down fiber",
+                                                                           "They don\u0027t actually digest it"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Rumen bacteria ferment cellulose."
+                                                       },
+                                                       {
+                                                           "question":  "Silage is:",
+                                                           "options":  [
+                                                                           "Preserved green forage stored airtight",
+                                                                           "Dried grass",
+                                                                           "Animal medicine",
+                                                                           "A type of grain"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Chopped, stored without air, fermented and preserved."
+                                                       },
+                                                       {
+                                                           "question":  "A ration is:",
+                                                           "options":  [
+                                                                           "The specific daily mix of feeds for an animal\u0027s needs",
+                                                                           "A random mix of food",
+                                                                           "Only water",
+                                                                           "The cheapest possible feed"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Rations are carefully formulated to meet specific nutritional requirements at minimum cost."
+                                                       },
+                                                       {
+                                                           "question":  "Non-ruminants (pigs, chickens) need more concentrates because:",
+                                                           "options":  [
+                                                                           "They only eat grain",
+                                                                           "They are bigger",
+                                                                           "They eat less",
+                                                                           "Their simple stomachs can\u0027t break down fibrous roughage efficiently"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Without a rumen, they can\u0027t ferment fiber — they need energy-dense, easily digestible feed."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Dairy Farming",
+                                          "content":  "Dairy farming produces milk and milk products. Good dairy breeds: Holstein-Friesian (highest yield, ~25-30L/day but needs good management), Jersey (rich milk, smaller body, lower feed costs), and local/cross breeds (adapted to local conditions, lower yield but hardier). Key management practices: clean milking hygiene (wash udder, clean equipment), regular milking schedule (usually twice daily), balanced nutrition (dairy cows need extra energy and calcium), adequate water (a dairy cow drinks 80-150 liters daily), and mastitis prevention (udder infection — the most common and costly dairy disease). Milk handling: cool quickly to below 4°C to prevent bacterial growth, or process immediately into yogurt, cheese, or ghee for longer shelf life. Record milk production per cow to identify top producers and cull low performers.",
+                                          "examples":  [
+                                                           "A Holstein-Friesian can produce 25-30 liters/day with proper feeding and management",
+                                                           "Mastitis prevention: clean milking, teat dipping after milking, dry cow therapy",
+                                                           "Value addition: 1 liter of raw milk sells for 1,500 UGX, but 1 liter of yogurt sells for 4,000 UGX"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "mastitis":  "An infection of the udder — the most common and costly dairy disease",
+                                                           "colostrum":  "The first milk after calving — rich in antibodies essential for calf survival",
+                                                           "dairy breeds":  "Cattle varieties selected for high milk production",
+                                                           "teat dipping":  "Applying antiseptic to teats after milking to prevent infection"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The highest-yielding dairy breed is:",
+                                                           "options":  [
+                                                                           "Jersey",
+                                                                           "Holstein-Friesian",
+                                                                           "Local breeds",
+                                                                           "Beef cattle"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Holstein-Friesians produce the most milk but require excellent management and nutrition."
+                                                       },
+                                                       {
+                                                           "question":  "Mastitis is:",
+                                                           "options":  [
+                                                                           "An udder infection — the most costly dairy disease",
+                                                                           "A type of feed",
+                                                                           "A milking machine",
+                                                                           "A cattle breed"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Mastitis reduces milk quality and quantity — prevention is key."
+                                                       },
+                                                       {
+                                                           "question":  "Milk should be cooled to:",
+                                                           "options":  [
+                                                                           "Body temperature",
+                                                                           "Room temperature",
+                                                                           "Below 4°C to prevent bacterial growth",
+                                                                           "Below 0°C (frozen)"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Bacteria multiply rapidly in warm milk — cooling slows growth and preserves quality."
+                                                       },
+                                                       {
+                                                           "question":  "Colostrum is critical because:",
+                                                           "options":  [
+                                                                           "It\u0027s the most delicious milk",
+                                                                           "It contains antibodies that protect the newborn calf from diseases",
+                                                                           "It can be sold for more money",
+                                                                           "It causes disease"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Calves must receive colostrum within 6 hours of birth — it\u0027s their first immune protection."
+                                                       },
+                                                       {
+                                                           "question":  "Value addition in dairy means:",
+                                                           "options":  [
+                                                                           "Buying more cows",
+                                                                           "Adding water to milk",
+                                                                           "Increasing herd size",
+                                                                           "Processing milk into higher-value products like yogurt, cheese, or ghee"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Processed dairy products sell for more than raw milk — increasing farmer income."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Aquaculture and Fish Farming",
+                                          "content":  "Aquaculture is farming fish and other aquatic organisms. It\u0027s the fastest-growing food production sector globally. Common species: tilapia (hardy, fast-growing, popular in Africa), catfish (tolerates poor water quality), trout (cold water), and prawns. Pond systems: earthen ponds are most common — dig, fill, stock with fingerlings (young fish), feed, and harvest. Water quality is crucial: dissolved oxygen (fish suffocate without it), temperature, pH, and ammonia levels. Feeding: commercial pellets or supplementary feeds (kitchen waste, agricultural by-products). Stocking density: too many fish = disease and slow growth. Polyculture: raising different species together (e.g., tilapia and catfish) — they occupy different niches and don\u0027t compete. Fish farming provides protein, income, and employment with relatively low land requirements.",
+                                          "examples":  [
+                                                           "A 10m × 10m tilapia pond can produce 200-500 kg of fish in 6-8 months",
+                                                           "Water testing: check dissolved oxygen every morning — low levels (below 3 mg/L) can kill fish",
+                                                           "Polyculture: tilapia feeds near the surface, catfish feeds at the bottom — both thrive without competing"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "aquaculture":  "Farming fish and aquatic organisms in controlled conditions",
+                                                           "fingerlings":  "Young fish used for stocking ponds",
+                                                           "stocking density":  "The number of fish per unit area of water",
+                                                           "polyculture":  "Raising multiple species together for better resource use"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The most critical factor in fish farming is:",
+                                                           "options":  [
+                                                                           "Water quality — especially dissolved oxygen",
+                                                                           "Pond color",
+                                                                           "Fish color",
+                                                                           "Time of year only"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Fish need dissolved oxygen to survive — poor water quality kills fish quickly."
+                                                       },
+                                                       {
+                                                           "question":  "Tilapia is popular for farming because:",
+                                                           "options":  [
+                                                                           "It needs no food",
+                                                                           "It\u0027s the most expensive fish",
+                                                                           "It\u0027s hardy, fast-growing, and widely eaten",
+                                                                           "It survives without water"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Tilapia adapts to various conditions and grows quickly — ideal for small-scale farmers."
+                                                       },
+                                                       {
+                                                           "question":  "Polyculture means:",
+                                                           "options":  [
+                                                                           "Farming only in the sea",
+                                                                           "Only one species per pond",
+                                                                           "Growing fish and crops together",
+                                                                           "Raising different fish species together in the same pond"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Different species use different parts of the pond — reducing waste and competition."
+                                                       },
+                                                       {
+                                                           "question":  "Too many fish in a pond causes:",
+                                                           "options":  [
+                                                                           "Disease, slow growth, and oxygen depletion",
+                                                                           "Faster growth",
+                                                                           "Better water quality",
+                                                                           "Higher profits always"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Overcrowding creates competition, stress, disease, and oxygen shortages."
+                                                       },
+                                                       {
+                                                           "question":  "Fish farming advantages include:",
+                                                           "options":  [
+                                                                           "High protein production from small land area, income generation",
+                                                                           "Requires large land areas",
+                                                                           "Only works in coastal areas",
+                                                                           "No management needed"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Fish convert feed to protein efficiently and farming uses relatively little land."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Modern Farming",
+                      "lessons":  [
+                                      {
+                                          "title":  "Irrigation Methods",
+                                          "content":  "Surface (flooding): simplest, wastes water. Sprinkler: more uniform, some evaporation. Drip: water directly to roots, 30-50% more efficient. Rainwater harvesting: collect for dry periods. Too little water: wilting, crop failure. Too much: waterlogging, root rot.",
+                                          "examples":  [
+                                                           "Drip for tomatoes: tube along each row, emitters at each plant",
+                                                           "Rainwater: gutters collect into 10,000L tank for dry season",
+                                                           "Rice paddies: deliberately flooded — rice thrives in standing water"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "drip irrigation":  "Water directly to roots — most efficient",
+                                                           "rainwater harvesting":  "Collecting rain for later use",
+                                                           "waterlogging":  "Excess water suffocating roots",
+                                                           "water use efficiency":  "Crop yield per unit of water used"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Most water-efficient:",
+                                                           "options":  [
+                                                                           "Flood",
+                                                                           "Drip irrigation",
+                                                                           "Sprinkler",
+                                                                           "Rain-fed"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Delivers water directly to roots."
+                                                       },
+                                                       {
+                                                           "question":  "Rainwater harvesting:",
+                                                           "options":  [
+                                                                           "Collecting and storing rain for agriculture",
+                                                                           "Making rain artificially",
+                                                                           "Draining rainwater",
+                                                                           "Filtering rivers"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Store for dry periods."
+                                                       },
+                                                       {
+                                                           "question":  "Too much water:",
+                                                           "options":  [
+                                                                           "Stronger roots",
+                                                                           "Better growth",
+                                                                           "More flowers",
+                                                                           "Waterlogging and root rot"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Roots need air — waterlogged soil suffocates them."
+                                                       },
+                                                       {
+                                                           "question":  "Drip irrigation saves water by:",
+                                                           "options":  [
+                                                                           "Using saltwater",
+                                                                           "Using more water",
+                                                                           "Only working at night",
+                                                                           "Delivering it directly to roots, minimizing evaporation and runoff"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Precise delivery means almost no waste."
+                                                       },
+                                                       {
+                                                           "question":  "Which crop is deliberately grown in flooded fields?",
+                                                           "options":  [
+                                                                           "Wheat",
+                                                                           "Rice",
+                                                                           "Maize",
+                                                                           "Tomatoes"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Rice paddies are intentionally flooded — rice is adapted to standing water."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Technology in Agriculture",
+                                          "content":  "Drones survey fields — detecting pests, nutrient deficiency, water stress. Soil sensors monitor moisture, pH, nutrients in real-time. GPS-guided tractors plant/harvest precisely. Mobile apps: weather, prices, pest ID from photos. Greenhouses control temperature/humidity for year-round production. Hydroponics grows without soil in nutrient water.",
+                                          "examples":  [
+                                                           "Drone: 50-hectare farm surveyed in 30 minutes",
+                                                           "Soil sensor alerts farmer: \u0027Field 3 needs irrigation\u0027",
+                                                           "App identifies plant disease from leaf photo"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "precision agriculture":  "Technology optimizing farming operations",
+                                                           "hydroponics":  "Growing in nutrient water without soil",
+                                                           "greenhouse":  "Controlled environment for year-round production",
+                                                           "remote sensing":  "Using satellites or drones to monitor crop conditions"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Drones help by:",
+                                                           "options":  [
+                                                                           "Planting automatically",
+                                                                           "Surveying large fields quickly to detect problems",
+                                                                           "Harvesting",
+                                                                           "Watering fields"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Aerial images spot problems."
+                                                       },
+                                                       {
+                                                           "question":  "Hydroponics:",
+                                                           "options":  [
+                                                                           "Grows in nutrient water without soil",
+                                                                           "Special soil",
+                                                                           "Sand only",
+                                                                           "Rocks only"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Water with dissolved nutrients."
+                                                       },
+                                                       {
+                                                           "question":  "Precision agriculture:",
+                                                           "options":  [
+                                                                           "Hand tools only",
+                                                                           "Farming precisely at midnight",
+                                                                           "Technology-based optimization using data",
+                                                                           "One crop precisely"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Sensors, GPS, and data drive decisions."
+                                                       },
+                                                       {
+                                                           "question":  "Greenhouses enable:",
+                                                           "options":  [
+                                                                           "Only summer crops",
+                                                                           "Year-round crop production regardless of outside weather",
+                                                                           "Cheaper farming always",
+                                                                           "Only flower growing"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Controlled environment means you can grow tomatoes even in dry season."
+                                                       },
+                                                       {
+                                                           "question":  "Mobile apps help farmers by:",
+                                                           "options":  [
+                                                                           "Only social media",
+                                                                           "Playing games",
+                                                                           "Providing weather forecasts, market prices, and pest identification",
+                                                                           "Nothing useful"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Digital agriculture puts expert knowledge in farmers\u0027 pockets."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Organic and Sustainable Farming",
+                                          "content":  "Organic: no synthetic chemicals, uses compost, biological pest control, rotation. Benefits: healthier soil, fewer chemicals in food, environmental protection. Challenges: lower initial yields, more labor, harder pest management. Sustainable farming meets current needs without harming future generations. Practices: conservation tillage, agroforestry (trees + crops), integrated farming (crops + livestock — waste fertilizes crops).",
+                                          "examples":  [
+                                                           "Compost tea: spray on crops as natural fertilizer",
+                                                           "Agroforestry: fruit trees among coffee — shade, nitrogen, extra income",
+                                                           "Conservation tillage: leave residue to protect soil from erosion"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "organic farming":  "No synthetic chemicals, natural methods",
+                                                           "sustainable agriculture":  "Meeting needs without harming future",
+                                                           "agroforestry":  "Trees combined with crops or livestock",
+                                                           "permaculture":  "Designing agricultural systems that mimic natural ecosystems"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Organic farming avoids:",
+                                                           "options":  [
+                                                                           "Harvesting",
+                                                                           "All water",
+                                                                           "All animal products",
+                                                                           "Synthetic pesticides and fertilizers"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Uses natural alternatives."
+                                                       },
+                                                       {
+                                                           "question":  "Agroforestry:",
+                                                           "options":  [
+                                                                           "Cutting all trees",
+                                                                           "Trees with crops for mutual benefit",
+                                                                           "Only trees",
+                                                                           "Farming in forests"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Integration of trees and agriculture."
+                                                       },
+                                                       {
+                                                           "question":  "Conservation tillage:",
+                                                           "options":  [
+                                                                           "Prevents soil erosion",
+                                                                           "Makes soil compact",
+                                                                           "Removes vegetation",
+                                                                           "Increases chemicals"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Minimal plowing protects soil structure."
+                                                       },
+                                                       {
+                                                           "question":  "Permaculture aims to:",
+                                                           "options":  [
+                                                                           "Use maximum chemicals",
+                                                                           "Design farming systems that mimic natural ecosystems",
+                                                                           "Farm only one crop",
+                                                                           "Ignore environmental impact"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Working with nature, not against it — creating self-sustaining systems."
+                                                       },
+                                                       {
+                                                           "question":  "A challenge of organic farming:",
+                                                           "options":  [
+                                                                           "Plants grow too fast",
+                                                                           "No challenges at all",
+                                                                           "Too much chemical use",
+                                                                           "Initially lower yields and more labor required"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Organic transitions take time — yields typically recover after 2-3 years."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Climate-Smart Agriculture",
+                                          "content":  "Climate change impacts farming through unpredictable rainfall, rising temperatures, more extreme weather events, and new pest/disease patterns. Climate-smart agriculture (CSA) addresses three goals: increasing productivity (grow more with less), adapting to changes (resilient crops and practices), and reducing emissions (lower carbon footprint of farming). Adaptation strategies: drought-resistant crop varieties, water harvesting, conservation agriculture, diversified farming (don\u0027t depend on one crop), and early warning systems for weather. Mitigation: reducing methane from livestock (improved feeding), minimizing fertilizer overuse (causes nitrous oxide emissions), agroforestry (trees absorb CO₂), and improved rice paddy management (reducing methane). Small-scale farmers are most vulnerable to climate change but contribute least to it — they need support to adapt.",
+                                          "examples":  [
+                                                           "Drought-resistant maize varieties maintain yield even with 30% less rainfall",
+                                                           "Crop insurance: farmers pay a small premium and are compensated if drought destroys their harvest",
+                                                           "Improved livestock feeding: better feed efficiency = less methane per kg of meat or milk produced"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "climate-smart agriculture":  "Farming that increases productivity, adapts to climate change, and reduces emissions",
+                                                           "adaptation":  "Adjusting farming practices to cope with changing climate conditions",
+                                                           "mitigation":  "Reducing greenhouse gas emissions from agricultural activities",
+                                                           "resilience":  "The ability of farming systems to withstand and recover from climate shocks"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Climate-smart agriculture has three goals:",
+                                                           "options":  [
+                                                                           "Only increase yields",
+                                                                           "Increase productivity, adapt to changes, reduce emissions",
+                                                                           "Only reduce emissions",
+                                                                           "Only adapt to weather"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "CSA addresses productivity, adaptation, AND mitigation simultaneously."
+                                                       },
+                                                       {
+                                                           "question":  "Drought-resistant varieties help farmers by:",
+                                                           "options":  [
+                                                                           "Needing more water",
+                                                                           "Growing only in rain",
+                                                                           "Maintaining yields even when rainfall is reduced",
+                                                                           "Producing less food"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Bred to tolerate water stress — critical as rainfall patterns become less predictable."
+                                                       },
+                                                       {
+                                                           "question":  "Agriculture contributes to climate change through:",
+                                                           "options":  [
+                                                                           "Only through water use",
+                                                                           "Only through carbon dioxide",
+                                                                           "It doesn\u0027t contribute at all",
+                                                                           "Methane from livestock, nitrous oxide from fertilizers, deforestation"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Agriculture produces about 10-12% of global greenhouse gas emissions."
+                                                       },
+                                                       {
+                                                           "question":  "Who is most vulnerable to climate change in farming?",
+                                                           "options":  [
+                                                                           "Farmers in cold climates",
+                                                                           "Large industrial farms",
+                                                                           "Greenhouse farmers",
+                                                                           "Small-scale farmers in developing countries"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Small farmers have fewer resources to adapt — they depend on rain and have no insurance."
+                                                       },
+                                                       {
+                                                           "question":  "Agroforestry helps climate because:",
+                                                           "options":  [
+                                                                           "Trees have no environmental benefit",
+                                                                           "Trees block rain",
+                                                                           "Trees compete with crops always",
+                                                                           "Trees absorb CO₂ while providing shade, fruit, and soil protection"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Trees are carbon sinks AND provide multiple benefits: shade, fruit, nitrogen fixation, erosion control."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Urban and Vertical Farming",
+                                          "content":  "As cities grow, urban farming brings food production closer to consumers. Types: rooftop gardens, community gardens, container farming, vertical farms. Vertical farming grows crops in stacked layers indoors using LED lights, controlled temperature and humidity, and hydroponic or aeroponic systems. Advantages: uses 95% less water than field farming, no pesticides needed (controlled environment), grows year-round regardless of weather, reduces transport distances, and can produce in areas with no arable land. Challenges: high initial investment (lights, climate control, technology), high energy costs (especially for lighting), and limited to certain crops (leafy greens, herbs, strawberries — not grains or root crops). Urban farming also builds community: shared gardens bring neighbors together and teach children where food comes from.",
+                                          "examples":  [
+                                                           "A vertical farm in a shipping container produces as much lettuce as 2 acres of farmland using 90% less water",
+                                                           "A school rooftop garden: students grow vegetables, learn biology, and supply the school kitchen",
+                                                           "Singapore farms vertically because it has almost no farmland — importing 90% of food makes it vulnerable"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "vertical farming":  "Growing crops in stacked indoor layers with controlled lighting and environment",
+                                                           "urban farming":  "Growing food within cities — rooftops, community gardens, vacant lots",
+                                                           "aeroponics":  "Growing plants with roots suspended in air, misted with nutrient solution",
+                                                           "food miles":  "The distance food travels from farm to consumer — shorter = fresher and lower emissions"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Vertical farming uses less water because:",
+                                                           "options":  [
+                                                                           "Plants need less water indoors",
+                                                                           "Water is recycled in a closed system — up to 95% savings",
+                                                                           "They don\u0027t use water at all",
+                                                                           "Water is filtered naturally"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Hydroponic systems recirculate water — almost nothing is wasted."
+                                                       },
+                                                       {
+                                                           "question":  "A challenge of vertical farming is:",
+                                                           "options":  [
+                                                                           "Too much land needed",
+                                                                           "High energy costs for lighting and climate control",
+                                                                           "Not enough technology exists",
+                                                                           "Plants won\u0027t grow indoors"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "LED lights and climate systems are expensive to operate — electricity is the biggest cost."
+                                                       },
+                                                       {
+                                                           "question":  "Vertical farming is best suited for:",
+                                                           "options":  [
+                                                                           "Leafy greens, herbs, and small fruits — not grains or root crops",
+                                                                           "Only wheat and corn",
+                                                                           "Only tropical fruits",
+                                                                           "Any crop at any scale"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "High-value, short, fast-growing crops make economic sense — grain and potatoes don\u0027t."
+                                                       },
+                                                       {
+                                                           "question":  "Urban farming benefits communities by:",
+                                                           "options":  [
+                                                                           "Providing fresh food, education, and bringing neighbors together",
+                                                                           "Only reducing food costs",
+                                                                           "Replacing all rural farms",
+                                                                           "Only for wealthy neighborhoods"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Community gardens provide food, teach children about agriculture, and build social connections."
+                                                       },
+                                                       {
+                                                           "question":  "Food miles matter because:",
+                                                           "options":  [
+                                                                           "Distance doesn\u0027t affect freshness",
+                                                                           "Longer distances improve quality",
+                                                                           "Shorter distances mean fresher food and lower transport emissions",
+                                                                           "Only applies to imported food"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Local food is fresher (less time in transit) and has a lower carbon footprint."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Farm Business",
+                      "lessons":  [
+                                      {
+                                          "title":  "Marketing Farm Produce",
+                                          "content":  "Know your market: who buys, what quality, when, what price. Direct selling (farm gate, farmers\u0027 market) — higher prices, more work. Wholesale: lower prices, larger volumes. Value addition: raw tomatoes → sauce, raw milk → yogurt — more revenue. Timing: sell when supply is low. Storage helps hold for better prices.",
+                                          "examples":  [
+                                                           "Value addition: maize 1000/kg, flour 2500/kg — 150% more",
+                                                           "Farmers\u0027 market: premium direct to consumer",
+                                                           "Cold storage: onions for 3 months, prices double off-season"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "value addition":  "Processing raw produce into higher-value products",
+                                                           "market timing":  "Selling when supply is low and prices high",
+                                                           "direct selling":  "Selling directly without middlemen",
+                                                           "market linkage":  "Connecting farmers to reliable buyers through contracts or cooperatives"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Value addition:",
+                                                           "options":  [
+                                                                           "Processing raw products for higher value",
+                                                                           "Adding fertilizer",
+                                                                           "Increasing farm size",
+                                                                           "Buying equipment"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Milk → yogurt, tomatoes → sauce."
+                                                       },
+                                                       {
+                                                           "question":  "Prices drop at harvest because:",
+                                                           "options":  [
+                                                                           "People eat less",
+                                                                           "Quality lower",
+                                                                           "Everyone selling at once — high supply",
+                                                                           "Transport costs"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Flood of supply drops prices."
+                                                       },
+                                                       {
+                                                           "question":  "Direct selling advantage:",
+                                                           "options":  [
+                                                                           "No customer interaction",
+                                                                           "Less work",
+                                                                           "Larger volumes",
+                                                                           "Higher prices, no middlemen"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "More profit per unit."
+                                                       },
+                                                       {
+                                                           "question":  "Market linkage helps farmers by:",
+                                                           "options":  [
+                                                                           "Eliminating all markets",
+                                                                           "Cutting off all buyers",
+                                                                           "Only selling to government",
+                                                                           "Connecting them to reliable buyers, often with guaranteed prices"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Contract farming and buyer relationships provide income security."
+                                                       },
+                                                       {
+                                                           "question":  "Post-harvest storage allows:",
+                                                           "options":  [
+                                                                           "Selling later when prices are higher instead of at harvest when prices crash",
+                                                                           "Faster spoilage",
+                                                                           "Lower prices always",
+                                                                           "No benefit"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Store when supply is high (low prices), sell when supply drops (higher prices)."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Farm Financial Management",
+                                          "content":  "Track income and expenses. Revenue: crop/livestock/value-added sales. Expenses: seeds, fertilizer, labor, transport, equipment, vet care. Gross margin = income - variable costs. Net profit = gross margin - fixed costs. Cost per unit: total costs ÷ output. Compare to selling price for profit margin. Budget each season. Review actual vs budget.",
+                                          "examples":  [
+                                                           "Cost per egg: total costs ÷ total eggs",
+                                                           "Tomatoes: cost 800/kg, sell 1500/kg — 700/kg profit (47%)",
+                                                           "Budget: expected maize income 2M, costs 1.2M, profit 800K"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "gross margin":  "Income minus variable costs",
+                                                           "cost of production":  "Total cost per unit of output",
+                                                           "budget":  "Plan of expected income and expenses",
+                                                           "profit margin":  "Percentage of revenue that is profit"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Gross margin:",
+                                                           "options":  [
+                                                                           "Total revenue",
+                                                                           "Income minus all costs",
+                                                                           "Income plus costs",
+                                                                           "Income minus variable costs"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Shows if specific enterprise is profitable."
+                                                       },
+                                                       {
+                                                           "question":  "Cost per unit purpose:",
+                                                           "options":  [
+                                                                           "Confuse competitors",
+                                                                           "Increase costs",
+                                                                           "Know minimum selling price for profit",
+                                                                           "Not useful"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Must sell above cost to avoid losses."
+                                                       },
+                                                       {
+                                                           "question":  "Compare budget to actual:",
+                                                           "options":  [
+                                                                           "Budgets always accurate",
+                                                                           "Learn what went right/wrong for next season",
+                                                                           "Punish workers",
+                                                                           "Waste of time"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Understand variances to improve."
+                                                       },
+                                                       {
+                                                           "question":  "Variable costs are:",
+                                                           "options":  [
+                                                                           "Always the same amount",
+                                                                           "Fixed costs like rent",
+                                                                           "Costs that change with production level — seeds, fertilizer, casual labor",
+                                                                           "Only in the first season"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Produce more = spend more on seeds, fertilizer, labor."
+                                                       },
+                                                       {
+                                                           "question":  "A simple farm record book should track:",
+                                                           "options":  [
+                                                                           "Nothing — memory is enough",
+                                                                           "Only income",
+                                                                           "Only expenses",
+                                                                           "All income, expenses, dates, and quantities for each enterprise"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Both sides of the financial picture, organized by enterprise (poultry, crops, etc.)."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Cooperatives and Farmer Groups",
+                                          "content":  "Cooperatives: farmers join for mutual benefit. Advantages: bulk buying (lower prices), collective selling (better prices), shared equipment, training access, credit access, stronger negotiation. Need: clear governance, transparent finances, active participation, good leadership. Types: marketing, service, savings (SACCOs). Together, small farmers compete with large commercial farms.",
+                                          "examples":  [
+                                                           "50 dairy farmers collect and sell together at higher price",
+                                                           "Bulk fertilizer: 50 bags at wholesale vs 1 at retail",
+                                                           "SACCO: save 10K/month, borrow up to 3x savings"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "cooperative":  "Farmer-owned organization for mutual benefit",
+                                                           "bulk buying":  "Large quantity purchasing for lower prices",
+                                                           "SACCO":  "Savings and Credit Cooperative",
+                                                           "collective bargaining":  "Negotiating as a group for better terms"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Cooperative advantage:",
+                                                           "options":  [
+                                                                           "More paperwork",
+                                                                           "Stronger bargaining and lower costs",
+                                                                           "Higher risk",
+                                                                           "Less market access"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Together for better prices and buying power."
+                                                       },
+                                                       {
+                                                           "question":  "SACCO:",
+                                                           "options":  [
+                                                                           "Government program",
+                                                                           "Fertilizer type",
+                                                                           "Savings and credit cooperative",
+                                                                           "Crop variety"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Members save and lend to each other at favorable rates."
+                                                       },
+                                                       {
+                                                           "question":  "Cooperatives succeed with:",
+                                                           "options":  [
+                                                                           "Just a leader",
+                                                                           "Good governance, transparency, active participation",
+                                                                           "Government funding only",
+                                                                           "No rules"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Clear rules, trust, and engagement."
+                                                       },
+                                                       {
+                                                           "question":  "Collective bargaining power means:",
+                                                           "options":  [
+                                                                           "Negotiating as a group for better prices and terms than individuals could get",
+                                                                           "Fighting with buyers",
+                                                                           "Refusing to sell",
+                                                                           "Undercutting each other"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "1000 farmers together have more negotiating leverage than 1 farmer alone."
+                                                       },
+                                                       {
+                                                           "question":  "Cooperatives can help access:",
+                                                           "options":  [
+                                                                           "Only social events",
+                                                                           "Credit, training, equipment, and markets that individual farmers cannot reach",
+                                                                           "Government jobs",
+                                                                           "Free land"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "The combined resources and credibility of a cooperative open doors."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Agricultural Policy and Trade",
+                                          "content":  "Government policies significantly affect farming. Input subsidies reduce the cost of fertilizer, seeds, and equipment for farmers. Price support programs guarantee minimum prices for staple crops — protecting farmers from market crashes. Agricultural extension services provide farmers with technical advice and training. Land tenure policies determine who owns land and how securely — insecure land rights discourage long-term investment. Trade policies: tariffs protect local farmers from cheap imports; removal of barriers can expose them to competition but also opens export markets. International agreements (WTO, regional trade blocs like EAC, AfCFTA) affect what farmers can export and at what price. Understanding policy helps farmers advocate for their interests and make better business decisions.",
+                                          "examples":  [
+                                                           "Uganda\u0027s NAADS program provided extension services and improved seeds to smallholder farmers",
+                                                           "EU subsidies to European farmers make their products artificially cheap — undercutting African farmers in global markets",
+                                                           "AfCFTA opens a market of 1.3 billion people for African agricultural exports — huge opportunity"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "subsidy":  "Government financial support to reduce costs for farmers",
+                                                           "extension services":  "Government-provided technical advice and training for farmers",
+                                                           "land tenure":  "The legal arrangement by which someone has the right to use land",
+                                                           "trade policy":  "Government rules about imports and exports — tariffs, quotas, and agreements"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Input subsidies help farmers by:",
+                                                           "options":  [
+                                                                           "Increasing crop prices",
+                                                                           "Reducing the cost of fertilizer, seeds, and equipment",
+                                                                           "Providing free land",
+                                                                           "Eliminating all farming risks"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Lower input costs make farming more affordable and profitable for small-scale farmers."
+                                                       },
+                                                       {
+                                                           "question":  "Land tenure security matters because:",
+                                                           "options":  [
+                                                                           "Farmers with secure rights invest more in their land\u0027s long-term productivity",
+                                                                           "It has no effect on farming",
+                                                                           "Only large farms need it",
+                                                                           "It\u0027s only about legal paperwork"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Why plant trees or build irrigation if someone can take your land? Security drives investment."
+                                                       },
+                                                       {
+                                                           "question":  "Agricultural extension services provide:",
+                                                           "options":  [
+                                                                           "Land ownership",
+                                                                           "Free inputs",
+                                                                           "Technical advice and training to help farmers improve practices",
+                                                                           "Market prices"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Extension workers bridge the gap between research and farm-level practice."
+                                                       },
+                                                       {
+                                                           "question":  "AfCFTA benefits African farmers by:",
+                                                           "options":  [
+                                                                           "Closing all borders",
+                                                                           "Opening a market of 1.3 billion people for agricultural exports",
+                                                                           "Only benefiting one country",
+                                                                           "Eliminating all farming"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Reduced trade barriers within Africa create enormous export opportunities."
+                                                       },
+                                                       {
+                                                           "question":  "EU agricultural subsidies are controversial because:",
+                                                           "options":  [
+                                                                           "They make European products artificially cheap, undercutting farmers in developing countries",
+                                                                           "They help African farmers",
+                                                                           "They are too small",
+                                                                           "They only support organic farming"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Subsidized EU exports can be cheaper than locally produced goods — unfair competition."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Future of Agriculture",
+                                          "content":  "Global food demand will increase 50% by 2050 as population grows to nearly 10 billion. Meeting this sustainably is agriculture\u0027s greatest challenge. Key trends: precision agriculture (data-driven, site-specific management), gene editing (CRISPR for drought resistance, nutrition), vertical farming (urban food production), regenerative agriculture (building soil health, not just sustaining it), and digital platforms connecting farmers to markets, weather data, and finance. Agriculture is becoming a technology-driven, knowledge-intensive profession. Young entrepreneurs entering farming are combining traditional knowledge with modern tools — apps for market access, drones for scouting, and data for decision-making. The future farmer is a data analyst, business manager, and environmental steward all in one.",
+                                          "examples":  [
+                                                           "Farm management apps: track expenses, yields, weather forecasts — all on a smartphone",
+                                                           "CRISPR gene editing: developing cassava resistant to brown streak virus — potentially saving millions of tons",
+                                                           "Regenerative grazing: rotating cattle through small paddocks builds soil organic matter and stores carbon"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "food security":  "When all people have access to sufficient, safe, and nutritious food at all times",
+                                                           "regenerative agriculture":  "Farming practices that restore and enhance soil health and ecosystem function",
+                                                           "precision farming":  "Using data and technology for site-specific, efficient farm management",
+                                                           "agri-tech":  "Technology companies focused on agricultural innovation"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "By 2050, food demand will increase by:",
+                                                           "options":  [
+                                                                           "About 50% due to population growth",
+                                                                           "10%",
+                                                                           "Stay the same",
+                                                                           "Decrease"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Nearly 10 billion people will need feeding — a massive challenge."
+                                                       },
+                                                       {
+                                                           "question":  "Regenerative agriculture aims to:",
+                                                           "options":  [
+                                                                           "Only produce maximum yield",
+                                                                           "Use maximum chemicals",
+                                                                           "Ignore soil health",
+                                                                           "Restore and enhance soil health, not just maintain it"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Going beyond sustainability — actually improving soil and ecosystems."
+                                                       },
+                                                       {
+                                                           "question":  "The future farmer needs:",
+                                                           "options":  [
+                                                                           "Data analysis, business management, and environmental stewardship skills",
+                                                                           "Only physical strength",
+                                                                           "No education",
+                                                                           "Only traditional methods"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Modern farming is knowledge-intensive — combining tech, business, and ecology."
+                                                       },
+                                                       {
+                                                           "question":  "CRISPR in agriculture is used to:",
+                                                           "options":  [
+                                                                           "Create pesticides",
+                                                                           "Clone animals",
+                                                                           "Edit crop genes for disease resistance, drought tolerance, and improved nutrition",
+                                                                           "Build farm equipment"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Gene editing can precisely modify crops — faster and more targeted than traditional breeding."
+                                                       },
+                                                       {
+                                                           "question":  "Young agri-entrepreneurs combine:",
+                                                           "options":  [
+                                                                           "Only traditional methods",
+                                                                           "Traditional knowledge with modern technology and business skills",
+                                                                           "Only technology",
+                                                                           "Neither — they start from scratch"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "The best innovations in farming blend generations of experience with new tools."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  }
+              ]
 }

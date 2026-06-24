@@ -1,48 +1,1479 @@
 {
-  "id": "arts",
-  "name": "Arts",
-  "icon": "palette",
-  "color": "#EAB308",
-  "units": [
-    {
-      "title": "Visual Elements",
-      "lessons": [
-        {"title": "Line, Shape, and Form", "content": "Line is the most basic element — a mark moving through space. Lines can be straight, curved, thick, thin. They create direction and emotion: horizontal = calm, vertical = strong, diagonal = dynamic, zigzag = energy. Shapes are 2D: geometric (circles, squares) or organic (irregular). Forms are 3D: spheres, cubes. Artists use shading to make shapes look like forms. Everything starts with basic shapes.", "examples": ["A tree: trunk = rectangle, canopy = organic shape, branches = curved lines", "Shading a circle into a sphere: light side, gradual transition, dark, cast shadow", "Picasso simplified faces into geometric shapes"], "keyTerms": {"line": "Most fundamental element — mark moving through space", "shape": "2D enclosed area", "form": "3D object with depth", "contour": "The outline or edge of a shape or form", "gesture line": "A quick, flowing line capturing movement and energy"}, "quiz": [{"question": "Shape vs form:", "options": ["Shape is 2D, form is 3D", "Same thing", "Form is flat", "Shape is 3D"], "correct": 0, "explanation": "Shading creates illusion of form."}, {"question": "Diagonal lines feel:", "options": ["Dynamic and energetic", "Calm", "Sad", "Still"], "correct": 0, "explanation": "Movement and energy."}, {"question": "Artists make shapes look 3D by:", "options": ["Adding shading", "Using only circles", "Drawing bigger", "Only straight lines"], "correct": 0, "explanation": "Light and shadow create depth."}, {"question": "Organic shapes are:", "options": ["Irregular, natural forms like leaves and clouds", "Perfect circles and squares", "Only man-made shapes", "Always symmetrical"], "correct": 0, "explanation": "Found in nature — free-flowing, not geometric."}, {"question": "A gesture line captures:", "options": ["Movement and energy in a quick sketch", "Exact details", "Only outlines", "Color only"], "correct": 0, "explanation": "Fast, flowing lines convey the essence and motion of a subject."}]},
-        {"title": "Color Theory", "content": "Primary colors (red, blue, yellow) can't be made by mixing. Secondary: red+blue=purple, red+yellow=orange, blue+yellow=green. Tertiary: primary + adjacent secondary. Color wheel organizes all colors. Complementary: opposite on wheel (red-green) — strong contrast. Analogous: adjacent (blue, blue-green, green) — harmony. Properties: hue (name), value (light/dark), saturation (vivid/dull).", "examples": ["Complementary: red flower against green leaves stands out", "Sunset: analogous warm colors — red, orange, yellow", "Tint: white + red = pink. Shade: black + red = maroon"], "keyTerms": {"primary colors": "Red, blue, yellow — unmixed", "complementary": "Opposite on color wheel — maximum contrast", "value": "Lightness/darkness", "warm colors": "Red, orange, yellow — feel energetic and advancing", "cool colors": "Blue, green, purple — feel calm and receding"}, "quiz": [{"question": "Primary colors:", "options": ["Red, blue, yellow", "Red, green, blue", "Orange, purple, green", "Black, white, gray"], "correct": 0, "explanation": "Can't be made by mixing."}, {"question": "Red and green are:", "options": ["Complementary", "Analogous", "Primary", "Same color"], "correct": 0, "explanation": "Opposite on wheel."}, {"question": "White + color =:", "options": ["Tint (lighter)", "Shade (darker)", "New primary", "Gray"], "correct": 0, "explanation": "White lightens."}, {"question": "Warm colors make objects appear to:", "options": ["Come forward and feel energetic", "Recede and feel calm", "Disappear", "Turn gray"], "correct": 0, "explanation": "Warm colors (red, orange, yellow) advance visually."}, {"question": "Saturation refers to:", "options": ["How vivid or dull a color is", "How light or dark", "The color name", "The color temperature"], "correct": 0, "explanation": "High saturation = vivid. Low saturation = muted/gray."}]},
-        {"title": "Texture, Space, and Composition", "content": "Texture: how surface feels or looks. Actual (touchable) or visual (implied by art). Space: positive (subject) vs negative (empty around it). Perspective creates depth — objects smaller with distance, lines converge at vanishing point. Composition: arrangement of elements. Rule of Thirds: place subject at intersection of 3×3 grid. Balance, contrast, and focal point guide the viewer's eye.", "examples": ["Van Gogh's thick brushstrokes create visual texture", "FedEx logo: arrow hidden in negative space", "Rule of Thirds: horizon on top or bottom third line"], "keyTerms": {"texture": "Surface quality — tactile or visual", "negative space": "Empty area around subjects", "composition": "Arrangement of elements in artwork", "rule of thirds": "Placing subjects at grid intersections for dynamic composition", "focal point": "The area that draws the viewer's eye first"}, "quiz": [{"question": "Negative space:", "options": ["Empty area around subject", "Main subject", "Dark color", "Texture"], "correct": 0, "explanation": "Background and surrounding space."}, {"question": "Rule of Thirds:", "options": ["Place subjects at 3×3 grid intersections", "Center everything", "Only three colors", "Three objects"], "correct": 0, "explanation": "Off-center = more dynamic."}, {"question": "Depth on flat surface:", "options": ["Perspective — smaller objects appear farther", "Everything same size", "One color", "Flat shapes only"], "correct": 0, "explanation": "Size, overlap, and converging lines."}, {"question": "A focal point is:", "options": ["The area that draws the viewer's eye first", "The center of the canvas always", "The largest shape", "The brightest color always"], "correct": 0, "explanation": "Created through contrast, detail, or isolation — not always in the center."}, {"question": "Visual texture differs from actual texture because:", "options": ["It's an illusion created by the artist — you can't feel it", "It's always rough", "It doesn't exist in art", "It's only in sculptures"], "correct": 0, "explanation": "A painting of tree bark looks rough but the canvas surface is smooth."}]},
-        {"title": "Principles of Design", "content": "The principles of design guide how elements are organized in artwork. Balance: visual weight distributed evenly — symmetrical (mirror image) or asymmetrical (different elements balance each other). Contrast: differences that create visual interest — light vs dark, large vs small, rough vs smooth. Emphasis: making one element stand out as the focal point. Movement: guiding the viewer's eye through the artwork using lines, shapes, and color. Pattern: repeating elements creating rhythm and visual interest. Unity: all elements work together as a cohesive whole — nothing feels out of place. Proportion: the relationship between sizes of different elements. These principles work together — a successful artwork uses several of them in harmony.", "examples": ["Symmetrical balance: a butterfly — mirror image left and right", "Contrast: a single red flower in a field of green — emphasis through color contrast", "Movement: a winding path in a landscape painting leads the eye from foreground to background"], "keyTerms": {"balance": "Even distribution of visual weight — symmetrical or asymmetrical", "contrast": "Differences between elements creating visual interest", "emphasis": "Making one element dominate as the focal point", "unity": "All elements working together as a cohesive whole", "proportion": "The size relationship between different elements in an artwork"}, "quiz": [{"question": "Asymmetrical balance means:", "options": ["Different elements balance each other visually without being identical", "Everything is the same on both sides", "The artwork is unbalanced", "Only one element exists"], "correct": 0, "explanation": "A large shape on one side can balance several small shapes on the other."}, {"question": "Emphasis is created by:", "options": ["Making one element stand out through contrast, size, color, or isolation", "Making everything equal", "Using only one color", "Removing all detail"], "correct": 0, "explanation": "The focal point draws attention — achieved through differences from surrounding elements."}, {"question": "Pattern in art creates:", "options": ["Rhythm and visual interest through repetition", "Chaos", "Boredom", "Only in fabric design"], "correct": 0, "explanation": "Repeating elements (shapes, colors, lines) create visual rhythm."}, {"question": "Unity means:", "options": ["All elements work together — nothing feels out of place", "Everything is the same", "Using one color only", "Random arrangement"], "correct": 0, "explanation": "A unified artwork feels complete — every element contributes to the whole."}, {"question": "Proportion affects how we perceive:", "options": ["Scale, importance, and relationships between parts", "Only size", "Only color", "Nothing — proportion doesn't matter"], "correct": 0, "explanation": "Exaggerated proportions can create emphasis, humor, or emotional impact."}]},
-        {"title": "Light and Shadow", "content": "Light and shadow are fundamental to creating realistic art and mood. Every 3D object has: a highlight (brightest point where light directly hits), midtone (the object's true color), core shadow (darkest part of the object opposite the light), reflected light (light bouncing from nearby surfaces onto the shadow side), and cast shadow (the shadow the object creates on surrounding surfaces). Value is the range from light to dark — a value scale goes from white to black with many grays between. High contrast (strong darks and lights) creates drama and energy. Low contrast (similar values) creates calm and softness. Chiaroscuro is the dramatic use of light and dark pioneered by artists like Caravaggio and Rembrandt. Understanding how light falls on objects is the key to drawing and painting realistically.", "examples": ["Hold a ball under a desk lamp — observe highlight, midtone, core shadow, reflected light, and cast shadow", "Rembrandt lighting: dramatic side light with one side bright and the other in deep shadow — still used in photography", "A white egg on white paper: value differences are subtle — training your eye to see them improves all your art"], "keyTerms": {"value": "The range from light to dark in artwork", "highlight": "The brightest point where light hits directly", "core shadow": "The darkest part of an object — opposite the light source", "chiaroscuro": "Dramatic contrast between light and dark — used for theatrical effect", "cast shadow": "The shadow an object creates on surrounding surfaces"}, "quiz": [{"question": "The core shadow is:", "options": ["The darkest part of the object, opposite the light source", "The brightest point", "The cast shadow on the ground", "The background color"], "correct": 0, "explanation": "Core shadow is on the object itself — where no direct or reflected light reaches."}, {"question": "Reflected light is:", "options": ["Light bouncing from nearby surfaces onto the shadow side of an object", "The main light source", "The highlight", "Artificial light only"], "correct": 0, "explanation": "Even in shadow, surfaces receive some light bounced from the environment."}, {"question": "Chiaroscuro was pioneered by:", "options": ["Caravaggio and Rembrandt — dramatic light/dark contrast", "Picasso and Braque", "Monet and Renoir", "No specific artist"], "correct": 0, "explanation": "These Renaissance/Baroque masters used extreme contrast for theatrical, dramatic effect."}, {"question": "High contrast creates:", "options": ["Drama, energy, and visual impact", "Calm and softness", "No effect", "Confusion"], "correct": 0, "explanation": "Strong differences between light and dark are visually exciting and attention-grabbing."}, {"question": "A value scale shows:", "options": ["A range from white to black with gradual grays between", "Only colors", "Only shapes", "Temperature"], "correct": 0, "explanation": "Value = lightness or darkness. Training to see values improves all drawing and painting."}]}
-      ]
-    },
-    {
-      "title": "Art Techniques",
-      "lessons": [
-        {"title": "Drawing Fundamentals", "content": "Drawing is the foundation. Start with gesture drawing (30-60s quick sketches). Use basic shapes for complex subjects. Pencil grades: H = hard/light, B = soft/dark. Shading: hatching, cross-hatching, stippling, blending. Practice contour drawing for hand-eye coordination. Draw daily — even 10 minutes helps.", "examples": ["Gesture: 30-second people sketches capture movement", "Cross-hatching: crossing lines create darker areas", "Face proportions: eyes at midpoint, nose at 3/4, mouth at 7/8"], "keyTerms": {"gesture drawing": "Quick sketches capturing movement (30-60s)", "hatching": "Parallel lines creating tone", "contour drawing": "Drawing edges of subject", "value study": "A drawing focusing only on light and dark, no color", "blind contour": "Drawing edges without looking at the paper — builds observation skills"}, "quiz": [{"question": "Gesture drawing:", "options": ["Quick sketches capturing movement", "Detailed drawings", "Gestures only", "Tracing"], "correct": 0, "explanation": "Rapid capture of essence."}, {"question": "B pencils:", "options": ["Soft and dark — good for shading", "Hard and light", "Colored", "Erasers"], "correct": 0, "explanation": "B = bold/soft."}, {"question": "Improve at drawing:", "options": ["Practice regularly — even 10 minutes daily", "Expensive materials", "Draw once a year", "Trace photos"], "correct": 0, "explanation": "Consistent practice is key."}, {"question": "A value study uses:", "options": ["Only light and dark values — no color — to understand form", "Only bright colors", "Only outlines", "Only watercolor"], "correct": 0, "explanation": "Working in grayscale forces you to focus on form and light."}, {"question": "Blind contour drawing improves:", "options": ["Observation skills — you learn to really look at your subject", "Speed", "Color use", "Nothing — it's just for fun"], "correct": 0, "explanation": "By not looking at the paper, you train your eyes to see edges and relationships."}]},
-        {"title": "Painting Basics", "content": "Watercolor: transparent, mixes on wet paper, hard to correct. Acrylic: versatile, dries fast, layerable. Oil: rich colors, slow drying, blendable. Mix from primaries rather than buying every color. Start with underpainting, then layers: background → midground → foreground. Flat brush for areas, round for details. Clean brushes immediately.", "examples": ["Watercolor: wet paper first, colors flow beautifully", "Acrylic: paint sky, let dry, paint trees on top — clean edges", "Only NEED red, blue, yellow, white, black — mix everything"], "keyTerms": {"watercolor": "Transparent paint using water", "acrylic": "Versatile, fast-drying", "underpainting": "Base layer establishing tones", "impasto": "Thick paint application creating visible texture on the surface", "wash": "A thin, transparent layer of watercolor covering a large area"}, "quiz": [{"question": "Fastest drying:", "options": ["Acrylic", "Oil", "Watercolor once wet", "All same"], "correct": 0, "explanation": "Acrylic: minutes. Oil: days/weeks."}, {"question": "Mix everything from:", "options": ["Red, blue, yellow + white and black", "Black, white, gray", "Green, orange, purple", "Pink, brown, gold"], "correct": 0, "explanation": "Primary colors create all others."}, {"question": "Paint background first because:", "options": ["Foreground objects sit on top with clean edges", "Doesn't matter", "Background less important", "Foreground dries faster"], "correct": 0, "explanation": "Back to front creates natural depth."}, {"question": "Impasto technique:", "options": ["Thick paint creating visible texture and dimension", "Thin transparent layers", "Only using pencil", "Smooth flat surface"], "correct": 0, "explanation": "Van Gogh used impasto — thick swirling paint you can feel."}, {"question": "A wash in watercolor is:", "options": ["A thin, transparent layer covering a large area", "Thick opaque paint", "Cleaning the brushes", "Removing paint"], "correct": 0, "explanation": "Washes create backgrounds, skies, and subtle color transitions."}]},
-        {"title": "Sculpture and 3D Art", "content": "Sculpture techniques: carving (removing material — stone, wood), modeling (adding — clay, wax), casting (liquid into mold — bronze), assembling (joining pieces). Clay is most accessible. Consider all viewing angles — 360°. Relief: raised from background. Freestanding: independent. Modern: installations, kinetic (moving), environmental art.", "examples": ["Michelangelo carved David from marble — removing everything that wasn't David", "Clay coil pot: stack and smooth coils", "Calder invented mobiles — moving sculptures"], "keyTerms": {"carving": "Subtractive — removing material", "modeling": "Additive — building up material", "installation": "Art transforming a space", "relief sculpture": "Raised from a flat background, like coins or building decorations", "kinetic sculpture": "Sculpture with moving parts"}, "quiz": [{"question": "Carving is:", "options": ["Subtractive — material removed", "Additive", "Painting", "Photography"], "correct": 0, "explanation": "Cutting away to reveal form."}, {"question": "Sculpture differs from painting:", "options": ["3D — viewable from all angles", "Uses color", "Always bigger", "No difference"], "correct": 0, "explanation": "Depth and 360° viewing."}, {"question": "Easiest beginner material:", "options": ["Air-dry clay — no kiln needed", "Marble", "Bronze", "Steel"], "correct": 0, "explanation": "Affordable and forgiving."}, {"question": "Relief sculpture is:", "options": ["Raised from a flat background — viewable from one side", "Fully 3D freestanding", "Only found in ancient art", "Made of paper only"], "correct": 0, "explanation": "Like coins, building facades, and carved panels — attached to a surface."}, {"question": "Kinetic sculpture:", "options": ["Has moving parts — changes with time or viewer interaction", "Always stays still", "Is only digital", "Is not real sculpture"], "correct": 0, "explanation": "Motion is part of the art — wind, motors, or viewer interaction create movement."}]},
-        {"title": "Printmaking", "content": "Printmaking creates multiple copies of an artwork from a single matrix (printing surface). Types: relief printing (carve away areas you don't want to print — remaining raised surface gets ink, like a stamp), intaglio (carve lines INTO a surface — ink fills the grooves, surface is wiped clean), lithography (drawing on stone/plate with greasy material — ink sticks to grease, repels water), screen printing (force ink through a stencil on mesh — used for t-shirts and posters), and monoprint (one-of-a-kind print). Linocut is the most accessible: carve a design into linoleum, roll ink on the raised surface, press paper on top. Prints are numbered as editions (e.g., 3/20 means the 3rd print out of 20). Printmaking democratized art: multiple copies meant wider audiences could own artwork, not just the wealthy.", "examples": ["Linocut: carve a flower design into lino → ink the raised surface → press paper → pull a print", "Andy Warhol used screen printing to create his famous Marilyn Monroe prints — each slightly different", "Japanese woodblock prints (ukiyo-e) influenced Impressionists like Monet and Van Gogh"], "keyTerms": {"relief printing": "Ink on raised surfaces — carved away areas don't print (linocut, woodcut)", "screen printing": "Ink pushed through a mesh stencil onto paper or fabric", "edition": "A set of identical prints from the same matrix, numbered (e.g., 3/20)", "matrix": "The surface from which prints are made (woodblock, lino, screen, stone)"}, "quiz": [{"question": "In relief printing:", "options": ["Raised areas get ink and print — carved areas don't", "Carved areas get ink", "Everything prints", "Nothing is carved"], "correct": 0, "explanation": "Like a stamp — only the raised surface transfers ink to paper."}, {"question": "Print edition 7/50 means:", "options": ["The 7th print out of a total edition of 50", "7 prints out of 50 sold", "7 colors used, 50 copies", "7 minutes to make, 50 total"], "correct": 0, "explanation": "Edition number / total: this is the 7th print from a run of 50 identical prints."}, {"question": "Screen printing is commonly used for:", "options": ["T-shirts and posters — ink pushed through mesh stencils", "Oil paintings", "Marble sculpture", "Watercolor only"], "correct": 0, "explanation": "Screen printing applies flat, bold colors — ideal for fabric and poster production."}, {"question": "Printmaking democratized art because:", "options": ["Multiple copies meant more people could own artwork, not just the wealthy", "It was more expensive", "Only rich people printed", "Prints are not real art"], "correct": 0, "explanation": "Before printmaking, only the wealthy could own original artworks."}, {"question": "The most accessible printmaking technique for beginners is:", "options": ["Linocut — affordable materials, simple tools, immediate results", "Lithography — requires special stones", "Intaglio — requires a press", "Screen printing — requires specialized equipment"], "correct": 0, "explanation": "Linoleum, a carving tool, ink, and paper — that's all you need to start."}]},
-        {"title": "Mixed Media and Collage", "content": "Mixed media combines multiple materials and techniques in one artwork. Collage: cutting and pasting different materials (paper, fabric, photos, found objects) onto a surface — invented by Picasso and Braque during Cubism. Assemblage: 3D collage using found objects. Mixed media can combine: drawing + painting + collage + digital + text. The freedom of mixed media encourages experimentation — there are no rules about what materials can be combined. Found objects gain new meaning when placed in an art context — a rusty key becomes a symbol, a newspaper clipping becomes commentary. Mixed media is ideal for expressing complex ideas because different materials carry different associations. Digital tools (tablets, apps) now extend mixed media possibilities — combining traditional and digital techniques.", "examples": ["Collage: Romare Bearden combined photographs, painted paper, and fabric to depict African American life", "Assemblage: Louise Nevelson created wall-sized sculptures from wooden boxes filled with found objects — all painted one color", "Mixed media journal: combine drawing, watercolor, magazine clippings, text, and fabric in a personal art journal"], "keyTerms": {"collage": "Artwork made by gluing different materials onto a surface", "assemblage": "Three-dimensional collage using found objects", "mixed media": "Art combining multiple materials and techniques", "found object": "An everyday object repurposed as part of an artwork"}, "quiz": [{"question": "Collage was invented by:", "options": ["Picasso and Braque during the Cubist period", "Leonardo da Vinci", "Ancient Egyptians", "Photographers in the 1900s"], "correct": 0, "explanation": "Around 1912, they began pasting newspaper and wallpaper into paintings."}, {"question": "Mixed media art can combine:", "options": ["Any materials: drawing, painting, collage, digital, found objects, fabric", "Only paint and pencil", "Only paper", "Only digital tools"], "correct": 0, "explanation": "There are no rules — any combination of materials is valid."}, {"question": "A found object in art is:", "options": ["An everyday item repurposed as part of an artwork", "Something you find and throw away", "Only natural objects", "Only manufactured items"], "correct": 0, "explanation": "A bottle cap, a rusty nail, a book page — anything can become art material."}, {"question": "Mixed media encourages:", "options": ["Experimentation and creative freedom with no material restrictions", "Following strict rules", "Using only one technique", "Avoiding new materials"], "correct": 0, "explanation": "The whole point is breaking boundaries between traditional art categories."}, {"question": "Assemblage differs from collage because:", "options": ["It's three-dimensional — using found objects in space", "It's always flat", "It only uses paper", "It requires a frame"], "correct": 0, "explanation": "Collage is 2D (on a surface); assemblage extends into 3D space."}]}
-      ]
-    },
-    {
-      "title": "Art History",
-      "lessons": [
-        {"title": "Ancient and Classical Art", "content": "Cave paintings (Lascaux, 17,000 years ago): first known art. Egyptian: strict rules, important people larger. Greek: idealized human beauty, realistic proportions. Roman: practical — mosaics, architecture, realistic portraits. African: ancient traditions — Nok terracotta, Benin Bronzes. Art served religion, history, and cultural identity.", "examples": ["Lascaux: natural pigments, blown through hollow bones", "Greek Parthenon: idealized gods and athletes", "Benin Bronzes: among finest metalwork ever"], "keyTerms": {"cave painting": "Prehistoric art — earliest human expression", "idealized": "Representing subjects as perfect", "Benin Bronzes": "Elaborate bronze from Kingdom of Benin", "iconography": "The visual symbols and imagery used in artwork to convey meaning"}, "quiz": [{"question": "Oldest artworks:", "options": ["Cave paintings", "Oil paintings", "Photographs", "Digital art"], "correct": 0, "explanation": "Tens of thousands of years old."}, {"question": "Greek art focused on:", "options": ["Idealized human beauty", "Abstract shapes", "Only landscapes", "Only animals"], "correct": 0, "explanation": "Perfect proportions."}, {"question": "Benin Bronzes:", "options": ["Sophisticated metalwork from Kingdom of Benin", "European influence", "Simple pottery", "Modern art"], "correct": 0, "explanation": "Advanced African artistry."}, {"question": "Egyptian art followed strict rules because:", "options": ["Art served religious and political purposes — consistency was sacred", "Artists lacked skill", "Materials were limited", "They didn't know perspective"], "correct": 0, "explanation": "Art was functional — ensuring the dead could live in the afterlife, not for decoration."}, {"question": "Iconography in ancient art:", "options": ["Used symbols to convey meaning — viewers understood the visual language", "Was purely decorative", "Had no meaning", "Was only in text"], "correct": 0, "explanation": "A winged sun in Egypt meant divine protection — symbols carried specific meanings."}]},
-        {"title": "Renaissance to Impressionism", "content": "Renaissance (1400-1600): perspective, realistic anatomy, oil painting. Masters: Leonardo (Mona Lisa), Michelangelo (Sistine Chapel). Baroque (1600-1750): drama and emotion (Caravaggio). Romanticism (1800s): nature and feeling. Impressionism (1860s-1880s): loose brushstrokes, light effects, outdoor painting (Monet, Renoir, Degas).", "examples": ["Mona Lisa: mysterious smile, sfumato technique", "Monet's Water Lilies: same pond, different light", "Caravaggio: dramatic chiaroscuro lighting"], "keyTerms": {"Renaissance art": "Realism, perspective, human beauty 1400-1600", "Impressionism": "Loose brushstrokes capturing light 1860s-1880s", "chiaroscuro": "Strong light/dark contrast", "sfumato": "Soft, smoky blending technique pioneered by Leonardo", "plein air": "Painting outdoors to capture natural light — central to Impressionism"}, "quiz": [{"question": "Impressionism:", "options": ["Loose brushstrokes capturing light", "Perfect detail", "Only religious subjects", "Dark colors only"], "correct": 0, "explanation": "Capturing fleeting moments."}, {"question": "Mona Lisa artist:", "options": ["Leonardo da Vinci", "Michelangelo", "Monet", "Picasso"], "correct": 0, "explanation": "~1503-1519."}, {"question": "Renaissance introduced:", "options": ["Linear perspective for depth", "Only flat shapes", "Abstract forms", "Random placement"], "correct": 0, "explanation": "Vanishing points create 3D illusion."}, {"question": "Plein air painting means:", "options": ["Painting outdoors to capture natural light", "Painting indoors only", "Painting in the air", "Using airbrush only"], "correct": 0, "explanation": "Impressionists left the studio to paint landscapes, cafes, and gardens in natural light."}, {"question": "Sfumato is:", "options": ["A technique of soft, smoky blending between tones — no harsh edges", "Bold, thick paint", "Only used in sculpture", "A type of canvas"], "correct": 0, "explanation": "Leonardo perfected sfumato — the Mona Lisa's mysterious expression comes from this technique."}]},
-        {"title": "Modern and Contemporary Art", "content": "Modern (1880s-1970s) broke all rules. Post-Impressionism (Van Gogh, Cézanne): emotion and structure. Cubism (Picasso): multiple viewpoints. Surrealism (Dalí): dreams. Abstract (Kandinsky, Mondrian): no representation. Pop Art (Warhol): popular culture. Contemporary (1970s-present): installations, performance, video, digital, street art (Banksy).", "examples": ["Guernica: cubist anti-war painting", "Warhol's Soup Cans: art vs commercial products", "Banksy: humor + political commentary + accessibility"], "keyTerms": {"abstract art": "No real objects — form and color for their own sake", "cubism": "Multiple viewpoints simultaneously", "contemporary art": "1970s-present — all media", "conceptual art": "Art where the idea is more important than the visual result", "Pop Art": "Movement celebrating popular culture and mass media imagery"}, "quiz": [{"question": "Cubism shows:", "options": ["Multiple viewpoints simultaneously", "One perfect angle", "Only black and white", "Only landscapes"], "correct": 0, "explanation": "Fragments and reassembles."}, {"question": "Abstract art:", "options": ["No real objects — form and color for expression", "Always realistic", "Only photographs", "Must have people"], "correct": 0, "explanation": "Communicates through visual elements."}, {"question": "Pop Art celebrated:", "options": ["Popular culture and consumer products", "Only classical music", "Only landscapes", "Only religion"], "correct": 0, "explanation": "Elevating everyday objects."}, {"question": "Conceptual art values:", "options": ["The idea behind the art more than the visual object", "Only technical skill", "Only beauty", "Only size"], "correct": 0, "explanation": "The concept IS the artwork — the physical object is secondary."}, {"question": "Contemporary art includes:", "options": ["Everything: installations, video, performance, digital, and traditional media", "Only painting", "Only sculpture", "Only digital"], "correct": 0, "explanation": "Contemporary art has no boundaries — any medium or concept is valid."}]},
-        {"title": "African Art Traditions", "content": "African art is among the oldest and most diverse in the world. It encompasses: sculpture (masks, figures, totems), textiles (Kente cloth from Ghana, Bogolan/mud cloth from Mali), beadwork (Maasai, Zulu), architecture (Great Zimbabwe, mud mosques of Djenné), body art (scarification, paint), music (djembe, mbira, talking drums), and oral traditions (storytelling, proverbs, poetry). African art is rarely created for 'art's sake' — it serves functional, spiritual, and social purposes: masks for ceremonies, figures for ancestor worship, textiles indicating status, and music for healing and celebration. European artists like Picasso, Matisse, and Modigliani were profoundly influenced by African sculpture — its abstract forms and geometric patterns helped inspire Cubism and modern art. Yet African art was long dismissed as 'primitive' by Western museums — this colonial perspective is now being corrected. Repatriation movements demand the return of stolen African artworks from European museums (Benin Bronzes, Ethiopian artifacts).", "examples": ["Kente cloth: each color and pattern has specific meaning — gold = royalty, green = harvest", "Nok terracotta sculptures (Nigeria, 500 BCE): among the earliest known African figurative art", "Picasso's Les Demoiselles d'Avignon (1907) was directly inspired by African masks he saw in a Paris museum"], "keyTerms": {"mask": "Carved face covering used in ceremonies, storytelling, and spiritual practices", "Kente cloth": "Colorful woven textile from Ghana — patterns carry specific cultural meanings", "repatriation": "Returning cultural artifacts to their country of origin", "functional art": "Art that serves a practical or ceremonial purpose, not just decoration"}, "quiz": [{"question": "African art typically serves:", "options": ["Functional, spiritual, and social purposes — not just decoration", "Only decorative purposes", "No purpose at all", "Only commercial purposes"], "correct": 0, "explanation": "Masks for ceremonies, textiles for status, music for healing — art is integrated into life."}, {"question": "African sculpture influenced:", "options": ["Modern European art — Picasso, Matisse were inspired by African forms", "Nothing outside Africa", "Only architecture", "Only fashion"], "correct": 0, "explanation": "African sculpture's abstract, geometric forms helped inspire Cubism and modern art."}, {"question": "Kente cloth patterns:", "options": ["Carry specific cultural meanings — colors and designs are symbolic", "Are random", "Are machine-generated", "Have no significance"], "correct": 0, "explanation": "Gold = royalty, green = harvest — each pattern tells a story."}, {"question": "Repatriation of African art means:", "options": ["Returning stolen artworks to their countries of origin", "Selling art to museums", "Creating new artworks", "Destroying old art"], "correct": 0, "explanation": "Many African artifacts were taken during colonialism — movements demand their return."}, {"question": "The term 'primitive art' for African art is:", "options": ["A colonial misconception — African art is sophisticated and culturally rich", "Accurate description", "A compliment", "Used by African artists themselves"], "correct": 0, "explanation": "Labeling complex traditions 'primitive' was a colonial power move — now recognized as wrong."}]},
-        {"title": "Art Movements and Their Context", "content": "Art movements reflect the society and time that produces them. Realism (1850s): a reaction against Romanticism — painted everyday life honestly, including poverty and labor. Impressionism: rejected studio painting for outdoor observation — coincided with the invention of portable paint tubes and photography. Expressionism: distorted reality to express inner emotions — emerged during WWI's trauma. Dadaism: rejected all artistic conventions — a protest against the madness of war. Abstract Expressionism: post-WWII America — large canvases expressing freedom and individualism (Pollock, Rothko). Each movement was a response to what came before AND to the world around it. Understanding context helps you understand the art. Today's movements reflect our era: digital art, AI-generated art, NFTs, street art, and socially engaged art that addresses climate, inequality, and identity.", "examples": ["Guernica (1937): Picasso's response to the bombing of a Spanish town — art as political protest", "Abstract Expressionism emerged as America became a global superpower — art reflecting confidence and freedom", "Street art (Banksy, JR): art leaving galleries and entering public space — commenting on society"], "keyTerms": {"art movement": "A group of artists sharing similar ideas, style, and historical context", "Realism": "Painting everyday life honestly, without idealization", "Expressionism": "Distorting reality to convey inner emotions and feelings", "Dadaism": "Anti-art movement rejecting logic and conventions — born from WWI disillusionment"}, "quiz": [{"question": "Art movements reflect:", "options": ["The society and historical context that produces them", "Nothing — art exists in a vacuum", "Only the artist's personal life", "Only technical innovations"], "correct": 0, "explanation": "Art responds to war, technology, politics, and social change."}, {"question": "Impressionism coincided with:", "options": ["Portable paint tubes and photography — changing how and why artists painted", "The invention of the computer", "The discovery of electricity", "Space exploration"], "correct": 0, "explanation": "New paint tubes enabled outdoor painting; photography freed painters from exact replication."}, {"question": "Dadaism was a protest against:", "options": ["The madness and destruction of World War I", "Beautiful art", "Nature", "Music"], "correct": 0, "explanation": "Dada rejected logic, reason, and artistic conventions — reflecting the chaos of war."}, {"question": "Each new art movement typically:", "options": ["Reacts against the previous movement AND responds to current events", "Copies the previous movement exactly", "Ignores history completely", "Only changes techniques, not ideas"], "correct": 0, "explanation": "Artists rebel against what came before while reflecting their own era's concerns."}, {"question": "Today's art movements address:", "options": ["Climate change, identity, inequality, technology, and digital culture", "Only traditional themes", "Nothing political", "Only beauty"], "correct": 0, "explanation": "Contemporary art tackles the issues of our time — just as every era's art has done."}]}
-      ]
-    },
-    {
-      "title": "Digital and Applied Art",
-      "lessons": [
-        {"title": "Graphic Design", "content": "Graphic design communicates visually. Combines typography, images, colors, layout. Principles: hierarchy (important info stands out), contrast, alignment, repetition, whitespace. Serif fonts = traditional. Sans-serif = modern. Tools: Canva (beginner), Illustrator/Photoshop (professional). Good design is invisible — it guides without the viewer noticing.", "examples": ["Poster: bold title, contrasting colors, consistent style", "Apple branding: clean, minimal, premium feel", "Restaurant menu: elegant font, clear sections"], "keyTerms": {"typography": "Selecting and arranging fonts", "hierarchy": "Most important info stands out first", "whitespace": "Empty space letting elements breathe", "brand identity": "The visual system representing a company: logo, colors, fonts, imagery"}, "quiz": [{"question": "Visual hierarchy:", "options": ["Important info stands out first", "Everything same size", "Only text", "Fill every space"], "correct": 0, "explanation": "Guide viewer's eye."}, {"question": "Serif fonts:", "options": ["Traditional and formal feeling", "Modern and casual", "Technology only", "Children's books"], "correct": 0, "explanation": "Small strokes on letters."}, {"question": "Whitespace importance:", "options": ["Gives elements room, improves readability", "Wastes space", "Shows laziness", "Only for print"], "correct": 0, "explanation": "Reduces clutter."}, {"question": "Brand identity includes:", "options": ["Logo, colors, fonts, imagery, and visual style — used consistently", "Only the logo", "Only the company name", "Only the website"], "correct": 0, "explanation": "Everything visual that represents the brand — consistency builds recognition."}, {"question": "The best design is often:", "options": ["Invisible — it guides without the viewer noticing", "As complex as possible", "Full of decoration", "Breaking all rules"], "correct": 0, "explanation": "Good design feels natural — users don't think about it, they just understand."}]},
-        {"title": "Photography Basics", "content": "Three key settings: aperture (lens opening — controls depth of field), shutter speed (exposure time — controls motion), ISO (sensitivity — controls grain). Composition: Rule of Thirds, leading lines, framing, symmetry. Golden hour provides warm light. Smartphones have made photography universal.", "examples": ["Wide aperture blurs background (portrait mode)", "Slow shutter: silky waterfall. Fast: frozen sports action", "Leading lines: road disappearing into distance guides the eye"], "keyTerms": {"aperture": "Lens opening — controls depth of field", "shutter speed": "Exposure time — controls motion blur", "golden hour": "Warm light near sunrise/sunset", "depth of field": "The range of distance that appears sharp in a photo", "ISO": "Sensor sensitivity — higher ISO for dark conditions but adds noise/grain"}, "quiz": [{"question": "Blur background:", "options": ["Wide aperture (low f-number)", "Narrow aperture", "Slow shutter", "High ISO"], "correct": 0, "explanation": "Wide aperture = shallow depth of field."}, {"question": "Freeze fast motion:", "options": ["Fast shutter speed", "Slow shutter", "Wide aperture", "Low ISO"], "correct": 0, "explanation": "Captures split second."}, {"question": "Golden hour:", "options": ["Warm, soft, flattering light near sunrise/sunset", "Exactly one hour", "Sun directly overhead", "Hottest time"], "correct": 0, "explanation": "Low-angle light creates warm tones."}, {"question": "High ISO is used when:", "options": ["Light is low — increases sensitivity but adds grain", "Light is bright", "For portraits only", "To blur backgrounds"], "correct": 0, "explanation": "Dark situations need higher ISO — trade-off is digital noise/grain."}, {"question": "Depth of field determines:", "options": ["How much of the scene is in sharp focus", "The brightness of the photo", "The color of the photo", "The size of the file"], "correct": 0, "explanation": "Shallow DoF = only subject sharp. Deep DoF = everything sharp (landscapes)."}]},
-        {"title": "Digital Art and Tools", "content": "Digital art uses technology as the medium. Tools: graphic tablets (Wacom — draw directly on screen), drawing apps (Procreate for iPad, Krita for PC — free), photo editing (Photoshop, GIMP — free), vector graphics (Illustrator, Inkscape — free), and 3D modeling (Blender — free, industry-standard). Digital advantages: unlimited undo, layers (work on parts independently), infinite color palette, easy sharing and printing. Digital art is NOT 'cheating' — it requires the same artistic skills (composition, color, form) plus technical knowledge. Many professionals use both traditional and digital: sketch on paper, refine digitally. AI art tools (Midjourney, Stable Diffusion) generate images from text prompts — raising questions about authorship, copyright, and the definition of art.", "examples": ["Procreate on iPad: professional illustration with natural brush feel — used by concept artists worldwide", "Blender: free 3D software used for animation, game design, and even film visual effects", "AI art: type 'sunset over African savanna, oil painting style' → AI generates an image in seconds"], "keyTerms": {"layers": "Separate transparent sheets in digital art — edit one without affecting others", "vector graphics": "Art defined by mathematical paths — scales to any size without losing quality", "raster graphics": "Art made of pixels — has a fixed resolution", "digital illustration": "Creating artwork using digital tools and a tablet/stylus"}, "quiz": [{"question": "Layers in digital art:", "options": ["Separate transparent sheets — edit one without affecting others", "Only for professional use", "Make art worse", "Only in Photoshop"], "correct": 0, "explanation": "Layers are fundamental — sketch on one, ink on another, color on a third."}, {"question": "Vector graphics are special because:", "options": ["They scale to any size without losing quality", "They look better at small sizes", "They only work on phones", "They can't be printed"], "correct": 0, "explanation": "Vectors use math, not pixels — a logo can go from a business card to a billboard."}, {"question": "The best free 3D modeling software is:", "options": ["Blender — free and used professionally in film and games", "Photoshop", "PowerPoint", "Paint"], "correct": 0, "explanation": "Blender is industry-standard quality, completely free, with massive community support."}, {"question": "Digital art is NOT cheating because:", "options": ["It requires the same artistic skills plus technical knowledge", "Anyone can do it easily", "Computers do everything", "It's the same as pressing a button"], "correct": 0, "explanation": "Composition, color theory, anatomy — all still essential. The tool changed, not the skill."}, {"question": "AI art raises questions about:", "options": ["Authorship, copyright, and the definition of art", "Nothing controversial", "Only technical issues", "Only pricing"], "correct": 0, "explanation": "If AI generates an image from a text prompt, who is the artist? These debates are ongoing."}]},
-        {"title": "Art in Everyday Life", "content": "Art shapes our daily environment. Architecture: form + function. Interior design: comfortable beautiful spaces. Fashion: wearable art. Product design: functional + attractive everyday objects. Urban art: murals and public sculptures make cities vibrant. Art therapy: creative expression improves mental health. Understanding art builds creativity, visual communication, and critical thinking — valuable in every career.", "examples": ["Sydney Opera House: architecture as iconic art", "Eames Lounge Chair: comfortable AND beautiful", "Hospital murals reduce anxiety, speed recovery"], "keyTerms": {"applied art": "Art with practical function", "architecture": "Designing buildings and spaces", "art therapy": "Creative expression for mental health", "user experience": "How people feel when interacting with designed products and spaces"}, "quiz": [{"question": "Applied art:", "options": ["Art with practical function", "Only in museums", "No purpose", "Only painting/sculpture"], "correct": 0, "explanation": "Design for daily life."}, {"question": "Art benefits everyday life:", "options": ["Beautiful spaces, functional products, improved wellbeing", "No practical use", "Only for rich people", "Only entertainment"], "correct": 0, "explanation": "Shapes environment and health."}, {"question": "Art therapy works by:", "options": ["Using creative expression to improve mental health", "Studying art history", "Selling art for profit", "Watching others create"], "correct": 0, "explanation": "Creating art reduces stress and processes emotions."}, {"question": "User experience design considers:", "options": ["How people feel when interacting with products and spaces", "Only visual appearance", "Only cost", "Only the designer's preferences"], "correct": 0, "explanation": "UX puts the user first — how does it feel to open this app, sit in this chair, enter this building?"}, {"question": "Studying art helps in non-art careers because:", "options": ["It builds creativity, visual communication, and critical thinking", "It doesn't help at all", "Only for becoming an artist", "Only for gallery work"], "correct": 0, "explanation": "Every field needs creative problem-solving, visual communication, and aesthetic judgment."}]},
-        {"title": "Careers in Art and Design", "content": "Art careers are diverse and growing. Traditional: fine artist (painter, sculptor), art teacher, museum curator, art restorer, gallery manager. Design: graphic designer, UI/UX designer, product designer, interior designer, fashion designer, architect. Digital: animator, game artist, 3D modeler, visual effects artist, motion graphics designer. Communication: photographer, videographer, social media content creator, brand strategist. Emerging: AR/VR designer, AI art director, UX researcher, design thinking consultant. Building a career: develop strong fundamentals (drawing, color, composition), build a diverse portfolio (your visual resume), specialize as you grow, network with other creatives, and continuously learn new tools and techniques. Freelancing is common in creative fields — offering flexibility but requiring business skills. The creative economy is growing globally — creative industries contribute $2.25 trillion to the global economy.", "examples": ["UI/UX designer: designs app and website interfaces — median salary $80,000+ in many countries", "Game artist: creates characters, environments, and animations for video games — massive growth industry", "Freelance illustrator: creates artwork for books, magazines, and brands — flexible but must manage your own business"], "keyTerms": {"portfolio": "A curated collection of your best work — your visual resume", "freelancing": "Working independently for multiple clients rather than one employer", "creative economy": "The economic sector based on creativity, ideas, and intellectual property", "design thinking": "A problem-solving approach using empathy, ideation, prototyping, and testing"}, "quiz": [{"question": "A portfolio should:", "options": ["Showcase your best and most diverse work — quality over quantity", "Include everything you've ever made", "Only show unfinished work", "Be text only"], "correct": 0, "explanation": "Curate your strongest pieces — 10 great works beat 100 mediocre ones."}, {"question": "UI/UX design involves:", "options": ["Designing how apps and websites look and feel for users", "Only painting", "Only sculpture", "Only photography"], "correct": 0, "explanation": "One of the fastest-growing art careers — combining aesthetics with usability."}, {"question": "The creative economy contributes:", "options": ["$2.25 trillion to the global economy", "Nothing of economic value", "Only in wealthy countries", "Less than agriculture"], "correct": 0, "explanation": "Creative industries are a massive and growing economic force worldwide."}, {"question": "Freelancing requires:", "options": ["Art skills PLUS business skills (marketing, invoicing, client management)", "Only art skills", "A full-time job first", "No business knowledge"], "correct": 0, "explanation": "Freelancers are their own business — they need to find clients, set prices, and manage finances."}, {"question": "Design thinking is:", "options": ["A problem-solving approach using empathy, ideation, prototyping, and testing", "Only for designers", "A type of art", "Making things look pretty"], "correct": 0, "explanation": "Used by companies like Apple and Google — understand users, brainstorm, prototype, test, refine."}]}
-      ]
-    }
-  ]
+    "id":  "arts",
+    "name":  "Arts",
+    "icon":  "palette",
+    "color":  "#EAB308",
+    "units":  [
+                  {
+                      "title":  "Visual Elements",
+                      "lessons":  [
+                                      {
+                                          "title":  "Line, Shape, and Form",
+                                          "content":  "Line is the most basic element — a mark moving through space. Lines can be straight, curved, thick, thin. They create direction and emotion: horizontal = calm, vertical = strong, diagonal = dynamic, zigzag = energy. Shapes are 2D: geometric (circles, squares) or organic (irregular). Forms are 3D: spheres, cubes. Artists use shading to make shapes look like forms. Everything starts with basic shapes.",
+                                          "examples":  [
+                                                           "A tree: trunk = rectangle, canopy = organic shape, branches = curved lines",
+                                                           "Shading a circle into a sphere: light side, gradual transition, dark, cast shadow",
+                                                           "Picasso simplified faces into geometric shapes"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "line":  "Most fundamental element — mark moving through space",
+                                                           "shape":  "2D enclosed area",
+                                                           "form":  "3D object with depth",
+                                                           "contour":  "The outline or edge of a shape or form",
+                                                           "gesture line":  "A quick, flowing line capturing movement and energy"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Shape vs form:",
+                                                           "options":  [
+                                                                           "Same thing",
+                                                                           "Shape is 2D, form is 3D",
+                                                                           "Form is flat",
+                                                                           "Shape is 3D"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Shading creates illusion of form."
+                                                       },
+                                                       {
+                                                           "question":  "Diagonal lines feel:",
+                                                           "options":  [
+                                                                           "Still",
+                                                                           "Calm",
+                                                                           "Sad",
+                                                                           "Dynamic and energetic"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Movement and energy."
+                                                       },
+                                                       {
+                                                           "question":  "Artists make shapes look 3D by:",
+                                                           "options":  [
+                                                                           "Using only circles",
+                                                                           "Adding shading",
+                                                                           "Drawing bigger",
+                                                                           "Only straight lines"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Light and shadow create depth."
+                                                       },
+                                                       {
+                                                           "question":  "Organic shapes are:",
+                                                           "options":  [
+                                                                           "Only man-made shapes",
+                                                                           "Perfect circles and squares",
+                                                                           "Irregular, natural forms like leaves and clouds",
+                                                                           "Always symmetrical"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Found in nature — free-flowing, not geometric."
+                                                       },
+                                                       {
+                                                           "question":  "A gesture line captures:",
+                                                           "options":  [
+                                                                           "Exact details",
+                                                                           "Movement and energy in a quick sketch",
+                                                                           "Only outlines",
+                                                                           "Color only"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Fast, flowing lines convey the essence and motion of a subject."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Color Theory",
+                                          "content":  "Primary colors (red, blue, yellow) can\u0027t be made by mixing. Secondary: red+blue=purple, red+yellow=orange, blue+yellow=green. Tertiary: primary + adjacent secondary. Color wheel organizes all colors. Complementary: opposite on wheel (red-green) — strong contrast. Analogous: adjacent (blue, blue-green, green) — harmony. Properties: hue (name), value (light/dark), saturation (vivid/dull).",
+                                          "examples":  [
+                                                           "Complementary: red flower against green leaves stands out",
+                                                           "Sunset: analogous warm colors — red, orange, yellow",
+                                                           "Tint: white + red = pink. Shade: black + red = maroon"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "primary colors":  "Red, blue, yellow — unmixed",
+                                                           "complementary":  "Opposite on color wheel — maximum contrast",
+                                                           "value":  "Lightness/darkness",
+                                                           "warm colors":  "Red, orange, yellow — feel energetic and advancing",
+                                                           "cool colors":  "Blue, green, purple — feel calm and receding"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Primary colors:",
+                                                           "options":  [
+                                                                           "Red, green, blue",
+                                                                           "Red, blue, yellow",
+                                                                           "Orange, purple, green",
+                                                                           "Black, white, gray"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Can\u0027t be made by mixing."
+                                                       },
+                                                       {
+                                                           "question":  "Red and green are:",
+                                                           "options":  [
+                                                                           "Primary",
+                                                                           "Analogous",
+                                                                           "Complementary",
+                                                                           "Same color"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Opposite on wheel."
+                                                       },
+                                                       {
+                                                           "question":  "White + color =:",
+                                                           "options":  [
+                                                                           "Tint (lighter)",
+                                                                           "Shade (darker)",
+                                                                           "New primary",
+                                                                           "Gray"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "White lightens."
+                                                       },
+                                                       {
+                                                           "question":  "Warm colors make objects appear to:",
+                                                           "options":  [
+                                                                           "Disappear",
+                                                                           "Recede and feel calm",
+                                                                           "Come forward and feel energetic",
+                                                                           "Turn gray"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Warm colors (red, orange, yellow) advance visually."
+                                                       },
+                                                       {
+                                                           "question":  "Saturation refers to:",
+                                                           "options":  [
+                                                                           "How vivid or dull a color is",
+                                                                           "How light or dark",
+                                                                           "The color name",
+                                                                           "The color temperature"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "High saturation = vivid. Low saturation = muted/gray."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Texture, Space, and Composition",
+                                          "content":  "Texture: how surface feels or looks. Actual (touchable) or visual (implied by art). Space: positive (subject) vs negative (empty around it). Perspective creates depth — objects smaller with distance, lines converge at vanishing point. Composition: arrangement of elements. Rule of Thirds: place subject at intersection of 3×3 grid. Balance, contrast, and focal point guide the viewer\u0027s eye.",
+                                          "examples":  [
+                                                           "Van Gogh\u0027s thick brushstrokes create visual texture",
+                                                           "FedEx logo: arrow hidden in negative space",
+                                                           "Rule of Thirds: horizon on top or bottom third line"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "texture":  "Surface quality — tactile or visual",
+                                                           "negative space":  "Empty area around subjects",
+                                                           "composition":  "Arrangement of elements in artwork",
+                                                           "rule of thirds":  "Placing subjects at grid intersections for dynamic composition",
+                                                           "focal point":  "The area that draws the viewer\u0027s eye first"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Negative space:",
+                                                           "options":  [
+                                                                           "Texture",
+                                                                           "Main subject",
+                                                                           "Dark color",
+                                                                           "Empty area around subject"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Background and surrounding space."
+                                                       },
+                                                       {
+                                                           "question":  "Rule of Thirds:",
+                                                           "options":  [
+                                                                           "Only three colors",
+                                                                           "Center everything",
+                                                                           "Place subjects at 3×3 grid intersections",
+                                                                           "Three objects"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Off-center = more dynamic."
+                                                       },
+                                                       {
+                                                           "question":  "Depth on flat surface:",
+                                                           "options":  [
+                                                                           "One color",
+                                                                           "Everything same size",
+                                                                           "Perspective — smaller objects appear farther",
+                                                                           "Flat shapes only"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Size, overlap, and converging lines."
+                                                       },
+                                                       {
+                                                           "question":  "A focal point is:",
+                                                           "options":  [
+                                                                           "The largest shape",
+                                                                           "The center of the canvas always",
+                                                                           "The area that draws the viewer\u0027s eye first",
+                                                                           "The brightest color always"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Created through contrast, detail, or isolation — not always in the center."
+                                                       },
+                                                       {
+                                                           "question":  "Visual texture differs from actual texture because:",
+                                                           "options":  [
+                                                                           "It doesn\u0027t exist in art",
+                                                                           "It\u0027s always rough",
+                                                                           "It\u0027s an illusion created by the artist — you can\u0027t feel it",
+                                                                           "It\u0027s only in sculptures"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "A painting of tree bark looks rough but the canvas surface is smooth."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Principles of Design",
+                                          "content":  "The principles of design guide how elements are organized in artwork. Balance: visual weight distributed evenly — symmetrical (mirror image) or asymmetrical (different elements balance each other). Contrast: differences that create visual interest — light vs dark, large vs small, rough vs smooth. Emphasis: making one element stand out as the focal point. Movement: guiding the viewer\u0027s eye through the artwork using lines, shapes, and color. Pattern: repeating elements creating rhythm and visual interest. Unity: all elements work together as a cohesive whole — nothing feels out of place. Proportion: the relationship between sizes of different elements. These principles work together — a successful artwork uses several of them in harmony.",
+                                          "examples":  [
+                                                           "Symmetrical balance: a butterfly — mirror image left and right",
+                                                           "Contrast: a single red flower in a field of green — emphasis through color contrast",
+                                                           "Movement: a winding path in a landscape painting leads the eye from foreground to background"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "balance":  "Even distribution of visual weight — symmetrical or asymmetrical",
+                                                           "contrast":  "Differences between elements creating visual interest",
+                                                           "emphasis":  "Making one element dominate as the focal point",
+                                                           "unity":  "All elements working together as a cohesive whole",
+                                                           "proportion":  "The size relationship between different elements in an artwork"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Asymmetrical balance means:",
+                                                           "options":  [
+                                                                           "The artwork is unbalanced",
+                                                                           "Everything is the same on both sides",
+                                                                           "Different elements balance each other visually without being identical",
+                                                                           "Only one element exists"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "A large shape on one side can balance several small shapes on the other."
+                                                       },
+                                                       {
+                                                           "question":  "Emphasis is created by:",
+                                                           "options":  [
+                                                                           "Making everything equal",
+                                                                           "Making one element stand out through contrast, size, color, or isolation",
+                                                                           "Using only one color",
+                                                                           "Removing all detail"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "The focal point draws attention — achieved through differences from surrounding elements."
+                                                       },
+                                                       {
+                                                           "question":  "Pattern in art creates:",
+                                                           "options":  [
+                                                                           "Only in fabric design",
+                                                                           "Chaos",
+                                                                           "Boredom",
+                                                                           "Rhythm and visual interest through repetition"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Repeating elements (shapes, colors, lines) create visual rhythm."
+                                                       },
+                                                       {
+                                                           "question":  "Unity means:",
+                                                           "options":  [
+                                                                           "Using one color only",
+                                                                           "Everything is the same",
+                                                                           "All elements work together — nothing feels out of place",
+                                                                           "Random arrangement"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "A unified artwork feels complete — every element contributes to the whole."
+                                                       },
+                                                       {
+                                                           "question":  "Proportion affects how we perceive:",
+                                                           "options":  [
+                                                                           "Scale, importance, and relationships between parts",
+                                                                           "Only size",
+                                                                           "Only color",
+                                                                           "Nothing — proportion doesn\u0027t matter"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Exaggerated proportions can create emphasis, humor, or emotional impact."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Light and Shadow",
+                                          "content":  "Light and shadow are fundamental to creating realistic art and mood. Every 3D object has: a highlight (brightest point where light directly hits), midtone (the object\u0027s true color), core shadow (darkest part of the object opposite the light), reflected light (light bouncing from nearby surfaces onto the shadow side), and cast shadow (the shadow the object creates on surrounding surfaces). Value is the range from light to dark — a value scale goes from white to black with many grays between. High contrast (strong darks and lights) creates drama and energy. Low contrast (similar values) creates calm and softness. Chiaroscuro is the dramatic use of light and dark pioneered by artists like Caravaggio and Rembrandt. Understanding how light falls on objects is the key to drawing and painting realistically.",
+                                          "examples":  [
+                                                           "Hold a ball under a desk lamp — observe highlight, midtone, core shadow, reflected light, and cast shadow",
+                                                           "Rembrandt lighting: dramatic side light with one side bright and the other in deep shadow — still used in photography",
+                                                           "A white egg on white paper: value differences are subtle — training your eye to see them improves all your art"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "value":  "The range from light to dark in artwork",
+                                                           "highlight":  "The brightest point where light hits directly",
+                                                           "core shadow":  "The darkest part of an object — opposite the light source",
+                                                           "chiaroscuro":  "Dramatic contrast between light and dark — used for theatrical effect",
+                                                           "cast shadow":  "The shadow an object creates on surrounding surfaces"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The core shadow is:",
+                                                           "options":  [
+                                                                           "The background color",
+                                                                           "The brightest point",
+                                                                           "The cast shadow on the ground",
+                                                                           "The darkest part of the object, opposite the light source"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Core shadow is on the object itself — where no direct or reflected light reaches."
+                                                       },
+                                                       {
+                                                           "question":  "Reflected light is:",
+                                                           "options":  [
+                                                                           "Light bouncing from nearby surfaces onto the shadow side of an object",
+                                                                           "The main light source",
+                                                                           "The highlight",
+                                                                           "Artificial light only"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Even in shadow, surfaces receive some light bounced from the environment."
+                                                       },
+                                                       {
+                                                           "question":  "Chiaroscuro was pioneered by:",
+                                                           "options":  [
+                                                                           "Monet and Renoir",
+                                                                           "Picasso and Braque",
+                                                                           "Caravaggio and Rembrandt — dramatic light/dark contrast",
+                                                                           "No specific artist"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "These Renaissance/Baroque masters used extreme contrast for theatrical, dramatic effect."
+                                                       },
+                                                       {
+                                                           "question":  "High contrast creates:",
+                                                           "options":  [
+                                                                           "No effect",
+                                                                           "Calm and softness",
+                                                                           "Drama, energy, and visual impact",
+                                                                           "Confusion"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Strong differences between light and dark are visually exciting and attention-grabbing."
+                                                       },
+                                                       {
+                                                           "question":  "A value scale shows:",
+                                                           "options":  [
+                                                                           "Only shapes",
+                                                                           "Only colors",
+                                                                           "A range from white to black with gradual grays between",
+                                                                           "Temperature"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Value = lightness or darkness. Training to see values improves all drawing and painting."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Art Techniques",
+                      "lessons":  [
+                                      {
+                                          "title":  "Drawing Fundamentals",
+                                          "content":  "Drawing is the foundation. Start with gesture drawing (30-60s quick sketches). Use basic shapes for complex subjects. Pencil grades: H = hard/light, B = soft/dark. Shading: hatching, cross-hatching, stippling, blending. Practice contour drawing for hand-eye coordination. Draw daily — even 10 minutes helps.",
+                                          "examples":  [
+                                                           "Gesture: 30-second people sketches capture movement",
+                                                           "Cross-hatching: crossing lines create darker areas",
+                                                           "Face proportions: eyes at midpoint, nose at 3/4, mouth at 7/8"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "gesture drawing":  "Quick sketches capturing movement (30-60s)",
+                                                           "hatching":  "Parallel lines creating tone",
+                                                           "contour drawing":  "Drawing edges of subject",
+                                                           "value study":  "A drawing focusing only on light and dark, no color",
+                                                           "blind contour":  "Drawing edges without looking at the paper — builds observation skills"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Gesture drawing:",
+                                                           "options":  [
+                                                                           "Quick sketches capturing movement",
+                                                                           "Detailed drawings",
+                                                                           "Gestures only",
+                                                                           "Tracing"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Rapid capture of essence."
+                                                       },
+                                                       {
+                                                           "question":  "B pencils:",
+                                                           "options":  [
+                                                                           "Colored",
+                                                                           "Hard and light",
+                                                                           "Soft and dark — good for shading",
+                                                                           "Erasers"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "B = bold/soft."
+                                                       },
+                                                       {
+                                                           "question":  "Improve at drawing:",
+                                                           "options":  [
+                                                                           "Trace photos",
+                                                                           "Expensive materials",
+                                                                           "Draw once a year",
+                                                                           "Practice regularly — even 10 minutes daily"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Consistent practice is key."
+                                                       },
+                                                       {
+                                                           "question":  "A value study uses:",
+                                                           "options":  [
+                                                                           "Only light and dark values — no color — to understand form",
+                                                                           "Only bright colors",
+                                                                           "Only outlines",
+                                                                           "Only watercolor"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Working in grayscale forces you to focus on form and light."
+                                                       },
+                                                       {
+                                                           "question":  "Blind contour drawing improves:",
+                                                           "options":  [
+                                                                           "Nothing — it\u0027s just for fun",
+                                                                           "Speed",
+                                                                           "Color use",
+                                                                           "Observation skills — you learn to really look at your subject"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "By not looking at the paper, you train your eyes to see edges and relationships."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Painting Basics",
+                                          "content":  "Watercolor: transparent, mixes on wet paper, hard to correct. Acrylic: versatile, dries fast, layerable. Oil: rich colors, slow drying, blendable. Mix from primaries rather than buying every color. Start with underpainting, then layers: background → midground → foreground. Flat brush for areas, round for details. Clean brushes immediately.",
+                                          "examples":  [
+                                                           "Watercolor: wet paper first, colors flow beautifully",
+                                                           "Acrylic: paint sky, let dry, paint trees on top — clean edges",
+                                                           "Only NEED red, blue, yellow, white, black — mix everything"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "watercolor":  "Transparent paint using water",
+                                                           "acrylic":  "Versatile, fast-drying",
+                                                           "underpainting":  "Base layer establishing tones",
+                                                           "impasto":  "Thick paint application creating visible texture on the surface",
+                                                           "wash":  "A thin, transparent layer of watercolor covering a large area"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Fastest drying:",
+                                                           "options":  [
+                                                                           "Oil",
+                                                                           "Acrylic",
+                                                                           "Watercolor once wet",
+                                                                           "All same"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Acrylic: minutes. Oil: days/weeks."
+                                                       },
+                                                       {
+                                                           "question":  "Mix everything from:",
+                                                           "options":  [
+                                                                           "Green, orange, purple",
+                                                                           "Black, white, gray",
+                                                                           "Red, blue, yellow + white and black",
+                                                                           "Pink, brown, gold"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Primary colors create all others."
+                                                       },
+                                                       {
+                                                           "question":  "Paint background first because:",
+                                                           "options":  [
+                                                                           "Background less important",
+                                                                           "Doesn\u0027t matter",
+                                                                           "Foreground objects sit on top with clean edges",
+                                                                           "Foreground dries faster"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Back to front creates natural depth."
+                                                       },
+                                                       {
+                                                           "question":  "Impasto technique:",
+                                                           "options":  [
+                                                                           "Only using pencil",
+                                                                           "Thin transparent layers",
+                                                                           "Thick paint creating visible texture and dimension",
+                                                                           "Smooth flat surface"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Van Gogh used impasto — thick swirling paint you can feel."
+                                                       },
+                                                       {
+                                                           "question":  "A wash in watercolor is:",
+                                                           "options":  [
+                                                                           "Cleaning the brushes",
+                                                                           "Thick opaque paint",
+                                                                           "A thin, transparent layer covering a large area",
+                                                                           "Removing paint"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Washes create backgrounds, skies, and subtle color transitions."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Sculpture and 3D Art",
+                                          "content":  "Sculpture techniques: carving (removing material — stone, wood), modeling (adding — clay, wax), casting (liquid into mold — bronze), assembling (joining pieces). Clay is most accessible. Consider all viewing angles — 360°. Relief: raised from background. Freestanding: independent. Modern: installations, kinetic (moving), environmental art.",
+                                          "examples":  [
+                                                           "Michelangelo carved David from marble — removing everything that wasn\u0027t David",
+                                                           "Clay coil pot: stack and smooth coils",
+                                                           "Calder invented mobiles — moving sculptures"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "carving":  "Subtractive — removing material",
+                                                           "modeling":  "Additive — building up material",
+                                                           "installation":  "Art transforming a space",
+                                                           "relief sculpture":  "Raised from a flat background, like coins or building decorations",
+                                                           "kinetic sculpture":  "Sculpture with moving parts"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Carving is:",
+                                                           "options":  [
+                                                                           "Photography",
+                                                                           "Additive",
+                                                                           "Painting",
+                                                                           "Subtractive — material removed"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Cutting away to reveal form."
+                                                       },
+                                                       {
+                                                           "question":  "Sculpture differs from painting:",
+                                                           "options":  [
+                                                                           "3D — viewable from all angles",
+                                                                           "Uses color",
+                                                                           "Always bigger",
+                                                                           "No difference"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Depth and 360° viewing."
+                                                       },
+                                                       {
+                                                           "question":  "Easiest beginner material:",
+                                                           "options":  [
+                                                                           "Bronze",
+                                                                           "Marble",
+                                                                           "Air-dry clay — no kiln needed",
+                                                                           "Steel"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Affordable and forgiving."
+                                                       },
+                                                       {
+                                                           "question":  "Relief sculpture is:",
+                                                           "options":  [
+                                                                           "Fully 3D freestanding",
+                                                                           "Raised from a flat background — viewable from one side",
+                                                                           "Only found in ancient art",
+                                                                           "Made of paper only"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Like coins, building facades, and carved panels — attached to a surface."
+                                                       },
+                                                       {
+                                                           "question":  "Kinetic sculpture:",
+                                                           "options":  [
+                                                                           "Is not real sculpture",
+                                                                           "Always stays still",
+                                                                           "Is only digital",
+                                                                           "Has moving parts — changes with time or viewer interaction"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Motion is part of the art — wind, motors, or viewer interaction create movement."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Printmaking",
+                                          "content":  "Printmaking creates multiple copies of an artwork from a single matrix (printing surface). Types: relief printing (carve away areas you don\u0027t want to print — remaining raised surface gets ink, like a stamp), intaglio (carve lines INTO a surface — ink fills the grooves, surface is wiped clean), lithography (drawing on stone/plate with greasy material — ink sticks to grease, repels water), screen printing (force ink through a stencil on mesh — used for t-shirts and posters), and monoprint (one-of-a-kind print). Linocut is the most accessible: carve a design into linoleum, roll ink on the raised surface, press paper on top. Prints are numbered as editions (e.g., 3/20 means the 3rd print out of 20). Printmaking democratized art: multiple copies meant wider audiences could own artwork, not just the wealthy.",
+                                          "examples":  [
+                                                           "Linocut: carve a flower design into lino → ink the raised surface → press paper → pull a print",
+                                                           "Andy Warhol used screen printing to create his famous Marilyn Monroe prints — each slightly different",
+                                                           "Japanese woodblock prints (ukiyo-e) influenced Impressionists like Monet and Van Gogh"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "relief printing":  "Ink on raised surfaces — carved away areas don\u0027t print (linocut, woodcut)",
+                                                           "screen printing":  "Ink pushed through a mesh stencil onto paper or fabric",
+                                                           "edition":  "A set of identical prints from the same matrix, numbered (e.g., 3/20)",
+                                                           "matrix":  "The surface from which prints are made (woodblock, lino, screen, stone)"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "In relief printing:",
+                                                           "options":  [
+                                                                           "Everything prints",
+                                                                           "Carved areas get ink",
+                                                                           "Raised areas get ink and print — carved areas don\u0027t",
+                                                                           "Nothing is carved"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Like a stamp — only the raised surface transfers ink to paper."
+                                                       },
+                                                       {
+                                                           "question":  "Print edition 7/50 means:",
+                                                           "options":  [
+                                                                           "7 prints out of 50 sold",
+                                                                           "The 7th print out of a total edition of 50",
+                                                                           "7 colors used, 50 copies",
+                                                                           "7 minutes to make, 50 total"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Edition number / total: this is the 7th print from a run of 50 identical prints."
+                                                       },
+                                                       {
+                                                           "question":  "Screen printing is commonly used for:",
+                                                           "options":  [
+                                                                           "Watercolor only",
+                                                                           "Oil paintings",
+                                                                           "Marble sculpture",
+                                                                           "T-shirts and posters — ink pushed through mesh stencils"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Screen printing applies flat, bold colors — ideal for fabric and poster production."
+                                                       },
+                                                       {
+                                                           "question":  "Printmaking democratized art because:",
+                                                           "options":  [
+                                                                           "Prints are not real art",
+                                                                           "It was more expensive",
+                                                                           "Only rich people printed",
+                                                                           "Multiple copies meant more people could own artwork, not just the wealthy"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Before printmaking, only the wealthy could own original artworks."
+                                                       },
+                                                       {
+                                                           "question":  "The most accessible printmaking technique for beginners is:",
+                                                           "options":  [
+                                                                           "Linocut — affordable materials, simple tools, immediate results",
+                                                                           "Lithography — requires special stones",
+                                                                           "Intaglio — requires a press",
+                                                                           "Screen printing — requires specialized equipment"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Linoleum, a carving tool, ink, and paper — that\u0027s all you need to start."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Mixed Media and Collage",
+                                          "content":  "Mixed media combines multiple materials and techniques in one artwork. Collage: cutting and pasting different materials (paper, fabric, photos, found objects) onto a surface — invented by Picasso and Braque during Cubism. Assemblage: 3D collage using found objects. Mixed media can combine: drawing + painting + collage + digital + text. The freedom of mixed media encourages experimentation — there are no rules about what materials can be combined. Found objects gain new meaning when placed in an art context — a rusty key becomes a symbol, a newspaper clipping becomes commentary. Mixed media is ideal for expressing complex ideas because different materials carry different associations. Digital tools (tablets, apps) now extend mixed media possibilities — combining traditional and digital techniques.",
+                                          "examples":  [
+                                                           "Collage: Romare Bearden combined photographs, painted paper, and fabric to depict African American life",
+                                                           "Assemblage: Louise Nevelson created wall-sized sculptures from wooden boxes filled with found objects — all painted one color",
+                                                           "Mixed media journal: combine drawing, watercolor, magazine clippings, text, and fabric in a personal art journal"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "collage":  "Artwork made by gluing different materials onto a surface",
+                                                           "assemblage":  "Three-dimensional collage using found objects",
+                                                           "mixed media":  "Art combining multiple materials and techniques",
+                                                           "found object":  "An everyday object repurposed as part of an artwork"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Collage was invented by:",
+                                                           "options":  [
+                                                                           "Photographers in the 1900s",
+                                                                           "Leonardo da Vinci",
+                                                                           "Ancient Egyptians",
+                                                                           "Picasso and Braque during the Cubist period"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Around 1912, they began pasting newspaper and wallpaper into paintings."
+                                                       },
+                                                       {
+                                                           "question":  "Mixed media art can combine:",
+                                                           "options":  [
+                                                                           "Any materials: drawing, painting, collage, digital, found objects, fabric",
+                                                                           "Only paint and pencil",
+                                                                           "Only paper",
+                                                                           "Only digital tools"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "There are no rules — any combination of materials is valid."
+                                                       },
+                                                       {
+                                                           "question":  "A found object in art is:",
+                                                           "options":  [
+                                                                           "An everyday item repurposed as part of an artwork",
+                                                                           "Something you find and throw away",
+                                                                           "Only natural objects",
+                                                                           "Only manufactured items"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "A bottle cap, a rusty nail, a book page — anything can become art material."
+                                                       },
+                                                       {
+                                                           "question":  "Mixed media encourages:",
+                                                           "options":  [
+                                                                           "Following strict rules",
+                                                                           "Experimentation and creative freedom with no material restrictions",
+                                                                           "Using only one technique",
+                                                                           "Avoiding new materials"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "The whole point is breaking boundaries between traditional art categories."
+                                                       },
+                                                       {
+                                                           "question":  "Assemblage differs from collage because:",
+                                                           "options":  [
+                                                                           "It requires a frame",
+                                                                           "It\u0027s always flat",
+                                                                           "It only uses paper",
+                                                                           "It\u0027s three-dimensional — using found objects in space"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Collage is 2D (on a surface); assemblage extends into 3D space."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Art History",
+                      "lessons":  [
+                                      {
+                                          "title":  "Ancient and Classical Art",
+                                          "content":  "Cave paintings (Lascaux, 17,000 years ago): first known art. Egyptian: strict rules, important people larger. Greek: idealized human beauty, realistic proportions. Roman: practical — mosaics, architecture, realistic portraits. African: ancient traditions — Nok terracotta, Benin Bronzes. Art served religion, history, and cultural identity.",
+                                          "examples":  [
+                                                           "Lascaux: natural pigments, blown through hollow bones",
+                                                           "Greek Parthenon: idealized gods and athletes",
+                                                           "Benin Bronzes: among finest metalwork ever"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "cave painting":  "Prehistoric art — earliest human expression",
+                                                           "idealized":  "Representing subjects as perfect",
+                                                           "Benin Bronzes":  "Elaborate bronze from Kingdom of Benin",
+                                                           "iconography":  "The visual symbols and imagery used in artwork to convey meaning"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Oldest artworks:",
+                                                           "options":  [
+                                                                           "Photographs",
+                                                                           "Oil paintings",
+                                                                           "Cave paintings",
+                                                                           "Digital art"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Tens of thousands of years old."
+                                                       },
+                                                       {
+                                                           "question":  "Greek art focused on:",
+                                                           "options":  [
+                                                                           "Idealized human beauty",
+                                                                           "Abstract shapes",
+                                                                           "Only landscapes",
+                                                                           "Only animals"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Perfect proportions."
+                                                       },
+                                                       {
+                                                           "question":  "Benin Bronzes:",
+                                                           "options":  [
+                                                                           "European influence",
+                                                                           "Sophisticated metalwork from Kingdom of Benin",
+                                                                           "Simple pottery",
+                                                                           "Modern art"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Advanced African artistry."
+                                                       },
+                                                       {
+                                                           "question":  "Egyptian art followed strict rules because:",
+                                                           "options":  [
+                                                                           "They didn\u0027t know perspective",
+                                                                           "Artists lacked skill",
+                                                                           "Materials were limited",
+                                                                           "Art served religious and political purposes — consistency was sacred"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Art was functional — ensuring the dead could live in the afterlife, not for decoration."
+                                                       },
+                                                       {
+                                                           "question":  "Iconography in ancient art:",
+                                                           "options":  [
+                                                                           "Was purely decorative",
+                                                                           "Used symbols to convey meaning — viewers understood the visual language",
+                                                                           "Had no meaning",
+                                                                           "Was only in text"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "A winged sun in Egypt meant divine protection — symbols carried specific meanings."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Renaissance to Impressionism",
+                                          "content":  "Renaissance (1400-1600): perspective, realistic anatomy, oil painting. Masters: Leonardo (Mona Lisa), Michelangelo (Sistine Chapel). Baroque (1600-1750): drama and emotion (Caravaggio). Romanticism (1800s): nature and feeling. Impressionism (1860s-1880s): loose brushstrokes, light effects, outdoor painting (Monet, Renoir, Degas).",
+                                          "examples":  [
+                                                           "Mona Lisa: mysterious smile, sfumato technique",
+                                                           "Monet\u0027s Water Lilies: same pond, different light",
+                                                           "Caravaggio: dramatic chiaroscuro lighting"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "Renaissance art":  "Realism, perspective, human beauty 1400-1600",
+                                                           "Impressionism":  "Loose brushstrokes capturing light 1860s-1880s",
+                                                           "chiaroscuro":  "Strong light/dark contrast",
+                                                           "sfumato":  "Soft, smoky blending technique pioneered by Leonardo",
+                                                           "plein air":  "Painting outdoors to capture natural light — central to Impressionism"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Impressionism:",
+                                                           "options":  [
+                                                                           "Loose brushstrokes capturing light",
+                                                                           "Perfect detail",
+                                                                           "Only religious subjects",
+                                                                           "Dark colors only"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Capturing fleeting moments."
+                                                       },
+                                                       {
+                                                           "question":  "Mona Lisa artist:",
+                                                           "options":  [
+                                                                           "Michelangelo",
+                                                                           "Leonardo da Vinci",
+                                                                           "Monet",
+                                                                           "Picasso"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "~1503-1519."
+                                                       },
+                                                       {
+                                                           "question":  "Renaissance introduced:",
+                                                           "options":  [
+                                                                           "Abstract forms",
+                                                                           "Only flat shapes",
+                                                                           "Linear perspective for depth",
+                                                                           "Random placement"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Vanishing points create 3D illusion."
+                                                       },
+                                                       {
+                                                           "question":  "Plein air painting means:",
+                                                           "options":  [
+                                                                           "Using airbrush only",
+                                                                           "Painting indoors only",
+                                                                           "Painting in the air",
+                                                                           "Painting outdoors to capture natural light"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Impressionists left the studio to paint landscapes, cafes, and gardens in natural light."
+                                                       },
+                                                       {
+                                                           "question":  "Sfumato is:",
+                                                           "options":  [
+                                                                           "A technique of soft, smoky blending between tones — no harsh edges",
+                                                                           "Bold, thick paint",
+                                                                           "Only used in sculpture",
+                                                                           "A type of canvas"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Leonardo perfected sfumato — the Mona Lisa\u0027s mysterious expression comes from this technique."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Modern and Contemporary Art",
+                                          "content":  "Modern (1880s-1970s) broke all rules. Post-Impressionism (Van Gogh, Cézanne): emotion and structure. Cubism (Picasso): multiple viewpoints. Surrealism (Dalí): dreams. Abstract (Kandinsky, Mondrian): no representation. Pop Art (Warhol): popular culture. Contemporary (1970s-present): installations, performance, video, digital, street art (Banksy).",
+                                          "examples":  [
+                                                           "Guernica: cubist anti-war painting",
+                                                           "Warhol\u0027s Soup Cans: art vs commercial products",
+                                                           "Banksy: humor + political commentary + accessibility"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "abstract art":  "No real objects — form and color for their own sake",
+                                                           "cubism":  "Multiple viewpoints simultaneously",
+                                                           "contemporary art":  "1970s-present — all media",
+                                                           "conceptual art":  "Art where the idea is more important than the visual result",
+                                                           "Pop Art":  "Movement celebrating popular culture and mass media imagery"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Cubism shows:",
+                                                           "options":  [
+                                                                           "Only landscapes",
+                                                                           "One perfect angle",
+                                                                           "Only black and white",
+                                                                           "Multiple viewpoints simultaneously"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Fragments and reassembles."
+                                                       },
+                                                       {
+                                                           "question":  "Abstract art:",
+                                                           "options":  [
+                                                                           "Must have people",
+                                                                           "Always realistic",
+                                                                           "Only photographs",
+                                                                           "No real objects — form and color for expression"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Communicates through visual elements."
+                                                       },
+                                                       {
+                                                           "question":  "Pop Art celebrated:",
+                                                           "options":  [
+                                                                           "Only religion",
+                                                                           "Only classical music",
+                                                                           "Only landscapes",
+                                                                           "Popular culture and consumer products"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Elevating everyday objects."
+                                                       },
+                                                       {
+                                                           "question":  "Conceptual art values:",
+                                                           "options":  [
+                                                                           "Only size",
+                                                                           "Only technical skill",
+                                                                           "Only beauty",
+                                                                           "The idea behind the art more than the visual object"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "The concept IS the artwork — the physical object is secondary."
+                                                       },
+                                                       {
+                                                           "question":  "Contemporary art includes:",
+                                                           "options":  [
+                                                                           "Only digital",
+                                                                           "Only painting",
+                                                                           "Only sculpture",
+                                                                           "Everything: installations, video, performance, digital, and traditional media"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Contemporary art has no boundaries — any medium or concept is valid."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "African Art Traditions",
+                                          "content":  "African art is among the oldest and most diverse in the world. It encompasses: sculpture (masks, figures, totems), textiles (Kente cloth from Ghana, Bogolan/mud cloth from Mali), beadwork (Maasai, Zulu), architecture (Great Zimbabwe, mud mosques of Djenné), body art (scarification, paint), music (djembe, mbira, talking drums), and oral traditions (storytelling, proverbs, poetry). African art is rarely created for \u0027art\u0027s sake\u0027 — it serves functional, spiritual, and social purposes: masks for ceremonies, figures for ancestor worship, textiles indicating status, and music for healing and celebration. European artists like Picasso, Matisse, and Modigliani were profoundly influenced by African sculpture — its abstract forms and geometric patterns helped inspire Cubism and modern art. Yet African art was long dismissed as \u0027primitive\u0027 by Western museums — this colonial perspective is now being corrected. Repatriation movements demand the return of stolen African artworks from European museums (Benin Bronzes, Ethiopian artifacts).",
+                                          "examples":  [
+                                                           "Kente cloth: each color and pattern has specific meaning — gold = royalty, green = harvest",
+                                                           "Nok terracotta sculptures (Nigeria, 500 BCE): among the earliest known African figurative art",
+                                                           "Picasso\u0027s Les Demoiselles d\u0027Avignon (1907) was directly inspired by African masks he saw in a Paris museum"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "mask":  "Carved face covering used in ceremonies, storytelling, and spiritual practices",
+                                                           "Kente cloth":  "Colorful woven textile from Ghana — patterns carry specific cultural meanings",
+                                                           "repatriation":  "Returning cultural artifacts to their country of origin",
+                                                           "functional art":  "Art that serves a practical or ceremonial purpose, not just decoration"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "African art typically serves:",
+                                                           "options":  [
+                                                                           "Only decorative purposes",
+                                                                           "Functional, spiritual, and social purposes — not just decoration",
+                                                                           "No purpose at all",
+                                                                           "Only commercial purposes"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Masks for ceremonies, textiles for status, music for healing — art is integrated into life."
+                                                       },
+                                                       {
+                                                           "question":  "African sculpture influenced:",
+                                                           "options":  [
+                                                                           "Only fashion",
+                                                                           "Nothing outside Africa",
+                                                                           "Only architecture",
+                                                                           "Modern European art — Picasso, Matisse were inspired by African forms"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "African sculpture\u0027s abstract, geometric forms helped inspire Cubism and modern art."
+                                                       },
+                                                       {
+                                                           "question":  "Kente cloth patterns:",
+                                                           "options":  [
+                                                                           "Carry specific cultural meanings — colors and designs are symbolic",
+                                                                           "Are random",
+                                                                           "Are machine-generated",
+                                                                           "Have no significance"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Gold = royalty, green = harvest — each pattern tells a story."
+                                                       },
+                                                       {
+                                                           "question":  "Repatriation of African art means:",
+                                                           "options":  [
+                                                                           "Destroying old art",
+                                                                           "Selling art to museums",
+                                                                           "Creating new artworks",
+                                                                           "Returning stolen artworks to their countries of origin"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Many African artifacts were taken during colonialism — movements demand their return."
+                                                       },
+                                                       {
+                                                           "question":  "The term \u0027primitive art\u0027 for African art is:",
+                                                           "options":  [
+                                                                           "Used by African artists themselves",
+                                                                           "Accurate description",
+                                                                           "A compliment",
+                                                                           "A colonial misconception — African art is sophisticated and culturally rich"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Labeling complex traditions \u0027primitive\u0027 was a colonial power move — now recognized as wrong."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Art Movements and Their Context",
+                                          "content":  "Art movements reflect the society and time that produces them. Realism (1850s): a reaction against Romanticism — painted everyday life honestly, including poverty and labor. Impressionism: rejected studio painting for outdoor observation — coincided with the invention of portable paint tubes and photography. Expressionism: distorted reality to express inner emotions — emerged during WWI\u0027s trauma. Dadaism: rejected all artistic conventions — a protest against the madness of war. Abstract Expressionism: post-WWII America — large canvases expressing freedom and individualism (Pollock, Rothko). Each movement was a response to what came before AND to the world around it. Understanding context helps you understand the art. Today\u0027s movements reflect our era: digital art, AI-generated art, NFTs, street art, and socially engaged art that addresses climate, inequality, and identity.",
+                                          "examples":  [
+                                                           "Guernica (1937): Picasso\u0027s response to the bombing of a Spanish town — art as political protest",
+                                                           "Abstract Expressionism emerged as America became a global superpower — art reflecting confidence and freedom",
+                                                           "Street art (Banksy, JR): art leaving galleries and entering public space — commenting on society"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "art movement":  "A group of artists sharing similar ideas, style, and historical context",
+                                                           "Realism":  "Painting everyday life honestly, without idealization",
+                                                           "Expressionism":  "Distorting reality to convey inner emotions and feelings",
+                                                           "Dadaism":  "Anti-art movement rejecting logic and conventions — born from WWI disillusionment"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Art movements reflect:",
+                                                           "options":  [
+                                                                           "Nothing — art exists in a vacuum",
+                                                                           "The society and historical context that produces them",
+                                                                           "Only the artist\u0027s personal life",
+                                                                           "Only technical innovations"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Art responds to war, technology, politics, and social change."
+                                                       },
+                                                       {
+                                                           "question":  "Impressionism coincided with:",
+                                                           "options":  [
+                                                                           "The discovery of electricity",
+                                                                           "The invention of the computer",
+                                                                           "Portable paint tubes and photography — changing how and why artists painted",
+                                                                           "Space exploration"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "New paint tubes enabled outdoor painting; photography freed painters from exact replication."
+                                                       },
+                                                       {
+                                                           "question":  "Dadaism was a protest against:",
+                                                           "options":  [
+                                                                           "Nature",
+                                                                           "Beautiful art",
+                                                                           "The madness and destruction of World War I",
+                                                                           "Music"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Dada rejected logic, reason, and artistic conventions — reflecting the chaos of war."
+                                                       },
+                                                       {
+                                                           "question":  "Each new art movement typically:",
+                                                           "options":  [
+                                                                           "Ignores history completely",
+                                                                           "Copies the previous movement exactly",
+                                                                           "Reacts against the previous movement AND responds to current events",
+                                                                           "Only changes techniques, not ideas"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Artists rebel against what came before while reflecting their own era\u0027s concerns."
+                                                       },
+                                                       {
+                                                           "question":  "Today\u0027s art movements address:",
+                                                           "options":  [
+                                                                           "Nothing political",
+                                                                           "Only traditional themes",
+                                                                           "Climate change, identity, inequality, technology, and digital culture",
+                                                                           "Only beauty"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Contemporary art tackles the issues of our time — just as every era\u0027s art has done."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Digital and Applied Art",
+                      "lessons":  [
+                                      {
+                                          "title":  "Graphic Design",
+                                          "content":  "Graphic design communicates visually. Combines typography, images, colors, layout. Principles: hierarchy (important info stands out), contrast, alignment, repetition, whitespace. Serif fonts = traditional. Sans-serif = modern. Tools: Canva (beginner), Illustrator/Photoshop (professional). Good design is invisible — it guides without the viewer noticing.",
+                                          "examples":  [
+                                                           "Poster: bold title, contrasting colors, consistent style",
+                                                           "Apple branding: clean, minimal, premium feel",
+                                                           "Restaurant menu: elegant font, clear sections"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "typography":  "Selecting and arranging fonts",
+                                                           "hierarchy":  "Most important info stands out first",
+                                                           "whitespace":  "Empty space letting elements breathe",
+                                                           "brand identity":  "The visual system representing a company: logo, colors, fonts, imagery"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Visual hierarchy:",
+                                                           "options":  [
+                                                                           "Only text",
+                                                                           "Everything same size",
+                                                                           "Important info stands out first",
+                                                                           "Fill every space"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Guide viewer\u0027s eye."
+                                                       },
+                                                       {
+                                                           "question":  "Serif fonts:",
+                                                           "options":  [
+                                                                           "Modern and casual",
+                                                                           "Traditional and formal feeling",
+                                                                           "Technology only",
+                                                                           "Children\u0027s books"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Small strokes on letters."
+                                                       },
+                                                       {
+                                                           "question":  "Whitespace importance:",
+                                                           "options":  [
+                                                                           "Shows laziness",
+                                                                           "Wastes space",
+                                                                           "Gives elements room, improves readability",
+                                                                           "Only for print"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Reduces clutter."
+                                                       },
+                                                       {
+                                                           "question":  "Brand identity includes:",
+                                                           "options":  [
+                                                                           "Only the logo",
+                                                                           "Logo, colors, fonts, imagery, and visual style — used consistently",
+                                                                           "Only the company name",
+                                                                           "Only the website"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Everything visual that represents the brand — consistency builds recognition."
+                                                       },
+                                                       {
+                                                           "question":  "The best design is often:",
+                                                           "options":  [
+                                                                           "Breaking all rules",
+                                                                           "As complex as possible",
+                                                                           "Full of decoration",
+                                                                           "Invisible — it guides without the viewer noticing"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Good design feels natural — users don\u0027t think about it, they just understand."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Photography Basics",
+                                          "content":  "Three key settings: aperture (lens opening — controls depth of field), shutter speed (exposure time — controls motion), ISO (sensitivity — controls grain). Composition: Rule of Thirds, leading lines, framing, symmetry. Golden hour provides warm light. Smartphones have made photography universal.",
+                                          "examples":  [
+                                                           "Wide aperture blurs background (portrait mode)",
+                                                           "Slow shutter: silky waterfall. Fast: frozen sports action",
+                                                           "Leading lines: road disappearing into distance guides the eye"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "aperture":  "Lens opening — controls depth of field",
+                                                           "shutter speed":  "Exposure time — controls motion blur",
+                                                           "golden hour":  "Warm light near sunrise/sunset",
+                                                           "depth of field":  "The range of distance that appears sharp in a photo",
+                                                           "ISO":  "Sensor sensitivity — higher ISO for dark conditions but adds noise/grain"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Blur background:",
+                                                           "options":  [
+                                                                           "Wide aperture (low f-number)",
+                                                                           "Narrow aperture",
+                                                                           "Slow shutter",
+                                                                           "High ISO"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Wide aperture = shallow depth of field."
+                                                       },
+                                                       {
+                                                           "question":  "Freeze fast motion:",
+                                                           "options":  [
+                                                                           "Slow shutter",
+                                                                           "Fast shutter speed",
+                                                                           "Wide aperture",
+                                                                           "Low ISO"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Captures split second."
+                                                       },
+                                                       {
+                                                           "question":  "Golden hour:",
+                                                           "options":  [
+                                                                           "Exactly one hour",
+                                                                           "Warm, soft, flattering light near sunrise/sunset",
+                                                                           "Sun directly overhead",
+                                                                           "Hottest time"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Low-angle light creates warm tones."
+                                                       },
+                                                       {
+                                                           "question":  "High ISO is used when:",
+                                                           "options":  [
+                                                                           "Light is low — increases sensitivity but adds grain",
+                                                                           "Light is bright",
+                                                                           "For portraits only",
+                                                                           "To blur backgrounds"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Dark situations need higher ISO — trade-off is digital noise/grain."
+                                                       },
+                                                       {
+                                                           "question":  "Depth of field determines:",
+                                                           "options":  [
+                                                                           "The brightness of the photo",
+                                                                           "How much of the scene is in sharp focus",
+                                                                           "The color of the photo",
+                                                                           "The size of the file"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Shallow DoF = only subject sharp. Deep DoF = everything sharp (landscapes)."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Digital Art and Tools",
+                                          "content":  "Digital art uses technology as the medium. Tools: graphic tablets (Wacom — draw directly on screen), drawing apps (Procreate for iPad, Krita for PC — free), photo editing (Photoshop, GIMP — free), vector graphics (Illustrator, Inkscape — free), and 3D modeling (Blender — free, industry-standard). Digital advantages: unlimited undo, layers (work on parts independently), infinite color palette, easy sharing and printing. Digital art is NOT \u0027cheating\u0027 — it requires the same artistic skills (composition, color, form) plus technical knowledge. Many professionals use both traditional and digital: sketch on paper, refine digitally. AI art tools (Midjourney, Stable Diffusion) generate images from text prompts — raising questions about authorship, copyright, and the definition of art.",
+                                          "examples":  [
+                                                           "Procreate on iPad: professional illustration with natural brush feel — used by concept artists worldwide",
+                                                           "Blender: free 3D software used for animation, game design, and even film visual effects",
+                                                           "AI art: type \u0027sunset over African savanna, oil painting style\u0027 → AI generates an image in seconds"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "layers":  "Separate transparent sheets in digital art — edit one without affecting others",
+                                                           "vector graphics":  "Art defined by mathematical paths — scales to any size without losing quality",
+                                                           "raster graphics":  "Art made of pixels — has a fixed resolution",
+                                                           "digital illustration":  "Creating artwork using digital tools and a tablet/stylus"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Layers in digital art:",
+                                                           "options":  [
+                                                                           "Only for professional use",
+                                                                           "Separate transparent sheets — edit one without affecting others",
+                                                                           "Make art worse",
+                                                                           "Only in Photoshop"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Layers are fundamental — sketch on one, ink on another, color on a third."
+                                                       },
+                                                       {
+                                                           "question":  "Vector graphics are special because:",
+                                                           "options":  [
+                                                                           "They look better at small sizes",
+                                                                           "They scale to any size without losing quality",
+                                                                           "They only work on phones",
+                                                                           "They can\u0027t be printed"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Vectors use math, not pixels — a logo can go from a business card to a billboard."
+                                                       },
+                                                       {
+                                                           "question":  "The best free 3D modeling software is:",
+                                                           "options":  [
+                                                                           "Paint",
+                                                                           "Photoshop",
+                                                                           "PowerPoint",
+                                                                           "Blender — free and used professionally in film and games"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Blender is industry-standard quality, completely free, with massive community support."
+                                                       },
+                                                       {
+                                                           "question":  "Digital art is NOT cheating because:",
+                                                           "options":  [
+                                                                           "It requires the same artistic skills plus technical knowledge",
+                                                                           "Anyone can do it easily",
+                                                                           "Computers do everything",
+                                                                           "It\u0027s the same as pressing a button"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Composition, color theory, anatomy — all still essential. The tool changed, not the skill."
+                                                       },
+                                                       {
+                                                           "question":  "AI art raises questions about:",
+                                                           "options":  [
+                                                                           "Nothing controversial",
+                                                                           "Authorship, copyright, and the definition of art",
+                                                                           "Only technical issues",
+                                                                           "Only pricing"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "If AI generates an image from a text prompt, who is the artist? These debates are ongoing."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Art in Everyday Life",
+                                          "content":  "Art shapes our daily environment. Architecture: form + function. Interior design: comfortable beautiful spaces. Fashion: wearable art. Product design: functional + attractive everyday objects. Urban art: murals and public sculptures make cities vibrant. Art therapy: creative expression improves mental health. Understanding art builds creativity, visual communication, and critical thinking — valuable in every career.",
+                                          "examples":  [
+                                                           "Sydney Opera House: architecture as iconic art",
+                                                           "Eames Lounge Chair: comfortable AND beautiful",
+                                                           "Hospital murals reduce anxiety, speed recovery"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "applied art":  "Art with practical function",
+                                                           "architecture":  "Designing buildings and spaces",
+                                                           "art therapy":  "Creative expression for mental health",
+                                                           "user experience":  "How people feel when interacting with designed products and spaces"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Applied art:",
+                                                           "options":  [
+                                                                           "No purpose",
+                                                                           "Only in museums",
+                                                                           "Art with practical function",
+                                                                           "Only painting/sculpture"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Design for daily life."
+                                                       },
+                                                       {
+                                                           "question":  "Art benefits everyday life:",
+                                                           "options":  [
+                                                                           "Only for rich people",
+                                                                           "No practical use",
+                                                                           "Beautiful spaces, functional products, improved wellbeing",
+                                                                           "Only entertainment"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Shapes environment and health."
+                                                       },
+                                                       {
+                                                           "question":  "Art therapy works by:",
+                                                           "options":  [
+                                                                           "Watching others create",
+                                                                           "Studying art history",
+                                                                           "Selling art for profit",
+                                                                           "Using creative expression to improve mental health"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Creating art reduces stress and processes emotions."
+                                                       },
+                                                       {
+                                                           "question":  "User experience design considers:",
+                                                           "options":  [
+                                                                           "How people feel when interacting with products and spaces",
+                                                                           "Only visual appearance",
+                                                                           "Only cost",
+                                                                           "Only the designer\u0027s preferences"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "UX puts the user first — how does it feel to open this app, sit in this chair, enter this building?"
+                                                       },
+                                                       {
+                                                           "question":  "Studying art helps in non-art careers because:",
+                                                           "options":  [
+                                                                           "It builds creativity, visual communication, and critical thinking",
+                                                                           "It doesn\u0027t help at all",
+                                                                           "Only for becoming an artist",
+                                                                           "Only for gallery work"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Every field needs creative problem-solving, visual communication, and aesthetic judgment."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Careers in Art and Design",
+                                          "content":  "Art careers are diverse and growing. Traditional: fine artist (painter, sculptor), art teacher, museum curator, art restorer, gallery manager. Design: graphic designer, UI/UX designer, product designer, interior designer, fashion designer, architect. Digital: animator, game artist, 3D modeler, visual effects artist, motion graphics designer. Communication: photographer, videographer, social media content creator, brand strategist. Emerging: AR/VR designer, AI art director, UX researcher, design thinking consultant. Building a career: develop strong fundamentals (drawing, color, composition), build a diverse portfolio (your visual resume), specialize as you grow, network with other creatives, and continuously learn new tools and techniques. Freelancing is common in creative fields — offering flexibility but requiring business skills. The creative economy is growing globally — creative industries contribute $2.25 trillion to the global economy.",
+                                          "examples":  [
+                                                           "UI/UX designer: designs app and website interfaces — median salary $80,000+ in many countries",
+                                                           "Game artist: creates characters, environments, and animations for video games — massive growth industry",
+                                                           "Freelance illustrator: creates artwork for books, magazines, and brands — flexible but must manage your own business"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "portfolio":  "A curated collection of your best work — your visual resume",
+                                                           "freelancing":  "Working independently for multiple clients rather than one employer",
+                                                           "creative economy":  "The economic sector based on creativity, ideas, and intellectual property",
+                                                           "design thinking":  "A problem-solving approach using empathy, ideation, prototyping, and testing"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "A portfolio should:",
+                                                           "options":  [
+                                                                           "Only show unfinished work",
+                                                                           "Include everything you\u0027ve ever made",
+                                                                           "Showcase your best and most diverse work — quality over quantity",
+                                                                           "Be text only"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Curate your strongest pieces — 10 great works beat 100 mediocre ones."
+                                                       },
+                                                       {
+                                                           "question":  "UI/UX design involves:",
+                                                           "options":  [
+                                                                           "Only painting",
+                                                                           "Designing how apps and websites look and feel for users",
+                                                                           "Only sculpture",
+                                                                           "Only photography"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "One of the fastest-growing art careers — combining aesthetics with usability."
+                                                       },
+                                                       {
+                                                           "question":  "The creative economy contributes:",
+                                                           "options":  [
+                                                                           "$2.25 trillion to the global economy",
+                                                                           "Nothing of economic value",
+                                                                           "Only in wealthy countries",
+                                                                           "Less than agriculture"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Creative industries are a massive and growing economic force worldwide."
+                                                       },
+                                                       {
+                                                           "question":  "Freelancing requires:",
+                                                           "options":  [
+                                                                           "Art skills PLUS business skills (marketing, invoicing, client management)",
+                                                                           "Only art skills",
+                                                                           "A full-time job first",
+                                                                           "No business knowledge"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Freelancers are their own business — they need to find clients, set prices, and manage finances."
+                                                       },
+                                                       {
+                                                           "question":  "Design thinking is:",
+                                                           "options":  [
+                                                                           "Making things look pretty",
+                                                                           "Only for designers",
+                                                                           "A type of art",
+                                                                           "A problem-solving approach using empathy, ideation, prototyping, and testing"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Used by companies like Apple and Google — understand users, brainstorm, prototype, test, refine."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  }
+              ]
 }

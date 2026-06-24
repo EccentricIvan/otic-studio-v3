@@ -1,48 +1,1468 @@
 {
-  "id": "history",
-  "name": "History",
-  "icon": "history_edu",
-  "color": "#64748B",
-  "units": [
-    {
-      "title": "Ancient Civilizations",
-      "lessons": [
-        {"title": "Mesopotamia and Egypt", "content": "Civilization began ~3500 BCE in Mesopotamia between the Tigris and Euphrates. Sumerians invented writing (cuneiform), the wheel, and first legal code (Hammurabi). Egypt thrived along the Nile — annual floods deposited rich soil. Egyptians built pyramids, developed hieroglyphics, and advanced medicine and astronomy. Reliable agriculture → surplus food → specialization → cities.", "examples": ["Code of Hammurabi: 282 laws including 'eye for an eye'", "Great Pyramid took 20 years, ~20,000 workers", "Hieroglyphics decoded via Rosetta Stone (1822)"], "keyTerms": {"civilization": "Complex society with cities, government, writing", "Fertile Crescent": "Arc of fertile land where civilization began", "pharaoh": "King of Egypt, considered a living god", "cuneiform": "Wedge-shaped writing system invented by Sumerians"}, "quiz": [{"question": "First civilization:", "options": ["Mesopotamia", "America", "Australia", "Antarctica"], "correct": 0, "explanation": "Earliest known, ~3500 BCE."}, {"question": "Sumerians invented:", "options": ["Writing and the wheel", "Electricity", "Internet", "Gunpowder"], "correct": 0, "explanation": "Cuneiform writing and the wheel."}, {"question": "Nile's importance:", "options": ["Floods provided fertile soil", "Swimming", "Gold", "Border with Rome"], "correct": 0, "explanation": "Predictable floods for agriculture."}, {"question": "The Rosetta Stone was important because:", "options": ["It allowed scholars to decode Egyptian hieroglyphics", "It was the oldest stone", "It was the largest stone", "It was made of gold"], "correct": 0, "explanation": "Three scripts on one stone — Greek was known, unlocking the other two."}, {"question": "Civilization requires:", "options": ["Agricultural surplus allowing specialization", "Only hunting and gathering", "No permanent settlements", "Constant warfare"], "correct": 0, "explanation": "Farming surplus → some people do other jobs → cities, writing, government emerge."}]},
-        {"title": "Ancient Greece and Rome", "content": "Greece (800-146 BCE): democracy, philosophy, theater, Olympics. Athens pioneered democracy. Greek philosophers (Socrates, Plato, Aristotle) shaped Western thought. Roman Republic (509 BCE) and Empire (27 BCE-476 CE): engineering (roads, aqueducts, concrete), law, military organization. Empire fell 476 CE from overexpansion, corruption, economic decline, and Germanic invasions.", "examples": ["Athenian democracy: male citizens voted directly on laws", "Roman roads: 80,000 km — many still exist", "Aqueducts delivered 1 million cubic meters daily to Rome"], "keyTerms": {"democracy": "Citizens participate in decisions", "republic": "Elected representatives govern", "empire": "Large territory under single authority", "philosophy": "Love of wisdom — systematic study of fundamental questions"}, "quiz": [{"question": "Athens birthed:", "options": ["Democracy", "Monarchy", "Communism", "Feudalism"], "correct": 0, "explanation": "Direct democracy — citizens voted on laws."}, {"question": "Roman Empire fell:", "options": ["476 CE", "1066 CE", "1776 CE", "27 BCE"], "correct": 0, "explanation": "Western Roman Empire collapsed."}, {"question": "Romans known for:", "options": ["Engineering — roads, aqueducts", "Democracy", "Philosophy only", "Pyramids"], "correct": 0, "explanation": "Engineering unmatched in ancient world."}, {"question": "Greek philosophy's lasting impact:", "options": ["Laid foundations for Western science, ethics, and logic", "Had no influence", "Only affected Greece", "Was forgotten after Rome fell"], "correct": 0, "explanation": "Socrates, Plato, Aristotle's ideas still shape education, science, and government."}, {"question": "The Roman Republic became an Empire when:", "options": ["Augustus became the first emperor in 27 BCE", "Caesar was assassinated", "Hannibal invaded", "The Senate voted for it"], "correct": 0, "explanation": "Augustus (Octavian) ended the Republic and established one-man rule."}]},
-        {"title": "Ancient African Kingdoms", "content": "Africa's rich history: Kingdom of Kush (1070 BCE-350 CE) — pyramids, iron industry. Aksum (100-940 CE) — trading power, early Christianity, Ge'ez script. Ghana Empire (300-1200) — gold and salt trade. Mali Empire (1235-1600) — Mansa Musa, possibly richest person ever. Great Zimbabwe (1100-1450) — stone city, advanced engineering.", "examples": ["Mansa Musa's 1324 pilgrimage crashed gold prices in Cairo", "Great Zimbabwe's massive stone walls — no mortar, still standing", "Aksum adopted Christianity ~330 CE"], "keyTerms": {"Mansa Musa": "Emperor of Mali, possibly wealthiest person in history", "Great Zimbabwe": "Medieval stone city in southern Africa", "trans-Saharan trade": "Routes crossing Sahara connecting West and North Africa", "Swahili coast": "East African coastal trading cities blending African and Arab cultures"}, "quiz": [{"question": "Mansa Musa ruled:", "options": ["Mali", "Ghana", "Songhai", "Kush"], "correct": 0, "explanation": "Emperor of Mali Empire."}, {"question": "Aksum location:", "options": ["Modern Ethiopia", "Nigeria", "Egypt", "South Africa"], "correct": 0, "explanation": "Ethiopia and Eritrea."}, {"question": "Ghana Empire controlled:", "options": ["Gold and salt trade", "Oil and gas", "Silver and copper", "Diamonds"], "correct": 0, "explanation": "Gold from south, salt from north."}, {"question": "Great Zimbabwe demonstrates:", "options": ["Advanced African engineering centuries before European contact", "European influence", "Simple construction only", "Modern building techniques"], "correct": 0, "explanation": "Massive stone walls built without mortar — sophisticated indigenous engineering."}, {"question": "The Swahili coast was important for:", "options": ["International trade connecting Africa, Arabia, India, and China", "Only fishing", "European colonization", "Mining only"], "correct": 0, "explanation": "Cities like Kilwa and Mombasa were wealthy trading hubs for centuries."}]},
-        {"title": "Ancient Asian Civilizations", "content": "China developed one of the world's oldest continuous civilizations. The Shang Dynasty (1600-1046 BCE) had bronze work and oracle bones (earliest Chinese writing). The Qin Dynasty (221-206 BCE) unified China and began the Great Wall. Han Dynasty (206 BCE-220 CE) established the Silk Road connecting China to Rome. Chinese inventions changed the world: paper, printing, gunpowder, and the compass. India's Indus Valley Civilization (3300-1300 BCE) had advanced urban planning (Mohenjo-Daro had grid streets and sewage systems). The Maurya Empire under Ashoka (268-232 BCE) unified most of India and spread Buddhism. The Gupta Empire (320-550 CE) was India's 'Golden Age' — advances in mathematics (zero, decimal system), astronomy, medicine, and art.", "examples": ["The Great Wall stretches over 21,000 km — built over many centuries to protect from northern invaders", "Indian mathematician Aryabhata calculated pi to 4 decimal places and proposed Earth rotates on its axis (5th century CE)", "The Silk Road: Chinese silk traded for Roman gold, Indian spices, and Persian carpets — connecting three continents"], "keyTerms": {"Silk Road": "Ancient trade network connecting China to the Mediterranean through Central Asia", "dynasty": "A series of rulers from the same family", "Great Wall": "Massive fortification built across northern China over many centuries", "Gupta Golden Age": "Period of exceptional achievement in Indian science, math, and art (320-550 CE)"}, "quiz": [{"question": "The Silk Road connected:", "options": ["China to Rome through Central Asia — trading silk, spices, and ideas", "Only two cities", "Africa to Australia", "The Americas to Europe"], "correct": 0, "explanation": "The Silk Road was a network of routes spanning thousands of miles across Asia."}, {"question": "Chinese inventions that changed the world include:", "options": ["Paper, printing, gunpowder, and the compass", "Democracy and philosophy", "Steam engine and electricity", "Pyramids and aqueducts"], "correct": 0, "explanation": "These four Chinese inventions fundamentally shaped global civilization."}, {"question": "The concept of zero was developed in:", "options": ["Ancient India", "Ancient Greece", "Ancient Rome", "Ancient Egypt"], "correct": 0, "explanation": "Indian mathematicians developed zero and the decimal system — the basis of modern math."}, {"question": "The Indus Valley Civilization is remarkable for:", "options": ["Advanced urban planning with grid streets and sewage systems", "Only farming", "No cities at all", "Being in Europe"], "correct": 0, "explanation": "Mohenjo-Daro (2600 BCE) had planned streets, drainage, and public baths — extremely advanced."}, {"question": "Emperor Ashoka is significant because:", "options": ["He unified most of India and spread Buddhism through non-violence after witnessing war's horrors", "He conquered Rome", "He invented gunpowder", "He built the Great Wall"], "correct": 0, "explanation": "After the bloody Kalinga war, Ashoka embraced Buddhism and ruled through dharma (moral law)."}]},
-        {"title": "Pre-Colonial Americas", "content": "The Americas had sophisticated civilizations long before European contact. The Maya (2000 BCE-1500 CE) in Central America developed advanced mathematics (including zero independently), accurate astronomy, hieroglyphic writing, and massive pyramid-temples. The Aztec Empire (1300-1521 CE) in Mexico built Tenochtitlan — a stunning island city with 200,000+ people, larger than most European cities of the time, with causeways, canals, and markets. The Inca Empire (1400-1533 CE) in South America controlled 12 million people across 4,000 km of the Andes without a writing system — using quipu (knotted strings) for record-keeping. Their road system rivaled Rome's. In North America, diverse nations developed: the Iroquois Confederacy (democratic governance that influenced the US Constitution), the mound builders of Cahokia (city of 20,000 near modern St. Louis), and the sophisticated farming and trading networks of many First Nations.", "examples": ["Tenochtitlan (modern Mexico City) had about 200,000 people in 1500 — Paris had only 185,000", "The Inca road system: 40,000 km of roads through the Andes, with rope bridges spanning deep valleys", "The Maya accurately predicted solar eclipses — their calendar was more accurate than European calendars of the same period"], "keyTerms": {"Maya": "Central American civilization known for mathematics, astronomy, and pyramid-temples", "Aztec": "Mexican empire centered on the island city of Tenochtitlan", "Inca": "South American empire in the Andes — vast road network, no written language but used quipu", "quipu": "Inca record-keeping system using knotted colored strings"}, "quiz": [{"question": "The Maya independently developed:", "options": ["The concept of zero and advanced mathematics", "The wheel for transportation", "Iron working", "Writing on paper"], "correct": 0, "explanation": "The Maya developed zero independently — one of only a few civilizations to do so."}, {"question": "Tenochtitlan was remarkable because:", "options": ["It was larger than most European cities, built on a lake with causeways and canals", "It was very small", "It had no buildings", "It was in Europe"], "correct": 0, "explanation": "When Spanish arrived, they were stunned by its size and sophistication."}, {"question": "The Inca kept records without writing by:", "options": ["Using quipu — knotted colored strings encoding numbers and information", "Memorizing everything", "They didn't keep records", "Using the alphabet"], "correct": 0, "explanation": "Quipu were a sophisticated system — different knot types, positions, and colors conveyed different data."}, {"question": "The Iroquois Confederacy influenced:", "options": ["The development of the US Constitution with its democratic principles", "Only European monarchies", "Asian governments", "No other system"], "correct": 0, "explanation": "Ben Franklin and others studied Iroquois governance — its influence on American democracy is documented."}, {"question": "Pre-colonial American civilizations were:", "options": ["Sophisticated, diverse, and in many ways equal or superior to European civilizations of the same era", "Primitive and simple", "All the same culture", "Only nomadic hunters"], "correct": 0, "explanation": "These civilizations had cities, mathematics, engineering, and governance systems rivaling the Old World."}]}
-      ]
-    },
-    {
-      "title": "Medieval to Renaissance",
-      "lessons": [
-        {"title": "Feudalism and Medieval Life", "content": "After Rome fell, Europe entered the Medieval period (500-1500 CE). Feudalism: king → lords (land for service) → knights → peasants/serfs. Life was hard: short lifespans, limited education, frequent disease. The Catholic Church was most powerful institution. The Black Death (1347-1351) killed ~1/3 of Europe.", "examples": ["Serf worked lord's land 3-4 days/week", "Black Death killed 25 million Europeans", "Cathedrals took centuries to build"], "keyTerms": {"feudalism": "Land for military service system", "serf": "Peasant bound to lord's land", "Black Death": "Plague killing ~1/3 of Europe", "manor": "The lord's estate — the basic economic unit of feudalism"}, "quiz": [{"question": "In feudalism, who owned land:", "options": ["Kings and lords", "Serfs", "Merchants", "Church only"], "correct": 0, "explanation": "Land granted in exchange for military service."}, {"question": "Black Death:", "options": ["Plague killing ~1/3 of Europe", "War", "Famine", "Flood"], "correct": 0, "explanation": "~25 million Europeans 1347-1351."}, {"question": "Most powerful institution:", "options": ["Catholic Church", "Army", "Guilds", "Universities"], "correct": 0, "explanation": "Church controlled education, collected tithes, influenced kings."}, {"question": "Ironically, the Black Death improved conditions for survivors because:", "options": ["Labor shortage gave peasants more bargaining power and higher wages", "It ended feudalism overnight", "The Church gave away land", "Lords became more generous"], "correct": 0, "explanation": "Fewer workers = workers could demand better conditions — beginning of feudalism's decline."}, {"question": "Medieval guilds were:", "options": ["Associations of craftsmen and merchants that controlled trade standards", "Military units", "Religious orders only", "Government departments"], "correct": 0, "explanation": "Guilds regulated quality, prices, and entry into trades — like professional associations today."}]},
-        {"title": "The Renaissance", "content": "Renaissance (1400-1600): 'rebirth' of art, science, learning, starting in Italy. Humanism: human potential and reason. Art became realistic: Leonardo (Mona Lisa), Michelangelo (Sistine Chapel, David). Printing press (Gutenberg, 1440) revolutionized knowledge sharing. Scientific inquiry replaced superstition. Laid groundwork for the modern world.", "examples": ["Leonardo: painter, engineer, anatomist, inventor", "Before printing: months to copy one book. After: hundreds per day", "Galileo's telescope proved Earth orbits Sun"], "keyTerms": {"Renaissance": "Cultural rebirth 1400-1600, inspired by classical ideas", "humanism": "Philosophy emphasizing human potential and reason", "printing press": "Gutenberg's 1440 invention enabling mass book production", "patron": "Wealthy supporter of artists and scholars (Medici family)"}, "quiz": [{"question": "Renaissance began:", "options": ["Italy", "England", "China", "Africa"], "correct": 0, "explanation": "Italian city-states: Florence, Venice, Rome."}, {"question": "Printing press revolutionary because:", "options": ["Books became affordable, knowledge spread", "Printed money", "Replaced all handwriting", "Art only"], "correct": 0, "explanation": "Mass-produced books for ordinary people."}, {"question": "Humanism:", "options": ["Human potential and individual achievement", "Obedience to authority", "Military conquest", "Agricultural focus"], "correct": 0, "explanation": "Human reason and potential."}, {"question": "The Medici family was important because:", "options": ["They funded artists and scholars in Florence, driving the Renaissance", "They were military leaders", "They invented printing", "They ruled all of Europe"], "correct": 0, "explanation": "Wealthy Medici patrons supported Leonardo, Michelangelo, and many others."}, {"question": "The Renaissance changed how people saw the world by:", "options": ["Encouraging observation, experimentation, and questioning authority", "Reinforcing medieval superstition", "Banning all art", "Ending all education"], "correct": 0, "explanation": "The shift from 'believe because authority says so' to 'observe and reason for yourself.'"}]},
-        {"title": "Age of Exploration", "content": "1400s-1600s: Europeans explored by sea, motivated by trade, religion, competition. Portugal led: Vasco da Gama reached India (1498). Spain funded Columbus (Americas, 1492). Columbian Exchange: plants, animals, diseases transferred between worlds. Potatoes/tomatoes → Europe; horses/wheat → Americas; European diseases devastated indigenous populations (up to 90% in some areas). Led to colonization and the slave trade.", "examples": ["Columbus reached Caribbean 1492 thinking he found Asia", "Magellan's expedition circumnavigated the globe (1519-1522)", "European smallpox killed up to 90% of some indigenous populations"], "keyTerms": {"Age of Exploration": "European sea exploration 1400s-1600s", "Columbian Exchange": "Transfer of plants, animals, diseases between Old and New Worlds", "colonization": "Controlling foreign territories", "circumnavigation": "Sailing completely around the world"}, "quiz": [{"question": "Columbus reached Americas:", "options": ["1492", "1776", "1066", "1840"], "correct": 0, "explanation": "October 12, 1492."}, {"question": "Columbian Exchange:", "options": ["Transfer of plants, animals, diseases between continents", "Only gold trade", "Only conquest", "Only religion"], "correct": 0, "explanation": "Crops, livestock, diseases, ideas transferred."}, {"question": "Exploration motivated by:", "options": ["Trade, religion, national competition", "Tourism", "Science only", "Escaping floods"], "correct": 0, "explanation": "Wealth, spreading Christianity, competing for power."}, {"question": "The most devastating impact of the Columbian Exchange was:", "options": ["European diseases killing millions of indigenous Americans", "Introduction of potatoes to Europe", "Transfer of horses to Americas", "Sharing of new technologies"], "correct": 0, "explanation": "Indigenous populations had no immunity — diseases like smallpox were catastrophic."}, {"question": "The Age of Exploration ultimately led to:", "options": ["European colonization of much of the world", "World peace", "End of trade", "Isolation of continents"], "correct": 0, "explanation": "Exploration was followed by conquest, colonization, and the transatlantic slave trade."}]},
-        {"title": "The Atlantic Slave Trade", "content": "The transatlantic slave trade (1500s-1800s) was one of history's greatest injustices. An estimated 12-15 million Africans were forcibly transported to the Americas. The triangle trade: European goods → Africa (exchanged for enslaved people) → Americas (enslaved people sold, sugar/cotton produced) → Europe (raw materials processed). The Middle Passage — the ocean crossing — was horrific: people chained in overcrowded ships, with mortality rates of 15-20%. Enslaved people built the economies of the Americas: sugar, cotton, tobacco, and mining depended on their labor. Resistance was constant: rebellions (Haiti, 1791 — the only successful slave revolution), running away, maintaining cultural traditions, and sabotage. Abolition movements grew in the 1700s-1800s: Britain abolished the trade in 1807, slavery in 1833; the US in 1865 (13th Amendment). The trade's legacy — racism, economic inequality, and cultural trauma — persists today.", "examples": ["Haiti's revolution (1791-1804): enslaved people overthrew French colonial rule — the only successful slave revolt in history", "The Middle Passage: ships designed to carry 200 people were packed with 600 — conditions were deliberately dehumanizing", "Olaudah Equiano's autobiography (1789): a former enslaved person's account that galvanized the abolition movement in Britain"], "keyTerms": {"transatlantic slave trade": "The forced transportation of 12-15 million Africans to the Americas (1500s-1800s)", "Middle Passage": "The ocean crossing from Africa to the Americas — horrific conditions with high mortality", "abolition": "The movement to end slavery and the slave trade", "triangle trade": "European goods → Africa → enslaved people → Americas → raw materials → Europe"}, "quiz": [{"question": "Approximately how many Africans were transported in the slave trade?", "options": ["12-15 million", "100,000", "1 million", "50 million"], "correct": 0, "explanation": "An estimated 12-15 million people were forcibly taken from Africa."}, {"question": "The Middle Passage was:", "options": ["The horrific ocean crossing from Africa to the Americas", "A trade route through Europe", "A legal process", "A type of ship"], "correct": 0, "explanation": "Enslaved people endured terrible conditions during the Atlantic crossing."}, {"question": "Haiti's revolution was significant because:", "options": ["It was the only successful revolution by enslaved people, creating the first Black republic", "It was the largest colony", "It failed", "It happened in Europe"], "correct": 0, "explanation": "Haiti (1804) remains the only nation founded by a successful slave revolution."}, {"question": "The slave trade's legacy includes:", "options": ["Racism, economic inequality, and cultural trauma that persist today", "No lasting effects", "Only positive impacts", "Complete racial equality"], "correct": 0, "explanation": "Centuries of exploitation created structural inequalities that are still being addressed."}, {"question": "Abolition movements were strengthened by:", "options": ["Personal accounts from formerly enslaved people, religious conviction, and changing moral views", "Economic arguments only", "Military force only", "No specific factors"], "correct": 0, "explanation": "First-person narratives (like Equiano's) and moral arguments built public support for ending slavery."}]},
-        {"title": "The Reformation", "content": "The Protestant Reformation (1517) fundamentally changed European religion and politics. Martin Luther, a German monk, criticized the Catholic Church's corruption — especially the sale of indulgences (paying money for forgiveness of sins). His 95 Theses challenged Church authority and spread rapidly thanks to the printing press. This led to new Protestant denominations: Lutheran, Calvinist, Anglican. The Catholic Counter-Reformation reformed internal practices and launched the Inquisition. Religious wars followed: the French Wars of Religion (1562-1598) and the devastating Thirty Years' War (1618-1648) which killed 8 million people. The Reformation's lasting impacts: breaking the Church's monopoly on religious truth, promoting literacy (people needed to read the Bible themselves), and contributing to the eventual separation of church and state.", "examples": ["Luther's 95 Theses (1517): nailed to a church door in Wittenberg — spread across Europe within weeks thanks to printing", "Henry VIII created the Church of England (1534) partly because the Pope refused to annul his marriage — politics and religion intertwined", "The Thirty Years' War devastated Germany — some regions lost 50% of their population"], "keyTerms": {"Reformation": "16th-century religious movement challenging Catholic Church authority, creating Protestant churches", "indulgences": "Payments to the Church for forgiveness of sins — a key corruption Luther protested", "Protestant": "Christian denominations that separated from the Catholic Church during the Reformation", "Counter-Reformation": "The Catholic Church's response: internal reforms and opposition to Protestantism"}, "quiz": [{"question": "Martin Luther's 95 Theses primarily criticized:", "options": ["The sale of indulgences and Church corruption", "The existence of God", "The Bible itself", "European monarchies"], "correct": 0, "explanation": "Luther challenged the practice of buying forgiveness — calling it corruption."}, {"question": "The printing press helped the Reformation by:", "options": ["Spreading Luther's ideas across Europe rapidly", "Printing indulgences", "Supporting the Pope", "Nothing — it wasn't invented yet"], "correct": 0, "explanation": "Without printing, Luther's ideas would have stayed local — the press made them viral."}, {"question": "The Reformation led to:", "options": ["New Protestant churches and eventually religious freedom", "Strengthening the Pope's power", "Unification of all Christians", "End of all religion"], "correct": 0, "explanation": "Protestantism broke the Catholic monopoly — eventually leading to religious pluralism."}, {"question": "The Counter-Reformation was:", "options": ["The Catholic Church's response: internal reform and opposition to Protestantism", "Luther's second set of complaints", "A Protestant movement", "A military campaign only"], "correct": 0, "explanation": "The Church reformed some abuses, clarified doctrine, and used the Inquisition against heresy."}, {"question": "The Reformation promoted literacy because:", "options": ["Protestants believed everyone should read the Bible themselves, not rely on priests", "Schools were banned", "Reading was already universal", "It didn't affect literacy"], "correct": 0, "explanation": "Luther wanted the Bible in German, not just Latin — driving demand for education and literacy."}]}
-      ]
-    },
-    {
-      "title": "Modern Era",
-      "lessons": [
-        {"title": "Industrial Revolution", "content": "1760-1840, starting in Britain. Steam engine, spinning jenny, railways transformed society. Factories replaced cottage industries. Mass production made goods cheaper. But terrible conditions: 16-hour days, child labor, pollution. Labor movements won rights. Spread to Europe, America, and the world.", "examples": ["Steam engine powered factories, trains, ships", "Children as young as 5 worked in coal mines", "Manchester grew from 25,000 to 300,000 people"], "keyTerms": {"Industrial Revolution": "Shift to industrial society 1760-1840", "urbanization": "Population moving from rural to cities", "mass production": "Large-quantity manufacturing with machines", "labor movement": "Workers organizing for better conditions and rights"}, "quiz": [{"question": "Started in:", "options": ["Britain", "America", "China", "France"], "correct": 0, "explanation": "Resources, capital, conditions."}, {"question": "Powered by:", "options": ["Steam engine", "Electricity", "Nuclear", "Solar"], "correct": 0, "explanation": "James Watt's improved steam engine."}, {"question": "Urbanization:", "options": ["People moving to cities for factory jobs", "Cities shrinking", "Farming increasing", "Moving to rural areas"], "correct": 0, "explanation": "Millions drawn to industrial cities."}, {"question": "The labor movement achieved:", "options": ["Shorter hours, safety regulations, and banning child labor", "Longer hours", "More child labor", "Nothing"], "correct": 0, "explanation": "Workers organized unions and fought for better conditions over decades."}, {"question": "The Industrial Revolution was fueled by:", "options": ["Coal, iron, and innovation in Britain", "Oil from the Middle East", "Solar energy", "Nuclear power"], "correct": 0, "explanation": "Britain had abundant coal and iron — essential raw materials for industrialization."}]},
-        {"title": "World Wars", "content": "WWI (1914-1918): triggered by Franz Ferdinand's assassination; caused by nationalism, imperialism, militarism, alliances. Trench warfare, ~17 million dead. Treaty of Versailles punished Germany. WWII (1939-1945): Nazi Germany invaded Poland, Holocaust killed 6 million Jews. 70-85 million died. Ended with atomic bombs. UN created to prevent future world wars.", "examples": ["WWI trenches: 600+ km across France/Belgium", "D-Day (June 6, 1944): 156,000 Allied soldiers at Normandy", "Hiroshima bomb killed 80,000 instantly"], "keyTerms": {"World War I": "1914-1918, caused by nationalism and alliances", "Holocaust": "Systematic murder of 6 million Jews by Nazis", "United Nations": "Created 1945 to maintain peace", "total war": "Conflict involving entire nations — civilians, economy, and industry, not just military"}, "quiz": [{"question": "WWI triggered by:", "options": ["Assassination of Franz Ferdinand", "Holocaust", "Pearl Harbor", "Berlin Wall"], "correct": 0, "explanation": "1914 assassination, deeper causes: nationalism, alliances."}, {"question": "WWII deaths:", "options": ["70-85 million", "1 million", "10 million", "500 million"], "correct": 0, "explanation": "Deadliest conflict in history."}, {"question": "UN created to:", "options": ["Prevent future world wars", "Start wars", "Control trade", "Explore space"], "correct": 0, "explanation": "Maintain international peace."}, {"question": "The Holocaust taught the world:", "options": ["The dangers of extreme ideology, hatred, and indifference", "That genocide is impossible", "Nothing", "Only European history matters"], "correct": 0, "explanation": "Never again — the Holocaust led to universal human rights declarations and genocide prevention efforts."}, {"question": "Trench warfare was characterized by:", "options": ["Massive casualties for very little territorial gain", "Quick decisive battles", "Naval combat only", "Air battles only"], "correct": 0, "explanation": "Millions died fighting over meters of ground — a brutal stalemate."}]},
-        {"title": "Colonialism and Independence", "content": "European colonialism (1500s-1900s) controlled territories across Africa, Asia, Americas. Scramble for Africa (1884-1914): Berlin Conference divided Africa without consulting Africans. Colonial rule exploited resources and labor, disrupted societies, drew arbitrary borders. Independence movements gained strength after WWII. Ghana (1957) first sub-Saharan African country. By 1960s-70s, most were independent. Legacy: arbitrary borders, economic structures, social divisions persist.", "examples": ["Berlin Conference (1884-85): European leaders divided Africa on a map — no Africans invited", "India: independence 1947 under Gandhi's nonviolent movement", "Many African borders split ethnic groups, causing ongoing conflicts"], "keyTerms": {"colonialism": "Controlling foreign territories and peoples", "Scramble for Africa": "Rapid European colonization 1884-1914", "independence movement": "Organized efforts for self-governance", "neocolonialism": "Indirect economic or political control over formerly colonized nations"}, "quiz": [{"question": "Berlin Conference:", "options": ["Europeans dividing Africa — no Africans consulted", "Africans meeting Europeans", "Planning WWI", "Creating UN"], "correct": 0, "explanation": "Carved up Africa without African input."}, {"question": "First sub-Saharan African independence:", "options": ["Ghana (1957)", "Nigeria (1960)", "South Africa (1994)", "Kenya (1963)"], "correct": 0, "explanation": "Ghana led by Kwame Nkrumah."}, {"question": "Lasting colonial effect:", "options": ["Arbitrary borders dividing ethnic groups", "Complete equality", "Strong institutions everywhere", "No effects"], "correct": 0, "explanation": "Borders split groups, combined rivals."}, {"question": "Neocolonialism refers to:", "options": ["Indirect economic or political control over formerly colonized nations", "Recolonizing countries", "A new form of government", "Ancient colonial practices"], "correct": 0, "explanation": "Former colonial powers maintaining influence through economics, debt, and trade agreements."}, {"question": "Gandhi's approach to Indian independence was:", "options": ["Nonviolent resistance — civil disobedience, boycotts, marches", "Armed revolution", "Diplomatic negotiations only", "Accepting colonial rule"], "correct": 0, "explanation": "Gandhi's satyagraha (nonviolent resistance) inspired movements worldwide."}]},
-        {"title": "The Civil Rights Movement", "content": "The American Civil Rights Movement (1950s-1960s) fought to end racial segregation and discrimination against African Americans. After the Civil War (1865) ended slavery, Southern states imposed Jim Crow laws — legally separating Black and white people in schools, buses, restaurants, and public spaces. Key events: Brown v. Board of Education (1954) — Supreme Court ruled school segregation unconstitutional. Rosa Parks refused to give up her bus seat (1955), sparking the Montgomery Bus Boycott. Martin Luther King Jr. led nonviolent protest — his 'I Have a Dream' speech (1963) at the March on Washington inspired millions. The Civil Rights Act (1964) banned discrimination; the Voting Rights Act (1965) protected Black voting rights. The movement inspired global struggles for equality — including anti-apartheid in South Africa and indigenous rights movements worldwide.", "examples": ["Rosa Parks' refusal to give up her seat led to the 381-day Montgomery Bus Boycott — which ended bus segregation", "Little Rock Nine: 9 Black students entered an all-white school in 1957 — escorted by federal troops against angry mobs", "Martin Luther King Jr.'s 'I Have a Dream' speech: 'I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.'"], "keyTerms": {"segregation": "Legally enforced separation of races in public facilities", "Jim Crow laws": "Southern US laws enforcing racial segregation after slavery ended", "civil disobedience": "Peacefully breaking unjust laws to protest them", "Civil Rights Act": "1964 US law banning discrimination based on race, color, religion, sex, or national origin"}, "quiz": [{"question": "Jim Crow laws:", "options": ["Legally enforced racial segregation in the Southern US", "Applied only in the North", "Ended slavery", "Were never real laws"], "correct": 0, "explanation": "After slavery ended, Southern states created laws to keep Black people separate and unequal."}, {"question": "Brown v. Board of Education ruled:", "options": ["School segregation is unconstitutional", "Segregation is legal", "Schools should be closed", "Only private schools matter"], "correct": 0, "explanation": "The 1954 Supreme Court decision struck down 'separate but equal' in public schools."}, {"question": "Martin Luther King Jr. advocated:", "options": ["Nonviolent resistance and civil disobedience", "Armed revolution", "Accepting segregation", "Leaving America"], "correct": 0, "explanation": "King followed Gandhi's philosophy — peaceful protest and moral persuasion."}, {"question": "The Civil Rights Movement inspired:", "options": ["Global struggles for equality, including anti-apartheid and indigenous rights", "Only American changes", "Nothing outside the US", "Only legal changes"], "correct": 0, "explanation": "The movement's moral authority and methods influenced freedom struggles worldwide."}, {"question": "The Voting Rights Act of 1965:", "options": ["Protected the right of African Americans to vote without discriminatory barriers", "Gave only white people voting rights", "Ended all discrimination", "Was never passed"], "correct": 0, "explanation": "It outlawed literacy tests and other tactics used to prevent Black citizens from voting."}]},
-        {"title": "Decolonization and the Cold War in the Global South", "content": "Decolonization (1945-1975) saw European empires dismantle as colonized peoples demanded freedom. But independence didn't always bring stability. Many new nations faced challenges: arbitrary colonial borders, ethnic tensions, weak institutions, and economies dependent on exporting raw materials. The Cold War complicated decolonization: the US and USSR competed for influence in newly independent nations, often supporting dictators who aligned with their ideology regardless of democracy or human rights. Proxy wars devastated countries: Korea, Vietnam, Angola, Mozambique, and Afghanistan. The Non-Aligned Movement (NAM), led by leaders like Nehru (India), Nasser (Egypt), and Nkrumah (Ghana), tried to stay independent of both superpowers. Pan-Africanism, led by figures like Kwame Nkrumah and Julius Nyerere, promoted African unity and self-determination. Many post-colonial nations continue struggling with the legacy of colonialism: economic dependence, corrupt governance, and border conflicts.", "examples": ["Congo: independence in 1960, then Patrice Lumumba was assassinated with US and Belgian involvement — Cold War interference", "Vietnam War (1955-1975): US fought communist North Vietnam — 3 million Vietnamese and 58,000 Americans died", "Non-Aligned Movement: 120 nations today, founded 1961 — refusing to align with either Cold War bloc"], "keyTerms": {"decolonization": "The process of former colonies becoming independent nations", "proxy war": "A conflict where major powers support opposing sides without fighting directly", "Non-Aligned Movement": "Nations choosing not to align with either the US or USSR during the Cold War", "Pan-Africanism": "Movement promoting African unity, self-determination, and solidarity"}, "quiz": [{"question": "Decolonization was complicated by:", "options": ["Cold War superpowers competing for influence in new nations", "Easy transitions to democracy", "No outside interference", "Colonial powers helping voluntarily"], "correct": 0, "explanation": "The US and USSR often manipulated new nations for strategic advantage."}, {"question": "The Non-Aligned Movement aimed to:", "options": ["Stay independent of both Cold War superpowers", "Join the US side", "Join the USSR side", "Ignore world affairs entirely"], "correct": 0, "explanation": "NAM nations sought to maintain sovereignty without being pulled into US-Soviet rivalry."}, {"question": "A proxy war is:", "options": ["A conflict where major powers support opposing sides without fighting directly", "A direct war between superpowers", "A trade dispute", "A diplomatic meeting"], "correct": 0, "explanation": "Vietnam, Korea, Angola — superpowers armed and funded opposing sides."}, {"question": "Post-colonial challenges include:", "options": ["Arbitrary borders, weak institutions, and economic dependence on raw material exports", "Too much democracy", "Too many resources", "No challenges at all"], "correct": 0, "explanation": "Colonial structures left many nations poorly positioned for independent development."}, {"question": "Pan-Africanism promotes:", "options": ["African unity, self-determination, and solidarity among African peoples", "European control of Africa", "Division of African nations", "Only economic cooperation"], "correct": 0, "explanation": "Leaders like Nkrumah envisioned a united Africa — the AU is a partial realization of this vision."}]}
-      ]
-    },
-    {
-      "title": "Contemporary World",
-      "lessons": [
-        {"title": "The Cold War", "content": "Cold War (1947-1991): USA (capitalist) vs USSR (communist) — never fought directly. Competed through: nuclear arms race, proxy wars (Korea, Vietnam, Afghanistan), Space Race (Sputnik 1957, Moon landing 1969), and ideological influence. Berlin Wall (1961-1989) divided East/West Berlin. Ended when USSR dissolved 1991.", "examples": ["Cuban Missile Crisis (1962): closest to nuclear war", "Gagarin first in space (1961); Armstrong first on Moon (1969)", "Berlin Wall fell November 9, 1989"], "keyTerms": {"Cold War": "US-USSR rivalry 1947-1991 without direct conflict", "proxy war": "Major powers support opposing sides", "arms race": "Competition to build more weapons", "détente": "Period of relaxed tensions between superpowers"}, "quiz": [{"question": "Cold War between:", "options": ["USA and USSR", "USA and China", "Britain and France", "Germany and Japan"], "correct": 0, "explanation": "Capitalist USA vs communist USSR."}, {"question": "Called 'cold' because:", "options": ["No direct fighting between superpowers", "Winter", "Ice weapons", "Arctic location"], "correct": 0, "explanation": "Intense rivalry but no direct war."}, {"question": "Berlin Wall fell:", "options": ["1989", "1945", "1991", "2001"], "correct": 0, "explanation": "November 9, 1989."}, {"question": "Détente was:", "options": ["A period of reduced Cold War tensions in the 1970s", "A type of weapon", "A space mission", "A trade agreement"], "correct": 0, "explanation": "US and USSR negotiated arms reduction treaties during détente."}, {"question": "The Cold War ended when:", "options": ["The Soviet Union dissolved in 1991", "Someone won a battle", "A peace treaty was signed", "The Berlin Wall was built"], "correct": 0, "explanation": "Internal economic problems and reform movements led to the USSR's collapse."}]},
-        {"title": "Globalization", "content": "Increasing world interconnectedness through trade, technology, culture, migration. Internet (1990s) accelerated it. Benefits: global markets, cheaper goods, cultural exchange. Challenges: inequality, cultural loss, environmental damage, pandemic spread. COVID-19 showed both benefits (global vaccine cooperation) and vulnerabilities (supply chain disruptions).", "examples": ["Your phone: designed USA, chips Taiwan, assembled China", "K-pop from South Korea has billions of fans worldwide", "COVID-19 spread globally within weeks, vaccines developed through global cooperation"], "keyTerms": {"globalization": "Increasing world interconnectedness", "multinational corporation": "Company operating in multiple countries", "supply chain": "Global production/distribution network", "digital divide": "Gap between those with and without technology access"}, "quiz": [{"question": "Accelerated globalization in 1990s:", "options": ["Internet", "Printing press", "Steam engines", "Horses"], "correct": 0, "explanation": "Connected billions instantly."}, {"question": "Globalization challenge:", "options": ["Widening inequality", "Everyone equal", "Less trade", "Slower communication"], "correct": 0, "explanation": "Benefits unevenly distributed."}, {"question": "COVID-19 showed globalization:", "options": ["Has both benefits and vulnerabilities", "Entirely negative", "Entirely positive", "Doesn't exist"], "correct": 0, "explanation": "Virus spread fast but vaccines developed through global cooperation."}, {"question": "The digital divide means:", "options": ["Unequal access to technology between rich and poor", "A computer crashing", "The internet splitting in two", "A programming error"], "correct": 0, "explanation": "Not everyone benefits equally from digital globalization."}, {"question": "A multinational corporation:", "options": ["Operates in multiple countries with global supply chains", "Only works in one city", "Is always small", "Only exists in wealthy countries"], "correct": 0, "explanation": "Companies like Apple, Toyota, and Unilever operate across dozens of countries."}]},
-        {"title": "Human Rights and Democracy", "content": "UDHR (1948): 30 rights including life, liberty, education, equality. Democracy has spread but faces challenges: authoritarianism, corruption, misinformation, voter suppression. Movements expanded rights: civil rights, women's suffrage, anti-apartheid, LGBTQ+. Progress isn't automatic — rights must be actively defended.", "examples": ["Mandela: 27 years in prison, then first Black president of South Africa", "Civil rights: Rosa Parks, MLK, Civil Rights Act 1964", "Women's vote: New Zealand 1893, UK 1928, Saudi Arabia 2015"], "keyTerms": {"human rights": "Basic rights for every person regardless of identity", "democracy": "Government by the people through elections", "apartheid": "Racial segregation in South Africa 1948-1994", "universal suffrage": "The right of all adult citizens to vote"}, "quiz": [{"question": "UDHR adopted:", "options": ["1948", "1776", "1900", "2000"], "correct": 0, "explanation": "December 10, 1948."}, {"question": "Apartheid:", "options": ["Racial segregation in South Africa", "Democracy in Europe", "Trade in Asia", "Education in America"], "correct": 0, "explanation": "Legal racial segregation 1948-1994."}, {"question": "Human rights must be:", "options": ["Actively defended — progress isn't automatic", "Once gained, never lost", "Only for rich countries", "Created in 2020"], "correct": 0, "explanation": "Rights can be eroded without vigilance."}, {"question": "Universal suffrage means:", "options": ["All adult citizens have the right to vote", "Only wealthy people vote", "Only men vote", "No one votes"], "correct": 0, "explanation": "The expansion of voting rights to all adults regardless of sex, race, or wealth."}, {"question": "Democracy faces modern threats from:", "options": ["Misinformation, authoritarianism, corruption, and voter suppression", "Too much freedom", "Too many elections", "Too much education"], "correct": 0, "explanation": "Fake news, power concentration, and systematic barriers undermine democratic processes."}]},
-        {"title": "Africa in the 21st Century", "content": "Africa is the world's youngest continent — median age 19.7 (Europe: 42.5). It has 54 nations, 1.4 billion people (projected 2.5 billion by 2050), and enormous economic potential. The African Continental Free Trade Area (AfCFTA) creates the world's largest free trade area by number of countries. Mobile technology leapfrogged traditional infrastructure — M-Pesa revolutionized banking, mobile internet reaches millions who never had landlines. Challenges remain: poverty, conflict, governance issues, climate vulnerability, and the legacy of colonialism. But progress is real: GDP growth averaging 3-5% annually, expanding middle class, improving education and healthcare, vibrant tech sectors ('Silicon Savannah' in Nairobi, tech hubs in Lagos, Kigali, and Cape Town). Africa's young population is its greatest asset — the continent will have more working-age people than China or India by 2050.", "examples": ["M-Pesa: launched in Kenya 2007, now processes $300 billion annually — financial inclusion for millions without bank accounts", "Rwanda: from genocide in 1994 to one of Africa's fastest-growing economies — clean cities, tech-forward government", "AfCFTA: aims to increase intra-African trade by 52% by 2025 — African countries trading more with each other"], "keyTerms": {"AfCFTA": "African Continental Free Trade Area — creating the world's largest free trade zone by member countries", "demographic dividend": "Economic growth potential from a large, young working-age population", "leapfrogging": "Skipping older technology stages — going from no phone to smartphone, skipping landlines", "Silicon Savannah": "Nairobi's tech ecosystem — one of Africa's leading innovation hubs"}, "quiz": [{"question": "Africa's median age is:", "options": ["About 20 — the youngest continent", "About 40", "About 60", "About 30"], "correct": 0, "explanation": "Africa's young population is a potential demographic dividend — if education and jobs are provided."}, {"question": "AfCFTA aims to:", "options": ["Create the world's largest free trade area and increase intra-African trade", "Close all African borders", "Only benefit one country", "Reduce trade with other continents"], "correct": 0, "explanation": "Currently, Africa trades more with Europe than with itself — AfCFTA aims to change this."}, {"question": "Leapfrogging in Africa means:", "options": ["Skipping older technology — going directly to mobile banking without building bank branches", "Jumping over obstacles literally", "Copying Western development exactly", "Avoiding all technology"], "correct": 0, "explanation": "Africa adopted mobile money and smartphones without the intermediate step of landlines and bank branches."}, {"question": "Africa's biggest economic asset for the future is:", "options": ["Its young, growing population — potential workforce and market", "Natural resources only", "Foreign aid", "Colonial infrastructure"], "correct": 0, "explanation": "By 2050, Africa will have more working-age people than China or India."}, {"question": "Rwanda's transformation since 1994 shows:", "options": ["That nations can recover from tragedy and achieve rapid development with good governance", "That all African countries are the same", "That conflict has no consequences", "That development is impossible in Africa"], "correct": 0, "explanation": "Rwanda went from genocide to one of Africa's most stable, innovative economies in one generation."}]},
-        {"title": "Current Global Challenges", "content": "The 21st century faces interconnected challenges. Climate change: rising temperatures, extreme weather, and environmental degradation threaten food security and habitability. Inequality: the richest 1% own more wealth than the bottom 50% combined. Technology: AI and automation transform economies while raising ethical concerns. Health: COVID-19 showed pandemic preparedness gaps; antibiotic resistance is a growing threat. Information: social media enables connection but also spreads misinformation and polarization. Migration: 100 million forcibly displaced people worldwide — the highest ever. Nuclear weapons still exist — 9 nations possess ~12,500 warheads. The UN Sustainable Development Goals (SDGs) provide a framework: 17 goals including ending poverty, quality education, climate action, and reduced inequalities — target 2030. Solving these challenges requires global cooperation — no single nation can address them alone.", "examples": ["SDG 4 (Quality Education): ensure inclusive and equitable education — still 250 million children out of school", "Global inequality: Jeff Bezos earns more in 1 minute than the average Ugandan earns in a year", "Arctic ice is melting 3x faster than predicted — sea levels could rise 1 meter by 2100, flooding coastal cities"], "keyTerms": {"SDGs": "UN Sustainable Development Goals — 17 global targets for 2030", "climate change": "Long-term shift in temperatures and weather patterns, primarily from burning fossil fuels", "inequality": "Unequal distribution of wealth, opportunity, and resources", "misinformation": "False or misleading information spread through media and social networks"}, "quiz": [{"question": "The richest 1% own:", "options": ["More wealth than the bottom 50% of humanity combined", "Less than the bottom 50%", "Exactly equal shares", "No significant wealth"], "correct": 0, "explanation": "Global wealth inequality has reached extreme levels."}, {"question": "The Sustainable Development Goals include:", "options": ["17 goals: ending poverty, quality education, climate action, reduced inequalities", "Only economic growth", "Only environmental protection", "Only military security"], "correct": 0, "explanation": "The SDGs are comprehensive — covering social, economic, and environmental dimensions."}, {"question": "COVID-19 revealed:", "options": ["Global unpreparedness for pandemics and inequality in healthcare access", "That the world was fully prepared", "That pandemics don't affect wealthy countries", "That global cooperation isn't needed"], "correct": 0, "explanation": "Wealthy nations got vaccines months before poor nations — exposing deep global inequalities."}, {"question": "Social media's double-edged nature:", "options": ["Enables connection and information sharing but also spreads misinformation", "Is entirely positive", "Is entirely negative", "Has no significant impact"], "correct": 0, "explanation": "Same platforms that connect activists also amplify conspiracy theories and polarization."}, {"question": "These challenges require:", "options": ["Global cooperation — no single nation can solve them alone", "Each country working alone", "Ignoring them and hoping they resolve", "Only wealthy nations acting"], "correct": 0, "explanation": "Climate, pandemics, inequality, and migration cross borders — solutions must too."}]}
-      ]
-    }
-  ]
+    "id":  "history",
+    "name":  "History",
+    "icon":  "history_edu",
+    "color":  "#64748B",
+    "units":  [
+                  {
+                      "title":  "Ancient Civilizations",
+                      "lessons":  [
+                                      {
+                                          "title":  "Mesopotamia and Egypt",
+                                          "content":  "Civilization began ~3500 BCE in Mesopotamia between the Tigris and Euphrates. Sumerians invented writing (cuneiform), the wheel, and first legal code (Hammurabi). Egypt thrived along the Nile — annual floods deposited rich soil. Egyptians built pyramids, developed hieroglyphics, and advanced medicine and astronomy. Reliable agriculture → surplus food → specialization → cities.",
+                                          "examples":  [
+                                                           "Code of Hammurabi: 282 laws including \u0027eye for an eye\u0027",
+                                                           "Great Pyramid took 20 years, ~20,000 workers",
+                                                           "Hieroglyphics decoded via Rosetta Stone (1822)"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "civilization":  "Complex society with cities, government, writing",
+                                                           "Fertile Crescent":  "Arc of fertile land where civilization began",
+                                                           "pharaoh":  "King of Egypt, considered a living god",
+                                                           "cuneiform":  "Wedge-shaped writing system invented by Sumerians"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "First civilization:",
+                                                           "options":  [
+                                                                           "Antarctica",
+                                                                           "America",
+                                                                           "Australia",
+                                                                           "Mesopotamia"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Earliest known, ~3500 BCE."
+                                                       },
+                                                       {
+                                                           "question":  "Sumerians invented:",
+                                                           "options":  [
+                                                                           "Writing and the wheel",
+                                                                           "Electricity",
+                                                                           "Internet",
+                                                                           "Gunpowder"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Cuneiform writing and the wheel."
+                                                       },
+                                                       {
+                                                           "question":  "Nile\u0027s importance:",
+                                                           "options":  [
+                                                                           "Border with Rome",
+                                                                           "Swimming",
+                                                                           "Gold",
+                                                                           "Floods provided fertile soil"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Predictable floods for agriculture."
+                                                       },
+                                                       {
+                                                           "question":  "The Rosetta Stone was important because:",
+                                                           "options":  [
+                                                                           "It was the largest stone",
+                                                                           "It was the oldest stone",
+                                                                           "It allowed scholars to decode Egyptian hieroglyphics",
+                                                                           "It was made of gold"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Three scripts on one stone — Greek was known, unlocking the other two."
+                                                       },
+                                                       {
+                                                           "question":  "Civilization requires:",
+                                                           "options":  [
+                                                                           "No permanent settlements",
+                                                                           "Only hunting and gathering",
+                                                                           "Agricultural surplus allowing specialization",
+                                                                           "Constant warfare"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Farming surplus → some people do other jobs → cities, writing, government emerge."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Ancient Greece and Rome",
+                                          "content":  "Greece (800-146 BCE): democracy, philosophy, theater, Olympics. Athens pioneered democracy. Greek philosophers (Socrates, Plato, Aristotle) shaped Western thought. Roman Republic (509 BCE) and Empire (27 BCE-476 CE): engineering (roads, aqueducts, concrete), law, military organization. Empire fell 476 CE from overexpansion, corruption, economic decline, and Germanic invasions.",
+                                          "examples":  [
+                                                           "Athenian democracy: male citizens voted directly on laws",
+                                                           "Roman roads: 80,000 km — many still exist",
+                                                           "Aqueducts delivered 1 million cubic meters daily to Rome"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "democracy":  "Citizens participate in decisions",
+                                                           "republic":  "Elected representatives govern",
+                                                           "empire":  "Large territory under single authority",
+                                                           "philosophy":  "Love of wisdom — systematic study of fundamental questions"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Athens birthed:",
+                                                           "options":  [
+                                                                           "Feudalism",
+                                                                           "Monarchy",
+                                                                           "Communism",
+                                                                           "Democracy"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Direct democracy — citizens voted on laws."
+                                                       },
+                                                       {
+                                                           "question":  "Roman Empire fell:",
+                                                           "options":  [
+                                                                           "1776 CE",
+                                                                           "1066 CE",
+                                                                           "476 CE",
+                                                                           "27 BCE"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Western Roman Empire collapsed."
+                                                       },
+                                                       {
+                                                           "question":  "Romans known for:",
+                                                           "options":  [
+                                                                           "Pyramids",
+                                                                           "Democracy",
+                                                                           "Philosophy only",
+                                                                           "Engineering — roads, aqueducts"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Engineering unmatched in ancient world."
+                                                       },
+                                                       {
+                                                           "question":  "Greek philosophy\u0027s lasting impact:",
+                                                           "options":  [
+                                                                           "Only affected Greece",
+                                                                           "Had no influence",
+                                                                           "Laid foundations for Western science, ethics, and logic",
+                                                                           "Was forgotten after Rome fell"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Socrates, Plato, Aristotle\u0027s ideas still shape education, science, and government."
+                                                       },
+                                                       {
+                                                           "question":  "The Roman Republic became an Empire when:",
+                                                           "options":  [
+                                                                           "The Senate voted for it",
+                                                                           "Caesar was assassinated",
+                                                                           "Hannibal invaded",
+                                                                           "Augustus became the first emperor in 27 BCE"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Augustus (Octavian) ended the Republic and established one-man rule."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Ancient African Kingdoms",
+                                          "content":  "Africa\u0027s rich history: Kingdom of Kush (1070 BCE-350 CE) — pyramids, iron industry. Aksum (100-940 CE) — trading power, early Christianity, Ge\u0027ez script. Ghana Empire (300-1200) — gold and salt trade. Mali Empire (1235-1600) — Mansa Musa, possibly richest person ever. Great Zimbabwe (1100-1450) — stone city, advanced engineering.",
+                                          "examples":  [
+                                                           "Mansa Musa\u0027s 1324 pilgrimage crashed gold prices in Cairo",
+                                                           "Great Zimbabwe\u0027s massive stone walls — no mortar, still standing",
+                                                           "Aksum adopted Christianity ~330 CE"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "Mansa Musa":  "Emperor of Mali, possibly wealthiest person in history",
+                                                           "Great Zimbabwe":  "Medieval stone city in southern Africa",
+                                                           "trans-Saharan trade":  "Routes crossing Sahara connecting West and North Africa",
+                                                           "Swahili coast":  "East African coastal trading cities blending African and Arab cultures"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Mansa Musa ruled:",
+                                                           "options":  [
+                                                                           "Kush",
+                                                                           "Ghana",
+                                                                           "Songhai",
+                                                                           "Mali"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Emperor of Mali Empire."
+                                                       },
+                                                       {
+                                                           "question":  "Aksum location:",
+                                                           "options":  [
+                                                                           "Nigeria",
+                                                                           "Modern Ethiopia",
+                                                                           "Egypt",
+                                                                           "South Africa"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Ethiopia and Eritrea."
+                                                       },
+                                                       {
+                                                           "question":  "Ghana Empire controlled:",
+                                                           "options":  [
+                                                                           "Diamonds",
+                                                                           "Oil and gas",
+                                                                           "Silver and copper",
+                                                                           "Gold and salt trade"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Gold from south, salt from north."
+                                                       },
+                                                       {
+                                                           "question":  "Great Zimbabwe demonstrates:",
+                                                           "options":  [
+                                                                           "Simple construction only",
+                                                                           "European influence",
+                                                                           "Advanced African engineering centuries before European contact",
+                                                                           "Modern building techniques"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Massive stone walls built without mortar — sophisticated indigenous engineering."
+                                                       },
+                                                       {
+                                                           "question":  "The Swahili coast was important for:",
+                                                           "options":  [
+                                                                           "Mining only",
+                                                                           "Only fishing",
+                                                                           "European colonization",
+                                                                           "International trade connecting Africa, Arabia, India, and China"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Cities like Kilwa and Mombasa were wealthy trading hubs for centuries."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Ancient Asian Civilizations",
+                                          "content":  "China developed one of the world\u0027s oldest continuous civilizations. The Shang Dynasty (1600-1046 BCE) had bronze work and oracle bones (earliest Chinese writing). The Qin Dynasty (221-206 BCE) unified China and began the Great Wall. Han Dynasty (206 BCE-220 CE) established the Silk Road connecting China to Rome. Chinese inventions changed the world: paper, printing, gunpowder, and the compass. India\u0027s Indus Valley Civilization (3300-1300 BCE) had advanced urban planning (Mohenjo-Daro had grid streets and sewage systems). The Maurya Empire under Ashoka (268-232 BCE) unified most of India and spread Buddhism. The Gupta Empire (320-550 CE) was India\u0027s \u0027Golden Age\u0027 — advances in mathematics (zero, decimal system), astronomy, medicine, and art.",
+                                          "examples":  [
+                                                           "The Great Wall stretches over 21,000 km — built over many centuries to protect from northern invaders",
+                                                           "Indian mathematician Aryabhata calculated pi to 4 decimal places and proposed Earth rotates on its axis (5th century CE)",
+                                                           "The Silk Road: Chinese silk traded for Roman gold, Indian spices, and Persian carpets — connecting three continents"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "Silk Road":  "Ancient trade network connecting China to the Mediterranean through Central Asia",
+                                                           "dynasty":  "A series of rulers from the same family",
+                                                           "Great Wall":  "Massive fortification built across northern China over many centuries",
+                                                           "Gupta Golden Age":  "Period of exceptional achievement in Indian science, math, and art (320-550 CE)"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The Silk Road connected:",
+                                                           "options":  [
+                                                                           "China to Rome through Central Asia — trading silk, spices, and ideas",
+                                                                           "Only two cities",
+                                                                           "Africa to Australia",
+                                                                           "The Americas to Europe"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "The Silk Road was a network of routes spanning thousands of miles across Asia."
+                                                       },
+                                                       {
+                                                           "question":  "Chinese inventions that changed the world include:",
+                                                           "options":  [
+                                                                           "Steam engine and electricity",
+                                                                           "Democracy and philosophy",
+                                                                           "Paper, printing, gunpowder, and the compass",
+                                                                           "Pyramids and aqueducts"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "These four Chinese inventions fundamentally shaped global civilization."
+                                                       },
+                                                       {
+                                                           "question":  "The concept of zero was developed in:",
+                                                           "options":  [
+                                                                           "Ancient Egypt",
+                                                                           "Ancient Greece",
+                                                                           "Ancient Rome",
+                                                                           "Ancient India"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Indian mathematicians developed zero and the decimal system — the basis of modern math."
+                                                       },
+                                                       {
+                                                           "question":  "The Indus Valley Civilization is remarkable for:",
+                                                           "options":  [
+                                                                           "No cities at all",
+                                                                           "Only farming",
+                                                                           "Advanced urban planning with grid streets and sewage systems",
+                                                                           "Being in Europe"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Mohenjo-Daro (2600 BCE) had planned streets, drainage, and public baths — extremely advanced."
+                                                       },
+                                                       {
+                                                           "question":  "Emperor Ashoka is significant because:",
+                                                           "options":  [
+                                                                           "He conquered Rome",
+                                                                           "He unified most of India and spread Buddhism through non-violence after witnessing war\u0027s horrors",
+                                                                           "He invented gunpowder",
+                                                                           "He built the Great Wall"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "After the bloody Kalinga war, Ashoka embraced Buddhism and ruled through dharma (moral law)."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Pre-Colonial Americas",
+                                          "content":  "The Americas had sophisticated civilizations long before European contact. The Maya (2000 BCE-1500 CE) in Central America developed advanced mathematics (including zero independently), accurate astronomy, hieroglyphic writing, and massive pyramid-temples. The Aztec Empire (1300-1521 CE) in Mexico built Tenochtitlan — a stunning island city with 200,000+ people, larger than most European cities of the time, with causeways, canals, and markets. The Inca Empire (1400-1533 CE) in South America controlled 12 million people across 4,000 km of the Andes without a writing system — using quipu (knotted strings) for record-keeping. Their road system rivaled Rome\u0027s. In North America, diverse nations developed: the Iroquois Confederacy (democratic governance that influenced the US Constitution), the mound builders of Cahokia (city of 20,000 near modern St. Louis), and the sophisticated farming and trading networks of many First Nations.",
+                                          "examples":  [
+                                                           "Tenochtitlan (modern Mexico City) had about 200,000 people in 1500 — Paris had only 185,000",
+                                                           "The Inca road system: 40,000 km of roads through the Andes, with rope bridges spanning deep valleys",
+                                                           "The Maya accurately predicted solar eclipses — their calendar was more accurate than European calendars of the same period"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "Maya":  "Central American civilization known for mathematics, astronomy, and pyramid-temples",
+                                                           "Aztec":  "Mexican empire centered on the island city of Tenochtitlan",
+                                                           "Inca":  "South American empire in the Andes — vast road network, no written language but used quipu",
+                                                           "quipu":  "Inca record-keeping system using knotted colored strings"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The Maya independently developed:",
+                                                           "options":  [
+                                                                           "Writing on paper",
+                                                                           "The wheel for transportation",
+                                                                           "Iron working",
+                                                                           "The concept of zero and advanced mathematics"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "The Maya developed zero independently — one of only a few civilizations to do so."
+                                                       },
+                                                       {
+                                                           "question":  "Tenochtitlan was remarkable because:",
+                                                           "options":  [
+                                                                           "It was in Europe",
+                                                                           "It was very small",
+                                                                           "It had no buildings",
+                                                                           "It was larger than most European cities, built on a lake with causeways and canals"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "When Spanish arrived, they were stunned by its size and sophistication."
+                                                       },
+                                                       {
+                                                           "question":  "The Inca kept records without writing by:",
+                                                           "options":  [
+                                                                           "Using the alphabet",
+                                                                           "Memorizing everything",
+                                                                           "They didn\u0027t keep records",
+                                                                           "Using quipu — knotted colored strings encoding numbers and information"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Quipu were a sophisticated system — different knot types, positions, and colors conveyed different data."
+                                                       },
+                                                       {
+                                                           "question":  "The Iroquois Confederacy influenced:",
+                                                           "options":  [
+                                                                           "Asian governments",
+                                                                           "Only European monarchies",
+                                                                           "The development of the US Constitution with its democratic principles",
+                                                                           "No other system"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Ben Franklin and others studied Iroquois governance — its influence on American democracy is documented."
+                                                       },
+                                                       {
+                                                           "question":  "Pre-colonial American civilizations were:",
+                                                           "options":  [
+                                                                           "Sophisticated, diverse, and in many ways equal or superior to European civilizations of the same era",
+                                                                           "Primitive and simple",
+                                                                           "All the same culture",
+                                                                           "Only nomadic hunters"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "These civilizations had cities, mathematics, engineering, and governance systems rivaling the Old World."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Medieval to Renaissance",
+                      "lessons":  [
+                                      {
+                                          "title":  "Feudalism and Medieval Life",
+                                          "content":  "After Rome fell, Europe entered the Medieval period (500-1500 CE). Feudalism: king → lords (land for service) → knights → peasants/serfs. Life was hard: short lifespans, limited education, frequent disease. The Catholic Church was most powerful institution. The Black Death (1347-1351) killed ~1/3 of Europe.",
+                                          "examples":  [
+                                                           "Serf worked lord\u0027s land 3-4 days/week",
+                                                           "Black Death killed 25 million Europeans",
+                                                           "Cathedrals took centuries to build"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "feudalism":  "Land for military service system",
+                                                           "serf":  "Peasant bound to lord\u0027s land",
+                                                           "Black Death":  "Plague killing ~1/3 of Europe",
+                                                           "manor":  "The lord\u0027s estate — the basic economic unit of feudalism"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "In feudalism, who owned land:",
+                                                           "options":  [
+                                                                           "Kings and lords",
+                                                                           "Serfs",
+                                                                           "Merchants",
+                                                                           "Church only"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Land granted in exchange for military service."
+                                                       },
+                                                       {
+                                                           "question":  "Black Death:",
+                                                           "options":  [
+                                                                           "War",
+                                                                           "Plague killing ~1/3 of Europe",
+                                                                           "Famine",
+                                                                           "Flood"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "~25 million Europeans 1347-1351."
+                                                       },
+                                                       {
+                                                           "question":  "Most powerful institution:",
+                                                           "options":  [
+                                                                           "Guilds",
+                                                                           "Army",
+                                                                           "Catholic Church",
+                                                                           "Universities"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Church controlled education, collected tithes, influenced kings."
+                                                       },
+                                                       {
+                                                           "question":  "Ironically, the Black Death improved conditions for survivors because:",
+                                                           "options":  [
+                                                                           "The Church gave away land",
+                                                                           "It ended feudalism overnight",
+                                                                           "Labor shortage gave peasants more bargaining power and higher wages",
+                                                                           "Lords became more generous"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Fewer workers = workers could demand better conditions — beginning of feudalism\u0027s decline."
+                                                       },
+                                                       {
+                                                           "question":  "Medieval guilds were:",
+                                                           "options":  [
+                                                                           "Religious orders only",
+                                                                           "Military units",
+                                                                           "Associations of craftsmen and merchants that controlled trade standards",
+                                                                           "Government departments"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Guilds regulated quality, prices, and entry into trades — like professional associations today."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "The Renaissance",
+                                          "content":  "Renaissance (1400-1600): \u0027rebirth\u0027 of art, science, learning, starting in Italy. Humanism: human potential and reason. Art became realistic: Leonardo (Mona Lisa), Michelangelo (Sistine Chapel, David). Printing press (Gutenberg, 1440) revolutionized knowledge sharing. Scientific inquiry replaced superstition. Laid groundwork for the modern world.",
+                                          "examples":  [
+                                                           "Leonardo: painter, engineer, anatomist, inventor",
+                                                           "Before printing: months to copy one book. After: hundreds per day",
+                                                           "Galileo\u0027s telescope proved Earth orbits Sun"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "Renaissance":  "Cultural rebirth 1400-1600, inspired by classical ideas",
+                                                           "humanism":  "Philosophy emphasizing human potential and reason",
+                                                           "printing press":  "Gutenberg\u0027s 1440 invention enabling mass book production",
+                                                           "patron":  "Wealthy supporter of artists and scholars (Medici family)"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Renaissance began:",
+                                                           "options":  [
+                                                                           "Italy",
+                                                                           "England",
+                                                                           "China",
+                                                                           "Africa"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Italian city-states: Florence, Venice, Rome."
+                                                       },
+                                                       {
+                                                           "question":  "Printing press revolutionary because:",
+                                                           "options":  [
+                                                                           "Books became affordable, knowledge spread",
+                                                                           "Printed money",
+                                                                           "Replaced all handwriting",
+                                                                           "Art only"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Mass-produced books for ordinary people."
+                                                       },
+                                                       {
+                                                           "question":  "Humanism:",
+                                                           "options":  [
+                                                                           "Agricultural focus",
+                                                                           "Obedience to authority",
+                                                                           "Military conquest",
+                                                                           "Human potential and individual achievement"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Human reason and potential."
+                                                       },
+                                                       {
+                                                           "question":  "The Medici family was important because:",
+                                                           "options":  [
+                                                                           "They funded artists and scholars in Florence, driving the Renaissance",
+                                                                           "They were military leaders",
+                                                                           "They invented printing",
+                                                                           "They ruled all of Europe"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Wealthy Medici patrons supported Leonardo, Michelangelo, and many others."
+                                                       },
+                                                       {
+                                                           "question":  "The Renaissance changed how people saw the world by:",
+                                                           "options":  [
+                                                                           "Reinforcing medieval superstition",
+                                                                           "Encouraging observation, experimentation, and questioning authority",
+                                                                           "Banning all art",
+                                                                           "Ending all education"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "The shift from \u0027believe because authority says so\u0027 to \u0027observe and reason for yourself.\u0027"
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Age of Exploration",
+                                          "content":  "1400s-1600s: Europeans explored by sea, motivated by trade, religion, competition. Portugal led: Vasco da Gama reached India (1498). Spain funded Columbus (Americas, 1492). Columbian Exchange: plants, animals, diseases transferred between worlds. Potatoes/tomatoes → Europe; horses/wheat → Americas; European diseases devastated indigenous populations (up to 90% in some areas). Led to colonization and the slave trade.",
+                                          "examples":  [
+                                                           "Columbus reached Caribbean 1492 thinking he found Asia",
+                                                           "Magellan\u0027s expedition circumnavigated the globe (1519-1522)",
+                                                           "European smallpox killed up to 90% of some indigenous populations"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "Age of Exploration":  "European sea exploration 1400s-1600s",
+                                                           "Columbian Exchange":  "Transfer of plants, animals, diseases between Old and New Worlds",
+                                                           "colonization":  "Controlling foreign territories",
+                                                           "circumnavigation":  "Sailing completely around the world"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Columbus reached Americas:",
+                                                           "options":  [
+                                                                           "1066",
+                                                                           "1776",
+                                                                           "1492",
+                                                                           "1840"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "October 12, 1492."
+                                                       },
+                                                       {
+                                                           "question":  "Columbian Exchange:",
+                                                           "options":  [
+                                                                           "Only religion",
+                                                                           "Only gold trade",
+                                                                           "Only conquest",
+                                                                           "Transfer of plants, animals, diseases between continents"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Crops, livestock, diseases, ideas transferred."
+                                                       },
+                                                       {
+                                                           "question":  "Exploration motivated by:",
+                                                           "options":  [
+                                                                           "Tourism",
+                                                                           "Trade, religion, national competition",
+                                                                           "Science only",
+                                                                           "Escaping floods"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Wealth, spreading Christianity, competing for power."
+                                                       },
+                                                       {
+                                                           "question":  "The most devastating impact of the Columbian Exchange was:",
+                                                           "options":  [
+                                                                           "Introduction of potatoes to Europe",
+                                                                           "European diseases killing millions of indigenous Americans",
+                                                                           "Transfer of horses to Americas",
+                                                                           "Sharing of new technologies"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Indigenous populations had no immunity — diseases like smallpox were catastrophic."
+                                                       },
+                                                       {
+                                                           "question":  "The Age of Exploration ultimately led to:",
+                                                           "options":  [
+                                                                           "World peace",
+                                                                           "European colonization of much of the world",
+                                                                           "End of trade",
+                                                                           "Isolation of continents"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Exploration was followed by conquest, colonization, and the transatlantic slave trade."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "The Atlantic Slave Trade",
+                                          "content":  "The transatlantic slave trade (1500s-1800s) was one of history\u0027s greatest injustices. An estimated 12-15 million Africans were forcibly transported to the Americas. The triangle trade: European goods → Africa (exchanged for enslaved people) → Americas (enslaved people sold, sugar/cotton produced) → Europe (raw materials processed). The Middle Passage — the ocean crossing — was horrific: people chained in overcrowded ships, with mortality rates of 15-20%. Enslaved people built the economies of the Americas: sugar, cotton, tobacco, and mining depended on their labor. Resistance was constant: rebellions (Haiti, 1791 — the only successful slave revolution), running away, maintaining cultural traditions, and sabotage. Abolition movements grew in the 1700s-1800s: Britain abolished the trade in 1807, slavery in 1833; the US in 1865 (13th Amendment). The trade\u0027s legacy — racism, economic inequality, and cultural trauma — persists today.",
+                                          "examples":  [
+                                                           "Haiti\u0027s revolution (1791-1804): enslaved people overthrew French colonial rule — the only successful slave revolt in history",
+                                                           "The Middle Passage: ships designed to carry 200 people were packed with 600 — conditions were deliberately dehumanizing",
+                                                           "Olaudah Equiano\u0027s autobiography (1789): a former enslaved person\u0027s account that galvanized the abolition movement in Britain"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "transatlantic slave trade":  "The forced transportation of 12-15 million Africans to the Americas (1500s-1800s)",
+                                                           "Middle Passage":  "The ocean crossing from Africa to the Americas — horrific conditions with high mortality",
+                                                           "abolition":  "The movement to end slavery and the slave trade",
+                                                           "triangle trade":  "European goods → Africa → enslaved people → Americas → raw materials → Europe"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Approximately how many Africans were transported in the slave trade?",
+                                                           "options":  [
+                                                                           "1 million",
+                                                                           "100,000",
+                                                                           "12-15 million",
+                                                                           "50 million"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "An estimated 12-15 million people were forcibly taken from Africa."
+                                                       },
+                                                       {
+                                                           "question":  "The Middle Passage was:",
+                                                           "options":  [
+                                                                           "The horrific ocean crossing from Africa to the Americas",
+                                                                           "A trade route through Europe",
+                                                                           "A legal process",
+                                                                           "A type of ship"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Enslaved people endured terrible conditions during the Atlantic crossing."
+                                                       },
+                                                       {
+                                                           "question":  "Haiti\u0027s revolution was significant because:",
+                                                           "options":  [
+                                                                           "It failed",
+                                                                           "It was the largest colony",
+                                                                           "It was the only successful revolution by enslaved people, creating the first Black republic",
+                                                                           "It happened in Europe"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Haiti (1804) remains the only nation founded by a successful slave revolution."
+                                                       },
+                                                       {
+                                                           "question":  "The slave trade\u0027s legacy includes:",
+                                                           "options":  [
+                                                                           "Racism, economic inequality, and cultural trauma that persist today",
+                                                                           "No lasting effects",
+                                                                           "Only positive impacts",
+                                                                           "Complete racial equality"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Centuries of exploitation created structural inequalities that are still being addressed."
+                                                       },
+                                                       {
+                                                           "question":  "Abolition movements were strengthened by:",
+                                                           "options":  [
+                                                                           "Military force only",
+                                                                           "Economic arguments only",
+                                                                           "Personal accounts from formerly enslaved people, religious conviction, and changing moral views",
+                                                                           "No specific factors"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "First-person narratives (like Equiano\u0027s) and moral arguments built public support for ending slavery."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "The Reformation",
+                                          "content":  "The Protestant Reformation (1517) fundamentally changed European religion and politics. Martin Luther, a German monk, criticized the Catholic Church\u0027s corruption — especially the sale of indulgences (paying money for forgiveness of sins). His 95 Theses challenged Church authority and spread rapidly thanks to the printing press. This led to new Protestant denominations: Lutheran, Calvinist, Anglican. The Catholic Counter-Reformation reformed internal practices and launched the Inquisition. Religious wars followed: the French Wars of Religion (1562-1598) and the devastating Thirty Years\u0027 War (1618-1648) which killed 8 million people. The Reformation\u0027s lasting impacts: breaking the Church\u0027s monopoly on religious truth, promoting literacy (people needed to read the Bible themselves), and contributing to the eventual separation of church and state.",
+                                          "examples":  [
+                                                           "Luther\u0027s 95 Theses (1517): nailed to a church door in Wittenberg — spread across Europe within weeks thanks to printing",
+                                                           "Henry VIII created the Church of England (1534) partly because the Pope refused to annul his marriage — politics and religion intertwined",
+                                                           "The Thirty Years\u0027 War devastated Germany — some regions lost 50% of their population"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "Reformation":  "16th-century religious movement challenging Catholic Church authority, creating Protestant churches",
+                                                           "indulgences":  "Payments to the Church for forgiveness of sins — a key corruption Luther protested",
+                                                           "Protestant":  "Christian denominations that separated from the Catholic Church during the Reformation",
+                                                           "Counter-Reformation":  "The Catholic Church\u0027s response: internal reforms and opposition to Protestantism"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Martin Luther\u0027s 95 Theses primarily criticized:",
+                                                           "options":  [
+                                                                           "The sale of indulgences and Church corruption",
+                                                                           "The existence of God",
+                                                                           "The Bible itself",
+                                                                           "European monarchies"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Luther challenged the practice of buying forgiveness — calling it corruption."
+                                                       },
+                                                       {
+                                                           "question":  "The printing press helped the Reformation by:",
+                                                           "options":  [
+                                                                           "Printing indulgences",
+                                                                           "Spreading Luther\u0027s ideas across Europe rapidly",
+                                                                           "Supporting the Pope",
+                                                                           "Nothing — it wasn\u0027t invented yet"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Without printing, Luther\u0027s ideas would have stayed local — the press made them viral."
+                                                       },
+                                                       {
+                                                           "question":  "The Reformation led to:",
+                                                           "options":  [
+                                                                           "New Protestant churches and eventually religious freedom",
+                                                                           "Strengthening the Pope\u0027s power",
+                                                                           "Unification of all Christians",
+                                                                           "End of all religion"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Protestantism broke the Catholic monopoly — eventually leading to religious pluralism."
+                                                       },
+                                                       {
+                                                           "question":  "The Counter-Reformation was:",
+                                                           "options":  [
+                                                                           "A military campaign only",
+                                                                           "Luther\u0027s second set of complaints",
+                                                                           "A Protestant movement",
+                                                                           "The Catholic Church\u0027s response: internal reform and opposition to Protestantism"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "The Church reformed some abuses, clarified doctrine, and used the Inquisition against heresy."
+                                                       },
+                                                       {
+                                                           "question":  "The Reformation promoted literacy because:",
+                                                           "options":  [
+                                                                           "Reading was already universal",
+                                                                           "Schools were banned",
+                                                                           "Protestants believed everyone should read the Bible themselves, not rely on priests",
+                                                                           "It didn\u0027t affect literacy"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Luther wanted the Bible in German, not just Latin — driving demand for education and literacy."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Modern Era",
+                      "lessons":  [
+                                      {
+                                          "title":  "Industrial Revolution",
+                                          "content":  "1760-1840, starting in Britain. Steam engine, spinning jenny, railways transformed society. Factories replaced cottage industries. Mass production made goods cheaper. But terrible conditions: 16-hour days, child labor, pollution. Labor movements won rights. Spread to Europe, America, and the world.",
+                                          "examples":  [
+                                                           "Steam engine powered factories, trains, ships",
+                                                           "Children as young as 5 worked in coal mines",
+                                                           "Manchester grew from 25,000 to 300,000 people"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "Industrial Revolution":  "Shift to industrial society 1760-1840",
+                                                           "urbanization":  "Population moving from rural to cities",
+                                                           "mass production":  "Large-quantity manufacturing with machines",
+                                                           "labor movement":  "Workers organizing for better conditions and rights"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Started in:",
+                                                           "options":  [
+                                                                           "China",
+                                                                           "America",
+                                                                           "Britain",
+                                                                           "France"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Resources, capital, conditions."
+                                                       },
+                                                       {
+                                                           "question":  "Powered by:",
+                                                           "options":  [
+                                                                           "Steam engine",
+                                                                           "Electricity",
+                                                                           "Nuclear",
+                                                                           "Solar"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "James Watt\u0027s improved steam engine."
+                                                       },
+                                                       {
+                                                           "question":  "Urbanization:",
+                                                           "options":  [
+                                                                           "People moving to cities for factory jobs",
+                                                                           "Cities shrinking",
+                                                                           "Farming increasing",
+                                                                           "Moving to rural areas"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Millions drawn to industrial cities."
+                                                       },
+                                                       {
+                                                           "question":  "The labor movement achieved:",
+                                                           "options":  [
+                                                                           "Shorter hours, safety regulations, and banning child labor",
+                                                                           "Longer hours",
+                                                                           "More child labor",
+                                                                           "Nothing"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Workers organized unions and fought for better conditions over decades."
+                                                       },
+                                                       {
+                                                           "question":  "The Industrial Revolution was fueled by:",
+                                                           "options":  [
+                                                                           "Oil from the Middle East",
+                                                                           "Coal, iron, and innovation in Britain",
+                                                                           "Solar energy",
+                                                                           "Nuclear power"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Britain had abundant coal and iron — essential raw materials for industrialization."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "World Wars",
+                                          "content":  "WWI (1914-1918): triggered by Franz Ferdinand\u0027s assassination; caused by nationalism, imperialism, militarism, alliances. Trench warfare, ~17 million dead. Treaty of Versailles punished Germany. WWII (1939-1945): Nazi Germany invaded Poland, Holocaust killed 6 million Jews. 70-85 million died. Ended with atomic bombs. UN created to prevent future world wars.",
+                                          "examples":  [
+                                                           "WWI trenches: 600+ km across France/Belgium",
+                                                           "D-Day (June 6, 1944): 156,000 Allied soldiers at Normandy",
+                                                           "Hiroshima bomb killed 80,000 instantly"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "World War I":  "1914-1918, caused by nationalism and alliances",
+                                                           "Holocaust":  "Systematic murder of 6 million Jews by Nazis",
+                                                           "United Nations":  "Created 1945 to maintain peace",
+                                                           "total war":  "Conflict involving entire nations — civilians, economy, and industry, not just military"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "WWI triggered by:",
+                                                           "options":  [
+                                                                           "Berlin Wall",
+                                                                           "Holocaust",
+                                                                           "Pearl Harbor",
+                                                                           "Assassination of Franz Ferdinand"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "1914 assassination, deeper causes: nationalism, alliances."
+                                                       },
+                                                       {
+                                                           "question":  "WWII deaths:",
+                                                           "options":  [
+                                                                           "1 million",
+                                                                           "70-85 million",
+                                                                           "10 million",
+                                                                           "500 million"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Deadliest conflict in history."
+                                                       },
+                                                       {
+                                                           "question":  "UN created to:",
+                                                           "options":  [
+                                                                           "Prevent future world wars",
+                                                                           "Start wars",
+                                                                           "Control trade",
+                                                                           "Explore space"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Maintain international peace."
+                                                       },
+                                                       {
+                                                           "question":  "The Holocaust taught the world:",
+                                                           "options":  [
+                                                                           "That genocide is impossible",
+                                                                           "The dangers of extreme ideology, hatred, and indifference",
+                                                                           "Nothing",
+                                                                           "Only European history matters"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Never again — the Holocaust led to universal human rights declarations and genocide prevention efforts."
+                                                       },
+                                                       {
+                                                           "question":  "Trench warfare was characterized by:",
+                                                           "options":  [
+                                                                           "Quick decisive battles",
+                                                                           "Massive casualties for very little territorial gain",
+                                                                           "Naval combat only",
+                                                                           "Air battles only"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Millions died fighting over meters of ground — a brutal stalemate."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Colonialism and Independence",
+                                          "content":  "European colonialism (1500s-1900s) controlled territories across Africa, Asia, Americas. Scramble for Africa (1884-1914): Berlin Conference divided Africa without consulting Africans. Colonial rule exploited resources and labor, disrupted societies, drew arbitrary borders. Independence movements gained strength after WWII. Ghana (1957) first sub-Saharan African country. By 1960s-70s, most were independent. Legacy: arbitrary borders, economic structures, social divisions persist.",
+                                          "examples":  [
+                                                           "Berlin Conference (1884-85): European leaders divided Africa on a map — no Africans invited",
+                                                           "India: independence 1947 under Gandhi\u0027s nonviolent movement",
+                                                           "Many African borders split ethnic groups, causing ongoing conflicts"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "colonialism":  "Controlling foreign territories and peoples",
+                                                           "Scramble for Africa":  "Rapid European colonization 1884-1914",
+                                                           "independence movement":  "Organized efforts for self-governance",
+                                                           "neocolonialism":  "Indirect economic or political control over formerly colonized nations"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Berlin Conference:",
+                                                           "options":  [
+                                                                           "Planning WWI",
+                                                                           "Africans meeting Europeans",
+                                                                           "Europeans dividing Africa — no Africans consulted",
+                                                                           "Creating UN"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Carved up Africa without African input."
+                                                       },
+                                                       {
+                                                           "question":  "First sub-Saharan African independence:",
+                                                           "options":  [
+                                                                           "Ghana (1957)",
+                                                                           "Nigeria (1960)",
+                                                                           "South Africa (1994)",
+                                                                           "Kenya (1963)"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Ghana led by Kwame Nkrumah."
+                                                       },
+                                                       {
+                                                           "question":  "Lasting colonial effect:",
+                                                           "options":  [
+                                                                           "Arbitrary borders dividing ethnic groups",
+                                                                           "Complete equality",
+                                                                           "Strong institutions everywhere",
+                                                                           "No effects"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Borders split groups, combined rivals."
+                                                       },
+                                                       {
+                                                           "question":  "Neocolonialism refers to:",
+                                                           "options":  [
+                                                                           "Indirect economic or political control over formerly colonized nations",
+                                                                           "Recolonizing countries",
+                                                                           "A new form of government",
+                                                                           "Ancient colonial practices"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Former colonial powers maintaining influence through economics, debt, and trade agreements."
+                                                       },
+                                                       {
+                                                           "question":  "Gandhi\u0027s approach to Indian independence was:",
+                                                           "options":  [
+                                                                           "Accepting colonial rule",
+                                                                           "Armed revolution",
+                                                                           "Diplomatic negotiations only",
+                                                                           "Nonviolent resistance — civil disobedience, boycotts, marches"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Gandhi\u0027s satyagraha (nonviolent resistance) inspired movements worldwide."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "The Civil Rights Movement",
+                                          "content":  "The American Civil Rights Movement (1950s-1960s) fought to end racial segregation and discrimination against African Americans. After the Civil War (1865) ended slavery, Southern states imposed Jim Crow laws — legally separating Black and white people in schools, buses, restaurants, and public spaces. Key events: Brown v. Board of Education (1954) — Supreme Court ruled school segregation unconstitutional. Rosa Parks refused to give up her bus seat (1955), sparking the Montgomery Bus Boycott. Martin Luther King Jr. led nonviolent protest — his \u0027I Have a Dream\u0027 speech (1963) at the March on Washington inspired millions. The Civil Rights Act (1964) banned discrimination; the Voting Rights Act (1965) protected Black voting rights. The movement inspired global struggles for equality — including anti-apartheid in South Africa and indigenous rights movements worldwide.",
+                                          "examples":  [
+                                                           "Rosa Parks\u0027 refusal to give up her seat led to the 381-day Montgomery Bus Boycott — which ended bus segregation",
+                                                           "Little Rock Nine: 9 Black students entered an all-white school in 1957 — escorted by federal troops against angry mobs",
+                                                           "Martin Luther King Jr.\u0027s \u0027I Have a Dream\u0027 speech: \u0027I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character.\u0027"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "segregation":  "Legally enforced separation of races in public facilities",
+                                                           "Jim Crow laws":  "Southern US laws enforcing racial segregation after slavery ended",
+                                                           "civil disobedience":  "Peacefully breaking unjust laws to protest them",
+                                                           "Civil Rights Act":  "1964 US law banning discrimination based on race, color, religion, sex, or national origin"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Jim Crow laws:",
+                                                           "options":  [
+                                                                           "Ended slavery",
+                                                                           "Applied only in the North",
+                                                                           "Legally enforced racial segregation in the Southern US",
+                                                                           "Were never real laws"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "After slavery ended, Southern states created laws to keep Black people separate and unequal."
+                                                       },
+                                                       {
+                                                           "question":  "Brown v. Board of Education ruled:",
+                                                           "options":  [
+                                                                           "Segregation is legal",
+                                                                           "School segregation is unconstitutional",
+                                                                           "Schools should be closed",
+                                                                           "Only private schools matter"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "The 1954 Supreme Court decision struck down \u0027separate but equal\u0027 in public schools."
+                                                       },
+                                                       {
+                                                           "question":  "Martin Luther King Jr. advocated:",
+                                                           "options":  [
+                                                                           "Accepting segregation",
+                                                                           "Armed revolution",
+                                                                           "Nonviolent resistance and civil disobedience",
+                                                                           "Leaving America"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "King followed Gandhi\u0027s philosophy — peaceful protest and moral persuasion."
+                                                       },
+                                                       {
+                                                           "question":  "The Civil Rights Movement inspired:",
+                                                           "options":  [
+                                                                           "Global struggles for equality, including anti-apartheid and indigenous rights",
+                                                                           "Only American changes",
+                                                                           "Nothing outside the US",
+                                                                           "Only legal changes"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "The movement\u0027s moral authority and methods influenced freedom struggles worldwide."
+                                                       },
+                                                       {
+                                                           "question":  "The Voting Rights Act of 1965:",
+                                                           "options":  [
+                                                                           "Gave only white people voting rights",
+                                                                           "Protected the right of African Americans to vote without discriminatory barriers",
+                                                                           "Ended all discrimination",
+                                                                           "Was never passed"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "It outlawed literacy tests and other tactics used to prevent Black citizens from voting."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Decolonization and the Cold War in the Global South",
+                                          "content":  "Decolonization (1945-1975) saw European empires dismantle as colonized peoples demanded freedom. But independence didn\u0027t always bring stability. Many new nations faced challenges: arbitrary colonial borders, ethnic tensions, weak institutions, and economies dependent on exporting raw materials. The Cold War complicated decolonization: the US and USSR competed for influence in newly independent nations, often supporting dictators who aligned with their ideology regardless of democracy or human rights. Proxy wars devastated countries: Korea, Vietnam, Angola, Mozambique, and Afghanistan. The Non-Aligned Movement (NAM), led by leaders like Nehru (India), Nasser (Egypt), and Nkrumah (Ghana), tried to stay independent of both superpowers. Pan-Africanism, led by figures like Kwame Nkrumah and Julius Nyerere, promoted African unity and self-determination. Many post-colonial nations continue struggling with the legacy of colonialism: economic dependence, corrupt governance, and border conflicts.",
+                                          "examples":  [
+                                                           "Congo: independence in 1960, then Patrice Lumumba was assassinated with US and Belgian involvement — Cold War interference",
+                                                           "Vietnam War (1955-1975): US fought communist North Vietnam — 3 million Vietnamese and 58,000 Americans died",
+                                                           "Non-Aligned Movement: 120 nations today, founded 1961 — refusing to align with either Cold War bloc"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "decolonization":  "The process of former colonies becoming independent nations",
+                                                           "proxy war":  "A conflict where major powers support opposing sides without fighting directly",
+                                                           "Non-Aligned Movement":  "Nations choosing not to align with either the US or USSR during the Cold War",
+                                                           "Pan-Africanism":  "Movement promoting African unity, self-determination, and solidarity"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Decolonization was complicated by:",
+                                                           "options":  [
+                                                                           "Cold War superpowers competing for influence in new nations",
+                                                                           "Easy transitions to democracy",
+                                                                           "No outside interference",
+                                                                           "Colonial powers helping voluntarily"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "The US and USSR often manipulated new nations for strategic advantage."
+                                                       },
+                                                       {
+                                                           "question":  "The Non-Aligned Movement aimed to:",
+                                                           "options":  [
+                                                                           "Join the US side",
+                                                                           "Stay independent of both Cold War superpowers",
+                                                                           "Join the USSR side",
+                                                                           "Ignore world affairs entirely"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "NAM nations sought to maintain sovereignty without being pulled into US-Soviet rivalry."
+                                                       },
+                                                       {
+                                                           "question":  "A proxy war is:",
+                                                           "options":  [
+                                                                           "A trade dispute",
+                                                                           "A direct war between superpowers",
+                                                                           "A conflict where major powers support opposing sides without fighting directly",
+                                                                           "A diplomatic meeting"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Vietnam, Korea, Angola — superpowers armed and funded opposing sides."
+                                                       },
+                                                       {
+                                                           "question":  "Post-colonial challenges include:",
+                                                           "options":  [
+                                                                           "Arbitrary borders, weak institutions, and economic dependence on raw material exports",
+                                                                           "Too much democracy",
+                                                                           "Too many resources",
+                                                                           "No challenges at all"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Colonial structures left many nations poorly positioned for independent development."
+                                                       },
+                                                       {
+                                                           "question":  "Pan-Africanism promotes:",
+                                                           "options":  [
+                                                                           "Only economic cooperation",
+                                                                           "European control of Africa",
+                                                                           "Division of African nations",
+                                                                           "African unity, self-determination, and solidarity among African peoples"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Leaders like Nkrumah envisioned a united Africa — the AU is a partial realization of this vision."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  },
+                  {
+                      "title":  "Contemporary World",
+                      "lessons":  [
+                                      {
+                                          "title":  "The Cold War",
+                                          "content":  "Cold War (1947-1991): USA (capitalist) vs USSR (communist) — never fought directly. Competed through: nuclear arms race, proxy wars (Korea, Vietnam, Afghanistan), Space Race (Sputnik 1957, Moon landing 1969), and ideological influence. Berlin Wall (1961-1989) divided East/West Berlin. Ended when USSR dissolved 1991.",
+                                          "examples":  [
+                                                           "Cuban Missile Crisis (1962): closest to nuclear war",
+                                                           "Gagarin first in space (1961); Armstrong first on Moon (1969)",
+                                                           "Berlin Wall fell November 9, 1989"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "Cold War":  "US-USSR rivalry 1947-1991 without direct conflict",
+                                                           "proxy war":  "Major powers support opposing sides",
+                                                           "arms race":  "Competition to build more weapons",
+                                                           "détente":  "Period of relaxed tensions between superpowers"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Cold War between:",
+                                                           "options":  [
+                                                                           "Germany and Japan",
+                                                                           "USA and China",
+                                                                           "Britain and France",
+                                                                           "USA and USSR"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Capitalist USA vs communist USSR."
+                                                       },
+                                                       {
+                                                           "question":  "Called \u0027cold\u0027 because:",
+                                                           "options":  [
+                                                                           "Winter",
+                                                                           "No direct fighting between superpowers",
+                                                                           "Ice weapons",
+                                                                           "Arctic location"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Intense rivalry but no direct war."
+                                                       },
+                                                       {
+                                                           "question":  "Berlin Wall fell:",
+                                                           "options":  [
+                                                                           "1991",
+                                                                           "1945",
+                                                                           "1989",
+                                                                           "2001"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "November 9, 1989."
+                                                       },
+                                                       {
+                                                           "question":  "Détente was:",
+                                                           "options":  [
+                                                                           "A period of reduced Cold War tensions in the 1970s",
+                                                                           "A type of weapon",
+                                                                           "A space mission",
+                                                                           "A trade agreement"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "US and USSR negotiated arms reduction treaties during détente."
+                                                       },
+                                                       {
+                                                           "question":  "The Cold War ended when:",
+                                                           "options":  [
+                                                                           "The Soviet Union dissolved in 1991",
+                                                                           "Someone won a battle",
+                                                                           "A peace treaty was signed",
+                                                                           "The Berlin Wall was built"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Internal economic problems and reform movements led to the USSR\u0027s collapse."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Globalization",
+                                          "content":  "Increasing world interconnectedness through trade, technology, culture, migration. Internet (1990s) accelerated it. Benefits: global markets, cheaper goods, cultural exchange. Challenges: inequality, cultural loss, environmental damage, pandemic spread. COVID-19 showed both benefits (global vaccine cooperation) and vulnerabilities (supply chain disruptions).",
+                                          "examples":  [
+                                                           "Your phone: designed USA, chips Taiwan, assembled China",
+                                                           "K-pop from South Korea has billions of fans worldwide",
+                                                           "COVID-19 spread globally within weeks, vaccines developed through global cooperation"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "globalization":  "Increasing world interconnectedness",
+                                                           "multinational corporation":  "Company operating in multiple countries",
+                                                           "supply chain":  "Global production/distribution network",
+                                                           "digital divide":  "Gap between those with and without technology access"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Accelerated globalization in 1990s:",
+                                                           "options":  [
+                                                                           "Horses",
+                                                                           "Printing press",
+                                                                           "Steam engines",
+                                                                           "Internet"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Connected billions instantly."
+                                                       },
+                                                       {
+                                                           "question":  "Globalization challenge:",
+                                                           "options":  [
+                                                                           "Widening inequality",
+                                                                           "Everyone equal",
+                                                                           "Less trade",
+                                                                           "Slower communication"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Benefits unevenly distributed."
+                                                       },
+                                                       {
+                                                           "question":  "COVID-19 showed globalization:",
+                                                           "options":  [
+                                                                           "Entirely positive",
+                                                                           "Entirely negative",
+                                                                           "Has both benefits and vulnerabilities",
+                                                                           "Doesn\u0027t exist"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Virus spread fast but vaccines developed through global cooperation."
+                                                       },
+                                                       {
+                                                           "question":  "The digital divide means:",
+                                                           "options":  [
+                                                                           "Unequal access to technology between rich and poor",
+                                                                           "A computer crashing",
+                                                                           "The internet splitting in two",
+                                                                           "A programming error"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Not everyone benefits equally from digital globalization."
+                                                       },
+                                                       {
+                                                           "question":  "A multinational corporation:",
+                                                           "options":  [
+                                                                           "Only exists in wealthy countries",
+                                                                           "Only works in one city",
+                                                                           "Is always small",
+                                                                           "Operates in multiple countries with global supply chains"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Companies like Apple, Toyota, and Unilever operate across dozens of countries."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Human Rights and Democracy",
+                                          "content":  "UDHR (1948): 30 rights including life, liberty, education, equality. Democracy has spread but faces challenges: authoritarianism, corruption, misinformation, voter suppression. Movements expanded rights: civil rights, women\u0027s suffrage, anti-apartheid, LGBTQ+. Progress isn\u0027t automatic — rights must be actively defended.",
+                                          "examples":  [
+                                                           "Mandela: 27 years in prison, then first Black president of South Africa",
+                                                           "Civil rights: Rosa Parks, MLK, Civil Rights Act 1964",
+                                                           "Women\u0027s vote: New Zealand 1893, UK 1928, Saudi Arabia 2015"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "human rights":  "Basic rights for every person regardless of identity",
+                                                           "democracy":  "Government by the people through elections",
+                                                           "apartheid":  "Racial segregation in South Africa 1948-1994",
+                                                           "universal suffrage":  "The right of all adult citizens to vote"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "UDHR adopted:",
+                                                           "options":  [
+                                                                           "2000",
+                                                                           "1776",
+                                                                           "1900",
+                                                                           "1948"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "December 10, 1948."
+                                                       },
+                                                       {
+                                                           "question":  "Apartheid:",
+                                                           "options":  [
+                                                                           "Racial segregation in South Africa",
+                                                                           "Democracy in Europe",
+                                                                           "Trade in Asia",
+                                                                           "Education in America"
+                                                                       ],
+                                                           "correct":  0,
+                                                           "explanation":  "Legal racial segregation 1948-1994."
+                                                       },
+                                                       {
+                                                           "question":  "Human rights must be:",
+                                                           "options":  [
+                                                                           "Only for rich countries",
+                                                                           "Once gained, never lost",
+                                                                           "Actively defended — progress isn\u0027t automatic",
+                                                                           "Created in 2020"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Rights can be eroded without vigilance."
+                                                       },
+                                                       {
+                                                           "question":  "Universal suffrage means:",
+                                                           "options":  [
+                                                                           "No one votes",
+                                                                           "Only wealthy people vote",
+                                                                           "Only men vote",
+                                                                           "All adult citizens have the right to vote"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "The expansion of voting rights to all adults regardless of sex, race, or wealth."
+                                                       },
+                                                       {
+                                                           "question":  "Democracy faces modern threats from:",
+                                                           "options":  [
+                                                                           "Too many elections",
+                                                                           "Too much freedom",
+                                                                           "Misinformation, authoritarianism, corruption, and voter suppression",
+                                                                           "Too much education"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Fake news, power concentration, and systematic barriers undermine democratic processes."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Africa in the 21st Century",
+                                          "content":  "Africa is the world\u0027s youngest continent — median age 19.7 (Europe: 42.5). It has 54 nations, 1.4 billion people (projected 2.5 billion by 2050), and enormous economic potential. The African Continental Free Trade Area (AfCFTA) creates the world\u0027s largest free trade area by number of countries. Mobile technology leapfrogged traditional infrastructure — M-Pesa revolutionized banking, mobile internet reaches millions who never had landlines. Challenges remain: poverty, conflict, governance issues, climate vulnerability, and the legacy of colonialism. But progress is real: GDP growth averaging 3-5% annually, expanding middle class, improving education and healthcare, vibrant tech sectors (\u0027Silicon Savannah\u0027 in Nairobi, tech hubs in Lagos, Kigali, and Cape Town). Africa\u0027s young population is its greatest asset — the continent will have more working-age people than China or India by 2050.",
+                                          "examples":  [
+                                                           "M-Pesa: launched in Kenya 2007, now processes $300 billion annually — financial inclusion for millions without bank accounts",
+                                                           "Rwanda: from genocide in 1994 to one of Africa\u0027s fastest-growing economies — clean cities, tech-forward government",
+                                                           "AfCFTA: aims to increase intra-African trade by 52% by 2025 — African countries trading more with each other"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "AfCFTA":  "African Continental Free Trade Area — creating the world\u0027s largest free trade zone by member countries",
+                                                           "demographic dividend":  "Economic growth potential from a large, young working-age population",
+                                                           "leapfrogging":  "Skipping older technology stages — going from no phone to smartphone, skipping landlines",
+                                                           "Silicon Savannah":  "Nairobi\u0027s tech ecosystem — one of Africa\u0027s leading innovation hubs"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "Africa\u0027s median age is:",
+                                                           "options":  [
+                                                                           "About 40",
+                                                                           "About 20 — the youngest continent",
+                                                                           "About 60",
+                                                                           "About 30"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Africa\u0027s young population is a potential demographic dividend — if education and jobs are provided."
+                                                       },
+                                                       {
+                                                           "question":  "AfCFTA aims to:",
+                                                           "options":  [
+                                                                           "Reduce trade with other continents",
+                                                                           "Close all African borders",
+                                                                           "Only benefit one country",
+                                                                           "Create the world\u0027s largest free trade area and increase intra-African trade"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Currently, Africa trades more with Europe than with itself — AfCFTA aims to change this."
+                                                       },
+                                                       {
+                                                           "question":  "Leapfrogging in Africa means:",
+                                                           "options":  [
+                                                                           "Avoiding all technology",
+                                                                           "Jumping over obstacles literally",
+                                                                           "Copying Western development exactly",
+                                                                           "Skipping older technology — going directly to mobile banking without building bank branches"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Africa adopted mobile money and smartphones without the intermediate step of landlines and bank branches."
+                                                       },
+                                                       {
+                                                           "question":  "Africa\u0027s biggest economic asset for the future is:",
+                                                           "options":  [
+                                                                           "Colonial infrastructure",
+                                                                           "Natural resources only",
+                                                                           "Foreign aid",
+                                                                           "Its young, growing population — potential workforce and market"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "By 2050, Africa will have more working-age people than China or India."
+                                                       },
+                                                       {
+                                                           "question":  "Rwanda\u0027s transformation since 1994 shows:",
+                                                           "options":  [
+                                                                           "That conflict has no consequences",
+                                                                           "That all African countries are the same",
+                                                                           "That nations can recover from tragedy and achieve rapid development with good governance",
+                                                                           "That development is impossible in Africa"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Rwanda went from genocide to one of Africa\u0027s most stable, innovative economies in one generation."
+                                                       }
+                                                   ]
+                                      },
+                                      {
+                                          "title":  "Current Global Challenges",
+                                          "content":  "The 21st century faces interconnected challenges. Climate change: rising temperatures, extreme weather, and environmental degradation threaten food security and habitability. Inequality: the richest 1% own more wealth than the bottom 50% combined. Technology: AI and automation transform economies while raising ethical concerns. Health: COVID-19 showed pandemic preparedness gaps; antibiotic resistance is a growing threat. Information: social media enables connection but also spreads misinformation and polarization. Migration: 100 million forcibly displaced people worldwide — the highest ever. Nuclear weapons still exist — 9 nations possess ~12,500 warheads. The UN Sustainable Development Goals (SDGs) provide a framework: 17 goals including ending poverty, quality education, climate action, and reduced inequalities — target 2030. Solving these challenges requires global cooperation — no single nation can address them alone.",
+                                          "examples":  [
+                                                           "SDG 4 (Quality Education): ensure inclusive and equitable education — still 250 million children out of school",
+                                                           "Global inequality: Jeff Bezos earns more in 1 minute than the average Ugandan earns in a year",
+                                                           "Arctic ice is melting 3x faster than predicted — sea levels could rise 1 meter by 2100, flooding coastal cities"
+                                                       ],
+                                          "keyTerms":  {
+                                                           "SDGs":  "UN Sustainable Development Goals — 17 global targets for 2030",
+                                                           "climate change":  "Long-term shift in temperatures and weather patterns, primarily from burning fossil fuels",
+                                                           "inequality":  "Unequal distribution of wealth, opportunity, and resources",
+                                                           "misinformation":  "False or misleading information spread through media and social networks"
+                                                       },
+                                          "quiz":  [
+                                                       {
+                                                           "question":  "The richest 1% own:",
+                                                           "options":  [
+                                                                           "Less than the bottom 50%",
+                                                                           "More wealth than the bottom 50% of humanity combined",
+                                                                           "Exactly equal shares",
+                                                                           "No significant wealth"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Global wealth inequality has reached extreme levels."
+                                                       },
+                                                       {
+                                                           "question":  "The Sustainable Development Goals include:",
+                                                           "options":  [
+                                                                           "Only military security",
+                                                                           "Only economic growth",
+                                                                           "Only environmental protection",
+                                                                           "17 goals: ending poverty, quality education, climate action, reduced inequalities"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "The SDGs are comprehensive — covering social, economic, and environmental dimensions."
+                                                       },
+                                                       {
+                                                           "question":  "COVID-19 revealed:",
+                                                           "options":  [
+                                                                           "That pandemics don\u0027t affect wealthy countries",
+                                                                           "That the world was fully prepared",
+                                                                           "Global unpreparedness for pandemics and inequality in healthcare access",
+                                                                           "That global cooperation isn\u0027t needed"
+                                                                       ],
+                                                           "correct":  2,
+                                                           "explanation":  "Wealthy nations got vaccines months before poor nations — exposing deep global inequalities."
+                                                       },
+                                                       {
+                                                           "question":  "Social media\u0027s double-edged nature:",
+                                                           "options":  [
+                                                                           "Is entirely positive",
+                                                                           "Enables connection and information sharing but also spreads misinformation",
+                                                                           "Is entirely negative",
+                                                                           "Has no significant impact"
+                                                                       ],
+                                                           "correct":  1,
+                                                           "explanation":  "Same platforms that connect activists also amplify conspiracy theories and polarization."
+                                                       },
+                                                       {
+                                                           "question":  "These challenges require:",
+                                                           "options":  [
+                                                                           "Only wealthy nations acting",
+                                                                           "Each country working alone",
+                                                                           "Ignoring them and hoping they resolve",
+                                                                           "Global cooperation — no single nation can solve them alone"
+                                                                       ],
+                                                           "correct":  3,
+                                                           "explanation":  "Climate, pandemics, inequality, and migration cross borders — solutions must too."
+                                                       }
+                                                   ]
+                                      }
+                                  ]
+                  }
+              ]
 }
