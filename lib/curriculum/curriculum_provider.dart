@@ -22,6 +22,7 @@ class CurriculumService {
     'arts',
     'web_development',
     'app_development',
+    'ignite_ai',
   ];
 
   Future<List<Subject>> loadAll() async {

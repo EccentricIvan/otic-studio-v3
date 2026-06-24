@@ -28,6 +28,7 @@ const _topics = [
   'English Writing',
   'Economics',
   'Arts',
+  'Project Ignite AI',
 ];
 
 // ── Root screen ───────────────────────────────────────────────────────────────
@@ -184,7 +185,7 @@ class _PracticeTabState extends ConsumerState<_PracticeTab> {
       'Web Development': 'web_development', 'App Development': 'app_development',
       'AI & Data': 'ai_and_data', 'Entrepreneurship': 'entrepreneurship',
       'Agriculture': 'agriculture', 'History': 'history', 'Geography': 'geography',
-      'English Writing': 'english_writing', 'Economics': 'economics', 'Arts': 'arts',
+      'English Writing': 'english_writing', 'Economics': 'economics', 'Arts': 'arts', 'Project Ignite AI': 'ignite_ai',
     };
     return map[topic] ?? topic.toLowerCase().replaceAll(' ', '_');
   }
