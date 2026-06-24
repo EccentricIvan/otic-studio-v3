@@ -363,31 +363,69 @@ pdf: ^3.10.8
 
 ---
 
-## 13. Known State (v3 final)
+## 13. Site Builder
+
+### Conversational Chat Builder
+- Student chats with a bot to build a website step by step
+- Bot asks "What type of site?" → student picks from 10 templates
+- Bot asks each field one by one with default suggestions
+- Student types answers or skips for defaults
+- Bot builds the site and shows a live preview card
+- Feels like chatting with AI but is 100% reliable — no model needed
+
+### 10 Website Templates
+| # | Template | Theme/Style |
+|---|----------|-------------|
+| 1 | Bakery / Restaurant | Warm brown, menu cards |
+| 2 | Hotel / Lodge | Black & gold luxury |
+| 3 | Gym / Fitness | Dark red/black, bold |
+| 4 | Salon / Spa | Pink elegant |
+| 5 | Church / Ministry | Purple, verse section |
+| 6 | Real Estate | Green, property listings |
+| 7 | Tech Startup | Dark gradient indigo |
+| 8 | NGO / Charity | Teal, impact stats |
+| 9 | Personal Portfolio | Dark indigo, projects |
+| 10 | School Website | Blue, programs & stats |
+
+### Template System
+- Templates stored as HTML files in `assets/templates/`
+- Placeholder variables: `{{business_name}}`, `{{phone}}`, etc.
+- Student input replaces placeholders at build time
+- Live preview rendered via WebView
+- Total template size: ~50 KB (all 10 combined)
+
+---
+
+## 14. Known State (v3 final)
 
 ### Working
-- ✅ 15 subjects with 300 lessons, 1,500 quiz questions, 22 diagrams
+- ✅ 15 subjects with 300 lessons, 1,500 quiz questions
 - ✅ Curriculum browser: subject → unit → lesson → quiz
 - ✅ Practice mode with curriculum-based quizzes
 - ✅ Web Dev Lab (8 guided HTML/CSS/JS tutorials)
-- ✅ Python Lab (8 guided Python tutorials)
+- ✅ Python Lab (8 guided Python tutorials, offline output)
 - ✅ App Dev Lab (guided learning path)
-- ✅ AI Chat with curriculum context
-- ✅ Teach mode with scoring
+- ✅ Site Builder with 10 templates via conversational chat
+- ✅ AI Chat with curriculum context (Gemma)
+- ✅ Ask AI button on every lesson
+- ✅ Teach mode with scoring (Gemma)
 - ✅ Dual theme (light/dark) with toggle in Settings
-- ✅ Lesson completion tracking
-- ✅ Badge and achievement system
+- ✅ Lesson completion tracking (60%+ quiz score)
+- ✅ Badge and achievement system (10 badges)
 - ✅ Certificate PDF generation
-- ✅ Global menu button on every screen
+- ✅ Global menu button on every screen (via AppShell)
 - ✅ Onboarding (2 steps: Name → Interests)
+- ✅ Collaborate removed (half-built LAN feature)
 - ✅ Android APK + Windows EXE builds via CI
 - ✅ Fully offline — no internet required
 
 ### Future Improvements
-- Deepen curriculum content (more lessons per subject)
-- Add country-specific curricula (Uganda, Kenya, etc.)
+- Deepen curriculum content (more lessons per subject, up to 1,000+)
+- Add country-specific curricula (Uganda, Kenya, Nigeria, etc.)
 - Upgrade to Gemma 3 4B for better AI responses (needs 8GB+ RAM)
-- Add Bluetooth device-to-device sharing (replace LAN collaborate)
-- Track lesson completion progress on units/subjects screens
-- More diagrams across all subjects
+- Add Bluetooth device-to-device sharing
+- Show lesson completion checkmarks on units/subjects screens
+- Add image diagrams (SVG/PNG) to lessons
 - Difficulty levels (beginner/intermediate/advanced)
+- More website templates
+- Certificate wiring to subject completion
