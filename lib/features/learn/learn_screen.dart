@@ -508,52 +508,76 @@ class _EmptyState extends StatelessWidget {
   const _EmptyState({required this.onTopic});
   final void Function(String) onTopic;
 
-  static const _starters = [
-    'Explain photosynthesis',
-    'Teach me Python',
-  ];
+  static const _starter = 'Ask me anything';
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(32),
+      padding: EdgeInsets.all(32),
       child: Column(
         children: [
           SizedBox(height: 40),
-          Image.asset(
-            'assets/branding/otic_logo.png',
-            width: 72,
-            height: 72,
-            fit: BoxFit.contain,
-            semanticLabel: 'Logo',
+          Container(
+            width: 80,
+            height: 80,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xFF4F46E5).withValues(alpha: 0.2),
+                  Color(0xFF0EA5E9).withValues(alpha: 0.1),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(22),
+              border: Border.all(color: Color(0xFF4F46E5).withValues(alpha: 0.2)),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(14),
+              child: Image.asset(
+                'assets/branding/otic_logo.png',
+                fit: BoxFit.contain,
+                semanticLabel: 'Logo',
+              ),
+            ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 24),
           Text(
-            'What do you want to learn today?',
+            'AI Chat',
             style: Theme.of(context).textTheme.headlineSmall,
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 8),
           Text(
-            'Your AI tutor answers, then guides you through practice, apply, create, and reflect.',
+            'Ask questions, get explanations, and explore any topic with your AI tutor.',
             textAlign: TextAlign.center,
             style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
           ),
-          SizedBox(height: 32),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            alignment: WrapAlignment.center,
-            children: _starters
-                .map(
-                  (s) => ActionChip(
-                    label: Text(s, style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color)),
-                    onPressed: () => onTopic(s),
-                    backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-                    side: BorderSide(color: Theme.of(context).dividerColor),
-                  ),
-                )
-                .toList(),
+          SizedBox(height: 28),
+          InkWell(
+            onTap: () => onTopic(_starter),
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFF4F46E5).withValues(alpha: 0.15),
+                    Color(0xFF0EA5E9).withValues(alpha: 0.08),
+                  ],
+                ),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: Color(0xFF4F46E5).withValues(alpha: 0.2)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.auto_awesome, size: 16, color: Color(0xFF4F46E5)),
+                  SizedBox(width: 8),
+                  Text('Start a conversation', style: TextStyle(fontWeight: FontWeight.w600, color: Color(0xFF4F46E5))),
+                ],
+              ),
+            ),
           ),
         ],
       ),
