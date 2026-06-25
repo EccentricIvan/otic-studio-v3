@@ -390,7 +390,7 @@ class _TutorBubble extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
-                    'assets/branding/otic_logo.png',
+                    'assets/branding/otic-logo.jpeg',
                     width: 13,
                     height: 13,
                     fit: BoxFit.contain,
@@ -581,7 +581,7 @@ class _EmptyState extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(14),
               child: Image.asset(
-                'assets/branding/otic_logo.png',
+                'assets/branding/otic-logo.jpeg',
                 fit: BoxFit.contain,
                 semanticLabel: 'Logo',
               ),

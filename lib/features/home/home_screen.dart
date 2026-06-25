@@ -19,7 +19,7 @@ class HomeScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
-          'assets/branding/otic_logo.png',
+          'assets/branding/otic-logo.jpeg',
           width: 32,
           height: 32,
           fit: BoxFit.contain,

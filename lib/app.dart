@@ -65,7 +65,7 @@ class _SplashScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              'assets/branding/otic_logo.png',
+              'assets/branding/otic-logo.jpeg',
               width: 80,
               height: 80,
             ),

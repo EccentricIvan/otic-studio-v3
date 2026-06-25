@@ -163,7 +163,7 @@ class _NamePage extends StatelessWidget {
         children: [
           SizedBox(height: 12),
           Image.asset(
-            'assets/branding/otic_logo.png',
+            'assets/branding/otic-logo.jpeg',
             width: 64,
             height: 64,
             fit: BoxFit.contain,

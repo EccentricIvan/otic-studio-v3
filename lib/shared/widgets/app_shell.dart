@@ -6,7 +6,7 @@ import '../../db/providers/db_provider.dart';
 import '../../features/learn/path/path_models.dart';
 import '../../features/learn/path/path_provider.dart';
 
-const _brandLogoAsset = 'assets/branding/otic_logo.png';
+const _brandLogoAsset = 'assets/branding/otic-logo.jpeg';
 
 class AppShell extends StatelessWidget {
   const AppShell({super.key, required this.child});
