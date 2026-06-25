@@ -11,6 +11,13 @@ import '../../shared/widgets/responsive.dart';
 import 'path/path_models.dart';
 import 'path/path_provider.dart';
 
+class _ChatEntry {
+  const _ChatEntry({required this.text, required this.isUser, this.lesson});
+  final String text;
+  final bool isUser;
+  final Lesson? lesson;
+}
+
 class LearnScreen extends ConsumerStatefulWidget {
   const LearnScreen({super.key, this.initialTopic});
   final String? initialTopic;
@@ -41,18 +48,31 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
   }
 
   Lesson? _lastLesson;
+  final List<_ChatEntry> _entries = [];
 
   void _send() {
     final text = _controller.text.trim();
     if (text.isEmpty) return;
     _controller.clear();
 
+    // Add user message
+    setState(() => _entries.add(_ChatEntry(text: text, isUser: true)));
+
     // Search curriculum for matching lesson
     final curriculum = ref.read(curriculumServiceProvider);
     final lesson = curriculum.findBestMatch(text);
-    setState(() => _lastLesson = lesson);
 
-    ref.read(chatProvider.notifier).send(text);
+    if (lesson != null) {
+      // Curriculum match found — show lesson card, skip Gemma
+      setState(() {
+        _lastLesson = lesson;
+        _entries.add(_ChatEntry(text: '', isUser: false, lesson: lesson));
+      });
+    } else {
+      // No match — let Gemma handle it
+      setState(() => _lastLesson = null);
+      ref.read(chatProvider.notifier).send(text);
+    }
     _scrollToBottom();
   }
 
@@ -126,44 +146,34 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                 loading: () => Center(child: CircularProgressIndicator()),
                 error: (e, _) => Center(child: Text('Error: $e')),
                 data: (state) {
-                  if (state.messages.isEmpty) {
+                  if (_entries.isEmpty && state.messages.isEmpty) {
                     return _EmptyState(
                       onTopic: (t) {
-                        ref.read(chatProvider.notifier).send(t);
+                        _controller.text = t;
+                        _send();
                       },
                     );
                   }
-                  final itemCount =
-                      state.messages.length +
-                      (state.isGenerating && state.streamingText.isNotEmpty
-                          ? 1
-                          : 0);
+
+                  // Merge our entries with any Gemma responses
+                  final allItems = <_ChatEntry>[..._entries];
+
+                  // Add Gemma messages that aren't already in our list
+                  for (final msg in state.messages) {
+                    final alreadyExists = allItems.any((e) => e.text == msg.text && e.isUser == msg.isUser);
+                    if (!alreadyExists) {
+                      allItems.add(_ChatEntry(text: msg.text, isUser: msg.isUser));
+                    }
+                  }
+
+                  final showStreaming = state.isGenerating && state.streamingText.isNotEmpty;
+
                   return ListView.builder(
                     controller: _scrollController,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
-                    ),
-                    itemCount: itemCount + (_lastLesson != null ? 1 : 0),
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    itemCount: allItems.length + (showStreaming ? 1 : 0),
                     itemBuilder: (context, i) {
-                      // Show lesson card after the latest user message
-                      if (_lastLesson != null && i == state.messages.length - 1 && i >= 0) {
-                        final msg = state.messages[i];
-                        if (msg.isUser) {
-                          return Column(
-                            children: [
-                              _UserBubble(text: msg.text),
-                              _LessonCard(lesson: _lastLesson!),
-                            ],
-                          );
-                        }
-                      }
-
-                      final adjustedIndex = _lastLesson != null && i > state.messages.length - 1
-                          ? i - 1
-                          : i;
-
-                      if (adjustedIndex >= state.messages.length) {
+                      if (i >= allItems.length) {
                         return _TutorBubble(
                           text: state.streamingText,
                           stage: null,
@@ -171,12 +181,22 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                           isStreaming: true,
                         );
                       }
-                      final msg = state.messages[adjustedIndex];
-                      if (msg.isUser) return _UserBubble(text: msg.text);
+
+                      final entry = allItems[i];
+
+                      // Lesson card from curriculum
+                      if (entry.lesson != null) {
+                        return _LessonCard(lesson: entry.lesson!);
+                      }
+
+                      // User bubble
+                      if (entry.isUser) return _UserBubble(text: entry.text);
+
+                      // Gemma response
                       return _TutorBubble(
-                        text: msg.text,
-                        stage: msg.stage,
-                        followUp: msg.followUp,
+                        text: entry.text,
+                        stage: null,
+                        followUp: null,
                         isStreaming: false,
                       );
                     },
