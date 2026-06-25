@@ -106,7 +106,7 @@ class OllamaEngine extends InferenceEngine {
     try {
       final client = HttpClient();
       final request = await client.getUrl(Uri.parse('$_baseUrl/api/tags'));
-      final response = await request.close().timeout(const Duration(seconds: 3));
+      final response = await request.close().timeout(const Duration(seconds: 1));
       await response.drain<void>();
       client.close();
       return true;

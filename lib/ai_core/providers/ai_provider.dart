@@ -15,6 +15,12 @@ import '../../safety/emotional_safety.dart';
 final modelManagerProvider = Provider<ModelManager>((ref) => ModelManager());
 
 final modelInfoProvider = FutureProvider<ModelInfo>((ref) {
+  // Skip model file check on desktop — desktop uses Ollama, not file-based models
+  if (defaultTargetPlatform == TargetPlatform.windows ||
+      defaultTargetPlatform == TargetPlatform.linux ||
+      defaultTargetPlatform == TargetPlatform.macOS) {
+    return Future.value(const ModelInfo(status: ModelStatus.notInstalled));
+  }
   return ref.watch(modelManagerProvider).checkModel();
 });
 
@@ -62,7 +68,8 @@ final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
 final tutorPipelineProvider = FutureProvider<TutorPipeline>((ref) async {
   final engine = await ref.watch(engineLoadedProvider.future);
   final curriculum = ref.watch(curriculumServiceProvider);
-  await curriculum.loadAll();
+  // Load curriculum in background — don't block startup
+  curriculum.loadAll();
   return TutorPipeline(engine: engine, curriculum: curriculum);
 });
 
