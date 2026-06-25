@@ -72,45 +72,37 @@ class CurriculumService {
     final words = query
         .toLowerCase()
         .split(RegExp(r'\s+'))
-        .where((w) => w.length > 2)
+        .where((w) => w.length > 3)
         .toList();
     if (words.isEmpty) return null;
 
     Lesson? best;
     int bestScore = 0;
-    int bestWordHits = 0;
 
     for (final subject in _cache.values) {
       for (final unit in subject.units) {
         for (final lesson in unit.lessons) {
           int score = 0;
-          int wordHits = 0;
           final titleLower = lesson.title.toLowerCase();
-          final contentLower = lesson.content.toLowerCase();
 
+          // Only match against title and key terms — NOT content
           for (final word in words) {
-            bool hit = false;
-            if (titleLower.contains(word)) { score += 5; hit = true; }
-            if (contentLower.contains(word)) { score += 1; hit = true; }
+            if (titleLower.contains(word)) score += 5;
             for (final term in lesson.keyTerms.keys) {
-              if (term.toLowerCase().contains(word)) { score += 3; hit = true; }
+              if (term.toLowerCase() == word || term.toLowerCase().contains(word)) score += 3;
             }
-            if (hit) wordHits++;
           }
 
           if (score > bestScore) {
             bestScore = score;
-            bestWordHits = wordHits;
             best = lesson;
           }
         }
       }
     }
 
-    // Only return if match is very strong:
-    // - At least 2 different query words hit the lesson
-    // - AND score is high enough to indicate real relevance
-    if (bestWordHits >= 2 && bestScore >= 6) return best;
+    // Only return if title/keyterm match is strong
+    if (bestScore >= 8) return best;
     return null;
   }
 
