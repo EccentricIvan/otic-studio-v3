@@ -22,7 +22,7 @@ class HomeScreen extends ConsumerWidget {
               // Header
               Row(
                 children: [
-                  Image.asset('assets/branding/otic-logo.jpeg', width: 40, height: 40, fit: BoxFit.contain),
+                  Image.asset('assets/branding/otic-studio-logo.png', width: 40, height: 40, fit: BoxFit.contain),
                   SizedBox(width: 12),
                   Expanded(
                     child: Column(
