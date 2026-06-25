@@ -108,8 +108,15 @@ class TutorPipeline {
         .map((t) => '${t.role == 'tutor' ? 'Tutor' : 'Student'}: ${t.text}')
         .join('\n');
 
+    if (lessonContext != null) {
+      // Curriculum already shown — Gemma just adds a brief follow-up
+      return '''You are a friendly tutor. The student already sees the lesson content. Add ONE short encouraging sentence and ask if they want a quiz or have questions. Maximum 1-2 sentences. Do not repeat the lesson.
+Student: $studentMessage
+Tutor:''';
+    }
+
     return '''You are a friendly AI tutor. Be concise and encouraging.
-${safetyNote != null ? '$safetyNote\n' : ''}${lessonContext != null ? 'Use this to answer:\n$lessonContext\n' : ''}Task: $stageHint
+${safetyNote != null ? '$safetyNote\n' : ''}Task: $stageHint
 ${historyBlock.isNotEmpty ? '$historyBlock\n' : ''}Student: $studentMessage
 Tutor:''';
   }

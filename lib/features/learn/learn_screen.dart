@@ -63,16 +63,15 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
     final lesson = curriculum.findBestMatch(text);
 
     if (lesson != null) {
-      // Curriculum match found — show lesson card, skip Gemma
+      // Show lesson card first
       setState(() {
         _lastLesson = lesson;
         _entries.add(_ChatEntry(text: '', isUser: false, lesson: lesson));
       });
-    } else {
-      // No match — let Gemma handle it
-      setState(() => _lastLesson = null);
-      ref.read(chatProvider.notifier).send(text);
     }
+
+    // Always send to Gemma — it adds a short follow-up
+    ref.read(chatProvider.notifier).send(text);
     _scrollToBottom();
   }
 
