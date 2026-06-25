@@ -45,22 +45,25 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Future<void> _finish() async {
     if (_saving) return;
     setState(() => _saving = true);
+
+    final name = _nameController.text.trim();
+
+    // Navigate IMMEDIATELY — don't wait for database
+    if (mounted) context.go('/');
+
+    // Save profile in background — user doesn't wait
     try {
-      await ref
-          .read(studentNotifierProvider.notifier)
-          .createProfile(
-            name: _nameController.text.trim(),
-            age: _age,
-            grade: _grade,
-            language: _language,
-            interests: _interests.toList(),
-            learningStyle: _learningStyle,
-          )
-          .timeout(const Duration(seconds: 10));
+      ref.read(studentNotifierProvider.notifier).createProfile(
+        name: name,
+        age: _age,
+        grade: _grade,
+        language: _language,
+        interests: _interests.toList(),
+        learningStyle: _learningStyle,
+      );
     } catch (e) {
       debugPrint('Profile creation error: $e');
     }
-    if (mounted) context.go('/');
   }
 
   @override

@@ -41,7 +41,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     redirect: (context, state) async {
       if (state.matchedLocation == '/onboarding') return null;
       try {
-        final hasProfile = await ref.read(hasProfileProvider.future);
+        final hasProfile = await ref.read(hasProfileProvider.future)
+            .timeout(const Duration(seconds: 3));
         if (!hasProfile) return '/onboarding';
       } catch (_) {
         return '/onboarding';
