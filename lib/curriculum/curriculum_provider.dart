@@ -78,32 +78,41 @@ class CurriculumService {
 
     Lesson? best;
     int bestScore = 0;
+    int bestWordHits = 0;
 
     for (final subject in _cache.values) {
       for (final unit in subject.units) {
         for (final lesson in unit.lessons) {
           int score = 0;
+          int wordHits = 0;
           final titleLower = lesson.title.toLowerCase();
           final contentLower = lesson.content.toLowerCase();
 
           for (final word in words) {
-            if (titleLower.contains(word)) score += 3;
-            if (contentLower.contains(word)) score += 1;
-          }
-          for (final term in lesson.keyTerms.keys) {
-            for (final word in words) {
-              if (term.toLowerCase().contains(word)) score += 2;
+            bool hit = false;
+            if (titleLower.contains(word)) { score += 5; hit = true; }
+            if (contentLower.contains(word)) { score += 1; hit = true; }
+            for (final term in lesson.keyTerms.keys) {
+              if (term.toLowerCase().contains(word)) { score += 3; hit = true; }
             }
+            if (hit) wordHits++;
           }
 
           if (score > bestScore) {
             bestScore = score;
+            bestWordHits = wordHits;
             best = lesson;
           }
         }
       }
     }
-    return best;
+
+    // Only return if match is strong enough:
+    // - At least 2 query words matched, OR
+    // - A single word matched in the title (score >= 5)
+    if (bestScore >= 5 && bestWordHits >= 1) return best;
+    if (bestWordHits >= 2) return best;
+    return null;
   }
 
   String buildContext(Lesson lesson) {
