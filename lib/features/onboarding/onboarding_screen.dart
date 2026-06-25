@@ -39,14 +39,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       ).showSnackBar(const SnackBar(content: Text('Please enter your name')));
       return;
     }
-    if (_page < 1) {
-      _pageController.nextPage(
-        duration: const Duration(milliseconds: 350),
-        curve: Curves.easeInOut,
-      );
-    } else {
-      _finish();
-    }
+    _finish();
   }
 
   Future<void> _finish() async {
@@ -92,21 +85,17 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 24),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    2,
-                    (i) => AnimatedContainer(
+                  children: [
+                    AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
-                      margin: const EdgeInsets.symmetric(horizontal: 4),
-                      width: _page == i ? 24 : 8,
+                      width: 24,
                       height: 8,
                       decoration: BoxDecoration(
-                        color: _page == i
-                            ? AppColors.primary
-                            : Theme.of(context).dividerColor,
+                        color: AppColors.primary,
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
               Expanded(
@@ -116,14 +105,6 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   onPageChanged: (i) => setState(() => _page = i),
                   children: [
                     _NamePage(controller: _nameController),
-                    _InterestsPage(
-                      selected: _interests,
-                      onToggle: (s) => setState(
-                        () => _interests.contains(s)
-                            ? _interests.remove(s)
-                            : _interests.add(s),
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -142,7 +123,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                               color: Colors.white,
                             ),
                           )
-                        : Text(_page < 1 ? 'Continue' : 'Start learning'),
+                        : Text('Start learning'),
                   ),
                 ),
               ),

@@ -107,11 +107,10 @@ class CurriculumService {
       }
     }
 
-    // Only return if match is strong enough:
-    // - At least 2 query words matched, OR
-    // - A single word matched in the title (score >= 5)
-    if (bestScore >= 5 && bestWordHits >= 1) return best;
-    if (bestWordHits >= 2) return best;
+    // Only return if match is very strong:
+    // - At least 2 different query words hit the lesson
+    // - AND score is high enough to indicate real relevance
+    if (bestWordHits >= 2 && bestScore >= 6) return best;
     return null;
   }
 
