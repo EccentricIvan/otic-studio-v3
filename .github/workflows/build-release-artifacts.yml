@@ -49,12 +49,15 @@ jobs:
         run: |
           mkdir -p dist
           cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk "dist/otic-studio-latest.apk"
+          cd dist && zip otic-studio-latest-apk.zip otic-studio-latest.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: Otic Studio Latest APK
-          path: dist/otic-studio-latest.apk
+          path: |
+            dist/otic-studio-latest.apk
+            dist/otic-studio-latest-apk.zip
           if-no-files-found: error
 
   build-windows:
@@ -107,6 +110,7 @@ jobs:
         run: |
           find dist -type f -maxdepth 3 -print
           cp "dist/Otic Studio Latest APK/otic-studio-latest.apk" "./otic-studio-latest.apk"
+          cp "dist/Otic Studio Latest APK/otic-studio-latest-apk.zip" "./otic-studio-latest-apk.zip"
           cp "dist/Otic Studio Windows Latest/otic-studio-windows-latest.zip" "./otic-studio-windows-latest.zip"
 
       - name: Update rolling release
@@ -121,6 +125,7 @@ jobs:
           fi
           gh release upload latest-build \
             "otic-studio-latest.apk" \
+            "otic-studio-latest-apk.zip" \
             "otic-studio-windows-latest.zip" \
             --repo "$GITHUB_REPOSITORY" \
             --clobber
