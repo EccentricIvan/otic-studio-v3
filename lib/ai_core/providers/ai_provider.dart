@@ -15,8 +15,9 @@ import '../../safety/emotional_safety.dart';
 final modelManagerProvider = Provider<ModelManager>((ref) => ModelManager());
 
 final modelInfoProvider = FutureProvider<ModelInfo>((ref) {
-  // Skip model file check on desktop — desktop uses Ollama, not file-based models
-  if (defaultTargetPlatform == TargetPlatform.windows ||
+  // Skip model file check on web/desktop — uses Ollama or no AI
+  if (kIsWeb ||
+      defaultTargetPlatform == TargetPlatform.windows ||
       defaultTargetPlatform == TargetPlatform.linux ||
       defaultTargetPlatform == TargetPlatform.macOS) {
     return Future.value(const ModelInfo(status: ModelStatus.notInstalled));
@@ -31,9 +32,17 @@ final inferenceEngineProvider = Provider<InferenceEngine>((ref) {
 });
 
 final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
-  final isDesktop = defaultTargetPlatform == TargetPlatform.windows ||
+  final isDesktop = !kIsWeb && (
+      defaultTargetPlatform == TargetPlatform.windows ||
       defaultTargetPlatform == TargetPlatform.linux ||
-      defaultTargetPlatform == TargetPlatform.macOS;
+      defaultTargetPlatform == TargetPlatform.macOS);
+
+  // Web: no AI engine available, use mock
+  if (kIsWeb) {
+    final mock = MockEngine();
+    await mock.loadModel('');
+    return mock;
+  }
 
   if (isDesktop) {
     // Desktop: try Ollama first, fall back to mock

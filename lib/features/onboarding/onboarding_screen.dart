@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
 
@@ -48,21 +49,27 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
     final name = _nameController.text.trim();
 
+    // Always save to SharedPreferences (works on all platforms)
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('student_name', name);
+
     // Navigate IMMEDIATELY — don't wait for database
     if (mounted) context.go('/');
 
-    // Save profile in background — user doesn't wait
-    try {
-      ref.read(studentNotifierProvider.notifier).createProfile(
-        name: name,
-        age: _age,
-        grade: _grade,
-        language: _language,
-        interests: _interests.toList(),
-        learningStyle: _learningStyle,
-      );
-    } catch (e) {
-      debugPrint('Profile creation error: $e');
+    // On every native platform (not web), also save to database in background
+    if (!kIsWeb) {
+      try {
+        ref.read(studentNotifierProvider.notifier).createProfile(
+          name: name,
+          age: _age,
+          grade: _grade,
+          language: _language,
+          interests: _interests.toList(),
+          learningStyle: _learningStyle,
+        );
+      } catch (e) {
+        debugPrint('Profile creation error: $e');
+      }
     }
   }
 

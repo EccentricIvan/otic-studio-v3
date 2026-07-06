@@ -1,7 +1,7 @@
 {
     "name": "Otic Studio",
     "short_name": "Otic",
-    "description": "Offline AI learning for Android tablets, phones, and classrooms.",
+    "description": "Offline AI-powered learning platform. Learn, Create & Build — no internet required.",
     "id": ".",
     "start_url": ".",
     "scope": ".",
@@ -12,7 +12,7 @@
     ],
     "background_color": "#f8faf6",
     "theme_color": "#0b6b64",
-    "orientation": "portrait-primary",
+    "orientation": "any",
     "categories": [
         "education",
         "productivity"

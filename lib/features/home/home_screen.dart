@@ -1,16 +1,28 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
+
+final _desktopNameProvider = FutureProvider<String>((ref) async {
+  final prefs = await SharedPreferences.getInstance();
+  return prefs.getString('student_name') ?? 'Learner';
+});
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final studentAsync = ref.watch(activeStudentProvider);
-    final name = studentAsync.valueOrNull?.name ?? 'Learner';
+    final String name;
+    if (kIsWeb) {
+      name = ref.watch(_desktopNameProvider).valueOrNull ?? 'Learner';
+    } else {
+      final studentAsync = ref.watch(activeStudentProvider);
+      name = studentAsync.valueOrNull?.name ?? 'Learner';
+    }
 
     return Scaffold(
       body: SafeArea(

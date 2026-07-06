@@ -38,6 +38,7 @@ dependencies:
 
   # PDF certificate generation (offline, pure Dart)
   pdf: ^3.10.8
+  webview_flutter_windows: ^1.0.0
 
 dev_dependencies:
   flutter_test:

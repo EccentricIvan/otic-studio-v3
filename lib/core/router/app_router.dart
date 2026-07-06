@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../app.dart';
 import '../../db/providers/db_provider.dart';
@@ -40,6 +41,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     initialLocation: '/',
     redirect: (context, state) async {
       if (state.matchedLocation == '/onboarding') return null;
+
+      // On web, skip database entirely — use SharedPreferences
+      if (kIsWeb) {
+        final prefs = await SharedPreferences.getInstance();
+        final name = prefs.getString('student_name');
+        if (name == null || name.isEmpty) return '/onboarding';
+        return null;
+      }
+
       try {
         final hasProfile = await ref.read(hasProfileProvider.future)
             .timeout(const Duration(seconds: 3));
@@ -77,8 +87,9 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           ),
           GoRoute(path: '/chat', builder: (_, state) {
             final topic = state.uri.queryParameters['topic'];
-            // Skip ModelGate on desktop — no Gemma model to install
-            if (defaultTargetPlatform == TargetPlatform.windows ||
+            // Skip ModelGate on web/desktop — no Gemma model to install
+            if (kIsWeb ||
+                defaultTargetPlatform == TargetPlatform.windows ||
                 defaultTargetPlatform == TargetPlatform.linux ||
                 defaultTargetPlatform == TargetPlatform.macOS) {
               return LearnScreen(initialTopic: topic);

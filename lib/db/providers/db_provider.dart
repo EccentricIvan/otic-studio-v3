@@ -1,4 +1,5 @@
 import 'package:drift/drift.dart' show Value;
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../otic_database.dart';
 
@@ -14,12 +15,14 @@ final dbProvider = Provider<OticDatabase>((ref) {
 
 /// The active student profile, or null if no profile created yet.
 final activeStudentProvider = FutureProvider<Student?>((ref) {
+  if (kIsWeb) return Future.value(null);
   final db = ref.watch(dbProvider);
   return db.studentDao.getActiveStudent();
 });
 
 /// True if the device has an existing student profile.
 final hasProfileProvider = FutureProvider<bool>((ref) async {
+  if (kIsWeb) return false;
   final student = await ref.watch(activeStudentProvider.future);
   return student != null;
 });
