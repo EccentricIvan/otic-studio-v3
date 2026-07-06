@@ -42,13 +42,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     redirect: (context, state) async {
       if (state.matchedLocation == '/onboarding') return null;
 
-      // On web, skip database entirely — use SharedPreferences
-      if (kIsWeb) {
-        final prefs = await SharedPreferences.getInstance();
-        final name = prefs.getString('student_name');
-        if (name == null || name.isEmpty) return '/onboarding';
-        return null;
-      }
+      // Fast path: SharedPreferences is written synchronously by onboarding
+      // before it navigates away, so a name here means onboarding is done —
+      // no need to wait on the (slower, background-written) database.
+      final prefs = await SharedPreferences.getInstance();
+      final name = prefs.getString('student_name');
+      if (name != null && name.isNotEmpty) return null;
+
+      // On web there's no database — SharedPreferences is authoritative.
+      if (kIsWeb) return '/onboarding';
 
       try {
         final hasProfile = await ref.read(hasProfileProvider.future)
