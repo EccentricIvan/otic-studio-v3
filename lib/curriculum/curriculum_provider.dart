@@ -61,11 +61,17 @@ class CurriculumService {
       for (final lesson in unit.lessons) {
         if (lesson.title.toLowerCase().contains(q)) return lesson;
         for (final term in lesson.keyTerms.keys) {
-          if (q.contains(term.toLowerCase())) return lesson;
+          if (_containsWord(q, term.toLowerCase())) return lesson;
         }
       }
     }
     return null;
+  }
+
+  /// True if [word] appears in [text] as a whole word (not mid-word, e.g.
+  /// "tell" must not match inside "intelligence").
+  bool _containsWord(String text, String word) {
+    return RegExp('\\b${RegExp.escape(word)}').hasMatch(text);
   }
 
   Lesson? findBestMatch(String query) {
@@ -85,11 +91,15 @@ class CurriculumService {
           int score = 0;
           final titleLower = lesson.title.toLowerCase();
 
-          // Only match against title and key terms — NOT content
+          // Only match against title and key terms — NOT content.
+          // Word-boundary matching, not raw substring: a plain .contains()
+          // check let query words match mid-word (e.g. "tell" inside
+          // "inTELLigence"), causing unrelated lessons to win.
           for (final word in words) {
-            if (titleLower.contains(word)) score += 5;
+            if (_containsWord(titleLower, word)) score += 5;
             for (final term in lesson.keyTerms.keys) {
-              if (term.toLowerCase() == word || term.toLowerCase().contains(word)) score += 3;
+              final termLower = term.toLowerCase();
+              if (termLower == word || _containsWord(termLower, word)) score += 3;
             }
           }
 
