@@ -53,6 +53,8 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
   void _send() {
     final text = _controller.text.trim();
     if (text.isEmpty) return;
+    // Wait for the current answer before accepting the next question.
+    if (ref.read(chatProvider).valueOrNull?.isGenerating ?? false) return;
     _controller.clear();
 
     // Add user message

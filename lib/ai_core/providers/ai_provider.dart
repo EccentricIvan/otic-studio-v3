@@ -131,15 +131,22 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
   static const _safetyEngine = EmotionalSafetyEngine();
 
   Future<void> send(String message) async {
-    final pipeline = await ref.read(tutorPipelineProvider.future);
     final current = state.valueOrNull ?? const ChatState();
+    // Don't let a second question queue up before the first is answered —
+    // the pipeline's first await (below) can still be pending on the very
+    // first message of a session, leaving a window where the send button
+    // hasn't disabled yet.
+    if (current.isGenerating) return;
 
-    // Add user message
+    // Add user message and lock input immediately, before any await, so
+    // a quick second tap can't slip through while the pipeline loads.
     state = AsyncData(current.copyWith(
       messages: [...current.messages, ChatMessage(text: message, isUser: true)],
       isGenerating: true,
       streamingText: '',
     ));
+
+    final pipeline = await ref.read(tutorPipelineProvider.future);
 
     // Emotional safety check — crisis messages never reach the model
     final safety = _safetyEngine.check(message);
