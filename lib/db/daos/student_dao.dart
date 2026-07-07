@@ -9,9 +9,13 @@ class StudentDao extends DatabaseAccessor<OticDatabase>
     with _$StudentDaoMixin {
   StudentDao(super.db);
 
-  /// Returns the single active student, or null if no profile exists yet.
+  /// Returns the most recently active student, or null if no profile exists
+  /// yet. Capped to one row defensively — getSingleOrNull() throws if more
+  /// than one row is ever present (e.g. leftover duplicates from a past bug).
   Future<Student?> getActiveStudent() =>
-      (select(students)..orderBy([(t) => OrderingTerm.desc(t.lastActiveAt)]))
+      (select(students)
+            ..orderBy([(t) => OrderingTerm.desc(t.lastActiveAt)])
+            ..limit(1))
           .getSingleOrNull();
 
   Future<Student?> getStudentById(int id) =>

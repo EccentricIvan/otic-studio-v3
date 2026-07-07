@@ -25,6 +25,25 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   final Set<String> _interests = {};
   String _learningStyle = 'unknown';
   bool _saving = false;
+  int? _existingStudentId;
+
+  @override
+  void initState() {
+    super.initState();
+    // If a profile already exists (opened via Settings → Edit profile),
+    // prefill the current name and edit that row in place instead of
+    // creating a second profile.
+    if (!kIsWeb) {
+      final existing = ref.read(activeStudentProvider).valueOrNull;
+      if (existing != null) {
+        _existingStudentId = existing.id;
+        _nameController.text = existing.name;
+        _age = existing.age;
+        _grade = existing.grade;
+        _learningStyle = existing.learningStyle;
+      }
+    }
+  }
 
   @override
   void dispose() {
@@ -59,16 +78,28 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     // On every native platform (not web), also save to database in background
     if (!kIsWeb) {
       try {
-        ref.read(studentNotifierProvider.notifier).createProfile(
-          name: name,
-          age: _age,
-          grade: _grade,
-          language: _language,
-          interests: _interests.toList(),
-          learningStyle: _learningStyle,
-        );
+        final existingId = _existingStudentId;
+        if (existingId != null) {
+          ref.read(studentNotifierProvider.notifier).updateProfile(
+            id: existingId,
+            name: name,
+            age: _age,
+            grade: _grade,
+            interests: _interests.toList(),
+            learningStyle: _learningStyle,
+          );
+        } else {
+          ref.read(studentNotifierProvider.notifier).createProfile(
+            name: name,
+            age: _age,
+            grade: _grade,
+            language: _language,
+            interests: _interests.toList(),
+            learningStyle: _learningStyle,
+          );
+        }
       } catch (e) {
-        debugPrint('Profile creation error: $e');
+        debugPrint('Profile save error: $e');
       }
     }
   }

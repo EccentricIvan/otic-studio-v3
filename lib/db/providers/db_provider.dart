@@ -81,6 +81,33 @@ class StudentNotifier extends AsyncNotifier<Student?> {
     await db.studentDao.touchStudent(id);
   }
 
+  /// Updates the existing profile in place — unlike [createProfile], this
+  /// never inserts a second row (which would leave two students competing
+  /// for "active" and break [getActiveStudent]'s single-row assumption).
+  Future<void> updateProfile({
+    required int id,
+    required String name,
+    int? age,
+    String? grade,
+    List<String>? interests,
+    String? learningStyle,
+  }) async {
+    final db = ref.read(dbProvider);
+    await db.studentDao.updateStudent(
+      StudentsCompanion(
+        id: Value(id),
+        name: Value(name),
+        age: Value(age),
+        grade: Value(grade),
+        interestsJson: interests != null ? Value(_toJson(interests)) : const Value.absent(),
+        learningStyle: learningStyle != null ? Value(learningStyle) : const Value.absent(),
+        lastActiveAt: Value(DateTime.now()),
+      ),
+    );
+    state = AsyncData(await db.studentDao.getStudentById(id));
+    ref.invalidate(activeStudentProvider);
+  }
+
   String _toJson(List<String> list) =>
       '[${list.map((s) => '"$s"').join(',')}]';
 }
