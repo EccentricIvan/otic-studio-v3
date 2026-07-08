@@ -24,7 +24,6 @@ import '../../features/practice/practice_screen.dart';
 import '../../features/projects/projects_screen.dart';
 import '../../features/settings/settings_screen.dart';
 import '../../features/teach/teach_screen.dart';
-import '../../features/teacher/teacher_screen.dart';
 import '../../features/site_builder/site_builder_screen.dart';
 import '../../features/site_builder/site_chat_builder_screen.dart';
 import '../../features/web_dev_lab/web_dev_lab_screen.dart';
@@ -117,7 +116,6 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/certificates', builder: (_, __) => const CertificatesScreen()),
           GoRoute(path: '/collaborate', builder: (_, __) => const CollaborateScreen()),
           GoRoute(path: '/teach', builder: (_, __) => const TeachScreen()),
-          GoRoute(path: '/teacher', builder: (_, __) => const TeacherScreen()),
           GoRoute(path: '/admin', builder: (_, __) => const AdminScreen()),
           GoRoute(path: '/settings', builder: (_, __) => const SettingsScreen()),
         ],
@@ -172,7 +170,6 @@ final appRouter = GoRouter(
         GoRoute(path: '/achievements', builder: (_, __) => const AchievementsScreen()),
         GoRoute(path: '/certificates', builder: (_, __) => const CertificatesScreen()),
         GoRoute(path: '/collaborate', builder: (_, __) => const CollaborateScreen()),
-        GoRoute(path: '/teacher', builder: (_, __) => const TeacherScreen()),
         GoRoute(path: '/settings', builder: (_, __) => const SettingsScreen()),
       ],
     ),

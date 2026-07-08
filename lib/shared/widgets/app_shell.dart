@@ -37,7 +37,6 @@ class AppShell extends StatelessWidget {
       Icons.workspace_premium,
       '/certificates',
     ),
-    _NavDest('Teacher', Icons.school_outlined, Icons.school, '/teacher'),
     _NavDest('Settings', Icons.settings_outlined, Icons.settings, '/settings'),
   ];
 
