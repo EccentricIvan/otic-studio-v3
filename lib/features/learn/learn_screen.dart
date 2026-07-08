@@ -35,7 +35,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
     super.initState();
     if (widget.initialTopic != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        ref.read(chatProvider.notifier).send(widget.initialTopic!);
+        _sendText(widget.initialTopic!);
       });
     }
   }
@@ -47,30 +47,27 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
     super.dispose();
   }
 
-  Lesson? _lastLesson;
-  final List<_ChatEntry> _entries = [];
+  // Lesson cards keyed by the exact user message text that matched them, so
+  // they can be inserted right after that question in the render below —
+  // rather than kept in a separate list that has to be merged with the chat
+  // provider's messages (which broke ordering once 2+ turns were in flight:
+  // both questions landed together, followed by both answers).
+  final Map<String, Lesson> _lessonForMessage = {};
 
   void _send() {
     final text = _controller.text.trim();
     if (text.isEmpty) return;
+    _sendText(text);
+  }
+
+  void _sendText(String text) {
     // Wait for the current answer before accepting the next question.
     if (ref.read(chatProvider).valueOrNull?.isGenerating ?? false) return;
     _controller.clear();
 
-    // Add user message
-    setState(() => _entries.add(_ChatEntry(text: text, isUser: true)));
-
-    // Search curriculum for matching lesson
     final curriculum = ref.read(curriculumServiceProvider);
     final lesson = curriculum.findBestMatch(text);
-
-    if (lesson != null) {
-      // Show lesson card first
-      setState(() {
-        _lastLesson = lesson;
-        _entries.add(_ChatEntry(text: '', isUser: false, lesson: lesson));
-      });
-    }
+    if (lesson != null) _lessonForMessage[text] = lesson;
 
     // Always send to Gemma — it adds a short follow-up
     ref.read(chatProvider.notifier).send(text);
@@ -147,7 +144,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                 loading: () => Center(child: CircularProgressIndicator()),
                 error: (e, _) => Center(child: Text('Error: $e')),
                 data: (state) {
-                  if (_entries.isEmpty && state.messages.isEmpty) {
+                  if (state.messages.isEmpty) {
                     return _EmptyState(
                       onTopic: (t) {
                         _controller.text = t;
@@ -156,14 +153,18 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                     );
                   }
 
-                  // Merge our entries with any Gemma responses
-                  final allItems = <_ChatEntry>[..._entries];
-
-                  // Add Gemma messages that aren't already in our list
+                  // Build the timeline straight from the chat provider's
+                  // messages — the actual chronological order of the
+                  // conversation — and slot each lesson card in right after
+                  // the question that matched it.
+                  final allItems = <_ChatEntry>[];
                   for (final msg in state.messages) {
-                    final alreadyExists = allItems.any((e) => e.text == msg.text && e.isUser == msg.isUser);
-                    if (!alreadyExists) {
-                      allItems.add(_ChatEntry(text: msg.text, isUser: msg.isUser));
+                    allItems.add(_ChatEntry(text: msg.text, isUser: msg.isUser));
+                    if (msg.isUser) {
+                      final lesson = _lessonForMessage[msg.text];
+                      if (lesson != null) {
+                        allItems.add(_ChatEntry(text: '', isUser: false, lesson: lesson));
+                      }
                     }
                   }
 
