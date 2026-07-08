@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../ai_core/providers/ai_provider.dart';
 import '../../../db/providers/db_provider.dart';
 import '../../../db/otic_database.dart';
+import '../../../gamification/badge_service.dart';
 import 'path_generator.dart';
 import 'path_models.dart';
 
@@ -128,6 +129,17 @@ class PathNotifier extends AsyncNotifier<List<LearningPath>> {
     );
 
     ref.invalidate(studentPathsProvider);
+
+    // Badges/streak were defined but never triggered anywhere — this is the
+    // one place every lesson completion flows through, so hook them in here.
+    final student = await ref.read(activeStudentProvider.future);
+    if (student != null) {
+      final badges = ref.read(badgeServiceProvider);
+      await badges.onLessonCompleted(student.id);
+      final streak = await badges.updateStreak(student.id);
+      await badges.onStreakUpdated(student.id, streak);
+      ref.invalidate(activeStudentProvider);
+    }
   }
 }
 

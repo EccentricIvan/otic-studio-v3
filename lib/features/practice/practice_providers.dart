@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../ai_core/providers/ai_provider.dart';
 import '../../db/providers/db_provider.dart';
+import '../../gamification/badge_service.dart';
 import 'exercise_generator.dart';
 import 'exercise_models.dart';
 import 'scenario_generator.dart';
@@ -91,15 +92,21 @@ class PracticeNotifier extends AutoDisposeNotifier<PracticeState> {
     }
   }
 
-  void answer(int index) {
+  Future<void> answer(int index) async {
     if (state.answered || state.exercise == null) return;
     final wasCorrect = index == state.exercise!.correctIndex;
+    final newScore = wasCorrect ? state.score + 1 : state.score;
     state = state.copyWith(
       selectedOption: index,
       answered: true,
-      score: wasCorrect ? state.score + 1 : state.score,
+      score: newScore,
       total: state.total + 1,
     );
+
+    final student = await ref.read(activeStudentProvider.future);
+    if (student != null) {
+      await ref.read(badgeServiceProvider).onPracticeAnswered(student.id, newScore);
+    }
   }
 
   Future<void> next() => generate();
@@ -124,6 +131,7 @@ class ApplyState {
     this.isGeneratingScenario = false,
     this.isEvaluating = false,
     this.error,
+    this.scenariosEvaluated = 0,
   });
 
   final String topic;
@@ -133,6 +141,7 @@ class ApplyState {
   final bool isGeneratingScenario;
   final bool isEvaluating;
   final String? error;
+  final int scenariosEvaluated;
 
   ApplyState copyWith({
     String? topic,
@@ -142,6 +151,7 @@ class ApplyState {
     bool? isGeneratingScenario,
     bool? isEvaluating,
     String? error,
+    int? scenariosEvaluated,
     bool clearScenario = false,
     bool clearFeedback = false,
     bool clearError = false,
@@ -155,6 +165,7 @@ class ApplyState {
             isGeneratingScenario ?? this.isGeneratingScenario,
         isEvaluating: isEvaluating ?? this.isEvaluating,
         error: clearError ? null : error ?? this.error,
+        scenariosEvaluated: scenariosEvaluated ?? this.scenariosEvaluated,
       );
 }
 
@@ -200,14 +211,24 @@ class ApplyNotifier extends AutoDisposeNotifier<ApplyState> {
         challenge: scenario.challenge,
         studentResponse: state.response,
       );
-      state = state.copyWith(feedback: feedback, isEvaluating: false);
+      final newCount = state.scenariosEvaluated + 1;
+      state = state.copyWith(
+        feedback: feedback,
+        isEvaluating: false,
+        scenariosEvaluated: newCount,
+      );
+
+      final student = await ref.read(activeStudentProvider.future);
+      if (student != null) {
+        await ref.read(badgeServiceProvider).onApplyEvaluated(student.id, newCount);
+      }
     } catch (e) {
       state = state.copyWith(isEvaluating: false, error: e.toString());
     }
   }
 
   void nextScenario() {
-    state = ApplyState(topic: state.topic);
+    state = ApplyState(topic: state.topic, scenariosEvaluated: state.scenariosEvaluated);
     generateScenario();
   }
 }
