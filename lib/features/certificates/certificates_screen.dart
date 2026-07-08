@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../certificates/certificate_generator.dart';
 import '../../core/theme/app_colors.dart';
@@ -82,11 +83,25 @@ class _CertsBodyState extends ConsumerState<_CertsBody> {
           content: Text('Certificate saved: ${result.fileName}'),
           backgroundColor: AppColors.teachColor,
           duration: const Duration(seconds: 4),
+          action: SnackBarAction(
+            label: 'Share',
+            textColor: Colors.white,
+            onPressed: () => _share(File(result.filePath)),
+          ),
         ));
       }
     } finally {
       if (mounted) setState(() => _generating = false);
     }
+  }
+
+  Future<void> _share(File file) async {
+    await SharePlus.instance.share(
+      ShareParams(
+        files: [XFile(file.path)],
+        text: 'My certificate from Otic Studio',
+      ),
+    );
   }
 
   @override
@@ -104,7 +119,10 @@ class _CertsBodyState extends ConsumerState<_CertsBody> {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              (_, i) => _CertTile(file: _savedFiles[i]),
+              (_, i) => _CertTile(
+                file: _savedFiles[i],
+                onShare: () => _share(_savedFiles[i]),
+              ),
               childCount: _savedFiles.length,
             ),
           ),
@@ -170,13 +188,15 @@ class _SectionTitle extends StatelessWidget {
 }
 
 class _CertTile extends StatelessWidget {
-  const _CertTile({required this.file});
+  const _CertTile({required this.file, required this.onShare});
   final File file;
+  final VoidCallback onShare;
 
   @override
   Widget build(BuildContext context) {
     final name = file.path.split(Platform.pathSeparator).last;
     return ListTile(
+      onTap: onShare,
       leading: Container(
         width: 42,
         height: 42,
@@ -194,13 +214,16 @@ class _CertTile extends StatelessWidget {
         style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
       ),
       subtitle: Text(
-        file.path,
+        'Tap to share',
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
       ),
-      trailing: Icon(Icons.picture_as_pdf,
-          color: Colors.red, size: 20),
+      trailing: IconButton(
+        icon: Icon(Icons.share, color: AppColors.secondary, size: 20),
+        tooltip: 'Share certificate',
+        onPressed: onShare,
+      ),
     );
   }
 }
