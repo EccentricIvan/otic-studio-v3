@@ -52,6 +52,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     super.dispose();
   }
 
+  static const _pageCount = 4;
+
   void _next() {
     if (_page == 0 && _nameController.text.trim().isEmpty) {
       ScaffoldMessenger.of(
@@ -59,7 +61,22 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       ).showSnackBar(const SnackBar(content: Text('Please enter your name')));
       return;
     }
+    if (_page < _pageCount - 1) {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+      return;
+    }
     _finish();
+  }
+
+  void _back() {
+    if (_page == 0) return;
+    _pageController.previousPage(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOut,
+    );
   }
 
   Future<void> _finish() async {
@@ -121,21 +138,39 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              // Progress dots
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              // Progress dots + back button
+              SizedBox(
+                height: 56,
+                child: Stack(
+                  alignment: Alignment.center,
                   children: [
-                    AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      width: 24,
-                      height: 8,
-                      decoration: BoxDecoration(
-                        color: AppColors.primary,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        for (var i = 0; i < _pageCount; i++) ...[
+                          if (i > 0) const SizedBox(width: 6),
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 300),
+                            width: i == _page ? 24 : 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: i <= _page
+                                  ? AppColors.primary
+                                  : AppColors.primary.withValues(alpha: 0.2),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
+                    if (_page > 0)
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: IconButton(
+                          icon: const Icon(Icons.arrow_back),
+                          onPressed: _back,
+                        ),
+                      ),
                   ],
                 ),
               ),
@@ -146,6 +181,22 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   onPageChanged: (i) => setState(() => _page = i),
                   children: [
                     _NamePage(controller: _nameController),
+                    _AgePage(
+                      age: _age,
+                      grade: _grade,
+                      onAge: (v) => setState(() => _age = v),
+                      onGrade: (v) => setState(() => _grade = v),
+                    ),
+                    _InterestsPage(
+                      selected: _interests,
+                      onToggle: (t) => setState(() {
+                        if (!_interests.remove(t)) _interests.add(t);
+                      }),
+                    ),
+                    _StylePage(
+                      selected: _learningStyle,
+                      onSelect: (s) => setState(() => _learningStyle = s),
+                    ),
                   ],
                 ),
               ),
@@ -156,7 +207,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   child: ElevatedButton(
                     onPressed: _saving ? null : _next,
                     child: _saving
-                        ? SizedBox(
+                        ? const SizedBox(
                             width: 20,
                             height: 20,
                             child: CircularProgressIndicator(
@@ -164,7 +215,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                               color: Colors.white,
                             ),
                           )
-                        : Text('Start learning'),
+                        : Text(_page < _pageCount - 1 ? 'Next' : 'Start learning'),
                   ),
                 ),
               ),
@@ -189,7 +240,7 @@ class _NamePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Image.asset(
             'assets/branding/otic-studio-logo.png',
             width: 64,
@@ -197,27 +248,27 @@ class _NamePage extends StatelessWidget {
             fit: BoxFit.contain,
             semanticLabel: 'Logo',
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Text(
             'Welcome to Otic Studio',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          SizedBox(height: 6),
+          const SizedBox(height: 6),
           Text(
             'Your personal offline AI tutor. Everything stays on this device — no internet ever.',
             style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.5),
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           Text(
             "What's your name?",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           TextField(
             controller: controller,
             autofocus: true,
             textCapitalization: TextCapitalization.words,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Enter your name',
               prefixIcon: Icon(Icons.person_outline),
             ),
@@ -258,22 +309,22 @@ class _AgePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Text('About you', style: Theme.of(context).textTheme.headlineLarge),
-          SizedBox(height: 6),
+          const SizedBox(height: 6),
           Text(
             'This helps the AI tutor explain things at the right level. You can skip.',
             style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.5),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
             'How old are you?',
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           DropdownButtonFormField<int>(
             initialValue: age,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Select age (optional)',
             ),
             items: List.generate(
@@ -285,12 +336,12 @@ class _AgePage extends StatelessWidget {
             ),
             onChanged: onAge,
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           Text(
             'What grade/level are you in?',
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Wrap(
             spacing: 8,
             runSpacing: 8,
@@ -346,7 +397,7 @@ class _InterestsPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Column(
@@ -356,7 +407,7 @@ class _InterestsPage extends StatelessWidget {
                   'What topics interest you?',
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                SizedBox(height: 6),
+                const SizedBox(height: 6),
                 Text(
                   'Pick as many as you like. Otic will personalise your paths.',
                   style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.6),
@@ -364,7 +415,7 @@ class _InterestsPage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Expanded(
             child: GridView.count(
               crossAxisCount: 3,
@@ -400,7 +451,7 @@ class _InterestsPage extends StatelessWidget {
                               : color.withValues(alpha: 0.72),
                           size: 26,
                         ),
-                        SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         Text(
                           t.$1,
                           style: TextStyle(
@@ -460,17 +511,17 @@ class _StylePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Text(
             'How do you learn best?',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          SizedBox(height: 6),
+          const SizedBox(height: 6),
           Text(
             'The AI tutor adapts its teaching style to suit you.',
             style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.5),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ..._styles.map((s) {
             final isSelected = selected == s.$1;
             return GestureDetector(
@@ -498,7 +549,7 @@ class _StylePage extends StatelessWidget {
                           : Theme.of(context).textTheme.bodyMedium?.color,
                       size: 28,
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -512,7 +563,7 @@ class _StylePage extends StatelessWidget {
                                   : Theme.of(context).textTheme.bodyLarge?.color,
                             ),
                           ),
-                          SizedBox(height: 2),
+                          const SizedBox(height: 2),
                           Text(
                             s.$4,
                             style: TextStyle(
@@ -524,7 +575,7 @@ class _StylePage extends StatelessWidget {
                       ),
                     ),
                     if (isSelected)
-                      Icon(
+                      const Icon(
                         Icons.check_circle,
                         color: AppColors.primary,
                         size: 20,

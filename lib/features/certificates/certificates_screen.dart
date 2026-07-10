@@ -20,13 +20,13 @@ class CertificatesScreen extends ConsumerWidget {
     final studentAsync = ref.watch(activeStudentProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Certificates')),
+      appBar: AppBar(title: const Text('Certificates')),
       body: studentAsync.when(
-        loading: () => Center(child: CircularProgressIndicator()),
+        loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
         data: (student) {
           if (student == null) {
-            return Center(child: Text('No student profile found.'));
+            return const Center(child: Text('No student profile found.'));
           }
           return _CertsBody(student: student);
         },
@@ -135,7 +135,7 @@ class _CertsBodyState extends ConsumerState<_CertsBody> {
         SliverToBoxAdapter(
           child: pathsAsync.when(
             loading: () =>
-                Center(child: CircularProgressIndicator()),
+                const Center(child: CircularProgressIndicator()),
             error: (_, __) => const SizedBox.shrink(),
             data: (rows) {
               final completed = rows
@@ -204,14 +204,14 @@ class _CertTile extends StatelessWidget {
           color: AppColors.secondary.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Icon(Icons.workspace_premium,
+        child: const Icon(Icons.workspace_premium,
             color: AppColors.secondary, size: 22),
       ),
       title: Text(
         name.replaceAll('_', ' ').replaceAll('.pdf', ''),
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
+        style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
       ),
       subtitle: Text(
         'Tap to share',
@@ -220,7 +220,7 @@ class _CertTile extends StatelessWidget {
         style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
       ),
       trailing: IconButton(
-        icon: Icon(Icons.share, color: AppColors.secondary, size: 20),
+        icon: const Icon(Icons.share, color: AppColors.secondary, size: 20),
         tooltip: 'Share certificate',
         onPressed: onShare,
       ),
@@ -249,8 +249,8 @@ class _PathCertCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(Icons.emoji_events, color: Colors.amber, size: 28),
-          SizedBox(width: 14),
+          const Icon(Icons.emoji_events, color: Colors.amber, size: 28),
+          const SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -266,7 +266,7 @@ class _PathCertCard extends StatelessWidget {
             ),
           ),
           generating
-              ? SizedBox(
+              ? const SizedBox(
                   width: 24,
                   height: 24,
                   child: CircularProgressIndicator(strokeWidth: 2))
@@ -279,7 +279,7 @@ class _PathCertCard extends StatelessWidget {
                     minimumSize: Size.zero,
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
-                  child: Text('Generate PDF',
+                  child: const Text('Generate PDF',
                       style: TextStyle(fontSize: 12)),
                 ),
         ],
@@ -301,7 +301,7 @@ class _EmptyState extends StatelessWidget {
         children: [
           Icon(Icons.workspace_premium,
               size: 56, color: Theme.of(context).hintColor),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Text(
             savedCount > 0
                 ? 'No new paths to certify'
@@ -309,7 +309,7 @@ class _EmptyState extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             hasAny
                 ? 'Complete all 12 lessons in a learning path to earn a certificate.'

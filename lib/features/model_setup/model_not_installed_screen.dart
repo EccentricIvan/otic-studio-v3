@@ -93,19 +93,19 @@ class _ModelNotInstalledScreenState
                       color: AppColors.primary.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(24),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.memory_outlined,
                       color: AppColors.primary,
                       size: 40,
                     ),
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   Text(
                     'AI Model Not Installed',
                     style: Theme.of(context).textTheme.headlineLarge,
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Text(
                     widget.info.status == ModelStatus.corrupted
                         ? 'A model file was found but appears corrupted or '
@@ -117,15 +117,15 @@ class _ModelNotInstalledScreenState
                     style: Theme.of(context).textTheme.bodyLarge,
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
                   if (_installing) ...[
                     _InstallProgress(progress: _progress),
                   ] else ...[
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton.icon(
-                        icon: Icon(Icons.folder_open),
-                        label: Text('Install from file…'),
+                        icon: const Icon(Icons.folder_open),
+                        label: const Text('Install from file…'),
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                         ),
@@ -133,7 +133,7 @@ class _ModelNotInstalledScreenState
                       ),
                     ),
                     if (_error != null) ...[
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.all(12),
@@ -146,16 +146,16 @@ class _ModelNotInstalledScreenState
                         ),
                         child: Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.error_outline,
                               color: Colors.red,
                               size: 18,
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Expanded(
                               child: Text(
                                 _error!,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.red,
                                   fontSize: 13,
                                 ),
@@ -165,23 +165,23 @@ class _ModelNotInstalledScreenState
                         ),
                       ),
                     ],
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     _InstructionsCard(ref: ref),
-                    SizedBox(height: 24),
+                    const SizedBox(height: 24),
                     Row(
                       children: [
                         Expanded(
                           child: OutlinedButton.icon(
-                            icon: Icon(Icons.refresh),
-                            label: Text('Check again'),
+                            icon: const Icon(Icons.refresh),
+                            label: const Text('Check again'),
                             onPressed: () => ref.invalidate(modelInfoProvider),
                           ),
                         ),
-                        SizedBox(width: 12),
+                        const SizedBox(width: 12),
                         Expanded(
                           child: OutlinedButton.icon(
-                            icon: Icon(Icons.science_outlined),
-                            label: Text('Try demo mode'),
+                            icon: const Icon(Icons.science_outlined),
+                            label: const Text('Try demo mode'),
                             onPressed: () => Navigator.of(context).pop(),
                           ),
                         ),
@@ -217,24 +217,24 @@ class _InstallProgress extends StatelessWidget {
         children: [
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 18,
                 height: 18,
                 child: CircularProgressIndicator(strokeWidth: 2),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Text(
                 'Installing model… ${(progress * 100).toStringAsFixed(0)}%',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ],
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: LinearProgressIndicator(value: progress, minHeight: 8),
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Text(
             'Copying the model into the app — this can take a few minutes. '
             'Keep the app open.',
@@ -270,15 +270,15 @@ class _InstructionsCard extends ConsumerWidget {
             children: [
               Row(
                 children: [
-                  Icon(Icons.usb, color: AppColors.primary, size: 18),
-                  SizedBox(width: 8),
+                  const Icon(Icons.usb, color: AppColors.primary, size: 18),
+                  const SizedBox(width: 8),
                   Text(
                     'Install by hand instead',
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const Spacer(),
                   IconButton(
-                    icon: Icon(Icons.copy, size: 18),
+                    icon: const Icon(Icons.copy, size: 18),
                     tooltip: 'Copy path',
                     onPressed: () =>
                         Clipboard.setData(ClipboardData(text: text)),
@@ -287,7 +287,7 @@ class _InstructionsCard extends ConsumerWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
                 text,
                 style: TextStyle(

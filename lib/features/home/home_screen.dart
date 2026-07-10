@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
 
 final _desktopNameProvider = FutureProvider<String>((ref) async {
@@ -27,7 +26,7 @@ class HomeScreen extends ConsumerWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(20, 16, 20, 32),
+          padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -35,7 +34,7 @@ class HomeScreen extends ConsumerWidget {
               Row(
                 children: [
                   Image.asset('assets/branding/otic-studio-logo.png', width: 40, height: 40, fit: BoxFit.contain),
-                  SizedBox(width: 12),
+                  const SizedBox(width: 12),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,36 +46,36 @@ class HomeScreen extends ConsumerWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
 
               // Welcome
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(18),
+                padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Color(0xFF4F46E5).withValues(alpha: 0.12), Color(0xFF0EA5E9).withValues(alpha: 0.06)],
+                    colors: [const Color(0xFF4F46E5).withValues(alpha: 0.12), const Color(0xFF0EA5E9).withValues(alpha: 0.06)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: Color(0xFF4F46E5).withValues(alpha: 0.15)),
+                  border: Border.all(color: const Color(0xFF4F46E5).withValues(alpha: 0.15)),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Welcome, $name!', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.onSurface)),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text('What would you like to do today?', style: TextStyle(fontSize: 13, color: Theme.of(context).hintColor)),
                   ],
                 ),
               ),
-              SizedBox(height: 28),
+              const SizedBox(height: 28),
 
               // LEARN section
-              _SectionLabel('LEARN'),
-              SizedBox(height: 12),
-              Row(
+              const _SectionLabel('LEARN'),
+              const SizedBox(height: 12),
+              const Row(
                 children: [
                   _IconCard(icon: Icons.menu_book, label: 'Subjects', color: Color(0xFF6366F1), route: '/learn'),
                   _IconCard(icon: Icons.quiz, label: 'Practice', color: Color(0xFF0EA5E9), route: '/practice'),
@@ -84,12 +83,12 @@ class HomeScreen extends ConsumerWidget {
                   _IconCard(icon: Icons.school, label: 'Teach', color: Color(0xFF10B981), route: '/teach'),
                 ],
               ),
-              SizedBox(height: 28),
+              const SizedBox(height: 28),
 
               // CREATE section
-              _SectionLabel('CREATE'),
-              SizedBox(height: 12),
-              Row(
+              const _SectionLabel('CREATE'),
+              const SizedBox(height: 12),
+              const Row(
                 children: [
                   _IconCard(icon: Icons.web, label: 'Site Builder', color: Color(0xFF14B8A6), route: '/sitechat'),
                   _IconCard(icon: Icons.code, label: 'Web Dev', color: Color(0xFF0EA5E9), route: '/weblab'),
@@ -97,12 +96,12 @@ class HomeScreen extends ConsumerWidget {
                   _IconCard(icon: Icons.phone_android, label: 'App Dev', color: Color(0xFF6366F1), route: '/applab'),
                 ],
               ),
-              SizedBox(height: 28),
+              const SizedBox(height: 28),
 
               // MORE section
-              _SectionLabel('MORE'),
-              SizedBox(height: 12),
-              Row(
+              const _SectionLabel('MORE'),
+              const SizedBox(height: 12),
+              const Row(
                 children: [
                   _IconCard(icon: Icons.folder, label: 'Projects', color: Color(0xFFF59E0B), route: '/projects'),
                   _IconCard(icon: Icons.emoji_events, label: 'Badges', color: Color(0xFFEF4444), route: '/achievements'),
@@ -164,13 +163,13 @@ class _IconCard extends StatelessWidget {
                   BoxShadow(
                     color: color.withValues(alpha: 0.15),
                     blurRadius: 8,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
               child: Icon(icon, color: Colors.white, size: 26),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               label,
               style: TextStyle(

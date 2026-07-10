@@ -17,7 +17,7 @@ class SettingsScreen extends ConsumerWidget {
     final modelAsync = ref.watch(modelInfoProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Settings')),
+      appBar: AppBar(title: const Text('Settings')),
       body: MaxWidth(
         maxWidth: 760,
         child: ListView(
@@ -25,11 +25,11 @@ class SettingsScreen extends ConsumerWidget {
             // ── AI Model ─────────────────────────────────────────────────────
             _Section('AI Model', [
               modelAsync.when(
-                loading: () => ListTile(
+                loading: () => const ListTile(
                   leading: Icon(Icons.memory, color: AppColors.primary),
                   title: Text('Checking model…'),
                 ),
-                error: (_, __) => ListTile(
+                error: (_, __) => const ListTile(
                   leading: Icon(Icons.memory, color: Colors.red),
                   title: Text('Model check failed'),
                 ),
@@ -38,18 +38,18 @@ class SettingsScreen extends ConsumerWidget {
                     Icons.memory,
                     color: info.isReady ? AppColors.teachColor : Colors.orange,
                   ),
-                  title: Text('Gemma 3 1B'),
+                  title: const Text('Gemma 3 1B'),
                   subtitle: Text(
                     info.isReady
                         ? 'Installed · ${info.platform ?? ''}'
                         : 'Not installed — transfer via USB',
                   ),
                   trailing: info.isReady
-                      ? Icon(
+                      ? const Icon(
                           Icons.check_circle,
                           color: AppColors.teachColor,
                         )
-                      : Icon(Icons.warning_amber, color: Colors.orange),
+                      : const Icon(Icons.warning_amber, color: Colors.orange),
                 ),
               ),
               ListTile(
@@ -57,8 +57,8 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.info_outline,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: Text('Model location'),
-                subtitle: Text('Use the model folder on Windows or Android'),
+                title: const Text('Model location'),
+                subtitle: const Text('Use the model folder on Windows or Android'),
                 isThreeLine: true,
               ),
             ]),
@@ -66,8 +66,8 @@ class SettingsScreen extends ConsumerWidget {
             // ── Student ───────────────────────────────────────────────────────
             _Section('Student Profile', [
               studentAsync.when(
-                loading: () => ListTile(title: Text('Loading…')),
-                error: (_, __) => ListTile(title: Text('Error')),
+                loading: () => const ListTile(title: Text('Loading…')),
+                error: (_, __) => const ListTile(title: Text('Error')),
                 data: (student) => ListTile(
                   leading: CircleAvatar(
                     radius: 16,
@@ -76,7 +76,7 @@ class SettingsScreen extends ConsumerWidget {
                       student != null && student.name.isNotEmpty
                           ? student.name[0].toUpperCase()
                           : '?',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColors.primary,
                         fontWeight: FontWeight.w700,
                       ),
@@ -99,8 +99,8 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.edit_outlined,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: Text('Edit profile'),
-                subtitle: Text(
+                title: const Text('Edit profile'),
+                subtitle: const Text(
                   'Update your interests and learning style',
                 ),
                 onTap: () => context.go('/onboarding'),
@@ -116,19 +116,19 @@ class SettingsScreen extends ConsumerWidget {
               data: (student) => student != null
                   ? _Section('Progress', [
                       ListTile(
-                        leading: Icon(
+                        leading: const Icon(
                           Icons.local_fire_department,
                           color: Colors.orange,
                         ),
                         title: Text('${student.streakDays} day streak'),
-                        subtitle: Text(
+                        subtitle: const Text(
                           'Keep learning daily to grow your streak',
                         ),
                       ),
                       ListTile(
-                        leading: Icon(Icons.stars, color: Colors.amber),
+                        leading: const Icon(Icons.stars, color: Colors.amber),
                         title: Text('${student.totalPoints} points earned'),
-                        subtitle: Text(
+                        subtitle: const Text(
                           'Points grow as you complete lessons and earn badges',
                         ),
                       ),
@@ -145,7 +145,7 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.brightness_6,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: Text('Theme'),
+                title: const Text('Theme'),
                 subtitle: Text(
                   ref.watch(themeModeProvider) == ThemeMode.dark
                       ? 'Dark'
@@ -183,13 +183,13 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.info_outline,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: Text('Version'),
-                subtitle: Text('Version 1.0.0'),
+                title: const Text('Version'),
+                subtitle: const Text('Version 1.0.0'),
               ),
               ListTile(
-                leading: Icon(Icons.wifi_off, color: AppColors.primary),
-                title: Text('Offline mode'),
-                subtitle: Text('100% offline — no internet required'),
+                leading: const Icon(Icons.wifi_off, color: AppColors.primary),
+                title: const Text('Offline mode'),
+                subtitle: const Text('100% offline — no internet required'),
                 trailing: Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 8,
@@ -199,7 +199,7 @@ class SettingsScreen extends ConsumerWidget {
                     color: AppColors.teachColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Active',
                     style: TextStyle(
                       fontSize: 11,
@@ -218,8 +218,8 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.admin_panel_settings,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: Text('Admin dashboard'),
-                subtitle: Text(
+                title: const Text('Admin dashboard'),
+                subtitle: const Text(
                   'Device info, model status, profiles, update management',
                 ),
                 onTap: () => context.go('/admin'),
@@ -233,19 +233,19 @@ class SettingsScreen extends ConsumerWidget {
             // ── Danger zone ───────────────────────────────────────────────────
             _Section('Data', [
               ListTile(
-                leading: Icon(Icons.delete_forever, color: Colors.red),
-                title: Text(
+                leading: const Icon(Icons.delete_forever, color: Colors.red),
+                title: const Text(
                   'Reset all data',
                   style: TextStyle(color: Colors.red),
                 ),
-                subtitle: Text(
+                subtitle: const Text(
                   'Deletes student profile, progress, and sessions',
                 ),
                 onTap: () => _confirmReset(context, ref),
               ),
             ]),
 
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
           ],
         ),
       ),
@@ -256,19 +256,19 @@ class SettingsScreen extends ConsumerWidget {
     showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Reset all data?'),
-        content: Text(
+        title: const Text('Reset all data?'),
+        content: const Text(
           'This permanently deletes your student profile, all progress, paths, badges, and session history. This cannot be undone.',
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
           ),
           FilledButton(
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text('Delete everything'),
+            child: const Text('Delete everything'),
           ),
         ],
       ),
@@ -294,7 +294,7 @@ class _Section extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16, 20, 16, 6),
           child: Text(
             title.toUpperCase(),
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w700,
               color: AppColors.primary,
@@ -303,7 +303,7 @@ class _Section extends StatelessWidget {
           ),
         ),
         ...children,
-        Divider(height: 1),
+        const Divider(height: 1),
       ],
     );
   }

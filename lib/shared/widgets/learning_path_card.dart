@@ -40,7 +40,7 @@ class LearningPathCard extends StatelessWidget {
                 ),
                 child: Icon(icon, color: color, size: 26),
               ),
-              SizedBox(width: 14),
+              const SizedBox(width: 14),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,32 +70,32 @@ class LearningPathCard extends StatelessWidget {
                             minimumSize: Size.zero,
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           ),
-                          child: Text('Start', style: TextStyle(fontSize: 13)),
+                          child: const Text('Start', style: TextStyle(fontSize: 13)),
                         ),
                       ],
                     ),
-                    SizedBox(height: 6),
+                    const SizedBox(height: 6),
                     Text(
                       title,
                       style: Theme.of(context).textTheme.titleMedium,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(height: 3),
+                    const SizedBox(height: 3),
                     Text(
                       description,
                       style: Theme.of(context).textTheme.bodyMedium,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(height: 6),
+                    const SizedBox(height: 6),
                     Row(
                       children: [
-                        Icon(Icons.play_circle_outline, size: 13, color: Color(0xFF94A3B8)),
-                        SizedBox(width: 4),
+                        const Icon(Icons.play_circle_outline, size: 13, color: Color(0xFF94A3B8)),
+                        const SizedBox(width: 4),
                         Text(
                           '$lessonCount lessons',
-                          style: TextStyle(fontSize: 12, color: Color(0xFF94A3B8)),
+                          style: const TextStyle(fontSize: 12, color: Color(0xFF94A3B8)),
                         ),
                       ],
                     ),

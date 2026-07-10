@@ -352,30 +352,30 @@ class _PythonLabScreenState extends ConsumerState<PythonLabScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Row(children: [
+        title: const Row(children: [
           Icon(Icons.terminal, size: 20, color: Color(0xFF3572A5)),
           SizedBox(width: 8),
           Text('Python Lab'),
         ]),
         actions: [
           IconButton(
-            icon: Icon(Icons.list),
+            icon: const Icon(Icons.list),
             tooltip: 'All lessons',
             onPressed: () => _showLessonPicker(context),
           ),
         ],
         bottom: TabBar(
           controller: _tabController,
-          tabs: [Tab(icon: Icon(Icons.code), text: 'Code'), Tab(icon: Icon(Icons.terminal), text: 'Output')],
-          indicatorColor: Color(0xFF3572A5),
-          labelColor: Color(0xFF3572A5),
+          tabs: const [Tab(icon: Icon(Icons.code), text: 'Code'), Tab(icon: Icon(Icons.terminal), text: 'Output')],
+          indicatorColor: const Color(0xFF3572A5),
+          labelColor: const Color(0xFF3572A5),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _runCode,
-        icon: Icon(Icons.play_arrow),
-        label: Text('RUN'),
-        backgroundColor: Color(0xFF3572A5),
+        icon: const Icon(Icons.play_arrow),
+        label: const Text('RUN'),
+        backgroundColor: const Color(0xFF3572A5),
         foregroundColor: Colors.white,
       ),
       body: TabBarView(
@@ -409,7 +409,7 @@ class _PythonLabScreenState extends ConsumerState<PythonLabScreen>
           final isCurrent = i == _currentLesson;
           return ListTile(
             leading: CircleAvatar(
-              backgroundColor: isCurrent ? Color(0xFF3572A5) : Theme.of(context).colorScheme.surfaceContainerHighest,
+              backgroundColor: isCurrent ? const Color(0xFF3572A5) : Theme.of(context).colorScheme.surfaceContainerHighest,
               child: Text('${i + 1}', style: TextStyle(color: isCurrent ? Colors.white : Theme.of(context).colorScheme.onSurface, fontWeight: FontWeight.bold)),
             ),
             title: Text(l.title, style: TextStyle(fontWeight: isCurrent ? FontWeight.bold : FontWeight.normal)),
@@ -437,7 +437,7 @@ class _OutputView extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.terminal, size: 48, color: Theme.of(context).hintColor),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Text('Tap RUN to see output', style: TextStyle(color: Theme.of(context).hintColor)),
           ],
         ),
@@ -445,21 +445,21 @@ class _OutputView extends StatelessWidget {
     }
 
     return Container(
-      color: Color(0xFF1E1E2E),
+      color: const Color(0xFF1E1E2E),
       width: double.infinity,
       child: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               '>>> Python Output',
               style: TextStyle(fontFamily: 'monospace', fontSize: 12, color: Color(0xFF89B4FA)),
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Text(
               output,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'monospace',
                 fontSize: 14,
                 color: Color(0xFFA6E3A1),
@@ -489,48 +489,48 @@ class _InstructionBar extends StatelessWidget {
       color: Theme.of(context).colorScheme.surfaceContainerHighest,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(16, 12, 16, 0),
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
           child: Row(children: [
-            Expanded(child: Text(lesson.title, style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15, color: Color(0xFF3572A5)))),
+            Expanded(child: Text(lesson.title, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15, color: Color(0xFF3572A5)))),
             Text('${index + 1}/$total', style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor)),
           ]),
         ),
         Padding(
-          padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
           child: Text(lesson.instruction, style: TextStyle(fontSize: 13, height: 1.5, color: Theme.of(context).colorScheme.onSurface)),
         ),
         if (showHint && lesson.hint != null)
           Container(
-            margin: EdgeInsets.fromLTRB(16, 0, 16, 8),
-            padding: EdgeInsets.all(10),
+            margin: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: Color(0xFF3572A5).withValues(alpha: 0.08),
+              color: const Color(0xFF3572A5).withValues(alpha: 0.08),
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Color(0xFF3572A5).withValues(alpha: 0.2)),
+              border: Border.all(color: const Color(0xFF3572A5).withValues(alpha: 0.2)),
             ),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Row(children: [Icon(Icons.lightbulb, size: 14, color: Color(0xFF3572A5)), SizedBox(width: 6), Text('Hint', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12, color: Color(0xFF3572A5)))]),
-              SizedBox(height: 4),
+              const Row(children: [Icon(Icons.lightbulb, size: 14, color: Color(0xFF3572A5)), SizedBox(width: 6), Text('Hint', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12, color: Color(0xFF3572A5)))]),
+              const SizedBox(height: 4),
               Text(lesson.hint!, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurface)),
               if (lesson.challenge != null) ...[
-                SizedBox(height: 8),
-                Row(children: [Icon(Icons.emoji_events, size: 14, color: AppColors.createColor), SizedBox(width: 6), Text('Challenge', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12, color: AppColors.createColor))]),
-                SizedBox(height: 4),
+                const SizedBox(height: 8),
+                const Row(children: [Icon(Icons.emoji_events, size: 14, color: AppColors.createColor), SizedBox(width: 6), Text('Challenge', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12, color: AppColors.createColor))]),
+                const SizedBox(height: 4),
                 Text(lesson.challenge!, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurface)),
               ],
             ]),
           ),
         Padding(
-          padding: EdgeInsets.fromLTRB(16, 0, 16, 10),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
           child: Row(children: [
             if (onPrev != null) _Btn(icon: Icons.arrow_back, label: 'Prev', onTap: onPrev!),
-            if (onPrev != null) SizedBox(width: 8),
+            if (onPrev != null) const SizedBox(width: 8),
             _Btn(icon: showHint ? Icons.lightbulb : Icons.lightbulb_outline, label: showHint ? 'Hide' : 'Hint', onTap: onToggleHint),
-            Spacer(),
+            const Spacer(),
             if (onNext != null) _Btn(icon: Icons.arrow_forward, label: 'Next', onTap: onNext!, primary: true),
           ]),
         ),
-        Divider(height: 1),
+        const Divider(height: 1),
       ]),
     );
   }
@@ -546,15 +546,15 @@ class _Btn extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(6),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
-          color: primary ? Color(0xFF3572A5) : Theme.of(context).colorScheme.surface,
+          color: primary ? const Color(0xFF3572A5) : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(6),
           border: primary ? null : Border.all(color: Theme.of(context).dividerColor),
         ),
         child: Row(mainAxisSize: MainAxisSize.min, children: [
           Icon(icon, size: 14, color: primary ? Colors.white : Theme.of(context).colorScheme.onSurface),
-          SizedBox(width: 4),
+          const SizedBox(width: 4),
           Text(label, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: primary ? Colors.white : Theme.of(context).colorScheme.onSurface)),
         ]),
       ),
@@ -569,13 +569,13 @@ class _CodeEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFF1E1E2E),
+      color: const Color(0xFF1E1E2E),
       child: TextField(
         controller: controller,
         maxLines: null,
         expands: true,
-        style: TextStyle(fontFamily: 'monospace', fontSize: 13, color: Color(0xFFCDD6F4), height: 1.5),
-        decoration: InputDecoration(
+        style: const TextStyle(fontFamily: 'monospace', fontSize: 13, color: Color(0xFFCDD6F4), height: 1.5),
+        decoration: const InputDecoration(
           border: InputBorder.none,
           contentPadding: EdgeInsets.all(16),
           hintText: 'Write your Python code here...',

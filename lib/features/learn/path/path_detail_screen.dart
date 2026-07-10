@@ -25,7 +25,7 @@ class _PathDetailScreenState extends ConsumerState<PathDetailScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(widget.topic), leading: const BackButton()),
       body: pathAsync.when(
-        loading: () => Center(child: CircularProgressIndicator()),
+        loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
         data: (row) {
           if (row == null) {
@@ -134,12 +134,12 @@ class _PathHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(parsed.title, style: Theme.of(context).textTheme.titleLarge),
-          SizedBox(height: 6),
+          const SizedBox(height: 6),
           Text(
             parsed.description,
             style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             children: [
               Expanded(
@@ -155,7 +155,7 @@ class _PathHeader extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Text(
                 '${parsed.completedLessons}/${parsed.totalLessons} lessons',
                 style: TextStyle(
@@ -217,7 +217,7 @@ class _UnitTile extends StatelessWidget {
                         : AppColors.learnColor,
                   ),
                 ),
-                SizedBox(width: 12),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -229,7 +229,7 @@ class _UnitTile extends StatelessWidget {
                           color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
-                      SizedBox(height: 2),
+                      const SizedBox(height: 2),
                       Text(
                         '${unit.completedCount}/${unit.lessons.length} done',
                         style: TextStyle(
@@ -306,7 +306,7 @@ class _LessonRow extends StatelessWidget {
                     : Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
-            SizedBox(width: 12),
+            const SizedBox(width: 12),
             Expanded(
               child: Text(
                 lesson.title,
@@ -356,25 +356,25 @@ class _GeneratingView extends ConsumerWidget {
                 color: AppColors.learnColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(18),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.route,
                 color: AppColors.learnColor,
                 size: 32,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               'Build a learning path for\n"$topic"?',
               style: Theme.of(context).textTheme.titleMedium,
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               'A 4-unit, 12-lesson curriculum will be tailored for you.',
               textAlign: TextAlign.center,
               style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
             ),
-            SizedBox(height: 28),
+            const SizedBox(height: 28),
             FilledButton.icon(
               onPressed: () async {
                 await ref
@@ -382,16 +382,16 @@ class _GeneratingView extends ConsumerWidget {
                     .generatePath(topic);
                 onGenerated();
               },
-              icon: Icon(Icons.auto_awesome),
-              label: Text('Generate my path'),
+              icon: const Icon(Icons.auto_awesome),
+              label: const Text('Generate my path'),
               style: FilledButton.styleFrom(
                 backgroundColor: AppColors.primary,
               ),
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             TextButton(
               onPressed: () => context.go('/learn'),
-              child: Text('Skip — just chat'),
+              child: const Text('Skip — just chat'),
             ),
           ],
         ),

@@ -18,15 +18,15 @@ class UnitsScreen extends ConsumerWidget {
         final subject = snapshot.data;
         if (subject == null) {
           return Scaffold(
-            appBar: AppBar(title: Text('Loading...')),
-            body: Center(child: CircularProgressIndicator()),
+            appBar: AppBar(title: const Text('Loading...')),
+            body: const Center(child: CircularProgressIndicator()),
           );
         }
 
         return Scaffold(
           appBar: AppBar(title: Text(subject.name)),
           body: ListView.builder(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             itemCount: subject.units.length,
             itemBuilder: (context, unitIndex) {
               final unit = subject.units[unitIndex];
@@ -38,21 +38,21 @@ class UnitsScreen extends ConsumerWidget {
                     child: Row(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                           decoration: BoxDecoration(
                             color: AppColors.primary.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Text(
                             'Unit ${unitIndex + 1}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w700,
                               color: AppColors.primary,
                             ),
                           ),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Expanded(
                           child: Text(
                             unit.title,
@@ -70,14 +70,14 @@ class UnitsScreen extends ConsumerWidget {
                     final lessonIndex = entry.key;
                     final lesson = entry.value;
                     return Padding(
-                      padding: EdgeInsets.only(bottom: 8),
+                      padding: const EdgeInsets.only(bottom: 8),
                       child: InkWell(
                         onTap: () => context.push(
                           '/learn/subject/$subjectId/lesson/$unitIndex/$lessonIndex',
                         ),
                         borderRadius: BorderRadius.circular(12),
                         child: Container(
-                          padding: EdgeInsets.all(14),
+                          padding: const EdgeInsets.all(14),
                           decoration: BoxDecoration(
                             color: Theme.of(context).colorScheme.surface,
                             borderRadius: BorderRadius.circular(12),
@@ -103,7 +103,7 @@ class UnitsScreen extends ConsumerWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: 12),
+                              const SizedBox(width: 12),
                               Expanded(
                                 child: Text(
                                   lesson.title,

@@ -5,8 +5,8 @@ import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/curriculum_provider.dart';
 import '../../db/providers/db_provider.dart';
+import '../../gamification/badge_service.dart';
 import '../../shared/widgets/responsive.dart';
-import 'exercise_models.dart';
 import 'practice_providers.dart';
 import 'scenario_models.dart';
 
@@ -42,9 +42,9 @@ class PracticeScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Practice'),
+          title: const Text('Practice'),
           bottom: TabBar(
-            tabs: [
+            tabs: const [
               Tab(icon: Icon(Icons.quiz_outlined), text: 'Practice'),
               Tab(icon: Icon(Icons.explore_outlined), text: 'Apply'),
             ],
@@ -97,7 +97,7 @@ class _TopicPicker extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
       child: DropdownButtonFormField<String>(
-        value: selected.isEmpty ? null : selected,
+        initialValue: selected.isEmpty ? null : selected,
         decoration: InputDecoration(
           labelText: 'Choose a topic',
           labelStyle: TextStyle(
@@ -190,7 +190,7 @@ class _PracticeTabState extends ConsumerState<_PracticeTab> {
     return map[topic] ?? topic.toLowerCase().replaceAll(' ', '_');
   }
 
-  void _answer(int index) {
+  Future<void> _answer(int index) async {
     if (_answered) return;
     setState(() {
       _selectedAnswer = index;
@@ -198,6 +198,11 @@ class _PracticeTabState extends ConsumerState<_PracticeTab> {
       _total++;
       if (index == _questions[_currentQ].correct) _score++;
     });
+
+    final student = await ref.read(activeStudentProvider.future);
+    if (student != null) {
+      await ref.read(badgeServiceProvider).onPracticeAnswered(student.id, _score);
+    }
   }
 
   void _next() {
@@ -221,7 +226,7 @@ class _PracticeTabState extends ConsumerState<_PracticeTab> {
               color: AppColors.primary,
               onSelect: _loadQuestions,
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
           ],
         ),
       );
@@ -246,31 +251,31 @@ class _PracticeTabState extends ConsumerState<_PracticeTab> {
 
     final q = _questions[_currentQ];
     return SingleChildScrollView(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Header
           Row(
             children: [
-              Text(_selectedTopic, style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.primary)),
-              Spacer(),
+              Text(_selectedTopic, style: const TextStyle(fontWeight: FontWeight.w600, color: AppColors.primary)),
+              const Spacer(),
               Text('${_currentQ + 1}/${_questions.length}', style: TextStyle(color: Theme.of(context).hintColor)),
             ],
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           LinearProgressIndicator(
             value: (_currentQ + 1) / _questions.length,
             backgroundColor: Theme.of(context).dividerColor,
-            valueColor: AlwaysStoppedAnimation(AppColors.primary),
+            valueColor: const AlwaysStoppedAnimation(AppColors.primary),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text('Score: $_score/$_total', style: TextStyle(fontSize: 13, color: Theme.of(context).hintColor)),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
 
           // Question
           Text(q.question, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, height: 1.4, color: Theme.of(context).colorScheme.onSurface)),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
 
           // Options
           ...q.options.asMap().entries.map((e) {
@@ -299,8 +304,8 @@ class _PracticeTabState extends ConsumerState<_PracticeTab> {
               onTap: () => _answer(oi),
               child: Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(bottom: 8),
-                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                margin: const EdgeInsets.only(bottom: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 decoration: BoxDecoration(
                   color: bgColor,
                   borderRadius: BorderRadius.circular(10),
@@ -308,11 +313,11 @@ class _PracticeTabState extends ConsumerState<_PracticeTab> {
                 ),
                 child: Row(
                   children: [
-                    Text(String.fromCharCode(65 + oi), style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
-                    SizedBox(width: 12),
+                    Text(String.fromCharCode(65 + oi), style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                    const SizedBox(width: 12),
                     Expanded(child: Text(option, style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurface))),
-                    if (_answered && isCorrect) Icon(Icons.check_circle, size: 18, color: AppColors.teachColor),
-                    if (_answered && isSelected && !isCorrect) Icon(Icons.cancel, size: 18, color: Colors.red),
+                    if (_answered && isCorrect) const Icon(Icons.check_circle, size: 18, color: AppColors.teachColor),
+                    if (_answered && isSelected && !isCorrect) const Icon(Icons.cancel, size: 18, color: Colors.red),
                   ],
                 ),
               ),
@@ -321,21 +326,21 @@ class _PracticeTabState extends ConsumerState<_PracticeTab> {
 
           // Explanation
           if (_answered) ...[
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Container(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: (_selectedAnswer == q.correct ? AppColors.teachColor : Colors.red).withValues(alpha: 0.06),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(q.explanation, style: TextStyle(fontSize: 13, height: 1.4, color: Theme.of(context).colorScheme.onSurfaceVariant)),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SizedBox(
               width: double.infinity,
               child: FilledButton.icon(
                 onPressed: _next,
-                icon: Icon(Icons.arrow_forward),
+                icon: const Icon(Icons.arrow_forward),
                 label: Text(_currentQ < _questions.length - 1 ? 'Next Question' : 'See Results'),
                 style: FilledButton.styleFrom(backgroundColor: AppColors.primary),
               ),
@@ -357,260 +362,21 @@ class _QuizResult extends StatelessWidget {
     final percent = (score / total * 100).round();
     return Center(
       child: Padding(
-        padding: EdgeInsets.all(32),
+        padding: const EdgeInsets.all(32),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('$score/$total', style: TextStyle(fontSize: 48, fontWeight: FontWeight.w800, color: AppColors.teachColor)),
-            Text('$percent%', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.teachColor)),
-            SizedBox(height: 8),
+            Text('$score/$total', style: const TextStyle(fontSize: 48, fontWeight: FontWeight.w800, color: AppColors.teachColor)),
+            Text('$percent%', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.teachColor)),
+            const SizedBox(height: 8),
             Text(
               percent >= 80 ? 'Excellent!' : percent >= 60 ? 'Good job!' : 'Keep practicing!',
               style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onSurface),
             ),
-            SizedBox(height: 24),
-            FilledButton.icon(onPressed: onRestart, icon: Icon(Icons.refresh), label: Text('Try Again'), style: FilledButton.styleFrom(backgroundColor: AppColors.primary)),
-            SizedBox(height: 12),
-            OutlinedButton.icon(onPressed: onChangeTopic, icon: Icon(Icons.swap_horiz), label: Text('Change Subject')),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _ExerciseCard extends StatelessWidget {
-  const _ExerciseCard({
-    required this.exercise,
-    required this.state,
-    required this.onAnswer,
-    required this.onNext,
-    required this.onReset,
-  });
-
-  final Exercise exercise;
-  final PracticeState state;
-  final void Function(int) onAnswer;
-  final VoidCallback onNext;
-  final VoidCallback onReset;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Score bar
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surfaceContainerHighest,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.stars,
-                  size: 16,
-                  color: AppColors.primary,
-                ),
-                SizedBox(width: 8),
-                Text(
-                  'Score: ${state.score}/${state.total}',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.primary,
-                  ),
-                ),
-                const Spacer(),
-                TextButton(
-                  onPressed: onReset,
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    minimumSize: Size.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  ),
-                  child: Text(
-                    'Reset',
-                    style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 16),
-
-          // Question
-          Text(
-            exercise.question,
-            style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w600,
-              color: Theme.of(context).colorScheme.onSurface,
-              height: 1.5,
-            ),
-          ),
-          SizedBox(height: 20),
-
-          // Options
-          ...exercise.options.asMap().entries.map(
-            (e) => _OptionButton(
-              label: _letter(e.key),
-              text: e.value,
-              index: e.key,
-              state: state,
-              onTap: () => onAnswer(e.key),
-            ),
-          ),
-
-          // Feedback
-          if (state.answered) ...[
-            SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: state.correct
-                    ? AppColors.teachColor.withValues(alpha: 0.08)
-                    : Colors.red.withValues(alpha: 0.06),
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: state.correct
-                      ? AppColors.teachColor.withValues(alpha: 0.3)
-                      : Colors.red.withValues(alpha: 0.3),
-                ),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Icon(
-                    state.correct ? Icons.check_circle : Icons.cancel,
-                    color: state.correct ? AppColors.teachColor : Colors.red,
-                    size: 20,
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          state.correct ? 'Correct!' : 'Not quite.',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            color: state.correct
-                                ? AppColors.teachColor
-                                : Colors.red,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          exercise.explanation,
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.onSurfaceVariant,
-                            height: 1.5,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 16),
-            SizedBox(
-              width: double.infinity,
-              child: FilledButton.icon(
-                onPressed: onNext,
-                icon: Icon(Icons.arrow_forward),
-                label: Text('Next question'),
-                style: FilledButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                ),
-              ),
-            ),
-          ],
-        ],
-      ),
-    );
-  }
-
-  String _letter(int i) => ['A', 'B', 'C', 'D'][i];
-}
-
-class _OptionButton extends StatelessWidget {
-  const _OptionButton({
-    required this.label,
-    required this.text,
-    required this.index,
-    required this.state,
-    required this.onTap,
-  });
-
-  final String label;
-  final String text;
-  final int index;
-  final PracticeState state;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    Color borderColor = Theme.of(context).dividerColor;
-    Color bgColor = Theme.of(context).colorScheme.surface;
-    Color textColor = Theme.of(context).colorScheme.onSurface;
-
-    if (state.answered) {
-      if (index == state.exercise!.correctIndex) {
-        borderColor = AppColors.teachColor;
-        bgColor = AppColors.teachColor.withValues(alpha: 0.07);
-        textColor = AppColors.teachColor;
-      } else if (index == state.selectedOption) {
-        borderColor = Colors.red;
-        bgColor = Colors.red.withValues(alpha: 0.05);
-        textColor = Colors.red;
-      }
-    } else if (index == state.selectedOption) {
-      borderColor = AppColors.primary;
-      bgColor = AppColors.primary.withValues(alpha: 0.07);
-      textColor = AppColors.primary;
-    }
-
-    return GestureDetector(
-      onTap: state.answered ? null : onTap,
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 10),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        decoration: BoxDecoration(
-          color: bgColor,
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: borderColor),
-        ),
-        child: Row(
-          children: [
-            Container(
-              width: 28,
-              height: 28,
-              decoration: BoxDecoration(
-                color: borderColor.withValues(alpha: 0.12),
-                borderRadius: BorderRadius.circular(6),
-              ),
-              child: Center(
-                child: Text(
-                  label,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 13,
-                    color: borderColor,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(width: 12),
-            Expanded(
-              child: Text(
-                text,
-                style: TextStyle(color: textColor, height: 1.4),
-              ),
-            ),
+            const SizedBox(height: 24),
+            FilledButton.icon(onPressed: onRestart, icon: const Icon(Icons.refresh), label: const Text('Try Again'), style: FilledButton.styleFrom(backgroundColor: AppColors.primary)),
+            const SizedBox(height: 12),
+            OutlinedButton.icon(onPressed: onChangeTopic, icon: const Icon(Icons.swap_horiz), label: const Text('Change Subject')),
           ],
         ),
       ),
@@ -660,7 +426,7 @@ class _ApplyTabState extends ConsumerState<_ApplyTab> {
               ref.read(applyProvider.notifier).setTopic(t);
             },
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
 
           if (state.topic.isNotEmpty &&
               state.scenario == null &&
@@ -694,7 +460,7 @@ class _ApplyTabState extends ConsumerState<_ApplyTab> {
               onNext: () => ref.read(applyProvider.notifier).nextScenario(),
             ),
 
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
         ],
       ),
     );
@@ -745,8 +511,8 @@ class _ScenarioCard extends StatelessWidget {
                       size: 15,
                       color: AppColors.primary.withValues(alpha: 0.8),
                     ),
-                    SizedBox(width: 6),
-                    Text(
+                    const SizedBox(width: 6),
+                    const Text(
                       'SCENARIO',
                       style: TextStyle(
                         fontSize: 11,
@@ -757,7 +523,7 @@ class _ScenarioCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                   scenario.situation,
                   style: TextStyle(
@@ -768,7 +534,7 @@ class _ScenarioCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
 
           // Challenge question
           Text(
@@ -780,7 +546,7 @@ class _ScenarioCard extends StatelessWidget {
               height: 1.5,
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
 
           // Response input
           if (state.feedback == null) ...[
@@ -801,8 +567,8 @@ class _ScenarioCard extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(12)),
                   borderSide: BorderSide(color: Theme.of(context).dividerColor),
                 ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                focusedBorder: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
                   borderSide: BorderSide(
                     color: AppColors.primary,
                     width: 2,
@@ -810,11 +576,11 @@ class _ScenarioCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             SizedBox(
               width: double.infinity,
               child: state.isEvaluating
-                  ? Center(
+                  ? const Center(
                       child: Padding(
                         padding: EdgeInsets.all(12),
                         child: CircularProgressIndicator(),
@@ -824,8 +590,8 @@ class _ScenarioCard extends StatelessWidget {
                       onPressed: state.response.trim().isEmpty
                           ? null
                           : onSubmit,
-                      icon: Icon(Icons.send),
-                      label: Text('Submit my response'),
+                      icon: const Icon(Icons.send),
+                      label: const Text('Submit my response'),
                       style: FilledButton.styleFrom(
                         backgroundColor: AppColors.primary,
                       ),
@@ -845,7 +611,7 @@ class _ScenarioCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Icon(
                         Icons.lightbulb,
@@ -862,7 +628,7 @@ class _ScenarioCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     state.feedback!,
                     style: TextStyle(
@@ -873,13 +639,13 @@ class _ScenarioCard extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             SizedBox(
               width: double.infinity,
               child: FilledButton.icon(
                 onPressed: onNext,
-                icon: Icon(Icons.refresh),
-                label: Text('New scenario'),
+                icon: const Icon(Icons.refresh),
+                label: const Text('New scenario'),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppColors.primary,
                 ),
@@ -924,7 +690,7 @@ class _StartCard extends StatelessWidget {
         child: Column(
           children: [
             Icon(icon, color: color, size: 40),
-            SizedBox(height: 14),
+            const SizedBox(height: 14),
             Text(
               topic,
               style: TextStyle(
@@ -933,7 +699,7 @@ class _StartCard extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             FilledButton.icon(
               onPressed: onTap,
               icon: Icon(icon, size: 18),
@@ -958,8 +724,8 @@ class _LoadingCard extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            CircularProgressIndicator(),
-            SizedBox(height: 16),
+            const CircularProgressIndicator(),
+            const SizedBox(height: 16),
             Text(message, style: TextStyle(color: Theme.of(context).hintColor)),
           ],
         ),
@@ -986,15 +752,15 @@ class _ErrorCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(Icons.error_outline, color: Colors.red),
-            SizedBox(width: 12),
+            const Icon(Icons.error_outline, color: Colors.red),
+            const SizedBox(width: 12),
             Expanded(
               child: Text(
                 message,
                 style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
             ),
-            TextButton(onPressed: onRetry, child: Text('Retry')),
+            TextButton(onPressed: onRetry, child: const Text('Retry')),
           ],
         ),
       ),

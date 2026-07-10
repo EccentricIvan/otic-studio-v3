@@ -78,11 +78,11 @@ class _CollaborateScreenState extends ConsumerState<CollaborateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Collaborate')),
+      appBar: AppBar(title: const Text('Collaborate')),
       body: MaxWidth(
         maxWidth: 760,
         child: _starting
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : _error != null
             ? _ErrorView(message: _error!)
             : _PeersView(peers: _peers),
@@ -113,7 +113,7 @@ class _PeersView extends StatelessWidget {
           child: Row(
             children: [
               const _PulsingDot(),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Expanded(
                 child: Text(
                   peers.isEmpty
@@ -128,9 +128,9 @@ class _PeersView extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
           child: Text(
             'Everyone using the app on the same Wi-Fi or LAN appears '
             'here automatically — no internet needed.',
@@ -141,7 +141,7 @@ class _PeersView extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
 
         if (peers.isEmpty)
           const _EmptyPeers()
@@ -170,7 +170,7 @@ class _PeerCard extends StatelessWidget {
           backgroundColor: AppColors.practiceColor.withValues(alpha: 0.12),
           child: Text(
             peer.name.isNotEmpty ? peer.name[0].toUpperCase() : '?',
-            style: TextStyle(
+            style: const TextStyle(
               color: AppColors.practiceColor,
               fontWeight: FontWeight.w700,
             ),
@@ -178,19 +178,19 @@ class _PeerCard extends StatelessWidget {
         ),
         title: Text(
           peer.name,
-          style: TextStyle(fontWeight: FontWeight.w600),
+          style: const TextStyle(fontWeight: FontWeight.w600),
         ),
         subtitle: Text(
           peer.topic.isNotEmpty
               ? 'Learning: ${peer.topic}'
               : 'Online · ${peer.address}',
-          style: TextStyle(fontSize: 12),
+          style: const TextStyle(fontSize: 12),
         ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.stars, color: Colors.amber, size: 16),
-            SizedBox(width: 4),
+            const Icon(Icons.stars, color: Colors.amber, size: 16),
+            const SizedBox(width: 4),
             Text(
               '${peer.points}',
               style: TextStyle(
@@ -211,16 +211,16 @@ class _EmptyPeers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(40),
+      padding: const EdgeInsets.all(40),
       child: Column(
         children: [
           Icon(Icons.wifi_tethering, size: 56, color: Theme.of(context).hintColor),
-          SizedBox(height: 16),
-          Text(
+          const SizedBox(height: 16),
+          const Text(
             'No learners found yet',
             style: TextStyle(fontWeight: FontWeight.w600),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             'Ask a classmate to open the app on the same network — '
             'they will appear here within a few seconds.',
@@ -246,12 +246,12 @@ class _ErrorView extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.wifi_off, size: 56, color: Theme.of(context).hintColor),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Local network unavailable',
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               message,
               textAlign: TextAlign.center,
@@ -294,7 +294,7 @@ class _PulsingDotState extends State<_PulsingDot>
       child: Container(
         width: 10,
         height: 10,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: AppColors.practiceColor,
           shape: BoxShape.circle,
         ),

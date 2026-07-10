@@ -12,10 +12,9 @@ import 'tutor_response.dart';
 /// prompt so the model teaches from accurate material.
 class TutorPipeline {
   TutorPipeline({
-    required InferenceEngine engine,
-    CurriculumService? curriculum,
-  })  : _engine = engine,
-        _curriculum = curriculum;
+    required this._engine,
+    this._curriculum,
+  });
 
   final InferenceEngine _engine;
   final CurriculumService? _curriculum;
@@ -88,10 +87,6 @@ class TutorPipeline {
     String? safetyNote,
     String? lessonContext,
   }) {
-    final historyText = _history
-        .map((t) => '${t.role == 'tutor' ? 'Tutor' : 'Student'}: ${t.text}')
-        .join('\n');
-
     final stageHint = {
       TutorStage.answer: 'Explain clearly in 2-3 sentences.',
       TutorStage.clarify: 'Ask one question to check understanding.',

@@ -19,7 +19,7 @@ class AppDevLabScreen extends ConsumerWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: Row(
+            title: const Row(
               children: [
                 Icon(Icons.phone_android, size: 20, color: AppColors.primary),
                 SizedBox(width: 8),
@@ -28,7 +28,7 @@ class AppDevLabScreen extends ConsumerWidget {
             ),
           ),
           body: subject == null
-              ? Center(child: CircularProgressIndicator())
+              ? const Center(child: CircularProgressIndicator())
               : _AppDevContent(subject: subject),
         );
       },
@@ -57,14 +57,14 @@ class _AppDevContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Hero
           Container(
             width: double.infinity,
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [AppColors.primary, AppColors.primary.withValues(alpha: 0.7)],
@@ -76,9 +76,9 @@ class _AppDevContent extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.phone_android, size: 36, color: Colors.white),
-                SizedBox(height: 12),
-                Text(
+                const Icon(Icons.phone_android, size: 36, color: Colors.white),
+                const SizedBox(height: 12),
+                const Text(
                   'Learn App Development',
                   style: TextStyle(
                     fontSize: 20,
@@ -86,7 +86,7 @@ class _AppDevContent extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 6),
+                const SizedBox(height: 6),
                 Text(
                   '${subject.totalLessons} lessons covering app concepts, '
                   'UI design, data management, and publishing.',
@@ -99,7 +99,7 @@ class _AppDevContent extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
 
           // Units
           ...subject.units.asMap().entries.map((entry) {
@@ -114,14 +114,14 @@ class _AppDevContent extends StatelessWidget {
                 Row(
                   children: [
                     Container(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         color: color.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Icon(icon, size: 20, color: color),
                     ),
-                    SizedBox(width: 12),
+                    const SizedBox(width: 12),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,19 +143,19 @@ class _AppDevContent extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 ...unit.lessons.asMap().entries.map((le) {
                   final li = le.key;
                   final lesson = le.value;
                   return Padding(
-                    padding: EdgeInsets.only(left: 20, bottom: 8),
+                    padding: const EdgeInsets.only(left: 20, bottom: 8),
                     child: InkWell(
                       onTap: () => context.push(
                         '/learn/subject/app_development/lesson/$ui/$li',
                       ),
                       borderRadius: BorderRadius.circular(10),
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                         decoration: BoxDecoration(
                           color: Theme.of(context).colorScheme.surface,
                           borderRadius: BorderRadius.circular(10),
@@ -177,7 +177,7 @@ class _AppDevContent extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               child: Text(
                                 lesson.title,
@@ -191,7 +191,7 @@ class _AppDevContent extends StatelessWidget {
                     ),
                   );
                 }),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
               ],
             );
           }),

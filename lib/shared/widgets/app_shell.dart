@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
-import '../../db/providers/db_provider.dart';
-import '../../features/learn/path/path_models.dart';
 import '../../features/learn/path/path_provider.dart';
 
 const _brandLogoAsset = 'assets/branding/otic-studio-logo.png';
@@ -59,7 +57,7 @@ class AppShell extends StatelessWidget {
         body: Row(
           children: [
             _SideNav(selectedIndex: selectedIndex, destinations: _destinations),
-            VerticalDivider(thickness: 1, width: 1),
+            const VerticalDivider(thickness: 1, width: 1),
             Expanded(child: child),
           ],
         ),
@@ -82,7 +80,7 @@ class AppShell extends StatelessWidget {
               child: Material(
                 color: Colors.transparent,
                 child: IconButton(
-                  icon: Icon(Icons.menu, size: 22),
+                  icon: const Icon(Icons.menu, size: 22),
                   tooltip: 'Menu',
                   onPressed: () => mobileScaffoldKey.currentState?.openDrawer(),
                   style: IconButton.styleFrom(
@@ -134,16 +132,16 @@ class _SideNav extends StatelessWidget {
       width: 220,
       child: Column(
         children: [
-          SizedBox(height: 20),
-          Padding(
+          const SizedBox(height: 20),
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Align(
               alignment: Alignment.centerLeft,
               child: _BrandLogo(size: 44),
             ),
           ),
-          SizedBox(height: 20),
-          Divider(),
+          const SizedBox(height: 20),
+          const Divider(),
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -187,7 +185,7 @@ class _SideNav extends StatelessWidget {
               },
             ),
           ),
-          Divider(),
+          const Divider(),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
@@ -195,12 +193,12 @@ class _SideNav extends StatelessWidget {
                 Container(
                   width: 8,
                   height: 8,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: AppColors.teachColor,
                     shape: BoxShape.circle,
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Text(
                   'Offline · v1.1',
                   style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),
@@ -231,14 +229,14 @@ class _AppDrawer extends ConsumerWidget {
         Navigator.pop(context);
       },
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 28, 16, 16),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(16, 28, 16, 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [const _BrandLogo(size: 48)],
+            children: [_BrandLogo(size: 48)],
           ),
         ),
-        Divider(indent: 16, endIndent: 16),
+        const Divider(indent: 16, endIndent: 16),
         // My Paths section
         pathsAsync.when(
           data: (rows) {
@@ -261,10 +259,10 @@ class _AppDrawer extends ConsumerWidget {
                 ),
                 ...paths.take(5).map((p) => ListTile(
                       dense: true,
-                      leading: Icon(Icons.route, size: 18, color: AppColors.learnColor),
+                      leading: const Icon(Icons.route, size: 18, color: AppColors.learnColor),
                       title: Text(
                         p.topic,
-                        style: TextStyle(fontSize: 13),
+                        style: const TextStyle(fontSize: 13),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -274,7 +272,7 @@ class _AppDrawer extends ConsumerWidget {
                       ),
                       trailing: Text(
                         '${(p.progressFraction * 100).round()}%',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                           color: AppColors.learnColor,
@@ -285,7 +283,7 @@ class _AppDrawer extends ConsumerWidget {
                         context.push('/path/${Uri.encodeComponent(p.topic)}');
                       },
                     )),
-                Divider(indent: 16, endIndent: 16),
+                const Divider(indent: 16, endIndent: 16),
               ],
             );
           },

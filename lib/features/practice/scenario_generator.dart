@@ -3,7 +3,7 @@ import '../../ai_core/inference/inference_engine.dart';
 import 'scenario_models.dart';
 
 class ScenarioGenerator {
-  ScenarioGenerator({required InferenceEngine engine}) : _engine = engine;
+  ScenarioGenerator({required this._engine});
 
   final InferenceEngine _engine;
 

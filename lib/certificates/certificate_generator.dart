@@ -39,10 +39,10 @@ class CertificateGenerator {
               // Header
               pw.Text(
                 schoolName.toUpperCase(),
-                style: pw.TextStyle(
+                style: const pw.TextStyle(
                   fontSize: 14,
                   fontWeight: pw.FontWeight.bold,
-                  color: const PdfColor.fromInt(0xFF4F46E5),
+                  color: PdfColor.fromInt(0xFF4F46E5),
                   letterSpacing: 3,
                 ),
               ),
@@ -57,10 +57,10 @@ class CertificateGenerator {
               // Title
               pw.Text(
                 'CERTIFICATE OF COMPLETION',
-                style: pw.TextStyle(
+                style: const pw.TextStyle(
                   fontSize: 26,
                   fontWeight: pw.FontWeight.bold,
-                  color: const PdfColor.fromInt(0xFF0F172A),
+                  color: PdfColor.fromInt(0xFF0F172A),
                 ),
                 textAlign: pw.TextAlign.center,
               ),
@@ -78,10 +78,10 @@ class CertificateGenerator {
               // Student name
               pw.Text(
                 studentName,
-                style: pw.TextStyle(
+                style: const pw.TextStyle(
                   fontSize: 32,
                   fontWeight: pw.FontWeight.bold,
-                  color: const PdfColor.fromInt(0xFF0F172A),
+                  color: PdfColor.fromInt(0xFF0F172A),
                 ),
                 textAlign: pw.TextAlign.center,
               ),
@@ -108,10 +108,10 @@ class CertificateGenerator {
                 ),
                 child: pw.Text(
                   pathTitle,
-                  style: pw.TextStyle(
+                  style: const pw.TextStyle(
                     fontSize: 18,
                     fontWeight: pw.FontWeight.bold,
-                    color: const PdfColor.fromInt(0xFF4F46E5),
+                    color: PdfColor.fromInt(0xFF4F46E5),
                   ),
                   textAlign: pw.TextAlign.center,
                 ),

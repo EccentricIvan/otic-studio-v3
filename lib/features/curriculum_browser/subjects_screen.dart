@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_provider.dart';
-import '../../curriculum/curriculum_models.dart';
 
 class SubjectsScreen extends ConsumerWidget {
   const SubjectsScreen({super.key});
@@ -35,13 +33,13 @@ class SubjectsScreen extends ConsumerWidget {
     final subjectsAsync = ref.watch(allSubjectsProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Learn')),
+      appBar: AppBar(title: const Text('Learn')),
       body: subjectsAsync.when(
-        loading: () => Center(child: CircularProgressIndicator()),
+        loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error loading subjects: $e')),
         data: (subjects) => GridView.builder(
-          padding: EdgeInsets.all(16),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          padding: const EdgeInsets.all(16),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 12,
             crossAxisSpacing: 12,
@@ -99,7 +97,7 @@ class _SubjectCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(22),
           border: Border.all(color: color.withValues(alpha: 0.2)),
         ),
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -131,7 +129,7 @@ class _SubjectCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 2),
+                const SizedBox(height: 2),
                 Text(
                   '$lessonCount lessons',
                   style: TextStyle(

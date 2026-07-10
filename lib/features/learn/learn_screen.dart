@@ -1,15 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import '../../ai_core/providers/ai_provider.dart';
 import '../../ai_core/tutor/tutor_response.dart';
 import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/curriculum_provider.dart';
 import '../../shared/widgets/responsive.dart';
-import 'path/path_models.dart';
-import 'path/path_provider.dart';
 
 class _ChatEntry {
   const _ChatEntry({required this.text, required this.isUser, this.lesson});
@@ -93,21 +90,21 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Learn'),
+        title: const Text('Learn'),
         actions: [
           if (kDebugMode)
             engineAsync.when(
               data: (engine) => Padding(
                 padding: const EdgeInsets.only(right: 8),
                 child: Chip(
-                  avatar: Icon(
+                  avatar: const Icon(
                     Icons.memory,
                     size: 14,
                     color: AppColors.teachColor,
                   ),
                   label: Text(
                     engine.backendLabel,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 11,
                       color: AppColors.teachColor,
                     ),
@@ -119,7 +116,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                   padding: EdgeInsets.zero,
                 ),
               ),
-              loading: () => Padding(
+              loading: () => const Padding(
                 padding: EdgeInsets.only(right: 16),
                 child: SizedBox(
                   width: 16,
@@ -130,7 +127,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
               error: (_, __) => const SizedBox.shrink(),
             ),
           IconButton(
-            icon: Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh),
             tooltip: 'New session',
             onPressed: () => ref.read(chatProvider.notifier).reset(),
           ),
@@ -141,7 +138,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
           children: [
             Expanded(
               child: chat.when(
-                loading: () => Center(child: CircularProgressIndicator()),
+                loading: () => const Center(child: CircularProgressIndicator()),
                 error: (e, _) => Center(child: Text('Error: $e')),
                 data: (state) {
                   if (state.messages.isEmpty) {
@@ -172,7 +169,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
 
                   return ListView.builder(
                     controller: _scrollController,
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                     itemCount: allItems.length + (showStreaming ? 1 : 0),
                     itemBuilder: (context, i) {
                       if (i >= allItems.length) {
@@ -218,119 +215,6 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
   }
 }
 
-// ── Active paths horizontal strip ────────────────────────────────────────────
-
-class _ActivePathsStrip extends ConsumerWidget {
-  const _ActivePathsStrip({required this.onPathTap});
-  final void Function(String topic) onPathTap;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final pathsAsync = ref.watch(studentPathsProvider);
-    return pathsAsync.when(
-      data: (rows) {
-        if (rows.isEmpty) return const SizedBox.shrink();
-        final paths = rows.map(parsedFromRow).toList();
-        return Container(
-          color: Theme.of(context).colorScheme.surfaceContainerHighest,
-          padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Icon(Icons.route, size: 14, color: Theme.of(context).hintColor),
-                  SizedBox(width: 6),
-                  Text(
-                    'MY PATHS',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 0.8,
-                      color: Theme.of(context).hintColor,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              SizedBox(
-                height: 82,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: paths.length,
-                  separatorBuilder: (_, __) => SizedBox(width: 10),
-                  itemBuilder: (_, i) => _PathChip(
-                    path: paths[i],
-                    onTap: () => onPathTap(paths[i].topic),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-      loading: () => const SizedBox.shrink(),
-      error: (_, __) => const SizedBox.shrink(),
-    );
-  }
-}
-
-class _PathChip extends StatelessWidget {
-  const _PathChip({required this.path, required this.onTap});
-  final ParsedPath path;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 160,
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: cs.surface,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Theme.of(context).dividerColor),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              path.topic,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 13,
-                color: cs.onSurface,
-              ),
-            ),
-            SizedBox(height: 6),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(3),
-              child: LinearProgressIndicator(
-                value: path.progressFraction,
-                minHeight: 5,
-                backgroundColor: Theme.of(context).dividerColor,
-                valueColor: const AlwaysStoppedAnimation<Color>(
-                  AppColors.learnColor,
-                ),
-              ),
-            ),
-            SizedBox(height: 4),
-            Text(
-              '${path.completedLessons}/${path.totalLessons} lessons',
-              style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 // ── Chat bubbles ──────────────────────────────────────────────────────────────
 
 class _UserBubble extends StatelessWidget {
@@ -347,7 +231,7 @@ class _UserBubble extends StatelessWidget {
         ),
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: AppColors.primary,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(18),
@@ -358,7 +242,7 @@ class _UserBubble extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(color: Colors.white, height: 1.5),
+          style: const TextStyle(color: Colors.white, height: 1.5),
         ),
       ),
     );
@@ -399,7 +283,7 @@ class _TutorBubble extends StatelessWidget {
                     fit: BoxFit.contain,
                     semanticLabel: 'Logo',
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Text(
                     _label(stage!),
                     style: TextStyle(
@@ -439,8 +323,8 @@ class _TutorBubble extends StatelessWidget {
                   ),
                 ),
                 if (isStreaming) ...[
-                  SizedBox(width: 8),
-                  SizedBox(
+                  const SizedBox(width: 8),
+                  const SizedBox(
                     width: 12,
                     height: 12,
                     child: CircularProgressIndicator(
@@ -465,7 +349,7 @@ class _TutorBubble extends StatelessWidget {
               ),
             )
           else
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
         ],
       ),
     );
@@ -516,7 +400,7 @@ class _InputBar extends StatelessWidget {
             child: TextField(
               controller: controller,
               onSubmitted: (_) => onSend(),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Ask Otic anything...',
                 border: InputBorder.none,
                 enabledBorder: InputBorder.none,
@@ -527,9 +411,9 @@ class _InputBar extends StatelessWidget {
               textInputAction: TextInputAction.send,
             ),
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           isLoading
-              ? Padding(
+              ? const Padding(
                   padding: EdgeInsets.all(12),
                   child: SizedBox(
                     width: 24,
@@ -539,7 +423,7 @@ class _InputBar extends StatelessWidget {
                 )
               : IconButton.filled(
                   onPressed: onSend,
-                  icon: Icon(Icons.arrow_upward),
+                  icon: const Icon(Icons.arrow_upward),
                   style: IconButton.styleFrom(
                     backgroundColor: AppColors.primary,
                     foregroundColor: Colors.white,
@@ -562,10 +446,10 @@ class _EmptyState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(32),
+      padding: const EdgeInsets.all(32),
       child: Column(
         children: [
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           Container(
             width: 80,
             height: 80,
@@ -574,15 +458,15 @@ class _EmptyState extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color(0xFF4F46E5).withValues(alpha: 0.2),
-                  Color(0xFF0EA5E9).withValues(alpha: 0.1),
+                  const Color(0xFF4F46E5).withValues(alpha: 0.2),
+                  const Color(0xFF0EA5E9).withValues(alpha: 0.1),
                 ],
               ),
               borderRadius: BorderRadius.circular(22),
-              border: Border.all(color: Color(0xFF4F46E5).withValues(alpha: 0.2)),
+              border: Border.all(color: const Color(0xFF4F46E5).withValues(alpha: 0.2)),
             ),
             child: Padding(
-              padding: EdgeInsets.all(14),
+              padding: const EdgeInsets.all(14),
               child: Image.asset(
                 'assets/branding/otic-studio-logo.png',
                 fit: BoxFit.contain,
@@ -590,35 +474,35 @@ class _EmptyState extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           Text(
             'AI Chat',
             style: Theme.of(context).textTheme.headlineSmall,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
             'Ask questions, get explanations, and explore any topic with your AI tutor.',
             textAlign: TextAlign.center,
             style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
           ),
-          SizedBox(height: 28),
+          const SizedBox(height: 28),
           InkWell(
             onTap: () => onTopic(_starter),
             borderRadius: BorderRadius.circular(20),
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Color(0xFF4F46E5).withValues(alpha: 0.15),
-                    Color(0xFF0EA5E9).withValues(alpha: 0.08),
+                    const Color(0xFF4F46E5).withValues(alpha: 0.15),
+                    const Color(0xFF0EA5E9).withValues(alpha: 0.08),
                   ],
                 ),
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Color(0xFF4F46E5).withValues(alpha: 0.2)),
+                border: Border.all(color: const Color(0xFF4F46E5).withValues(alpha: 0.2)),
               ),
-              child: Row(
+              child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(Icons.auto_awesome, size: 16, color: Color(0xFF4F46E5)),
@@ -643,7 +527,7 @@ class _LessonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 12),
+      margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -660,28 +544,28 @@ class _LessonCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.fromLTRB(14, 12, 14, 8),
+            padding: const EdgeInsets.fromLTRB(14, 12, 14, 8),
             decoration: BoxDecoration(
               color: AppColors.primary.withValues(alpha: 0.08),
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(18), topRight: Radius.circular(18)),
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(18), topRight: Radius.circular(18)),
             ),
             child: Row(
               children: [
-                Icon(Icons.menu_book, size: 16, color: AppColors.primary),
-                SizedBox(width: 8),
+                const Icon(Icons.menu_book, size: 16, color: AppColors.primary),
+                const SizedBox(width: 8),
                 Expanded(
-                  child: Text(lesson.title, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.primary), maxLines: 1, overflow: TextOverflow.ellipsis),
+                  child: Text(lesson.title, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.primary), maxLines: 1, overflow: TextOverflow.ellipsis),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                   decoration: BoxDecoration(color: AppColors.primary.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(8)),
-                  child: Text('Curriculum', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600, color: AppColors.primary)),
+                  child: const Text('Curriculum', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600, color: AppColors.primary)),
                 ),
               ],
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(14, 10, 14, 6),
+            padding: const EdgeInsets.fromLTRB(14, 10, 14, 6),
             child: Text(
               lesson.content.length > 300 ? '${lesson.content.substring(0, 300)}...' : lesson.content,
               style: TextStyle(fontSize: 13, height: 1.6, color: Theme.of(context).colorScheme.onSurface),
@@ -689,31 +573,31 @@ class _LessonCard extends StatelessWidget {
           ),
           if (lesson.examples.isNotEmpty)
             Padding(
-              padding: EdgeInsets.fromLTRB(14, 4, 14, 6),
+              padding: const EdgeInsets.fromLTRB(14, 4, 14, 6),
               child: Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: AppColors.createColor.withValues(alpha: 0.06),
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: AppColors.createColor.withValues(alpha: 0.12)),
                 ),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text('Example', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: AppColors.createColor)),
-                  SizedBox(height: 4),
+                  const Text('Example', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: AppColors.createColor)),
+                  const SizedBox(height: 4),
                   Text(lesson.examples.first, style: TextStyle(fontSize: 12, height: 1.4, color: Theme.of(context).colorScheme.onSurface)),
                 ]),
               ),
             ),
           if (lesson.keyTerms.isNotEmpty)
             Padding(
-              padding: EdgeInsets.fromLTRB(14, 2, 14, 12),
+              padding: const EdgeInsets.fromLTRB(14, 2, 14, 12),
               child: Wrap(
                 spacing: 6, runSpacing: 6,
                 children: lesson.keyTerms.keys.take(4).map((term) => Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(color: AppColors.primary.withValues(alpha: 0.08), borderRadius: BorderRadius.circular(8)),
-                  child: Text(term, style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: AppColors.primary)),
+                  child: Text(term, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: AppColors.primary)),
                 )).toList(),
               ),
             ),

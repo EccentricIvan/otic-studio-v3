@@ -22,7 +22,7 @@ final _rng = Random();
 String _pick(List<String> options) => options[_rng.nextInt(options.length)];
 
 final _templates = [
-  _Template('bakery', '🍞 Bakery / Restaurant', Icons.bakery_dining, [
+  const _Template('bakery', '🍞 Bakery / Restaurant', Icons.bakery_dining, [
     _QField('business_name', "What's the name of your business?", 'e.g. Sweet Treats Bakery'),
     _QField('phone', "Phone number?", 'e.g. +256 700 123 456'),
     _QField('address', "Your address?", 'e.g. Plot 15, Main Street, Kampala'),
@@ -31,7 +31,7 @@ final _templates = [
     'description': ['We bake fresh bread, cakes, and pastries every morning using locally sourced ingredients. Visit us for the best treats in town!', 'Homemade goodness from our kitchen to your table. Fresh ingredients, traditional recipes, and a whole lot of love.', 'From artisan breads to custom cakes, we bring you the finest baked goods made fresh daily.'],
     'about': ['Started by a family passionate about baking. Every item is made from scratch with premium ingredients.', 'What started as a small kitchen dream has grown into the community\'s favourite bakery. We believe in quality, freshness, and making people smile.', 'Born from a love of traditional baking, we combine classic recipes with modern flavours to create unforgettable treats.'],
   }),
-  _Template('hotel', '🏨 Hotel / Lodge', Icons.hotel, [
+  const _Template('hotel', '🏨 Hotel / Lodge', Icons.hotel, [
     _QField('hotel_name', "Hotel name?", 'e.g. Grand Savanna Hotel'),
     _QField('phone', "Phone number?", 'e.g. +256 700 123 456'),
     _QField('address', "Address?", 'e.g. Plot 45, Kampala Road'),
@@ -43,7 +43,7 @@ final _templates = [
     'price_presidential': ['800,000 UGX', '750,000 UGX', '1,000,000 UGX', '900,000 UGX'],
     'email': ['reservations@hotel.com', 'info@hotel.com', 'bookings@hotel.com'],
   }),
-  _Template('fitness', '💪 Gym / Fitness', Icons.fitness_center, [
+  const _Template('fitness', '💪 Gym / Fitness', Icons.fitness_center, [
     _QField('gym_name', "Gym name?", 'e.g. Iron Forge Fitness'),
     _QField('phone', "Phone number?", 'e.g. +256 700 123 456'),
     _QField('address', "Address?", 'e.g. Plot 12, Kampala'),
@@ -55,7 +55,7 @@ final _templates = [
     'price_student': ['50,000 UGX', '40,000 UGX', '45,000 UGX', '55,000 UGX'],
     'hours': ['Mon-Sat: 5AM-10PM, Sun: 7AM-6PM', 'Open daily: 5AM-11PM', 'Mon-Fri: 5AM-10PM, Weekends: 6AM-8PM'],
   }),
-  _Template('salon', '💇 Salon / Spa', Icons.spa, [
+  const _Template('salon', '💇 Salon / Spa', Icons.spa, [
     _QField('salon_name', "Salon name?", 'e.g. Glow Beauty Salon'),
     _QField('phone', "Phone number?", 'e.g. +256 700 123 456'),
     _QField('address', "Address?", 'e.g. Plot 8, Acacia Avenue'),
@@ -71,7 +71,7 @@ final _templates = [
     'hours_saturday': ['8AM - 8PM', '9AM - 9PM', '8AM - 6PM'],
     'hours_sunday': ['10AM - 5PM', 'Closed', '11AM - 4PM', '10AM - 3PM'],
   }),
-  _Template('church', '⛪ Church / Ministry', Icons.church, [
+  const _Template('church', '⛪ Church / Ministry', Icons.church, [
     _QField('church_name', "Church name?", 'e.g. Grace Community Church'),
     _QField('phone', "Phone number?", 'e.g. +256 700 123 456'),
     _QField('address', "Address?", 'e.g. Plot 20, Jinja Road'),
@@ -85,7 +85,7 @@ final _templates = [
     'time_youth': ['Friday 5:00 PM', 'Saturday 3:00 PM', 'Friday 6:00 PM'],
     'email': ['info@church.org', 'welcome@church.org', 'office@church.org'],
   }),
-  _Template('realtor', '🏠 Real Estate', Icons.house, [
+  const _Template('realtor', '🏠 Real Estate', Icons.house, [
     _QField('company_name', "Company name?", 'e.g. Prime Properties'),
     _QField('phone', "Phone number?", 'e.g. +256 700 123 456'),
     _QField('address', "Office address?", 'e.g. Plot 5, Bombo Road'),
@@ -112,7 +112,7 @@ final _templates = [
     'clients': ['1,200+', '800+', '2,000+', '950+'],
     'email': ['info@properties.ug', 'sales@realestate.ug', 'hello@homes.ug'],
   }),
-  _Template('techstartup', '🚀 Tech Startup', Icons.rocket_launch, [
+  const _Template('techstartup', '🚀 Tech Startup', Icons.rocket_launch, [
     _QField('company_name', "Company name?", 'e.g. NexaFlow'),
     _QField('email', "Contact email?", 'e.g. hello@company.io'),
   ], {
@@ -126,7 +126,7 @@ final _templates = [
     'stat_uptime': ['99.9%', '99.99%', '99.95%'],
     'cta_text': ['Join thousands of teams already building better products faster.', 'Start free today — no credit card required. See results in minutes.', 'Ready to transform your workflow? Get started in 60 seconds.'],
   }),
-  _Template('ngo', '🌍 NGO / Charity', Icons.volunteer_activism, [
+  const _Template('ngo', '🌍 NGO / Charity', Icons.volunteer_activism, [
     _QField('org_name', "Organization name?", 'e.g. Hope Foundation'),
     _QField('phone', "Phone number?", 'e.g. +256 700 123 456'),
     _QField('address', "Office address?", 'e.g. Plot 15, Buganda Road'),
@@ -146,7 +146,7 @@ final _templates = [
     'donate_text': ['Every contribution helps us reach more communities. Together we can make a lasting difference.', 'Your support changes lives. 100% of donations go directly to our programs.'],
     'email': ['info@foundation.org', 'donate@charity.org', 'hello@ngo.org'],
   }),
-  _Template('portfolio', '👤 Personal Portfolio', Icons.person, [
+  const _Template('portfolio', '👤 Personal Portfolio', Icons.person, [
     _QField('name', "What's your name?", 'e.g. Alice Nakamya'),
     _QField('title', "Your title or role?", 'e.g. Student Developer'),
     _QField('email', "Your email?", 'e.g. alice@example.com'),
@@ -166,7 +166,7 @@ final _templates = [
     'phone': ['+256 700 123 456', '+256 770 456 789', '+256 780 234 567'],
     'location': ['Kampala, Uganda', 'Nairobi, Kenya', 'Dar es Salaam, Tanzania'],
   }),
-  _Template('school', '🎓 School Website', Icons.school, [
+  const _Template('school', '🎓 School Website', Icons.school, [
     _QField('school_name', "School name?", 'e.g. Bright Future Academy'),
     _QField('phone', "School phone?", 'e.g. +256 700 123 456'),
     _QField('address', "School address?", 'e.g. Plot 23, Education Road'),
@@ -251,7 +251,7 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
       if (_scrollController.hasClients) {
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent + 100,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
       }
@@ -282,7 +282,7 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
         break;
       }
     }
-    if (key == null) key = '1';
+    key ??= '1';
 
     _colorTheme = key;
     _choosingColor = false;
@@ -290,7 +290,7 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
 
     final name = _colorThemes[key]!['name'];
     _addBot("$name theme selected! ✨\n\nNow just ${_template!.askFields.length} quick questions:");
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       _askCurrentField();
     });
   }
@@ -332,7 +332,7 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
     _choosingColor = true;
 
     _addBot("Great choice — ${chosen.name}! 🎨\n\nPick a color theme:");
-    Future.delayed(Duration(milliseconds: 400), () {
+    Future.delayed(const Duration(milliseconds: 400), () {
       _addBot("1️⃣ Default (template colors)\n2️⃣ Ocean Blue 🔵\n3️⃣ Forest Green 🟢\n4️⃣ Royal Purple 🟣\n5️⃣ Sunset Orange 🟠\n6️⃣ Rose Pink 🩷\n\nType a number!");
     });
   }
@@ -353,11 +353,11 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
 
     if (_fieldIndex >= _template!.askFields.length) {
       _addBot("Perfect! All details collected. ✅\n\n🔨 Building your website now...");
-      Future.delayed(Duration(milliseconds: 800), () {
+      Future.delayed(const Duration(milliseconds: 800), () {
         _buildSite();
       });
     } else {
-      Future.delayed(Duration(milliseconds: 400), () {
+      Future.delayed(const Duration(milliseconds: 400), () {
         _askCurrentField();
       });
     }
@@ -407,7 +407,7 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(children: [
+        title: const Row(children: [
           Icon(Icons.chat, size: 20, color: AppColors.primary),
           SizedBox(width: 8),
           Text('Site Builder'),
@@ -418,13 +418,13 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (_) => Scaffold(
-                    appBar: AppBar(title: Text('Your Website')),
+                    appBar: AppBar(title: const Text('Your Website')),
                     body: WebViewWidget(controller: _webViewController!),
                   ),
                 ));
               },
-              icon: Icon(Icons.visibility, size: 18),
-              label: Text('Preview'),
+              icon: const Icon(Icons.visibility, size: 18),
+              label: const Text('Preview'),
             ),
         ],
       ),
@@ -434,7 +434,7 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
           Expanded(
             child: ListView.builder(
               controller: _scrollController,
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               itemCount: _messages.length + (_showPreview ? 1 : 0),
               itemBuilder: (_, i) {
                 if (i == _messages.length && _showPreview) {
@@ -442,7 +442,7 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (_) => Scaffold(
-                          appBar: AppBar(title: Text('Your Website')),
+                          appBar: AppBar(title: const Text('Your Website')),
                           body: WebViewWidget(controller: _webViewController!),
                         ),
                       ));
@@ -458,12 +458,12 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
           // Building indicator
           if (_building)
             Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2)),
-                  SizedBox(width: 12),
+                  const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2)),
+                  const SizedBox(width: 12),
                   Text('Building your site...', style: TextStyle(color: Theme.of(context).hintColor)),
                 ],
               ),
@@ -476,7 +476,7 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
                 border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
                 color: Theme.of(context).colorScheme.surface,
               ),
-              padding: EdgeInsets.fromLTRB(16, 10, 12, 16),
+              padding: const EdgeInsets.fromLTRB(16, 10, 12, 16),
               child: Row(
                 children: [
                   Expanded(
@@ -490,10 +490,10 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
                       textInputAction: TextInputAction.send,
                     ),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   IconButton.filled(
                     onPressed: _onSend,
-                    icon: Icon(Icons.arrow_upward),
+                    icon: const Icon(Icons.arrow_upward),
                     style: IconButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       foregroundColor: Colors.white,
@@ -521,8 +521,8 @@ class _ChatBubble extends StatelessWidget {
       alignment: isBot ? Alignment.centerLeft : Alignment.centerRight,
       child: Container(
         constraints: BoxConstraints(maxWidth: MediaQuery.sizeOf(context).width * 0.8),
-        margin: EdgeInsets.only(bottom: 10),
-        padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        margin: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
         decoration: BoxDecoration(
           color: isBot
               ? Theme.of(context).colorScheme.surface
@@ -530,8 +530,8 @@ class _ChatBubble extends StatelessWidget {
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(isBot ? 4 : 16),
             topRight: Radius.circular(isBot ? 16 : 4),
-            bottomLeft: Radius.circular(16),
-            bottomRight: Radius.circular(16),
+            bottomLeft: const Radius.circular(16),
+            bottomRight: const Radius.circular(16),
           ),
           border: isBot ? Border.all(color: Theme.of(context).dividerColor) : null,
         ),
@@ -559,8 +559,8 @@ class _PreviewCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.only(bottom: 10),
-        padding: EdgeInsets.all(16),
+        margin: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: AppColors.teachColor.withValues(alpha: 0.08),
           borderRadius: BorderRadius.circular(14),
@@ -574,20 +574,20 @@ class _PreviewCard extends StatelessWidget {
                 color: AppColors.teachColor.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Icon(Icons.web, color: AppColors.teachColor),
+              child: const Icon(Icons.web, color: AppColors.teachColor),
             ),
-            SizedBox(width: 14),
+            const SizedBox(width: 14),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Your website is ready! 🎉', style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.teachColor)),
-                  SizedBox(height: 2),
+                  const Text('Your website is ready! 🎉', style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.teachColor)),
+                  const SizedBox(height: 2),
                   Text('Tap to see the live preview', style: TextStyle(fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 ],
               ),
             ),
-            Icon(Icons.arrow_forward_ios, size: 16, color: AppColors.teachColor),
+            const Icon(Icons.arrow_forward_ios, size: 16, color: AppColors.teachColor),
           ],
         ),
       ),

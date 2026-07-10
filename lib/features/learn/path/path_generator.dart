@@ -6,7 +6,7 @@ import 'path_models.dart';
 /// Generates a structured learning path for a topic using the local AI model.
 /// Falls back to a hand-crafted curriculum if the model returns invalid JSON.
 class PathGenerator {
-  PathGenerator({required InferenceEngine engine}) : _engine = engine;
+  PathGenerator({required this._engine});
 
   final InferenceEngine _engine;
 

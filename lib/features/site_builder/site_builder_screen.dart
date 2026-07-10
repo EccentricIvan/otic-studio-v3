@@ -105,12 +105,16 @@ class _SiteBuilderScreenState extends ConsumerState<SiteBuilderScreen> {
 
   @override
   void dispose() {
-    for (final c in _controllers.values) c.dispose();
+    for (final c in _controllers.values) {
+      c.dispose();
+    }
     super.dispose();
   }
 
   void _selectTemplate(_TemplateInfo template) {
-    for (final c in _controllers.values) c.dispose();
+    for (final c in _controllers.values) {
+      c.dispose();
+    }
     _controllers.clear();
 
     for (final field in template.fields) {
@@ -156,19 +160,19 @@ class _SiteBuilderScreenState extends ConsumerState<SiteBuilderScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Row(children: [
-          Icon(Icons.web, size: 20, color: AppColors.primary),
-          SizedBox(width: 8),
+          const Icon(Icons.web, size: 20, color: AppColors.primary),
+          const SizedBox(width: 8),
           Text(_selected == null ? 'Site Builder' : _showPreview ? 'Preview' : _selected!.name),
         ]),
         leading: _selected != null
-            ? IconButton(icon: Icon(Icons.arrow_back), onPressed: _back)
+            ? IconButton(icon: const Icon(Icons.arrow_back), onPressed: _back)
             : null,
       ),
       floatingActionButton: _selected != null && !_showPreview
           ? FloatingActionButton.extended(
               onPressed: _buildSite,
-              icon: Icon(Icons.rocket_launch),
-              label: Text('BUILD'),
+              icon: const Icon(Icons.rocket_launch),
+              label: const Text('BUILD'),
               backgroundColor: _selected!.color,
               foregroundColor: Colors.white,
             )
@@ -178,7 +182,7 @@ class _SiteBuilderScreenState extends ConsumerState<SiteBuilderScreen> {
           : _showPreview
               ? _webViewController != null
                   ? WebViewWidget(controller: _webViewController!)
-                  : Center(child: CircularProgressIndicator())
+                  : const Center(child: CircularProgressIndicator())
               : _FieldEditor(template: _selected!, controllers: _controllers),
     );
   }
@@ -193,21 +197,21 @@ class _TemplatePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Choose a Template', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.onSurface)),
-          SizedBox(height: 6),
+          const SizedBox(height: 6),
           Text('Pick a design, fill in your info, and get a live website!', style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant)),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           ..._templates.map((t) => Padding(
-            padding: EdgeInsets.only(bottom: 14),
+            padding: const EdgeInsets.only(bottom: 14),
             child: InkWell(
               onTap: () => onSelect(t),
               borderRadius: BorderRadius.circular(16),
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(16),
@@ -223,12 +227,12 @@ class _TemplatePicker extends StatelessWidget {
                       ),
                       child: Icon(t.icon, color: t.color, size: 26),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(t.name, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, color: Theme.of(context).colorScheme.onSurface)),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text(t.description, style: TextStyle(fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                       ],
                     )),
@@ -254,12 +258,12 @@ class _FieldEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: template.color.withValues(alpha: 0.08),
               borderRadius: BorderRadius.circular(12),
@@ -267,16 +271,16 @@ class _FieldEditor extends StatelessWidget {
             ),
             child: Row(children: [
               Icon(Icons.edit_note, color: template.color),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Expanded(child: Text(
                 'Fill in the details below, then tap BUILD to see your website!',
                 style: TextStyle(fontSize: 13, color: Theme.of(context).colorScheme.onSurface, height: 1.4),
               )),
             ]),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ...template.fields.map((field) => Padding(
-            padding: EdgeInsets.only(bottom: 16),
+            padding: const EdgeInsets.only(bottom: 16),
             child: TextField(
               controller: controllers[field.key],
               maxLines: field.key.contains('desc') || field.key == 'about' || field.key == 'description' ? 3 : 1,
@@ -291,7 +295,7 @@ class _FieldEditor extends StatelessWidget {
               ),
             ),
           )),
-          SizedBox(height: 60),
+          const SizedBox(height: 60),
         ],
       ),
     );

@@ -66,7 +66,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
         if (subject == null) {
           return Scaffold(
             appBar: AppBar(),
-            body: Center(child: CircularProgressIndicator()),
+            body: const Center(child: CircularProgressIndicator()),
           );
         }
 
@@ -79,11 +79,11 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
           appBar: AppBar(
             title: Text(
               'Unit ${widget.unitIndex + 1}, Lesson ${widget.lessonIndex + 1}',
-              style: TextStyle(fontSize: 15),
+              style: const TextStyle(fontSize: 15),
             ),
           ),
           body: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -97,7 +97,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                     height: 1.3,
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
 
                 // Content
                 Text(
@@ -108,22 +108,22 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                     color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
 
                 // Diagram
                 if (lesson.diagram != null) ...[
-                  _SectionTitle(icon: Icons.schema, title: 'Diagram', color: AppColors.practiceColor),
-                  SizedBox(height: 8),
+                  const _SectionTitle(icon: Icons.schema, title: 'Diagram', color: AppColors.practiceColor),
+                  const SizedBox(height: 8),
                   Container(
                     width: double.infinity,
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Color(0xFF1E1E2E),
+                      color: const Color(0xFF1E1E2E),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
                       lesson.diagram!,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'monospace',
                         fontSize: 12,
                         color: Color(0xFFA6E3A1),
@@ -131,18 +131,18 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
 
                 // Examples
                 if (lesson.examples.isNotEmpty) ...[
-                  _SectionTitle(icon: Icons.lightbulb, title: 'Examples', color: AppColors.createColor),
-                  SizedBox(height: 8),
+                  const _SectionTitle(icon: Icons.lightbulb, title: 'Examples', color: AppColors.createColor),
+                  const SizedBox(height: 8),
                   ...lesson.examples.map((ex) => Padding(
-                    padding: EdgeInsets.only(bottom: 8),
+                    padding: const EdgeInsets.only(bottom: 8),
                     child: Container(
                       width: double.infinity,
-                      padding: EdgeInsets.all(12),
+                      padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
                         color: AppColors.createColor.withValues(alpha: 0.06),
                         borderRadius: BorderRadius.circular(10),
@@ -154,35 +154,35 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                       ),
                     ),
                   )),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
 
                 // Key Terms
                 if (lesson.keyTerms.isNotEmpty) ...[
-                  _SectionTitle(icon: Icons.bookmark, title: 'Key Terms', color: AppColors.primary),
-                  SizedBox(height: 8),
+                  const _SectionTitle(icon: Icons.bookmark, title: 'Key Terms', color: AppColors.primary),
+                  const SizedBox(height: 8),
                   ...lesson.keyTerms.entries.map((e) => Padding(
-                    padding: EdgeInsets.only(bottom: 6),
+                    padding: const EdgeInsets.only(bottom: 6),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(top: 2),
-                          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                          margin: const EdgeInsets.only(top: 2),
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                           decoration: BoxDecoration(
                             color: AppColors.primary.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
                             e.key,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
                               color: AppColors.primary,
                             ),
                           ),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Expanded(
                           child: Text(
                             e.value,
@@ -192,7 +192,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                       ],
                     ),
                   )),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                 ],
 
                 // Quiz toggle
@@ -211,11 +211,11 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                       label: Text(_showQuiz ? 'Hide Quiz' : 'Test Yourself (${lesson.quiz.length} questions)'),
                       style: FilledButton.styleFrom(
                         backgroundColor: AppColors.practiceColor,
-                        padding: EdgeInsets.symmetric(vertical: 14),
+                        padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                 ],
 
                 // Quiz
@@ -239,10 +239,10 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                   }),
                   // Score
                   if (_results.length == lesson.quiz.length) ...[
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Container(
                       width: double.infinity,
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         color: AppColors.teachColor.withValues(alpha: 0.08),
                         borderRadius: BorderRadius.circular(12),
@@ -252,7 +252,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                         children: [
                           Text(
                             '${_results.values.where((r) => r == true).length}/${lesson.quiz.length}',
-                            style: TextStyle(fontSize: 32, fontWeight: FontWeight.w800, color: AppColors.teachColor),
+                            style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w800, color: AppColors.teachColor),
                           ),
                           Text(
                             _results.values.every((r) => r == true)
@@ -260,21 +260,21 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                                 : _lessonMarkedDone
                                     ? 'Lesson Complete!'
                                     : 'Need 60% to pass — try again!',
-                            style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.teachColor),
+                            style: const TextStyle(fontWeight: FontWeight.w600, color: AppColors.teachColor),
                           ),
                           if (_lessonMarkedDone) ...[
-                            SizedBox(height: 8),
-                            Icon(Icons.check_circle, color: AppColors.teachColor, size: 28),
+                            const SizedBox(height: 8),
+                            const Icon(Icons.check_circle, color: AppColors.teachColor, size: 28),
                           ],
                           if (_badgeEarned.isNotEmpty) ...[
-                            SizedBox(height: 8),
-                            Text('🏅 Badge: $_badgeEarned', style: TextStyle(fontSize: 13, color: AppColors.primary)),
+                            const SizedBox(height: 8),
+                            Text('🏅 Badge: $_badgeEarned', style: const TextStyle(fontSize: 13, color: AppColors.primary)),
                           ],
                         ],
                       ),
                     ),
                   ],
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                 ],
 
                 // Ask AI
@@ -282,14 +282,14 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                   width: double.infinity,
                   child: OutlinedButton.icon(
                     onPressed: () => context.push('/chat?topic=${Uri.encodeComponent(lesson.title)}'),
-                    icon: Icon(Icons.psychology, size: 18),
-                    label: Text('Ask AI about this lesson'),
+                    icon: const Icon(Icons.psychology, size: 18),
+                    label: const Text('Ask AI about this lesson'),
                     style: OutlinedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 12),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
 
                 // Navigation
                 Row(
@@ -302,11 +302,11 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                               '/learn/subject/${widget.subjectId}/lesson/${widget.unitIndex}/${widget.lessonIndex - 1}',
                             );
                           },
-                          icon: Icon(Icons.arrow_back, size: 18),
-                          label: Text('Previous'),
+                          icon: const Icon(Icons.arrow_back, size: 18),
+                          label: const Text('Previous'),
                         ),
                       ),
-                    if (hasPrev && hasNext) SizedBox(width: 12),
+                    if (hasPrev && hasNext) const SizedBox(width: 12),
                     if (hasNext)
                       Expanded(
                         child: FilledButton.icon(
@@ -315,14 +315,14 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                               '/learn/subject/${widget.subjectId}/lesson/${widget.unitIndex}/${widget.lessonIndex + 1}',
                             );
                           },
-                          icon: Icon(Icons.arrow_forward, size: 18),
-                          label: Text('Next Lesson'),
+                          icon: const Icon(Icons.arrow_forward, size: 18),
+                          label: const Text('Next Lesson'),
                           style: FilledButton.styleFrom(backgroundColor: AppColors.primary),
                         ),
                       ),
                   ],
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
               ],
             ),
           ),
@@ -343,7 +343,7 @@ class _SectionTitle extends StatelessWidget {
     return Row(
       children: [
         Icon(icon, size: 18, color: color),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Text(
           title,
           style: TextStyle(
@@ -377,8 +377,8 @@ class _QuizCard extends StatelessWidget {
     final answered = selectedAnswer != null;
 
     return Container(
-      margin: EdgeInsets.only(bottom: 16),
-      padding: EdgeInsets.all(16),
+      margin: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
@@ -396,7 +396,7 @@ class _QuizCard extends StatelessWidget {
               color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           ...question.options.asMap().entries.map((entry) {
             final oi = entry.key;
             final option = entry.value;
@@ -426,8 +426,8 @@ class _QuizCard extends StatelessWidget {
               onTap: answered ? null : () => onAnswer(oi),
               child: Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(bottom: 6),
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                margin: const EdgeInsets.only(bottom: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                 decoration: BoxDecoration(
                   color: bgColor,
                   borderRadius: BorderRadius.circular(8),
@@ -439,7 +439,7 @@ class _QuizCard extends StatelessWidget {
                       String.fromCharCode(65 + oi),
                       style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13, color: textColor),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Expanded(
                       child: Text(
                         option,
@@ -447,18 +447,18 @@ class _QuizCard extends StatelessWidget {
                       ),
                     ),
                     if (answered && isCorrectOption)
-                      Icon(Icons.check_circle, size: 18, color: AppColors.teachColor),
+                      const Icon(Icons.check_circle, size: 18, color: AppColors.teachColor),
                     if (answered && isSelected && !isCorrectOption)
-                      Icon(Icons.cancel, size: 18, color: Colors.red),
+                      const Icon(Icons.cancel, size: 18, color: Colors.red),
                   ],
                 ),
               ),
             );
           }),
           if (answered) ...[
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: (isCorrect == true ? AppColors.teachColor : Colors.red).withValues(alpha: 0.06),
                 borderRadius: BorderRadius.circular(8),

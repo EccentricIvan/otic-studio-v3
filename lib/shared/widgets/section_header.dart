@@ -26,7 +26,7 @@ class SectionHeader extends StatelessWidget {
             children: [
               Text(title, style: Theme.of(context).textTheme.headlineSmall),
               if (subtitle != null) ...[
-                SizedBox(height: 3),
+                const SizedBox(height: 3),
                 Text(subtitle!, style: Theme.of(context).textTheme.bodyMedium),
               ],
             ],
@@ -37,7 +37,7 @@ class SectionHeader extends StatelessWidget {
             onPressed: onAction,
             child: Text(
               actionLabel!,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.primary,
                 fontWeight: FontWeight.w600,
                 fontSize: 14,

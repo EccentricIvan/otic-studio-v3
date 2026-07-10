@@ -474,7 +474,7 @@ class _WebDevLabScreenState extends ConsumerState<WebDevLabScreen>
 
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           children: [
             Icon(Icons.code, size: 20, color: AppColors.primary),
             SizedBox(width: 8),
@@ -483,14 +483,14 @@ class _WebDevLabScreenState extends ConsumerState<WebDevLabScreen>
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.list),
+            icon: const Icon(Icons.list),
             tooltip: 'All lessons',
             onPressed: () => _showLessonPicker(context),
           ),
         ],
         bottom: TabBar(
           controller: _tabController,
-          tabs: [
+          tabs: const [
             Tab(icon: Icon(Icons.code), text: 'Code'),
             Tab(icon: Icon(Icons.visibility), text: 'Preview'),
           ],
@@ -500,8 +500,8 @@ class _WebDevLabScreenState extends ConsumerState<WebDevLabScreen>
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _runCode,
-        icon: Icon(Icons.play_arrow),
-        label: Text('RUN'),
+        icon: const Icon(Icons.play_arrow),
+        label: const Text('RUN'),
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
       ),
@@ -594,13 +594,13 @@ class _InstructionBar extends StatelessWidget {
         children: [
           // Lesson title + navigation
           Padding(
-            padding: EdgeInsets.fromLTRB(16, 12, 16, 0),
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
             child: Row(
               children: [
                 Expanded(
                   child: Text(
                     lesson.title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 15,
                       color: AppColors.primary,
@@ -619,7 +619,7 @@ class _InstructionBar extends StatelessWidget {
           ),
           // Instruction text
           Padding(
-            padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
             child: Text(
               lesson.instruction,
               style: TextStyle(
@@ -632,8 +632,8 @@ class _InstructionBar extends StatelessWidget {
           // Hint + challenge
           if (showHint && lesson.hint != null)
             Container(
-              margin: EdgeInsets.fromLTRB(16, 0, 16, 8),
-              padding: EdgeInsets.all(10),
+              margin: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: AppColors.primary.withValues(alpha: 0.08),
                 borderRadius: BorderRadius.circular(8),
@@ -642,25 +642,25 @@ class _InstructionBar extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Icon(Icons.lightbulb, size: 14, color: AppColors.primary),
                       SizedBox(width: 6),
                       Text('Hint', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12, color: AppColors.primary)),
                     ],
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(lesson.hint!, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurface)),
                   if (lesson.challenge != null) ...[
-                    SizedBox(height: 8),
-                    Row(
+                    const SizedBox(height: 8),
+                    const Row(
                       children: [
                         Icon(Icons.emoji_events, size: 14, color: AppColors.createColor),
                         SizedBox(width: 6),
                         Text('Challenge', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12, color: AppColors.createColor)),
                       ],
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(lesson.challenge!, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurface)),
                   ],
                 ],
@@ -668,24 +668,24 @@ class _InstructionBar extends StatelessWidget {
             ),
           // Action buttons
           Padding(
-            padding: EdgeInsets.fromLTRB(16, 0, 16, 10),
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
             child: Row(
               children: [
                 if (onPrev != null)
                   _SmallButton(icon: Icons.arrow_back, label: 'Prev', onTap: onPrev!),
-                if (onPrev != null) SizedBox(width: 8),
+                if (onPrev != null) const SizedBox(width: 8),
                 _SmallButton(
                   icon: showHint ? Icons.lightbulb : Icons.lightbulb_outline,
                   label: showHint ? 'Hide Hint' : 'Hint',
                   onTap: onToggleHint,
                 ),
-                Spacer(),
+                const Spacer(),
                 if (onNext != null)
                   _SmallButton(icon: Icons.arrow_forward, label: 'Next Lesson', onTap: onNext!, primary: true),
               ],
             ),
           ),
-          Divider(height: 1),
+          const Divider(height: 1),
         ],
       ),
     );
@@ -705,7 +705,7 @@ class _SmallButton extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(6),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
           color: primary ? AppColors.primary : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(6),
@@ -715,7 +715,7 @@ class _SmallButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(icon, size: 14, color: primary ? Colors.white : Theme.of(context).colorScheme.onSurface),
-            SizedBox(width: 4),
+            const SizedBox(width: 4),
             Text(label, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: primary ? Colors.white : Theme.of(context).colorScheme.onSurface)),
           ],
         ),
@@ -733,18 +733,18 @@ class _CodeEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFF1E1E2E),
+      color: const Color(0xFF1E1E2E),
       child: TextField(
         controller: controller,
         maxLines: null,
         expands: true,
-        style: TextStyle(
+        style: const TextStyle(
           fontFamily: 'monospace',
           fontSize: 13,
           color: Color(0xFFCDD6F4),
           height: 1.5,
         ),
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           contentPadding: EdgeInsets.all(16),
           hintText: 'Write your HTML, CSS, and JavaScript here...',
@@ -771,7 +771,7 @@ class _Preview extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(Icons.web, size: 48, color: Theme.of(context).hintColor),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Text('Tap RUN to see your page', style: TextStyle(color: Theme.of(context).hintColor)),
           ],
         ),

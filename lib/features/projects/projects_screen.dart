@@ -16,21 +16,21 @@ class ProjectsScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Projects'),
+        title: const Text('Projects'),
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             tooltip: 'New project',
             onPressed: () => context.go('/create'),
           ),
         ],
       ),
       body: studentAsync.when(
-        loading: () => Center(child: CircularProgressIndicator()),
+        loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),
         data: (student) {
           if (student == null) {
-            return Center(child: Text('No student profile found.'));
+            return const Center(child: Text('No student profile found.'));
           }
           return _ProjectsList(studentId: student.id);
         },
@@ -48,7 +48,7 @@ class _ProjectsList extends ConsumerWidget {
     final projectsAsync = ref.watch(studentProjectsProvider(studentId));
 
     return projectsAsync.when(
-      loading: () => Center(child: CircularProgressIndicator()),
+      loading: () => const Center(child: CircularProgressIndicator()),
       error: (e, _) => Center(child: Text('Error: $e')),
       data: (projects) {
         if (projects.isEmpty) {
@@ -60,7 +60,7 @@ class _ProjectsList extends ConsumerWidget {
           child: ListView.separated(
             padding: const EdgeInsets.all(16),
             itemCount: projects.length,
-            separatorBuilder: (_, __) => SizedBox(height: 10),
+            separatorBuilder: (_, __) => const SizedBox(height: 10),
             itemBuilder: (_, i) => _ProjectCard(project: projects[i]),
           ),
         );
@@ -124,7 +124,7 @@ class _ProjectCard extends StatelessWidget {
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 3),
+            const SizedBox(height: 3),
             Text(
               label[0].toUpperCase() + label.substring(1),
               style: TextStyle(
@@ -184,27 +184,27 @@ class _EmptyProjects extends StatelessWidget {
                 color: AppColors.createColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(18),
               ),
-              child: Icon(Icons.folder_open,
+              child: const Icon(Icons.folder_open,
                   color: AppColors.createColor, size: 32),
             ),
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
             Text('No projects yet',
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 17,
                     color: Theme.of(context).colorScheme.onSurface)),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               'Go to Create mode to build your first project — an essay, business plan, experiment, or anything you can imagine.',
               textAlign: TextAlign.center,
               style: TextStyle(
                   color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             FilledButton.icon(
               onPressed: () => context.go('/create'),
-              icon: Icon(Icons.add),
-              label: Text('Start a project'),
+              icon: const Icon(Icons.add),
+              label: const Text('Start a project'),
               style: FilledButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,

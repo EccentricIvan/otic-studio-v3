@@ -2,12 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../ai_core/providers/ai_provider.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
+
+final _packageInfoProvider = FutureProvider((_) => PackageInfo.fromPlatform());
 
 /// Admin dashboard — device, user, and update management.
 /// Admins manage the platform; they have no learning features here.
@@ -18,9 +21,10 @@ class AdminScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final modelAsync = ref.watch(modelInfoProvider);
     final studentsAsync = ref.watch(_allStudentsProvider);
+    final packageInfoAsync = ref.watch(_packageInfoProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Admin Dashboard')),
+      appBar: AppBar(title: const Text('Admin Dashboard')),
       body: MaxWidth(
         maxWidth: 900,
         child: ListView(
@@ -36,10 +40,14 @@ class AdminScreen extends ConsumerWidget {
                   value:
                       '${Platform.operatingSystem} ${Platform.operatingSystemVersion}',
                 ),
-                const _InfoRow(
+                _InfoRow(
                   icon: Icons.apps,
                   label: 'App version',
-                  value: 'Version 1.0.0',
+                  value: packageInfoAsync.when(
+                    data: (info) => 'Version ${info.version} (build ${info.buildNumber})',
+                    loading: () => 'Loading…',
+                    error: (_, __) => 'Unknown',
+                  ),
                 ),
                 const _InfoRow(
                   icon: Icons.wifi_off,
@@ -48,7 +56,7 @@ class AdminScreen extends ConsumerWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // ── AI Model ─────────────────────────────────────────────────
             const _SectionTitle('AI Model'),
@@ -87,7 +95,7 @@ class AdminScreen extends ConsumerWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // ── Users ────────────────────────────────────────────────────
             const _SectionTitle('Student Profiles'),
@@ -105,7 +113,7 @@ class AdminScreen extends ConsumerWidget {
                             Icons.person_off,
                             color: Theme.of(context).hintColor,
                           ),
-                          title: Text('No student profiles on this device'),
+                          title: const Text('No student profiles on this device'),
                         ),
                       ],
                     )
@@ -115,13 +123,13 @@ class AdminScreen extends ConsumerWidget {
                           .toList(),
                     ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // ── Updates ──────────────────────────────────────────────────
             const _SectionTitle('Updates'),
             _InfoCard(
               children: [
-                _InfoRow(
+                const _InfoRow(
                   icon: Icons.usb,
                   label: 'Update method',
                   value: 'USB drive or local school server — never internet',
@@ -131,8 +139,8 @@ class AdminScreen extends ConsumerWidget {
                     Icons.info_outline,
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
-                  title: Text('How to update', style: TextStyle(fontSize: 14)),
-                  subtitle: Text(
+                  title: const Text('How to update', style: TextStyle(fontSize: 14)),
+                  subtitle: const Text(
                     '1. Receive the update package on a USB drive\n'
                     '2. Copy the new app installer to this device\n'
                     '3. Run the installer — student data is preserved\n'
@@ -142,7 +150,7 @@ class AdminScreen extends ConsumerWidget {
                 ),
               ],
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
           ],
         ),
       ),
@@ -168,20 +176,20 @@ class _StudentRow extends ConsumerWidget {
         backgroundColor: AppColors.primary.withValues(alpha: 0.12),
         child: Text(
           student.name.isNotEmpty ? student.name[0].toUpperCase() : '?',
-          style: TextStyle(
+          style: const TextStyle(
             color: AppColors.primary,
             fontWeight: FontWeight.w700,
             fontSize: 13,
           ),
         ),
       ),
-      title: Text(student.name, style: TextStyle(fontSize: 14)),
+      title: Text(student.name, style: const TextStyle(fontSize: 14)),
       subtitle: Text(
         '${student.totalPoints} pts · ${student.streakDays} day streak',
-        style: TextStyle(fontSize: 12),
+        style: const TextStyle(fontSize: 12),
       ),
       trailing: IconButton(
-        icon: Icon(Icons.delete_outline, color: Colors.red, size: 20),
+        icon: const Icon(Icons.delete_outline, color: Colors.red, size: 20),
         tooltip: 'Delete profile',
         onPressed: () => _confirmDelete(context, ref),
       ),
@@ -193,19 +201,19 @@ class _StudentRow extends ConsumerWidget {
       context: context,
       builder: (ctx) => AlertDialog(
         title: Text('Delete ${student.name}?'),
-        content: Text(
+        content: const Text(
           'This permanently removes the profile and all learning data '
           '(paths, badges, projects, sessions). This cannot be undone.',
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
           ),
           FilledButton(
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
             onPressed: () => Navigator.pop(ctx, true),
-            child: Text('Delete'),
+            child: const Text('Delete'),
           ),
         ],
       ),
@@ -230,7 +238,7 @@ class _SectionTitle extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8, left: 4),
       child: Text(
         title.toUpperCase(),
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 11,
           fontWeight: FontWeight.w700,
           color: AppColors.primary,
@@ -275,7 +283,7 @@ class _InfoRow extends StatelessWidget {
     return ListTile(
       dense: true,
       leading: Icon(icon, color: Theme.of(context).colorScheme.onSurfaceVariant, size: 20),
-      title: Text(label, style: TextStyle(fontSize: 13)),
+      title: Text(label, style: const TextStyle(fontSize: 13)),
       subtitle: Text(
         value,
         style: TextStyle(fontSize: 12, color: valueColor ?? Theme.of(context).hintColor),

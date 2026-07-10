@@ -37,7 +37,7 @@ class LearningModeCard extends StatelessWidget {
             width: 1,
           ),
         ),
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -58,7 +58,7 @@ class LearningModeCard extends StatelessWidget {
               ),
               child: Icon(icon, color: color, size: 24),
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Text(
               title,
               style: TextStyle(
@@ -67,7 +67,7 @@ class LearningModeCard extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Expanded(
               child: Text(
                 description,
@@ -80,9 +80,9 @@ class LearningModeCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
                 color: color.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(20),
@@ -94,7 +94,7 @@ class LearningModeCard extends StatelessWidget {
                     'Open',
                     style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: color),
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Icon(Icons.arrow_forward_rounded, size: 14, color: color),
                 ],
               ),

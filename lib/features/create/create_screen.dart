@@ -240,12 +240,12 @@ class _CreateScreenState extends ConsumerState<CreateScreen> {
                   ? null
                   : () =>
                         ref.read(_createProvider.notifier).saveProject(context),
-              icon: Icon(Icons.save_outlined),
-              label: Text('Save'),
+              icon: const Icon(Icons.save_outlined),
+              label: const Text('Save'),
             ),
           if (state.started)
             IconButton(
-              icon: Icon(Icons.refresh),
+              icon: const Icon(Icons.refresh),
               tooltip: 'New project',
               onPressed: () => ref.invalidate(_createProvider),
             ),
@@ -278,30 +278,31 @@ class _SetupView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(_createProvider);
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
       child: MaxWidth(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               'Start Creating',
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            SizedBox(height: 6),
+            const SizedBox(height: 6),
             Text(
               'Pick a lab and start building something real.',
               style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             ..._labs.map((lab) => Padding(
-              padding: EdgeInsets.only(bottom: 12),
+              padding: const EdgeInsets.only(bottom: 12),
               child: InkWell(
                 onTap: () => GoRouter.of(context).push(lab.$5),
                 borderRadius: BorderRadius.circular(22),
                 child: Container(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
@@ -325,7 +326,7 @@ class _SetupView extends ConsumerWidget {
                         ),
                         child: Icon(lab.$3, color: lab.$4, size: 26),
                       ),
-                      SizedBox(width: 16),
+                      const SizedBox(width: 16),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -338,7 +339,7 @@ class _SetupView extends ConsumerWidget {
                                 color: Theme.of(context).colorScheme.onSurface,
                               ),
                             ),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             Text(
                               lab.$2,
                               style: TextStyle(
@@ -356,6 +357,60 @@ class _SetupView extends ConsumerWidget {
                 ),
               ),
             )),
+            const SizedBox(height: 32),
+            Text(
+              'Or start your own project',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'Tell the AI mentor what you want to build and it will guide you step by step.',
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
+            ),
+            const SizedBox(height: 16),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: _projectTypes.map((t) {
+                final selected = state.projectType == t.label;
+                return ChoiceChip(
+                  label: Text(t.label),
+                  avatar: Icon(t.icon, size: 16),
+                  selected: selected,
+                  onSelected: (_) =>
+                      ref.read(_createProvider.notifier).setType(t.label),
+                );
+              }).toList(),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: topicController,
+              decoration: const InputDecoration(
+                hintText: 'What topic? e.g. "climate change"',
+                prefixIcon: Icon(Icons.edit_outlined),
+              ),
+            ),
+            const SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton(
+                onPressed: state.projectType.isEmpty
+                    ? null
+                    : () {
+                        final topic = topicController.text.trim();
+                        if (topic.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Enter a topic first')),
+                          );
+                          return;
+                        }
+                        final notifier = ref.read(_createProvider.notifier);
+                        notifier.setTopic(topic);
+                        notifier.start();
+                      },
+                child: const Text('Start creating'),
+              ),
+            ),
           ],
         ),
       ),
@@ -413,7 +468,7 @@ class _ChatView extends ConsumerWidget {
             Container(
               color: AppColors.teachColor.withValues(alpha: 0.1),
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-              child: Row(
+              child: const Row(
                 children: [
                   Icon(
                     Icons.check_circle,
@@ -485,8 +540,8 @@ class _Bubble extends StatelessWidget {
               ),
             ),
             if (streaming) ...[
-              SizedBox(width: 6),
-              SizedBox(
+              const SizedBox(width: 6),
+              const SizedBox(
                 width: 10,
                 height: 10,
                 child: CircularProgressIndicator(strokeWidth: 2),
@@ -525,7 +580,7 @@ class _InputBar extends StatelessWidget {
               onSubmitted: (t) {
                 if (t.trim().isNotEmpty) onSend(t.trim());
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Reply...',
                 border: InputBorder.none,
               ),
@@ -533,9 +588,9 @@ class _InputBar extends StatelessWidget {
               minLines: 1,
             ),
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           isLoading
-              ? Padding(
+              ? const Padding(
                   padding: EdgeInsets.all(10),
                   child: SizedBox(
                     width: 22,
@@ -548,7 +603,7 @@ class _InputBar extends StatelessWidget {
                     final t = controller.text.trim();
                     if (t.isNotEmpty) onSend(t);
                   },
-                  icon: Icon(Icons.arrow_upward),
+                  icon: const Icon(Icons.arrow_upward),
                   style: IconButton.styleFrom(
                     backgroundColor: AppColors.primary,
                     foregroundColor: Colors.white,
