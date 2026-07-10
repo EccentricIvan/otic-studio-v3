@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../ai_core/providers/ai_provider.dart';
 import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/curriculum_provider.dart';
@@ -8,6 +9,7 @@ import '../../db/providers/db_provider.dart';
 import '../../gamification/badge_service.dart';
 import '../../shared/widgets/responsive.dart';
 import 'practice_providers.dart';
+import 'quiz_generator.dart';
 import 'scenario_models.dart';
 
 // ── Topic list ────────────────────────────────────────────────────────────────
@@ -176,6 +178,33 @@ class _PracticeTabState extends ConsumerState<_PracticeTab> {
       _score = 0;
       _total = 0;
     });
+
+    _appendAdaptiveQuestions(topic);
+  }
+
+  /// Adds a few AI-generated questions calibrated to the student's current
+  /// mastery level, on top of the static curriculum bank. Best-effort: if
+  /// generation is slow, fails, or the topic changes, this just quietly
+  /// contributes nothing — the static quiz already works on its own.
+  Future<void> _appendAdaptiveQuestions(String topic) async {
+    try {
+      final student = await ref.read(activeStudentProvider.future);
+      if (student == null) return;
+      final db = ref.read(dbProvider);
+      final progress = await db.sessionDao.getTopicProgress(student.id);
+      final mastery =
+          progress.where((p) => p.topic == topic).fold(0, (_, p) => p.level);
+
+      final engine = await ref.read(engineLoadedProvider.future);
+      final generator = QuizGenerator(engine: engine);
+      for (var i = 0; i < 3; i++) {
+        final q = await generator.generate(topic: topic, masteryLevel: mastery);
+        if (!mounted || _selectedTopic != topic) return;
+        if (q != null) setState(() => _questions = [..._questions, q]);
+      }
+    } catch (_) {
+      // Adaptive bonus questions are optional.
+    }
   }
 
   String _topicToSubjectId(String topic) {

@@ -195,12 +195,69 @@ Tutor:''';
         .replaceAll(RegExp(r'[^a-z_]'), '');
   }
 
+  /// Analyzes the recent conversation to produce a real summary (for the
+  /// student memory engine's "compressed summary" requirement, instead of
+  /// blindly truncating the latest reply) plus an optional detected
+  /// strength/weakness. Best-effort — falls back to an empty summary if
+  /// generation fails or produces something unparseable.
+  Future<SessionAnalysis> analyzeSession() async {
+    if (_history.isEmpty) return const SessionAnalysis(summary: '');
+
+    final recent =
+        _history.length > 6 ? _history.sublist(_history.length - 6) : _history;
+    final convo = recent
+        .map((t) => '${t.role == 'tutor' ? 'Tutor' : 'Student'}: ${t.text}')
+        .join('\n');
+
+    final prompt = '''Analyze this tutoring conversation briefly.
+$convo
+
+Respond in exactly this format:
+SUMMARY: <one short sentence, max 20 words, what the student learned or discussed>
+STRENGTH: <one short phrase describing something the student did well, or NONE>
+WEAKNESS: <one short phrase describing something the student is struggling with, or NONE>''';
+
+    try {
+      final raw = await _engine.generate(prompt: prompt, maxTokens: 80, temperature: 0.3);
+      return _parseAnalysis(raw);
+    } catch (_) {
+      return const SessionAnalysis(summary: '');
+    }
+  }
+
+  SessionAnalysis _parseAnalysis(String raw) {
+    String? extract(String label) {
+      final match = RegExp('$label:\\s*(.+)', caseSensitive: false).firstMatch(raw);
+      final value = match?.group(1)?.trim();
+      if (value == null || value.isEmpty || value.toUpperCase().startsWith('NONE')) {
+        return null;
+      }
+      return value;
+    }
+
+    final summary = extract('SUMMARY') ??
+        (raw.length > 150 ? '${raw.substring(0, 150)}…' : raw);
+
+    return SessionAnalysis(
+      summary: summary,
+      strength: extract('STRENGTH'),
+      weakness: extract('WEAKNESS'),
+    );
+  }
+
   /// Reset pipeline (e.g. user starts a new session).
   void reset() {
     _nextStage = TutorStage.answer;
     _currentTopic = '';
     _history.clear();
   }
+}
+
+class SessionAnalysis {
+  const SessionAnalysis({required this.summary, this.strength, this.weakness});
+  final String summary;
+  final String? strength;
+  final String? weakness;
 }
 
 class _Turn {

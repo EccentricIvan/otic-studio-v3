@@ -188,7 +188,7 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
       ));
 
       // Persist session summary to SQLite after each AI response
-      _saveSessionSnapshot(response, msgs.length);
+      _saveSessionSnapshot(pipeline, response, msgs.length);
     } catch (e) {
       state = AsyncData(state.requireValue.copyWith(
         isGenerating: false,
@@ -197,20 +197,41 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
     }
   }
 
-  Future<void> _saveSessionSnapshot(TutorResponse response, int msgCount) async {
+  Future<void> _saveSessionSnapshot(
+    TutorPipeline pipeline,
+    TutorResponse response,
+    int msgCount,
+  ) async {
     try {
       final student = await ref.read(activeStudentProvider.future);
       if (student == null) return;
       final db = ref.read(dbProvider);
+
+      // Ask the model to actually summarize the conversation (and spot a
+      // strength/weakness) rather than just truncating the latest reply —
+      // falls back to truncation if analysis fails or is unavailable.
+      final analysis = await pipeline.analyzeSession();
+      final summary = analysis.summary.isNotEmpty
+          ? analysis.summary
+          : (response.text.length > 200
+              ? '${response.text.substring(0, 200)}…'
+              : response.text);
+
       await db.sessionDao.saveSession(
         studentId: student.id,
         topic: response.topic,
-        summary: response.text.length > 200
-            ? '${response.text.substring(0, 200)}…'
-            : response.text,
+        summary: summary,
         highestStage: response.stage.name,
         messageCount: msgCount,
       );
+
+      if (analysis.strength != null || analysis.weakness != null) {
+        await db.studentDao.addInsight(
+          student.id,
+          strength: analysis.strength,
+          weakness: analysis.weakness,
+        );
+      }
     } catch (_) {
       // Never crash the chat if DB write fails
     }
