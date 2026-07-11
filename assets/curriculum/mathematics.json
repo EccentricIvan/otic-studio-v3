@@ -11,11 +11,11 @@
           "title": "Number Bases",
           "content": "Every number we normally use is written in base 10 (denary), where each place value is a power of 10: ones, tens, hundreds, thousands. A number system with a different base uses the same idea but with powers of that base instead. Computers use base 2 (binary), which only uses the digits 0 and 1 — place values are powers of 2: ones, twos, fours, eights, sixteens. Other bases you'll meet are base 5 (digits 0-4) and base 8, octal (digits 0-7) — in any base b, the largest single digit allowed is b-1, because once you reach b itself you must carry over to the next place value, exactly like reaching 10 in base 10 forces a carry into the tens column. To convert a number from base 10 into another base, repeatedly divide by that base and keep track of the remainders; reading those remainders from the last one obtained back to the first gives the answer. To convert a number written in another base back into base 10, multiply each digit by its place value (the appropriate power of that base, counting from the right starting at power 0) and add all the results together. Understanding number bases matters because it reveals that our normal counting system is just one convenient choice among many, and it's the foundation of how computers represent and process all data internally using binary.",
           "examples": [
-            "Convert 13 (base 10) to binary: 13÷2=6 r1, 6÷2=3 r0, 3÷2=1 r1, 1÷2=0 r1. Reading remainders bottom-to-top: 1101₂.",
-            "Convert 1011₂ to base 10: (1×8)+(0×4)+(1×2)+(1×1) = 8+0+2+1 = 11.",
-            "Convert 23 (base 10) to base 5: 23÷5=4 r3, 4÷5=0 r4. Reading remainders bottom-up: 23 = 43₅.",
-            "Convert 2A₁₆ (hexadecimal, where A represents 10) to base 10: (2×16)+(10×1) = 32+10 = 42.",
-            "Add two binary numbers 101₂ + 011₂: line up like normal addition, carrying when a column reaches 2 (not 10): 101+011 = 1000₂ (check: 5+3=8, and 1000₂=8 in base 10 ✓)."
+            "Convert 13 (base 10) to binary.\nStep 1: 13÷2 = 6 remainder 1\nStep 2: 6÷2 = 3 remainder 0\nStep 3: 3÷2 = 1 remainder 1\nStep 4: 1÷2 = 0 remainder 1\nStep 5: Read the remainders from last to first: 1101\nAnswer: 13 = 1101₂",
+            "Convert 1011₂ to base 10.\nStep 1: Write the place values (powers of 2) under each digit: 8, 4, 2, 1\nStep 2: Multiply each digit by its place value: (1×8)+(0×4)+(1×2)+(1×1)\nStep 3: Add the results: 8+0+2+1 = 11\nAnswer: 1011₂ = 11",
+            "Convert 23 (base 10) to base 5.\nStep 1: 23÷5 = 4 remainder 3\nStep 2: 4÷5 = 0 remainder 4\nStep 3: Read the remainders from last to first: 43\nAnswer: 23 = 43₅",
+            "Convert 2A₁₆ (hexadecimal, where A=10) to base 10.\nStep 1: Write the place values (powers of 16): 16, 1\nStep 2: Multiply each digit: (2×16)+(10×1)\nStep 3: Add the results: 32+10 = 42\nAnswer: 2A₁₆ = 42",
+            "Add 101₂ + 011₂.\nStep 1: Line up the digits like normal addition\nStep 2: Add the ones column: 1+1 = 2, write 0 carry 1\nStep 3: Add the twos column: 0+1+1(carry) = 2, write 0 carry 1\nStep 4: Add the fours column: 1+0+1(carry) = 2, write 0 carry 1, then write the final carried 1\nAnswer: 101₂ + 011₂ = 1000₂ (check: 5+3=8, and 1000₂=8 ✓)"
           ],
           "keyTerms": {
             "base": "The number of unique digits (including zero) used in a number system, and what each place value is a power of",
@@ -86,11 +86,11 @@
           "title": "Working with Integers",
           "content": "Integers are whole numbers that can be positive, negative, or zero: ...,-3,-2,-1,0,1,2,3,.... They exclude fractions and decimals. On a number line, numbers increase to the right and decrease to the left; zero sits in the middle and is neither positive nor negative. Adding a positive number moves you right on the number line; adding a negative number (or subtracting a positive one) moves you left. A useful way to think about subtracting a negative is: 'subtracting a debt is the same as adding that amount' — so 5 − (−3) becomes 5 + 3 = 8. For multiplication and division, remember the sign rule: two numbers with the SAME sign (both positive or both negative) multiply/divide to give a POSITIVE answer; two numbers with DIFFERENT signs give a NEGATIVE answer. This is often remembered as 'same signs positive, different signs negative.' Integers appear constantly in real life: temperatures below zero, money owed (debt is a negative balance), floors below ground level in a building, and sea level (depths below sea level are negative altitudes). Getting comfortable with integer arithmetic is essential before moving into algebra, where negative numbers appear just as often as positive ones.",
           "examples": [
-            "-8 + 5 = -3 (start at -8, move 5 right).",
-            "-6 - (-2) = -6 + 2 = -4 (subtracting a negative is the same as adding).",
-            "(-3) × (-4) = 12 (same signs give a positive answer); (-3) × 4 = -12 (different signs give negative).",
-            "A submarine at -250m depth rises by 90m: new depth = -250+90 = -160m (still below sea level).",
-            "A shopkeeper owes UGX 15,000 (balance = -15,000) and receives a payment of UGX 20,000: new balance = -15,000+20,000 = +5,000 (now in profit)."
+            "Calculate -8 + 5.\nStep 1: Start at -8 on the number line\nStep 2: Move 5 places to the right (adding a positive moves right)\nAnswer: -8 + 5 = -3",
+            "Calculate -6 - (-2).\nStep 1: Subtracting a negative becomes adding: -6 - (-2) = -6 + 2\nStep 2: Start at -6 and move 2 places right\nAnswer: -6 - (-2) = -4",
+            "Calculate (-3) × (-4).\nStep 1: Check the signs: both negative — same signs\nStep 2: Same signs give a positive answer\nStep 3: Multiply the numbers: 3×4=12\nAnswer: (-3) × (-4) = 12",
+            "A submarine at -250m depth rises by 90m. Find the new depth.\nStep 1: Rising means adding to the depth value: -250 + 90\nStep 2: Calculate: -250+90 = -160\nAnswer: New depth = -160m (still below sea level)",
+            "A shopkeeper has a balance of -15,000 (owes UGX 15,000) and receives a payment of UGX 20,000.\nStep 1: Add the payment to the balance: -15,000 + 20,000\nStep 2: Calculate: -15,000+20,000 = 5,000\nAnswer: New balance = UGX 5,000 (now in profit)"
           ],
           "keyTerms": {
             "integer": "A whole number that can be positive, negative, or zero",
@@ -160,11 +160,11 @@
           "title": "Fractions, Percentages and Decimals",
           "content": "Fractions, decimals, and percentages are three different ways of writing the same value — a part of a whole — and being able to move fluently between them is one of the most useful skills in mathematics. A fraction has a numerator (the top number, showing how many parts you have) and a denominator (the bottom number, showing how many equal parts make up the whole). A decimal uses place value after a decimal point — the first digit after the point is tenths, the second is hundredths, and so on. A percentage literally means 'per hundred' (per cent = per 100), so 45% is exactly the same value as 45/100 or 0.45. To convert a fraction to a decimal, simply divide the numerator by the denominator. To convert a decimal to a percentage, multiply by 100 (which just moves the decimal point two places right). To convert a fraction directly to a percentage, first turn it into a decimal, then multiply by 100. Working the other way, to find a percentage OF a quantity (e.g. 'find 20% of 150'), convert the percentage to a decimal and multiply: 0.20 × 150 = 30. These skills show up everywhere outside the classroom too — reading a shop discount, understanding an exam mark out of 100, or calculating tax and interest.",
           "examples": [
-            "3/4 as a decimal: 3÷4 = 0.75. As a percentage: 0.75×100 = 75%.",
-            "0.4 as a fraction: 4/10 = 2/5 (simplified by dividing both by 2).",
-            "Find 30% of 250: 0.30 × 250 = 75.",
-            "A student scores 34 out of 40 on a test. As a percentage: (34÷40)×100 = 85%.",
-            "Comparing 3/8 and 40%: 3/8 = 0.375 = 37.5%, which is less than 40% — so 40% is the larger value."
+            "Convert 3/4 to a percentage.\nStep 1: Divide numerator by denominator: 3÷4 = 0.75\nStep 2: Multiply by 100: 0.75×100\nAnswer: 3/4 = 75%",
+            "Convert 0.4 to a fraction in simplest form.\nStep 1: Write as a fraction over 10: 4/10\nStep 2: Find the HCF of 4 and 10, which is 2, and divide both by it\nAnswer: 0.4 = 2/5",
+            "Find 30% of 250.\nStep 1: Convert the percentage to a decimal: 30% = 0.30\nStep 2: Multiply by the quantity: 0.30 × 250\nAnswer: 30% of 250 = 75",
+            "A student scores 34 out of 40 on a test. Find the percentage.\nStep 1: Write as a fraction: 34/40\nStep 2: Divide: 34÷40 = 0.85\nStep 3: Multiply by 100: 0.85×100\nAnswer: 85%",
+            "Compare 3/8 and 40% to find which is larger.\nStep 1: Convert 3/8 to a percentage: 3÷8=0.375, ×100=37.5%\nStep 2: Compare 37.5% with 40%\nAnswer: 40% is larger than 3/8 (37.5%)"
           ],
           "keyTerms": {
             "numerator": "The top number of a fraction",
@@ -234,11 +234,11 @@
           "title": "Rectangular Cartesian Coordinates in 2 Dimensions",
           "content": "The Cartesian plane has two perpendicular number lines: the horizontal x-axis and the vertical y-axis, meeting at a point called the origin, written (0,0). Every point on the plane can be uniquely described by an ordered pair of coordinates (x, y), where x tells you how far to move horizontally from the origin (right if positive, left if negative) and y tells you how far to move vertically (up if positive, down if negative). Order matters — (3,2) is a completely different point from (2,3), which is why they're called 'ordered' pairs. The two axes divide the plane into four regions called quadrants, numbered using Roman numerals going anticlockwise starting from the top-right: in Quadrant I both x and y are positive; in Quadrant II x is negative and y is positive; in Quadrant III both x and y are negative; and in Quadrant IV x is positive and y is negative. Any point lying exactly on the x-axis has a y-coordinate of 0, and any point on the y-axis has an x-coordinate of 0. This coordinate system, named after the mathematician René Descartes, is the foundation for graphing straight lines, curves, and shapes, and for describing transformations like translation, reflection, and rotation in later topics.",
           "examples": [
-            "The point (3, 2) is 3 units right and 2 units up from the origin — in Quadrant I.",
-            "The point (-4, 1) is 4 units left and 1 unit up — in Quadrant II.",
-            "The point (0, -5) lies directly below the origin on the y-axis (since x=0).",
-            "The point (-6, -2) is in Quadrant III, since both coordinates are negative.",
-            "Plotting the points (1,1), (2,2), (3,3) and joining them shows they all lie on a straight diagonal line."
+            "Plot the point (3, 2) and identify its quadrant.\nStep 1: From the origin, move 3 units right (x=3)\nStep 2: From there, move 2 units up (y=2)\nStep 3: Both coordinates are positive\nAnswer: (3,2) is in Quadrant I",
+            "Identify the quadrant of (-4, 1).\nStep 1: x=-4 (negative), y=1 (positive)\nStep 2: Negative x, positive y matches Quadrant II\nAnswer: (-4,1) is in Quadrant II",
+            "Identify the position of (0, -5).\nStep 1: x=0 means the point lies exactly on the y-axis\nStep 2: y=-5 means it's 5 units below the origin\nAnswer: (0,-5) is on the y-axis, 5 units below the origin",
+            "Identify the quadrant of (-6, -2).\nStep 1: x=-6 (negative), y=-2 (negative)\nStep 2: Both negative matches Quadrant III\nAnswer: (-6,-2) is in Quadrant III",
+            "Plot (1,1), (2,2), (3,3) and describe the pattern.\nStep 1: Plot each point on the grid\nStep 2: Observe that for each point, x equals y\nAnswer: All three points lie on a straight diagonal line where x=y"
           ],
           "keyTerms": {
             "origin": "The point (0,0) where the x-axis and y-axis meet",
@@ -309,11 +309,11 @@
           "title": "Geometric Construction Skills",
           "content": "Geometric constructions use only two tools — a straightedge (ruler, used ONLY for drawing straight lines, never for measuring) and a pair of compasses — no protractor is allowed for a formal construction. This restriction isn't arbitrary: it forces every construction to be built on provably exact relationships (equal distances via compass arcs) rather than approximate measurements, which is why these methods have been used since ancient Greek geometry. Key constructions include: bisecting a line segment (finding its exact midpoint) by opening the compass to more than half the segment's length, drawing intersecting arcs above and below the line from both endpoints, and joining the two crossing points — that joining line is the perpendicular bisector, crossing at exactly 90° through the exact midpoint. Bisecting an angle splits it into two exactly equal angles using a similar arc-intersection method. Constructing a 60° angle uses the fact that an equilateral triangle has all three angles equal to 60° — drawing an arc from one point on a line, then another arc of the same radius from where the first arc crosses the line, and joining the start point to where the two arcs intersect produces exactly 60°. From a 60° angle you can also bisect further to get 30°, and combining constructions lets you build 90°, 45°, and other useful angles without ever picking up a protractor. Precision matters throughout: keep the compass width completely fixed while drawing a single arc, use a sharp pencil point, and don't let the compass slip.",
           "examples": [
-            "To bisect line AB: open compasses to more than half of AB, draw arcs above and below the line from both A and B, and join the two crossing points — that line is the perpendicular bisector.",
-            "To construct a 60° angle: draw a line, place the compass point on one end and draw an arc crossing the line, then without changing the width, place the compass on that crossing point and draw another arc crossing the first — joining the start point to this new crossing gives 60°.",
-            "To bisect an angle at vertex A: draw an arc crossing both arms of the angle, then from each crossing point draw two more arcs that intersect — join A to that intersection to bisect the angle.",
-            "To construct 90° at a point on a line: bisect a straight angle (180°) at that point using the same arc method — the bisector of a straight line's angle is exactly perpendicular to it.",
-            "To construct 30°: first construct 60° using the equilateral triangle method, then bisect that 60° angle to get two 30° angles."
+            "Construct the perpendicular bisector of line AB.\nStep 1: Open compasses to more than half the length of AB\nStep 2: From point A, draw arcs above and below the line\nStep 3: Without changing the width, from point B draw arcs above and below crossing the first arcs\nStep 4: Join the two crossing points with a straight line\nAnswer: This line is the perpendicular bisector — it crosses AB at 90° through its exact midpoint",
+            "Construct a 60° angle at point A on a line.\nStep 1: Place the compass point on A and draw an arc crossing the line\nStep 2: Without changing the compass width, place the compass on where that arc crosses the line and draw another arc crossing the first\nStep 3: Join point A to where the two arcs intersect\nAnswer: The angle formed is exactly 60°",
+            "Bisect an angle at vertex A.\nStep 1: Draw an arc from A crossing both arms of the angle\nStep 2: From each of those two crossing points, draw arcs of equal radius that intersect each other\nStep 3: Join A to that intersection point\nAnswer: This line bisects the angle into two exactly equal parts",
+            "Construct a 90° angle at a point on a straight line.\nStep 1: Recognise a straight line measures 180°\nStep 2: Bisect this straight angle using the same arc-intersection method as bisecting any angle\nAnswer: The bisector of a straight angle is exactly perpendicular (90°) to the line",
+            "Construct a 30° angle.\nStep 1: First construct a 60° angle using the equilateral triangle method\nStep 2: Bisect that 60° angle using the angle bisection method\nAnswer: Each half of the bisected 60° angle measures exactly 30°"
           ],
           "keyTerms": {
             "bisect": "To divide exactly into two equal parts",
@@ -383,11 +383,11 @@
           "title": "Sequence and Patterns",
           "content": "A sequence is an ordered list of numbers following a consistent rule; each individual number in the list is called a term. In an arithmetic sequence, every term increases (or decreases) by the same fixed amount compared to the one before it — this fixed amount is called the common difference. For example, in 3, 7, 11, 15..., each term is 4 more than the last, so the common difference is 4. To find the common difference from a list of terms, simply subtract any term from the one directly after it. Beyond just continuing a pattern term by term, mathematicians want a direct formula — the nth term — that lets you jump straight to, say, the 100th term without listing 99 terms first. For an arithmetic sequence, the nth term formula is: nth term = a + (n−1)d, where a is the first term and d is the common difference. Once you have this formula, substituting any value of n instantly gives you that term. Sequences don't have to be arithmetic — some patterns involve multiplying by a fixed value each time (geometric sequences), or follow other rules entirely, like the sequence of square numbers (1, 4, 9, 16...) where the nth term is simply n². Recognising the TYPE of pattern first is the key skill before trying to find a formula.",
           "examples": [
-            "Sequence 2, 5, 8, 11...: common difference = 3. nth term = 2 + (n-1)×3 = 3n - 1.",
-            "Using 3n-1, the 10th term = 3(10)-1 = 29.",
-            "Sequence 20, 17, 14, 11...: common difference = -3 (decreasing). nth term = 20 + (n-1)×(-3) = 23-3n.",
-            "The sequence of square numbers 1, 4, 9, 16, 25... has nth term = n², so the 7th term = 7² = 49.",
-            "Sequence 100, 96, 92, 88...: to find which term equals 60, solve 100+(n-1)×(-4)=60 → -4(n-1)=-40 → n-1=10 → n=11 (the 11th term is 60)."
+            "Find the nth term of 2, 5, 8, 11...\nStep 1: Find the common difference: 5-2=3\nStep 2: Identify the first term: a=2\nStep 3: Substitute into nth term = a+(n-1)d: 2+(n-1)×3\nStep 4: Expand: 2+3n-3\nAnswer: nth term = 3n-1",
+            "Using nth term = 3n-1, find the 10th term.\nStep 1: Substitute n=10 into the formula\nStep 2: Calculate: 3(10)-1\nAnswer: 10th term = 29",
+            "Find the nth term of 20, 17, 14, 11...\nStep 1: Find the common difference: 17-20=-3 (decreasing)\nStep 2: Identify the first term: a=20\nStep 3: Substitute: 20+(n-1)×(-3)\nStep 4: Expand: 20-3n+3\nAnswer: nth term = 23-3n",
+            "Find the 7th term of the sequence of square numbers 1, 4, 9, 16, 25...\nStep 1: Recognise the nth term formula is n²\nStep 2: Substitute n=7\nAnswer: 7th term = 7² = 49",
+            "In the sequence 100, 96, 92, 88..., find which term equals 60.\nStep 1: Find the nth term formula: a=100, d=-4, so nth term=100+(n-1)×(-4)\nStep 2: Set the formula equal to 60: 100-4(n-1)=60\nStep 3: Solve: -4(n-1)=-40, so n-1=10\nAnswer: n=11 (the 11th term is 60)"
           ],
           "keyTerms": {
             "sequence": "An ordered list of numbers following a rule",
@@ -457,11 +457,11 @@
           "title": "Bearings",
           "content": "A bearing describes direction as an angle measured clockwise from North, and is always written using exactly three digits — for example 090°, never just '90°'. Bearings range from 000° (due North) all the way around to 360° (back to North again). Four key reference bearings are worth memorising: North is 000°, East is 090°, South is 180°, and West is 270°. To find a bearing in a diagram, always imagine facing North first, then rotating clockwise (like the hands of a clock) until you're facing the target direction — the angle you rotated through is the bearing. A very useful relationship is the back bearing: the bearing you'd use to travel back from the destination to the starting point. The back bearing always differs from the original bearing by exactly 180°: if the original bearing is less than 180°, add 180° to find the back bearing; if the original bearing is 180° or more, subtract 180° instead. Bearings are used extensively in navigation (ships, aircraft, hikers using a compass), surveying land boundaries, and describing the position of one town or landmark relative to another on a map.",
           "examples": [
-            "A ship travels on a bearing of 045° — this means it faces North then turns 45° clockwise (North-East direction).",
-            "If the bearing from A to B is 070°, the back bearing (B to A) is 070°+180° = 250°.",
-            "If the bearing from A to B is 300°, the back bearing is 300°-180° = 120°.",
-            "A hiker walks on a bearing of 135° (South-East direction) for 2km, then changes to a bearing of 225° for the next 3km.",
-            "The bearing of town Q from town P is 060°. This means from P, you'd rotate 60° clockwise from North to face Q."
+            "State the bearing represented by a ship facing North then turning 45° clockwise.\nStep 1: Start facing North (000°)\nStep 2: Rotate 45° clockwise\nAnswer: The bearing is 045° (North-East direction)",
+            "The bearing from A to B is 070°. Find the back bearing (B to A).\nStep 1: Check if the bearing is less than 180°: 070°<180°\nStep 2: Since it's less than 180°, add 180°\nStep 3: Calculate: 070+180\nAnswer: Back bearing = 250°",
+            "The bearing from A to B is 300°. Find the back bearing.\nStep 1: Check if the bearing is 180° or more: 300°≥180°\nStep 2: Since it's 180° or more, subtract 180°\nStep 3: Calculate: 300-180\nAnswer: Back bearing = 120°",
+            "A hiker walks on a bearing of 135° for 2km, then changes to a bearing of 225° for 3km. Describe the first direction.\nStep 1: Compare 135° to the reference bearings (000° N, 090° E, 180° S, 270° W)\nStep 2: 135° sits between East (090°) and South (180°)\nAnswer: The first direction is South-East",
+            "The bearing of town Q from town P is 060°. Describe how to find this direction at P.\nStep 1: Stand at P facing North (000°)\nStep 2: Rotate clockwise by 60°\nAnswer: This rotation faces you toward Q"
           ],
           "keyTerms": {
             "bearing": "A direction measured clockwise from North, given as a three-digit angle",
@@ -530,11 +530,11 @@
           "title": "General and Angle Properties of Geometric Figures",
           "content": "Polygons are closed 2D shapes made entirely of straight sides. Every polygon has a predictable sum of interior angles based only on its number of sides (n): sum of interior angles = (n−2) × 180°. This formula works because any polygon can be split into (n−2) triangles from a single vertex, and each triangle contributes 180°. A triangle (3 sides) therefore has angles summing to (3−2)×180°=180°, and a quadrilateral (4 sides) sums to (4−2)×180°=360°. For a REGULAR polygon (one where all sides and all angles are equal), you can find each individual interior angle by dividing the total sum by the number of sides: each interior angle = sum ÷ n. Separately, the EXTERIOR angle of a polygon is formed by extending one side outward — and remarkably, no matter how many sides a polygon has, its exterior angles always add up to exactly 360° (imagine walking all the way around the polygon's boundary; you'd end up facing the same direction you started, having turned a full 360° in total). Because an interior angle and its adjacent exterior angle always sit on a straight line together, they must sum to 180°, giving the relationship: exterior angle = 180° − interior angle. These angle rules let you calculate any missing angle in a polygon using arithmetic alone, without ever needing to measure it.",
           "examples": [
-            "Sum of interior angles of a pentagon (5 sides): (5-2)×180° = 540°.",
-            "Each interior angle of a regular hexagon (6 sides): sum = (6-2)×180° = 720°, so each angle = 720°÷6 = 120°.",
-            "If a regular polygon has exterior angles of 40°, the number of sides = 360°÷40° = 9.",
-            "A regular polygon has an interior angle of 156°. Its exterior angle = 180°-156° = 24°, so it has 360°÷24° = 15 sides.",
-            "An irregular quadrilateral has three known angles of 80°, 95°, and 110°. The fourth angle = 360° - (80+95+110) = 75°."
+            "Find the sum of interior angles of a pentagon (5 sides).\nStep 1: Use the formula sum=(n-2)×180°\nStep 2: Substitute n=5: (5-2)×180°\nAnswer: Sum = 540°",
+            "Find each interior angle of a regular hexagon (6 sides).\nStep 1: Find the sum of interior angles: (6-2)×180°=720°\nStep 2: Divide by the number of sides since it's regular: 720°÷6\nAnswer: Each interior angle = 120°",
+            "A regular polygon has exterior angles of 40°. Find the number of sides.\nStep 1: Recall exterior angles always sum to 360°\nStep 2: Divide 360° by one exterior angle: 360°÷40°\nAnswer: The polygon has 9 sides",
+            "A regular polygon has an interior angle of 156°. Find the number of sides.\nStep 1: Find the exterior angle: 180°-156°=24°\nStep 2: Divide 360° by the exterior angle: 360°÷24°\nAnswer: The polygon has 15 sides",
+            "An irregular quadrilateral has three angles of 80°, 95°, and 110°. Find the fourth angle.\nStep 1: Find the sum of interior angles for a quadrilateral: (4-2)×180°=360°\nStep 2: Add the three known angles: 80+95+110=285°\nStep 3: Subtract from the total: 360°-285°\nAnswer: The fourth angle = 75°"
           ],
           "keyTerms": {
             "polygon": "A closed 2D shape made of straight sides",
@@ -604,11 +604,11 @@
           "title": "Data Collection and Presentation",
           "content": "Data collection is the process of gathering information systematically, and it can happen through direct observation, questionnaires, structured interviews, or controlled experiments — the right method depends on what you're investigating. Once gathered, raw, unorganised data is usually first sorted into a frequency table, which lists every distinct value or category alongside a count of how many times it occurred; this makes patterns in the data much easier to see than a long unsorted list. From a frequency table, data can be presented visually in several ways, and the right chart depends heavily on the TYPE of data involved. A bar chart uses separate, non-touching bars for each category and is ideal for comparing distinct, unrelated groups (like favourite subjects, or sales per region). A pie chart represents data as slices of a circle, where each slice's angle is proportional to its share of the whole — best used when you want to emphasise proportions of a total rather than compare raw counts. A line graph plots points connected by straight lines and is the best choice specifically for showing how a value changes continuously over time (like temperature through the day, or a company's profit over several years) — using a line graph for unrelated categories would be misleading, since it implies a continuous trend that doesn't actually exist between separate categories.",
           "examples": [
-            "A survey of favourite subjects among 30 students: Math (12), English (8), Science (10) — best shown as a bar chart or pie chart since these are separate categories.",
-            "In a pie chart, if 12 out of 30 students chose Math, that slice = 12/30 × 360° = 144°.",
-            "Tracking a school's enrolment over 5 years is best shown with a line graph, since it shows change over time.",
-            "A frequency table for shoe sizes sold in a shop: size 38 (5 pairs), size 39 (12 pairs), size 40 (20 pairs), size 41 (8 pairs) — instantly shows size 40 is the most popular.",
-            "Rainfall recorded each month of the year is best displayed as a line graph, since it tracks a continuously changing quantity across time."
+            "30 students are surveyed on favourite subjects: Math (12), English (8), Science (10). Find the pie chart angle for Math.\nStep 1: Find Math's fraction of the total: 12/30\nStep 2: Multiply by 360°: (12/30)×360°\nAnswer: Math's slice = 144°",
+            "In a frequency table, 20 pairs of size 40 shoes were sold out of 45 total pairs. Find the percentage.\nStep 1: Write as a fraction: 20/45\nStep 2: Convert to a decimal: 20÷45≈0.444\nStep 3: Multiply by 100\nAnswer: Approximately 44.4% of shoes sold were size 40",
+            "Decide the best chart for tracking a school's enrolment over 5 years.\nStep 1: Identify the data type: changing over time\nStep 2: Recall that line graphs show change over time clearly\nAnswer: A line graph is the best choice",
+            "15 out of 60 people chose 'blue' as their favourite colour. Find the pie chart angle.\nStep 1: Find the fraction: 15/60=0.25\nStep 2: Multiply by 360°: 0.25×360°\nAnswer: Blue's slice = 90°",
+            "Decide the best chart for comparing rainfall recorded each month of a year.\nStep 1: Identify the data type: values changing continuously across time (months)\nStep 2: Recall that line graphs suit continuous data over time\nAnswer: A line graph is the best choice"
           ],
           "keyTerms": {
             "frequency table": "A table showing how many times each value or category occurs in a data set",
@@ -678,11 +678,11 @@
           "title": "Reflection",
           "content": "Reflection is a transformation that flips a shape over a fixed line, called the mirror line (or line of symmetry), producing what looks exactly like a mirror image of the original. Every single point in the reflected image sits the exact same perpendicular distance from the mirror line as its corresponding point in the original, just on the opposite side — this is what guarantees the reflected shape is congruent to (identical in size and shape to) the original, even though its orientation is reversed, the same way your reflection in a mirror has the same size as you but left and right appear swapped. In coordinate geometry, three mirror lines come up constantly: reflecting in the x-axis keeps every x-coordinate the same but flips the sign of every y-coordinate, since the x-axis IS the line y=0 and reflecting flips whatever is measured perpendicular to it; reflecting in the y-axis works the opposite way, keeping y the same and flipping the sign of x; and reflecting in the line y=x swaps the x and y coordinates entirely, because that diagonal line acts as the mirror between the horizontal and vertical directions. When a shape is reflected, you can check your work by confirming distances: measure from any original point straight to the mirror line, then from the mirror line straight to the corresponding image point — those two distances must be exactly equal.",
           "examples": [
-            "Reflecting point (3, 5) in the x-axis gives (3, -5).",
-            "Reflecting point (3, 5) in the y-axis gives (-3, 5).",
-            "Reflecting point (2, 4) in the line y=x swaps the coordinates, giving (4, 2).",
-            "Reflecting the point (-2, -3) in the x-axis gives (-2, 3) — only the y-coordinate's sign changes.",
-            "A triangle with vertices (1,1), (4,1), (1,3) reflected in the y-axis has new vertices (-1,1), (-4,1), (-1,3) — the shape and size are unchanged, but it now faces the opposite direction."
+            "Reflect point (3, 5) in the x-axis.\nStep 1: Recall reflecting in the x-axis keeps x the same, flips the sign of y\nStep 2: Keep x=3, flip y: 5 becomes -5\nAnswer: (3,5) → (3,-5)",
+            "Reflect point (3, 5) in the y-axis.\nStep 1: Recall reflecting in the y-axis keeps y the same, flips the sign of x\nStep 2: Flip x: 3 becomes -3, keep y=5\nAnswer: (3,5) → (-3,5)",
+            "Reflect point (2, 4) in the line y=x.\nStep 1: Recall reflecting in y=x swaps the coordinates\nStep 2: Swap 2 and 4\nAnswer: (2,4) → (4,2)",
+            "Reflect point (-2, -3) in the x-axis.\nStep 1: Keep x the same: -2\nStep 2: Flip the sign of y: -3 becomes 3\nAnswer: (-2,-3) → (-2,3)",
+            "A triangle has vertices (1,1), (4,1), (1,3). Reflect it in the y-axis.\nStep 1: Flip the sign of x for each vertex, keep y the same\nStep 2: (1,1)→(-1,1), (4,1)→(-4,1), (1,3)→(-1,3)\nAnswer: New vertices are (-1,1), (-4,1), (-1,3)"
           ],
           "keyTerms": {
             "reflection": "A transformation that flips a shape over a mirror line",
@@ -751,11 +751,11 @@
           "title": "Equations of Lines and Curves",
           "content": "A straight line can always be described using the equation y = mx + c, where m represents the gradient (the steepness, or how quickly y changes as x increases) and c represents the y-intercept (the exact point where the line crosses the vertical y-axis, when x=0). Given any two points that lie on a line, you can calculate its gradient using the formula m = (change in y) ÷ (change in x), often written as (y₂−y₁)/(x₂−x₁). Once you know the gradient and have at least one point on the line, you can find c by substituting that point's x and y values into y=mx+c and solving for c. A positive gradient means the line slopes upward from left to right; a negative gradient slopes downward; a gradient of zero produces a perfectly horizontal line. Curves are different from straight lines because their equations involve a variable raised to a power greater than 1 — the simplest example is y = x², which produces a symmetric U-shaped curve called a parabola. Unlike a straight line's constant steepness, a curve's steepness changes continuously along its length, which is why plotting several points (not just two) is necessary to draw an accurate curve.",
           "examples": [
-            "Find the equation of the line through (1, 5) and (3, 9): gradient = (9-5)/(3-1) = 2. Using y=mx+c with (1,5): 5 = 2(1)+c, so c=3. Equation: y = 2x + 3.",
-            "The line y = -3x + 7 has gradient -3 (sloping downward) and y-intercept 7.",
-            "The curve y = x² passes through (0,0), (1,1), (2,4), (-1,1), (-2,4) — it's symmetric about the y-axis.",
-            "Find the gradient of the line joining (-2, 3) and (4, -9): gradient = (-9-3)/(4-(-2)) = -12/6 = -2.",
-            "The curve y = x² + 1 is the same parabola as y=x² but shifted 1 unit upward — it passes through (0,1) instead of (0,0)."
+            "Find the equation of the line through (1, 5) and (3, 9).\nStep 1: Find the gradient: m=(9-5)/(3-1)=4/2=2\nStep 2: Substitute point (1,5) into y=mx+c: 5=2(1)+c\nStep 3: Solve for c: c=5-2=3\nAnswer: y = 2x + 3",
+            "State the gradient and y-intercept of y = -3x + 7.\nStep 1: Compare to y=mx+c\nStep 2: Identify m=-3 and c=7\nAnswer: Gradient = -3 (sloping downward), y-intercept = 7",
+            "Find some points on the curve y = x² to help sketch it.\nStep 1: Substitute x=0: y=0\nStep 2: Substitute x=1: y=1; substitute x=-1: y=1\nStep 3: Substitute x=2: y=4; substitute x=-2: y=4\nAnswer: Points (0,0),(1,1),(-1,1),(2,4),(-2,4) show a symmetric U-shape",
+            "Find the gradient of the line joining (-2, 3) and (4, -9).\nStep 1: Apply the gradient formula: m=(y2-y1)/(x2-x1)\nStep 2: Substitute: m=(-9-3)/(4-(-2))=-12/6\nAnswer: Gradient = -2",
+            "Compare the curves y=x² and y=x²+1.\nStep 1: Note both have the same shape (parabola)\nStep 2: The +1 shifts every y-value up by 1\nAnswer: y=x²+1 is the same parabola as y=x², shifted 1 unit upward, passing through (0,1) instead of (0,0)"
           ],
           "keyTerms": {
             "gradient": "The steepness of a line, calculated as change in y over change in x",
@@ -824,11 +824,11 @@
           "title": "Algebra 1",
           "content": "Algebra uses letters (called variables) to stand in for numbers that are unknown or that can change in value. An algebraic expression combines variables, numbers, and mathematical operations — for example, 3x + 5 means 'take a number x, multiply it by 3, then add 5.' The individual parts of an expression, separated by + or − signs, are called terms; in 3x + 5, there are two terms: 3x and 5. 'Like terms' are terms containing exactly the same variable (or combination of variables) raised to exactly the same power — for instance, 2x and 5x are like terms because they both involve x to the power 1, but 2x and 3x² are NOT like terms, because one has x to the power 1 and the other has x to the power 2. Simplifying an expression means combining all like terms together to make it shorter and clearer, by adding or subtracting their coefficients (the numbers in front of the variable). The distributive law lets you expand brackets correctly: a(b+c) = ab + ac, meaning whatever is outside the bracket must multiply EVERY term inside it, not just the first one. Substitution means replacing each variable with a specific given number in order to evaluate (calculate the numerical value of) an expression — always follow the correct order of operations (BODMAS) when substituting.",
           "examples": [
-            "Simplify 5x + 3y - 2x + y: combine like terms: (5x-2x) + (3y+y) = 3x + 4y.",
-            "Expand 4(2x - 3): 4×2x - 4×3 = 8x - 12.",
-            "Evaluate 3x² + 2 when x = 4: 3(16) + 2 = 48+2 = 50.",
-            "Simplify 7a - 2b + 3a - 5b + 6: combine like terms separately: (7a+3a) + (-2b-5b) + 6 = 10a - 7b + 6.",
-            "Expand and simplify 2(x+3) + 3(x-1): 2x+6+3x-3 = 5x+3."
+            "Simplify 5x + 3y - 2x + y.\nStep 1: Group the x terms: 5x-2x=3x\nStep 2: Group the y terms: 3y+y=4y\nAnswer: 3x + 4y",
+            "Expand 4(2x - 3).\nStep 1: Multiply 4 by 2x: 4×2x=8x\nStep 2: Multiply 4 by -3: 4×(-3)=-12\nAnswer: 8x - 12",
+            "Evaluate 3x² + 2 when x = 4.\nStep 1: Substitute x=4: 3(4)²+2\nStep 2: Calculate the power first (BODMAS): 4²=16\nStep 3: Multiply: 3×16=48\nStep 4: Add: 48+2\nAnswer: 50",
+            "Simplify 7a - 2b + 3a - 5b + 6.\nStep 1: Group the a terms: 7a+3a=10a\nStep 2: Group the b terms: -2b-5b=-7b\nStep 3: Keep the constant: +6\nAnswer: 10a - 7b + 6",
+            "Expand and simplify 2(x+3) + 3(x-1).\nStep 1: Expand the first bracket: 2x+6\nStep 2: Expand the second bracket: 3x-3\nStep 3: Combine like terms: (2x+3x)+(6-3)\nAnswer: 5x + 3"
           ],
           "keyTerms": {
             "variable": "A letter representing an unknown or changing value",
@@ -898,11 +898,11 @@
           "title": "Business Arithmetic",
           "content": "Business arithmetic covers the practical maths used in everyday buying, selling, and money management in Uganda, using UGX (Ugandan Shillings). The two most fundamental ideas are profit and loss: profit occurs when the selling price is higher than the cost price — the amount you paid to acquire or produce the goods — and is calculated as Profit = Selling Price − Cost Price; a loss occurs the opposite way, when selling price is lower than cost price. To express profit or loss as a percentage (which allows fair comparison between different-sized transactions), always divide by the COST price, not the selling price: Percentage profit (or loss) = (Profit or Loss ÷ Cost Price) × 100. Simple interest is the extra money earned on savings, or owed on a loan, calculated only on the original amount (never compounding on previously earned interest): I = (P × R × T) ÷ 100, where P is the principal (the amount originally invested or borrowed), R is the interest rate per year as a percentage, and T is the time in years. A discount is a reduction taken off the marked (original) price of an item, usually expressed as a percentage — to find the price actually paid, calculate the discount amount and subtract it from the marked price. These calculations underpin everyday trading, budgeting, and saving decisions that every business owner and consumer makes.",
           "examples": [
-            "A trader buys a bag of maize for UGX 40,000 and sells it for UGX 52,000. Profit = 52,000 - 40,000 = UGX 12,000. Percentage profit = (12,000/40,000)×100 = 30%.",
-            "A shop offers a 15% discount on an item marked at UGX 60,000. Discount = 0.15×60,000 = UGX 9,000. Price to pay = 60,000 - 9,000 = UGX 51,000.",
-            "A person deposits UGX 200,000 at 8% simple interest per year for 3 years. Interest = (200,000×8×3)/100 = UGX 48,000.",
-            "A trader buys a phone for UGX 350,000 and is forced to sell it at UGX 300,000 due to a new model release. Loss = 50,000. Percentage loss = (50,000/350,000)×100 ≈ 14.3%.",
-            "A farmer borrows UGX 500,000 at 12% simple interest per year to buy fertiliser, repaying after 6 months (0.5 years). Interest = (500,000×12×0.5)/100 = UGX 30,000, so total repayment = UGX 530,000."
+            "A trader buys a bag of maize for UGX 40,000 and sells it for UGX 52,000. Find the percentage profit.\nStep 1: Find the profit: 52,000-40,000=12,000\nStep 2: Divide by the cost price: 12,000/40,000\nStep 3: Multiply by 100\nAnswer: Percentage profit = 30%",
+            "A shop offers a 15% discount on an item marked at UGX 60,000. Find the price to pay.\nStep 1: Find the discount amount: 0.15×60,000=9,000\nStep 2: Subtract from the marked price: 60,000-9,000\nAnswer: Price to pay = UGX 51,000",
+            "Find the simple interest on UGX 200,000 at 8% per year for 3 years.\nStep 1: Write out I=(P×R×T)/100\nStep 2: Substitute: (200,000×8×3)/100\nStep 3: Calculate the top: 200,000×8×3=4,800,000\nStep 4: Divide by 100\nAnswer: Interest = UGX 48,000",
+            "A trader buys a phone for UGX 350,000 and sells it at UGX 300,000. Find the percentage loss.\nStep 1: Find the loss: 350,000-300,000=50,000\nStep 2: Divide by the cost price: 50,000/350,000\nStep 3: Multiply by 100\nAnswer: Percentage loss ≈ 14.3%",
+            "A farmer borrows UGX 500,000 at 12% simple interest per year, repaying after 6 months (0.5 years). Find the total repayment.\nStep 1: Calculate interest: (500,000×12×0.5)/100\nStep 2: Simplify: 500,000×12×0.5=3,000,000, then ÷100\nStep 3: Interest = UGX 30,000\nStep 4: Add to the principal: 500,000+30,000\nAnswer: Total repayment = UGX 530,000"
           ],
           "keyTerms": {
             "profit": "The amount gained when selling price exceeds cost price",
@@ -972,11 +972,11 @@
           "title": "Time and Timetables",
           "content": "Time can be expressed using the 12-hour clock (paired with am for before noon and pm for after noon) or the 24-hour clock, which runs continuously from 00:00 (midnight) to 23:59 and is preferred for timetables precisely because it avoids any am/pm ambiguity. To convert a 12-hour pm time into 24-hour format, add 12 to the hour (so 3:00pm becomes 15:00); 12-hour am times before noon convert directly with no change, except that 12:00am (midnight) becomes 00:00 in 24-hour format, and 12:00pm (noon) stays as 12:00. Reading a timetable — for a bus, train, or flight — involves locating the departure time and arrival time for your journey, then finding the duration by subtracting departure from arrival; if a journey crosses midnight (arrival time is numerically smaller than departure time), you must add 24 hours to the arrival time before subtracting, to account for the day change. Time calculations connect directly to the relationship between speed, distance, and time: Speed = Distance ÷ Time, which can be rearranged to Distance = Speed × Time, or Time = Distance ÷ Speed, depending on which two values are known and which one you need to find.",
           "examples": [
-            "Convert 7:45pm to 24-hour time: 7+12 = 19, so 19:45.",
-            "A bus departs at 08:30 and arrives at 13:15. Duration = 13:15 - 08:30 = 4 hours 45 minutes.",
-            "A car travels 180km in 3 hours. Speed = 180÷3 = 60km/h.",
-            "A night bus departs at 23:30 and arrives at 05:15 the next morning. Since it crosses midnight, add 24 hours to arrival: 29:15 - 23:30 = 5 hours 45 minutes.",
-            "A cyclist needs to cover 90km at a speed of 18km/h. Time needed = 90÷18 = 5 hours."
+            "Convert 7:45pm to 24-hour time.\nStep 1: Recognise it's a pm time, so add 12 to the hour\nStep 2: 7+12=19\nAnswer: 19:45",
+            "A bus departs at 08:30 and arrives at 13:15. Find the journey duration.\nStep 1: Find the time from 08:30 to 13:30 (an even 5 hours)\nStep 2: Adjust since arrival is actually 13:15, which is 15 minutes earlier\nStep 3: Subtract: 5 hours - 15 minutes\nAnswer: Duration = 4 hours 45 minutes",
+            "A car travels 180km in 3 hours. Find the speed.\nStep 1: Recall Speed = Distance ÷ Time\nStep 2: Substitute: 180÷3\nAnswer: Speed = 60km/h",
+            "A night bus departs at 23:30 and arrives at 05:15 the next morning. Find the duration.\nStep 1: Since the journey crosses midnight, add 24 hours to the arrival time: 05:15+24:00=29:15\nStep 2: Subtract the departure time: 29:15-23:30\nAnswer: Duration = 5 hours 45 minutes",
+            "A cyclist needs to cover 90km at a speed of 18km/h. Find the time needed.\nStep 1: Recall Time = Distance ÷ Speed\nStep 2: Substitute: 90÷18\nAnswer: Time needed = 5 hours"
           ],
           "keyTerms": {
             "24-hour clock": "A time system running from 00:00 to 23:59, avoiding am/pm",
@@ -1050,11 +1050,11 @@
           "title": "Mappings and Relations",
           "content": "A mapping (or relation) describes how each element of one set, called the domain, relates to element(s) of another set, called the range or codomain — often visualised using arrow diagrams connecting inputs to outputs. There are different types of mappings based on how inputs and outputs connect: a one-to-one mapping sends each distinct input to its own distinct, unique output; a many-to-one mapping sends several different inputs to the exact same output; and a one-to-many mapping sends a single input to multiple different outputs. A function is a special, very important type of mapping where every single input has EXACTLY one output — functions can be one-to-one or many-to-one, but they can never be one-to-many, because that would mean the same input sometimes gives different answers, which breaks the whole idea of a reliable rule. Functions are usually written with notation like f(x) = 2x+1, read as 'f of x equals 2x plus 1' — this tells you the exact rule to apply to any input x. To evaluate the function at a specific value, substitute that value in place of x everywhere it appears: to find f(3), replace every x with 3, giving f(3) = 2(3)+1 = 7. Mappings and functions form the conceptual bridge between basic algebra and the more advanced study of functions and graphs in later years.",
           "examples": [
-            "The mapping x → x² sends 3 to 9 and -3 to 9 too — this is many-to-one (two inputs, one output).",
-            "For f(x) = 3x - 2, find f(4): f(4) = 3(4)-2 = 10.",
-            "The mapping {student → school} where each student attends exactly one school is one-to-one from the student's perspective.",
-            "For g(x) = x² + 3, find g(-2): g(-2) = (-2)²+3 = 4+3 = 7.",
-            "The mapping 'person → their fingerprints' is one-to-one, since no two people share identical fingerprints, but 'person → their nationality' can be many-to-one, since many people share the same nationality."
+            "For f(x)=3x-2, find f(4).\nStep 1: Substitute x=4 into the rule: 3(4)-2\nStep 2: Multiply: 3×4=12\nStep 3: Subtract: 12-2\nAnswer: f(4) = 10",
+            "For g(x)=x²+3, find g(-2).\nStep 1: Substitute x=-2 into the rule: (-2)²+3\nStep 2: Calculate the power first: (-2)²=4\nStep 3: Add: 4+3\nAnswer: g(-2) = 7",
+            "Determine whether the mapping x → x² is one-to-one or many-to-one.\nStep 1: Check if two different inputs can give the same output\nStep 2: Test x=3 and x=-3: both give 9\nAnswer: This mapping is many-to-one",
+            "For h(x)=x+5 and k(x)=3x, find hk(2).\nStep 1: Apply k first since it's inside: k(2)=3×2=6\nStep 2: Apply h to that result: h(6)=6+5\nAnswer: hk(2) = 11",
+            "Explain why 'person → their fingerprints' is a valid function but 'output → person' might not be.\nStep 1: Check if each person has exactly one set of fingerprints (yes)\nStep 2: Check if each set of fingerprints could belong to more than one person (no, they're unique)\nAnswer: person → fingerprints is one-to-one; reversing it also works as one-to-one here, unlike nationality which could be many-to-one"
           ],
           "keyTerms": {
             "domain": "The set of all possible input values of a mapping",
@@ -1123,11 +1123,11 @@
           "title": "Vectors and Translation",
           "content": "A vector is a quantity that has both magnitude (size or length) and direction, unlike an ordinary number (called a scalar) which only has size. In this topic, vectors are written as column vectors, for example (3 over 2), meaning 'move 3 units to the right and 2 units up' — the top number is the horizontal component and the bottom number is the vertical component. A translation is a transformation that slides every single point of a shape by the exact same vector; crucially, translation changes ONLY the position of a shape — its size, its shape, and its orientation (which way it's facing) all stay completely unchanged, unlike rotation or reflection. To translate any point (x, y) using vector (a over b), simply add the components: the new point becomes (x+a, y+b). The magnitude (length) of a vector (a over b) is calculated using Pythagoras' theorem, treating a and b as the two shorter sides of a right-angled triangle: magnitude = √(a²+b²). Understanding vectors here lays essential groundwork for combining vectors, vector geometry, and physics applications involving forces and velocities in later study.",
           "examples": [
-            "Translating point (2,3) by vector (4 over -1) gives (2+4, 3-1) = (6, 2).",
-            "The magnitude of vector (3 over 4) is √(3²+4²) = √25 = 5.",
-            "Translating a whole triangle by vector (-2 over 5) shifts every vertex 2 units left and 5 units up.",
-            "Translating point (-1, -4) by vector (5 over 2) gives (-1+5, -4+2) = (4, -2).",
-            "Find the magnitude of vector (5 over 12): √(25+144) = √169 = 13 — a classic Pythagorean triple (5,12,13)."
+            "Translate point (2,3) by vector (4 over -1).\nStep 1: Add the vector's top component to x: 2+4=6\nStep 2: Add the vector's bottom component to y: 3+(-1)=2\nAnswer: New point = (6, 2)",
+            "Find the magnitude of vector (3 over 4).\nStep 1: Apply Pythagoras: magnitude=√(a²+b²)\nStep 2: Substitute: √(3²+4²)=√(9+16)\nStep 3: Simplify: √25\nAnswer: Magnitude = 5",
+            "Translate point (-1,-4) by vector (5 over 2).\nStep 1: Add to x: -1+5=4\nStep 2: Add to y: -4+2=-2\nAnswer: New point = (4, -2)",
+            "Find the magnitude of vector (5 over 12).\nStep 1: Apply Pythagoras: √(5²+12²)\nStep 2: Calculate: √(25+144)=√169\nAnswer: Magnitude = 13 (a classic Pythagorean triple 5-12-13)",
+            "A triangle is translated by vector (-2 over 5). Describe the effect on one vertex at (3,1).\nStep 1: Add to x: 3+(-2)=1\nStep 2: Add to y: 1+5=6\nAnswer: The vertex moves to (1,6); every other vertex shifts identically"
           ],
           "keyTerms": {
             "vector": "A quantity with both magnitude and direction, often written as a column of two numbers",
@@ -1197,11 +1197,11 @@
           "title": "Graphs",
           "content": "Graphs give a visual representation of the relationship between two changing quantities, making patterns and trends far easier to spot than in a table of numbers alone. A linear graph is a straight line and represents a constant rate of change — for every equal step along the horizontal axis, the vertical value changes by the same fixed amount. A travel graph specifically plots distance (vertical axis) against time (horizontal axis) to describe a journey, and it reveals a lot at a glance: the gradient (steepness) of any section of the line directly represents speed during that part of the journey, since speed is distance divided by time; a completely horizontal (flat) section means the object has stopped, because distance isn't increasing even though time continues to pass; and a steeper section compared to another means the object was travelling faster during that portion. Reading any graph accurately starts with identifying exactly what each axis represents and understanding its scale (how much each grid square is worth) before tracing values. Graphs also let you make predictions: interpolation means estimating a value that falls between two points you've already plotted, while extrapolation means extending the pattern beyond your known data to predict future or past values — extrapolation is riskier, since it assumes the same trend continues beyond what you've actually observed.",
           "examples": [
-            "On a travel graph, a horizontal line means the person has stopped — distance isn't changing even though time passes.",
-            "If a travel graph shows 100km covered in 2 hours as a straight line, the speed (gradient) = 100/2 = 50km/h.",
-            "A steeper section of a travel graph compared to an earlier section means the object sped up.",
-            "A cyclist's travel graph shows 0km at 0 hours, 20km at 1 hour, then flat until 1.5 hours (a rest stop), then 40km at 2.5 hours — the speed before the rest was 20km/h, and after the rest it was 20km÷1hour=20km/h again.",
-            "Reading a graph of a car's fuel level against distance travelled, a steady downward-sloping line shows constant fuel consumption per kilometre."
+            "A travel graph shows 100km covered in 2 hours as a straight line. Find the speed.\nStep 1: Recall gradient = distance/time represents speed\nStep 2: Substitute: 100/2\nAnswer: Speed = 50km/h",
+            "Describe what a horizontal section of a travel graph means.\nStep 1: Recall the vertical axis is distance, horizontal axis is time\nStep 2: A flat line means distance isn't changing even as time passes\nAnswer: The object is stationary (stopped) during that section",
+            "A cyclist's graph shows 0km at 0h, 20km at 1h, flat until 1.5h (a rest), then 40km at 2.5h. Find the speed before the rest.\nStep 1: Identify the distance and time for that section: 20km in 1 hour\nStep 2: Apply speed=distance/time: 20/1\nAnswer: Speed before the rest = 20km/h",
+            "Using the same graph, find the speed after the rest stop.\nStep 1: Identify the distance covered after the rest: 40-20=20km\nStep 2: Identify the time taken: 2.5-1.5=1 hour\nStep 3: Apply speed=distance/time: 20/1\nAnswer: Speed after the rest = 20km/h (same pace as before)",
+            "Explain the risk of extrapolating a travel graph beyond the plotted data.\nStep 1: Recall extrapolation extends the pattern beyond known points\nStep 2: Consider that the object could stop, speed up, or change direction after the last known point\nAnswer: Extrapolation assumes the trend continues, which may not actually be true"
           ],
           "keyTerms": {
             "travel graph": "A graph plotting distance against time to show a journey",
@@ -1271,11 +1271,11 @@
           "title": "Numerical Concept 1: Indices and Logarithms",
           "content": "An index (also called an exponent or power) is a compact way of showing how many times a number, called the base, is multiplied by itself: 2³ means 2×2×2 = 8, where 2 is the base and 3 is the index. Working with indices efficiently relies on a set of laws: when multiplying two powers of the SAME base, add the indices together (aᵐ × aⁿ = aᵐ⁺ⁿ); when dividing two powers of the same base, subtract the indices (aᵐ ÷ aⁿ = aᵐ⁻ⁿ); when raising a power to another power, multiply the indices together ((aᵐ)ⁿ = aᵐⁿ); any nonzero number raised to the power 0 always equals 1 (a⁰=1); and a negative index means take the reciprocal (a⁻ⁿ = 1/aⁿ), turning the value into a fraction. A logarithm is the exact inverse operation of an index — while an index answers 'what do I get if I raise this base to this power?', a logarithm answers the reverse question: 'to what power must I raise this base to get this particular number?' Formally, if aˣ = b, then log base a of b equals x. This relationship is enormously useful in science and engineering (for measuring quantities that span huge ranges, like earthquake magnitude or sound intensity) and becomes essential again in senior years when solving exponential equations.",
           "examples": [
-            "2³ × 2⁴ = 2⁷ = 128 (add the powers: 3+4=7).",
-            "5⁶ ÷ 5² = 5⁴ = 625 (subtract the powers: 6-2=4).",
-            "Since 2⁴=16, log base 2 of 16 = 4.",
-            "(3²)³ = 3⁶ = 729 (multiply the powers: 2×3=6).",
-            "Since 10³=1000, log base 10 of 1000 = 3 — this base-10 logarithm is used on the Richter scale for earthquake magnitude."
+            "Simplify 2³ × 2⁴.\nStep 1: Recognise the same base (2) is being multiplied\nStep 2: Add the indices: 3+4=7\nAnswer: 2⁷ = 128",
+            "Simplify 5⁶ ÷ 5².\nStep 1: Recognise the same base (5) is being divided\nStep 2: Subtract the indices: 6-2=4\nAnswer: 5⁴ = 625",
+            "Find log base 2 of 16.\nStep 1: Ask 'to what power must 2 be raised to get 16?'\nStep 2: Recall 2⁴=16\nAnswer: log₂16 = 4",
+            "Simplify (3²)³.\nStep 1: Recognise a power raised to another power\nStep 2: Multiply the indices: 2×3=6\nAnswer: 3⁶ = 729",
+            "Find log base 10 of 1000.\nStep 1: Ask 'to what power must 10 be raised to get 1000?'\nStep 2: Recall 10³=1000\nAnswer: log₁₀1000 = 3 (this base-10 scale is used for earthquake magnitude)"
           ],
           "keyTerms": {
             "index (exponent)": "The small number showing how many times a base is multiplied by itself",
@@ -1344,11 +1344,11 @@
           "title": "Inequalities and Regions",
           "content": "An inequality, such as x > 2, x ≤ 5, or 2x + 1 < 9, describes an entire RANGE of values that satisfy a condition, rather than one single exact answer the way an equation does. Solving an inequality follows almost exactly the same steps as solving an equation — add, subtract, multiply, or divide both sides to isolate the variable — with one critical exception: whenever you multiply or divide both sides by a NEGATIVE number, you must flip the direction of the inequality sign, because multiplying by a negative reverses the order of numbers on a number line. On a graph, an inequality involving two variables, such as y > 2x + 1, defines a whole shaded REGION rather than a single line: everything on one particular side of the boundary line satisfies the inequality, while everything on the other side does not. Whether the boundary line itself is included matters too: a dashed (broken) line is used for strict inequalities (< or >), showing the boundary itself is NOT part of the solution; a solid line is used for ≤ or ≥, showing the boundary line IS included in the solution. Shading is then used to clearly mark which side of the boundary satisfies the inequality, and where multiple inequalities are combined, the overlapping shaded region shows values satisfying ALL of them simultaneously.",
           "examples": [
-            "Solve 3x - 2 > 10: add 2 → 3x > 12, divide by 3 → x > 4.",
-            "Solve -2x < 8: divide by -2 and flip the sign → x > -4.",
-            "The region for y ≥ x + 1 is everything above (and including) the solid line y = x + 1.",
-            "Solve 5 - 2x ≥ 1: subtract 5 → -2x ≥ -4, divide by -2 and flip → x ≤ 2.",
-            "The overlapping region satisfying BOTH x > 0 and y > 0 is the entire first quadrant of the Cartesian plane."
+            "Solve 3x - 2 > 10.\nStep 1: Add 2 to both sides: 3x > 12\nStep 2: Divide both sides by 3\nAnswer: x > 4",
+            "Solve -2x < 8.\nStep 1: Divide both sides by -2\nStep 2: Since dividing by a negative, flip the inequality sign\nAnswer: x > -4",
+            "Solve 5 - 2x ≥ 1.\nStep 1: Subtract 5 from both sides: -2x ≥ -4\nStep 2: Divide by -2 and flip the sign\nAnswer: x ≤ 2",
+            "Describe the region satisfying y ≥ x + 1.\nStep 1: Recognise ≥ requires a solid boundary line\nStep 2: The region is on the side where y-values are larger\nAnswer: Everything above (and including) the solid line y=x+1",
+            "Find the region satisfying both x > 0 and y > 0.\nStep 1: x>0 means everything right of the y-axis\nStep 2: y>0 means everything above the x-axis\nStep 3: Find the overlap of both regions\nAnswer: The entire first quadrant of the Cartesian plane"
           ],
           "keyTerms": {
             "inequality": "A statement comparing expressions using <, >, ≤, or ≥",
@@ -1417,11 +1417,11 @@
           "title": "Algebra 2",
           "content": "Building on the basics of algebra, factorisation is essentially the reverse process of expanding brackets: instead of multiplying out an expression, you rewrite it as a product of its factors. The simplest form is common factorisation: identify the highest common factor (HCF) shared by every term, then 'take it out' in front of a bracket containing what remains — for example, 6x + 9 becomes 3(2x+3), since 3 is the HCF of 6 and 9. Factorising a quadratic expression like x² + 5x + 6 into two brackets requires finding two numbers that multiply together to give the constant term (6) AND add together to give the coefficient of the middle term (5) — in this case, 2 and 3 work perfectly (2×3=6, 2+3=5), giving the factorised form (x+2)(x+3). When the constant term is negative, one of your two numbers must be negative; when the middle coefficient is negative but the constant is positive, both numbers must be negative. Algebraic fractions behave exactly like ordinary number fractions: you can simplify them by cancelling any common factor from both the numerator and denominator, and to add or subtract them you first need a common denominator, just as with numeric fractions.",
           "examples": [
-            "Factorise 8x + 12: HCF is 4, so 4(2x + 3).",
-            "Factorise x² + 7x + 12: need two numbers multiplying to 12, adding to 7 → 3 and 4. So (x+3)(x+4).",
-            "Simplify 6x²/3x = 2x (cancel the common factor 3x).",
-            "Factorise x² - x - 12: need two numbers multiplying to -12, adding to -1 → -4 and 3. So (x-4)(x+3).",
-            "Simplify (x²+3x)/(x+3): factor the numerator as x(x+3), then cancel (x+3) from top and bottom, leaving x."
+            "Factorise 8x + 12.\nStep 1: Find the HCF of 8 and 12, which is 4\nStep 2: Take 4 out the front, dividing each term by it: 8x÷4=2x, 12÷4=3\nAnswer: 4(2x + 3)",
+            "Factorise x² + 7x + 12.\nStep 1: Find two numbers multiplying to 12 and adding to 7\nStep 2: Test factor pairs of 12: 3 and 4 work (3×4=12, 3+4=7)\nAnswer: (x+3)(x+4)",
+            "Factorise x² - x - 12.\nStep 1: Find two numbers multiplying to -12 and adding to -1\nStep 2: Test pairs: -4 and 3 work (-4×3=-12, -4+3=-1)\nAnswer: (x-4)(x+3)",
+            "Simplify 6x²/3x.\nStep 1: Divide the coefficients: 6÷3=2\nStep 2: Subtract the powers of x: x²÷x=x\nAnswer: 2x",
+            "Simplify (x²+3x)/(x+3).\nStep 1: Factorise the numerator: x²+3x=x(x+3)\nStep 2: Cancel the common factor (x+3) from top and bottom\nAnswer: x"
           ],
           "keyTerms": {
             "factorise": "To write an expression as a product of its factors",
@@ -1490,11 +1490,11 @@
           "title": "Similarities and Enlargement",
           "content": "Two shapes are described as similar if they have exactly the same shape but not necessarily the same size — meaning their corresponding angles are all equal, and their corresponding sides are all in the same ratio to each other (proportional). Enlargement is the transformation that produces similar shapes: it resizes a shape by a scale factor from a fixed centre point, by multiplying the distance from the centre to every point on the shape by that scale factor. A scale factor greater than 1 makes the resulting image bigger than the original; a scale factor between 0 and 1 (a fraction) makes the image smaller; and a negative scale factor produces an image that is both resized AND flipped to the opposite side of the centre point. When two shapes are similar, the ratio of any pair of corresponding LENGTHS equals the scale factor directly — but the ratio of corresponding AREAS is different: it equals the scale factor SQUARED, because area involves two dimensions (length × width) each being scaled. This distinction between length scaling linearly and area scaling quadratically is one of the most commonly tested — and most commonly mistaken — ideas in this topic.",
           "examples": [
-            "Enlarging point (2,3) from the origin with scale factor 3 gives (6, 9).",
-            "If two similar triangles have corresponding sides 4cm and 10cm, the scale factor is 10/4 = 2.5.",
-            "If a shape is enlarged by scale factor 3, its area increases by 3² = 9 times.",
-            "A rectangle 3cm×5cm is enlarged by scale factor 2, giving a new rectangle 6cm×10cm — its area went from 15cm² to 60cm², which is 4× larger (2² = 4), not simply double.",
-            "Enlarging point (-1, 4) from the origin with scale factor -2 gives (2, -8) — both the resizing and the sign flip (opposite side of centre) happen at once."
+            "Enlarge point (2,3) from the origin with scale factor 3.\nStep 1: Multiply the x-coordinate by 3: 2×3=6\nStep 2: Multiply the y-coordinate by 3: 3×3=9\nAnswer: New point = (6, 9)",
+            "Two similar triangles have corresponding sides 4cm and 10cm. Find the scale factor.\nStep 1: Divide the new length by the original length: 10÷4\nAnswer: Scale factor = 2.5",
+            "A shape is enlarged by scale factor 3. Find how much its area increases by.\nStep 1: Recall area scales by the square of the scale factor\nStep 2: Square the scale factor: 3²\nAnswer: Area increases by 9 times",
+            "A rectangle 3cm×5cm is enlarged by scale factor 2. Compare the areas.\nStep 1: Find the original area: 3×5=15cm²\nStep 2: Find the new dimensions: 6cm×10cm, new area=60cm²\nStep 3: Compare: 60÷15=4, matching 2²=4\nAnswer: The area is 4 times larger, not simply double",
+            "Enlarge point (-1, 4) from the origin with scale factor -2.\nStep 1: Multiply the x-coordinate by -2: -1×-2=2\nStep 2: Multiply the y-coordinate by -2: 4×-2=-8\nAnswer: New point = (2, -8) — resized and flipped to the opposite side of the centre"
           ],
           "keyTerms": {
             "similar": "Shapes with the same shape (equal angles, proportional sides) but not necessarily the same size",
@@ -1563,11 +1563,11 @@
           "title": "Circle",
           "content": "A circle is defined as the set of all points that lie exactly the same distance — called the radius — from one fixed central point. The diameter is a straight line passing through the centre connecting two points on the circle, and it always measures exactly twice the radius. The circumference is the total distance around the outside of the circle, calculated as 2πr (using the radius) or equivalently πd (using the diameter), where π (pi) is a special constant approximately equal to 3.14159. The area enclosed by a circle is calculated as πr². Beyond these basics, a chord is any straight line segment joining two points on the circle (a diameter is simply the longest possible chord, since it passes through the centre); an arc is a curved portion of the circumference; and a sector is a 'pizza slice' shaped region enclosed by two radii and the arc between them — its area is a fraction of the full circle's area, worked out as (θ/360°) × πr², where θ is the angle at the centre between the two radii.",
           "examples": [
-            "A circle with radius 7cm: circumference = 2×π×7 ≈ 44cm, area = π×7² ≈ 153.9cm².",
-            "A sector with a 90° angle in a circle of radius 6cm: area = (90/360)×π×6² = 0.25×113.1 ≈ 28.3cm².",
-            "A circle with diameter 20cm has radius 10cm, so area = π×10² ≈ 314.2cm².",
-            "A sector with a 60° angle in a circle of radius 9cm: area = (60/360)×π×81 = (1/6)×254.5 ≈ 42.4cm².",
-            "The circumference of a circular running track with radius 35m: 2×π×35 ≈ 220m — meaning about 4.5 laps make 1km."
+            "Find the circumference of a circle with radius 7cm.\nStep 1: Use C=2πr\nStep 2: Substitute: 2×π×7\nAnswer: Circumference ≈ 44cm",
+            "Find the area of a circle with radius 7cm.\nStep 1: Use A=πr²\nStep 2: Substitute: π×7²=π×49\nAnswer: Area ≈ 153.9cm²",
+            "Find the area of a sector with a 90° angle in a circle of radius 6cm.\nStep 1: Find the full circle's area: π×6²=113.1cm²\nStep 2: Find the fraction of the circle: 90/360=0.25\nStep 3: Multiply: 0.25×113.1\nAnswer: Sector area ≈ 28.3cm²",
+            "Find the area of a circle with diameter 20cm.\nStep 1: Find the radius: 20÷2=10cm\nStep 2: Use A=πr²: π×10²\nAnswer: Area ≈ 314.2cm²",
+            "Find the area of a sector with a 60° angle in a circle of radius 9cm.\nStep 1: Find the full circle's area: π×9²=254.5cm²\nStep 2: Find the fraction: 60/360=1/6\nStep 3: Multiply: (1/6)×254.5\nAnswer: Sector area ≈ 42.4cm²"
           ],
           "keyTerms": {
             "radius": "The distance from the centre of a circle to any point on it",
@@ -1637,11 +1637,11 @@
           "title": "Rotation",
           "content": "Rotation is a transformation that turns every point of a shape around one fixed point, called the centre of rotation, through a specified angle, in a specified direction (either clockwise or anticlockwise) — like turning the hands of a clock, but for a whole shape rather than a single needle. Throughout a rotation, the shape's size and internal proportions never change — only its orientation (which way it faces) changes, meaning the image remains fully congruent to the original. For rotations centred at the origin specifically, there are useful shortcuts worth memorising: a 90° clockwise rotation transforms any point (x,y) into (y,−x); a 90° anticlockwise rotation transforms (x,y) into (−y,x); and a 180° rotation transforms (x,y) into (−x,−y) — notably, a 180° rotation gives the identical result whether performed clockwise or anticlockwise, since turning halfway around a circle in either direction lands you at the same place. To fully and unambiguously describe any rotation, three pieces of information must always be stated together: the centre of rotation (which point it's turning around), the angle of rotation (how far it turns), and the direction (clockwise or anticlockwise) — omitting any one of these makes the description incomplete.",
           "examples": [
-            "Rotating point (3, 5) by 180° about the origin gives (-3, -5).",
-            "Rotating point (2, 6) by 90° clockwise about the origin gives (6, -2).",
-            "Rotating point (4, 1) by 90° anticlockwise about the origin gives (-1, 4).",
-            "Rotating point (-3, 2) by 90° clockwise about the origin gives (2, 3) — apply (x,y)→(y,-x): (-3,2)→(2,-(-3))=(2,3).",
-            "A clock's minute hand rotates 360° clockwise about the centre of the clock face every 60 minutes."
+            "Rotate point (3, 5) by 180° about the origin.\nStep 1: Recall 180° rotation gives (x,y)→(-x,-y)\nStep 2: Negate both coordinates: 3→-3, 5→-5\nAnswer: (3,5) → (-3,-5)",
+            "Rotate point (2, 6) by 90° clockwise about the origin.\nStep 1: Recall 90° clockwise gives (x,y)→(y,-x)\nStep 2: Apply: new x=old y=6, new y=-old x=-2\nAnswer: (2,6) → (6,-2)",
+            "Rotate point (4, 1) by 90° anticlockwise about the origin.\nStep 1: Recall 90° anticlockwise gives (x,y)→(-y,x)\nStep 2: Apply: new x=-old y=-1, new y=old x=4\nAnswer: (4,1) → (-1,4)",
+            "Rotate point (-3, 2) by 90° clockwise about the origin.\nStep 1: Recall 90° clockwise gives (x,y)→(y,-x)\nStep 2: Apply: new x=old y=2, new y=-old x=-(-3)=3\nAnswer: (-3,2) → (2,3)",
+            "State the three pieces of information needed to fully describe a rotation.\nStep 1: Identify what defines a unique rotation\nStep 2: List each required piece\nAnswer: Centre of rotation, angle of rotation, and direction (clockwise/anticlockwise)"
           ],
           "keyTerms": {
             "rotation": "A transformation turning a shape around a fixed centre point by an angle",
@@ -1710,11 +1710,11 @@
           "title": "Length and Area Properties of 2D Figures",
           "content": "Different 2D shapes each have their own specific formulas for perimeter (the total distance around the boundary) and area (the amount of space enclosed inside). For a rectangle: perimeter = 2(length+width), and area = length×width. For a triangle: area = ½×base×height, where the height must be measured perpendicular to the chosen base. For a parallelogram (a four-sided shape with two pairs of parallel sides): area = base×height, again measuring height perpendicular to the base, not along a slanted side. For a trapezium (a four-sided shape with exactly one pair of parallel sides): area = ½×(a+b)×h, where a and b are the lengths of the two parallel sides and h is the perpendicular distance between them. Many real-world shapes are composite (or compound) figures, made by combining two or more simple shapes together — to find the area of a composite shape, break it down into simple shapes you already know formulas for, calculate each part's area separately, and then either add them together (if the shapes combine to make the whole figure) or subtract (if one shape represents a hole or cut-out section removed from another).",
           "examples": [
-            "A trapezium with parallel sides 6cm and 10cm, height 4cm: area = ½×(6+10)×4 = ½×16×4 = 32cm².",
-            "A parallelogram with base 8cm and height 5cm: area = 8×5 = 40cm².",
-            "An L-shaped figure made of a 6×4 rectangle plus a 3×2 rectangle: total area = 24+6 = 30cm².",
-            "A square of side 10cm with a circular hole of radius 2cm cut from its centre: area = 100 - π(2)² ≈ 100-12.57 = 87.43cm².",
-            "A trapezium-shaped garden plot with parallel sides 15m and 25m, and a perpendicular width of 12m: area = ½×(15+25)×12 = ½×40×12 = 240m²."
+            "Find the area of a trapezium with parallel sides 6cm and 10cm, height 4cm.\nStep 1: Use area=½×(a+b)×h\nStep 2: Substitute: ½×(6+10)×4\nStep 3: Calculate: ½×16×4\nAnswer: Area = 32cm²",
+            "Find the area of a parallelogram with base 8cm and height 5cm.\nStep 1: Use area=base×height\nStep 2: Substitute: 8×5\nAnswer: Area = 40cm²",
+            "Find the area of an L-shaped figure made of a 6×4 rectangle plus a 3×2 rectangle.\nStep 1: Find the first rectangle's area: 6×4=24cm²\nStep 2: Find the second rectangle's area: 3×2=6cm²\nStep 3: Add them together\nAnswer: Total area = 30cm²",
+            "Find the area of a square of side 10cm with a circular hole of radius 2cm cut from its centre.\nStep 1: Find the square's area: 10×10=100cm²\nStep 2: Find the circle's area: π×2²≈12.57cm²\nStep 3: Subtract the hole from the square\nAnswer: Area ≈ 87.43cm²",
+            "Find the area of a trapezium-shaped garden with parallel sides 15m and 25m, width 12m.\nStep 1: Use area=½×(a+b)×h\nStep 2: Substitute: ½×(15+25)×12\nStep 3: Calculate: ½×40×12\nAnswer: Area = 240m²"
           ],
           "keyTerms": {
             "trapezium": "A quadrilateral with exactly one pair of parallel sides",
@@ -1783,11 +1783,11 @@
           "title": "Nets, Areas and Volumes of Solids",
           "content": "A net is a flat, 2D shape that can be folded along its edges to form a 3D solid — drawing or visualising a net is one of the most reliable ways to make sure you've correctly accounted for every single face when calculating a solid's surface area (the total area of all its outer faces added together). For a cuboid (a rectangular box): surface area = 2(lw+lh+wh), covering the three different pairs of matching rectangular faces, and volume = length×width×height. For a cylinder: surface area = 2πr² + 2πrh, made up of the two circular ends (2πr²) plus the curved side which unrolls into a rectangle (2πrh), and volume = πr²h (the circular cross-sectional area multiplied by the height). For a triangular prism (or any prism with a constant cross-section along its length): volume = area of the cross-section × length of the prism — this single idea, that volume equals cross-sectional area times length, actually applies to ANY prism shape, not just triangular ones, which makes it a powerful general rule once you understand it.",
           "examples": [
-            "A cuboid 5cm×3cm×4cm: volume = 5×3×4 = 60cm³, surface area = 2(15+20+12) = 94cm².",
-            "A cylinder with radius 3cm, height 10cm: volume = π×9×10 ≈ 282.7cm³.",
-            "A triangular prism with triangular cross-section area 12cm² and length 8cm: volume = 12×8 = 96cm³.",
-            "A cylinder with radius 5cm, height 12cm: surface area = 2π(25) + 2π(5)(12) = 157+377 ≈ 534cm².",
-            "A pentagonal prism (5-sided cross-section) with cross-sectional area 40cm² and length 15cm: volume = 40×15 = 600cm³ — using the same cross-section × length rule regardless of the cross-section's shape."
+            "Find the volume of a cuboid 5cm×3cm×4cm.\nStep 1: Use volume=length×width×height\nStep 2: Substitute: 5×3×4\nAnswer: Volume = 60cm³",
+            "Find the surface area of the same cuboid 5cm×3cm×4cm.\nStep 1: Use surface area=2(lw+lh+wh)\nStep 2: Calculate each product: lw=15, lh=20, wh=12\nStep 3: Add and double: 2×(15+20+12)\nAnswer: Surface area = 94cm²",
+            "Find the volume of a cylinder with radius 3cm, height 10cm.\nStep 1: Use volume=πr²h\nStep 2: Substitute: π×3²×10=π×9×10\nAnswer: Volume ≈ 282.7cm³",
+            "Find the surface area of a cylinder with radius 5cm, height 12cm.\nStep 1: Use surface area=2πr²+2πrh\nStep 2: Calculate 2πr²: 2×π×25≈157\nStep 3: Calculate 2πrh: 2×π×5×12≈377\nStep 4: Add them together\nAnswer: Surface area ≈ 534cm²",
+            "Find the volume of a triangular prism with cross-sectional area 12cm² and length 8cm.\nStep 1: Use volume=cross-section area×length\nStep 2: Substitute: 12×8\nAnswer: Volume = 96cm³"
           ],
           "keyTerms": {
             "net": "A 2D shape that folds up to form a 3D solid",
@@ -1856,11 +1856,11 @@
           "title": "Numerical Concept 2: Surds",
           "content": "A surd is a root — most commonly a square root — of a number that does NOT simplify to a whole number, such as √2, √3, or √5; because these values are irrational (their decimal expansions go on forever without repeating), surds are deliberately left in exact root form rather than rounded to a decimal approximation, preserving perfect accuracy through a calculation. Simplifying a surd means searching for the largest perfect square factor hidden inside the number under the root: for example, √18 can be split as √(9×2) = √9×√2 = 3√2, since 9 is a perfect square factor of 18. Surds can only be added or subtracted directly when they are 'like surds' — meaning they have the exact same value under the root sign — following the same logic as combining like terms in algebra: 2√3 + 5√3 = 7√3, but 2√3 and 5√2 cannot be combined into a single term because √3 and √2 are different values. Multiplying surds follows the rule √a × √b = √(ab), letting you combine or simplify roots together. Finally, rationalising the denominator means eliminating a surd from the bottom of a fraction (since a surd in the denominator is considered untidy/unconventional) by multiplying both the top and bottom of the fraction by that same surd, which turns the denominator into a whole number.",
           "examples": [
-            "Simplify √50: √(25×2) = 5√2.",
-            "Simplify 3√5 + 2√5 = 5√5 (like surds combine).",
-            "Rationalise 3/√5: multiply top and bottom by √5: (3√5)/5.",
-            "Simplify √75: √(25×3) = 5√3.",
-            "Simplify 4√2 × 3√8: multiply the coefficients (4×3=12) and the surds (√2×√8=√16=4), giving 12×4 = 48."
+            "Simplify √50.\nStep 1: Find the largest perfect square factor of 50: 25×2=50\nStep 2: Split the root: √25×√2\nAnswer: 5√2",
+            "Simplify 3√5 + 2√5.\nStep 1: Check both terms have the same root value (√5) — like surds\nStep 2: Add the coefficients: 3+2=5\nAnswer: 5√5",
+            "Rationalise 3/√5.\nStep 1: Multiply top and bottom by √5\nStep 2: Top becomes 3√5, bottom becomes √5×√5=5\nAnswer: (3√5)/5",
+            "Simplify √75.\nStep 1: Find the largest perfect square factor of 75: 25×3=75\nStep 2: Split the root: √25×√3\nAnswer: 5√3",
+            "Simplify 4√2 × 3√8.\nStep 1: Multiply the coefficients: 4×3=12\nStep 2: Multiply the surds: √2×√8=√16=4\nStep 3: Multiply the results: 12×4\nAnswer: 48"
           ],
           "keyTerms": {
             "surd": "An irrational root (like √3) left in exact root form",
@@ -1929,11 +1929,11 @@
           "title": "Set Theory",
           "content": "A set is a well-defined collection of distinct objects, called elements or members, and is usually written using curly brackets, for example A = {1, 2, 3}, meaning set A contains exactly the elements 1, 2, and 3. A Venn diagram is a visual tool showing relationships between sets using overlapping circles, where the overlap represents elements shared between sets. Several key operations combine or compare sets: the union of two sets, written A∪B, contains every element that appears in EITHER set (with no element repeated, even if it's in both); the intersection, written A∩B, contains ONLY the elements that appear in BOTH sets simultaneously; a subset relationship, written A⊆B, means every single element of A is also found somewhere in B (A is 'contained within' B); the complement of a set, written A′, contains every element of the wider universal set that is NOT found in A; and the empty set, written ∅ or {}, is the unique set containing no elements at all. These ideas — grouping, combining, and comparing collections logically — underpin not just later mathematics like probability, but also computer science, database queries, and logical reasoning generally.",
           "examples": [
-            "If A={1,2,3,4} and B={3,4,5,6}, then A∪B={1,2,3,4,5,6} and A∩B={3,4}.",
-            "If A={2,4,6} and the universal set is {1,2,3,4,5,6}, then A'={1,3,5}.",
-            "If A={2,4} and B={1,2,3,4,5}, then A⊆B since every element of A is in B.",
-            "If A={apple, banana, mango} and B={banana, mango, orange}, then A∩B={banana, mango} and A∪B={apple, banana, mango, orange}.",
-            "The empty set ∅ is a subset of every set, including itself — this is true for any set A, since there are no elements in ∅ that could fail to be in A."
+            "Given A={1,2,3,4} and B={3,4,5,6}, find A∪B and A∩B.\nStep 1: For the union, list every element from either set without repeats\nStep 2: For the intersection, list only elements in both sets\nAnswer: A∪B={1,2,3,4,5,6}, A∩B={3,4}",
+            "Given A={2,4,6} and the universal set {1,2,3,4,5,6}, find A'.\nStep 1: List all elements in the universal set\nStep 2: Remove every element that's in A\nAnswer: A' = {1,3,5}",
+            "Given A={2,4} and B={1,2,3,4,5}, determine if A⊆B.\nStep 1: Check whether every element of A appears in B\nStep 2: Check 2: yes, in B. Check 4: yes, in B\nAnswer: A⊆B is true, since every element of A is also in B",
+            "Given A={apple, banana, mango} and B={banana, mango, orange}, find A∩B and A∪B.\nStep 1: For the intersection, find elements in both sets: banana, mango\nStep 2: For the union, list every element without repeats\nAnswer: A∩B={banana, mango}, A∪B={apple, banana, mango, orange}",
+            "Explain why the empty set is a subset of every set.\nStep 1: Recall a subset requires every element of A to be in B\nStep 2: The empty set has no elements, so there's nothing that could fail to be in B\nAnswer: Since there are no elements to check, ∅⊆A is true for any set A"
           ],
           "keyTerms": {
             "union": "All elements found in either of two sets (A∪B)",
@@ -2008,11 +2008,11 @@
           "title": "Equation of a Straight Line",
           "content": "Every non-vertical straight line can be written in the form y = mx + c, where m is the gradient (a measure of steepness — how much y changes for each unit increase in x) and c is the y-intercept (the value of y where the line crosses the vertical axis, at x=0). Given the coordinates of two points on a line, (x₁,y₁) and (x₂,y₂), the gradient is found using m = (y₂−y₁)/(x₂−x₁) — the change in y divided by the change in x. Once the gradient is known, substituting one known point into y=mx+c allows you to solve for c. A crucial relationship exists between the gradients of parallel and perpendicular lines: parallel lines always share the exact same gradient (they never meet, since they rise and fall at identical rates); perpendicular lines (meeting at exactly 90°) have gradients that are 'negative reciprocals' of each other — meaning if one line's gradient is m, a line perpendicular to it has gradient −1/m. This relationship lets you find the equation of a line perpendicular to a given line without needing two new points.",
           "examples": [
-            "Find the gradient between (2,4) and (6,12): m = (12-4)/(6-2) = 8/4 = 2.",
-            "A line has gradient 3 and passes through (1,5). Using y=mx+c: 5=3(1)+c, so c=2. Equation: y=3x+2.",
-            "A line parallel to y=4x-1 also has gradient 4, e.g. y=4x+7.",
-            "A line perpendicular to y=2x+3 (gradient 2) has gradient -1/2, e.g. y=-½x+4.",
-            "Find where the line y=2x-3 crosses the x-axis (where y=0): 0=2x-3 → x=1.5, so it crosses at (1.5, 0)."
+            "Find the gradient between (2,4) and (6,12).\nStep 1: Apply m=(y2-y1)/(x2-x1)\nStep 2: Substitute: (12-4)/(6-2)\nStep 3: Simplify: 8/4\nAnswer: Gradient = 2",
+            "A line has gradient 3 and passes through (1,5). Find its equation.\nStep 1: Substitute into y=mx+c: 5=3(1)+c\nStep 2: Solve for c: c=5-3\nAnswer: y = 3x + 2",
+            "Find a line parallel to y=4x-1.\nStep 1: Recall parallel lines share the same gradient\nStep 2: Keep gradient=4, choose any different y-intercept, e.g. 7\nAnswer: y = 4x + 7 (or any line with gradient 4)",
+            "Find the gradient of a line perpendicular to y=2x+3.\nStep 1: Identify the original gradient: m=2\nStep 2: Find the negative reciprocal: -1/2\nAnswer: Perpendicular gradient = -1/2",
+            "Find where the line y=2x-3 crosses the x-axis.\nStep 1: Set y=0 (the x-axis is where y=0): 0=2x-3\nStep 2: Solve for x: 2x=3, x=1.5\nAnswer: The line crosses at (1.5, 0)"
           ],
           "keyTerms": {
             "gradient": "The steepness of a line, calculated as change in y over change in x",
@@ -2082,11 +2082,11 @@
           "title": "Trigonometry 1",
           "content": "Trigonometry studies the relationships between the angles and sides of triangles, and in this first stage focuses on right-angled triangles specifically. In a right-angled triangle, the longest side (opposite the right angle) is called the hypotenuse; relative to a chosen angle, the side directly across from it is called the opposite side, and the remaining side next to the angle (that isn't the hypotenuse) is the adjacent side. Three trigonometric ratios connect these sides to the angle: sine (sin) = opposite/hypotenuse, cosine (cos) = adjacent/hypotenuse, and tangent (tan) = opposite/adjacent — commonly memorised using the mnemonic SOH-CAH-TOA (Sine=Opposite/Hypotenuse, Cosine=Adjacent/Hypotenuse, Tangent=Opposite/Adjacent). Given any right-angled triangle with one known angle and one known side, these ratios let you calculate any missing side; given two known sides, you can find a missing angle using the inverse trig functions (sin⁻¹, cos⁻¹, tan⁻¹) available on a scientific calculator. These ratios are fundamental to fields ranging from construction and surveying to physics and engineering.",
           "examples": [
-            "In a right triangle with angle 30° and hypotenuse 10cm, find the opposite side: sin(30°) = opposite/10, so opposite = 10×sin(30°) = 10×0.5 = 5cm.",
-            "In a right triangle with opposite=6cm and adjacent=8cm, find the angle: tan(θ) = 6/8 = 0.75, so θ = tan⁻¹(0.75) ≈ 36.87°.",
-            "In a right triangle with angle 45° and adjacent side 7cm, find the hypotenuse: cos(45°) = 7/hyp, so hyp = 7/cos(45°) ≈ 9.9cm.",
-            "A ladder leans against a wall making a 60° angle with the ground, and reaches 5m up the wall (opposite side). Find the ladder's length (hypotenuse): sin(60°)=5/hyp, hyp=5/sin(60°)≈5.77m.",
-            "Find angle θ in a triangle where opposite=9cm, hypotenuse=15cm: sin(θ)=9/15=0.6, so θ=sin⁻¹(0.6)≈36.87°."
+            "In a right triangle with angle 30° and hypotenuse 10cm, find the opposite side.\nStep 1: Identify the ratio needed: sin(angle)=opposite/hypotenuse\nStep 2: Substitute: sin(30°)=opposite/10\nStep 3: Rearrange: opposite=10×sin(30°)=10×0.5\nAnswer: Opposite side = 5cm",
+            "In a right triangle with opposite=6cm and adjacent=8cm, find the angle.\nStep 1: Identify the ratio needed: tan(angle)=opposite/adjacent\nStep 2: Substitute: tan(θ)=6/8=0.75\nStep 3: Use inverse tangent: θ=tan⁻¹(0.75)\nAnswer: θ ≈ 36.87°",
+            "In a right triangle with angle 45° and adjacent side 7cm, find the hypotenuse.\nStep 1: Identify the ratio needed: cos(angle)=adjacent/hypotenuse\nStep 2: Substitute: cos(45°)=7/hyp\nStep 3: Rearrange: hyp=7/cos(45°)\nAnswer: Hypotenuse ≈ 9.9cm",
+            "A ladder leans against a wall at 60° to the ground, reaching 5m up the wall. Find the ladder's length.\nStep 1: Identify opposite=5m (height up wall), need hypotenuse (ladder length)\nStep 2: Use sin(60°)=opposite/hypotenuse: sin(60°)=5/hyp\nStep 3: Rearrange: hyp=5/sin(60°)\nAnswer: Ladder length ≈ 5.77m",
+            "In a triangle with opposite=9cm, hypotenuse=15cm, find angle θ.\nStep 1: Identify the ratio: sin(θ)=opposite/hypotenuse\nStep 2: Substitute: sin(θ)=9/15=0.6\nStep 3: Use inverse sine: θ=sin⁻¹(0.6)\nAnswer: θ ≈ 36.87°"
           ],
           "keyTerms": {
             "hypotenuse": "The longest side of a right triangle, opposite the right angle",
@@ -2156,11 +2156,11 @@
           "title": "Data Collection and Display",
           "content": "Building on earlier data-handling skills, this topic focuses on more advanced ways to collect, organise, and display larger or continuous data sets. A histogram looks similar to a bar chart but is specifically used for continuous, grouped numerical data (like heights or ages grouped into ranges) — unlike a bar chart, the bars in a histogram touch each other with no gaps, because the data flows continuously from one group into the next. A frequency distribution table groups raw data into class intervals (ranges of values) alongside a count of how many data points fall into each interval, making large data sets manageable to interpret. When collecting data for a study, it's important to consider sample size (collecting from too few people can give misleading results) and avoiding bias (making sure your method of collecting data doesn't unfairly favour certain answers or groups over others) — for example, only surveying students at a specific time of day might miss important groups entirely.",
           "examples": [
-            "Ages of 30 people grouped into intervals: 10-19 (8 people), 20-29 (12 people), 30-39 (7 people), 40-49 (3 people) — displayed as a histogram with touching bars.",
-            "A frequency distribution table for exam scores grouped as 0-20%, 21-40%, 41-60%, 61-80%, 81-100% shows how many students fall into each performance band.",
-            "Surveying only people leaving a gym about exercise habits introduces bias, since it excludes people who don't go to gyms at all.",
-            "A histogram of daily temperatures over a month, grouped into 5-degree intervals, reveals the most common temperature range that month.",
-            "Collecting data from only 5 students to represent an entire school's opinion is an example of too small a sample size to draw reliable conclusions."
+            "Ages of 30 people are grouped: 10-19 (8), 20-29 (12), 30-39 (7), 40-49 (3). Decide the best chart.\nStep 1: Recognise the data is continuous and grouped into ranges\nStep 2: Recall histograms suit continuous grouped data, with touching bars\nAnswer: A histogram is the appropriate chart",
+            "Explain why surveying only gym-goers about exercise habits introduces bias.\nStep 1: Identify who is excluded: people who don't go to gyms\nStep 2: Consider whether their opinions might differ\nAnswer: The sample excludes an entire group, skewing results toward gym-goers' views",
+            "A histogram shows daily temperatures over a month grouped into 5-degree intervals. Explain what it reveals.\nStep 1: Recall a histogram's bars show frequency per interval\nStep 2: The tallest bar shows the most common temperature range\nAnswer: The histogram reveals the most frequently occurring temperature range that month",
+            "Explain the risk of surveying only 5 students to represent an entire school.\nStep 1: Consider the sample size relative to the whole school\nStep 2: Recall small samples may not reflect the whole population's views\nAnswer: 5 students is too small a sample size to draw reliable conclusions about the whole school",
+            "Distinguish a frequency distribution table from a simple frequency table.\nStep 1: Recall a simple frequency table counts individual distinct values\nStep 2: A frequency distribution table groups continuous data into class intervals first\nAnswer: A frequency distribution table organises continuous data into ranges before counting"
           ],
           "keyTerms": {
             "histogram": "A chart for continuous grouped data, with bars touching (no gaps)",
@@ -2230,11 +2230,11 @@
           "title": "Vectors",
           "content": "Building on the introduction to vectors, this topic deepens vector operations and their geometric meaning. Vectors can be added by adding their corresponding components: (a over b) + (c over d) = (a+c over b+d) — geometrically, this represents following one vector's movement immediately by the second vector's movement (the 'nose-to-tail' method). Subtracting vectors works similarly, component by component, and can be understood as finding the vector that would take you from one point to another. A position vector describes the location of a single point relative to the origin — for point P(x,y), its position vector is simply (x over y). Multiplying a vector by a scalar (an ordinary number) multiplies every component by that number, scaling the vector's length while keeping (or reversing, if negative) its direction. Two vectors are described as parallel if one is a scalar multiple of the other — meaning they point in the same (or exactly opposite) direction, even if they have different lengths.",
           "examples": [
-            "Add vectors (3 over 2) + (1 over 5) = (4 over 7).",
-            "Subtract vectors (6 over 4) - (2 over 1) = (4 over 3).",
-            "The position vector of point P(5,-3) is (5 over -3).",
-            "Multiply vector (2 over 3) by scalar 4: (8 over 12).",
-            "Are (2 over 3) and (4 over 6) parallel? Yes — (4 over 6) is exactly 2×(2 over 3), so they point in the same direction, just different lengths."
+            "Add vectors (3 over 2) + (1 over 5).\nStep 1: Add the top components: 3+1=4\nStep 2: Add the bottom components: 2+5=7\nAnswer: (4, 7)",
+            "Subtract vectors (6 over 4) - (2 over 1).\nStep 1: Subtract the top components: 6-2=4\nStep 2: Subtract the bottom components: 4-1=3\nAnswer: (4, 3)",
+            "Find the position vector of point P(5,-3).\nStep 1: Recall a position vector uses the point's coordinates directly\nAnswer: Position vector = (5 over -3)",
+            "Multiply vector (2 over 3) by scalar 4.\nStep 1: Multiply the top component: 2×4=8\nStep 2: Multiply the bottom component: 3×4=12\nAnswer: (8, 12)",
+            "Determine if (2 over 3) and (4 over 6) are parallel.\nStep 1: Check if one is a scalar multiple of the other\nStep 2: Test: (4 over 6) = 2×(2 over 3)\nAnswer: Yes, they are parallel — (4,6) is exactly 2 times (2,3)"
           ],
           "keyTerms": {
             "position vector": "A vector describing a point's location relative to the origin",
@@ -2303,11 +2303,11 @@
           "title": "Ratios and Proportions",
           "content": "A ratio compares two or more quantities, showing their relative sizes — for example, if a recipe uses 2 cups of flour for every 3 cups of water, the ratio of flour to water is 2:3. Like fractions, ratios can be simplified by dividing all parts by their highest common factor: 8:12 simplifies to 2:3. To share a total quantity according to a given ratio, first add the parts of the ratio together to find the total number of 'shares', then divide the total quantity by this number to find the value of one share, and finally multiply by each part of the ratio to find each person's or item's amount. Direct proportion describes a relationship where two quantities increase or decrease together at the same rate — if you double one, the other doubles too (like cost and quantity when buying items at a fixed price). Inverse proportion describes the opposite relationship — as one quantity increases, the other decreases proportionally (like speed and time for a fixed distance: doubling your speed halves the time taken).",
           "examples": [
-            "Simplify the ratio 15:25: divide both by 5, giving 3:5.",
-            "Share UGX 60,000 between two people in the ratio 2:3: total shares = 2+3=5, one share = 60,000÷5=12,000. Person A gets 2×12,000=24,000; Person B gets 3×12,000=36,000.",
-            "Direct proportion: if 4 mangoes cost UGX 2,000, then 10 mangoes (2.5× as many) cost 2.5×2,000 = UGX 5,000.",
-            "Inverse proportion: if 6 workers can build a wall in 10 days, 3 workers (half as many) would take twice as long: 20 days.",
-            "Share 90kg of rice among three shops in the ratio 1:2:3: total shares=6, one share=15kg. Shops receive 15kg, 30kg, and 45kg respectively."
+            "Simplify the ratio 15:25.\nStep 1: Find the HCF of 15 and 25, which is 5\nStep 2: Divide both parts by 5\nAnswer: 3:5",
+            "Share UGX 60,000 between two people in the ratio 2:3.\nStep 1: Add the ratio parts: 2+3=5 total shares\nStep 2: Find one share: 60,000÷5=12,000\nStep 3: Multiply by each part: 2×12,000=24,000 and 3×12,000=36,000\nAnswer: Person A gets UGX 24,000; Person B gets UGX 36,000",
+            "If 4 mangoes cost UGX 2,000, find the cost of 10 mangoes (direct proportion).\nStep 1: Find the cost per mango: 2,000÷4=500\nStep 2: Multiply by 10: 500×10\nAnswer: 10 mangoes cost UGX 5,000",
+            "If 6 workers build a wall in 10 days, find how long 3 workers would take (inverse proportion).\nStep 1: Recognise halving the workers means doubling the time\nStep 2: Multiply the time by 2: 10×2\nAnswer: 3 workers would take 20 days",
+            "Share 90kg of rice among three shops in the ratio 1:2:3.\nStep 1: Add the ratio parts: 1+2+3=6 total shares\nStep 2: Find one share: 90÷6=15kg\nStep 3: Multiply by each part: 1×15=15, 2×15=30, 3×15=45\nAnswer: Shops receive 15kg, 30kg, and 45kg respectively"
           ],
           "keyTerms": {
             "ratio": "A comparison of two or more quantities' relative sizes",
@@ -2376,11 +2376,11 @@
           "title": "Business Mathematics",
           "content": "Building on basic business arithmetic, this topic covers more advanced financial calculations used in real Ugandan business and banking contexts, all measured in UGX. Compound interest, unlike simple interest, is calculated on the growing total (principal plus previously earned interest) each year, not just on the original amount — this means compound interest grows faster over time. The formula is: Amount = P × (1 + R/100)ᵀ, where P is the principal, R is the annual interest rate (%), and T is the number of years; the compound interest earned is this Amount minus the original principal P. Hire purchase is a payment plan where a buyer pays an initial deposit followed by fixed instalments over time, ending up paying more in total than the cash price, since the extra covers the seller's risk and financing cost. Depreciation is the reduction in an asset's value over time (like a vehicle or machine losing value with age and use), often calculated similarly to compound interest but as a decrease: Value = P × (1 − R/100)ᵀ. Understanding these concepts helps in making informed decisions about saving, borrowing, and asset management.",
           "examples": [
-            "UGX 500,000 invested at 10% compound interest for 2 years: Amount = 500,000×(1.10)² = 500,000×1.21 = UGX 605,000. Interest earned = 605,000-500,000 = UGX 105,000.",
-            "A motorcycle costs UGX 4,000,000 cash, or UGX 800,000 deposit plus 12 monthly instalments of UGX 300,000 (hire purchase). Total hire purchase cost = 800,000+(12×300,000) = UGX 4,400,000 — UGX 400,000 more than cash price.",
-            "A car worth UGX 30,000,000 depreciates at 15% per year. After 2 years: Value = 30,000,000×(0.85)² = 30,000,000×0.7225 = UGX 21,675,000.",
-            "Compare simple vs compound interest on UGX 200,000 at 10% for 3 years: Simple = (200,000×10×3)/100=60,000. Compound = 200,000×(1.1)³-200,000 = 266,200-200,000=66,200 — compound interest earns more.",
-            "A shop's equipment worth UGX 8,000,000 depreciates by 20% in its first year: new value = 8,000,000×0.80 = UGX 6,400,000."
+            "UGX 500,000 is invested at 10% compound interest for 2 years. Find the interest earned.\nStep 1: Use Amount=P×(1+R/100)^T\nStep 2: Substitute: 500,000×(1.10)²=500,000×1.21\nStep 3: Calculate the amount: 605,000\nStep 4: Subtract the principal: 605,000-500,000\nAnswer: Interest earned = UGX 105,000",
+            "A motorcycle costs UGX 4,000,000 cash, or UGX 800,000 deposit plus 12 instalments of UGX 300,000. Find the total hire purchase cost.\nStep 1: Calculate the instalment total: 12×300,000=3,600,000\nStep 2: Add the deposit: 800,000+3,600,000\nStep 3: Compare to cash price: 4,400,000 vs 4,000,000\nAnswer: Hire purchase totals UGX 4,400,000 — UGX 400,000 more than cash",
+            "A car worth UGX 30,000,000 depreciates at 15% per year. Find its value after 2 years.\nStep 1: Use Value=P×(1-R/100)^T\nStep 2: Substitute: 30,000,000×(0.85)²\nStep 3: Calculate: 30,000,000×0.7225\nAnswer: Value after 2 years = UGX 21,675,000",
+            "Compare simple and compound interest on UGX 200,000 at 10% for 3 years.\nStep 1: Calculate simple interest: (200,000×10×3)/100=60,000\nStep 2: Calculate compound amount: 200,000×(1.1)³=266,200\nStep 3: Find compound interest: 266,200-200,000=66,200\nAnswer: Compound interest (66,200) earns more than simple interest (60,000)",
+            "Equipment worth UGX 8,000,000 depreciates by 20% in its first year. Find the new value.\nStep 1: Use Value=P×(1-R/100)\nStep 2: Substitute: 8,000,000×0.80\nAnswer: New value = UGX 6,400,000"
           ],
           "keyTerms": {
             "compound interest": "Interest calculated on the growing total (principal plus previous interest), not just the original principal",
@@ -2449,11 +2449,11 @@
           "title": "Trigonometry 2",
           "content": "Building on basic right-angle trigonometry, this topic extends the trigonometric ratios to work with ANY triangle, not just right-angled ones, using the sine rule and cosine rule. The sine rule states that in any triangle with sides a, b, c and their opposite angles A, B, C: a/sin(A) = b/sin(B) = c/sin(C) — this is used when you know either two angles and one side, or two sides and an angle NOT between them. The cosine rule states: a² = b² + c² − 2bc×cos(A) — this is used when you know all three sides (to find an angle), or two sides and the angle between them (to find the third side). Beyond triangles, trigonometry also describes angles of elevation (the angle you look UP through, from the horizontal, to see something above you, like the top of a building) and angles of depression (the angle you look DOWN through, from the horizontal, to see something below you, like a boat from a clifftop) — these two angles are equal whenever the horizontal lines involved are parallel, a fact frequently used in real-world height and distance problems.",
           "examples": [
-            "Using the sine rule: in a triangle with angle A=40°, angle B=60°, side a=8cm, find side b: b/sin(60°)=8/sin(40°) → b=8×sin(60°)/sin(40°) ≈ 10.78cm.",
-            "Using the cosine rule: in a triangle with sides b=7cm, c=9cm, angle A=50°, find side a: a²=7²+9²-2(7)(9)cos(50°) = 49+81-90.1 ≈ 39.9, so a≈6.32cm.",
-            "From a clifftop, the angle of depression to a boat is 25°. Since the sea's surface and the clifftop's horizontal line are parallel, the angle of elevation from the boat to the clifftop is also 25°.",
-            "A person stands 50m from a tower and looks up at an angle of elevation of 35° to the top. Height of tower = 50×tan(35°) ≈ 35m.",
-            "Using the cosine rule to find an angle: in a triangle with sides a=6, b=8, c=10, find angle C: cos(C) = (a²+b²-c²)/(2ab) = (36+64-100)/96 = 0, so C=90° (this is a right triangle!)."
+            "In a triangle with angle A=40°, angle B=60°, side a=8cm, find side b using the sine rule.\nStep 1: Write the sine rule: a/sin(A)=b/sin(B)\nStep 2: Substitute: 8/sin(40°)=b/sin(60°)\nStep 3: Rearrange: b=8×sin(60°)/sin(40°)\nAnswer: b ≈ 10.78cm",
+            "In a triangle with sides b=7cm, c=9cm, angle A=50°, find side a using the cosine rule.\nStep 1: Write the cosine rule: a²=b²+c²-2bc·cos(A)\nStep 2: Substitute: a²=49+81-2(7)(9)cos(50°)\nStep 3: Calculate: a²≈39.9\nStep 4: Take the square root\nAnswer: a ≈ 6.32cm",
+            "From a clifftop, the angle of depression to a boat is 25°. Find the angle of elevation from the boat.\nStep 1: Recall angles of elevation and depression are equal when horizontals are parallel\nAnswer: The angle of elevation from the boat = 25°",
+            "A person stands 50m from a tower and sees the top at an angle of elevation of 35°. Find the tower's height.\nStep 1: Recognise this forms a right triangle with adjacent=50m\nStep 2: Use tan(35°)=height/50\nStep 3: Rearrange: height=50×tan(35°)\nAnswer: Height ≈ 35m",
+            "In a triangle with sides a=6, b=8, c=10, find angle C using the cosine rule.\nStep 1: Write the cosine rule rearranged for angle: cos(C)=(a²+b²-c²)/(2ab)\nStep 2: Substitute: (36+64-100)/96\nStep 3: Calculate: 0/96=0\nStep 4: Find the angle: cos⁻¹(0)\nAnswer: C = 90° (confirming this is a right triangle)"
           ],
           "keyTerms": {
             "sine rule": "a/sin(A) = b/sin(B) = c/sin(C), used for any triangle",
@@ -2523,11 +2523,11 @@
           "title": "Matrices",
           "content": "A matrix is a rectangular array of numbers arranged in rows and columns, used to organise and manipulate data compactly — for example, a matrix with 2 rows and 3 columns is called a 2×3 matrix (rows are always stated first, then columns). To add or subtract two matrices, they must have exactly the same dimensions (order), and you simply add or subtract the numbers in matching positions. Multiplying a matrix by a scalar (an ordinary number) multiplies every single element inside it by that number. Matrix multiplication (multiplying one matrix by another) is more involved: it's only possible when the number of columns in the first matrix equals the number of rows in the second, and each element of the resulting matrix is found by multiplying corresponding entries from a row of the first matrix and a column of the second, then adding those products together. The identity matrix (usually written I) acts like the number 1 does in ordinary multiplication — multiplying any matrix by the identity matrix (of the correct size) leaves it completely unchanged.",
           "examples": [
-            "Add matrices [[1,2],[3,4]] + [[5,6],[7,8]] = [[6,8],[10,12]] (add matching positions).",
-            "Multiply matrix [[2,4],[6,8]] by scalar 3: [[6,12],[18,24]].",
-            "The order of a matrix with 3 rows and 2 columns is written as 3×2.",
-            "Multiply [[1,2]] (1×2) by [[3],[4]] (2×1): result = 1×3+2×4 = 11 (a 1×1 matrix).",
-            "The 2×2 identity matrix is [[1,0],[0,1]] — multiplying any 2×2 matrix by this leaves it unchanged."
+            "Add matrices [[1,2],[3,4]] + [[5,6],[7,8]].\nStep 1: Add matching top-left positions: 1+5=6\nStep 2: Add matching top-right positions: 2+6=8\nStep 3: Add matching bottom-left positions: 3+7=10\nStep 4: Add matching bottom-right positions: 4+8=12\nAnswer: [[6,8],[10,12]]",
+            "Multiply matrix [[2,4],[6,8]] by scalar 3.\nStep 1: Multiply every element by 3\nStep 2: 2×3=6, 4×3=12, 6×3=18, 8×3=24\nAnswer: [[6,12],[18,24]]",
+            "State the order of a matrix with 3 rows and 2 columns.\nStep 1: Recall order is written as rows × columns\nAnswer: 3×2",
+            "Multiply [[1,2]] (1×2) by [[3],[4]] (2×1).\nStep 1: Check columns of first (2) match rows of second (2) — valid\nStep 2: Multiply corresponding entries and add: 1×3+2×4\nAnswer: 11 (a 1×1 matrix)",
+            "State the 2×2 identity matrix and its effect.\nStep 1: Recall the identity matrix has 1s on the diagonal, 0s elsewhere\nStep 2: The identity matrix is [[1,0],[0,1]]\nAnswer: Multiplying any 2×2 matrix by this leaves it unchanged"
           ],
           "keyTerms": {
             "matrix": "A rectangular array of numbers arranged in rows and columns",
@@ -2596,11 +2596,11 @@
           "title": "Matrix Transformations",
           "content": "Matrices can represent geometric transformations, allowing rotations, reflections, and enlargements to be carried out using matrix multiplication instead of drawing arcs or counting grid squares by hand. To transform a point (x,y), first write it as a column matrix (x over y), then multiply it by the appropriate 2×2 transformation matrix. Some standard transformation matrices worth knowing: the matrix [[1,0],[0,-1]] reflects a point in the x-axis; [[-1,0],[0,1]] reflects in the y-axis; [[0,-1],[1,0]] rotates 90° anticlockwise about the origin; [[0,1],[-1,0]] rotates 90° clockwise about the origin; and [[k,0],[0,k]] enlarges by scale factor k from the origin. To apply a transformation matrix M to point (x,y): multiply M by the column vector (x over y), following the row-by-column matrix multiplication rule, to get the new transformed point. This matrix approach becomes especially powerful when combining multiple transformations — applying two transformation matrices in sequence is equivalent to multiplying the two matrices together first, then applying the single combined result.",
           "examples": [
-            "Reflect point (3,5) in the x-axis using [[1,0],[0,-1]]: multiply to get (3, -5) — matches the earlier reflection rule.",
-            "Rotate point (2,4) by 90° anticlockwise using [[0,-1],[1,0]]: new point = (0×2 + -1×4, 1×2 + 0×4) = (-4, 2).",
-            "Enlarge point (3,2) by scale factor 3 using [[3,0],[0,3]]: new point = (9, 6).",
-            "Reflect point (-2,6) in the y-axis using [[-1,0],[0,1]]: new point = (2, 6).",
-            "Rotate point (5,0) by 90° clockwise using [[0,1],[-1,0]]: new point = (0×5+1×0, -1×5+0×0) = (0,-5)."
+            "Reflect point (3,5) in the x-axis using [[1,0],[0,-1]].\nStep 1: Multiply the matrix by the column vector (3 over 5)\nStep 2: New x = 1×3+0×5=3\nStep 3: New y = 0×3+(-1)×5=-5\nAnswer: (3,5) → (3,-5)",
+            "Rotate point (2,4) by 90° anticlockwise using [[0,-1],[1,0]].\nStep 1: Multiply the matrix by (2 over 4)\nStep 2: New x = 0×2+(-1)×4=-4\nStep 3: New y = 1×2+0×4=2\nAnswer: (2,4) → (-4,2)",
+            "Enlarge point (3,2) by scale factor 3 using [[3,0],[0,3]].\nStep 1: Multiply the matrix by (3 over 2)\nStep 2: New x = 3×3+0×2=9\nStep 3: New y = 0×3+3×2=6\nAnswer: (3,2) → (9,6)",
+            "Reflect point (-2,6) in the y-axis using [[-1,0],[0,1]].\nStep 1: Multiply the matrix by (-2 over 6)\nStep 2: New x = -1×(-2)+0×6=2\nStep 3: New y = 0×(-2)+1×6=6\nAnswer: (-2,6) → (2,6)",
+            "Rotate point (5,0) by 90° clockwise using [[0,1],[-1,0]].\nStep 1: Multiply the matrix by (5 over 0)\nStep 2: New x = 0×5+1×0=0\nStep 3: New y = -1×5+0×0=-5\nAnswer: (5,0) → (0,-5)"
           ],
           "keyTerms": {
             "transformation matrix": "A matrix representing a geometric transformation like rotation or reflection",
@@ -2669,11 +2669,11 @@
           "title": "Simultaneous Equations",
           "content": "Simultaneous equations are two (or more) equations that share the same unknowns, and 'solving simultaneously' means finding the values of those unknowns that satisfy ALL the equations at the exact same time. Two main algebraic methods are used: elimination and substitution. In the elimination method, you add or subtract the two equations (after multiplying one or both by a suitable number if needed) specifically to cancel out one variable, leaving a single equation with only one unknown that's easy to solve; once found, that value is substituted back into either original equation to find the other unknown. In the substitution method, you rearrange one equation to isolate one variable in terms of the other, then substitute that expression into the second equation, again reducing it to one variable. Graphically, the solution to a pair of simultaneous linear equations is exactly the point where their two lines intersect (cross) on a graph — if the lines are parallel (equal gradients but different intercepts), there is no solution at all, since they never meet; if the two equations actually describe the exact same line, there are infinitely many solutions.",
           "examples": [
-            "Elimination: 2x + y = 7 and x - y = 2. Add: 3x = 9, x = 3. Then y = 7 - 2(3) = 1. Solution: (3, 1).",
-            "Substitution: y = x + 1 and 2x + y = 7. Replace y: 2x + (x+1) = 7 → 3x = 6 → x = 2, y = 3.",
-            "Graphically: plot both lines — they cross at the solution point.",
-            "Elimination with multiplying first: 3x+2y=16 and x+y=6. Multiply second by 2: 2x+2y=12. Subtract from first: x=4. Then y=6-4=2.",
-            "If two equations simplify to the exact same line (like x+y=5 and 2x+2y=10), there are infinitely many solutions, since every point on that line satisfies both."
+            "Solve 2x + y = 7 and x - y = 2 using elimination.\nStep 1: Add the two equations to eliminate y: 3x = 9\nStep 2: Solve for x: x=3\nStep 3: Substitute x=3 into x-y=2: 3-y=2, so y=1\nAnswer: x=3, y=1",
+            "Solve y = x + 1 and 2x + y = 7 using substitution.\nStep 1: Substitute y=x+1 into the second equation: 2x+(x+1)=7\nStep 2: Simplify: 3x+1=7, so 3x=6\nStep 3: Solve for x: x=2, then y=2+1=3\nAnswer: x=2, y=3",
+            "Solve 3x+2y=16 and x+y=6 using elimination.\nStep 1: Multiply the second equation by 2: 2x+2y=12\nStep 2: Subtract from the first equation: (3x+2y)-(2x+2y)=16-12, giving x=4\nStep 3: Substitute x=4 into x+y=6: y=2\nAnswer: x=4, y=2",
+            "Describe the solution if two simultaneous equations represent the exact same line.\nStep 1: Recall the solution is where the lines intersect\nStep 2: If both equations describe the same line, every point on it satisfies both\nAnswer: There are infinitely many solutions",
+            "Solve y=2x and x+y=9 using substitution.\nStep 1: Substitute y=2x into x+y=9: x+2x=9\nStep 2: Simplify: 3x=9, so x=3\nStep 3: Find y: y=2(3)=6\nAnswer: x=3, y=6"
           ],
           "keyTerms": {
             "simultaneous equations": "Two or more equations with the same variables, solved together",
@@ -2742,11 +2742,11 @@
           "title": "Probability",
           "content": "Probability measures how likely an event is to occur, expressed as a number from 0 (impossible, will never happen) to 1 (certain, will always happen) — values in between represent varying degrees of likelihood, and probabilities are often also expressed as fractions, decimals, or percentages. The basic formula is: Probability of an event = (number of favourable outcomes) ÷ (total number of possible outcomes), assuming all outcomes are equally likely. Two events are independent if the outcome of one has absolutely no effect on the outcome of the other (like flipping a coin twice) — for two independent events to BOTH happen, multiply their individual probabilities together. Two events are mutually exclusive if they cannot possibly both happen at the same time (like rolling a die and getting both a 3 and a 5 on the same roll) — for EITHER of two mutually exclusive events to happen, add their individual probabilities together. A probability tree diagram is a useful visual tool for tracking probabilities across a sequence of events, where you multiply probabilities moving along a single branch, and add probabilities across separate branches representing different overall outcomes.",
           "examples": [
-            "Coin: P(heads) = 1/2 = 50%.",
-            "Die: P(even) = 3/6 = 1/2 (favourable outcomes 2,4,6 out of 6 total).",
-            "Two independent coin flips: P(both heads) = 1/2 × 1/2 = 1/4 = 25%.",
-            "A bag has 4 red and 6 blue balls. P(red) = 4/10 = 2/5. If a ball is drawn, replaced, then drawn again, P(red then blue) = (4/10)×(6/10) = 24/100 = 0.24.",
-            "Rolling a die: since getting a 2 and getting a 5 are mutually exclusive, P(2 or 5) = 1/6 + 1/6 = 2/6 = 1/3."
+            "Find the probability of rolling an even number on a fair die.\nStep 1: List favourable outcomes: 2,4,6 (3 outcomes)\nStep 2: List total outcomes: 1,2,3,4,5,6 (6 outcomes)\nStep 3: Divide: 3/6\nAnswer: P(even) = 1/2",
+            "Find the probability of getting heads on both of two independent coin flips.\nStep 1: Find P(heads) for one flip: 1/2\nStep 2: Since flips are independent, multiply: 1/2×1/2\nAnswer: P(both heads) = 1/4",
+            "A bag has 4 red and 6 blue balls. A ball is drawn, replaced, then drawn again. Find P(red then blue).\nStep 1: Find P(red)=4/10\nStep 2: Find P(blue)=6/10\nStep 3: Since the ball is replaced (independent), multiply: (4/10)×(6/10)\nAnswer: P(red then blue) = 24/100 = 0.24",
+            "Find the probability of rolling a 2 or a 5 on a single die roll.\nStep 1: Recognise these are mutually exclusive (can't both happen on one roll)\nStep 2: Find each probability: P(2)=1/6, P(5)=1/6\nStep 3: Add them: 1/6+1/6\nAnswer: P(2 or 5) = 2/6 = 1/3",
+            "A bag has 3 red and 7 blue marbles. Find P(red).\nStep 1: Identify favourable outcomes: 3 red\nStep 2: Identify total outcomes: 10 total\nStep 3: Divide: 3/10\nAnswer: P(red) = 3/10"
           ],
           "keyTerms": {
             "probability": "A measure of how likely an event is, from 0 to 1",
@@ -2816,11 +2816,11 @@
           "title": "Quadratic Equations",
           "content": "A quadratic equation is an equation where the highest power of the variable is 2, in the general form ax² + bx + c = 0. There are three main methods to solve one: factorisation (rewriting the quadratic as two brackets multiplied together, then setting each bracket equal to zero, since if two things multiply to give zero, at least one of them must itself be zero); the quadratic formula, x = (−b ± √(b²−4ac)) / (2a), which works for EVERY quadratic equation, even ones that don't factorise neatly; and completing the square, which rewrites the equation in the form (x+p)² = q, useful for finding the exact turning point of the related curve. The quadratic formula's inner expression, b²−4ac, is called the discriminant, and it reveals how many solutions exist without fully solving: if the discriminant is positive, there are two distinct real solutions; if it equals exactly zero, there is one repeated solution; and if it's negative, there are no real solutions at all (the square root of a negative number isn't a real number).",
           "examples": [
-            "Solve by factorisation: x² + 5x + 6 = 0 → (x+2)(x+3)=0 → x=-2 or x=-3.",
-            "Solve using the quadratic formula for x² - 3x - 4 = 0 (a=1,b=-3,c=-4): x = (3±√(9+16))/2 = (3±5)/2 → x=4 or x=-1.",
-            "Complete the square for x² + 6x + 5: (x+3)² - 9 + 5 = (x+3)² - 4, so the minimum point is at x=-3.",
-            "Check the discriminant of 2x² + 3x + 5 = 0 (a=2,b=3,c=5): b²-4ac = 9-40 = -31 (negative), so there are no real solutions.",
-            "Solve x² - 9 = 0 (a case with b=0): x² = 9, so x = 3 or x = -3."
+            "Solve x² + 5x + 6 = 0 by factorisation.\nStep 1: Find two numbers multiplying to 6, adding to 5: 2 and 3\nStep 2: Write as brackets: (x+2)(x+3)=0\nStep 3: Set each bracket to zero: x+2=0 or x+3=0\nAnswer: x=-2 or x=-3",
+            "Solve x² - 3x - 4 = 0 using the quadratic formula.\nStep 1: Identify a=1, b=-3, c=-4\nStep 2: Substitute into x=(-b±√(b²-4ac))/(2a): x=(3±√(9+16))/2\nStep 3: Simplify: x=(3±5)/2\nAnswer: x=4 or x=-1",
+            "Complete the square for x² + 6x + 5.\nStep 1: Halve the coefficient of x: 6÷2=3\nStep 2: Write (x+3)² and subtract the square of 3: (x+3)²-9\nStep 3: Add the original constant: (x+3)²-9+5\nAnswer: (x+3)² - 4, so the minimum point is at x=-3",
+            "Find the discriminant of 2x² + 3x + 5 = 0 and interpret it.\nStep 1: Identify a=2, b=3, c=5\nStep 2: Calculate b²-4ac: 9-40\nStep 3: Interpret the negative result\nAnswer: Discriminant = -31 (negative), so there are no real solutions",
+            "Solve x² - 9 = 0.\nStep 1: Recognise b=0, so rearrange: x²=9\nStep 2: Take the square root of both sides\nAnswer: x=3 or x=-3"
           ],
           "keyTerms": {
             "quadratic equation": "An equation of the form ax²+bx+c=0",
@@ -2889,11 +2889,11 @@
           "title": "Circle Properties",
           "content": "Beyond basic circumference and area, circles have several special angle properties (often called circle theorems) that hold true regardless of the circle's size. The angle in a semicircle is always exactly 90° — any triangle drawn from the two ends of a diameter to any point on the circle's circumference always contains a right angle at that third point. The angle at the centre of a circle is always exactly twice the angle at the circumference, when both angles are subtended by (stand on) the same arc. Angles subtended by the same arc, when both are at the circumference, are always equal to each other, regardless of where exactly on the circumference they're measured from. A cyclic quadrilateral is a four-sided shape with all four corners touching the circle, and its opposite angles always add up to exactly 180° (they are supplementary). A tangent to a circle is a straight line that touches the circle at exactly one single point without crossing into it, and a tangent always meets the radius drawn to that touching point at exactly 90°.",
           "examples": [
-            "A triangle is drawn with one side as the diameter of a circle, and the third vertex anywhere on the circle: the angle at that third vertex is always 90°.",
-            "If the angle at the centre of a circle is 100°, the angle at the circumference (subtended by the same arc) is 100°÷2 = 50°.",
-            "In a cyclic quadrilateral, if one angle is 110°, the opposite angle must be 180°-110° = 70°.",
-            "Two angles at the circumference are both subtended by the same arc AB: if one is 35°, the other must also be 35°.",
-            "A tangent touches a circle at point P, where the radius to P is drawn. The angle between the tangent line and this radius is always exactly 90°."
+            "A triangle is drawn with one side as the diameter, third vertex on the circle. Find the angle at that vertex.\nStep 1: Recall the angle in a semicircle rule\nAnswer: The angle at the third vertex is always 90°",
+            "The angle at the centre of a circle is 100°. Find the angle at the circumference (same arc).\nStep 1: Recall the centre angle is twice the circumference angle\nStep 2: Divide by 2: 100°÷2\nAnswer: Circumference angle = 50°",
+            "In a cyclic quadrilateral, one angle is 110°. Find the opposite angle.\nStep 1: Recall opposite angles in a cyclic quadrilateral sum to 180°\nStep 2: Subtract: 180°-110°\nAnswer: Opposite angle = 70°",
+            "Two angles at the circumference are subtended by the same arc AB. If one is 35°, find the other.\nStep 1: Recall angles subtended by the same arc are equal\nAnswer: The other angle is also 35°",
+            "A tangent touches a circle at point P, with the radius drawn to P. Find the angle between them.\nStep 1: Recall a tangent always meets the radius at the point of contact at a fixed angle\nAnswer: The angle is always exactly 90°"
           ],
           "keyTerms": {
             "circle theorem": "A geometric rule about angles and lines within circles, always true regardless of size",
@@ -2967,11 +2967,11 @@
           "title": "Composite Functions",
           "content": "A composite function is created by applying one function to the RESULT of another function, effectively chaining two rules together into a single combined process. The notation fg(x) (sometimes written f∘g(x), read as 'f of g of x') means: first apply function g to x, then apply function f to whatever result g produced — the order matters enormously, and fg(x) is generally NOT the same as gf(x), since applying the functions in the reverse order usually gives a completely different final answer. To evaluate fg(x), work from the inside outward: first calculate g(x), then substitute that entire result into f. An inverse function, written f⁻¹(x), 'undoes' whatever the original function f did — applying a function and then its inverse (in either order) always returns you exactly to your original starting value, i.e. f⁻¹(f(x)) = x. To find an inverse function algebraically: write y = f(x), swap x and y, then rearrange to make y the subject again — the resulting expression (with y renamed back to x) is f⁻¹(x).",
           "examples": [
-            "If f(x)=2x+1 and g(x)=x², find fg(3): first g(3)=9, then f(9)=2(9)+1=19.",
-            "Using the same functions, find gf(3): first f(3)=2(3)+1=7, then g(7)=7²=49 — notice fg(3)=19 while gf(3)=49, confirming order matters.",
-            "Find the inverse of f(x)=2x+1: write y=2x+1, swap: x=2y+1, rearrange: y=(x-1)/2. So f⁻¹(x)=(x-1)/2.",
-            "Check the inverse: f(3)=2(3)+1=7. Then f⁻¹(7)=(7-1)/2=3 — back to the original input, confirming the inverse works.",
-            "If h(x)=x+5 and k(x)=3x, find hk(2): first k(2)=6, then h(6)=6+5=11."
+            "If f(x)=2x+1 and g(x)=x², find fg(3).\nStep 1: Work from the inside out — first find g(3): g(3)=3²=9\nStep 2: Substitute into f: f(9)=2(9)+1\nAnswer: fg(3) = 19",
+            "Using f(x)=2x+1 and g(x)=x², find gf(3).\nStep 1: First find f(3): f(3)=2(3)+1=7\nStep 2: Substitute into g: g(7)=7²=49\nAnswer: gf(3) = 49 (different from fg(3)=19, confirming order matters)",
+            "Find the inverse of f(x)=2x+1.\nStep 1: Write as y=2x+1\nStep 2: Swap x and y: x=2y+1\nStep 3: Rearrange to make y the subject: y=(x-1)/2\nAnswer: f⁻¹(x) = (x-1)/2",
+            "Check the inverse found above using x=3.\nStep 1: Find f(3): f(3)=2(3)+1=7\nStep 2: Apply the inverse to that result: f⁻¹(7)=(7-1)/2\nAnswer: f⁻¹(7) = 3 — back to the original input, confirming the inverse works",
+            "If h(x)=x+5 and k(x)=3x, find hk(2).\nStep 1: First find k(2): k(2)=3(2)=6\nStep 2: Substitute into h: h(6)=6+5\nAnswer: hk(2) = 11"
           ],
           "keyTerms": {
             "composite function": "A function formed by applying one function to the output of another",
@@ -3040,11 +3040,11 @@
           "title": "Equations and Inequalities",
           "content": "This topic brings together and extends earlier equation and inequality work to more complex expressions, including quadratic inequalities. Solving a quadratic inequality, such as x² - 5x + 6 > 0, involves first finding the CRITICAL VALUES — the points where the expression equals exactly zero — by factorising or using the quadratic formula, exactly as you would to solve the equation x² - 5x + 6 = 0. These critical values divide the number line into separate regions; testing a value from each region in the original inequality reveals whether that whole region satisfies the inequality or not, since the expression's sign only changes AT the critical values, remaining consistent between them. Sketching the corresponding parabola (U-shaped curve) can make this even clearer: since the quadratic x² - 5x + 6 factorises to (x-2)(x-3), the curve crosses the x-axis at x=2 and x=3 — the parabola sits BELOW the x-axis (negative) between these two roots, and ABOVE the x-axis (positive) outside them, directly telling you the solution to inequalities like (x-2)(x-3)>0 without needing to test individual values at all.",
           "examples": [
-            "Solve x² - 5x + 6 > 0: factorise to (x-2)(x-3)>0. Critical values are x=2 and x=3. Testing regions: the inequality holds when x<2 or x>3.",
-            "Solve x² - 9 ≤ 0: factorise to (x-3)(x+3)≤0. This holds between the roots: -3 ≤ x ≤ 3.",
-            "Solve x² + x - 6 < 0: factorise to (x+3)(x-2)<0. This holds between the roots: -3 < x < 2.",
-            "For (x-1)(x-5)>0, since the parabola opens upward and crosses at x=1 and x=5, the solution is x<1 or x>5 (outside the roots).",
-            "For (x+2)(x-4)<0, the solution is between the roots: -2<x<4 (since the expression is negative between the roots for an upward parabola)."
+            "Solve x² - 5x + 6 > 0.\nStep 1: Factorise: (x-2)(x-3)>0\nStep 2: Identify the critical values: x=2 and x=3\nStep 3: Since the parabola opens upward, it's positive outside the roots\nAnswer: x < 2 or x > 3",
+            "Solve x² - 9 ≤ 0.\nStep 1: Factorise: (x-3)(x+3)≤0\nStep 2: Identify the critical values: x=-3 and x=3\nStep 3: The expression is negative (or zero) between the roots\nAnswer: -3 ≤ x ≤ 3",
+            "Solve x² + x - 6 < 0.\nStep 1: Factorise: (x+3)(x-2)<0\nStep 2: Identify the critical values: x=-3 and x=2\nStep 3: The expression is negative between the roots\nAnswer: -3 < x < 2",
+            "Solve (x-1)(x-5)>0.\nStep 1: Identify the critical values directly from the brackets: x=1 and x=5\nStep 2: Since the parabola opens upward, it's positive outside the roots\nAnswer: x < 1 or x > 5",
+            "Solve (x+2)(x-4)<0.\nStep 1: Identify the critical values: x=-2 and x=4\nStep 2: The expression is negative between the roots for an upward parabola\nAnswer: -2 < x < 4"
           ],
           "keyTerms": {
             "critical values": "The points where a quadratic expression equals exactly zero",
@@ -3113,11 +3113,11 @@
           "title": "Linear Programming",
           "content": "Linear programming is a practical technique for finding the best possible outcome (maximum profit, minimum cost, etc.) in a real-world situation that has multiple limitations, called constraints. The process starts by translating a word problem into a set of linear inequalities representing every limitation — for example, limited time, limited materials, or a maximum budget. These inequalities are then graphed together on the same axes, and the region where ALL the inequalities overlap and are simultaneously satisfied is called the feasible region — every point inside this region represents a valid, workable solution that meets every constraint at once. The objective function is the specific quantity you're trying to maximise or minimise (like Profit = 5x + 3y for two products x and y). A key mathematical fact makes this solvable: the optimal (best) value of the objective function will always occur at one of the corner points (vertices) of the feasible region, never somewhere in the middle — so rather than testing every single point in the region, you only need to calculate the objective function's value at each corner and compare them.",
           "examples": [
-            "A furniture maker produces x chairs and y tables, constrained by x≥0, y≥0, x+2y≤20 (time), and x≤15 (materials). Plotting these gives a feasible region whose corners can be tested.",
-            "If the feasible region has corners (0,0), (15,0), (15,2.5), (0,10), and profit = 40x+60y, calculate profit at each corner: (0,0)→0, (15,0)→600, (15,2.5)→750, (0,10)→600 — the maximum profit (750) occurs at (15,2.5).",
-            "Constraints x≥0, y≥0, x+y≤10 define a triangular feasible region with corners (0,0), (10,0), (0,10).",
-            "A baker constrained by flour (x+2y≤40) and time (2x+y≤50) for x loaves and y cakes needs to graph both lines to find the overlapping feasible region.",
-            "Minimising cost = 3x+2y over a feasible region with corners (2,3), (5,1), (4,6): calculate at each corner — (2,3)→12, (5,1)→17, (4,6)→24 — the minimum cost (12) occurs at (2,3)."
+            "A furniture maker produces x chairs and y tables, constrained by x≥0, y≥0, x+2y≤20 (time), and x≤15 (materials).\nStep 1: Plot each inequality as a boundary line\nStep 2: Shade the region satisfying all constraints at once\nAnswer: The feasible region is the overlapping shaded area, with corners that can be tested for profit",
+            "The feasible region has corners (0,0), (15,0), (15,2.5), (0,10), with profit = 40x+60y. Find the maximum profit.\nStep 1: Calculate profit at (0,0): 40(0)+60(0)=0\nStep 2: Calculate at (15,0): 40(15)+60(0)=600\nStep 3: Calculate at (15,2.5): 40(15)+60(2.5)=750\nStep 4: Calculate at (0,10): 40(0)+60(10)=600\nAnswer: Maximum profit = 750, occurring at (15,2.5)",
+            "Constraints x≥0, y≥0, x+y≤10 define a feasible region. Identify its corners.\nStep 1: x≥0 and y≥0 bound the region to the first quadrant\nStep 2: x+y≤10 is a line through (10,0) and (0,10)\nAnswer: Corners are (0,0), (10,0), (0,10)",
+            "A baker is constrained by flour (x+2y≤40) and time (2x+y≤50) for x loaves and y cakes.\nStep 1: Graph the line x+2y=40\nStep 2: Graph the line 2x+y=50\nAnswer: The feasible region is where both shaded areas overlap, bounded by these two lines and the axes",
+            "Minimise cost = 3x+2y over a feasible region with corners (2,3), (5,1), (4,6).\nStep 1: Calculate at (2,3): 3(2)+2(3)=12\nStep 2: Calculate at (5,1): 3(5)+2(1)=17\nStep 3: Calculate at (4,6): 3(4)+2(6)=24\nAnswer: Minimum cost = 12, occurring at (2,3)"
           ],
           "keyTerms": {
             "constraint": "A limitation in a real-world problem, expressed as an inequality",
@@ -3186,11 +3186,11 @@
           "title": "Loci",
           "content": "A locus (plural: loci) is the set of ALL points that satisfy one specific geometric condition or rule — essentially, a locus describes every possible position that fits a given description, often forming a recognisable shape. Several standard loci come up repeatedly: the locus of points a fixed distance from a single point is a circle (with that fixed distance as the radius); the locus of points equidistant from two fixed points is the perpendicular bisector of the line segment joining them (a straight line exactly midway between the two points); the locus of points equidistant from two intersecting lines is the pair of angle bisectors of the angles formed between those lines; and the locus of points a fixed distance from a straight line consists of two parallel lines, one on each side, at that fixed distance. Constructing a locus typically combines earlier construction skills (like bisecting lines and angles) with careful reasoning about exactly what condition needs to be satisfied. Loci have practical applications in fields like safety zones around a hazard (a circular locus), or GPS-style positioning based on distances from known reference points.",
           "examples": [
-            "The locus of points 5cm from a fixed point O is a circle centred at O with radius 5cm.",
-            "The locus of points equidistant from points A and B is the perpendicular bisector of line AB.",
-            "The locus of points equidistant from two intersecting roads is the bisector of the angle between them.",
-            "The locus of points 3cm from a straight line consists of two parallel lines, each 3cm away, one on either side.",
-            "A goat tied to a post by a 4m rope can reach any point within (and on the boundary of) a circle of radius 4m centred at the post — this circle is the locus of all points the goat could possibly stand."
+            "Find the locus of points 5cm from a fixed point O.\nStep 1: Recall a fixed distance from a single point forms a circle\nStep 2: Use the fixed distance as the radius\nAnswer: A circle centred at O with radius 5cm",
+            "Find the locus of points equidistant from points A and B.\nStep 1: Recall equidistant-from-two-points loci form the perpendicular bisector\nStep 2: Construct the perpendicular bisector of line AB\nAnswer: The perpendicular bisector of AB",
+            "Find the locus of points equidistant from two intersecting roads.\nStep 1: Recall equidistant-from-two-lines loci form angle bisectors\nStep 2: Construct the bisector of the angle between the roads\nAnswer: The angle bisector between the two roads",
+            "Find the locus of points 3cm from a straight line.\nStep 1: Recall a fixed distance from a line forms two parallel lines\nStep 2: Draw one line 3cm on each side of the original\nAnswer: Two parallel lines, each 3cm from the original line",
+            "A goat is tied to a post by a 4m rope. Describe the locus of points it could stand on.\nStep 1: Recognise the rope length is a fixed distance from the post\nStep 2: Apply the fixed-distance-from-a-point rule\nAnswer: A circle of radius 4m centred at the post"
           ],
           "keyTerms": {
             "locus": "The set of all points satisfying a specific geometric condition",
@@ -3259,11 +3259,11 @@
           "title": "Lines and Planes in Three Dimensions",
           "content": "Moving from flat, 2D geometry into 3D space, a plane is a completely flat surface that extends infinitely in all directions (like an infinitely large, perfectly flat sheet), while a line in 3D space can either lie entirely within a plane, intersect it at a single point, or run parallel to it without ever touching. Two lines in 3D space that don't intersect are not necessarily parallel — if they also point in different directions and never meet, they are called skew lines (this is a key difference from 2D geometry, where any two non-intersecting lines must be parallel). The angle between a line and a plane is measured between the line itself and its projection (its 'shadow') onto that plane, and is found by dropping a perpendicular from a point on the line down to the plane, then using right-angle trigonometry within the triangle this creates. Similarly, the angle between two intersecting planes (called a dihedral angle) is measured within a plane that is perpendicular to both — often by identifying a suitable right-angled triangle in the 3D figure and applying familiar trigonometric ratios to it, exactly as in 2D, just requiring careful visualisation of the solid shape first.",
           "examples": [
-            "In a cuboid, the diagonal drawn across one full rectangular face and an edge meeting it at a base vertex are usually NOT parallel and not intersecting elsewhere — if they also don't cross, they may be skew lines.",
-            "To find the angle between the diagonal of a cuboid and its base: drop a perpendicular from the top corner to the base, forming a right triangle with the diagonal as hypotenuse, using trigonometry to solve.",
-            "The angle between a sloped roof (a plane) and the flat ceiling below it (another plane) is measured using a cross-section triangle perpendicular to both surfaces.",
-            "In a cube of side 10cm, the angle between a space diagonal and one edge can be found by first calculating the diagonal's length using 3D Pythagoras (√(10²+10²+10²)), then applying trigonometry.",
-            "Two edges of a triangular-based pyramid (tetrahedron) that don't share a vertex and aren't parallel are an example of skew lines in 3D."
+            "In a cuboid, consider the diagonal of one rectangular face and an edge meeting it at a base vertex. Determine their relationship.\nStep 1: Check whether the two lines intersect — they meet at the shared vertex, so this pair is NOT skew\nStep 2: For a genuinely skew pair, pick a face diagonal and an edge on the OPPOSITE side that never meets it and isn't parallel\nAnswer: Such a non-meeting, non-parallel pair of edges/diagonals in a cuboid are skew lines",
+            "Find the angle between the diagonal of a cuboid and its base.\nStep 1: Drop a perpendicular from the top corner down to the base, forming a right triangle\nStep 2: The cuboid's space diagonal becomes the hypotenuse of this triangle\nStep 3: Apply trigonometry (e.g. sin or tan) using the known edge lengths\nAnswer: The angle is found using inverse trigonometry on the right triangle formed",
+            "Find the angle between a sloped roof and the flat ceiling below it.\nStep 1: Identify a cross-section perpendicular to both the roof and ceiling\nStep 2: This cross-section forms a triangle showing the true angle between the two planes\nAnswer: The dihedral angle is measured within this perpendicular cross-section triangle",
+            "In a cube of side 10cm, find the length of a space diagonal (needed before finding angles).\nStep 1: Apply 3D Pythagoras: diagonal²=10²+10²+10²\nStep 2: Calculate: diagonal²=300\nStep 3: Take the square root\nAnswer: Diagonal ≈ 17.32cm",
+            "Identify a pair of skew lines in a triangular-based pyramid (tetrahedron).\nStep 1: Choose two edges that do not share a vertex\nStep 2: Confirm they are not parallel and do not intersect\nAnswer: Any such pair of non-adjacent, non-parallel edges in a tetrahedron are skew lines"
           ],
           "keyTerms": {
             "plane": "A perfectly flat surface extending infinitely in all directions",
