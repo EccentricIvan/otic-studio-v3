@@ -2,15 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../ai_core/providers/ai_provider.dart';
+import '../../core/app_info_provider.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
-
-final _packageInfoProvider = FutureProvider((_) => PackageInfo.fromPlatform());
 
 /// Admin dashboard — device, user, and update management.
 /// Admins manage the platform; they have no learning features here.
@@ -21,7 +19,7 @@ class AdminScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final modelAsync = ref.watch(modelInfoProvider);
     final studentsAsync = ref.watch(_allStudentsProvider);
-    final packageInfoAsync = ref.watch(_packageInfoProvider);
+    final packageInfoAsync = ref.watch(packageInfoProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text('Admin Dashboard')),

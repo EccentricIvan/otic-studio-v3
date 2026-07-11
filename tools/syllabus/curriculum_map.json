@@ -1,0 +1,306 @@
+{
+  "subject": "Mathematics",
+  "level": "UCE",
+  "classes": [
+    {
+      "class": "S1",
+      "terms": [
+        {
+          "term": 1,
+          "topics": [
+            {
+              "theme": "Numbers",
+              "topic": "Number Bases",
+              "keywords": ["number base", "binary", "place value", "base conversion", "denary", "octal"]
+            },
+            {
+              "theme": "Numbers",
+              "topic": "Working with Integers",
+              "keywords": ["integers", "positive and negative numbers", "addition of integers", "subtraction of integers", "multiplication of integers", "number line"]
+            },
+            {
+              "theme": "Numbers",
+              "topic": "Fractions, Percentages and Decimals",
+              "keywords": ["fractions", "percentages", "decimals", "decimal fractions", "converting fractions", "percentage change"]
+            },
+            {
+              "theme": "Numbers",
+              "topic": "Rectangular Cartesian Coordinates in 2 Dimensions",
+              "keywords": ["cartesian coordinates", "x-axis", "y-axis", "plotting points", "ordered pairs", "coordinate plane"]
+            }
+          ]
+        },
+        {
+          "term": 2,
+          "topics": [
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Geometric Construction Skills",
+              "keywords": ["geometric construction", "compass and ruler", "constructing angles", "constructing triangles", "perpendicular bisector", "angle bisector"]
+            },
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Sequence and Patterns",
+              "keywords": ["number sequence", "patterns", "arithmetic sequence", "term to term rule", "nth term"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Bearings",
+              "keywords": ["bearings", "compass bearing", "three-figure bearing", "angle of bearing", "direction"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "General and Angle Properties of Geometric Figures",
+              "keywords": ["angle properties", "polygons", "interior angles", "exterior angles", "geometric figures"]
+            },
+            {
+              "theme": "Data and Probability",
+              "topic": "Data Collection and Presentation",
+              "keywords": ["data collection", "bar chart", "pie chart", "frequency table", "data presentation", "tally"]
+            }
+          ]
+        },
+        {
+          "term": 3,
+          "topics": [
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Reflection",
+              "keywords": ["reflection", "line of symmetry", "mirror line", "reflected image", "transformation"]
+            },
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Equations of Lines and Curves",
+              "keywords": ["equation of a line", "gradient", "y-intercept", "linear equation", "curves"]
+            },
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Algebra 1",
+              "keywords": ["algebraic expressions", "simplifying expressions", "substitution", "like terms", "algebra"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Business Arithmetic",
+              "keywords": ["profit and loss", "simple interest", "commission", "discount", "business arithmetic"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Time and Timetables",
+              "keywords": ["time", "24-hour clock", "timetable", "speed distance time", "duration"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "S2",
+      "terms": [
+        {
+          "term": 1,
+          "topics": [
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Mappings and Relations",
+              "keywords": ["mapping", "relation", "domain and range", "function", "one to one mapping"]
+            },
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Vectors and Translation",
+              "keywords": ["vectors", "translation", "vector notation", "column vector", "magnitude of a vector"]
+            },
+            {
+              "theme": "Data and Probability",
+              "topic": "Graphs",
+              "keywords": ["graphs", "plotting graphs", "linear graph", "travel graph", "reading graphs"]
+            },
+            {
+              "theme": "Numbers",
+              "topic": "Numerical Concept 1: Indices and Logarithms",
+              "keywords": ["indices", "logarithms", "laws of indices", "powers", "log tables", "exponentiation"]
+            }
+          ]
+        },
+        {
+          "term": 2,
+          "topics": [
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Inequalities and Regions",
+              "keywords": ["inequalities", "inequality symbols", "regions", "shading regions", "linear inequalities"]
+            },
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Algebra 2",
+              "keywords": ["factorisation", "expanding brackets", "algebraic fractions", "quadratic expressions", "algebra"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Similarities and Enlargement",
+              "keywords": ["similarity", "enlargement", "scale factor", "similar triangles", "similar figures"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Circle",
+              "keywords": ["circle", "radius", "diameter", "circumference", "chord", "arc"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Rotation",
+              "keywords": ["rotation", "angle of rotation", "centre of rotation", "rotational symmetry", "transformation"]
+            }
+          ]
+        },
+        {
+          "term": 3,
+          "topics": [
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Length and Area Properties of 2D Figures",
+              "keywords": ["perimeter", "area", "2d shapes", "length", "area of triangle", "area of rectangle"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Nets, Areas and Volumes of Solids",
+              "keywords": ["nets", "surface area", "volume of solids", "cuboid", "cylinder", "prism"]
+            },
+            {
+              "theme": "Numbers",
+              "topic": "Numerical Concept 2: Surds",
+              "keywords": ["surds", "simplifying surds", "rationalising the denominator", "irrational numbers", "square roots"]
+            },
+            {
+              "theme": "Data and Probability",
+              "topic": "Set Theory",
+              "keywords": ["sets", "venn diagram", "union", "intersection", "set notation", "subset"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "S3",
+      "terms": [
+        {
+          "term": 1,
+          "topics": [
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Equation of a Straight Line",
+              "keywords": ["equation of a straight line", "gradient", "y = mx + c", "parallel lines", "perpendicular lines"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Trigonometry 1",
+              "keywords": ["trigonometry", "sine", "cosine", "tangent", "right angled triangle", "sohcahtoa"]
+            },
+            {
+              "theme": "Data and Probability",
+              "topic": "Data Collection and Display",
+              "keywords": ["data collection", "histogram", "frequency distribution", "data display", "statistics"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Vectors",
+              "keywords": ["vectors", "vector addition", "vector subtraction", "position vector", "magnitude"]
+            }
+          ]
+        },
+        {
+          "term": 2,
+          "topics": [
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Ratios and Proportions",
+              "keywords": ["ratio", "proportion", "direct proportion", "inverse proportion", "sharing in a ratio"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Business Mathematics",
+              "keywords": ["compound interest", "hire purchase", "depreciation", "taxation", "business mathematics"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Trigonometry 2",
+              "keywords": ["trigonometric ratios", "sine rule", "cosine rule", "angles of elevation", "angles of depression"]
+            },
+            {
+              "theme": "Data and Probability",
+              "topic": "Matrices",
+              "keywords": ["matrices", "matrix addition", "matrix multiplication", "order of a matrix", "identity matrix"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Matrix Transformations",
+              "keywords": ["matrix transformation", "transformation matrix", "reflection matrix", "rotation matrix", "enlargement matrix"]
+            }
+          ]
+        },
+        {
+          "term": 3,
+          "topics": [
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Simultaneous Equations",
+              "keywords": ["simultaneous equations", "elimination method", "substitution method", "linear equations", "solving equations"]
+            },
+            {
+              "theme": "Data and Probability",
+              "topic": "Probability",
+              "keywords": ["probability", "chance", "sample space", "probability tree", "outcomes"]
+            },
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Quadratic Equations",
+              "keywords": ["quadratic equations", "factorising quadratics", "quadratic formula", "completing the square"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Circle Properties",
+              "keywords": ["circle theorems", "cyclic quadrilateral", "tangent to a circle", "angle in a semicircle", "circle properties"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "S4",
+      "terms": [
+        {
+          "term": 1,
+          "topics": [
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Composite Functions",
+              "keywords": ["composite functions", "function of a function", "inverse function", "domain and range"]
+            },
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Equations and Inequalities",
+              "keywords": ["equations", "inequalities", "solving equations", "quadratic inequalities"]
+            },
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Linear Programming",
+              "keywords": ["linear programming", "feasible region", "objective function", "optimization", "constraints"]
+            }
+          ]
+        },
+        {
+          "term": 2,
+          "topics": [
+            {
+              "theme": "Patterns and Algebra",
+              "topic": "Loci",
+              "keywords": ["locus", "loci", "constructing loci", "set of points", "geometric locus"]
+            },
+            {
+              "theme": "Geometry and Measures",
+              "topic": "Lines and Planes in Three Dimensions",
+              "keywords": ["three dimensions", "3d geometry", "lines and planes", "angle between line and plane", "skew lines"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,7 @@ import '../tutor/tutor_response.dart';
 import '../../curriculum/curriculum_provider.dart';
 import '../../db/providers/db_provider.dart';
 import '../../safety/emotional_safety.dart';
+import '../../services/syllabus_provider.dart';
 
 // ── Model status ────────────────────────────────────────────────────────────
 
@@ -77,9 +78,14 @@ final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
 final tutorPipelineProvider = FutureProvider<TutorPipeline>((ref) async {
   final engine = await ref.watch(engineLoadedProvider.future);
   final curriculum = ref.watch(curriculumServiceProvider);
+  final syllabusRetriever = ref.watch(syllabusRetrieverProvider);
   // Load curriculum in background — don't block startup
   curriculum.loadAll();
-  return TutorPipeline(engine: engine, curriculum: curriculum);
+  return TutorPipeline(
+    engine: engine,
+    curriculum: curriculum,
+    syllabusRetriever: syllabusRetriever,
+  );
 });
 
 // ── Chat state ───────────────────────────────────────────────────────────────
@@ -162,11 +168,16 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
       return;
     }
 
+    final groundingEnabled = ref.read(syllabusGroundingEnabledProvider);
+    final student = await ref.read(activeStudentProvider.future);
+
     String streamed = '';
     try {
       final response = await pipeline.respond(
         studentMessage: message,
         safetyNote: safety.tutorNote,
+        useSyllabusGrounding: groundingEnabled,
+        studentClass: student?.grade,
         onToken: (token) {
           streamed += token;
           state = AsyncData(state.requireValue.copyWith(streamingText: streamed));
