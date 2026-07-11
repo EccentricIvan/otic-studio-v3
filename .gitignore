@@ -62,7 +62,3 @@ packages/ai-core/models/
 flutter_export_environment.sh
 
 android/build/
-
-# Syllabus DB builder — cached raw Wikipedia API responses (regenerable, not
-# meant to be committed); the built assets/db/syllabus.db output IS committed
-tools/syllabus/.cache/

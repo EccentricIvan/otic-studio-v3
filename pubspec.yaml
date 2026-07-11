@@ -41,7 +41,6 @@ dependencies:
   webview_flutter_windows: ^1.0.0
   share_plus: ^12.0.2
   package_info_plus: ^9.0.1
-  sqlite3: ^2.9.4
 
 dev_dependencies:
   flutter_test:
@@ -59,7 +58,6 @@ flutter:
     - assets/branding/      # official brand logo
     - assets/curriculum/    # bundled curriculum content for all subjects
     - assets/templates/     # website templates for Site Builder
-    - assets/db/            # syllabus grounding SQLite FTS5 database
 
   # Bundled offline — google_fonts would fetch over the network at runtime
   fonts:

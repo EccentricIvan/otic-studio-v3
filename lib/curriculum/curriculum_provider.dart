@@ -119,13 +119,15 @@ class CurriculumService {
   String buildContext(Lesson lesson) {
     final buf = StringBuffer();
     buf.writeln('Topic: ${lesson.title}');
-    // Trim content to ~500 chars to keep prompt small for on-device models
-    final content = lesson.content.length > 500
-        ? '${lesson.content.substring(0, 500)}...'
+    // Lesson content now runs ~1000-1550 chars (deep, full explanations) —
+    // 1600 keeps virtually all of it intact instead of the old 500-char cut,
+    // which used to chop most lessons off mid-sentence.
+    final content = lesson.content.length > 1600
+        ? '${lesson.content.substring(0, 1600)}...'
         : lesson.content;
     buf.writeln(content);
-    if (lesson.examples.isNotEmpty) {
-      buf.writeln('Example: ${lesson.examples.first}');
+    for (final example in lesson.examples.take(2)) {
+      buf.writeln('Example: $example');
     }
     return buf.toString();
   }

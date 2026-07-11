@@ -1,4 +1,3 @@
-import '../../services/syllabus_retriever.dart';
 import '../inference/inference_engine.dart';
 import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/curriculum_provider.dart';
@@ -15,12 +14,10 @@ class TutorPipeline {
   TutorPipeline({
     required this._engine,
     this._curriculum,
-    this._syllabusRetriever,
   });
 
   final InferenceEngine _engine;
   final CurriculumService? _curriculum;
-  final SyllabusRetriever? _syllabusRetriever;
   TutorStage _nextStage = TutorStage.answer;
   String _currentTopic = '';
   Lesson? _activeLesson;
@@ -30,17 +27,11 @@ class TutorPipeline {
   /// [onToken] fires with each new token as it arrives.
   /// [safetyNote] is an extra instruction from the emotional safety engine
   /// (e.g. "student sounds discouraged — encourage first").
-  /// [useSyllabusGrounding]/[studentClass] opt into the FTS5 syllabus
-  /// database (see syllabus_retriever.dart) instead of the lighter
-  /// hand-authored curriculum matching below — off by default while the
-  /// feature is being tested (toggle in Settings).
   /// Returns the complete [TutorResponse] when generation finishes.
   Future<TutorResponse> respond({
     required String studentMessage,
     void Function(String token)? onToken,
     String? safetyNote,
-    bool useSyllabusGrounding = false,
-    String? studentClass,
   }) async {
     final topic = _detectTopic(studentMessage);
     if (topic != _currentTopic) {
@@ -57,30 +48,10 @@ class TutorPipeline {
     if (matchedLesson != null) _activeLesson = matchedLesson;
 
     final stage = _nextStage;
-
-    String? syllabusPrompt;
-    if (useSyllabusGrounding && _syllabusRetriever != null) {
-      // NOTE: [studentClass] here is the student profile's free-text
-      // `grade` field (e.g. "Secondary 1–3"), which doesn't match the
-      // syllabus DB's "S1".."S4" class values — so it's used only for the
-      // prompt's display text below, not as a retrieval filter, until a
-      // real S1-S4 class field exists on the student profile (the tier
-      // enforcement layer needs this same field).
-      final chunks = await _syllabusRetriever.retrieve(studentMessage);
-      if (chunks.isNotEmpty) {
-        syllabusPrompt = _syllabusRetriever.buildGroundedPrompt(
-          studentMessage,
-          chunks,
-          studentClass: studentClass ?? 'Secondary',
-        );
-      }
-    }
-
     final lessonContext =
         _activeLesson != null ? _curriculum?.buildContext(_activeLesson!) : null;
-    final prompt = syllabusPrompt ??
-        _buildPrompt(studentMessage, stage,
-            safetyNote: safetyNote, lessonContext: lessonContext);
+    final prompt = _buildPrompt(studentMessage, stage,
+        safetyNote: safetyNote, lessonContext: lessonContext);
 
     final buffer = StringBuffer();
     final text = await _engine.generate(

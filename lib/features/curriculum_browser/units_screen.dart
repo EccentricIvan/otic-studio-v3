@@ -38,16 +38,17 @@ class UnitsScreen extends ConsumerWidget {
                     child: Row(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                           decoration: BoxDecoration(
                             color: AppColors.primary.withValues(alpha: 0.1),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
                           ),
                           child: Text(
-                            'Unit ${unitIndex + 1}',
+                            unit.title,
                             style: const TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800,
                               color: AppColors.primary,
                             ),
                           ),
@@ -55,11 +56,10 @@ class UnitsScreen extends ConsumerWidget {
                         const SizedBox(width: 10),
                         Expanded(
                           child: Text(
-                            unit.title,
+                            '${unit.lessons.length} topics',
                             style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              color: Theme.of(context).colorScheme.onSurface,
+                              fontSize: 13,
+                              color: Theme.of(context).hintColor,
                             ),
                           ),
                         ),

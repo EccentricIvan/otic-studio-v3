@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -8,7 +7,6 @@ import '../../core/app_info_provider.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/theme_provider.dart';
 import '../../db/providers/db_provider.dart';
-import '../../services/syllabus_provider.dart';
 import '../../shared/widgets/responsive.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -178,51 +176,6 @@ class SettingsScreen extends ConsumerWidget {
                   showSelectedIcon: false,
                 ),
               ),
-            ]),
-
-            // ── AI Features ──────────────────────────────────────────────────
-            _Section('AI Features (experimental)', [
-              SwitchListTile(
-                secondary: Icon(
-                  Icons.menu_book_outlined,
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
-                title: const Text('Syllabus-grounded answers'),
-                subtitle: const Text(
-                  'Ground tutor answers in the bundled syllabus database instead of the model\'s own knowledge (Mathematics only, for now)',
-                ),
-                value: ref.watch(syllabusGroundingEnabledProvider),
-                onChanged: (v) =>
-                    ref.read(syllabusGroundingEnabledProvider.notifier).set(v),
-              ),
-              if (kDebugMode)
-                ListTile(
-                  leading: Icon(
-                    Icons.science_outlined,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
-                  title: const Text('Test syllabus retrieval (debug)'),
-                  subtitle: const Text('Runs retrieve("number bases", studentClass: "S1")'),
-                  onTap: () async {
-                    final retriever = ref.read(syllabusRetrieverProvider);
-                    final chunks = await retriever.retrieve(
-                      'number bases',
-                      studentClass: 'S1',
-                    );
-                    if (!context.mounted) return;
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          chunks.isEmpty
-                              ? 'No chunks found'
-                              : '${chunks.length} chunk(s) — first: '
-                                  '${chunks.first.studentClass} ${chunks.first.topic}',
-                        ),
-                        duration: const Duration(seconds: 5),
-                      ),
-                    );
-                  },
-                ),
             ]),
 
             // ── App ──────────────────────────────────────────────────────────
