@@ -52,7 +52,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     super.dispose();
   }
 
-  static const _pageCount = 2;
+  static const _pageCount = 1;
 
   void _next() {
     if (_page == 0 && _nameController.text.trim().isEmpty) {
@@ -138,42 +138,44 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              // Progress dots + back button
-              SizedBox(
-                height: 56,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        for (var i = 0; i < _pageCount; i++) ...[
-                          if (i > 0) const SizedBox(width: 6),
-                          AnimatedContainer(
-                            duration: const Duration(milliseconds: 300),
-                            width: i == _page ? 24 : 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: i <= _page
-                                  ? AppColors.primary
-                                  : AppColors.primary.withValues(alpha: 0.2),
-                              borderRadius: BorderRadius.circular(4),
+              if (_pageCount > 1)
+                SizedBox(
+                  height: 56,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          for (var i = 0; i < _pageCount; i++) ...[
+                            if (i > 0) const SizedBox(width: 6),
+                            AnimatedContainer(
+                              duration: const Duration(milliseconds: 300),
+                              width: i == _page ? 24 : 8,
+                              height: 8,
+                              decoration: BoxDecoration(
+                                color: i <= _page
+                                    ? AppColors.primary
+                                    : AppColors.primary.withValues(alpha: 0.2),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
                             ),
-                          ),
+                          ],
                         ],
-                      ],
-                    ),
-                    if (_page > 0)
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: IconButton(
-                          icon: const Icon(Icons.arrow_back),
-                          onPressed: _back,
-                        ),
                       ),
-                  ],
-                ),
-              ),
+                      if (_page > 0)
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: IconButton(
+                            icon: const Icon(Icons.arrow_back),
+                            onPressed: _back,
+                          ),
+                        ),
+                    ],
+                  ),
+                )
+              else
+                const SizedBox(height: 16),
               Expanded(
                 child: PageView(
                   controller: _pageController,
@@ -181,10 +183,6 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   onPageChanged: (i) => setState(() => _page = i),
                   children: [
                     _NamePage(controller: _nameController),
-                    _StylePage(
-                      selected: _learningStyle,
-                      onSelect: (s) => setState(() => _learningStyle = s),
-                    ),
                   ],
                 ),
               ),
@@ -267,117 +265,3 @@ class _NamePage extends StatelessWidget {
   }
 }
 
-// ── Page 2: Learning style ────────────────────────────────────────────────────
-
-class _StylePage extends StatelessWidget {
-  const _StylePage({required this.selected, required this.onSelect});
-  final String selected;
-  final void Function(String) onSelect;
-
-  static const _styles = [
-    (
-      'visual',
-      Icons.visibility_outlined,
-      'Visual',
-      'I learn best from diagrams, examples, and seeing things',
-    ),
-    (
-      'reading',
-      Icons.menu_book_outlined,
-      'Reading',
-      'I learn best by reading explanations and taking notes',
-    ),
-    (
-      'practice',
-      Icons.fitness_center_outlined,
-      'Practice',
-      'I learn best by doing exercises and solving problems',
-    ),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 12),
-          Text(
-            'How do you learn best?',
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-          const SizedBox(height: 6),
-          Text(
-            'The AI tutor adapts its teaching style to suit you.',
-            style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.5),
-          ),
-          const SizedBox(height: 20),
-          ..._styles.map((s) {
-            final isSelected = selected == s.$1;
-            return GestureDetector(
-              onTap: () => onSelect(s.$1),
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                margin: const EdgeInsets.only(bottom: 12),
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: isSelected
-                      ? AppColors.primary.withValues(alpha: 0.08)
-                      : Theme.of(context).colorScheme.surface,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: isSelected ? AppColors.primary : Theme.of(context).dividerColor,
-                    width: isSelected ? 2 : 1,
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    Icon(
-                      s.$2,
-                      color: isSelected
-                          ? AppColors.primary
-                          : Theme.of(context).textTheme.bodyMedium?.color,
-                      size: 28,
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            s.$3,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: isSelected
-                                  ? AppColors.primary
-                                  : Theme.of(context).textTheme.bodyLarge?.color,
-                            ),
-                          ),
-                          const SizedBox(height: 2),
-                          Text(
-                            s.$4,
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Theme.of(context).textTheme.bodyMedium?.color,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    if (isSelected)
-                      const Icon(
-                        Icons.check_circle,
-                        color: AppColors.primary,
-                        size: 20,
-                      ),
-                  ],
-                ),
-              ),
-            );
-          }),
-        ],
-      ),
-    );
-  }
-}
