@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{margin:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;color:#1a202c}
+header{background:linear-gradient(135deg,#1e1b4b,#3730a3);color:white;text-align:center;padding:60px 20px}
+header h1{font-size:32px;font-weight:300;letter-spacing:2px}
+header .cross{font-size:40px;margin-bottom:12px}
+header p{color:#a5b4fc;font-style:italic;font-size:16px}
+.hero{background:#e0e7ff;padding:48px 20px;text-align:center}
+.hero h2{color:#1e1b4b;font-size:22px;margin-bottom:12px}
+.hero p{color:#3730a3;max-width:500px;margin:0 auto;line-height:1.7}
+.btn{display:inline-block;background:#3730a3;color:white;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;margin-top:20px}
+.services{padding:40px 20px;max-width:700px;margin:0 auto}
+.services h2{text-align:center;color:#1e1b4b;margin-bottom:24px;font-weight:300;letter-spacing:2px}
+.svc{background:#e0e7ff;border-radius:14px;padding:20px;margin-bottom:12px;border-left:4px solid #3730a3}
+.svc h3{font-size:16px;color:#1e1b4b}
+.svc p{font-size:14px;color:#64748b;margin-top:4px;line-height:1.5}
+.verse{background:#1e1b4b;color:white;padding:48px 20px;text-align:center}
+.verse blockquote{font-size:18px;font-style:italic;max-width:500px;margin:0 auto;line-height:1.7;color:#a5b4fc}
+.verse cite{display:block;margin-top:12px;font-size:14px;color:#6366f1;font-style:normal}
+.times{padding:40px 20px;text-align:center;background:#e0e7ff}
+.times h2{color:#1e1b4b;font-weight:300;letter-spacing:2px;margin-bottom:20px}
+.time-grid{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;max-width:500px;margin:0 auto}
+.time-card{background:white;border-radius:12px;padding:18px;border:1px solid #a5b4fc;min-width:140px}
+.time-card h3{font-size:14px;color:#3730a3;margin-bottom:4px}
+.time-card p{font-size:13px;color:#64748b}
+.contact{padding:40px 20px;text-align:center}
+.contact h2{color:#1e1b4b;font-weight:300;letter-spacing:2px;margin-bottom:16px}
+.contact p{color:#64748b;margin-bottom:8px}
+footer{background:#0f172a;color:#64748b;text-align:center;padding:20px;font-size:12px}
+</style>
+</head>
+<body>
+<header><div class="cross">✝</div><h1>{{church_name}}</h1><p>{{motto}}</p></header>
+<div class="hero"><h2>Welcome Home</h2><p>{{description}}</p><a href="#services" class="btn">Our Ministries</a></div>
+<div class="services" id="services">
+<h2>✝ Our Ministries ✝</h2>
+<div class="svc"><h3>🙏 Sunday Worship</h3><p>Join us for powerful praise, worship, and the Word every Sunday.</p></div>
+<div class="svc"><h3>📖 Bible Study</h3><p>Midweek deep dive into Scripture. Grow in faith and understanding.</p></div>
+<div class="svc"><h3>👶 Children's Church</h3><p>Fun, safe, and faith-building programs for kids of all ages.</p></div>
+<div class="svc"><h3>🤝 Community Outreach</h3><p>Serving our community through food drives, mentorship, and support.</p></div>
+</div>
+<div class="verse"><blockquote>"{{verse}}"</blockquote><cite>— {{verse_ref}}</cite></div>
+<div class="times" id="times">
+<h2>✝ Service Times ✝</h2>
+<div class="time-grid">
+<div class="time-card"><h3>Sunday Service</h3><p>{{time_sunday}}</p></div>
+<div class="time-card"><h3>Bible Study</h3><p>{{time_bible}}</p></div>
+<div class="time-card"><h3>Youth Service</h3><p>{{time_youth}}</p></div>
+</div>
+</div>
+<div class="contact" id="contact"><h2>✝ Visit Us ✝</h2><p>📍 {{address}}</p><p>📞 {{phone}}</p><p>✉️ {{email}}</p><a href="mailto:{{email}}" class="btn">Get In Touch</a></div>
+<footer>&copy; 2024 {{church_name}} — Built with Otic Studio</footer>
+</body>
+</html>
