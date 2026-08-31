@@ -1,4 +1,4 @@
-package com.otic.otic_studio
+package com.aiconnectafrica.ai_connect_africa
 
 import io.flutter.embedding.android.FlutterActivity
 

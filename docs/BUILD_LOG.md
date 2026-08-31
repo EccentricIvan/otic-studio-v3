@@ -1,6 +1,6 @@
-# Otic Studio v3 — Build Log
+# AI Connect Africa v3 — Build Log
 
-Complete documentation of Otic Studio v3, rebuilt from v2 with curriculum-first architecture.
+Complete documentation of AI Connect Africa v3, rebuilt from v2 with curriculum-first architecture.
 
 ---
 
@@ -307,8 +307,8 @@ Removed: age/grade screen and learning style screen.
   3. Publish to rolling `latest-build` release
 
 ### Download Links
-- **APK:** `https://github.com/EccentricIvan/otic-studio-v3/releases/download/latest-build/otic-studio-latest.apk`
-- **Windows:** `https://github.com/EccentricIvan/otic-studio-v3/releases/download/latest-build/otic-studio-windows-latest.zip`
+- **APK:** `https://github.com/EccentricIvan/otic-studio-v3/releases/download/latest-build/ai-connect-africa-latest.apk`
+- **Windows:** `https://github.com/EccentricIvan/otic-studio-v3/releases/download/latest-build/ai-connect-africa-windows-latest.zip`
 
 ---
 
@@ -359,7 +359,7 @@ pdf: ^3.10.8
 1. Install Ollama from `ollama.com`
 2. Open terminal: `ollama pull gemma3:1b`
 3. Run: `ollama serve`
-4. Open Otic Studio → AI Chat works automatically
+4. Open AI Connect Africa → AI Chat works automatically
 
 ---
 

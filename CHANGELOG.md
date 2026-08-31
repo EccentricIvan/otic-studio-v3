@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Otic Studio are documented here.
+All notable changes to AI Connect Africa are documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Separate Llama model downloader that stores the GGUF in app documents/cache space, tracks download progress, and writes an install marker so the app does not repeatedly download the model.
 
 ### Changed
-- Updated Flutter web install metadata so hosted builds present Otic Studio branding instead of default project boilerplate.
+- Updated Flutter web install metadata so hosted builds present AI Connect Africa branding instead of default project boilerplate.
 - CI now installs the Android NDK/CMake versions required by `fllama` before building the release APK.
 - CI normalizes `fllama`'s Android Kotlin language level so the release APK can compile with the package's declared Kotlin plugin.
 - Added `fllama` as an isolated dependency alongside the existing `flutter_gemma` MediaPipe/LiteRT-LM integration.
@@ -69,7 +69,7 @@ First production release. Both Android (APK) and Windows (zip) builds published.
 - **Emotional safety engine** — offline frustration/distress detection; crisis messages bypass the model.
 - **Model setup** — in-app **Install from file…** flow with validation and a progress bar.
 - **Offline update tooling** — [tools/make_update_package.ps1](tools/make_update_package.ps1) builds a USB/LAN update bundle.
-- **Android release signing** — signed with the Otic Studio keystore; ProGuard rules for MediaPipe/LiteRT-LM.
+- **Android release signing** — signed with the AI Connect Africa keystore; ProGuard rules for MediaPipe/LiteRT-LM.
 
 ### Changed
 - Replaced `google_fonts` (which fetched fonts over the network) with bundled font files to guarantee identical offline rendering.

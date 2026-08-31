@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
-/// Discovers other Otic Studio learners on the same local network.
+/// Discovers other AI Connect Africa learners on the same local network.
 ///
 /// Uses UDP broadcast on the school LAN/Wi-Fi — no internet, no server.
 /// Every device announces itself every few seconds; peers that go quiet
@@ -83,7 +83,7 @@ class LanDiscoveryService {
     final socket = _socket;
     if (socket == null) return;
     final payload = jsonEncode({
-      'app': 'otic',
+      'app': 'ai_connect_africa',
       'id': _selfId,
       'name': displayName,
       'topic': currentTopic,
@@ -103,7 +103,7 @@ class LanDiscoveryService {
   void _handlePacket(Datagram dg) {
     try {
       final data = jsonDecode(utf8.decode(dg.data));
-      if (data is! Map || data['app'] != 'otic') return;
+      if (data is! Map || data['app'] != 'ai_connect_africa') return;
       final id = data['id'] as String?;
       if (id == null || id == _selfId) return;
 

@@ -1032,7 +1032,7 @@
                                           "content":  "Offline-first means the app works without internet and syncs when connection returns. This is critical in areas with unreliable connectivity. Strategy: store all data locally first, then sync to server when online. Use a local database (SQLite, Hive) as the primary data source. Queue changes made offline and replay them when online. Handle conflicts: what if the same data was changed offline by two devices? Strategies include \u0027last write wins\u0027 or manual conflict resolution. Show connectivity status to users. Cache API responses. Prefetch content users will likely need. The best offline apps feel the same whether connected or not.",
                                           "examples":  [
                                                            "A note-taking app: create notes offline → they sync to cloud when WiFi returns",
-                                                           "Otic Studio: curriculum content is bundled in the app — works without any internet",
+                                                           "AI Connect Africa: curriculum content is bundled in the app — works without any internet",
                                                            "Conflict resolution: user edited a document on phone and laptop offline → show both versions and let user choose"
                                                        ],
                                           "keyTerms":  {
@@ -1397,7 +1397,7 @@
                                           "content":  "How to make money from your app: freemium (basic free, premium paid), subscriptions (monthly/yearly recurring), in-app purchases (unlock features, content), advertising (show ads — use AdMob), paid apps (one-time purchase), and sponsorships. Choose based on your users and content type. Growth strategies: App Store Optimization (ASO), social media marketing, content marketing (blog/YouTube), referral programs (\u0027invite a friend, both get premium\u0027), and partnerships. Measure key metrics: DAU/MAU (daily/monthly active users), retention rate (% who return), LTV (lifetime value per user), and CAC (cost to acquire a customer). Retention is more important than acquisition — keeping existing users costs less than getting new ones.",
                                           "examples":  [
                                                            "Freemium: basic learning free, advanced courses require premium ($4.99/month)",
-                                                           "Referral: \u0027Share Otic Studio with a friend — you both get 1 month of premium free!\u0027",
+                                                           "Referral: \u0027Share AI Connect Africa with a friend — you both get 1 month of premium free!\u0027",
                                                            "Retention metric: 40% of users return after 7 days = good for educational apps"
                                                        ],
                                           "keyTerms":  {

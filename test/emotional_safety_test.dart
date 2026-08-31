@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:otic_studio/safety/emotional_safety.dart';
+import 'package:ai_connect_africa/safety/emotional_safety.dart';
 
 void main() {
   const engine = EmotionalSafetyEngine();

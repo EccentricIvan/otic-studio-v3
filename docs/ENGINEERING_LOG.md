@@ -1,7 +1,7 @@
 # Engineering Log
 
 A record of the significant decisions made and obstacles overcome while building
-Otic Studio, with pointers to where each change landed. This is the "why" behind
+AI Connect Africa, with pointers to where each change landed. This is the "why" behind
 the commit history — useful for the next engineer and for an enterprise review.
 
 Entries are newest-first.

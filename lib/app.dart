@@ -43,7 +43,7 @@ class _OticAppState extends ConsumerState<OticApp> {
 
     final router = ref.watch(appRouterProvider);
     return MaterialApp.router(
-      title: 'Otic Studio',
+      title: 'AI Connect Africa',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: themeMode,
@@ -71,7 +71,7 @@ class _SplashScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             const Text(
-              'Otic Studio',
+              'AI Connect Africa',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w700,

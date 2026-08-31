@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes how Otic Studio is put together: the offline AI layer,
+This document describes how AI Connect Africa is put together: the offline AI layer,
 the tutor pipeline, data storage, and how a student request flows through the app.
 
 > **Guiding constraint:** everything must work with zero network connectivity.
@@ -10,7 +10,7 @@ the tutor pipeline, data storage, and how a student request flows through the ap
 
 ## 1. High-level shape
 
-Otic Studio is a single Flutter codebase targeting Android and Windows/Linux
+AI Connect Africa is a single Flutter codebase targeting Android and Windows/Linux
 desktop. It is layered:
 
 ```

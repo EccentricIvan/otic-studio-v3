@@ -110,7 +110,7 @@ class LlamaModelManager {
 
     final client = HttpClient()
       ..connectionTimeout = const Duration(seconds: 30)
-      ..userAgent = 'Otic Studio llama.cpp test downloader';
+      ..userAgent = 'AI Connect Africa llama.cpp test downloader';
 
     IOSink? sink;
     try {

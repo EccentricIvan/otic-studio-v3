@@ -39,7 +39,7 @@ class HomeScreen extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Otic Studio', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.onSurface)),
+                        Text('AI Connect Africa', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.onSurface)),
                         Text('Learn, Create & Build', style: TextStyle(fontSize: 13, color: Theme.of(context).hintColor)),
                       ],
                     ),

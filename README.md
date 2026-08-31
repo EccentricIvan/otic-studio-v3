@@ -1,4 +1,4 @@
-# Otic Studio
+# AI Connect Africa
 
 **Offline AI-Powered Learning Operating System**
 
@@ -9,7 +9,7 @@
 
 > **Maintainers / new team:** start with **[HANDOVER.md](HANDOVER.md)** — it lists everything needed to build, change, release, and maintain the app, including the signing keystore and AI model that are not in the repo.
 
-Otic Studio is a fully offline AI tutor and learning platform for students in schools with no reliable internet. Every feature — AI responses, curriculum generation, exercises, certificates, badges, even a website builder — runs entirely on-device. **No internet, no cloud, no external APIs, no accounts. Ever.**
+AI Connect Africa is a fully offline AI tutor and learning platform for students in schools with no reliable internet. Every feature — AI responses, curriculum generation, exercises, certificates, badges, even a website builder — runs entirely on-device. **No internet, no cloud, no external APIs, no accounts. Ever.**
 
 The AI model (Gemma 3 1B) is bundled and runs locally: LiteRT-LM on Android, llama.cpp on desktop. Updates ship by USB drive or local school LAN, never the internet.
 
@@ -17,16 +17,16 @@ The AI model (Gemma 3 1B) is bundled and runs locally: LiteRT-LM on Android, lla
 
 ## Downloads
 
-Get the latest build from the [**Releases page**](https://github.com/malinzijeremiah01-lab/Otic-Studio/releases/latest). The rolling **Otic Studio Latest Build** release is produced automatically from `main` and provides both:
+Get the latest build from the [**Releases page**](https://github.com/malinzijeremiah01-lab/Otic-Studio/releases/latest). The rolling **AI Connect Africa Latest Build** release is produced automatically from `main` and provides both:
 
-On Android phones and tablets, use the direct [**Download Android APK**](https://github.com/malinzijeremiah01-lab/Otic-Studio/releases/download/latest-build/otic-studio-latest.apk) link, or open the mobile-friendly [download page](index.html).
+On Android phones and tablets, use the direct [**Download Android APK**](https://github.com/malinzijeremiah01-lab/Otic-Studio/releases/download/latest-build/ai-connect-africa-latest.apk) link, or open the mobile-friendly [download page](index.html).
 
 | Download | Platform | How to install |
 |---|---|---|
-| `Otic Studio vX.Y.Z.apk` | **Android phones/tablets** (4 GB RAM) | Copy to the device, open it, allow "Install unknown apps" |
-| `Otic Studio Windows vX.Y.Z.zip` | **Windows desktop** (8 GB RAM) | Extract anywhere, run `Otic Studio.exe` |
+| `AI Connect Africa vX.Y.Z.apk` | **Android phones/tablets** (4 GB RAM) | Copy to the device, open it, allow "Install unknown apps" |
+| `AI Connect Africa Windows vX.Y.Z.zip` | **Windows desktop** (8 GB RAM) | Extract anywhere, run `AI Connect Africa.exe` |
 
-Current automated artifact names are `otic-studio-latest.apk` and `otic-studio-windows-latest.zip`.
+Current automated artifact names are `ai-connect-africa-latest.apk` and `ai-connect-africa-windows-latest.zip`.
 
 Both can also be shared offline by USB, Bluetooth, or a local server. The APK is signed with the official Otic Studio certificate (`CN=Otic Studio, O=OTIC, L=Kampala, C=UG`); Android rejects updates not signed with the same key.
 

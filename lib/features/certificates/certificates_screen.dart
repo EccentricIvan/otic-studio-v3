@@ -99,7 +99,7 @@ class _CertsBodyState extends ConsumerState<_CertsBody> {
     await SharePlus.instance.share(
       ShareParams(
         files: [XFile(file.path)],
-        text: 'My certificate from Otic Studio',
+        text: 'My certificate from AI Connect Africa',
       ),
     );
   }

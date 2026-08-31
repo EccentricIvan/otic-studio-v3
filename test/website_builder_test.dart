@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:otic_studio/features/website/block_models.dart';
-import 'package:otic_studio/features/website/html_generator.dart';
+import 'package:ai_connect_africa/features/website/block_models.dart';
+import 'package:ai_connect_africa/features/website/html_generator.dart';
 
 void main() {
   group('SiteBlock JSON', () {

@@ -236,7 +236,7 @@ class _NamePage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            'Welcome to Otic Studio',
+            'Welcome to AI Connect Africa',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
           const SizedBox(height: 6),

@@ -1,6 +1,6 @@
 # Contributing / Developer Setup
 
-How to get Otic Studio running on a fresh machine and make changes correctly.
+How to get AI Connect Africa running on a fresh machine and make changes correctly.
 The app is **fully offline by design** — do not add any dependency or API that
 requires network access at runtime. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 for how the pieces fit together.

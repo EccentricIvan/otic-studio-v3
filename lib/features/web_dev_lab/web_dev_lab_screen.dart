@@ -374,7 +374,7 @@ const _lessons = [
 
     <div class="card">
       <h3>About Me</h3>
-      <p>I am learning web development with Otic Studio.
+      <p>I am learning web development with AI Connect Africa.
          I can now build web pages with HTML, style them with CSS,
          and make them interactive with JavaScript.</p>
     </div>
@@ -390,7 +390,7 @@ const _lessons = [
   </div>
 
   <footer>
-    <p>&copy; 2024 My Website — Built with Otic Studio</p>
+    <p>&copy; 2024 My Website — Built with AI Connect Africa</p>
   </footer>
 
 </body>

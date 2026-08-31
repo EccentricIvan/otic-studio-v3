@@ -153,7 +153,7 @@
                                       },
                                       {
                                           "title":  "AI Applications Today",
-                                          "content":  "AI transforms every industry. Healthcare: detecting cancer from scans. Agriculture: drones monitoring crop health. Education: adaptive tutoring (like Otic Studio!). Finance: fraud detection. Transportation: self-driving vehicles. NLP lets computers understand language — chatbots, translation. Computer vision lets AI \u0027see\u0027 — facial recognition, quality inspection. Generative AI creates text, images, code, and music.",
+                                          "content":  "AI transforms every industry. Healthcare: detecting cancer from scans. Agriculture: drones monitoring crop health. Education: adaptive tutoring (like AI Connect Africa!). Finance: fraud detection. Transportation: self-driving vehicles. NLP lets computers understand language — chatbots, translation. Computer vision lets AI \u0027see\u0027 — facial recognition, quality inspection. Generative AI creates text, images, code, and music.",
                                           "examples":  [
                                                            "AI detects diabetic eye disease with 90%+ accuracy",
                                                            "Farmers identify crop diseases from phone photos",
@@ -299,7 +299,7 @@
                                           "title":  "Large Language Models",
                                           "content":  "Large Language Models (LLMs) like GPT, Gemma, and Llama are AI systems trained on massive text datasets to understand and generate human language. They work by predicting the next word in a sequence — trained on billions of text samples from books, websites, and articles. LLMs can: answer questions, write essays and code, translate languages, summarize documents, and have conversations. They don\u0027t truly \u0027understand\u0027 — they recognize statistical patterns in language. Limitations: they can \u0027hallucinate\u0027 (generate plausible but false information), reflect biases in training data, and don\u0027t have real-time knowledge. Smaller models (1B-3B parameters) run on phones for offline use. Larger models (70B-400B) run on powerful servers. Fine-tuning adapts a general model for specific tasks.",
                                           "examples":  [
-                                                           "Gemma 3 1B: a small model running on your phone — powers Otic Studio\u0027s AI tutoring",
+                                                           "Gemma 3 1B: a small model running on your phone — powers AI Connect Africa\u0027s AI tutoring",
                                                            "GPT-4: a massive model (hundreds of billions of parameters) running on cloud servers",
                                                            "Fine-tuning: take a general language model and train it specifically on medical texts to create a medical AI assistant"
                                                        ],

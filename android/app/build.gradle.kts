@@ -17,7 +17,7 @@ if (hasReleaseKeystore) {
 }
 
 android {
-    namespace = "com.otic.otic_studio"
+    namespace = "com.aiconnectafrica.ai_connect_africa"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -27,7 +27,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.otic.otic_studio"
+        applicationId = "com.aiconnectafrica.ai_connect_africa"
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         // fllama's Android llama.cpp binding requires API 23+.
         minSdk = maxOf(flutter.minSdkVersion, 23)
