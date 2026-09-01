@@ -9,7 +9,6 @@ import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
-import '../../shared/widgets/student_avatar.dart';
 
 /// Admin dashboard — device, user, and update management.
 /// Admins manage the platform; they have no learning features here.
@@ -171,7 +170,6 @@ class _StudentRow extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListTile(
-      leading: StudentAvatar(name: student.name, size: 36),
       title: Text(student.name, style: const TextStyle(fontSize: 14)),
       subtitle: Text(
         '${student.totalPoints} pts · ${student.streakDays} day streak',

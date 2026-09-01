@@ -7,7 +7,6 @@ import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
-import '../../shared/widgets/student_avatar.dart';
 
 String _shortWhen(DateTime dt) {
   final local = dt.toLocal();
@@ -134,8 +133,6 @@ class _StudentCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                StudentAvatar(name: student.name, size: 44),
-                const SizedBox(width: 12),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -338,21 +335,13 @@ class _DetailHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              StudentAvatar(name: student.name, size: 52, showRing: true),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  student.name,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: colors.textPrimary,
-                  ),
-                ),
-              ),
-            ],
+          Text(
+            student.name,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: colors.textPrimary,
+            ),
           ),
           const SizedBox(height: 10),
           Text(

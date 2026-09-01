@@ -9,7 +9,6 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/theme_provider.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
-import '../../shared/widgets/student_avatar.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -153,9 +152,9 @@ class SettingsScreen extends ConsumerWidget {
                 loading: () => const ListTile(title: Text('Loading…')),
                 error: (_, __) => const ListTile(title: Text('Error')),
                 data: (student) => ListTile(
-                  leading: StudentAvatar(
-                    name: student?.name ?? 'Learner',
-                    size: 36,
+                  leading: Icon(
+                    Icons.person_outline,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                   title: Text(student?.name ?? 'No profile'),
                   subtitle: Text(

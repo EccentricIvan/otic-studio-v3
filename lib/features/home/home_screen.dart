@@ -5,9 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
-import '../../shared/widgets/learner_hero_illustration.dart';
-import '../../shared/widgets/student_avatar.dart';
-
 final _desktopNameProvider = FutureProvider<String>((ref) async {
   final prefs = await SharedPreferences.getInstance();
   return prefs.getString('student_name') ?? 'Learner';
@@ -68,9 +65,14 @@ class HomeScreen extends ConsumerWidget {
                 ],
               ),
               const SizedBox(height: 18),
-              const LearnerHeroIllustration(
-                height: 170,
-                variant: LearnerScene.soloTablet,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  'assets/illustrations/home-learner-solo.png',
+                  width: double.infinity,
+                  height: 170,
+                  fit: BoxFit.cover,
+                ),
               ),
               const SizedBox(height: 16),
               Container(
@@ -82,38 +84,35 @@ class HomeScreen extends ConsumerWidget {
                   border: Border.all(color: ac.border),
                   boxShadow: ac.softShadow(ac.isDark),
                 ),
-                child: Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    StudentAvatar(name: name, size: 56, showRing: true),
-                    const SizedBox(width: 14),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Welcome, $name!',
-                            style: TextStyle(
-                              fontFamily: 'Saira',
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                              color: ac.textPrimary,
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            'What would you like to do today?',
-                            style: TextStyle(fontSize: 13, color: ac.textSecondary),
-                          ),
-                        ],
+                    Text(
+                      'Welcome, $name!',
+                      style: TextStyle(
+                        fontFamily: 'Saira',
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: ac.textPrimary,
                       ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      'What would you like to do today?',
+                      style: TextStyle(fontSize: 13, color: ac.textSecondary),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
-              const LearnerHeroIllustration(
-                height: 120,
-                variant: LearnerScene.friends,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  'assets/illustrations/home-learners-friends.png',
+                  width: double.infinity,
+                  height: 140,
+                  fit: BoxFit.cover,
+                ),
               ),
               const SizedBox(height: 28),
               const _SectionLabel('LEARN'),

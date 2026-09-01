@@ -69,6 +69,7 @@ flutter:
     - assets/models/        # placeholder dir, actual model files gitignored
     - assets/prompts/       # system prompt templates
     - assets/branding/      # official brand logo
+    - assets/illustrations/ # home screen hero art
     - assets/curriculum/    # bundled curriculum content for all subjects
     - assets/templates/     # website templates for Site Builder
 

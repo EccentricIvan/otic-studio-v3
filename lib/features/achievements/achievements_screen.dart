@@ -6,7 +6,6 @@ import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../gamification/badge_definitions.dart';
 import '../../shared/widgets/responsive.dart';
-import '../../shared/widgets/student_avatar.dart';
 
 class AchievementsScreen extends ConsumerWidget {
   const AchievementsScreen({super.key});
@@ -118,21 +117,23 @@ class _StatsHeader extends StatelessWidget {
       ),
       child: Row(
         children: [
-          StudentAvatar(name: student.name, size: 52, showRing: true),
-          const SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(student.name,
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18)),
+                Text(
+                  student.name,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                  ),
+                ),
                 const SizedBox(height: 4),
-                Text('$earned of $total badges earned',
-                    style: const TextStyle(
-                        color: Colors.white70, fontSize: 13)),
+                Text(
+                  '$earned of $total badges earned',
+                  style: const TextStyle(color: Colors.white70, fontSize: 13),
+                ),
                 const SizedBox(height: 12),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(4),
@@ -152,13 +153,18 @@ class _StatsHeader extends StatelessWidget {
             children: [
               const Icon(Icons.stars, color: Colors.amber, size: 28),
               const SizedBox(height: 4),
-              Text('${student.totalPoints}',
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 22)),
-              const Text('points',
-                  style: TextStyle(color: Colors.white70, fontSize: 11)),
+              Text(
+                '${student.totalPoints}',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 22,
+                ),
+              ),
+              const Text(
+                'points',
+                style: TextStyle(color: Colors.white70, fontSize: 11),
+              ),
             ],
           ),
         ],

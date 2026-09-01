@@ -8,7 +8,6 @@ import '../../collaboration/lan_discovery.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
-import '../../shared/widgets/student_avatar.dart';
 
 class CollaborateScreen extends ConsumerStatefulWidget {
   const CollaborateScreen({super.key});
@@ -169,7 +168,6 @@ class _PeerCard extends StatelessWidget {
         border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: ListTile(
-        leading: StudentAvatar(name: peer.name, size: 40),
         title: Text(
           peer.name,
           style: const TextStyle(fontWeight: FontWeight.w600),
