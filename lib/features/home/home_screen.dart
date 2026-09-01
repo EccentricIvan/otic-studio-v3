@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
+import '../../shared/widgets/learner_hero_illustration.dart';
+import '../../shared/widgets/student_avatar.dart';
 
 final _desktopNameProvider = FutureProvider<String>((ref) async {
   final prefs = await SharedPreferences.getInstance();
@@ -65,7 +67,12 @@ class HomeScreen extends ConsumerWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 18),
+              const LearnerHeroIllustration(
+                height: 170,
+                variant: LearnerScene.soloTablet,
+              ),
+              const SizedBox(height: 16),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(18),
@@ -75,25 +82,38 @@ class HomeScreen extends ConsumerWidget {
                   border: Border.all(color: ac.border),
                   boxShadow: ac.softShadow(ac.isDark),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: [
-                    Text(
-                      'Welcome, $name!',
-                      style: TextStyle(
-                        fontFamily: 'Saira',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: ac.textPrimary,
+                    StudentAvatar(name: name, size: 56, showRing: true),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Welcome, $name!',
+                            style: TextStyle(
+                              fontFamily: 'Saira',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: ac.textPrimary,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            'What would you like to do today?',
+                            style: TextStyle(fontSize: 13, color: ac.textSecondary),
+                          ),
+                        ],
                       ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'What would you like to do today?',
-                      style: TextStyle(fontSize: 13, color: ac.textSecondary),
                     ),
                   ],
                 ),
+              ),
+              const SizedBox(height: 20),
+              const LearnerHeroIllustration(
+                height: 120,
+                variant: LearnerScene.friends,
               ),
               const SizedBox(height: 28),
               const _SectionLabel('LEARN'),
@@ -133,25 +153,25 @@ class HomeScreen extends ConsumerWidget {
                 children: [
                   _IconCard(
                     icon: Icons.web_rounded,
-                    label: 'Site Builder',
+                    label: 'Website',
                     color: AppColors.createColor,
                     route: '/sitechat',
                   ),
                   _IconCard(
                     icon: Icons.code_rounded,
-                    label: 'Web Dev',
+                    label: 'Web Lab',
                     color: AppColors.practiceColor,
                     route: '/weblab',
                   ),
                   _IconCard(
                     icon: Icons.terminal_rounded,
-                    label: 'Python',
+                    label: 'Python*',
                     color: AppColors.accentDeep,
                     route: '/pythonlab',
                   ),
                   _IconCard(
                     icon: Icons.phone_android_rounded,
-                    label: 'App Dev',
+                    label: 'App Lab*',
                     color: AppColors.learnColor,
                     route: '/applab',
                   ),

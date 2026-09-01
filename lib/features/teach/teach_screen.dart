@@ -178,6 +178,7 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
     });
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(title: const Text('Teach'), leading: const BackButton()),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),

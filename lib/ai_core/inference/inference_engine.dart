@@ -13,6 +13,9 @@ abstract class InferenceEngine {
   bool get isReady;
   String get backendLabel;
 
+  /// True when answers are canned demos, not a real local model.
+  bool get isDemo => false;
+
   /// Load the model file from [modelPath].
   Future<void> loadModel(String modelPath);
 

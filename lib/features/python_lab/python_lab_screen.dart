@@ -351,9 +351,10 @@ class _PythonLabScreenState extends ConsumerState<PythonLabScreen>
     final lesson = _lessons[_currentLesson];
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: const Row(children: [
-          Icon(Icons.terminal, size: 20, color: Color(0xFF3572A5)),
+          Icon(Icons.terminal, size: 20, color: AppColors.primary),
           SizedBox(width: 8),
           Text('Python Lab'),
         ]),
@@ -367,33 +368,59 @@ class _PythonLabScreenState extends ConsumerState<PythonLabScreen>
         bottom: TabBar(
           controller: _tabController,
           tabs: const [Tab(icon: Icon(Icons.code), text: 'Code'), Tab(icon: Icon(Icons.terminal), text: 'Output')],
-          indicatorColor: const Color(0xFF3572A5),
-          labelColor: const Color(0xFF3572A5),
+          indicatorColor: AppColors.primary,
+          labelColor: AppColors.primary,
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _runCode,
+        tooltip: 'Run in simulator',
         icon: const Icon(Icons.play_arrow),
-        label: const Text('RUN'),
-        backgroundColor: const Color(0xFF3572A5),
+        label: const Text('SIMULATE'),
+        backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
       ),
-      body: TabBarView(
-        controller: _tabController,
+      body: Column(
         children: [
-          Column(children: [
-            _InstructionBar(
-              lesson: lesson,
-              index: _currentLesson,
-              total: _lessons.length,
-              showHint: _showHint,
-              onToggleHint: () => setState(() => _showHint = !_showHint),
-              onNext: _currentLesson < _lessons.length - 1 ? () => _loadLesson(_currentLesson + 1) : null,
-              onPrev: _currentLesson > 0 ? () => _loadLesson(_currentLesson - 1) : null,
+          Container(
+            width: double.infinity,
+            margin: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFFF8E7),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: const Color(0xFFE8D4A8)),
             ),
-            Expanded(child: _CodeEditor(controller: _codeController)),
-          ]),
-          _OutputView(output: _output, hasRun: _hasRun),
+            child: const Text(
+              'Guided simulator — SIMULATE checks common print() patterns. '
+              'It is not a full Python interpreter.',
+              style: TextStyle(fontSize: 12, height: 1.35),
+            ),
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                Column(children: [
+                  _InstructionBar(
+                    lesson: lesson,
+                    index: _currentLesson,
+                    total: _lessons.length,
+                    showHint: _showHint,
+                    onToggleHint: () => setState(() => _showHint = !_showHint),
+                    onNext: _currentLesson < _lessons.length - 1
+                        ? () => _loadLesson(_currentLesson + 1)
+                        : null,
+                    onPrev: _currentLesson > 0
+                        ? () => _loadLesson(_currentLesson - 1)
+                        : null,
+                  ),
+                  Expanded(child: _CodeEditor(controller: _codeController)),
+                ]),
+                _OutputView(output: _output, hasRun: _hasRun),
+              ],
+            ),
+          ),
         ],
       ),
     );

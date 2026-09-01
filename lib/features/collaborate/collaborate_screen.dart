@@ -8,6 +8,7 @@ import '../../collaboration/lan_discovery.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/student_avatar.dart';
 
 class CollaborateScreen extends ConsumerStatefulWidget {
   const CollaborateScreen({super.key});
@@ -78,7 +79,8 @@ class _CollaborateScreenState extends ConsumerState<CollaborateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Collaborate')),
+      backgroundColor: Colors.transparent,
+      appBar: AppBar(title: const Text('Nearby learners')),
       body: MaxWidth(
         maxWidth: 760,
         child: _starting
@@ -132,8 +134,9 @@ class _PeersView extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
           child: Text(
-            'Everyone using the app on the same Wi-Fi or LAN appears '
-            'here automatically — no internet needed.',
+            'Discovery only for now: you can see who is nearby on the same '
+            'Wi-Fi or LAN. Project sharing and sync are not available yet — '
+            'no internet needed for discovery.',
             style: TextStyle(
               fontSize: 12,
               color: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -166,16 +169,7 @@ class _PeerCard extends StatelessWidget {
         border: Border.all(color: Theme.of(context).dividerColor),
       ),
       child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: AppColors.practiceColor.withValues(alpha: 0.12),
-          child: Text(
-            peer.name.isNotEmpty ? peer.name[0].toUpperCase() : '?',
-            style: const TextStyle(
-              color: AppColors.practiceColor,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
+        leading: StudentAvatar(name: peer.name, size: 40),
         title: Text(
           peer.name,
           style: const TextStyle(fontWeight: FontWeight.w600),

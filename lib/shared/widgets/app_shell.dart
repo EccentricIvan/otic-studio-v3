@@ -19,10 +19,9 @@ class AppShell extends StatelessWidget {
     _NavDest('Practice', Icons.edit_outlined, Icons.edit_rounded, '/practice'),
     _NavDest('Create', Icons.lightbulb_outlined, Icons.lightbulb_rounded, '/create'),
     _NavDest('Projects', Icons.folder_outlined, Icons.folder_rounded, '/projects'),
-    _NavDest('Web Dev Lab', Icons.code_outlined, Icons.code_rounded, '/weblab'),
-    _NavDest('Python Lab', Icons.terminal_outlined, Icons.terminal_rounded, '/pythonlab'),
-    _NavDest('App Dev Lab', Icons.phone_android_outlined, Icons.phone_android_rounded, '/applab'),
     _NavDest('AI Chat', Icons.chat_bubble_outline_rounded, Icons.chat_rounded, '/chat'),
+    _NavDest('Teach back', Icons.school_outlined, Icons.school_rounded, '/teach'),
+    _NavDest('Nearby', Icons.wifi_tethering_outlined, Icons.wifi_tethering_rounded, '/collaborate'),
     _NavDest(
       'Achievements',
       Icons.emoji_events_outlined,
@@ -35,6 +34,7 @@ class AppShell extends StatelessWidget {
       Icons.workspace_premium_rounded,
       '/certificates',
     ),
+    _NavDest('Teacher', Icons.groups_outlined, Icons.groups_rounded, '/teacher'),
     _NavDest('Settings', Icons.settings_outlined, Icons.settings_rounded, '/settings'),
   ];
 
@@ -197,7 +197,11 @@ class _FloatingNavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = selected ? AppColors.primary : AppColors.of(context).textHint;
 
-    return InkWell(
+    return Semantics(
+      button: true,
+      label: label,
+      selected: selected,
+      child: InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(20),
       child: Column(
@@ -227,6 +231,7 @@ class _FloatingNavItem extends StatelessWidget {
           ),
         ],
       ),
+      ),
     );
   }
 }
@@ -244,7 +249,11 @@ class _ChatFabButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Semantics(
+      button: true,
+      label: 'AI Chat',
+      selected: active,
+      child: Material(
       color: Colors.transparent,
       shape: const CircleBorder(),
       child: InkWell(
@@ -277,6 +286,7 @@ class _ChatFabButton extends StatelessWidget {
             ),
           ),
         ),
+      ),
       ),
     );
   }

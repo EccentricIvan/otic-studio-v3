@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../cloud/cloud_api_settings.dart';
 import '../inference/inference_engine.dart';
 import '../inference/mock_engine.dart';
 import '../inference/ollama_engine.dart';
+import '../inference/openai_compatible_engine.dart';
 import '../model/model_manager.dart';
 import '../tutor/tutor_pipeline.dart';
 import '../tutor/tutor_response.dart';
@@ -27,49 +29,110 @@ final modelInfoProvider = FutureProvider<ModelInfo>((ref) {
 
 // ── Engine lifecycle ─────────────────────────────────────────────────────────
 
-final inferenceEngineProvider = Provider<InferenceEngine>((ref) {
-  return MockEngine();
-});
-
 final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
-  final isDesktop = !kIsWeb && (
-      defaultTargetPlatform == TargetPlatform.windows ||
-      defaultTargetPlatform == TargetPlatform.linux ||
-      defaultTargetPlatform == TargetPlatform.macOS);
+  // Rebuild when cloud API settings are saved.
+  ref.watch(cloudApiReloadTickProvider);
 
-  // Web: no AI engine available, use mock
-  if (kIsWeb) {
-    final mock = MockEngine();
+  Future<InferenceEngine> demo(DemoReason reason) async {
+    final mock = MockEngine(demoReason: reason);
     await mock.loadModel('');
     return mock;
   }
 
-  if (isDesktop) {
-    // Desktop: try Ollama first, fall back to mock
-    final available = await OllamaEngine.isAvailable();
-    if (available) {
-      final engine = OllamaEngine();
+  // Prefer cloud API when the student enables it and pastes a key.
+  final cloud = await ref.watch(cloudApiSettingsProvider.future);
+  if (cloud.isConfigured) {
+    try {
+      final engine = OpenAiCompatibleEngine(cloud);
       await engine.loadModel('');
       ref.onDispose(engine.dispose);
       return engine;
+    } catch (_) {
+      // Fall through to local / demo backends.
     }
-    final mock = MockEngine();
-    await mock.loadModel('');
-    return mock;
+  }
+
+  final isDesktop = !kIsWeb &&
+      (defaultTargetPlatform == TargetPlatform.windows ||
+          defaultTargetPlatform == TargetPlatform.linux ||
+          defaultTargetPlatform == TargetPlatform.macOS);
+
+  if (kIsWeb) {
+    return demo(DemoReason.web);
+  }
+
+  if (isDesktop) {
+    try {
+      final available = await OllamaEngine.isAvailable();
+      if (available) {
+        final engine = OllamaEngine();
+        await engine.loadModel('');
+        ref.onDispose(engine.dispose);
+        return engine;
+      }
+    } catch (_) {
+      // Fall through to demo
+    }
+    return demo(DemoReason.ollamaUnavailable);
   }
 
   // Android: use on-device model via flutter_gemma
   final modelInfo = await ref.watch(modelInfoProvider.future);
   if (!modelInfo.isReady) {
-    final mock = MockEngine();
-    await mock.loadModel('');
-    return mock;
+    return demo(DemoReason.modelNotInstalled);
   }
 
-  final engine = createPlatformEngine();
-  await engine.loadModel(modelInfo.path!);
-  ref.onDispose(engine.dispose);
-  return engine;
+  try {
+    final engine = createPlatformEngine();
+    await engine.loadModel(modelInfo.path!);
+    ref.onDispose(engine.dispose);
+    return engine;
+  } catch (_) {
+    return demo(DemoReason.loadFailed);
+  }
+});
+
+/// User-facing AI runtime status (real model vs demo).
+class AiStatus {
+  const AiStatus({
+    required this.isDemo,
+    required this.title,
+    required this.detail,
+    this.backendLabel,
+  });
+
+  final bool isDemo;
+  final String title;
+  final String detail;
+  final String? backendLabel;
+
+  factory AiStatus.fromEngine(InferenceEngine engine) {
+    if (engine is MockEngine) {
+      return AiStatus(
+        isDemo: true,
+        title: engine.demoReason.title,
+        detail: engine.demoReason.detail,
+        backendLabel: engine.backendLabel,
+      );
+    }
+    final isCloud = engine.backendLabel.startsWith('Cloud');
+    return AiStatus(
+      isDemo: false,
+      title: isCloud ? 'Cloud AI ready' : 'AI ready',
+      detail: isCloud
+          ? 'Live answers via ${engine.backendLabel} (needs internet)'
+          : 'Using ${engine.backendLabel}',
+      backendLabel: engine.backendLabel,
+    );
+  }
+}
+
+final aiStatusProvider = Provider<AsyncValue<AiStatus>>((ref) {
+  return ref.watch(engineLoadedProvider).when(
+        data: (engine) => AsyncData(AiStatus.fromEngine(engine)),
+        loading: () => const AsyncLoading(),
+        error: (e, st) => AsyncError(e, st),
+      );
 });
 
 // ── Tutor pipeline ───────────────────────────────────────────────────────────
@@ -89,21 +152,26 @@ class ChatState {
     this.messages = const [],
     this.isGenerating = false,
     this.streamingText = '',
+    this.errorMessage,
   });
 
   final List<ChatMessage> messages;
   final bool isGenerating;
   final String streamingText;
+  final String? errorMessage;
 
   ChatState copyWith({
     List<ChatMessage>? messages,
     bool? isGenerating,
     String? streamingText,
+    String? errorMessage,
+    bool clearError = false,
   }) {
     return ChatState(
       messages: messages ?? this.messages,
       isGenerating: isGenerating ?? this.isGenerating,
       streamingText: streamingText ?? this.streamingText,
+      errorMessage: clearError ? null : (errorMessage ?? this.errorMessage),
     );
   }
 }
@@ -114,12 +182,14 @@ class ChatMessage {
     required this.isUser,
     this.stage,
     this.followUp,
+    this.isError = false,
   });
 
   final String text;
   final bool isUser;
   final TutorStage? stage;
   final String? followUp;
+  final bool isError;
 }
 
 class ChatNotifier extends AsyncNotifier<ChatState> {
@@ -129,6 +199,12 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
   }
 
   static const _safetyEngine = EmotionalSafetyEngine();
+
+  void clearError() {
+    final current = state.valueOrNull;
+    if (current == null) return;
+    state = AsyncData(current.copyWith(clearError: true));
+  }
 
   Future<void> send(String message) async {
     final current = state.valueOrNull ?? const ChatState();
@@ -144,9 +220,28 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
       messages: [...current.messages, ChatMessage(text: message, isUser: true)],
       isGenerating: true,
       streamingText: '',
+      clearError: true,
     ));
 
-    final pipeline = await ref.read(tutorPipelineProvider.future);
+    final TutorPipeline pipeline;
+    try {
+      pipeline = await ref.read(tutorPipelineProvider.future);
+    } catch (e) {
+      state = AsyncData(state.requireValue.copyWith(
+        messages: [
+          ...state.requireValue.messages,
+          ChatMessage(
+            text: _friendlyAiError(e),
+            isUser: false,
+            isError: true,
+          ),
+        ],
+        isGenerating: false,
+        streamingText: '',
+        errorMessage: _friendlyAiError(e),
+      ));
+      return;
+    }
 
     // Emotional safety check — crisis messages never reach the model
     final safety = _safetyEngine.check(message);
@@ -185,14 +280,21 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
         messages: msgs,
         isGenerating: false,
         streamingText: '',
+        clearError: true,
       ));
 
       // Persist session summary to SQLite after each AI response
       _saveSessionSnapshot(pipeline, response, msgs.length);
     } catch (e) {
+      final friendly = _friendlyAiError(e);
       state = AsyncData(state.requireValue.copyWith(
+        messages: [
+          ...state.requireValue.messages,
+          ChatMessage(text: friendly, isUser: false, isError: true),
+        ],
         isGenerating: false,
         streamingText: '',
+        errorMessage: friendly,
       ));
     }
   }
@@ -240,6 +342,26 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
   void reset() {
     state = const AsyncData(ChatState());
   }
+}
+
+String _friendlyAiError(Object e) {
+  final raw = e.toString();
+  if (raw.contains('No internet') || raw.contains('SocketException')) {
+    return 'No internet for Cloud AI. Connect online, or turn off cloud API in Settings.';
+  }
+  if (raw.contains('Cloud AI') || raw.contains('api key') || raw.contains('401')) {
+    return 'Cloud AI failed. Check your API key and internet in Settings, then try again.';
+  }
+  if (raw.contains('Ollama') || raw.contains('11434')) {
+    return 'Couldn’t reach Ollama. Start Ollama on this computer, then try again.';
+  }
+  if (raw.contains('ModelLoadException') || raw.contains('failed to load')) {
+    return 'The AI model failed to load. Open Settings to check the model, then try again.';
+  }
+  if (raw.contains('SocketException') || raw.contains('Connection')) {
+    return 'Couldn’t connect to the local AI. Check that the model service is running.';
+  }
+  return 'Couldn’t get an answer just now. Check your AI model in Settings, then try again.';
 }
 
 final chatProvider = AsyncNotifierProvider<ChatNotifier, ChatState>(ChatNotifier.new);

@@ -18,6 +18,7 @@ class AppDevLabScreen extends ConsumerWidget {
         final subject = snapshot.data;
 
         return Scaffold(
+          backgroundColor: Colors.transparent,
           appBar: AppBar(
             title: const Row(
               children: [
@@ -27,9 +28,30 @@ class AppDevLabScreen extends ConsumerWidget {
               ],
             ),
           ),
-          body: subject == null
-              ? const Center(child: CircularProgressIndicator())
-              : _AppDevContent(subject: subject),
+          body: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                margin: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFFF8E7),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: const Color(0xFFE8D4A8)),
+                ),
+                child: const Text(
+                  'Concepts curriculum — this lab teaches app ideas. '
+                  'There is no build/run IDE yet.',
+                  style: TextStyle(fontSize: 12, height: 1.35),
+                ),
+              ),
+              Expanded(
+                child: subject == null
+                    ? const Center(child: CircularProgressIndicator())
+                    : _AppDevContent(subject: subject),
+              ),
+            ],
+          ),
         );
       },
     );

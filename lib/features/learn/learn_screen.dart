@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../ai_core/providers/ai_provider.dart';
@@ -6,13 +5,20 @@ import '../../ai_core/tutor/tutor_response.dart';
 import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/curriculum_provider.dart';
+import '../../shared/widgets/ai_status_banner.dart';
 import '../../shared/widgets/responsive.dart';
 
 class _ChatEntry {
-  const _ChatEntry({required this.text, required this.isUser, this.lesson});
+  const _ChatEntry({
+    required this.text,
+    required this.isUser,
+    this.lesson,
+    this.isError = false,
+  });
   final String text;
   final bool isUser;
   final Lesson? lesson;
+  final bool isError;
 }
 
 class LearnScreen extends ConsumerStatefulWidget {
@@ -86,47 +92,55 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
   @override
   Widget build(BuildContext context) {
     final chat = ref.watch(chatProvider);
-    final engineAsync = ref.watch(engineLoadedProvider);
+    final aiStatus = ref.watch(aiStatusProvider);
 
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: const Text('Learn'),
         actions: [
-          if (kDebugMode)
-            engineAsync.when(
-              data: (engine) => Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: Chip(
-                  avatar: const Icon(
-                    Icons.memory,
-                    size: 14,
-                    color: AppColors.teachColor,
-                  ),
-                  label: Text(
-                    engine.backendLabel,
-                    style: const TextStyle(
-                      fontSize: 11,
-                      color: AppColors.teachColor,
-                    ),
-                  ),
-                  backgroundColor: AppColors.teachColor.withValues(alpha: 0.08),
-                  side: BorderSide(
-                    color: AppColors.teachColor.withValues(alpha: 0.3),
-                  ),
-                  padding: EdgeInsets.zero,
+          aiStatus.when(
+            data: (status) => Padding(
+              padding: const EdgeInsets.only(right: 4),
+              child: Chip(
+                avatar: Icon(
+                  status.isDemo ? Icons.info_outline : Icons.memory,
+                  size: 14,
+                  color: status.isDemo
+                      ? const Color(0xFFB86E00)
+                      : AppColors.teachColor,
                 ),
-              ),
-              loading: () => const Padding(
-                padding: EdgeInsets.only(right: 16),
-                child: SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(strokeWidth: 2),
+                label: Text(
+                  status.isDemo ? 'Demo' : (status.backendLabel ?? 'AI'),
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: status.isDemo
+                        ? const Color(0xFFB86E00)
+                        : AppColors.teachColor,
+                  ),
                 ),
+                backgroundColor: status.isDemo
+                    ? const Color(0xFFFFF8E7)
+                    : AppColors.teachColor.withValues(alpha: 0.08),
+                side: BorderSide(
+                  color: status.isDemo
+                      ? const Color(0xFFE8D4A8)
+                      : AppColors.teachColor.withValues(alpha: 0.3),
+                ),
+                padding: EdgeInsets.zero,
+                visualDensity: VisualDensity.compact,
               ),
-              error: (_, __) => const SizedBox.shrink(),
             ),
+            loading: () => const Padding(
+              padding: EdgeInsets.only(right: 16),
+              child: SizedBox(
+                width: 16,
+                height: 16,
+                child: CircularProgressIndicator(strokeWidth: 2),
+              ),
+            ),
+            error: (_, __) => const SizedBox.shrink(),
+          ),
           IconButton(
             icon: const Icon(Icons.refresh),
             tooltip: 'New session',
@@ -137,6 +151,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
       body: MaxWidth(
         child: Column(
           children: [
+            const AiStatusBanner(),
             Expanded(
               child: chat.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
@@ -157,7 +172,11 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                   // the question that matched it.
                   final allItems = <_ChatEntry>[];
                   for (final msg in state.messages) {
-                    allItems.add(_ChatEntry(text: msg.text, isUser: msg.isUser));
+                    allItems.add(_ChatEntry(
+                      text: msg.text,
+                      isUser: msg.isUser,
+                      isError: msg.isError,
+                    ));
                     if (msg.isUser) {
                       final lesson = _lessonForMessage[msg.text];
                       if (lesson != null) {
@@ -192,7 +211,10 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                       // User bubble
                       if (entry.isUser) return _UserBubble(text: entry.text);
 
-                      // Gemma response
+                      if (entry.isError) {
+                        return _ErrorBubble(text: entry.text);
+                      }
+
                       return _TutorBubble(
                         text: entry.text,
                         stage: null,
@@ -217,6 +239,47 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
 }
 
 // ── Chat bubbles ──────────────────────────────────────────────────────────────
+
+class _ErrorBubble extends StatelessWidget {
+  const _ErrorBubble({required this.text});
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Container(
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.sizeOf(context).width * 0.85,
+        ),
+        margin: const EdgeInsets.only(bottom: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        decoration: BoxDecoration(
+          color: const Color(0xFFFFF1F0),
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: const Color(0xFFF5C2C0)),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Icon(Icons.error_outline, size: 18, color: Color(0xFFC62828)),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                text,
+                style: const TextStyle(
+                  color: Color(0xFF5C1A1A),
+                  height: 1.45,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class _UserBubble extends StatelessWidget {
   const _UserBubble({required this.text});

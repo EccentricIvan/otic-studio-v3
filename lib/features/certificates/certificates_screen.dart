@@ -20,6 +20,7 @@ class CertificatesScreen extends ConsumerWidget {
     final studentAsync = ref.watch(activeStudentProvider);
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(title: const Text('Certificates')),
       body: studentAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),

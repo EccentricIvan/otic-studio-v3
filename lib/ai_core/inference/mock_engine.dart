@@ -1,16 +1,22 @@
 import 'inference_engine.dart';
 
-/// Development mock — instant responses without a real model file.
-/// Used when running on desktop before llama.cpp FFI is wired up,
+/// Canned demo replies when no real local model is available.
+/// Used on web, when Android model is missing, when Ollama is down,
 /// and in unit tests.
 class MockEngine extends InferenceEngine {
+  MockEngine({this.demoReason = DemoReason.generic});
+
+  final DemoReason demoReason;
   bool _ready = false;
 
   @override
   bool get isReady => _ready;
 
   @override
-  String get backendLabel => 'Otic AI';
+  bool get isDemo => true;
+
+  @override
+  String get backendLabel => 'Demo mode';
 
   @override
   Future<void> loadModel(String modelPath) async {
@@ -68,4 +74,36 @@ class MockEngine extends InferenceEngine {
   Future<void> dispose() async {
     _ready = false;
   }
+}
+
+/// Why the app fell back to demo answers.
+enum DemoReason {
+  web,
+  modelNotInstalled,
+  ollamaUnavailable,
+  loadFailed,
+  generic,
+}
+
+extension DemoReasonMessage on DemoReason {
+  String get title => switch (this) {
+        DemoReason.web => 'Demo answers (web)',
+        DemoReason.modelNotInstalled => 'Demo answers — model not installed',
+        DemoReason.ollamaUnavailable => 'Demo answers — Ollama not running',
+        DemoReason.loadFailed => 'Demo answers — model failed to load',
+        DemoReason.generic => 'Demo answers',
+      };
+
+  String get detail => switch (this) {
+        DemoReason.web =>
+          'The browser build cannot run an on-device model. Replies are sample text only.',
+        DemoReason.modelNotInstalled =>
+          'Install the Gemma model from USB or Settings to get real tutor answers.',
+        DemoReason.ollamaUnavailable =>
+          'Start Ollama locally (e.g. ollama pull gemma3:1b) for real desktop AI.',
+        DemoReason.loadFailed =>
+          'The local model could not start. Check Settings, then try again.',
+        DemoReason.generic =>
+          'Showing sample replies until a real local model is available.',
+      };
 }

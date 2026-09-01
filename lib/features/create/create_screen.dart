@@ -271,10 +271,10 @@ class _SetupView extends ConsumerWidget {
   final TextEditingController topicController;
 
   static const _labs = [
-    ('Build a Website', 'Chat with the bot to create your site step by step', Icons.chat, AppColors.createColor, '/sitechat'),
-    ('Web Dev Lab', 'Write HTML, CSS & JavaScript and see it live', Icons.code, AppColors.practiceColor, '/weblab'),
-    ('Python Lab', 'Write and run Python code with guided lessons', Icons.terminal, AppColors.accentDeep, '/pythonlab'),
-    ('App Dev Lab', 'Learn how to build mobile apps step by step', Icons.phone_android, AppColors.learnColor, '/applab'),
+    ('Build a Website', 'Guided AI chat — primary website builder', Icons.language, AppColors.createColor, '/sitechat'),
+    ('Web Dev Lab', 'HTML/CSS/JS editor with live preview', Icons.code, AppColors.practiceColor, '/weblab'),
+    ('Python Lab', 'Guided lessons + code simulator (not a full Python runtime)', Icons.terminal, AppColors.accentDeep, '/pythonlab'),
+    ('App Dev Lab', 'App concepts curriculum — no IDE build/run yet', Icons.phone_android, AppColors.learnColor, '/applab'),
   ];
 
   @override

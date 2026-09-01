@@ -473,6 +473,7 @@ class _WebDevLabScreenState extends ConsumerState<WebDevLabScreen>
     final lesson = _lessons[_currentLesson];
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: const Row(
           children: [

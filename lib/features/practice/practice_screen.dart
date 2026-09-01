@@ -43,6 +43,7 @@ class PracticeScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: const Text('Practice'),
           bottom: TabBar(

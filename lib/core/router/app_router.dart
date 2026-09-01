@@ -24,7 +24,7 @@ import '../../features/practice/practice_screen.dart';
 import '../../features/projects/projects_screen.dart';
 import '../../features/settings/settings_screen.dart';
 import '../../features/teach/teach_screen.dart';
-import '../../features/site_builder/site_builder_screen.dart';
+import '../../features/teacher/teacher_dashboard_screen.dart';
 import '../../features/site_builder/site_chat_builder_screen.dart';
 import '../../features/web_dev_lab/web_dev_lab_screen.dart';
 import '../../features/website/website_builder_screen.dart';
@@ -107,7 +107,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/create', builder: (_, __) => const CreateScreen()),
           GoRoute(path: '/weblab', builder: (_, __) => const WebDevLabScreen()),
           GoRoute(path: '/applab', builder: (_, __) => const AppDevLabScreen()),
-          GoRoute(path: '/sitebuilder', builder: (_, __) => const SiteBuilderScreen()),
+          GoRoute(
+            path: '/sitebuilder',
+            redirect: (_, __) => '/sitechat',
+          ),
           GoRoute(path: '/sitechat', builder: (_, __) => const SiteChatBuilderScreen()),
           GoRoute(path: '/pythonlab', builder: (_, __) => const PythonLabScreen()),
           GoRoute(path: '/website', builder: (_, __) => const WebsiteBuilderScreen()),
@@ -116,6 +119,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/certificates', builder: (_, __) => const CertificatesScreen()),
           GoRoute(path: '/collaborate', builder: (_, __) => const CollaborateScreen()),
           GoRoute(path: '/teach', builder: (_, __) => const TeachScreen()),
+          GoRoute(path: '/teacher', builder: (_, __) => const TeacherDashboardScreen()),
+          GoRoute(
+            path: '/teacher/:id',
+            builder: (_, state) => TeacherStudentDetailScreen(
+              studentId: int.tryParse(state.pathParameters['id'] ?? '') ?? 0,
+            ),
+          ),
           GoRoute(path: '/admin', builder: (_, __) => const AdminScreen()),
           GoRoute(path: '/settings', builder: (_, __) => const SettingsScreen()),
         ],

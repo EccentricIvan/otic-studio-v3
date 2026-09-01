@@ -6,6 +6,7 @@ import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../gamification/badge_definitions.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/student_avatar.dart';
 
 class AchievementsScreen extends ConsumerWidget {
   const AchievementsScreen({super.key});
@@ -15,6 +16,7 @@ class AchievementsScreen extends ConsumerWidget {
     final studentAsync = ref.watch(activeStudentProvider);
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(title: const Text('Achievements')),
       body: studentAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -116,6 +118,8 @@ class _StatsHeader extends StatelessWidget {
       ),
       child: Row(
         children: [
+          StudentAvatar(name: student.name, size: 52, showRing: true),
+          const SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

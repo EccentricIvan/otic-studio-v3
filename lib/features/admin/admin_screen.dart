@@ -9,6 +9,7 @@ import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/student_avatar.dart';
 
 /// Admin dashboard — device, user, and update management.
 /// Admins manage the platform; they have no learning features here.
@@ -22,6 +23,7 @@ class AdminScreen extends ConsumerWidget {
     final packageInfoAsync = ref.watch(packageInfoProvider);
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(title: const Text('Admin Dashboard')),
       body: MaxWidth(
         maxWidth: 900,
@@ -169,18 +171,7 @@ class _StudentRow extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListTile(
-      leading: CircleAvatar(
-        radius: 16,
-        backgroundColor: AppColors.primary.withValues(alpha: 0.12),
-        child: Text(
-          student.name.isNotEmpty ? student.name[0].toUpperCase() : '?',
-          style: const TextStyle(
-            color: AppColors.primary,
-            fontWeight: FontWeight.w700,
-            fontSize: 13,
-          ),
-        ),
-      ),
+      leading: StudentAvatar(name: student.name, size: 36),
       title: Text(student.name, style: const TextStyle(fontSize: 14)),
       subtitle: Text(
         '${student.totalPoints} pts · ${student.streakDays} day streak',

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../core/theme/app_colors.dart';
 
@@ -406,13 +407,18 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: const Row(children: [
-          Icon(Icons.chat, size: 20, color: AppColors.primary),
+          Icon(Icons.language, size: 20, color: AppColors.primary),
           SizedBox(width: 8),
-          Text('Site Builder'),
+          Text('Website Builder'),
         ]),
         actions: [
+          TextButton(
+            onPressed: () => context.push('/website'),
+            child: const Text('Block canvas'),
+          ),
           if (_showPreview)
             TextButton.icon(
               onPressed: () {
@@ -430,6 +436,21 @@ class _SiteChatBuilderScreenState extends State<SiteChatBuilderScreen> {
       ),
       body: Column(
         children: [
+          Container(
+            width: double.infinity,
+            margin: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            decoration: BoxDecoration(
+              color: AppColors.primary.withValues(alpha: 0.06),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: AppColors.primary.withValues(alpha: 0.18)),
+            ),
+            child: const Text(
+              'Primary website flow: chat through a template. '
+              'Use Block canvas for drag-and-drop editing.',
+              style: TextStyle(fontSize: 12, height: 1.35),
+            ),
+          ),
           // Chat messages
           Expanded(
             child: ListView.builder(

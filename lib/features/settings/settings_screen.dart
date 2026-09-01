@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../ai_core/cloud/cloud_api_settings.dart';
 import '../../ai_core/providers/ai_provider.dart';
 import '../../core/app_info_provider.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/theme_provider.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/student_avatar.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -27,25 +29,55 @@ class SettingsScreen extends ConsumerWidget {
           children: [
             // ── AI Model ─────────────────────────────────────────────────────
             _Section('AI Model', [
-              modelAsync.when(
+              ref.watch(aiStatusProvider).when(
                 loading: () => const ListTile(
                   leading: Icon(Icons.memory, color: AppColors.primary),
-                  title: Text('Checking model…'),
+                  title: Text('Checking AI…'),
                 ),
                 error: (_, __) => const ListTile(
                   leading: Icon(Icons.memory, color: Colors.red),
-                  title: Text('Model check failed'),
+                  title: Text('AI check failed'),
+                  subtitle: Text('Try restarting the app'),
                 ),
+                data: (status) => ListTile(
+                  leading: Icon(
+                    status.isDemo ? Icons.info_outline : Icons.memory,
+                    color: status.isDemo
+                        ? Colors.orange
+                        : AppColors.teachColor,
+                  ),
+                  title: Text(
+                    status.isDemo
+                        ? 'Demo mode'
+                        : (status.backendLabel?.startsWith('Cloud') == true
+                            ? 'Cloud AI ready'
+                            : 'Local AI ready'),
+                  ),
+                  subtitle: Text(
+                    status.isDemo
+                        ? status.detail
+                        : (status.backendLabel ?? status.detail),
+                  ),
+                  isThreeLine: status.isDemo,
+                  trailing: Icon(
+                    status.isDemo ? Icons.warning_amber : Icons.check_circle,
+                    color: status.isDemo ? Colors.orange : AppColors.teachColor,
+                  ),
+                ),
+              ),
+              modelAsync.when(
+                loading: () => const SizedBox.shrink(),
+                error: (_, __) => const SizedBox.shrink(),
                 data: (info) => ListTile(
                   leading: Icon(
-                    Icons.memory,
+                    Icons.sd_storage_outlined,
                     color: info.isReady ? AppColors.teachColor : Colors.orange,
                   ),
-                  title: const Text('Gemma 3 1B'),
+                  title: const Text('On-device Gemma file'),
                   subtitle: Text(
                     info.isReady
-                        ? 'Installed · ${info.platform ?? ''}'
-                        : 'Not installed — transfer via USB',
+                        ? 'Installed · ${info.platform ?? 'Android'}'
+                        : 'Not installed — transfer via USB (Android)',
                   ),
                   trailing: info.isReady
                       ? const Icon(
@@ -60,9 +92,58 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.info_outline,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: const Text('Model location'),
-                subtitle: const Text('Use the model folder on Windows or Android'),
+                title: const Text('How AI works here'),
+                subtitle: const Text(
+                  'Optional Cloud API key gives live answers online. '
+                  'Otherwise Android uses on-device Gemma and desktop uses Ollama. '
+                  'If none are ready, demo answers are labeled clearly.',
+                ),
                 isThreeLine: true,
+              ),
+            ]),
+
+            // ── Cloud AI (optional) ──────────────────────────────────────────
+            _Section('Cloud AI (optional)', [
+              ref.watch(cloudApiSettingsProvider).when(
+                loading: () => const ListTile(title: Text('Loading…')),
+                error: (_, __) => const ListTile(title: Text('Could not load cloud settings')),
+                data: (cfg) => SwitchListTile(
+                  secondary: Icon(
+                    Icons.cloud_outlined,
+                    color: cfg.isConfigured
+                        ? AppColors.teachColor
+                        : Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+                  title: const Text('Use cloud API for chat'),
+                  subtitle: Text(
+                    cfg.isConfigured
+                        ? 'On · ${cfg.model} · key saved on this device'
+                        : 'Off — add an API key for live OpenAI-compatible answers',
+                  ),
+                  value: cfg.enabled && cfg.apiKey.isNotEmpty,
+                  onChanged: (on) async {
+                    if (on && cfg.apiKey.isEmpty) {
+                      await _editCloudApi(context, ref, cfg);
+                      return;
+                    }
+                    await ref
+                        .read(cloudApiSettingsProvider.notifier)
+                        .save(cfg.copyWith(enabled: on));
+                  },
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.vpn_key_outlined, color: AppColors.primary),
+                title: const Text('API key & model'),
+                subtitle: const Text(
+                  'OpenAI, Groq, OpenRouter, or any OpenAI-compatible /v1 endpoint',
+                ),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () async {
+                  final cfg = await ref.read(cloudApiSettingsProvider.future);
+                  if (!context.mounted) return;
+                  await _editCloudApi(context, ref, cfg);
+                },
               ),
             ]),
 
@@ -72,18 +153,9 @@ class SettingsScreen extends ConsumerWidget {
                 loading: () => const ListTile(title: Text('Loading…')),
                 error: (_, __) => const ListTile(title: Text('Error')),
                 data: (student) => ListTile(
-                  leading: CircleAvatar(
-                    radius: 16,
-                    backgroundColor: AppColors.primary.withValues(alpha: 0.12),
-                    child: Text(
-                      student != null && student.name.isNotEmpty
-                          ? student.name[0].toUpperCase()
-                          : '?',
-                      style: const TextStyle(
-                        color: AppColors.primary,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
+                  leading: StudentAvatar(
+                    name: student?.name ?? 'Learner',
+                    size: 36,
                   ),
                   title: Text(student?.name ?? 'No profile'),
                   subtitle: Text(
@@ -224,6 +296,21 @@ class SettingsScreen extends ConsumerWidget {
             _Section('Administration', [
               ListTile(
                 leading: Icon(
+                  Icons.groups_outlined,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+                title: const Text('Teacher dashboard'),
+                subtitle: const Text(
+                  'See learners on this device, topic progress, and sessions',
+                ),
+                onTap: () => context.go('/teacher'),
+                trailing: Icon(
+                  Icons.chevron_right,
+                  color: Theme.of(context).hintColor,
+                ),
+              ),
+              ListTile(
+                leading: Icon(
                   Icons.admin_panel_settings,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -286,6 +373,110 @@ class SettingsScreen extends ConsumerWidget {
       // Go to onboarding which will recreate the profile
       if (context.mounted) context.go('/onboarding');
     });
+  }
+}
+
+Future<void> _editCloudApi(
+  BuildContext context,
+  WidgetRef ref,
+  CloudApiConfig initial,
+) async {
+  final keyCtrl = TextEditingController(text: initial.apiKey);
+  final urlCtrl = TextEditingController(text: initial.baseUrl);
+  final modelCtrl = TextEditingController(text: initial.model);
+  var enabled = initial.enabled || initial.apiKey.isEmpty;
+
+  final saved = await showDialog<CloudApiConfig>(
+    context: context,
+    builder: (ctx) {
+      return StatefulBuilder(
+        builder: (ctx, setLocal) {
+          return AlertDialog(
+            title: const Text('Cloud AI API'),
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text(
+                    'Uses an OpenAI-compatible chat API for live answers. '
+                    'Needs internet. The key is stored only on this device.',
+                    style: TextStyle(fontSize: 13, height: 1.35),
+                  ),
+                  const SizedBox(height: 12),
+                  SwitchListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: const Text('Enable cloud AI'),
+                    value: enabled,
+                    onChanged: (v) => setLocal(() => enabled = v),
+                  ),
+                  TextField(
+                    controller: keyCtrl,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      labelText: 'API key',
+                      hintText: 'sk-… or provider key',
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  TextField(
+                    controller: urlCtrl,
+                    decoration: const InputDecoration(
+                      labelText: 'Base URL',
+                      hintText: 'https://api.openai.com/v1',
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  TextField(
+                    controller: modelCtrl,
+                    decoration: const InputDecoration(
+                      labelText: 'Model',
+                      hintText: 'gpt-4o-mini',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(ctx),
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(
+                  ctx,
+                  initial.copyWith(apiKey: '', enabled: false),
+                ),
+                child: const Text('Clear'),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(
+                  ctx,
+                  CloudApiConfig(
+                    apiKey: keyCtrl.text.trim(),
+                    baseUrl: urlCtrl.text.trim().isEmpty
+                        ? 'https://api.openai.com/v1'
+                        : urlCtrl.text.trim(),
+                    model: modelCtrl.text.trim().isEmpty
+                        ? 'gpt-4o-mini'
+                        : modelCtrl.text.trim(),
+                    enabled: enabled && keyCtrl.text.trim().isNotEmpty,
+                  ),
+                ),
+                child: const Text('Save'),
+              ),
+            ],
+          );
+        },
+      );
+    },
+  );
+
+  keyCtrl.dispose();
+  urlCtrl.dispose();
+  modelCtrl.dispose();
+
+  if (saved != null) {
+    await ref.read(cloudApiSettingsProvider.notifier).save(saved);
   }
 }
 
