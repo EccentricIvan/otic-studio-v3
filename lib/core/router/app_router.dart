@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../app.dart';
 import '../../db/providers/db_provider.dart';
 import '../../features/achievements/achievements_screen.dart';
 import '../../features/admin/admin_screen.dart';
@@ -87,7 +88,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           ),
           GoRoute(path: '/chat', builder: (_, state) {
             final topic = state.uri.queryParameters['topic'];
-            return LearnScreen(initialTopic: topic);
+            // Skip ModelGate on web/desktop — no Gemma model to install
+            if (kIsWeb ||
+                defaultTargetPlatform == TargetPlatform.windows ||
+                defaultTargetPlatform == TargetPlatform.linux ||
+                defaultTargetPlatform == TargetPlatform.macOS) {
+              return LearnScreen(initialTopic: topic);
+            }
+            return ModelGate(child: LearnScreen(initialTopic: topic));
           }),
           GoRoute(
             path: '/path/:topic',

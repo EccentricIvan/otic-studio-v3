@@ -141,7 +141,7 @@ class CertificateGenerator {
               pw.Divider(color: const PdfColor.fromInt(0xFFE2E8F0)),
               pw.SizedBox(height: 12),
               pw.Text(
-                'AI Connect Africa · Powered by Groq',
+                'Offline AI Learning OS · Powered by Gemma',
                 style: const pw.TextStyle(
                   fontSize: 10,
                   color: PdfColor.fromInt(0xFF94A3B8),
