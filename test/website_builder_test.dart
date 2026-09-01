@@ -89,7 +89,7 @@ void main() {
       final html = generateHtml(doc);
       expect(html, isNot(contains('javascript:')));
       expect(html, contains('href="#"'));
-      expect(html, contains('--accent: #4F46E5')); // fallback color
+      expect(html, contains('--accent: #2E96E8')); // Crystal Sky fallback
     });
 
     test('keeps safe http links', () {
