@@ -71,7 +71,7 @@ class _SplashScreen extends StatelessWidget {
               height: 80,
             ),
             const SizedBox(height: 24),
-            const Text(
+            Text(
               'AI Connect Africa',
               style: TextStyle(
                 fontSize: 24,
