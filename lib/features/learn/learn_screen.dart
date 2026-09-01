@@ -9,6 +9,7 @@ import '../../shared/widgets/ai_status_banner.dart';
 import '../../shared/widgets/curriculum_diagram.dart';
 import '../../shared/widgets/responsive.dart';
 import '../../voice/voice_provider.dart';
+import '../../voice/voice_service.dart';
 
 class _ChatEntry {
   const _ChatEntry({
@@ -34,10 +35,12 @@ class LearnScreen extends ConsumerStatefulWidget {
 class _LearnScreenState extends ConsumerState<LearnScreen> {
   final _controller = TextEditingController();
   final _scrollController = ScrollController();
+  VoiceService? _voice;
 
   @override
   void initState() {
     super.initState();
+    _voice = ref.read(voiceServiceProvider);
     if (widget.initialTopic != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         _sendText(widget.initialTopic!);
@@ -126,8 +129,8 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
 
   @override
   void dispose() {
-    ref.read(voiceServiceProvider).stopListening();
-    ref.read(voiceServiceProvider).stopSpeaking();
+    _voice?.stopListening();
+    _voice?.stopSpeaking();
     _controller.dispose();
     _scrollController.dispose();
     super.dispose();

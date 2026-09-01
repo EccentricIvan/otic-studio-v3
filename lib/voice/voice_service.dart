@@ -91,7 +91,7 @@ class VoiceService {
         ? localeId
         : (locales.isNotEmpty ? locales.first.localeId : '');
 
-    return _stt.listen(
+    await _stt.listen(
       localeId: locale,
       listenOptions: SpeechListenOptions(
         listenMode: ListenMode.dictation,
@@ -103,6 +103,7 @@ class VoiceService {
         onResult(result.recognizedWords, result.finalResult);
       },
     );
+    return true;
   }
 
   Future<void> stopListening() async {
