@@ -135,7 +135,7 @@ class SettingsScreen extends ConsumerWidget {
                 leading: const Icon(Icons.vpn_key_outlined, color: AppColors.primary),
                 title: const Text('API key & model'),
                 subtitle: const Text(
-                  'Free: Groq (recommended). Also OpenRouter, Together, or OpenAI',
+                  'OpenAI, Groq, OpenRouter, or any OpenAI-compatible /v1 endpoint',
                 ),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () async {
@@ -398,10 +398,7 @@ Future<void> _editCloudApi(
                 children: [
                   const Text(
                     'Uses an OpenAI-compatible chat API for live answers. '
-                    'Needs internet. The key is stored only on this device.\n\n'
-                    'Free option: sign up at console.groq.com, create an API key, '
-                    'and use base URL https://api.groq.com/openai/v1 with model '
-                    'llama-3.3-70b-versatile.',
+                    'Needs internet. The key is stored only on this device.',
                     style: TextStyle(fontSize: 13, height: 1.35),
                   ),
                   const SizedBox(height: 12),
@@ -416,7 +413,7 @@ Future<void> _editCloudApi(
                     obscureText: true,
                     decoration: const InputDecoration(
                       labelText: 'API key',
-                      hintText: 'gsk_… from console.groq.com',
+                      hintText: 'sk-… or provider key',
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -424,7 +421,7 @@ Future<void> _editCloudApi(
                     controller: urlCtrl,
                     decoration: const InputDecoration(
                       labelText: 'Base URL',
-                      hintText: 'https://api.groq.com/openai/v1',
+                      hintText: 'https://api.openai.com/v1',
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -432,7 +429,7 @@ Future<void> _editCloudApi(
                     controller: modelCtrl,
                     decoration: const InputDecoration(
                       labelText: 'Model',
-                      hintText: 'llama-3.3-70b-versatile',
+                      hintText: 'gpt-4o-mini',
                     ),
                   ),
                 ],
@@ -456,10 +453,10 @@ Future<void> _editCloudApi(
                   CloudApiConfig(
                     apiKey: keyCtrl.text.trim(),
                     baseUrl: urlCtrl.text.trim().isEmpty
-                        ? 'https://api.groq.com/openai/v1'
+                        ? 'https://api.openai.com/v1'
                         : urlCtrl.text.trim(),
                     model: modelCtrl.text.trim().isEmpty
-                        ? 'llama-3.3-70b-versatile'
+                        ? 'gpt-4o-mini'
                         : modelCtrl.text.trim(),
                     enabled: enabled && keyCtrl.text.trim().isNotEmpty,
                   ),
