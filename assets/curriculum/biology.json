@@ -78,7 +78,8 @@
               "correct": 1,
               "explanation": "Safety protocol requires immediately informing the teacher of any injury."
             }
-          ]
+          ],
+          "diagram": "assets/curriculum/diagrams/biology/mrs-gren.svg"
         },
         {
           "title": "Cells",
@@ -152,7 +153,8 @@
               "correct": 1,
               "explanation": "Chloroplasts contain chlorophyll, essential for capturing light energy during photosynthesis."
             }
-          ]
+          ],
+          "diagram": "assets/curriculum/diagrams/biology/animal-plant-cell.svg"
         },
         {
           "title": "Classification",
@@ -226,7 +228,8 @@
               "correct": 1,
               "explanation": "The hierarchy is Kingdom, Phylum, Class, Order, Family, Genus, Species — Phylum comes right after Kingdom."
             }
-          ]
+          ],
+          "diagram": "assets/curriculum/diagrams/biology/classification-hierarchy.svg"
         },
         {
           "title": "The Five Kingdoms of Living Organisms",

@@ -6,7 +6,9 @@ import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/curriculum_provider.dart';
 import '../../shared/widgets/ai_status_banner.dart';
+import '../../shared/widgets/curriculum_diagram.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../voice/voice_provider.dart';
 
 class _ChatEntry {
   const _ChatEntry({
@@ -41,13 +43,6 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
         _sendText(widget.initialTopic!);
       });
     }
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    _scrollController.dispose();
-    super.dispose();
   }
 
   // Lesson cards keyed by the exact user message text that matched them, so
@@ -87,6 +82,55 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
         );
       }
     });
+  }
+
+  Future<void> _toggleListening() async {
+    final voice = ref.read(voiceServiceProvider);
+    final listening = ref.read(voiceListeningProvider);
+
+    if (listening) {
+      await voice.stopListening();
+      ref.read(voiceListeningProvider.notifier).state = false;
+      return;
+    }
+
+    ref.read(voiceListeningProvider.notifier).state = true;
+    final started = await voice.startListening(
+      onResult: (text, isFinal) {
+        if (text.isNotEmpty) {
+          _controller.text = text;
+          _controller.selection = TextSelection.collapsed(offset: text.length);
+        }
+        if (isFinal) {
+          ref.read(voiceListeningProvider.notifier).state = false;
+        }
+      },
+      onError: (message) {
+        ref.read(voiceListeningProvider.notifier).state = false;
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(message)),
+          );
+        }
+      },
+    );
+    if (!started) {
+      ref.read(voiceListeningProvider.notifier).state = false;
+    }
+  }
+
+  Future<void> _readAloud(String text) async {
+    final voice = ref.read(voiceServiceProvider);
+    await voice.speak(text);
+  }
+
+  @override
+  void dispose() {
+    ref.read(voiceServiceProvider).stopListening();
+    ref.read(voiceServiceProvider).stopSpeaking();
+    _controller.dispose();
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -220,6 +264,8 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                         stage: null,
                         followUp: null,
                         isStreaming: false,
+                        onReadAloud: entry.text.isNotEmpty ? () => _readAloud(entry.text) : null,
+                        isSpeaking: ref.watch(voiceSpeakingProvider) == entry.text,
                       );
                     },
                   );
@@ -230,6 +276,8 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
               controller: _controller,
               onSend: _send,
               isLoading: chat.valueOrNull?.isGenerating ?? false,
+              isListening: ref.watch(voiceListeningProvider),
+              onMicPressed: _toggleListening,
             ),
           ],
         ),
@@ -319,12 +367,16 @@ class _TutorBubble extends StatelessWidget {
     required this.stage,
     required this.followUp,
     required this.isStreaming,
+    this.onReadAloud,
+    this.isSpeaking = false,
   });
 
   final String text;
   final TutorStage? stage;
   final String? followUp;
   final bool isStreaming;
+  final VoidCallback? onReadAloud;
+  final bool isSpeaking;
 
   @override
   Widget build(BuildContext context) {
@@ -412,6 +464,22 @@ class _TutorBubble extends StatelessWidget {
                 ),
               ),
             )
+          else if (!isStreaming && onReadAloud != null && text.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12, left: 2),
+              child: TextButton.icon(
+                onPressed: onReadAloud,
+                icon: Icon(
+                  isSpeaking ? Icons.stop_circle_outlined : Icons.volume_up_outlined,
+                  size: 18,
+                ),
+                label: Text(isSpeaking ? 'Stop reading' : 'Read aloud'),
+                style: TextButton.styleFrom(
+                  visualDensity: VisualDensity.compact,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                ),
+              ),
+            )
           else
             const SizedBox(height: 12),
         ],
@@ -444,11 +512,15 @@ class _InputBar extends StatelessWidget {
     required this.controller,
     required this.onSend,
     required this.isLoading,
+    required this.isListening,
+    required this.onMicPressed,
   });
 
   final TextEditingController controller;
   final VoidCallback onSend;
   final bool isLoading;
+  final bool isListening;
+  final VoidCallback onMicPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -460,12 +532,18 @@ class _InputBar extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(16, 12, 12, 16),
       child: Row(
         children: [
+          IconButton(
+            onPressed: isLoading ? null : onMicPressed,
+            icon: Icon(isListening ? Icons.mic : Icons.mic_none_outlined),
+            color: isListening ? AppColors.primary : null,
+            tooltip: isListening ? 'Stop dictation' : 'Speak your question',
+          ),
           Expanded(
             child: TextField(
               controller: controller,
               onSubmitted: (_) => onSend(),
-              decoration: const InputDecoration(
-                hintText: 'Ask Otic anything...',
+              decoration: InputDecoration(
+                hintText: isListening ? 'Listening… speak now' : 'Ask Otic anything...',
                 border: InputBorder.none,
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
@@ -635,6 +713,14 @@ class _LessonCard extends StatelessWidget {
               style: TextStyle(fontSize: 13, height: 1.6, color: Theme.of(context).colorScheme.onSurface),
             ),
           ),
+          if (lesson.diagram != null)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(14, 4, 14, 10),
+              child: CurriculumDiagram(
+                assetPath: lesson.diagram!,
+                semanticLabel: '${lesson.title} diagram',
+              ),
+            ),
           if (lesson.examples.isNotEmpty)
             Padding(
               padding: const EdgeInsets.fromLTRB(14, 4, 14, 6),
