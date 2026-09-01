@@ -68,9 +68,9 @@ class HomeScreen extends ConsumerWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.asset(
-                  'assets/illustrations/home-learner-solo.png',
+                  'assets/illustrations/home-secondary-learner.png',
                   width: double.infinity,
-                  height: 170,
+                  height: 180,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -102,16 +102,6 @@ class HomeScreen extends ConsumerWidget {
                       style: TextStyle(fontSize: 13, color: ac.textSecondary),
                     ),
                   ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  'assets/illustrations/home-learners-friends.png',
-                  width: double.infinity,
-                  height: 140,
-                  fit: BoxFit.cover,
                 ),
               ),
               const SizedBox(height: 28),

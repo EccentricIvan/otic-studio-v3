@@ -5,8 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CloudApiConfig {
   const CloudApiConfig({
     this.apiKey = '',
-    this.baseUrl = 'https://api.openai.com/v1',
-    this.model = 'gpt-4o-mini',
+    this.baseUrl = 'https://api.groq.com/openai/v1',
+    this.model = 'llama-3.3-70b-versatile',
     this.enabled = false,
   });
 
