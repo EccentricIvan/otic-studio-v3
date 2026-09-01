@@ -58,7 +58,7 @@ final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
           defaultTargetPlatform == TargetPlatform.macOS);
 
   if (kIsWeb) {
-    return demo(DemoReason.web);
+    return demo(DemoReason.cloudApiNotConfigured);
   }
 
   if (isDesktop) {
@@ -76,20 +76,8 @@ final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
     return demo(DemoReason.ollamaUnavailable);
   }
 
-  // Android: use on-device model via flutter_gemma
-  final modelInfo = await ref.watch(modelInfoProvider.future);
-  if (!modelInfo.isReady) {
-    return demo(DemoReason.modelNotInstalled);
-  }
-
-  try {
-    final engine = createPlatformEngine();
-    await engine.loadModel(modelInfo.path!);
-    ref.onDispose(engine.dispose);
-    return engine;
-  } catch (_) {
-    return demo(DemoReason.loadFailed);
-  }
+  // Android: Groq cloud API (on-device Gemma disabled for now).
+  return demo(DemoReason.cloudApiNotConfigured);
 });
 
 /// User-facing AI runtime status (real model vs demo).
@@ -356,12 +344,12 @@ String _friendlyAiError(Object e) {
     return 'Couldn’t reach Ollama. Start Ollama on this computer, then try again.';
   }
   if (raw.contains('ModelLoadException') || raw.contains('failed to load')) {
-    return 'The AI model failed to load. Open Settings to check the model, then try again.';
+    return 'Groq AI failed to start. Open Settings and check your API key, then try again.';
   }
   if (raw.contains('SocketException') || raw.contains('Connection')) {
-    return 'Couldn’t connect to the local AI. Check that the model service is running.';
+    return 'Couldn’t connect to Groq. Check your internet and API key in Settings.';
   }
-  return 'Couldn’t get an answer just now. Check your AI model in Settings, then try again.';
+  return 'Couldn’t get an answer just now. Check your Groq API key in Settings, then try again.';
 }
 
 final chatProvider = AsyncNotifierProvider<ChatNotifier, ChatState>(ChatNotifier.new);

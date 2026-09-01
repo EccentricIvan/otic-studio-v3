@@ -16,7 +16,6 @@ class SettingsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final studentAsync = ref.watch(activeStudentProvider);
-    final modelAsync = ref.watch(modelInfoProvider);
     final packageInfoAsync = ref.watch(packageInfoProvider);
 
     return Scaffold(
@@ -64,28 +63,6 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                 ),
               ),
-              modelAsync.when(
-                loading: () => const SizedBox.shrink(),
-                error: (_, __) => const SizedBox.shrink(),
-                data: (info) => ListTile(
-                  leading: Icon(
-                    Icons.sd_storage_outlined,
-                    color: info.isReady ? AppColors.teachColor : Colors.orange,
-                  ),
-                  title: const Text('On-device Gemma file'),
-                  subtitle: Text(
-                    info.isReady
-                        ? 'Installed · ${info.platform ?? 'Android'}'
-                        : 'Not installed — transfer via USB (Android)',
-                  ),
-                  trailing: info.isReady
-                      ? const Icon(
-                          Icons.check_circle,
-                          color: AppColors.teachColor,
-                        )
-                      : const Icon(Icons.warning_amber, color: Colors.orange),
-                ),
-              ),
               ListTile(
                 leading: Icon(
                   Icons.info_outline,
@@ -93,16 +70,16 @@ class SettingsScreen extends ConsumerWidget {
                 ),
                 title: const Text('How AI works here'),
                 subtitle: const Text(
-                  'Optional Cloud API key gives live answers online. '
-                  'Otherwise Android uses on-device Gemma and desktop uses Ollama. '
-                  'If none are ready, demo answers are labeled clearly.',
+                  'Chat uses Groq cloud AI when you add a free API key below '
+                  '(needs internet). Lessons, labs, and progress work offline. '
+                  'Without a key, demo answers are labeled clearly.',
                 ),
                 isThreeLine: true,
               ),
             ]),
 
-            // ── Cloud AI (optional) ──────────────────────────────────────────
-            _Section('Cloud AI (optional)', [
+            // ── Groq cloud AI ────────────────────────────────────────────────
+            _Section('Groq cloud AI', [
               ref.watch(cloudApiSettingsProvider).when(
                 loading: () => const ListTile(title: Text('Loading…')),
                 error: (_, __) => const ListTile(title: Text('Could not load cloud settings')),
@@ -113,11 +90,11 @@ class SettingsScreen extends ConsumerWidget {
                         ? AppColors.teachColor
                         : Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
-                  title: const Text('Use cloud API for chat'),
+                  title: const Text('Use Groq for chat'),
                   subtitle: Text(
                     cfg.isConfigured
                         ? 'On · ${cfg.model} · key saved on this device'
-                        : 'Off — add an API key for live OpenAI-compatible answers',
+                        : 'Add a free Groq API key for live tutor answers',
                   ),
                   value: cfg.enabled && cfg.apiKey.isNotEmpty,
                   onChanged: (on) async {

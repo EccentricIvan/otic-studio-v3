@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../ai_core/cloud/cloud_api_settings.dart';
 import '../../ai_core/providers/ai_provider.dart';
 import '../../core/app_info_provider.dart';
 import '../../core/theme/app_colors.dart';
@@ -17,7 +18,8 @@ class AdminScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final modelAsync = ref.watch(modelInfoProvider);
+    final aiStatusAsync = ref.watch(aiStatusProvider);
+    final cloudAsync = ref.watch(cloudApiSettingsProvider);
     final studentsAsync = ref.watch(_allStudentsProvider);
     final packageInfoAsync = ref.watch(packageInfoProvider);
 
@@ -49,48 +51,62 @@ class AdminScreen extends ConsumerWidget {
                   ),
                 ),
                 const _InfoRow(
-                  icon: Icons.wifi_off,
-                  label: 'Network',
-                  value: 'Fully offline — no internet used',
+                  icon: Icons.wifi,
+                  label: 'AI chat',
+                  value: 'Groq cloud API when key is set · lessons offline',
                 ),
               ],
             ),
             const SizedBox(height: 20),
 
-            // ── AI Model ─────────────────────────────────────────────────
-            const _SectionTitle('AI Model'),
-            modelAsync.when(
+            // ── AI backend ───────────────────────────────────────────────
+            const _SectionTitle('AI Backend'),
+            aiStatusAsync.when(
               loading: () => const _InfoCard(
-                children: [ListTile(title: Text('Checking model…'))],
+                children: [ListTile(title: Text('Checking AI…'))],
               ),
               error: (e, _) => _InfoCard(
-                children: [ListTile(title: Text('Model check failed: $e'))],
+                children: [ListTile(title: Text('AI check failed: $e'))],
               ),
-              data: (info) => _InfoCard(
+              data: (status) => _InfoCard(
                 children: [
                   _InfoRow(
                     icon: Icons.memory,
-                    label: 'Gemma 3 1B',
-                    value: info.isReady
-                        ? 'Installed · ${info.platform ?? ''}'
-                        : 'Not installed',
-                    valueColor: info.isReady
+                    label: 'Runtime',
+                    value: status.isDemo ? status.title : 'Cloud AI ready',
+                    valueColor: status.isDemo
+                        ? Colors.orange
+                        : AppColors.teachColor,
+                  ),
+                  _InfoRow(
+                    icon: Icons.info_outline,
+                    label: 'Detail',
+                    value: status.detail,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            cloudAsync.when(
+              loading: () => const SizedBox.shrink(),
+              error: (_, __) => const SizedBox.shrink(),
+              data: (cfg) => _InfoCard(
+                children: [
+                  _InfoRow(
+                    icon: Icons.cloud_outlined,
+                    label: 'Groq API',
+                    value: cfg.isConfigured
+                        ? 'Configured · ${cfg.model}'
+                        : 'No API key — chat uses demo answers',
+                    valueColor: cfg.isConfigured
                         ? AppColors.teachColor
                         : Colors.orange,
                   ),
-                  if (info.isReady && info.sizeBytes != null)
-                    _InfoRow(
-                      icon: Icons.sd_storage,
-                      label: 'Model size',
-                      value:
-                          '${(info.sizeBytes! / (1024 * 1024)).toStringAsFixed(0)} MB',
-                    ),
-                  if (info.path != null)
-                    _InfoRow(
-                      icon: Icons.folder,
-                      label: 'Model path',
-                      value: info.path!,
-                    ),
+                  _InfoRow(
+                    icon: Icons.link,
+                    label: 'Endpoint',
+                    value: cfg.baseUrl,
+                  ),
                 ],
               ),
             ),

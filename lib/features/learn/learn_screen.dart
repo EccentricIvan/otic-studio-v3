@@ -70,7 +70,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
     final lesson = curriculum.findBestMatch(text);
     if (lesson != null) _lessonForMessage[text] = lesson;
 
-    // Always send to Gemma — it adds a short follow-up
+    // Cloud tutor adds a short follow-up when curriculum already matched.
     ref.read(chatProvider.notifier).send(text);
     _scrollToBottom();
   }

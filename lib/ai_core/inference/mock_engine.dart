@@ -66,8 +66,8 @@ class MockEngine extends InferenceEngine {
     }
     return 'That\'s a great question! Let me break it down step by step. '
         'This topic has several interesting angles we can explore together. '
-        'To get the most out of your learning, install the AI model file '
-        'from USB or local storage. What part of this topic interests you most?';
+        'For full AI tutor replies, add a free Groq API key in Settings. '
+        'What part of this topic interests you most?';
   }
 
   @override
@@ -80,6 +80,7 @@ class MockEngine extends InferenceEngine {
 enum DemoReason {
   web,
   modelNotInstalled,
+  cloudApiNotConfigured,
   ollamaUnavailable,
   loadFailed,
   generic,
@@ -88,22 +89,25 @@ enum DemoReason {
 extension DemoReasonMessage on DemoReason {
   String get title => switch (this) {
         DemoReason.web => 'Demo answers (web)',
-        DemoReason.modelNotInstalled => 'Demo answers — model not installed',
+        DemoReason.modelNotInstalled => 'Demo answers — Groq not set up',
+        DemoReason.cloudApiNotConfigured => 'Demo answers — Groq not set up',
         DemoReason.ollamaUnavailable => 'Demo answers — Ollama not running',
-        DemoReason.loadFailed => 'Demo answers — model failed to load',
+        DemoReason.loadFailed => 'Demo answers — cloud AI failed',
         DemoReason.generic => 'Demo answers',
       };
 
   String get detail => switch (this) {
         DemoReason.web =>
-          'The browser build cannot run an on-device model. Replies are sample text only.',
+          'The browser build uses Groq cloud AI when an API key is set in Settings.',
         DemoReason.modelNotInstalled =>
-          'Install the Gemma model from USB or Settings to get real tutor answers.',
+          'Add a free Groq API key in Settings for live tutor answers (needs internet).',
+        DemoReason.cloudApiNotConfigured =>
+          'Add a free Groq API key in Settings for live tutor answers (needs internet).',
         DemoReason.ollamaUnavailable =>
-          'Start Ollama locally (e.g. ollama pull gemma3:1b) for real desktop AI.',
+          'Add a Groq API key in Settings, or start Ollama locally for desktop AI.',
         DemoReason.loadFailed =>
-          'The local model could not start. Check Settings, then try again.',
+          'Cloud AI could not start. Check your Groq API key in Settings, then try again.',
         DemoReason.generic =>
-          'Showing sample replies until a real local model is available.',
+          'Add a Groq API key in Settings for live answers, or browse lessons offline.',
       };
 }

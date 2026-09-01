@@ -44,9 +44,9 @@ class CloudApiSettingsNotifier extends AsyncNotifier<CloudApiConfig> {
     final prefs = await SharedPreferences.getInstance();
     return CloudApiConfig(
       apiKey: prefs.getString(_kKey) ?? '',
-      baseUrl: prefs.getString(_kUrl) ?? 'https://api.openai.com/v1',
-      model: prefs.getString(_kModel) ?? 'gpt-4o-mini',
-      enabled: prefs.getBool(_kEnabled) ?? false,
+      baseUrl: prefs.getString(_kUrl) ?? 'https://api.groq.com/openai/v1',
+      model: prefs.getString(_kModel) ?? 'llama-3.3-70b-versatile',
+      enabled: prefs.getBool(_kEnabled) ?? true,
     );
   }
 
