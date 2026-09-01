@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/theme/app_colors.dart';
 
 class GlassCard extends StatelessWidget {
   const GlassCard({
@@ -28,8 +29,8 @@ class GlassCard extends StatelessWidget {
         end: Alignment.bottomRight,
         colors: isDark
             ? [
-                const Color(0xFF1E293B).withValues(alpha: 0.8),
-                const Color(0xFF1E293B).withValues(alpha: 0.6),
+                AppColors.darkTheme.surface.withValues(alpha: 0.8),
+                AppColors.darkTheme.surface.withValues(alpha: 0.6),
               ]
             : [
                 Colors.white.withValues(alpha: 0.9),
@@ -40,8 +41,8 @@ class GlassCard extends StatelessWidget {
       border: Border.all(
         color: borderColor ??
             (isDark
-                ? const Color(0xFF475569).withValues(alpha: 0.3)
-                : const Color(0xFFE2E8F0).withValues(alpha: 0.6)),
+                ? AppColors.darkTheme.border.withValues(alpha: 0.3)
+                : AppColors.light.border.withValues(alpha: 0.6)),
         width: 1,
       ),
     );

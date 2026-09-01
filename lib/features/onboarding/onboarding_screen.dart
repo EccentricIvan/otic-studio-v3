@@ -131,8 +131,16 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: isDark
-                ? const [Color(0xFF0F172A), Color(0xFF1E293B), Color(0xFF0F172A)]
-                : const [Color(0xFFFFFBEB), Color(0xFFF8FAFC), Color(0xFFEFF6FF)],
+                ? [
+                    AppColors.darkTheme.bgBottom,
+                    AppColors.darkTheme.surface,
+                    AppColors.darkTheme.bgBottom,
+                  ]
+                : const [
+                    Color(0xFFFAFCFF),
+                    Color(0xFFFFFFFF),
+                    Color(0xFFF3F9FD),
+                  ],
           ),
         ),
         child: SafeArea(

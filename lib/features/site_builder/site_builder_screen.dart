@@ -45,7 +45,7 @@ const _templates = [
     id: 'portfolio',
     name: 'Personal Portfolio',
     icon: Icons.person,
-    color: Color(0xFF818CF8),
+    color: AppColors.primaryLight,
     description: 'Showcase your skills, projects, and contact',
     fields: [
       _Field('name', 'Your Name', 'e.g. Alice Nakamya', defaultValue: 'Alice Nakamya'),

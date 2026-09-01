@@ -84,3 +84,13 @@ flutter:
           weight: 600
         - asset: assets/fonts/PlusJakartaSans-Bold.ttf
           weight: 700
+    - family: Saira
+      fonts:
+        - asset: assets/fonts/Saira-Variable.ttf
+          weight: 400
+        - asset: assets/fonts/Saira-Variable.ttf
+          weight: 500
+        - asset: assets/fonts/Saira-Variable.ttf
+          weight: 600
+        - asset: assets/fonts/Saira-Variable.ttf
+          weight: 700

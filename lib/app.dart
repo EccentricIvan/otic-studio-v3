@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'ai_core/model/model_manager.dart';
 import 'ai_core/providers/ai_provider.dart';
 import 'core/router/app_router.dart';
+import 'core/theme/app_colors.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_provider.dart';
 import 'features/model_setup/model_not_installed_screen.dart';
@@ -36,7 +37,7 @@ class _OticAppState extends ConsumerState<OticApp> {
     if (!_ready) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.dark,
+        theme: AppTheme.light,
         home: const _SplashScreen(),
       );
     }
@@ -59,7 +60,7 @@ class _SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F172A),
+      backgroundColor: AppColors.darkTheme.bgBottom,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -75,7 +76,7 @@ class _SplashScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w700,
-                color: Color(0xFFF1F5F9),
+                color: AppColors.darkTheme.textPrimary,
                 letterSpacing: 1,
               ),
             ),
@@ -85,7 +86,7 @@ class _SplashScreen extends StatelessWidget {
               height: 24,
               child: CircularProgressIndicator(
                 strokeWidth: 2.5,
-                color: Color(0xFF4F46E5),
+                color: AppColors.primary,
               ),
             ),
           ],

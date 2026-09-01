@@ -458,12 +458,12 @@ class _EmptyState extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  const Color(0xFF4F46E5).withValues(alpha: 0.2),
-                  const Color(0xFF0EA5E9).withValues(alpha: 0.1),
+                  AppColors.primary.withValues(alpha: 0.2),
+                  AppColors.practiceColor.withValues(alpha: 0.1),
                 ],
               ),
               borderRadius: BorderRadius.circular(22),
-              border: Border.all(color: const Color(0xFF4F46E5).withValues(alpha: 0.2)),
+              border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
             ),
             child: Padding(
               padding: const EdgeInsets.all(14),
@@ -495,19 +495,19 @@ class _EmptyState extends StatelessWidget {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    const Color(0xFF4F46E5).withValues(alpha: 0.15),
-                    const Color(0xFF0EA5E9).withValues(alpha: 0.08),
+                    AppColors.primary.withValues(alpha: 0.15),
+                    AppColors.practiceColor.withValues(alpha: 0.08),
                   ],
                 ),
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: const Color(0xFF4F46E5).withValues(alpha: 0.2)),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
               ),
               child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.auto_awesome, size: 16, color: Color(0xFF4F46E5)),
+                  Icon(Icons.auto_awesome, size: 16, color: AppColors.primary),
                   SizedBox(width: 8),
-                  Text('Start a conversation', style: TextStyle(fontWeight: FontWeight.w600, color: Color(0xFF4F46E5))),
+                  Text('Start a conversation', style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.primary)),
                 ],
               ),
             ),

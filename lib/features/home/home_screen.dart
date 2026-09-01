@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
 
 final _desktopNameProvider = FutureProvider<String>((ref) async {
@@ -54,12 +55,12 @@ class HomeScreen extends ConsumerWidget {
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [const Color(0xFF4F46E5).withValues(alpha: 0.12), const Color(0xFF0EA5E9).withValues(alpha: 0.06)],
+                    colors: [AppColors.primary.withValues(alpha: 0.12), AppColors.practiceColor.withValues(alpha: 0.06)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: const Color(0xFF4F46E5).withValues(alpha: 0.15)),
+                  border: Border.all(color: AppColors.primary.withValues(alpha: 0.15)),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
