@@ -229,6 +229,7 @@ class _CreateScreenState extends ConsumerState<CreateScreen> {
     final state = ref.watch(_createProvider);
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: Text(
           state.started ? '${state.projectType}: ${state.topic}' : 'Create',
@@ -270,10 +271,10 @@ class _SetupView extends ConsumerWidget {
   final TextEditingController topicController;
 
   static const _labs = [
-    ('Build a Website', 'Chat with the bot to create your site step by step', Icons.chat, Color(0xFF10B981), '/sitechat'),
-    ('Web Dev Lab', 'Write HTML, CSS & JavaScript and see it live', Icons.code, Color(0xFF0EA5E9), '/weblab'),
-    ('Python Lab', 'Write and run Python code with guided lessons', Icons.terminal, Color(0xFF3572A5), '/pythonlab'),
-    ('App Dev Lab', 'Learn how to build mobile apps step by step', Icons.phone_android, Color(0xFF6366F1), '/applab'),
+    ('Build a Website', 'Chat with the bot to create your site step by step', Icons.chat, AppColors.createColor, '/sitechat'),
+    ('Web Dev Lab', 'Write HTML, CSS & JavaScript and see it live', Icons.code, AppColors.practiceColor, '/weblab'),
+    ('Python Lab', 'Write and run Python code with guided lessons', Icons.terminal, AppColors.accentDeep, '/pythonlab'),
+    ('App Dev Lab', 'Learn how to build mobile apps step by step', Icons.phone_android, AppColors.learnColor, '/applab'),
   ];
 
   @override

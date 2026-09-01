@@ -113,19 +113,19 @@ class SiteBlock {
 
 /// Theme colors a student can pick for the page accent.
 const siteThemeColors = <String, String>{
-  'Indigo': '#4F46E5',
-  'Green': '#10B981',
-  'Amber': '#F59E0B',
-  'Pink': '#EC4899',
-  'Sky': '#0EA5E9',
-  'Slate': '#475569',
+  'Crystal Blue': '#2E96E8',
+  'Sky': '#3BAFD4',
+  'Deep Blue': '#1B7FD4',
+  'Teal': '#2EA8C4',
+  'Green': '#3DAA6D',
+  'Slate': '#3D5A73',
 };
 
 /// A whole website document: title + theme + ordered blocks.
 class WebsiteDoc {
   const WebsiteDoc({
     this.title = 'My Website',
-    this.themeColor = '#4F46E5',
+    this.themeColor = '#2E96E8',
     this.blocks = const [],
   });
 

@@ -136,5 +136,5 @@ String _safeUrl(String url) {
 /// Theme color must be a #rrggbb hex value; falls back to indigo.
 String _safeColor(String hex) {
   final ok = RegExp(r'^#[0-9a-fA-F]{6}$').hasMatch(hex);
-  return ok ? hex : '#4F46E5';
+  return ok ? hex : '#2E96E8';
 }

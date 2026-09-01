@@ -19,6 +19,7 @@ class SettingsScreen extends ConsumerWidget {
     final packageInfoAsync = ref.watch(packageInfoProvider);
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(title: const Text('Settings')),
       body: MaxWidth(
         maxWidth: 760,

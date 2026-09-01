@@ -24,90 +24,168 @@ class HomeScreen extends ConsumerWidget {
       name = studentAsync.valueOrNull?.name ?? 'Learner';
     }
 
+    final ac = AppColors.of(context);
+
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header
               Row(
                 children: [
-                  Image.asset('assets/branding/otic-studio-logo.png', width: 40, height: 40, fit: BoxFit.contain),
+                  Image.asset(
+                    'assets/branding/otic-studio-logo.png',
+                    width: 40,
+                    height: 40,
+                    fit: BoxFit.contain,
+                  ),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('AI Connect Africa', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.onSurface)),
-                        Text('Learn, Create & Build', style: TextStyle(fontSize: 13, color: Theme.of(context).hintColor)),
+                        Text(
+                          'AI Connect Africa',
+                          style: TextStyle(
+                            fontFamily: 'Saira',
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            color: ac.textPrimary,
+                          ),
+                        ),
+                        Text(
+                          'Learn, Create & Build',
+                          style: TextStyle(fontSize: 13, color: ac.textHint),
+                        ),
                       ],
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 24),
-
-              // Welcome
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [AppColors.primary.withValues(alpha: 0.12), AppColors.practiceColor.withValues(alpha: 0.06)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: AppColors.primary.withValues(alpha: 0.15)),
+                  color: ac.surface,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: ac.border),
+                  boxShadow: ac.softShadow(ac.isDark),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Welcome, $name!', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.onSurface)),
+                    Text(
+                      'Welcome, $name!',
+                      style: TextStyle(
+                        fontFamily: 'Saira',
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: ac.textPrimary,
+                      ),
+                    ),
                     const SizedBox(height: 4),
-                    Text('What would you like to do today?', style: TextStyle(fontSize: 13, color: Theme.of(context).hintColor)),
+                    Text(
+                      'What would you like to do today?',
+                      style: TextStyle(fontSize: 13, color: ac.textSecondary),
+                    ),
                   ],
                 ),
               ),
               const SizedBox(height: 28),
-
-              // LEARN section
               const _SectionLabel('LEARN'),
               const SizedBox(height: 12),
               const Row(
                 children: [
-                  _IconCard(icon: Icons.menu_book, label: 'Subjects', color: Color(0xFF6366F1), route: '/learn'),
-                  _IconCard(icon: Icons.quiz, label: 'Practice', color: Color(0xFF0EA5E9), route: '/practice'),
-                  _IconCard(icon: Icons.chat, label: 'AI Chat', color: Color(0xFF8B5CF6), route: '/chat'),
-                  _IconCard(icon: Icons.school, label: 'Teach', color: Color(0xFF10B981), route: '/teach'),
+                  _IconCard(
+                    icon: Icons.menu_book_rounded,
+                    label: 'Subjects',
+                    color: AppColors.learnColor,
+                    route: '/learn',
+                  ),
+                  _IconCard(
+                    icon: Icons.quiz_rounded,
+                    label: 'Practice',
+                    color: AppColors.practiceColor,
+                    route: '/practice',
+                  ),
+                  _IconCard(
+                    icon: Icons.chat_rounded,
+                    label: 'AI Chat',
+                    color: AppColors.primary,
+                    route: '/chat',
+                  ),
+                  _IconCard(
+                    icon: Icons.school_rounded,
+                    label: 'Teach',
+                    color: AppColors.teachColor,
+                    route: '/teach',
+                  ),
                 ],
               ),
               const SizedBox(height: 28),
-
-              // CREATE section
               const _SectionLabel('CREATE'),
               const SizedBox(height: 12),
               const Row(
                 children: [
-                  _IconCard(icon: Icons.web, label: 'Site Builder', color: Color(0xFF14B8A6), route: '/sitechat'),
-                  _IconCard(icon: Icons.code, label: 'Web Dev', color: Color(0xFF0EA5E9), route: '/weblab'),
-                  _IconCard(icon: Icons.terminal, label: 'Python', color: Color(0xFF3572A5), route: '/pythonlab'),
-                  _IconCard(icon: Icons.phone_android, label: 'App Dev', color: Color(0xFF6366F1), route: '/applab'),
+                  _IconCard(
+                    icon: Icons.web_rounded,
+                    label: 'Site Builder',
+                    color: AppColors.createColor,
+                    route: '/sitechat',
+                  ),
+                  _IconCard(
+                    icon: Icons.code_rounded,
+                    label: 'Web Dev',
+                    color: AppColors.practiceColor,
+                    route: '/weblab',
+                  ),
+                  _IconCard(
+                    icon: Icons.terminal_rounded,
+                    label: 'Python',
+                    color: AppColors.accentDeep,
+                    route: '/pythonlab',
+                  ),
+                  _IconCard(
+                    icon: Icons.phone_android_rounded,
+                    label: 'App Dev',
+                    color: AppColors.learnColor,
+                    route: '/applab',
+                  ),
                 ],
               ),
               const SizedBox(height: 28),
-
-              // MORE section
               const _SectionLabel('MORE'),
               const SizedBox(height: 12),
               const Row(
                 children: [
-                  _IconCard(icon: Icons.folder, label: 'Projects', color: Color(0xFFF59E0B), route: '/projects'),
-                  _IconCard(icon: Icons.emoji_events, label: 'Badges', color: Color(0xFFEF4444), route: '/achievements'),
-                  _IconCard(icon: Icons.workspace_premium, label: 'Certs', color: Color(0xFFEC4899), route: '/certificates'),
-                  _IconCard(icon: Icons.settings, label: 'Settings', color: Color(0xFF64748B), route: '/settings'),
+                  _IconCard(
+                    icon: Icons.folder_rounded,
+                    label: 'Projects',
+                    color: AppColors.secondary,
+                    route: '/projects',
+                  ),
+                  _IconCard(
+                    icon: Icons.emoji_events_rounded,
+                    label: 'Badges',
+                    color: AppColors.gold,
+                    route: '/achievements',
+                  ),
+                  _IconCard(
+                    icon: Icons.workspace_premium_rounded,
+                    label: 'Certs',
+                    color: AppColors.primaryLight,
+                    route: '/certificates',
+                  ),
+                  _IconCard(
+                    icon: Icons.settings_rounded,
+                    label: 'Settings',
+                    color: AppColors.lifeSkillsColor,
+                    route: '/settings',
+                  ),
                 ],
               ),
             ],
@@ -124,20 +202,26 @@ class _SectionLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ac = AppColors.of(context);
     return Text(
       text,
       style: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w700,
         letterSpacing: 1.5,
-        color: Theme.of(context).hintColor,
+        color: ac.textHint,
       ),
     );
   }
 }
 
 class _IconCard extends StatelessWidget {
-  const _IconCard({required this.icon, required this.label, required this.color, required this.route});
+  const _IconCard({
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.route,
+  });
   final IconData icon;
   final String label;
   final Color color;
@@ -145,6 +229,7 @@ class _IconCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ac = AppColors.of(context);
     return Expanded(
       child: GestureDetector(
         onTap: () => context.push(route),
@@ -154,21 +239,11 @@ class _IconCard extends StatelessWidget {
               width: 56,
               height: 56,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [color.withValues(alpha: 0.7), color.withValues(alpha: 0.5)],
-                ),
+                color: color.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    color: color.withValues(alpha: 0.15),
-                    blurRadius: 8,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
+                border: Border.all(color: ac.border),
               ),
-              child: Icon(icon, color: Colors.white, size: 26),
+              child: Icon(icon, color: color, size: 26),
             ),
             const SizedBox(height: 8),
             Text(
@@ -176,7 +251,7 @@ class _IconCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
-                color: Theme.of(context).colorScheme.onSurface,
+                color: ac.textPrimary,
               ),
               textAlign: TextAlign.center,
             ),

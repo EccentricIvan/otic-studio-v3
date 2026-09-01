@@ -14,32 +14,33 @@ class AppShell extends StatelessWidget {
   static final mobileScaffoldKey = GlobalKey<ScaffoldState>();
 
   static const _destinations = [
-    _NavDest('Home', Icons.home_outlined, Icons.home, '/'),
-    _NavDest('Learn', Icons.menu_book_outlined, Icons.menu_book, '/learn'),
-    _NavDest('Practice', Icons.edit_outlined, Icons.edit, '/practice'),
-    _NavDest('Create', Icons.lightbulb_outlined, Icons.lightbulb, '/create'),
-    _NavDest('Projects', Icons.folder_outlined, Icons.folder, '/projects'),
-    _NavDest('Web Dev Lab', Icons.code_outlined, Icons.code, '/weblab'),
-    _NavDest('Python Lab', Icons.terminal_outlined, Icons.terminal, '/pythonlab'),
-    _NavDest('App Dev Lab', Icons.phone_android_outlined, Icons.phone_android, '/applab'),
-    _NavDest('AI Chat', Icons.chat_outlined, Icons.chat, '/chat'),
+    _NavDest('Home', Icons.home_outlined, Icons.home_rounded, '/'),
+    _NavDest('Learn', Icons.menu_book_outlined, Icons.menu_book_rounded, '/learn'),
+    _NavDest('Practice', Icons.edit_outlined, Icons.edit_rounded, '/practice'),
+    _NavDest('Create', Icons.lightbulb_outlined, Icons.lightbulb_rounded, '/create'),
+    _NavDest('Projects', Icons.folder_outlined, Icons.folder_rounded, '/projects'),
+    _NavDest('Web Dev Lab', Icons.code_outlined, Icons.code_rounded, '/weblab'),
+    _NavDest('Python Lab', Icons.terminal_outlined, Icons.terminal_rounded, '/pythonlab'),
+    _NavDest('App Dev Lab', Icons.phone_android_outlined, Icons.phone_android_rounded, '/applab'),
+    _NavDest('AI Chat', Icons.chat_bubble_outline_rounded, Icons.chat_rounded, '/chat'),
     _NavDest(
       'Achievements',
       Icons.emoji_events_outlined,
-      Icons.emoji_events,
+      Icons.emoji_events_rounded,
       '/achievements',
     ),
     _NavDest(
       'Certificates',
       Icons.workspace_premium_outlined,
-      Icons.workspace_premium,
+      Icons.workspace_premium_rounded,
       '/certificates',
     ),
-    _NavDest('Settings', Icons.settings_outlined, Icons.settings, '/settings'),
+    _NavDest('Settings', Icons.settings_outlined, Icons.settings_rounded, '/settings'),
   ];
 
-  // Bottom nav shows first 5 destinations; rest accessible via drawer
-  static const _mobileIndices = [0, 1, 2, 3, 4];
+  /// Flat bar items (chat is the raised center FAB).
+  static const _mobileIndices = [0, 1, 2, 3];
+  static const _chatPath = '/chat';
 
   int _selectedIndex(BuildContext context) {
     final path = GoRouterState.of(context).uri.path;
@@ -51,69 +52,230 @@ class AppShell extends StatelessWidget {
   Widget build(BuildContext context) {
     final selectedIndex = _selectedIndex(context);
     final isWide = MediaQuery.sizeOf(context).width >= 640;
+    final ac = AppColors.of(context);
 
     if (isWide) {
-      return Scaffold(
-        body: Row(
-          children: [
-            _SideNav(selectedIndex: selectedIndex, destinations: _destinations),
-            const VerticalDivider(thickness: 1, width: 1),
-            Expanded(child: child),
-          ],
+      return Container(
+        decoration: AppColors.pageDecoration(context),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Row(
+            children: [
+              _SideNav(selectedIndex: selectedIndex, destinations: _destinations),
+              Container(width: 1, color: ac.border),
+              Expanded(child: child),
+            ],
+          ),
         ),
       );
     }
 
+    final path = GoRouterState.of(context).uri.path;
+    final isChatActive = path == _chatPath;
     final mobileSelected = _mobileIndices.contains(selectedIndex)
         ? _mobileIndices.indexOf(selectedIndex)
-        : 0;
+        : -1;
 
-    return Scaffold(
-      key: mobileScaffoldKey,
-      body: Stack(
-        children: [
-          child,
-          Positioned(
-            top: MediaQuery.of(context).padding.top + 4,
-            right: 4,
-            child: SafeArea(
-              child: Material(
-                color: Colors.transparent,
-                child: IconButton(
-                  icon: const Icon(Icons.menu, size: 22),
-                  tooltip: 'Menu',
-                  onPressed: () => mobileScaffoldKey.currentState?.openDrawer(),
-                  style: IconButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.surface.withValues(alpha: 0.85),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    return Container(
+      decoration: AppColors.pageDecoration(context),
+      child: Scaffold(
+        key: mobileScaffoldKey,
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          children: [
+            child,
+            Positioned(
+              top: MediaQuery.of(context).padding.top + 4,
+              right: 4,
+              child: SafeArea(
+                child: Material(
+                  color: Colors.transparent,
+                  child: IconButton(
+                    icon: Icon(Icons.menu_rounded, size: 22, color: ac.textPrimary),
+                    tooltip: 'Menu',
+                    onPressed: () => mobileScaffoldKey.currentState?.openDrawer(),
+                    style: IconButton.styleFrom(
+                      backgroundColor: AppColors.glassFill(context, strong: true),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        side: BorderSide(color: ac.border),
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
+          ],
+        ),
+        drawer: _AppDrawer(
+          selectedIndex: selectedIndex,
+          destinations: _destinations,
+        ),
+        bottomNavigationBar: SafeArea(
+          minimum: const EdgeInsets.fromLTRB(20, 0, 20, 14),
+          child: SizedBox(
+            height: 82,
+            child: Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
+                  height: 70,
+                  decoration: BoxDecoration(
+                    color: ac.surface,
+                    borderRadius: BorderRadius.circular(32),
+                    border: Border.all(color: ac.border),
+                    boxShadow: ac.navShadow(ac.isDark),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                  child: Row(
+                    children: [
+                      for (var i = 0; i < _mobileIndices.length; i++) ...[
+                        Expanded(
+                          child: _FloatingNavItem(
+                            icon: _destinations[_mobileIndices[i]].icon,
+                            selectedIcon: _destinations[_mobileIndices[i]].selectedIcon,
+                            label: _destinations[_mobileIndices[i]].label,
+                            selected: mobileSelected == i,
+                            onTap: () =>
+                                context.go(_destinations[_mobileIndices[i]].path),
+                          ),
+                        ),
+                        if (i == 1) const SizedBox(width: 58),
+                      ],
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      _ChatFabButton(
+                        active: isChatActive,
+                        ringColor: ac.isDark ? ac.surface : Colors.white,
+                        onTap: () => context.go(_chatPath),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'Chat',
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight:
+                              isChatActive ? FontWeight.w700 : FontWeight.w500,
+                          color: isChatActive ? AppColors.primary : ac.textHint,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _FloatingNavItem extends StatelessWidget {
+  const _FloatingNavItem({
+    required this.icon,
+    required this.selectedIcon,
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final IconData selectedIcon;
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = selected ? AppColors.primary : AppColors.of(context).textHint;
+
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(selected ? selectedIcon : icon, size: 24, color: color),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+              color: color,
+            ),
+          ),
+          const SizedBox(height: 4),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 180),
+            height: 3,
+            width: selected ? 18 : 0,
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.circular(99),
+            ),
           ),
         ],
       ),
-      drawer: _AppDrawer(
-        selectedIndex: selectedIndex,
-        destinations: _destinations,
-      ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
-        ),
-        child: NavigationBar(
-          selectedIndex: mobileSelected,
-          onDestinationSelected: (i) =>
-              context.go(_destinations[_mobileIndices[i]].path),
-          destinations: _mobileIndices
-              .map(
-                (i) => NavigationDestination(
-                  icon: Icon(_destinations[i].icon),
-                  selectedIcon: Icon(_destinations[i].selectedIcon),
-                  label: _destinations[i].label,
+    );
+  }
+}
+
+class _ChatFabButton extends StatelessWidget {
+  const _ChatFabButton({
+    required this.active,
+    required this.ringColor,
+    required this.onTap,
+  });
+
+  final bool active;
+  final Color ringColor;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      shape: const CircleBorder(),
+      child: InkWell(
+        onTap: onTap,
+        customBorder: const CircleBorder(),
+        child: Container(
+          width: 58,
+          height: 58,
+          padding: const EdgeInsets.all(4),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: ringColor,
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: AppColors.fabGradient,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.accentGlow,
+                  blurRadius: 16,
+                  offset: const Offset(0, 6),
                 ),
-              )
-              .toList(),
+              ],
+            ),
+            child: Icon(
+              active ? Icons.chat_rounded : Icons.chat_bubble_outline_rounded,
+              color: Colors.white,
+              size: 24,
+            ),
+          ),
         ),
       ),
     );
@@ -128,20 +290,34 @@ class _SideNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    final ac = AppColors.of(context);
+    return Container(
       width: 220,
+      color: ac.surface,
       child: Column(
         children: [
           const SizedBox(height: 20),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: _BrandLogo(size: 44),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              children: [
+                const _BrandLogo(size: 36),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    'AI Connect Africa',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: ac.textPrimary,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 20),
-          const Divider(),
+          Container(height: 1, color: ac.border),
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -151,41 +327,65 @@ class _SideNav extends StatelessWidget {
                 final selected = selectedIndex == i;
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 2),
-                  child: ListTile(
-                    dense: true,
-                    selected: selected,
-                    selectedTileColor: AppColors.primary.withValues(
-                      alpha: 0.08,
-                    ),
-                    leading: Icon(
-                      selected ? dest.selectedIcon : dest.icon,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Material(
                       color: selected
-                          ? AppColors.primary
-                          : Theme.of(context).colorScheme.onSurfaceVariant,
-                      size: 20,
-                    ),
-                    title: Text(
-                      dest.label,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: selected
-                            ? FontWeight.w600
-                            : FontWeight.w400,
-                        color: selected
-                            ? AppColors.primary
-                            : Theme.of(context).colorScheme.onSurfaceVariant,
+                          ? AppColors.accent.withValues(alpha: 0.12)
+                          : Colors.transparent,
+                      child: InkWell(
+                        onTap: () => context.go(dest.path),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 3,
+                              height: 32,
+                              color: selected ? AppColors.accent : Colors.transparent,
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 11,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      selected ? dest.selectedIcon : dest.icon,
+                                      color: selected
+                                          ? AppColors.accent
+                                          : ac.textHint,
+                                      size: 20,
+                                    ),
+                                    const SizedBox(width: 12),
+                                    Expanded(
+                                      child: Text(
+                                        dest.label,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: selected
+                                              ? FontWeight.w600
+                                              : FontWeight.w400,
+                                          color: selected
+                                              ? AppColors.accent
+                                              : ac.textHint,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    onTap: () => context.go(dest.path),
                   ),
                 );
               },
             ),
           ),
-          const Divider(),
+          Container(height: 1, color: ac.border),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
@@ -194,14 +394,14 @@ class _SideNav extends StatelessWidget {
                   width: 8,
                   height: 8,
                   decoration: const BoxDecoration(
-                    color: AppColors.teachColor,
+                    color: AppColors.online,
                     shape: BoxShape.circle,
                   ),
                 ),
                 const SizedBox(width: 8),
                 Text(
                   'Offline · v1.1',
-                  style: TextStyle(fontSize: 12, color: Theme.of(context).hintColor),
+                  style: TextStyle(fontSize: 12, color: ac.textHint),
                 ),
               ],
             ),
@@ -221,83 +421,180 @@ class _AppDrawer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final pathsAsync = ref.watch(studentPathsProvider);
+    final ac = AppColors.of(context);
 
-    return NavigationDrawer(
-      selectedIndex: selectedIndex,
-      onDestinationSelected: (i) {
-        context.go(destinations[i].path);
-        Navigator.pop(context);
-      },
-      children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(16, 28, 16, 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [_BrandLogo(size: 48)],
-          ),
-        ),
-        const Divider(indent: 16, endIndent: 16),
-        // My Paths section
-        pathsAsync.when(
-          data: (rows) {
-            if (rows.isEmpty) return const SizedBox.shrink();
-            final paths = rows.map(parsedFromRow).toList();
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
-                  child: Text(
-                    'MY PATHS',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 0.8,
-                      color: Theme.of(context).hintColor,
-                    ),
-                  ),
-                ),
-                ...paths.take(5).map((p) => ListTile(
-                      dense: true,
-                      leading: const Icon(Icons.route, size: 18, color: AppColors.learnColor),
-                      title: Text(
-                        p.topic,
-                        style: const TextStyle(fontSize: 13),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      subtitle: Text(
-                        '${p.completedLessons}/${p.totalLessons} lessons',
-                        style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
-                      ),
-                      trailing: Text(
-                        '${(p.progressFraction * 100).round()}%',
-                        style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.learnColor,
+    return Drawer(
+      backgroundColor: ac.surface,
+      child: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
+              child: Row(
+                children: [
+                  const _BrandLogo(size: 40),
+                  const SizedBox(width: 12),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'AI Connect Africa',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: ac.textPrimary,
                         ),
                       ),
-                      onTap: () {
-                        Navigator.pop(context);
-                        context.push('/path/${Uri.encodeComponent(p.topic)}');
-                      },
-                    )),
-                const Divider(indent: 16, endIndent: 16),
-              ],
-            );
-          },
-          loading: () => const SizedBox.shrink(),
-          error: (_, __) => const SizedBox.shrink(),
+                      Text(
+                        'Learn, Create & Build',
+                        style: TextStyle(fontSize: 11, color: ac.textHint),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 1,
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              color: ac.border,
+            ),
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                children: [
+                  pathsAsync.when(
+                    data: (rows) {
+                      if (rows.isEmpty) return const SizedBox.shrink();
+                      final paths = rows.map(parsedFromRow).toList();
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(12, 8, 12, 6),
+                            child: Text(
+                              'MY PATHS',
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 1.0,
+                                color: ac.textHint,
+                              ),
+                            ),
+                          ),
+                          ...paths.take(5).map(
+                                (p) => ListTile(
+                                  dense: true,
+                                  leading: const Icon(
+                                    Icons.route,
+                                    size: 18,
+                                    color: AppColors.learnColor,
+                                  ),
+                                  title: Text(
+                                    p.topic,
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: ac.textPrimary,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  subtitle: Text(
+                                    '${p.completedLessons}/${p.totalLessons} lessons',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      color: ac.textHint,
+                                    ),
+                                  ),
+                                  trailing: Text(
+                                    '${(p.progressFraction * 100).round()}%',
+                                    style: const TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.learnColor,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    context.push(
+                                      '/path/${Uri.encodeComponent(p.topic)}',
+                                    );
+                                  },
+                                ),
+                              ),
+                          Container(
+                            height: 1,
+                            margin: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 8,
+                            ),
+                            color: ac.border,
+                          ),
+                        ],
+                      );
+                    },
+                    loading: () => const SizedBox.shrink(),
+                    error: (_, __) => const SizedBox.shrink(),
+                  ),
+                  ...List.generate(destinations.length, (i) {
+                    final dest = destinations[i];
+                    final selected = selectedIndex == i;
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Material(
+                          color: selected
+                              ? AppColors.accent.withValues(alpha: 0.12)
+                              : Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              context.go(dest.path);
+                              Navigator.pop(context);
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 12,
+                              ),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    selected ? dest.selectedIcon : dest.icon,
+                                    color: selected
+                                        ? AppColors.accent
+                                        : ac.textHint,
+                                    size: 20,
+                                  ),
+                                  const SizedBox(width: 12),
+                                  Expanded(
+                                    child: Text(
+                                      dest.label,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: selected
+                                            ? FontWeight.w600
+                                            : FontWeight.w400,
+                                        color: selected
+                                            ? AppColors.accent
+                                            : ac.textHint,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
+                ],
+              ),
+            ),
+          ],
         ),
-        ...destinations.map(
-          (d) => NavigationDrawerDestination(
-            icon: Icon(d.icon),
-            selectedIcon: Icon(d.selectedIcon),
-            label: Text(d.label),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

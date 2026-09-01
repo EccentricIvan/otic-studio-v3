@@ -89,6 +89,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
     final engineAsync = ref.watch(engineLoadedProvider);
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: const Text('Learn'),
         actions: [
