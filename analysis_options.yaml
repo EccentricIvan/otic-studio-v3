@@ -1,5 +1,11 @@
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  exclude:
+    # Manual, ad-hoc dev script — not a real test dir, so it doesn't get the
+    # analyzer's usual @visibleForTesting exemption for files under test/.
+    - test_manual/**
+
 linter:
   rules:
     prefer_const_constructors: true
