@@ -1,9 +1,12 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../ai_core/cloud/cloud_api_settings.dart';
+import '../../ai_core/inference/ollama_model_installer.dart';
 import '../../ai_core/providers/ai_provider.dart';
+import '../../ai_core/translate/supported_languages.dart';
 import '../../core/app_info_provider.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/theme_provider.dart';
@@ -72,11 +75,11 @@ class SettingsScreen extends ConsumerWidget {
                     Icons.sd_storage_outlined,
                     color: info.isReady ? AppColors.teachColor : Colors.orange,
                   ),
-                  title: const Text('On-device Gemma file'),
+                  title: const Text('On-device chat model (Qwen3-0.6B)'),
                   subtitle: Text(
                     info.isReady
-                        ? 'Installed · ${info.platform ?? 'Android'}'
-                        : 'Not installed — transfer via USB (Android)',
+                        ? 'Installed · ${info.platform ?? 'this device'}'
+                        : 'Not installed — transfer the .litertlm file via USB',
                   ),
                   trailing: info.isReady
                       ? const Icon(
@@ -94,8 +97,57 @@ class SettingsScreen extends ConsumerWidget {
                 title: const Text('How AI works here'),
                 subtitle: const Text(
                   'Optional Cloud API key gives live answers online. '
-                  'Otherwise Android uses on-device Gemma and desktop uses Ollama. '
-                  'If none are ready, demo answers are labeled clearly.',
+                  'Otherwise every device — Android, Windows, or Linux — runs '
+                  'Qwen3-0.6B on-device via the same LiteRT-LM engine. '
+                  'If neither is ready, demo answers are labeled clearly.',
+                ),
+                isThreeLine: true,
+              ),
+            ]),
+
+            // ── Translation ──────────────────────────────────────────────────
+            _Section('Translation', [
+              studentAsync.when(
+                loading: () => const SizedBox.shrink(),
+                error: (_, __) => const SizedBox.shrink(),
+                data: (student) => ListTile(
+                  leading: const Icon(Icons.translate, color: AppColors.primary),
+                  title: const Text('Learning language'),
+                  subtitle: Text(
+                    student == null
+                        ? 'Complete onboarding first'
+                        : 'Chat happens in ${languageName(student.language)} — '
+                            'translated to/from English behind the scenes',
+                  ),
+                  trailing: student == null
+                      ? null
+                      : DropdownButton<String>(
+                          value: student.language,
+                          underline: const SizedBox.shrink(),
+                          items: [
+                            for (final lang in supportedLanguages)
+                              DropdownMenuItem(value: lang.code, child: Text(lang.name)),
+                          ],
+                          onChanged: (code) {
+                            if (code == null) return;
+                            ref.read(studentNotifierProvider.notifier).updateProfile(
+                                  id: student.id,
+                                  name: student.name,
+                                  language: code,
+                                );
+                          },
+                        ),
+                ),
+              ),
+              const _TranslateModelTile(),
+              const ListTile(
+                leading: Icon(Icons.info_outline, color: Colors.grey),
+                title: Text('How translation works'),
+                subtitle: Text(
+                  'AfriSLM translates your message to English, the tutor '
+                  'answers in English, then AfriSLM translates the reply back '
+                  '— all on-device. If it isn\'t installed, chat still works '
+                  'in English.',
                 ),
                 isThreeLine: true,
               ),
@@ -476,6 +528,124 @@ Future<void> _editCloudApi(
 
   if (saved != null) {
     await ref.read(cloudApiSettingsProvider.notifier).save(saved);
+  }
+}
+
+/// Install-from-file + Ollama registration for the AfriSLM translation
+/// model, mirroring ModelNotInstalledScreen's install flow but inline here
+/// since translation is optional (chat works without it).
+class _TranslateModelTile extends ConsumerStatefulWidget {
+  const _TranslateModelTile();
+
+  @override
+  ConsumerState<_TranslateModelTile> createState() => _TranslateModelTileState();
+}
+
+class _TranslateModelTileState extends ConsumerState<_TranslateModelTile> {
+  bool _busy = false;
+  double? _progress;
+  String? _statusMessage;
+
+  Future<void> _installAndRegister() async {
+    final result = await FilePicker.platform.pickFiles(
+      dialogTitle: 'Select the AfriSLM translation model (.gguf) file',
+      type: FileType.any,
+    );
+    final path = result?.files.single.path;
+    if (path == null) return;
+
+    setState(() {
+      _busy = true;
+      _progress = 0;
+      _statusMessage = 'Copying model file…';
+    });
+
+    try {
+      final manager = ref.read(translateModelManagerProvider);
+      final info = await manager.installFromFile(
+        path,
+        onProgress: (p) {
+          if (mounted && (p - (_progress ?? 0) >= 0.01 || p >= 1)) {
+            setState(() => _progress = p);
+          }
+        },
+      );
+
+      if (mounted) {
+        setState(() {
+          _progress = null;
+          _statusMessage = 'Registering with Ollama…';
+        });
+      }
+
+      await OllamaModelInstaller().createFromGguf(ggufPath: info.path!);
+
+      ref.invalidate(translateModelInfoProvider);
+      ref.invalidate(translateEngineLoadedProvider);
+      ref.invalidate(translationPipelineProvider);
+
+      if (mounted) {
+        setState(() => _statusMessage = null);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Translation model installed and ready.')),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() => _statusMessage = null);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Could not set up translation: $e')),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final modelAsync = ref.watch(translateModelInfoProvider);
+    final engineAsync = ref.watch(translateEngineLoadedProvider);
+
+    return modelAsync.when(
+      loading: () => const SizedBox.shrink(),
+      error: (_, __) => const SizedBox.shrink(),
+      data: (info) {
+        final ready = info.isReady && (engineAsync.valueOrNull != null);
+        String subtitle;
+        if (_busy) {
+          subtitle = _statusMessage ??
+              (_progress != null
+                  ? 'Installing… ${((_progress ?? 0) * 100).toStringAsFixed(0)}%'
+                  : 'Working…');
+        } else if (ready) {
+          subtitle = 'Installed and registered with Ollama';
+        } else if (info.isReady) {
+          subtitle = 'Installed — start Ollama to finish setup';
+        } else {
+          subtitle = 'Not installed — translation is skipped, chat stays in English';
+        }
+
+        return ListTile(
+          leading: Icon(
+            Icons.sd_storage_outlined,
+            color: ready ? AppColors.teachColor : Colors.orange,
+          ),
+          title: const Text('Translation model (AfriSLM)'),
+          subtitle: Text(subtitle),
+          trailing: _busy
+              ? const SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : TextButton(
+                  onPressed: _installAndRegister,
+                  child: Text(info.isReady ? 'Reinstall' : 'Install from file…'),
+                ),
+        );
+      },
+    );
   }
 }
 

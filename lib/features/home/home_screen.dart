@@ -36,7 +36,7 @@ class HomeScreen extends ConsumerWidget {
               Row(
                 children: [
                   Image.asset(
-                    'assets/branding/otic-studio-logo.png',
+                    'assets/branding/ai-connect-africa-logo.png',
                     width: 40,
                     height: 40,
                     fit: BoxFit.contain,

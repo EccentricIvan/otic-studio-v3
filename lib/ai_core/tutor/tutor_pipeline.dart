@@ -108,7 +108,7 @@ class TutorPipeline {
         .join('\n');
 
     if (lessonContext != null) {
-      // Curriculum already shown — Gemma just adds a brief follow-up
+      // Curriculum already shown — the model just adds a brief follow-up
       return '''You are a friendly tutor. The student already sees the lesson content. Add ONE short encouraging sentence and ask if they want a quiz or have questions. Maximum 1-2 sentences. Do not repeat the lesson.
 Student: $studentMessage
 Tutor:''';

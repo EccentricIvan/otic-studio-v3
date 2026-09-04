@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../ai_core/providers/ai_provider.dart';
+import '../../ai_core/translate/supported_languages.dart';
 import '../../ai_core/tutor/tutor_response.dart';
 import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/curriculum_provider.dart';
+import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/ai_status_banner.dart';
 import '../../shared/widgets/curriculum_diagram.dart';
 import '../../shared/widgets/responsive.dart';
@@ -17,11 +19,13 @@ class _ChatEntry {
     required this.isUser,
     this.lesson,
     this.isError = false,
+    this.translatedLanguage,
   });
   final String text;
   final bool isUser;
   final Lesson? lesson;
   final bool isError;
+  final String? translatedLanguage;
 }
 
 class LearnScreen extends ConsumerStatefulWidget {
@@ -61,16 +65,35 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
     _sendText(text);
   }
 
-  void _sendText(String text) {
+  Future<void> _sendText(String text) async {
     // Wait for the current answer before accepting the next question.
     if (ref.read(chatProvider).valueOrNull?.isGenerating ?? false) return;
     _controller.clear();
 
+    // The curriculum is English-only, so a non-English student's raw text
+    // won't match anything — translate to English first (best-effort) just
+    // for this local lookup. The tutor pipeline does its own translation
+    // for grounding the actual answer; this only decides whether to show
+    // the inline lesson card.
+    var textForMatch = text;
+    try {
+      final student = await ref.read(activeStudentProvider.future);
+      final lang = student?.language ?? 'en';
+      if (lang != 'en') {
+        final translation = await ref.read(translationPipelineProvider.future);
+        if (translation != null) {
+          textForMatch = await translation.toEnglish(text, lang);
+        }
+      }
+    } catch (_) {
+      // Fall back to matching on the raw text.
+    }
+
     final curriculum = ref.read(curriculumServiceProvider);
-    final lesson = curriculum.findBestMatch(text);
+    final lesson = curriculum.findBestMatch(textForMatch);
     if (lesson != null) _lessonForMessage[text] = lesson;
 
-    // Always send to Gemma — it adds a short follow-up
+    // Always send to the tutor — it adds a short follow-up
     ref.read(chatProvider.notifier).send(text);
     _scrollToBottom();
   }
@@ -223,6 +246,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                       text: msg.text,
                       isUser: msg.isUser,
                       isError: msg.isError,
+                      translatedLanguage: msg.translatedLanguage,
                     ));
                     if (msg.isUser) {
                       final lesson = _lessonForMessage[msg.text];
@@ -269,6 +293,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                         isStreaming: false,
                         onReadAloud: entry.text.isNotEmpty ? () => _readAloud(entry.text) : null,
                         isSpeaking: ref.watch(voiceSpeakingProvider) == entry.text,
+                        translatedLanguage: entry.translatedLanguage,
                       );
                     },
                   );
@@ -372,6 +397,7 @@ class _TutorBubble extends StatelessWidget {
     required this.isStreaming,
     this.onReadAloud,
     this.isSpeaking = false,
+    this.translatedLanguage,
   });
 
   final String text;
@@ -380,6 +406,10 @@ class _TutorBubble extends StatelessWidget {
   final bool isStreaming;
   final VoidCallback? onReadAloud;
   final bool isSpeaking;
+
+  /// Set when this reply was translated for display — shows a small
+  /// "Translated to <Language>" caption above the bubble.
+  final String? translatedLanguage;
 
   @override
   Widget build(BuildContext context) {
@@ -396,7 +426,7 @@ class _TutorBubble extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
-                    'assets/branding/otic-studio-logo.png',
+                    'assets/branding/ai-connect-africa-logo.png',
                     width: 13,
                     height: 13,
                     fit: BoxFit.contain,
@@ -409,6 +439,21 @@ class _TutorBubble extends StatelessWidget {
                       fontSize: 11,
                       color: Theme.of(context).hintColor,
                     ),
+                  ),
+                ],
+              ),
+            ),
+          if (translatedLanguage != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4, left: 4),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.translate, size: 12, color: Theme.of(context).hintColor),
+                  const SizedBox(width: 4),
+                  Text(
+                    'Translated to ${languageName(translatedLanguage!)}',
+                    style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
                   ),
                 ],
               ),
@@ -613,7 +658,7 @@ class _EmptyState extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(14),
               child: Image.asset(
-                'assets/branding/otic-studio-logo.png',
+                'assets/branding/ai-connect-africa-logo.png',
                 fit: BoxFit.contain,
                 semanticLabel: 'Logo',
               ),

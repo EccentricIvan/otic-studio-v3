@@ -1,27 +1,71 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_gemma/flutter_gemma.dart';
+import '../model/model_manager.dart';
 import 'inference_engine.dart';
 
-/// Android engine — Google LiteRT-LM runtime via flutter_gemma 1.x.
-/// Runs Gemma 3 1B entirely on-device (GPU delegate when available).
+/// Chat engine for every desktop/mobile platform — Google LiteRT-LM runtime
+/// via flutter_gemma_litertlm, registered in main.dart. Runs Qwen3-0.6B
+/// entirely on-device from a single .litertlm model file.
+///
+/// On Windows/Linux this always requests the CPU backend. On-device testing
+/// on a real (weak/older) Windows GPU found the native WebGPU backend
+/// doesn't fail fast on unsupported hardware — it silently falls back to a
+/// software adapter and hangs for ~11 minutes in `WaitForCompletion` before
+/// erroring. That's inside the compiled Google binary; a Dart-side
+/// `Future.timeout()` around the call does not help — it only stops *this*
+/// isolate from waiting, it does not interrupt the blocking native call
+/// underneath, which keeps running for its own full internal timeout
+/// regardless (confirmed: the native call still took ~11 minutes even with
+/// a 45s Dart timeout wrapped around it). Since there's no way to safely
+/// detect a bad GPU ahead of time without risking that same hang during the
+/// probe, desktop skips the GPU path entirely. Android keeps the platform
+/// default (GPU/NPU delegate when available), since it's the primary target
+/// and this machine's finding doesn't generalize to it.
 class LiteRtLmEngineImpl extends InferenceEngine {
   InferenceModel? _model;
+
+  static bool get _cpuOnly =>
+      defaultTargetPlatform == TargetPlatform.windows ||
+      defaultTargetPlatform == TargetPlatform.linux;
 
   @override
   bool get isReady => _model != null;
 
   @override
-  String get backendLabel => 'LiteRT-LM · Gemma 3 1B';
+  String get backendLabel =>
+      'LiteRT-LM · Qwen3-0.6B${_cpuOnly ? ' (CPU)' : ''}';
 
   @override
   Future<void> loadModel(String modelPath) async {
-    try {
-      final installed = await FlutterGemma.isModelInstalled('gemma');
-      if (!installed) {
-        await FlutterGemma.installModel(
-          modelType: ModelType.gemmaIt,
+    Future<void> install() => FlutterGemma.installModel(
+          modelType: ModelType.qwen3,
+          fileType: ModelFileType.litertlm,
         ).fromFile(modelPath).install();
+
+    try {
+      final installed =
+          await FlutterGemma.isModelInstalled(ModelManager.chatModelFileName);
+      if (!installed) {
+        await install();
       }
-      _model = await FlutterGemma.getActiveModel(maxTokens: 512);
+      try {
+        _model = await FlutterGemma.getActiveModel(
+          maxTokens: 1024,
+          preferredBackend: _cpuOnly ? PreferredBackend.cpu : null,
+        );
+      } catch (_) {
+        // flutter_gemma's "installed" repository record can go stale
+        // relative to the actual copied file (e.g. cleared from its
+        // managed AppData cache) — isModelInstalled() then reports true
+        // while its own active-model restore silently finds the file
+        // missing and refuses to set an active model. Force a fresh
+        // install once and retry rather than falling back to demo mode.
+        await install();
+        _model = await FlutterGemma.getActiveModel(
+          maxTokens: 1024,
+          preferredBackend: _cpuOnly ? PreferredBackend.cpu : null,
+        );
+      }
     } catch (e) {
       throw ModelLoadException('LiteRT-LM failed to load "$modelPath": $e');
     }

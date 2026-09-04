@@ -1,4 +1,4 @@
-# Otic Studio — offline update package builder
+# AI Connect Africa — offline update package builder
 #
 # Builds release artifacts and zips them into a dated update package
 # you can copy to a USB drive or a local school server. No internet
@@ -26,7 +26,7 @@ if ($Target -in @('windows', 'both')) {
     if ($LASTEXITCODE -ne 0) { throw 'Windows build failed' }
     $winOut = Join-Path $root 'build\windows\x64\runner\Release'
     Compress-Archive -Path "$winOut\*" `
-        -DestinationPath (Join-Path $outDir "Otic Studio Windows $stamp.zip") -Force
+        -DestinationPath (Join-Path $outDir "AI Connect Africa Windows $stamp.zip") -Force
     Write-Host "Windows package ready" -ForegroundColor Green
 }
 
@@ -35,17 +35,17 @@ if ($Target -in @('apk', 'both')) {
     & $flutter build apk --release
     if ($LASTEXITCODE -ne 0) { throw 'APK build failed' }
     Copy-Item (Join-Path $root 'build\app\outputs\flutter-apk\app-release.apk') `
-        (Join-Path $outDir "Otic Studio $stamp.apk")
+        (Join-Path $outDir "AI Connect Africa $stamp.apk")
     Write-Host "APK package ready" -ForegroundColor Green
 }
 
 # Instructions that travel with the package
 @"
-Otic Studio update package — $stamp
+AI Connect Africa update package — $stamp
 
 WINDOWS
   1. Copy the zip to the target PC and extract anywhere (e.g. C:\OTIC).
-  2. Run Otic Studio.exe. Student data is stored separately in
+  2. Run "AI Connect Africa.exe". Student data is stored separately in
      Documents and is preserved across updates.
 
 ANDROID

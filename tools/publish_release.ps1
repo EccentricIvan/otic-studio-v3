@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Publishes an Otic Studio GitHub release with both the Android APK and the
+  Publishes an AI Connect Africa GitHub release with both the Android APK and the
   Windows desktop zip attached.
 
 .DESCRIPTION
@@ -13,7 +13,7 @@
   Marketing version without the leading 'v', e.g. 1.1.0
 
 .PARAMETER ArtifactDir
-  Folder holding Otic Studio v<Version>.apk and Otic Studio Windows v<Version>.zip
+  Folder holding AI Connect Africa v<Version>.apk and AI Connect Africa Windows v<Version>.zip
   (default: D:\)
 
 .EXAMPLE
@@ -28,8 +28,8 @@ param(
 $ErrorActionPreference = 'Stop'
 
 $tag      = "v$Version"
-$apk      = Join-Path $ArtifactDir "Otic Studio v$Version.apk"
-$zip      = Join-Path $ArtifactDir "Otic Studio Windows v$Version.zip"
+$apk      = Join-Path $ArtifactDir "AI Connect Africa v$Version.apk"
+$zip      = Join-Path $ArtifactDir "AI Connect Africa Windows v$Version.zip"
 $repoRoot = Split-Path $PSScriptRoot -Parent
 $notes    = Join-Path $repoRoot "dist\release-notes-v$Version.md"
 
@@ -50,7 +50,7 @@ if ($LASTEXITCODE -ne 0) {
 # --- Publish -----------------------------------------------------------------
 Write-Host "Publishing $tag with APK + Windows zip..." -ForegroundColor Green
 gh release create $tag $apk $zip `
-  --title "Otic Studio $tag" `
+  --title "AI Connect Africa $tag" `
   --notes-file $notes
 
 Write-Host "Done. Release page: " -NoNewline

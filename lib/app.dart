@@ -66,7 +66,7 @@ class _SplashScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              'assets/branding/otic-studio-logo.png',
+              'assets/branding/ai-connect-africa-logo.png',
               width: 80,
               height: 80,
             ),
@@ -97,22 +97,37 @@ class _SplashScreen extends StatelessWidget {
 }
 
 /// Gates the Learn screen: shows "model not installed" if no model found.
-class ModelGate extends ConsumerWidget {
+/// "Try demo mode" reveals [child] for this visit without installing
+/// anything — the chat provider already falls back to canned demo answers
+/// when no model is loaded, so this just lets that path be reached.
+class ModelGate extends ConsumerStatefulWidget {
   const ModelGate({super.key, required this.child});
   final Widget child;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ModelGate> createState() => _ModelGateState();
+}
+
+class _ModelGateState extends ConsumerState<ModelGate> {
+  bool _showDemoAnyway = false;
+
+  @override
+  Widget build(BuildContext context) {
+    if (_showDemoAnyway) return widget.child;
+
     final modelInfo = ref.watch(modelInfoProvider);
     return modelInfo.when(
       loading: () =>
           const Scaffold(body: Center(child: CircularProgressIndicator())),
-      error: (_, __) => child,
+      error: (_, __) => widget.child,
       data: (info) {
         if (info.status == ModelStatus.notInstalled) {
-          return ModelNotInstalledScreen(info: info);
+          return ModelNotInstalledScreen(
+            info: info,
+            onTryDemo: () => setState(() => _showDemoAnyway = true),
+          );
         }
-        return child;
+        return widget.child;
       },
     );
   }

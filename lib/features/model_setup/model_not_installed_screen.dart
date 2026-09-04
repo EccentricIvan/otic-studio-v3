@@ -7,9 +7,15 @@ import '../../ai_core/providers/ai_provider.dart';
 import '../../core/theme/app_colors.dart';
 
 class ModelNotInstalledScreen extends ConsumerStatefulWidget {
-  const ModelNotInstalledScreen({super.key, required this.info});
+  const ModelNotInstalledScreen({super.key, required this.info, this.onTryDemo});
 
   final ModelInfo info;
+
+  /// Called when the student picks "Try demo mode" instead of installing —
+  /// lets the caller (ModelGate) reveal the real chat screen, which already
+  /// falls back to canned demo answers when no model is loaded. Falls back
+  /// to popping the route if not provided.
+  final VoidCallback? onTryDemo;
 
   @override
   ConsumerState<ModelNotInstalledScreen> createState() =>
@@ -26,7 +32,7 @@ class _ModelNotInstalledScreenState
     setState(() => _error = null);
 
     final result = await FilePicker.platform.pickFiles(
-      dialogTitle: 'Select the Gemma model file',
+      dialogTitle: 'Select the chat model (.litertlm) file',
       type: FileType.any,
     );
     final path = result?.files.single.path;
@@ -110,7 +116,7 @@ class _ModelNotInstalledScreenState
                     widget.info.status == ModelStatus.corrupted
                         ? 'A model file was found but appears corrupted or '
                               'incomplete. Please reinstall it below.'
-                        : 'The app needs the Gemma 3 1B model file to '
+                        : 'The app needs the chat model file to '
                               'work. No internet is needed — get the file from '
                               'a USB drive or your school server, then install '
                               'it below.',
@@ -182,7 +188,8 @@ class _ModelNotInstalledScreenState
                           child: OutlinedButton.icon(
                             icon: const Icon(Icons.science_outlined),
                             label: const Text('Try demo mode'),
-                            onPressed: () => Navigator.of(context).pop(),
+                            onPressed:
+                                widget.onTryDemo ?? () => Navigator.of(context).pop(),
                           ),
                         ),
                       ],

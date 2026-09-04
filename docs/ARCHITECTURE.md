@@ -25,8 +25,8 @@ desktop. It is layered:
 │   • HTML generator       • CertificateGenerator           │
 ├──────────────────────────────────────────────────────────┤
 │  AI core (InferenceEngine)        Storage (Drift/SQLite)  │
-│   • LiteRT-LM (Android)            • 7 tables, 1 file      │
-│   • llama.cpp (desktop)            • per-device, no sync   │
+│   • LiteRT-LM chat (all platforms) • 7 tables, 1 file      │
+│   • Ollama/llama.cpp translation   • per-device, no sync   │
 │   • MockEngine (fallback)                                 │
 └──────────────────────────────────────────────────────────┘
 ```
@@ -54,28 +54,20 @@ abstract class InferenceEngine {
 }
 ```
 
-Three implementations:
+Implementations:
 
-| Engine | Platform | Backing |
-|---|---|---|
-| `LiteRtLmEngine` | Android | `flutter_gemma` → Google LiteRT-LM, GPU/NPU |
-| `LlamaCppEngine` | Windows/Linux | llama.cpp through `dart:ffi`, GGUF Q4 |
-| `MockEngine` | any | deterministic canned responses for dev / no-model |
+| Engine | Role | Platform | Backing |
+|---|---|---|---|
+| `LiteRtLmEngineImpl` | Chat/tutor | Android, Windows, Linux | `flutter_gemma`/`flutter_gemma_litertlm` → Google LiteRT-LM, GPU/NPU. Runs Qwen3-0.6B from one `.litertlm` file, identical on every platform. |
+| `OllamaEngine` | Translation | Windows, Linux | Local Ollama server, pointed at a specific model tag (`OllamaEngine.modelTag`) — currently the AfriSLM translation model, registered locally via `OllamaModelInstaller` (`ollama create` from a USB-distributed GGUF, never `ollama pull`ed). |
+| *(planned)* | Translation | Android | llama.cpp binding loading the AfriSLM GGUF directly — not yet implemented. |
+| `MockEngine` | Fallback | any | deterministic canned responses for dev / no-model / no-Ollama |
 
-### Experimental fllama path
-
-An additive Android-only test path lives outside the production
-`InferenceEngine` provider chain:
-
-| Piece | Location | Purpose |
-|---|---|---|
-| `LlamaModelManager` | [lib/ai_core/llama/](../lib/ai_core/llama/) | Downloads Llama 3.2 1B Q4_K_M GGUF into app documents storage and records an install marker. |
-| `FllamaEngine` | [lib/ai_core/llama/](../lib/ai_core/llama/) | Thin wrapper over `fllama` context loading and completions. |
-| `LlamaTestScreen` | [lib/features/llama/](../lib/features/llama/) | Manual URL download, prompt input, response display, and error handling. |
-
-This route is reachable at `/llama-test`. It exists to A/B test llama.cpp against
-the existing MediaPipe/Gemma path and does not replace `LiteRtLmEngine`,
-`ModelManager`, or `engineLoadedProvider`.
+`TranslationPipeline` ([translate/translation_pipeline.dart](../lib/ai_core/translate/translation_pipeline.dart))
+wraps whichever translation engine resolved and exposes `toEnglish`/`fromEnglish`,
+called from `ChatNotifier.send()` around the tutor pipeline so the student can
+write in any of 19 supported African languages while the tutor itself always
+reasons in English.
 
 ### Model lifecycle
 
@@ -116,20 +108,26 @@ as a compressed session summary.
 ## 4. Request flow (Learn mode example)
 
 ```
-Student types a message
+Student types a message (any of 19 supported languages, or English)
       │
       ▼
 ChatNotifier.send()                       lib/ai_core/providers/ai_provider.dart
       │
-      ├─► EmotionalSafetyEngine.check()    lib/safety/emotional_safety.dart
+      ├─► TranslationPipeline.toEnglish()  if student.language != 'en'
+      │     • best-effort — falls back to the original text on failure
+      │
+      ▼
+EmotionalSafetyEngine.check()             lib/safety/emotional_safety.dart
       │     • crisis  → bypass model, return support message, stop
       │     • distress/frustration → attach a tutor note, continue
       │
       ▼
-TutorPipeline.respond(onToken: …)         streams tokens to the UI
+TutorPipeline.respond(onToken: …)         streams tokens to the UI (English)
       │
       ▼
-InferenceEngine.generate()                on-device model
+InferenceEngine.generate()                on-device chat model
+      │
+      ├─► TranslationPipeline.fromEnglish()  translate reply back for display
       │
       ▼
 Render response  +  SessionDao.saveSession()   compressed summary → SQLite

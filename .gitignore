@@ -54,6 +54,8 @@ android/key.properties
 *.gguf
 *.bin
 *.ggml
+*.litertlm
+*.task
 data/models/
 packages/ai-core/models/
 

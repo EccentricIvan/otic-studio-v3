@@ -14,7 +14,7 @@ for how the pieces fit together.
 | **Flutter SDK** | 3.44+ | Includes Dart. Add `flutter/bin` to PATH. |
 | **JDK** | 17 (Temurin) | For Android builds. Avoid mismatched winget manifests. |
 | **Android SDK** | platforms 35 + 36, build-tools 34.0.0 | Only needed to build/run the Android app. |
-| **Android NDK + CMake** | NDK 28.0.12433566, CMake 3.31.0 | Needed by the experimental `fllama`/llama.cpp Android test path. |
+| **Android NDK + CMake** | NDK 28.0.12433566, CMake 3.31.0 | Needed to build the Android app (native plugins). |
 | **Visual Studio Build Tools** | "Desktop development with C++" | Only needed to build the Windows desktop app. |
 | **Git** | any recent | |
 | **GitHub CLI** (`gh`) | optional | Only for publishing releases. |
@@ -70,22 +70,15 @@ The Gemma model (~1 GB) is **gitignored and distributed separately** (USB / loca
 server) — it is never committed or downloaded over the internet.
 
 - **In-app:** open the app → **Model Not Installed** screen → **Install from
-  file…** → pick the model file. The app validates, copies, and activates it.
+  file…** → pick the chat model (`.litertlm`). The app validates, copies, and
+  activates it. Same flow under **Settings → Translation** for the AfriSLM
+  translation model (`.gguf`).
 - **Manual placement (alternative):**
-  - Android: `[InternalStorage]/OTIC/gemma-3-1b.bin`
-  - Windows: `[Documents]/OTIC/gemma-3-1b-q4_k_m.gguf`
+  - Chat: `[Documents]/OTIC/chat-model.litertlm` (Windows/Linux); Android also
+    checks `[InternalStorage]/OTIC/` and the app's internal `models/` folder.
+  - Translation: `[Documents]/OTIC/translate-afrislm.gguf`.
 
-Files matching `*.gguf`, `*.bin`, `*.ggml` are gitignored — do not commit them.
-
-### Experimental Llama 3.2 GGUF test model
-
-The `/llama-test` screen is a separate llama.cpp experiment using `fllama`. It
-downloads **Llama 3.2 1B Q4_K_M** from a direct URL into app documents storage
-and records a small install marker beside the file. This is for A/B testing only:
-it does not change the Gemma model installer or the production tutor engine.
-
-Do not place the Llama GGUF in `assets/` and do not commit it. The file is large
-and should stay outside the APK/repo.
+Files matching `*.gguf`, `*.bin`, `*.ggml`, `*.litertlm` are gitignored — do not commit them.
 
 ---
 

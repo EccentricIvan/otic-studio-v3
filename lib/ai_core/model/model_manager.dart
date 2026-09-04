@@ -39,18 +39,23 @@ class ModelInfo {
   bool get isReady => status == ModelStatus.ready;
 }
 
-/// Locates the Gemma 3 1B model file on the device.
+/// Locates the chat model (.litertlm) on the device — currently Qwen3-0.6B.
+///
+/// LiteRT-LM runs this file identically on Android, Windows, and Linux, so
+/// there is a single canonical on-disk filename [chatModelFileName] instead
+/// of a per-platform name — only the containing folder differs. Kept
+/// model-agnostic (not e.g. "qwen3-chat.litertlm") since swapping the
+/// backing model is just a ModelType change in litert_lm_engine.dart.
 ///
 /// Expected locations (checked in order):
-///   Android  → <externalStorage>/OTIC/gemma-3-1b.bin
-///              → <appFiles>/models/gemma-3-1b.bin
-///   Windows  → <appDocuments>\OTIC\gemma-3-1b-q4_k_m.gguf
-///   Linux    → <appDocuments>/OTIC/gemma-3-1b-q4_k_m.gguf
+///   Android          → <externalStorage>/OTIC/chat-model.litertlm
+///                       → <appFiles>/models/chat-model.litertlm
+///   Windows / Linux  → <appDocuments>\OTIC\chat-model.litertlm
 class ModelManager {
-  static const _androidModelNames = ['gemma-model.bin', 'gemma-model.task'];
-  static const _desktopModelName = 'gemma-3-1b-q4_k_m.gguf';
-  // Minimum sane file size — reject obvious truncations
-  static const _minSizeBytes = 200 * 1024 * 1024; // 200 MB
+  static const chatModelFileName = 'chat-model.litertlm';
+  // Minimum sane file size — reject obvious truncations. Smallest supported
+  // quant (Qwen3-0.6B dynamic int4) is ~330 MB; leave margin below that.
+  static const _minSizeBytes = 250 * 1024 * 1024; // 250 MB
 
   Future<ModelInfo> checkModel() async {
     final candidates = await _candidatePaths();
@@ -84,28 +89,24 @@ class ModelManager {
       try {
         final ext = await getExternalStorageDirectory();
         if (ext != null) {
-          for (final name in _androidModelNames) {
-            paths.add(
-              p.join(
-                ext.parent.parent.parent.parent.path,
-                'OTIC',
-                name,
-              ),
-            );
-          }
+          paths.add(
+            p.join(
+              ext.parent.parent.parent.parent.path,
+              'OTIC',
+              chatModelFileName,
+            ),
+          );
         }
       } catch (_) {}
       // App-internal files dir
       final appFiles = await getApplicationDocumentsDirectory();
-      for (final name in _androidModelNames) {
-        paths.add(p.join(appFiles.path, 'models', name));
-      }
+      paths.add(p.join(appFiles.path, 'models', chatModelFileName));
     } else {
       // Windows / Linux — Documents/OTIC/
       final docs = await getApplicationDocumentsDirectory();
-      paths.add(p.join(docs.path, 'OTIC', _desktopModelName));
+      paths.add(p.join(docs.path, 'OTIC', chatModelFileName));
       // Also check next to the executable (dev convenience)
-      paths.add(p.join(Directory.current.path, 'models', _desktopModelName));
+      paths.add(p.join(Directory.current.path, 'models', chatModelFileName));
     }
     return paths;
   }
@@ -115,23 +116,22 @@ class ModelManager {
       case TargetPlatform.android:
         return 'Android (LiteRT-LM)';
       case TargetPlatform.windows:
-        return 'Windows (Ollama)';
+        return 'Windows (LiteRT-LM)';
       case TargetPlatform.linux:
-        return 'Linux (Ollama)';
+        return 'Linux (LiteRT-LM)';
       default:
         return 'Unknown';
     }
   }
 
   /// Destination used when the user installs a model through the app.
-  Future<String> installTargetPath({String extension = '.task'}) async {
+  Future<String> installTargetPath() async {
     if (defaultTargetPlatform == TargetPlatform.android) {
-      final name = extension == '.bin' ? 'gemma-model.bin' : 'gemma-model.task';
       final appFiles = await getApplicationDocumentsDirectory();
-      return p.join(appFiles.path, 'models', name);
+      return p.join(appFiles.path, 'models', chatModelFileName);
     }
     final docs = await getApplicationDocumentsDirectory();
-    return p.join(docs.path, 'OTIC', _desktopModelName);
+    return p.join(docs.path, 'OTIC', chatModelFileName);
   }
 
   /// Copies a user-picked model file into the expected location.
@@ -148,26 +148,22 @@ class ModelManager {
       throw const ModelInstallException('The selected file no longer exists.');
     }
 
-    final allowed = defaultTargetPlatform == TargetPlatform.android
-        ? const ['.bin', '.task']
-        : const ['.gguf'];
     final ext = p.extension(sourcePath).toLowerCase();
-    if (!allowed.contains(ext)) {
-      throw ModelInstallException(
-        'Wrong file type. This device needs a ${allowed.join(' or ')} '
-        'model file.',
+    if (ext != '.litertlm') {
+      throw const ModelInstallException(
+        'Wrong file type. This device needs a .litertlm model file.',
       );
     }
 
     final size = await source.length();
     if (size < _minSizeBytes) {
       throw const ModelInstallException(
-        'That file is too small to be the Gemma model — it should be '
-        'around 800 MB to 1 GB. The download or copy may be incomplete.',
+        'That file is too small to be the chat model — it should be at '
+        'least a few hundred MB. The download or copy may be incomplete.',
       );
     }
 
-    final targetPath = await installTargetPath(extension: ext);
+    final targetPath = await installTargetPath();
     final target = File(targetPath);
     await target.parent.create(recursive: true);
 
@@ -202,16 +198,11 @@ class ModelManager {
 
   /// Where to tell the user to put the model file.
   Future<String> installInstructions() async {
-    if (defaultTargetPlatform == TargetPlatform.android) {
-      return 'Transfer the model file to your phone with a USB cable, then '
-          'choose it with Install from file.\n\n'
-          'Model: gemma3-1B-it-int4.task (~541 MB)\n'
-          'Source: Download from Kaggle (Google Gemma 3 LiteRT tab).';
-    }
     return 'Transfer the model file to this device, then choose it with '
         'Install from file.\n\n'
-        'Model: gemma-3-1b-q4_k_m.gguf (~800 MB)\n'
-        'Source: Download from Hugging Face (bartowski/gemma-3-1B-it-GGUF) '
-        'on a device with internet.';
+        'Model: Qwen3-0.6B .litertlm file (~330-590 MB depending on quant)\n'
+        'Source: Download from Hugging Face '
+        '(litert-community/Qwen3-0.6B) on a device with internet — '
+        'Apache-2.0, no license click-through needed.';
   }
 }

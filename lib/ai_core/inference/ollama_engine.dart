@@ -3,20 +3,27 @@ import 'dart:convert';
 import 'dart:io';
 import 'inference_engine.dart';
 
-/// Connects to a local Ollama instance running on the device.
-/// Ollama serves models via HTTP at localhost:11434.
+/// Connects to a local Ollama instance running on the device and talks to
+/// one specific model tag — currently used only for the AfriSLM translation
+/// model (`ai-connect-africa-translate`, created locally by
+/// OllamaModelInstaller from a USB-distributed GGUF; never `ollama pull`ed
+/// over the internet). Ollama serves models via HTTP at localhost:11434.
 class OllamaEngine extends InferenceEngine {
-  static const _baseUrl = 'http://127.0.0.1:11434';
-  static const _defaultModel = 'gemma3:1b';
+  OllamaEngine({required this.modelTag});
 
-  String _model = _defaultModel;
+  static const _baseUrl = 'http://127.0.0.1:11434';
+
+  /// The exact Ollama model tag this engine must find installed, e.g.
+  /// `ai-connect-africa-translate`.
+  final String modelTag;
+
   bool _ready = false;
 
   @override
   bool get isReady => _ready;
 
   @override
-  String get backendLabel => 'Ollama · $_model';
+  String get backendLabel => 'Ollama · $modelTag';
 
   @override
   Future<void> loadModel(String modelPath) async {
@@ -27,14 +34,20 @@ class OllamaEngine extends InferenceEngine {
       final body = await response.transform(utf8.decoder).join();
       final json = jsonDecode(body) as Map<String, dynamic>;
       final models = (json['models'] as List?) ?? [];
+      final names = models
+          .map((m) => (m as Map<String, dynamic>)['name'] as String?)
+          .whereType<String>()
+          .toList();
 
-      if (models.isNotEmpty) {
-        _model = (models.first['name'] as String?) ?? _defaultModel;
+      // Ollama always qualifies a bare tag with a version, e.g. `ollama
+      // create foo` registers it as `foo:latest` — match that too, not just
+      // an exact bare-tag string.
+      if (names.any((n) => n == modelTag || n.startsWith('$modelTag:'))) {
         _ready = true;
       } else {
         throw ModelLoadException(
-          'Ollama is running but no models are installed. '
-          'Open a terminal and run: ollama pull gemma3:1b',
+          'Ollama is running but "$modelTag" isn\'t installed yet. '
+          'Install the model from Settings first.',
         );
       }
       client.close();
@@ -66,7 +79,7 @@ class OllamaEngine extends InferenceEngine {
     );
     request.headers.contentType = ContentType.json;
     request.write(jsonEncode({
-      'model': _model,
+      'model': modelTag,
       'prompt': prompt,
       'stream': true,
       'options': {

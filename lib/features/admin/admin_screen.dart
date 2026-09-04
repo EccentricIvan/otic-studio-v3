@@ -70,7 +70,7 @@ class AdminScreen extends ConsumerWidget {
                 children: [
                   _InfoRow(
                     icon: Icons.memory,
-                    label: 'Gemma 3 1B',
+                    label: 'Qwen3-0.6B (chat)',
                     value: info.isReady
                         ? 'Installed · ${info.platform ?? ''}'
                         : 'Not installed',

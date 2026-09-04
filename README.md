@@ -28,19 +28,11 @@ On Android phones and tablets, use the direct [**Download Android APK**](https:/
 
 Current automated artifact names are `ai-connect-africa-latest.apk` and `ai-connect-africa-windows-latest.zip`.
 
-Both can also be shared offline by USB, Bluetooth, or a local server. The APK is signed with the official Otic Studio certificate (`CN=Otic Studio, O=OTIC, L=Kampala, C=UG`); Android rejects updates not signed with the same key.
+Both can also be shared offline by USB, Bluetooth, or a local server. The APK is signed with the official release certificate (`CN=Otic Studio, O=OTIC, L=Kampala, C=UG`); Android rejects updates not signed with the same key.
 
 ### The AI model (one extra step, once per device)
 
-The app is small; the AI tutor needs the **Gemma 3 1B model file (~1 GB)**, distributed separately on USB or a school server — never over the internet. The app runs without it and shows a **"Model Not Installed"** screen with an **Install from file…** button: pick the model from wherever you copied it and the app validates, copies, and activates it with a progress bar.
-
-### Experimental Llama 3.2 test model
-
-There is also an isolated `/llama-test` screen for A/B testing llama.cpp through
-`fllama`. It does **not** replace the Gemma/MediaPipe tutor path. Paste a direct
-GGUF URL, download **Llama 3.2 1B Q4_K_M** into the app documents directory, then
-send one-off prompts from that screen. The GGUF is never bundled in `assets/` or
-the APK.
+The app is small; the AI tutor needs the **Qwen3-0.6B chat model file (~330–590 MB)**, distributed separately on USB or a school server — never over the internet. The app runs without it and shows a **"Model Not Installed"** screen with an **Install from file…** button: pick the model from wherever you copied it and the app validates, copies, and activates it with a progress bar.
 
 ---
 
@@ -72,7 +64,7 @@ the APK.
 
 | What is NOT used | What IS used |
 |---|---|
-| OpenAI / Anthropic / any hosted LLM | Gemma 3 1B running on-device |
+| OpenAI / Anthropic / any hosted LLM | Qwen3-0.6B running on-device |
 | Firebase / Supabase / cloud sync | SQLite via Drift (local, per device) |
 | `google_fonts` (fetches over network) | Font files bundled in the APK |
 | Cloud certificate services | `pdf` package — generated locally |
@@ -82,23 +74,20 @@ the APK.
 
 ## AI Inference
 
-| Platform | Runtime | Model | Size |
-|---|---|---|---|
-| Android (4 GB+ RAM) | LiteRT-LM (Google, GPU/NPU) via `flutter_gemma` | Gemma 3 1B `.task`/`.bin` | ~1 GB |
-| Windows / Linux (8 GB+ RAM) | llama.cpp via `dart:ffi` | Gemma 3 1B Q4_K_M `.gguf` | ~800 MB |
-| Android test screen | llama.cpp via `fllama` | Llama 3.2 1B Q4_K_M `.gguf` | ~700 MB-1 GB |
+| Role | Platform | Runtime | Model | Size |
+|---|---|---|---|---|
+| Chat/tutor | Android, Windows, Linux (4 GB+ RAM) | LiteRT-LM (Google, GPU/NPU) via `flutter_gemma`/`flutter_gemma_litertlm` | Qwen3-0.6B `.litertlm` | ~330–590 MB |
+| Translation | Windows / Linux | Local Ollama server | TranslatePsy-AfriSLM 0.8B `.gguf` | ~0.5–1 GB |
+| Translation | Android | llama.cpp binding (planned) | TranslatePsy-AfriSLM 0.8B `.gguf` | ~0.5–1 GB |
 
-Both platforms implement the same `InferenceEngine` interface ([lib/ai_core/inference/](lib/ai_core/inference/)). The app detects the model at startup; when absent it falls back to a `MockEngine` so every screen still works for demonstration.
-
-The `fllama` path is intentionally separate under [lib/ai_core/llama/](lib/ai_core/llama/) and [lib/features/llama/](lib/features/llama/). It exists for local llama.cpp testing and is not used by the production tutor providers.
+All engines implement the same `InferenceEngine` interface ([lib/ai_core/inference/](lib/ai_core/inference/)). The app detects each model at startup; when absent it falls back to a `MockEngine` so every screen still works for demonstration, and translation degrades to English-only chat.
 
 ---
 
 ## Technology Stack
 
 - **Flutter 3.44+ / Dart** — single codebase for Android and Desktop
-- **flutter_gemma 0.4.6** — LiteRT-LM on-device inference
-- **fllama 0.0.1** - experimental Android llama.cpp test screen
+- **flutter_gemma + flutter_gemma_litertlm** — LiteRT-LM on-device chat inference (Qwen3-0.6B), one engine for Android/Windows/Linux
 - **Drift 2.20 + drift_flutter** — SQLite ORM for student data
 - **flutter_riverpod** — state management
 - **go_router** — navigation with async onboarding redirect
@@ -112,9 +101,9 @@ The `fllama` path is intentionally separate under [lib/ai_core/llama/](lib/ai_co
 ```
 lib/
   ai_core/
-    inference/        InferenceEngine + LiteRT-LM, llama.cpp, Mock engines
-    llama/            Experimental fllama downloader + Llama 3.2 test engine
-    model/            ModelManager: detect, validate, install model file
+    inference/        InferenceEngine + LiteRT-LM, Ollama, Mock engines
+    translate/        AfriSlmModelManager, TranslationPipeline, supported languages
+    model/            ModelManager: detect, validate, install chat model file
     tutor/            TutorPipeline (Answer→Clarify→Practice→Apply→Create→Reflect)
     providers/        Riverpod engine, chat, and model-status providers
   db/

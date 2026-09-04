@@ -98,9 +98,9 @@ extension DemoReasonMessage on DemoReason {
         DemoReason.web =>
           'The browser build cannot run an on-device model. Replies are sample text only.',
         DemoReason.modelNotInstalled =>
-          'Install the Gemma model from USB or Settings to get real tutor answers.',
+          'Install the chat model from USB or Settings to get real tutor answers.',
         DemoReason.ollamaUnavailable =>
-          'Start Ollama locally (e.g. ollama pull gemma3:1b) for real desktop AI.',
+          'Start Ollama locally with the AfriSLM translation model for real-language translation.',
         DemoReason.loadFailed =>
           'The local model could not start. Check Settings, then try again.',
         DemoReason.generic =>

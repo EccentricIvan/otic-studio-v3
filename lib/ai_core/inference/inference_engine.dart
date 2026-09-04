@@ -1,14 +1,12 @@
-import 'package:flutter/foundation.dart';
 import 'litert_lm_engine.dart';
-import 'ollama_engine.dart';
 
 /// Token-by-token streaming callback.
 typedef TokenCallback = void Function(String token);
 
 /// Unified interface for all local inference backends.
-/// - Android      → LiteRtLmEngineImpl (flutter_gemma / MediaPipe)
-/// - Windows/Linux → OllamaEngine (local Ollama server)
-/// - Dev/Test     → MockEngine (instant canned responses)
+/// - Chat (Android/Windows/Linux) → LiteRtLmEngineImpl (flutter_gemma_litertlm, Qwen3-0.6B)
+/// - Translate (Windows/Linux)    → OllamaEngine (local Ollama server, AfriSLM)
+/// - Dev/Test                     → MockEngine (instant canned responses)
 abstract class InferenceEngine {
   bool get isReady;
   String get backendLabel;
@@ -38,10 +36,9 @@ class ModelLoadException implements Exception {
   String toString() => 'ModelLoadException: $message';
 }
 
-/// Returns the correct engine for the current platform.
+/// Returns the chat engine — LiteRT-LM runs Qwen3-0.6B identically on
+/// Android, Windows, and Linux, so there's no per-platform branch here
+/// anymore (web is short-circuited earlier, in ai_provider.dart).
 InferenceEngine createPlatformEngine() {
-  if (defaultTargetPlatform == TargetPlatform.android) {
-    return LiteRtLmEngineImpl();
-  }
-  return OllamaEngine();
+  return LiteRtLmEngineImpl();
 }

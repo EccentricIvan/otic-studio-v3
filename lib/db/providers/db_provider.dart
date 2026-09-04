@@ -84,11 +84,15 @@ class StudentNotifier extends AsyncNotifier<Student?> {
   /// Updates the existing profile in place — unlike [createProfile], this
   /// never inserts a second row (which would leave two students competing
   /// for "active" and break [getActiveStudent]'s single-row assumption).
+  /// Fields left null are left untouched in the DB (except [name], which is
+  /// always required and always overwrites) — a caller updating just one
+  /// field, e.g. only `language`, must not silently wipe the others.
   Future<void> updateProfile({
     required int id,
     required String name,
     int? age,
     String? grade,
+    String? language,
     List<String>? interests,
     String? learningStyle,
   }) async {
@@ -97,8 +101,9 @@ class StudentNotifier extends AsyncNotifier<Student?> {
       StudentsCompanion(
         id: Value(id),
         name: Value(name),
-        age: Value(age),
-        grade: Value(grade),
+        age: age != null ? Value(age) : const Value.absent(),
+        grade: grade != null ? Value(grade) : const Value.absent(),
+        language: language != null ? Value(language) : const Value.absent(),
         interestsJson: interests != null ? Value(_toJson(interests)) : const Value.absent(),
         learningStyle: learningStyle != null ? Value(learningStyle) : const Value.absent(),
         lastActiveAt: Value(DateTime.now()),

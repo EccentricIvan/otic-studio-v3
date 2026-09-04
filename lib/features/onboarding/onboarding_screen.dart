@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../ai_core/translate/supported_languages.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
 
@@ -21,7 +22,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   final _nameController = TextEditingController();
   int? _age;
   String? _grade;
-  final String _language = 'en';
+  String _language = 'en';
   final Set<String> _interests = {};
   String _learningStyle = 'unknown';
   bool _saving = false;
@@ -40,6 +41,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         _nameController.text = existing.name;
         _age = existing.age;
         _grade = existing.grade;
+        _language = existing.language;
         _learningStyle = existing.learningStyle;
       }
     }
@@ -102,6 +104,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
             name: name,
             age: _age,
             grade: _grade,
+            language: _language,
             interests: _interests.toList(),
             learningStyle: _learningStyle,
           );
@@ -190,7 +193,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   physics: const NeverScrollableScrollPhysics(),
                   onPageChanged: (i) => setState(() => _page = i),
                   children: [
-                    _NamePage(controller: _nameController),
+                    _NamePage(
+                      controller: _nameController,
+                      language: _language,
+                      onLanguageChanged: (code) => setState(() => _language = code),
+                    ),
                   ],
                 ),
               ),
@@ -224,8 +231,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 // ── Page 1: Name ──────────────────────────────────────────────────────────────
 
 class _NamePage extends StatelessWidget {
-  const _NamePage({required this.controller});
+  const _NamePage({
+    required this.controller,
+    required this.language,
+    required this.onLanguageChanged,
+  });
   final TextEditingController controller;
+  final String language;
+  final ValueChanged<String> onLanguageChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -236,7 +249,7 @@ class _NamePage extends StatelessWidget {
         children: [
           const SizedBox(height: 12),
           Image.asset(
-            'assets/branding/otic-studio-logo.png',
+            'assets/branding/ai-connect-africa-logo.png',
             width: 64,
             height: 64,
             fit: BoxFit.contain,
@@ -266,6 +279,31 @@ class _NamePage extends StatelessWidget {
               hintText: 'Enter your name',
               prefixIcon: Icon(Icons.person_outline),
             ),
+          ),
+          const SizedBox(height: 24),
+          Text(
+            'What language do you want to learn in?',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'The tutor always understands your answers — pick English if you '
+            'want to skip translation.',
+            style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.4),
+          ),
+          const SizedBox(height: 10),
+          DropdownButtonFormField<String>(
+            initialValue: language,
+            decoration: const InputDecoration(
+              prefixIcon: Icon(Icons.translate),
+            ),
+            items: [
+              for (final lang in supportedLanguages)
+                DropdownMenuItem(value: lang.code, child: Text(lang.name)),
+            ],
+            onChanged: (code) {
+              if (code != null) onLanguageChanged(code);
+            },
           ),
         ],
       ),

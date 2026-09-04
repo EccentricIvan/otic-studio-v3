@@ -88,11 +88,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           ),
           GoRoute(path: '/chat', builder: (_, state) {
             final topic = state.uri.queryParameters['topic'];
-            // Skip ModelGate on web/desktop — no Gemma model to install
-            if (kIsWeb ||
-                defaultTargetPlatform == TargetPlatform.windows ||
-                defaultTargetPlatform == TargetPlatform.linux ||
-                defaultTargetPlatform == TargetPlatform.macOS) {
+            // Skip ModelGate on web only — the browser build can't run a
+            // local model at all. Android/Windows/Linux all need the same
+            // .litertlm chat model installed.
+            if (kIsWeb) {
               return LearnScreen(initialTopic: topic);
             }
             return ModelGate(child: LearnScreen(initialTopic: topic));

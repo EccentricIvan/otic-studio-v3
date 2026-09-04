@@ -14,10 +14,11 @@ dependencies:
   go_router: ^14.0.0
   flutter_riverpod: ^2.5.1
 
-  # AI inference — Ollama local server + flutter_gemma fallback
+  # AI inference — LiteRT-LM (Qwen3-0.6B chat, Android/Windows/Linux) +
+  # Ollama/llama.cpp (AfriSLM translation)
   http: ^1.2.0
-  flutter_gemma: ^1.0.3
-  flutter_gemma_mediapipe: ^1.0.0
+  flutter_gemma: ^1.1.2
+  flutter_gemma_litertlm: ^1.6.1
   ffi: ^2.1.0
 
   # Local storage — student memory, history summaries
@@ -27,7 +28,7 @@ dependencies:
   path_provider: ^2.1.4
   path: ^1.9.0
 
-  # Model installer — lets the user pick the Gemma file from USB/Downloads
+  # Model installer — lets the user pick model files from USB/Downloads
   file_picker: 8.3.7
 
   # User preferences (theme mode)
@@ -59,15 +60,15 @@ dev_dependencies:
 
 flutter_launcher_icons:
   android: true
-  image_path: "assets/branding/otic-studio-logo.png"
+  image_path: "assets/branding/ai-connect-africa-logo.png"
   min_sdk_android: 21
   windows:
     generate: true
-    image_path: "assets/branding/otic-studio-logo.png"
+    image_path: "assets/branding/ai-connect-africa-logo.png"
     icon_size: 256
   web:
     generate: true
-    image_path: "assets/branding/otic-studio-logo.png"
+    image_path: "assets/branding/ai-connect-africa-logo.png"
 
 flutter:
   uses-material-design: true

@@ -107,19 +107,17 @@ it, but real AI responses need it.
 
 - Get the model file(s) from the original developer (USB/local server).
 - Install in-app via **Model Not Installed → Install from file…**, or place
-  manually (Android: `[InternalStorage]/OTIC/gemma-3-1b.bin`; Windows:
-  `[Documents]/OTIC/gemma-3-1b-q4_k_m.gguf`).
+  manually at `[Documents]/OTIC/chat-model.litertlm` (Android: also checked
+  under `[InternalStorage]/OTIC/` and the app's internal `models/` folder).
 
-If the new team wants to source the model independently, it is Google's Gemma 3 1B,
-in LiteRT-LM format for Android and GGUF Q4_K_M for desktop.
+If the new team wants to source the chat model independently, it is Qwen3-0.6B
+in `.litertlm` format (`litert-community/Qwen3-0.6B` on Hugging Face,
+Apache-2.0, no license click-through) — the same file works on Android,
+Windows, and Linux via LiteRT-LM.
 
-### Experimental Llama 3.2 test model
-
-The `/llama-test` route is a separate llama.cpp experiment using `fllama`. It
-downloads Llama 3.2 1B Q4_K_M GGUF from a direct URL into app documents storage
-and writes a small install marker beside it. This model is not part of the
-production Gemma/MediaPipe flow, is not bundled in the APK, and must not be
-committed to the repo.
+The translation model (TranslatePsy-AfriSLM, GGUF) is separate — see
+`lib/ai_core/translate/afrislm_model_manager.dart` — and is installed the
+same way via **Settings → Translation → Install from file…**.
 
 ---
 
@@ -165,10 +163,11 @@ apksigner verify --print-certs <apk>     # compare the printed SHA-256 to the ab
 
 - **Real-device model validation:** the app's switch from mock to real inference
   has been built but should be validated end-to-end on a physical Android phone and
-  a Windows PC with the actual 1 GB model. This is the last gate before classroom use.
-- **Llama test path validation:** `/llama-test` is additive and should be checked
-  on real `arm64-v8a`, `armeabi-v7a`, and `x86_64` Android targets before anyone
-  compares it with the MediaPipe/Gemma tutor path.
+  a Windows PC with the actual chat + translation models installed. This is the
+  last gate before classroom use.
+- **Android AfriSLM translation engine:** not implemented yet — translation
+  currently only works on Windows/Linux via Ollama. Android needs a llama.cpp
+  binding wired up before non-English students get translated chat on phones.
 - **Website Builder follow-ups:** image blocks are styled placeholders (no real
   image embedding yet); sites are single-page; there is no in-app browser preview.
 - **Gradle cache location:** on the original machine the Gradle cache sat on a full

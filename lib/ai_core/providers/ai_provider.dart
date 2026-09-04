@@ -4,8 +4,11 @@ import '../cloud/cloud_api_settings.dart';
 import '../inference/inference_engine.dart';
 import '../inference/mock_engine.dart';
 import '../inference/ollama_engine.dart';
+import '../inference/ollama_model_installer.dart';
 import '../inference/openai_compatible_engine.dart';
 import '../model/model_manager.dart';
+import '../translate/afrislm_model_manager.dart';
+import '../translate/translation_pipeline.dart';
 import '../tutor/tutor_pipeline.dart';
 import '../tutor/tutor_response.dart';
 import '../../curriculum/curriculum_provider.dart';
@@ -17,11 +20,9 @@ import '../../safety/emotional_safety.dart';
 final modelManagerProvider = Provider<ModelManager>((ref) => ModelManager());
 
 final modelInfoProvider = FutureProvider<ModelInfo>((ref) {
-  // Skip model file check on web/desktop — uses Ollama or no AI
-  if (kIsWeb ||
-      defaultTargetPlatform == TargetPlatform.windows ||
-      defaultTargetPlatform == TargetPlatform.linux ||
-      defaultTargetPlatform == TargetPlatform.macOS) {
+  // LiteRT-LM runs the same .litertlm chat model on Android, Windows, and
+  // Linux — only the browser build has nowhere to run a local model at all.
+  if (kIsWeb) {
     return Future.value(const ModelInfo(status: ModelStatus.notInstalled));
   }
   return ref.watch(modelManagerProvider).checkModel();
@@ -52,31 +53,11 @@ final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
     }
   }
 
-  final isDesktop = !kIsWeb &&
-      (defaultTargetPlatform == TargetPlatform.windows ||
-          defaultTargetPlatform == TargetPlatform.linux ||
-          defaultTargetPlatform == TargetPlatform.macOS);
-
   if (kIsWeb) {
     return demo(DemoReason.web);
   }
 
-  if (isDesktop) {
-    try {
-      final available = await OllamaEngine.isAvailable();
-      if (available) {
-        final engine = OllamaEngine();
-        await engine.loadModel('');
-        ref.onDispose(engine.dispose);
-        return engine;
-      }
-    } catch (_) {
-      // Fall through to demo
-    }
-    return demo(DemoReason.ollamaUnavailable);
-  }
-
-  // Android: use on-device model via flutter_gemma
+  // Android/Windows/Linux: on-device Qwen3-0.6B via LiteRT-LM (flutter_gemma).
   final modelInfo = await ref.watch(modelInfoProvider.future);
   if (!modelInfo.isReady) {
     return demo(DemoReason.modelNotInstalled);
@@ -87,9 +68,54 @@ final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
     await engine.loadModel(modelInfo.path!);
     ref.onDispose(engine.dispose);
     return engine;
-  } catch (_) {
+  } catch (e, st) {
+    debugPrint('engineLoadedProvider: local model load failed: $e\n$st');
     return demo(DemoReason.loadFailed);
   }
+});
+
+// ── Translation (AfriSLM) ────────────────────────────────────────────────────
+
+final translateModelManagerProvider =
+    Provider<AfriSlmModelManager>((ref) => AfriSlmModelManager());
+
+final translateModelInfoProvider = FutureProvider<ModelInfo>((ref) {
+  if (kIsWeb) {
+    return Future.value(const ModelInfo(status: ModelStatus.notInstalled));
+  }
+  return ref.watch(translateModelManagerProvider).checkModel();
+});
+
+/// Null when translation isn't available (web, Android — no engine yet, no
+/// model installed, or Ollama isn't reachable) — translation is always a
+/// soft-fail feature, never something that blocks the chat itself.
+final translateEngineLoadedProvider = FutureProvider<InferenceEngine?>((ref) async {
+  if (kIsWeb) return null;
+
+  final isDesktop = defaultTargetPlatform == TargetPlatform.windows ||
+      defaultTargetPlatform == TargetPlatform.linux ||
+      defaultTargetPlatform == TargetPlatform.macOS;
+  // Android's AfriSLM (llama.cpp) engine isn't implemented yet.
+  if (!isDesktop) return null;
+
+  final modelInfo = await ref.watch(translateModelInfoProvider.future);
+  if (!modelInfo.isReady) return null;
+
+  try {
+    if (!await OllamaEngine.isAvailable()) return null;
+    final engine = OllamaEngine(modelTag: afriSlmOllamaTag);
+    await engine.loadModel(modelInfo.path!);
+    ref.onDispose(engine.dispose);
+    return engine;
+  } catch (_) {
+    return null;
+  }
+});
+
+final translationPipelineProvider = FutureProvider<TranslationPipeline?>((ref) async {
+  final engine = await ref.watch(translateEngineLoadedProvider.future);
+  if (engine == null) return null;
+  return TranslationPipeline(engine);
 });
 
 /// User-facing AI runtime status (real model vs demo).
@@ -183,6 +209,7 @@ class ChatMessage {
     this.stage,
     this.followUp,
     this.isError = false,
+    this.translatedLanguage,
   });
 
   final String text;
@@ -190,6 +217,12 @@ class ChatMessage {
   final TutorStage? stage;
   final String? followUp;
   final bool isError;
+
+  /// Set when this message was translated for display — the language code
+  /// it was translated into (tutor replies) or the language the student
+  /// wrote in and that was translated to English behind the scenes (user
+  /// messages). Null means no translation was involved.
+  final String? translatedLanguage;
 }
 
 class ChatNotifier extends AsyncNotifier<ChatState> {
@@ -214,10 +247,26 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
     // hasn't disabled yet.
     if (current.isGenerating) return;
 
-    // Add user message and lock input immediately, before any await, so
-    // a quick second tap can't slip through while the pipeline loads.
+    // Student's preferred language — drives transparent translation below.
+    // Never blocks: any lookup failure just leaves it as English.
+    String studentLanguage = 'en';
+    try {
+      final student = await ref.read(activeStudentProvider.future);
+      studentLanguage = student?.language ?? 'en';
+    } catch (_) {}
+
+    // Add user message (shown exactly as typed, in their own language) and
+    // lock input immediately, before any await, so a quick second tap can't
+    // slip through while the pipeline loads.
     state = AsyncData(current.copyWith(
-      messages: [...current.messages, ChatMessage(text: message, isUser: true)],
+      messages: [
+        ...current.messages,
+        ChatMessage(
+          text: message,
+          isUser: true,
+          translatedLanguage: studentLanguage != 'en' ? studentLanguage : null,
+        ),
+      ],
       isGenerating: true,
       streamingText: '',
       clearError: true,
@@ -243,8 +292,28 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
       return;
     }
 
+    // Behind-the-scenes translation: the tutor pipeline (topic detection,
+    // curriculum matching, stage tracking) always runs in English. If the
+    // student writes in another language, translate their message to
+    // English here and translate the reply back below — best-effort, so a
+    // translation hiccup degrades to "answer in English" rather than
+    // failing the whole turn.
+    String englishMessage = message;
+    bool translating = false;
+    if (studentLanguage != 'en') {
+      try {
+        final translation = await ref.read(translationPipelineProvider.future);
+        if (translation != null) {
+          englishMessage = await translation.toEnglish(message, studentLanguage);
+          translating = true;
+        }
+      } catch (_) {
+        // Translation unavailable — fall through with the original text.
+      }
+    }
+
     // Emotional safety check — crisis messages never reach the model
-    final safety = _safetyEngine.check(message);
+    final safety = _safetyEngine.check(englishMessage);
     if (safety.bypassTutor) {
       state = AsyncData(state.requireValue.copyWith(
         messages: [
@@ -260,20 +329,48 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
     String streamed = '';
     try {
       final response = await pipeline.respond(
-        studentMessage: message,
+        studentMessage: englishMessage,
         safetyNote: safety.tutorNote,
         onToken: (token) {
+          // Never show the raw English stream to a translating student —
+          // that would defeat "seamless" by flashing the pre-translation
+          // answer for the whole generation. A static placeholder still
+          // renders the tutor bubble (via streamingText.isNotEmpty in
+          // learn_screen.dart) so the UI doesn't look frozen meanwhile.
+          if (translating) {
+            if (state.requireValue.streamingText.isEmpty) {
+              state = AsyncData(state.requireValue.copyWith(streamingText: 'Translating…'));
+            }
+            return;
+          }
           streamed += token;
           state = AsyncData(state.requireValue.copyWith(streamingText: streamed));
         },
       );
 
+      // Translate the English reply back to the student's language —
+      // again best-effort; a failure just shows the English text.
+      var displayText = response.text;
+      String? displayLanguage;
+      if (translating) {
+        try {
+          final translation = await ref.read(translationPipelineProvider.future);
+          if (translation != null) {
+            displayText = await translation.fromEnglish(response.text, studentLanguage);
+            displayLanguage = studentLanguage;
+          }
+        } catch (_) {
+          // Fall back to the English reply.
+        }
+      }
+
       final msgs = List<ChatMessage>.from(state.requireValue.messages)
         ..add(ChatMessage(
-          text: response.text,
+          text: displayText,
           isUser: false,
           stage: response.stage,
           followUp: response.followUpPrompt,
+          translatedLanguage: displayLanguage,
         ));
 
       state = AsyncData(state.requireValue.copyWith(

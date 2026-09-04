@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../features/learn/path/path_provider.dart';
 
-const _brandLogoAsset = 'assets/branding/otic-studio-logo.png';
+const _brandLogoAsset = 'assets/branding/ai-connect-africa-logo.png';
 
 class AppShell extends StatelessWidget {
   const AppShell({super.key, required this.child});

@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-AI Connect Africa is a **fully offline AI-powered Learning Operating System**. It runs entirely on-device — no internet, no cloud, no external APIs, ever. The AI model (Gemma 3 1B in Phase 1, Gemma 4 in Phase 2) is bundled and runs locally:
+AI Connect Africa is a **fully offline AI-powered Learning Operating System**. It runs entirely on-device — no internet, no cloud, no external APIs, ever. Two on-device models are bundled and run locally:
 
-- **Android** → LiteRT-LM (Google's on-device LLM runtime, formerly MediaPipe LLM Inference) with GPU/NPU acceleration
-- **Windows / Linux** → llama.cpp via GGUF 4-bit quantized model, called through `dart:ffi`
+- **Chat/tutor — Qwen3-0.6B (`.litertlm`)** → LiteRT-LM (Google's on-device LLM runtime, via `flutter_gemma`/`flutter_gemma_litertlm`) with GPU/NPU acceleration. One engine, one model file format, identical on **Android, Windows, and Linux** — see `lib/ai_core/inference/litert_lm_engine.dart`. Apache-2.0, no license click-through needed (`litert-community/Qwen3-0.6B` on Hugging Face).
+- **Translation — TranslatePsy-AfriSLM (GGUF)** → translates English ↔ 19 Sub-Saharan African languages so students can learn in their own language while the tutor reasons in English. Windows/Linux run it via a local Ollama server; Android runs the GGUF directly through a llama.cpp binding. See `lib/ai_core/inference/ollama_engine.dart` and the Android AfriSLM engine.
 
-Both platforms expose the same Dart inference interface from `packages/ai-core/`.
+Both models expose the same Dart inference interface from `lib/ai_core/inference/inference_engine.dart`. (Chat/Qwen3-0.6B is wired up; the AfriSLM translation engine — Ollama on desktop, llama.cpp on Android — is planned but not yet implemented.)
 
 Target platforms: Android (4 GB RAM / 32 GB storage minimum), Windows (8 GB RAM), Ubuntu (8 GB RAM).
 
@@ -92,10 +92,11 @@ Store compressed summaries only — never full conversation logs. Stored fields:
 
 Model files are large and distributed separately (USB / local server, never via internet). They must be gitignored.
 
-| Platform | Format | Model | Size |
-|----------|--------|-------|------|
-| Android | `.task` (LiteRT-LM) | Gemma 3 1B | ~1 GB |
-| Windows / Linux | `.gguf` 4-bit (llama.cpp) | Gemma 3 1B Q4_K_M | ~800 MB |
+| Role | Platform | Format | Model | Size |
+|------|----------|--------|-------|------|
+| Chat/tutor | Android, Windows, Linux | `.litertlm` (LiteRT-LM) | Qwen3-0.6B | ~330–590 MB |
+| Translation | Windows / Linux | GGUF 4-bit (Ollama) | TranslatePsy-AfriSLM 0.8B Q4 | ~0.5–1 GB |
+| Translation | Android | GGUF 4-bit (llama.cpp) | TranslatePsy-AfriSLM 0.8B Q4 | ~0.5–1 GB |
 
 The app must detect whether the model file is present at startup and show a clear "Model not installed — transfer via USB" screen rather than failing silently.
 
@@ -142,7 +143,7 @@ After install, PATH must include the Flutter `bin` directory — open a new term
 
 Follow this order — do not jump ahead to gamification or certificates before the core tutor works:
 
-1. Local LLM integration (Gemma 3 1B loading + inference)
+1. Local LLM integration (Qwen3-0.6B loading + inference via LiteRT-LM)
 2. Basic Learn mode (ask question → get mentor response)
 3. Student memory (profile creation + summary storage)
 4. Learning paths (auto-generate curriculum for a topic)
