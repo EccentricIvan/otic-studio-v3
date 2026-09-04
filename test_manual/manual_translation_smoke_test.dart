@@ -1,9 +1,9 @@
 // Manual, ad-hoc smoke test for the full translate-in -> chat -> translate-out
 // pipeline (Swahili student <-> English tutor). Needs a real chat model file
 // on disk and a running local Ollama server with the AfriSLM tag registered.
+// Lives outside test/ so `flutter test` (and CI) never picks it up.
 // Run directly:
-//   flutter test test/manual_translation_smoke_test.dart
-// Delete after use.
+//   flutter test test_manual/manual_translation_smoke_test.dart
 import 'dart:io';
 
 import 'package:ai_connect_africa/ai_core/inference/litert_lm_engine.dart';
