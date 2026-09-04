@@ -104,7 +104,16 @@ final translateEngineLoadedProvider = FutureProvider<InferenceEngine?>((ref) asy
   try {
     if (!await OllamaEngine.isAvailable()) return null;
     final engine = OllamaEngine(modelTag: afriSlmOllamaTag);
-    await engine.loadModel(modelInfo.path!);
+    try {
+      await engine.loadModel(modelInfo.path!);
+    } on ModelLoadException {
+      // Ollama is running but the tag isn't registered yet — this is the
+      // normal first-run state for a bundled GGUF (release zip ships the
+      // file, not the Ollama registration, since that's machine-local).
+      // Register it once from the file we already found, then retry.
+      await OllamaModelInstaller().createFromGguf(ggufPath: modelInfo.path!);
+      await engine.loadModel(modelInfo.path!);
+    }
     ref.onDispose(engine.dispose);
     return engine;
   } catch (_) {

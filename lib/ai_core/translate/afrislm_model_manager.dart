@@ -19,6 +19,9 @@ class AfriSlmModelManager {
   // AfriSLM 0.8B Q4 is roughly 500MB-1GB; reject obvious truncations.
   static const _minSizeBytes = 300 * 1024 * 1024; // 300 MB
 
+  /// Canonical install target — where [installFromFile] and
+  /// [downloadModel] write the file, and where [OllamaModelInstaller]
+  /// should register it from once found.
   Future<String> modelFilePath() async {
     if (defaultTargetPlatform == TargetPlatform.android) {
       final appFiles = await getApplicationDocumentsDirectory();
@@ -28,18 +31,30 @@ class AfriSlmModelManager {
     return p.join(docs.path, 'OTIC', modelFileName);
   }
 
-  Future<ModelInfo> checkModel() async {
-    final path = await modelFilePath();
-    final file = File(path);
-    if (!await file.exists()) {
-      return const ModelInfo(status: ModelStatus.notInstalled);
+  /// All locations checked for an already-present model file, in order.
+  /// Mirrors ModelManager: canonical install path first, then a
+  /// bundled-next-to-the-executable fallback so a self-contained release
+  /// zip (exe + models/translate-afrislm.gguf) is picked up automatically.
+  Future<List<String>> _candidatePaths() async {
+    final paths = <String>[await modelFilePath()];
+    if (defaultTargetPlatform != TargetPlatform.android) {
+      final exeDir = p.dirname(Platform.resolvedExecutable);
+      paths.add(p.join(exeDir, 'models', modelFileName));
     }
+    return paths;
+  }
 
-    final size = await file.length();
-    if (size < _minSizeBytes) {
-      return ModelInfo(status: ModelStatus.corrupted, path: path, sizeBytes: size);
+  Future<ModelInfo> checkModel() async {
+    for (final path in await _candidatePaths()) {
+      final file = File(path);
+      if (!await file.exists()) continue;
+      final size = await file.length();
+      if (size < _minSizeBytes) {
+        return ModelInfo(status: ModelStatus.corrupted, path: path, sizeBytes: size);
+      }
+      return ModelInfo(status: ModelStatus.ready, path: path, sizeBytes: size);
     }
-    return ModelInfo(status: ModelStatus.ready, path: path, sizeBytes: size);
+    return const ModelInfo(status: ModelStatus.notInstalled);
   }
 
   /// Copies a user-picked GGUF file into the expected location. Mirrors

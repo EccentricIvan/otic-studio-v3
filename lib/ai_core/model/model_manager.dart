@@ -105,8 +105,13 @@ class ModelManager {
       // Windows / Linux — Documents/OTIC/
       final docs = await getApplicationDocumentsDirectory();
       paths.add(p.join(docs.path, 'OTIC', chatModelFileName));
-      // Also check next to the executable (dev convenience)
-      paths.add(p.join(Directory.current.path, 'models', chatModelFileName));
+      // Also check next to the executable — this is what makes a
+      // self-contained release zip (exe + models/ folder) work no matter
+      // where the app is launched from (Start Menu shortcut, desktop
+      // shortcut, etc.), unlike Directory.current which only matches when
+      // launched from within its own folder.
+      final exeDir = p.dirname(Platform.resolvedExecutable);
+      paths.add(p.join(exeDir, 'models', chatModelFileName));
     }
     return paths;
   }

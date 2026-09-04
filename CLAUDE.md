@@ -90,15 +90,22 @@ Store compressed summaries only — never full conversation logs. Stored fields:
 
 ## AI Model Files
 
-Model files are large and distributed separately (USB / local server, never via internet). They must be gitignored.
+Model files are large and are never committed to git — always gitignored. Two distribution paths now exist:
+
+1. **USB / local school server** (original, still supported) — the model file is transferred by hand and dropped into the platform's expected folder (see `ModelManager`/`AfriSlmModelManager`). No internet needed anywhere in this path.
+2. **Bundled in the GitHub Release zip** (Windows, added for a plug-and-play download) — the release zip ships with a `models/` folder next to the executable, containing `chat-model.litertlm` and `translate-afrislm.gguf`. Both model managers check this bundled path automatically (`<exe dir>/models/...`), so the app works immediately after extracting, no manual install step. The app itself still runs fully offline once downloaded — this only changes how the model bytes are *obtained*, not the offline runtime constraint.
+
+Bundling a model into a public release requires its license to permit redistribution — verify before adding a new model here (Qwen3-0.6B is confirmed Apache-2.0).
 
 | Role | Platform | Format | Model | Size |
 |------|----------|--------|-------|------|
 | Chat/tutor | Android, Windows, Linux | `.litertlm` (LiteRT-LM) | Qwen3-0.6B | ~330–590 MB |
-| Translation | Windows / Linux | GGUF 4-bit (Ollama) | TranslatePsy-AfriSLM 0.8B Q4 | ~0.5–1 GB |
-| Translation | Android | GGUF 4-bit (llama.cpp) | TranslatePsy-AfriSLM 0.8B Q4 | ~0.5–1 GB |
+| Translation | Windows / Linux | GGUF 4-bit (Ollama) | AfriTranslate 0.8B Q4 | ~0.5–1 GB |
+| Translation | Android | GGUF 4-bit (llama.cpp) | AfriTranslate 0.8B Q4 | ~0.5–1 GB |
 
-The app must detect whether the model file is present at startup and show a clear "Model not installed — transfer via USB" screen rather than failing silently.
+The app must detect whether the model file is present at startup (checking the bundled path before falling back to the USB-installed path) and show a clear "Model not installed — transfer via USB" screen rather than failing silently when neither is found.
+
+Translation additionally requires a local Ollama server on Windows/Linux — the model file alone isn't enough. When a translation GGUF is found but its Ollama tag (`ai-connect-africa-translate`) isn't registered yet, `translateEngineLoadedProvider` auto-runs `ollama create` once. Ollama itself (the runtime) still has to be installed by the user — that one step can't be bundled into a plain zip.
 
 ## Local History (Student Memory)
 
