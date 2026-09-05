@@ -18,34 +18,29 @@ class LlamaCppEngineImpl extends InferenceEngine {
 
   @override
   Future<void> loadModel(String modelPath) async {
-    // Modest context — translation prompts are short; keeps RAM down for
-    // school PCs that also load the chat model.
-    llama.LlamaCppChatRepository? repo;
-    try {
-      repo = llama.LlamaCppChatRepository(
-        contextSize: 1024,
-        batchSize: 512,
-        nGpuLayers: 99,
-      );
-      // ignore: deprecated_member_use — simple path; we own this repo instance
-      await repo.loadModel(modelPath);
-    } catch (_) {
-      repo?.dispose();
-      repo = llama.LlamaCppChatRepository(
-        contextSize: 1024,
-        batchSize: 256,
-        nGpuLayers: 0,
-      );
-      try {
-        // ignore: deprecated_member_use
-        await repo.loadModel(modelPath);
-      } catch (e) {
-        repo.dispose();
-        throw ModelLoadException('Failed to load translation model: $e');
-      }
-    }
+    // Inference happens inside llm_llamacpp's persistent helper isolate,
+    // which loads the GGUF per request and frees it again (llama_free +
+    // llama_model_free in a finally). The default constructor plus
+    // loadModel() would additionally hold a *second* copy in this isolate
+    // that inference never reads — it is only consulted for the path — so
+    // on Android that was ~670 MB resident for nothing, and a ~1.9 GB peak
+    // while translating on top of the chat model. That does not fit a 4 GB
+    // phone. withModelPath keeps only the path, which is what the package
+    // documents ("the main isolate no longer calls any llama.cpp
+    // functions"), and drops the steady state to just the chat model.
+    //
+    // nGpuLayers stays 0: translation prompts are short (<=120 tokens), so
+    // CPU is fast enough, memory stays predictable on low-end devices, and
+    // it removes the GPU-load-failure retry entirely. A bad file now
+    // surfaces on first generate instead of here, which the callers
+    // already treat as soft-fail (see localizeOutgoing/localizeIncoming).
     _repo?.dispose();
-    _repo = repo;
+    _repo = llama.LlamaCppChatRepository.withModelPath(
+      modelPath,
+      contextSize: 1024,
+      batchSize: 256,
+      nGpuLayers: 0,
+    );
     _modelPath = modelPath;
   }
 
