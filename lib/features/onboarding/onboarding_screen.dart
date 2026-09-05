@@ -289,16 +289,11 @@ class _NamePage extends StatelessWidget {
             tr(context, 'What language do you want to learn in?'),
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          const SizedBox(height: 6),
-          Text(
-            tr(context, 'The tutor always understands your answers — pick English if you want to skip translation.'),
-            style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.4),
-          ),
           const SizedBox(height: 10),
           DropdownButtonFormField<String>(
             initialValue: language,
             decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.translate),
+              prefixIcon: Icon(Icons.language),
             ),
             items: [
               for (final lang in supportedLanguages)

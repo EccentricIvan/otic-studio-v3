@@ -104,13 +104,13 @@ class SettingsScreen extends ConsumerWidget {
               ),
             ]),
 
-            // ── Translation ──────────────────────────────────────────────────
-            _Section(tr(context, 'Translation'), [
+            // ── Learning language ────────────────────────────────────────────
+            _Section(tr(context, 'Learning language'), [
               studentAsync.when(
                 loading: () => const SizedBox.shrink(),
                 error: (_, __) => const SizedBox.shrink(),
                 data: (student) => ListTile(
-                  leading: const Icon(Icons.translate, color: AppColors.primary),
+                  leading: const Icon(Icons.language, color: AppColors.primary),
                   title: Text(tr(context, 'Learning language')),
                   subtitle: Text(
                     student == null
@@ -574,14 +574,14 @@ class _TranslateModelTileState extends ConsumerState<_TranslateModelTile> {
       if (mounted) {
         setState(() => _statusMessage = null);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Translation model installed and ready.')),
+          const SnackBar(content: Text('Language model installed and ready.')),
         );
       }
     } catch (e) {
       if (mounted) {
         setState(() => _statusMessage = null);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Could not set up translation: $e')),
+          SnackBar(content: Text('Could not set up the language model: $e')),
         );
       }
     } finally {
@@ -610,7 +610,7 @@ class _TranslateModelTileState extends ConsumerState<_TranslateModelTile> {
         } else if (info.isReady) {
           subtitle = 'Installed — getting ready…';
         } else {
-          subtitle = 'Not installed — translation is skipped, chat stays in English';
+          subtitle = 'Not installed — chat stays in English';
         }
 
         return ListTile(
