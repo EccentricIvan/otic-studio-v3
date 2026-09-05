@@ -5,7 +5,7 @@ typedef TokenCallback = void Function(String token);
 
 /// Unified interface for all local inference backends.
 /// - Chat (Android/Windows/Linux) → LiteRtLmEngineImpl (flutter_gemma_litertlm, Qwen3-0.6B)
-/// - Translate (Windows/Linux)    → OllamaEngine (local Ollama server, AfriSLM)
+/// - Translate (desktop/Android)  → LlamaCppEngineImpl (in-process llama.cpp, AfriSLM GGUF)
 /// - Dev/Test                     → MockEngine (instant canned responses)
 abstract class InferenceEngine {
   bool get isReady;

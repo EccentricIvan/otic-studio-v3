@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../curriculum/curriculum_provider.dart';
+import '../../l10n/app_locale.dart';
 
 class SubjectsScreen extends ConsumerWidget {
   const SubjectsScreen({super.key});
@@ -33,7 +34,7 @@ class SubjectsScreen extends ConsumerWidget {
     final subjectsAsync = ref.watch(allSubjectsProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Learn')),
+      appBar: AppBar(title: Text(tr(context, 'Learn'))),
       body: subjectsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error loading subjects: $e')),

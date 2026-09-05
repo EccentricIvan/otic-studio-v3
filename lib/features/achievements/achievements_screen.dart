@@ -5,6 +5,7 @@ import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../gamification/badge_definitions.dart';
+import '../../l10n/app_locale.dart';
 import '../../shared/widgets/responsive.dart';
 
 class AchievementsScreen extends ConsumerWidget {
@@ -16,7 +17,7 @@ class AchievementsScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(title: const Text('Achievements')),
+      appBar: AppBar(title: Text(tr(context, 'Achievements'))),
       body: studentAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),

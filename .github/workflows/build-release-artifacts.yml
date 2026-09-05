@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      bundle_models:
+        description: 'Embed chat + translation models into the Android APK (requires model-pack release)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -66,22 +71,39 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
+      - name: Download model pack into APK assets
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.bundle_models }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p android/app/src/main/assets/models
+          gh release download model-pack \
+            --repo "$GITHUB_REPOSITORY" \
+            --dir android/app/src/main/assets/models \
+            --pattern 'chat-model.litertlm' \
+            --pattern 'translate-afrislm.gguf'
+          ls -lh android/app/src/main/assets/models
+
       - name: Build APK
         run: flutter build apk --release --split-per-abi
 
       - name: Prepare APK
+        env:
+          BUNDLE_MODELS: ${{ github.event_name == 'workflow_dispatch' && inputs.bundle_models }}
         run: |
           mkdir -p dist
           cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk "dist/ai-connect-africa-latest.apk"
+          if [ "$BUNDLE_MODELS" = "true" ]; then
+            cp "dist/ai-connect-africa-latest.apk" "dist/ai-connect-africa-latest-with-models.apk"
+          fi
           cd dist && zip ai-connect-africa-latest-apk.zip ai-connect-africa-latest.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: AI Connect Africa Latest APK
-          path: |
-            dist/ai-connect-africa-latest.apk
-            dist/ai-connect-africa-latest-apk.zip
+          path: dist/
           if-no-files-found: error
 
   build-windows:
@@ -137,6 +159,9 @@ jobs:
           cp "dist/AI Connect Africa Latest APK/ai-connect-africa-latest.apk" "./ai-connect-africa-latest.apk"
           cp "dist/AI Connect Africa Latest APK/ai-connect-africa-latest-apk.zip" "./ai-connect-africa-latest-apk.zip"
           cp "dist/AI Connect Africa Windows Latest/ai-connect-africa-windows-latest.zip" "./ai-connect-africa-windows-latest.zip"
+          if [ -f "dist/AI Connect Africa Latest APK/ai-connect-africa-latest-with-models.apk" ]; then
+            cp "dist/AI Connect Africa Latest APK/ai-connect-africa-latest-with-models.apk" "./ai-connect-africa-latest-with-models.apk"
+          fi
 
       - name: Update rolling release
         env:
@@ -146,11 +171,16 @@ jobs:
             gh release create latest-build \
               --repo "$GITHUB_REPOSITORY" \
               --title "AI Connect Africa Latest Build" \
-              --notes "Automatically built APK and Windows zip from the latest main branch."
+              --notes "Automatically built APK and Windows zip from the latest main branch. The *-with-models.apk (when present) embeds chat + translation models for a one-tap offline install."
           fi
-          gh release upload latest-build \
-            "ai-connect-africa-latest.apk" \
-            "ai-connect-africa-latest-apk.zip" \
-            "ai-connect-africa-windows-latest.zip" \
+          FILES=(
+            "ai-connect-africa-latest.apk"
+            "ai-connect-africa-latest-apk.zip"
+            "ai-connect-africa-windows-latest.zip"
+          )
+          if [ -f "ai-connect-africa-latest-with-models.apk" ]; then
+            FILES+=("ai-connect-africa-latest-with-models.apk")
+          fi
+          gh release upload latest-build "${FILES[@]}" \
             --repo "$GITHUB_REPOSITORY" \
             --clobber

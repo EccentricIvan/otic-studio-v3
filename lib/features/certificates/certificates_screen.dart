@@ -10,6 +10,7 @@ import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../features/learn/path/path_provider.dart';
 import '../../features/learn/path/path_models.dart';
+import '../../l10n/app_locale.dart';
 import '../../shared/widgets/responsive.dart';
 
 class CertificatesScreen extends ConsumerWidget {
@@ -21,7 +22,7 @@ class CertificatesScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(title: const Text('Certificates')),
+      appBar: AppBar(title: Text(tr(context, 'Certificates'))),
       body: studentAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),

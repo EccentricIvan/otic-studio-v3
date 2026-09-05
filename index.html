@@ -327,10 +327,10 @@
           <a
             class="button primary"
             data-apk-download
-            href="https://github.com/malinzijeremiah01-lab/Otic-Studio/releases/download/latest-build/ai-connect-africa-latest.apk"
+            href="https://github.com/malinzijeremiah01-lab/Otic-Studio/releases/download/latest-build/ai-connect-africa-latest-with-models.apk"
             download
           >
-            Download Android APK
+            Download Android APK (with AI models)
           </a>
           <a
             class="button secondary"
@@ -340,9 +340,10 @@
           </a>
         </div>
         <p class="status" data-platform-note>
-          Use an Android phone or tablet with at least 4 GB RAM. If the APK does
-          not start downloading, open the release page and choose
-          "ai-connect-africa-latest.apk".
+          Prefer the <strong>with-models</strong> APK (~1–1.5 GB) for a complete
+          offline install. Slim builds are
+          <code>ai-connect-africa-latest.apk</code> if you install models separately.
+          Needs an Android device with 4 GB+ RAM and ~1 GB free storage on first launch.
         </p>
 
         <div class="download-panel" aria-label="Download details">
@@ -366,9 +367,9 @@
       <div class="steps-inner">
         <h2 id="install-title">Install on Android</h2>
         <ol>
-          <li>Tap the APK download button on the Android device.</li>
+          <li>Tap the APK download button on the Android device (prefer the <em>with-models</em> build).</li>
           <li>Open the downloaded file and allow "Install unknown apps" if Android asks.</li>
-          <li>Launch AI Connect Africa. Add the Gemma model file from USB or local storage when prompted.</li>
+          <li>Launch AI Connect Africa. The with-models APK unpacks chat + translation models on first launch (~1 GB free space).</li>
         </ol>
         <p class="fine-print">
           iPhone and iPad cannot install Android APK files. For classroom distribution,
@@ -396,7 +397,7 @@
     apk.addEventListener('click', () => {
       note.textContent = isIos
         ? 'Opening the release page. Android devices can install the APK from there.'
-        : 'Download started. If your browser blocks the APK, use the release page link and choose "ai-connect-africa-latest.apk".';
+        : 'Download started. If your browser blocks the APK, use the release page and choose "ai-connect-africa-latest-with-models.apk".';
     });
   </script>
 </body>

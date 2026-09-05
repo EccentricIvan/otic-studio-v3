@@ -1,7 +1,7 @@
 import 'inference_engine.dart';
 
 /// Canned demo replies when no real local model is available.
-/// Used on web, when Android model is missing, when Ollama is down,
+/// Used on web, when the chat model is missing, when load fails,
 /// and in unit tests.
 class MockEngine extends InferenceEngine {
   MockEngine({this.demoReason = DemoReason.generic});

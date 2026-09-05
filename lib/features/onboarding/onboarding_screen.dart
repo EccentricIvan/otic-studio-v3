@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../ai_core/translate/supported_languages.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
+import '../../l10n/app_locale.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -60,7 +61,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     if (_page == 0 && _nameController.text.trim().isEmpty) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('Please enter your name')));
+      ).showSnackBar(SnackBar(content: Text(tr(context, 'Please enter your name'))));
       return;
     }
     if (_page < _pageCount - 1) {
@@ -127,7 +128,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    return Scaffold(
+    return AppLocale(
+      languageCode: _language,
+      child: Scaffold(
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -216,13 +219,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                               color: Colors.white,
                             ),
                           )
-                        : Text(_page < _pageCount - 1 ? 'Next' : 'Start learning'),
+                        : Text(_page < _pageCount - 1 ? tr(context, 'Next') : tr(context, 'Start learning')),
                   ),
                 ),
               ),
             ],
           ),
         ),
+      ),
       ),
     );
   }
@@ -257,17 +261,17 @@ class _NamePage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            'Welcome to AI Connect Africa',
+            tr(context, 'Welcome to AI Connect Africa'),
             style: Theme.of(context).textTheme.headlineLarge,
           ),
           const SizedBox(height: 6),
           Text(
-            'Your personal offline AI tutor. Everything stays on this device — no internet ever.',
+            tr(context, 'Your personal offline AI tutor. Everything stays on this device — no internet ever.'),
             style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.5),
           ),
           const SizedBox(height: 24),
           Text(
-            "What's your name?",
+            tr(context, "What's your name?"),
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 10),
@@ -275,20 +279,19 @@ class _NamePage extends StatelessWidget {
             controller: controller,
             autofocus: true,
             textCapitalization: TextCapitalization.words,
-            decoration: const InputDecoration(
-              hintText: 'Enter your name',
-              prefixIcon: Icon(Icons.person_outline),
+            decoration: InputDecoration(
+              hintText: tr(context, 'Enter your name'),
+              prefixIcon: const Icon(Icons.person_outline),
             ),
           ),
           const SizedBox(height: 24),
           Text(
-            'What language do you want to learn in?',
+            tr(context, 'What language do you want to learn in?'),
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 6),
           Text(
-            'The tutor always understands your answers — pick English if you '
-            'want to skip translation.',
+            tr(context, 'The tutor always understands your answers — pick English if you want to skip translation.'),
             style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, height: 1.4),
           ),
           const SizedBox(height: 10),

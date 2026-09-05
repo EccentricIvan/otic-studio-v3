@@ -74,7 +74,9 @@ class CurriculumService {
     return RegExp('\\b${RegExp.escape(word)}').hasMatch(text);
   }
 
-  Lesson? findBestMatch(String query) {
+  Lesson? findBestMatch(String query) => findBestMatchDetailed(query)?.lesson;
+
+  CurriculumMatch? findBestMatchDetailed(String query) {
     final words = query
         .toLowerCase()
         .split(RegExp(r'\s+'))
@@ -82,7 +84,7 @@ class CurriculumService {
         .toList();
     if (words.isEmpty) return null;
 
-    Lesson? best;
+    CurriculumMatch? best;
     int bestScore = 0;
 
     for (final subject in _cache.values) {
@@ -91,37 +93,57 @@ class CurriculumService {
           int score = 0;
           final titleLower = lesson.title.toLowerCase();
 
-          // Only match against title and key terms — NOT content.
-          // Word-boundary matching, not raw substring: a plain .contains()
-          // check let query words match mid-word (e.g. "tell" inside
-          // "inTELLigence"), causing unrelated lessons to win.
           for (final word in words) {
             if (_containsWord(titleLower, word)) score += 5;
             for (final term in lesson.keyTerms.keys) {
               final termLower = term.toLowerCase();
-              if (termLower == word || _containsWord(termLower, word)) score += 3;
+              if (termLower == word || _containsWord(termLower, word)) {
+                score += 3;
+              }
             }
           }
 
           if (score > bestScore) {
             bestScore = score;
-            best = lesson;
+            best = CurriculumMatch(
+              subjectName: subject.name,
+              unitTitle: unit.title,
+              lesson: lesson,
+            );
           }
         }
       }
     }
 
-    // Only return if title/keyterm match is strong
     if (bestScore >= 8) return best;
     return null;
+  }
+
+  /// Short notes for the on-device tutor. Keep this tight — long dumps
+  /// make CPU prefill slow.
+  String buildTutorNotes(CurriculumMatch match) {
+    final lesson = match.lesson;
+    final buf = StringBuffer()
+      ..writeln('Subject: ${match.subjectName}')
+      ..writeln('Topic: ${match.unitTitle} / ${lesson.title}');
+    if (lesson.keyTerms.isNotEmpty) {
+      final terms = lesson.keyTerms.entries.take(3).map((e) => '${e.key}: ${e.value}').join('; ');
+      buf.writeln('Definitions: $terms');
+    }
+    final content = lesson.content.length > 360
+        ? '${lesson.content.substring(0, 360)}…'
+        : lesson.content;
+    buf.writeln(content);
+    if (lesson.examples.isNotEmpty) {
+      final ex = lesson.examples.first;
+      buf.writeln('Example: ${ex.length > 140 ? '${ex.substring(0, 140)}…' : ex}');
+    }
+    return buf.toString().trim();
   }
 
   String buildContext(Lesson lesson) {
     final buf = StringBuffer();
     buf.writeln('Topic: ${lesson.title}');
-    // Lesson content now runs ~1000-1550 chars (deep, full explanations) —
-    // 1600 keeps virtually all of it intact instead of the old 500-char cut,
-    // which used to chop most lessons off mid-sentence.
     final content = lesson.content.length > 1600
         ? '${lesson.content.substring(0, 1600)}...'
         : lesson.content;
@@ -131,6 +153,18 @@ class CurriculumService {
     }
     return buf.toString();
   }
+}
+
+class CurriculumMatch {
+  const CurriculumMatch({
+    required this.subjectName,
+    required this.unitTitle,
+    required this.lesson,
+  });
+
+  final String subjectName;
+  final String unitTitle;
+  final Lesson lesson;
 }
 
 final curriculumServiceProvider =

@@ -79,7 +79,16 @@ class ApplyNotifier extends AutoDisposeNotifier<ApplyState> {
       final engine = await ref.read(engineLoadedProvider.future);
       final scenario =
           await ScenarioGenerator(engine: engine).generate(topic: state.topic);
-      state = state.copyWith(scenario: scenario, isGeneratingScenario: false);
+      state = state.copyWith(
+        scenario: Scenario(
+          topic: scenario.topic,
+          situation: await localizeIncoming(ref, scenario.situation),
+          challenge: await localizeIncoming(ref, scenario.challenge),
+          situationEn: scenario.situation,
+          challengeEn: scenario.challenge,
+        ),
+        isGeneratingScenario: false,
+      );
     } catch (e) {
       state = state.copyWith(isGeneratingScenario: false, error: e.toString());
     }
@@ -91,15 +100,16 @@ class ApplyNotifier extends AutoDisposeNotifier<ApplyState> {
     state = state.copyWith(isEvaluating: true, clearFeedback: true);
     try {
       final engine = await ref.read(engineLoadedProvider.future);
+      final englishResponse = await localizeOutgoing(ref, state.response);
       final feedback = await ScenarioGenerator(engine: engine).evaluate(
         topic: state.topic,
-        situation: scenario.situation,
-        challenge: scenario.challenge,
-        studentResponse: state.response,
+        situation: scenario.situationEn ?? scenario.situation,
+        challenge: scenario.challengeEn ?? scenario.challenge,
+        studentResponse: englishResponse,
       );
       final newCount = state.scenariosEvaluated + 1;
       state = state.copyWith(
-        feedback: feedback,
+        feedback: await localizeIncoming(ref, feedback),
         isEvaluating: false,
         scenariosEvaluated: newCount,
       );

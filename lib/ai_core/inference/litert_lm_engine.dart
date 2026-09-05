@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_gemma/flutter_gemma.dart';
 import '../model/model_manager.dart';
@@ -23,6 +25,7 @@ import 'inference_engine.dart';
 /// and this machine's finding doesn't generalize to it.
 class LiteRtLmEngineImpl extends InferenceEngine {
   InferenceModel? _model;
+  Future<void> _gate = Future.value();
 
   static bool get _cpuOnly =>
       defaultTargetPlatform == TargetPlatform.windows ||
@@ -78,12 +81,39 @@ class LiteRtLmEngineImpl extends InferenceEngine {
     double temperature = 0.7,
     TokenCallback? onToken,
   }) async {
+    final previous = _gate;
+    final done = Completer<void>();
+    _gate = done.future;
+    try {
+      try {
+        await previous;
+      } catch (_) {}
+      return await _generateNow(
+        prompt: prompt,
+        maxTokens: maxTokens,
+        temperature: temperature,
+        onToken: onToken,
+      );
+    } finally {
+      if (!done.isCompleted) done.complete();
+    }
+  }
+
+  Future<String> _generateNow({
+    required String prompt,
+    required int maxTokens,
+    required double temperature,
+    TokenCallback? onToken,
+  }) async {
     if (_model == null) {
       throw StateError('Model not loaded. Call loadModel() first.');
     }
 
+    final clipped =
+        prompt.length > 1600 ? '${prompt.substring(0, 1600)}\nTutor:' : prompt;
+
     final chat = await _model!.createChat(maxOutputTokens: maxTokens);
-    chat.addQueryChunk(Message.text(text: prompt, isUser: true));
+    chat.addQueryChunk(Message.text(text: clipped, isUser: true));
 
     final buffer = StringBuffer();
     await for (final response in chat.generateChatResponseAsync()) {

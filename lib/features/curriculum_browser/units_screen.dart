@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_provider.dart';
+import '../../l10n/app_locale.dart';
 
 class UnitsScreen extends ConsumerWidget {
   const UnitsScreen({super.key, required this.subjectId});
@@ -18,7 +19,7 @@ class UnitsScreen extends ConsumerWidget {
         final subject = snapshot.data;
         if (subject == null) {
           return Scaffold(
-            appBar: AppBar(title: const Text('Loading...')),
+            appBar: AppBar(title: Text(tr(context, 'Loading...'))),
             body: const Center(child: CircularProgressIndicator()),
           );
         }

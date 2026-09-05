@@ -7,6 +7,8 @@ import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/curriculum_provider.dart';
 import '../../db/providers/db_provider.dart';
 import '../../gamification/badge_service.dart';
+import '../../l10n/app_locale.dart';
+import '../../shared/widgets/quiz_ai_answer.dart';
 import '../../shared/widgets/responsive.dart';
 import 'practice_providers.dart';
 import 'quiz_generator.dart';
@@ -45,11 +47,11 @@ class PracticeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: const Text('Practice'),
+          title: Text(tr(context, 'Practice')),
           bottom: TabBar(
-            tabs: const [
-              Tab(icon: Icon(Icons.quiz_outlined), text: 'Practice'),
-              Tab(icon: Icon(Icons.explore_outlined), text: 'Apply'),
+            tabs: [
+              Tab(icon: const Icon(Icons.quiz_outlined), text: tr(context, 'Practice')),
+              Tab(icon: const Icon(Icons.explore_outlined), text: tr(context, 'Apply')),
             ],
             indicatorColor: AppColors.primary,
             labelColor: AppColors.primary,
@@ -305,6 +307,7 @@ class _PracticeTabState extends ConsumerState<_PracticeTab> {
 
           // Question
           Text(q.question, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, height: 1.4, color: Theme.of(context).colorScheme.onSurface)),
+          QuizAiAnswer(key: ValueKey('practice-$_currentQ-${q.question}'), question: q),
           const SizedBox(height: 16),
 
           // Options
@@ -470,7 +473,10 @@ class _ApplyTabState extends ConsumerState<_ApplyTab> {
             ),
 
           if (state.isGeneratingScenario)
-            const _LoadingCard(message: 'Creating scenario…'),
+            const Padding(
+              padding: EdgeInsets.all(40),
+              child: Center(child: CircularProgressIndicator()),
+            ),
 
           if (state.error != null)
             _ErrorCard(
@@ -736,27 +742,6 @@ class _StartCard extends StatelessWidget {
               label: Text(label),
               style: FilledButton.styleFrom(backgroundColor: color),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _LoadingCard extends StatelessWidget {
-  const _LoadingCard({required this.message});
-  final String message;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(40),
-      child: Center(
-        child: Column(
-          children: [
-            const CircularProgressIndicator(),
-            const SizedBox(height: 16),
-            Text(message, style: TextStyle(color: Theme.of(context).hintColor)),
           ],
         ),
       ),

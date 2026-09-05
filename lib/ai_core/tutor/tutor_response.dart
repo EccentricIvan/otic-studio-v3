@@ -1,3 +1,5 @@
+import 'school_math.dart';
+
 /// A single stage in the tutor pipeline.
 enum TutorStage {
   answer,    // Direct answer to the question
@@ -16,6 +18,8 @@ class TutorResponse {
     required this.followUpPrompt,
     required this.topic,
     this.isStreaming = false,
+    this.math,
+    this.mathCoach = false,
   });
 
   /// Which pipeline stage this response belongs to.
@@ -33,13 +37,21 @@ class TutorResponse {
   /// True while tokens are still streaming in.
   final bool isStreaming;
 
-  TutorResponse copyWith({String? text, bool? isStreaming}) {
+  /// When set, numbers came from the Dart solver — render as named steps.
+  final SchoolMathSolution? math;
+
+  /// Show hint / show-steps chips (solver is coaching this turn).
+  final bool mathCoach;
+
+  TutorResponse copyWith({String? text, bool? isStreaming, SchoolMathSolution? math}) {
     return TutorResponse(
       stage: stage,
       text: text ?? this.text,
       followUpPrompt: followUpPrompt,
       topic: topic,
       isStreaming: isStreaming ?? this.isStreaming,
+      math: math ?? this.math,
+      mathCoach: mathCoach,
     );
   }
 

@@ -1,15 +1,18 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../ai_core/providers/ai_provider.dart';
-import '../../ai_core/translate/supported_languages.dart';
+import '../../ai_core/tutor/school_math.dart';
 import '../../ai_core/tutor/tutor_response.dart';
 import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/curriculum_provider.dart';
-import '../../db/providers/db_provider.dart';
-import '../../shared/widgets/ai_status_banner.dart';
+import '../../l10n/app_locale.dart';
 import '../../shared/widgets/curriculum_diagram.dart';
+import '../../shared/widgets/generating_indicator.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/worked_solution.dart';
 import '../../voice/voice_provider.dart';
 import '../../voice/voice_service.dart';
 
@@ -19,13 +22,19 @@ class _ChatEntry {
     required this.isUser,
     this.lesson,
     this.isError = false,
-    this.translatedLanguage,
+    this.followUp,
+    this.stage,
+    this.math,
+    this.mathCoach = false,
   });
   final String text;
   final bool isUser;
   final Lesson? lesson;
   final bool isError;
-  final String? translatedLanguage;
+  final String? followUp;
+  final TutorStage? stage;
+  final SchoolMathSolution? math;
+  final bool mathCoach;
 }
 
 class LearnScreen extends ConsumerStatefulWidget {
@@ -66,36 +75,23 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
   }
 
   Future<void> _sendText(String text) async {
-    // Wait for the current answer before accepting the next question.
     if (ref.read(chatProvider).valueOrNull?.isGenerating ?? false) return;
     _controller.clear();
-
-    // The curriculum is English-only, so a non-English student's raw text
-    // won't match anything — translate to English first (best-effort) just
-    // for this local lookup. The tutor pipeline does its own translation
-    // for grounding the actual answer; this only decides whether to show
-    // the inline lesson card.
-    var textForMatch = text;
-    try {
-      final student = await ref.read(activeStudentProvider.future);
-      final lang = student?.language ?? 'en';
-      if (lang != 'en') {
-        final translation = await ref.read(translationPipelineProvider.future);
-        if (translation != null) {
-          textForMatch = await translation.toEnglish(text, lang);
-        }
-      }
-    } catch (_) {
-      // Fall back to matching on the raw text.
-    }
-
-    final curriculum = ref.read(curriculumServiceProvider);
-    final lesson = curriculum.findBestMatch(textForMatch);
-    if (lesson != null) _lessonForMessage[text] = lesson;
-
-    // Always send to the tutor — it adds a short follow-up
     ref.read(chatProvider.notifier).send(text);
     _scrollToBottom();
+    unawaited(_attachLessonCard(text));
+  }
+
+  Future<void> _attachLessonCard(String text) async {
+    // Match against the student's text as typed. A second AfriSLM call here
+    // raced the chat translation and doubled wait time. English topic words
+    // still match; the tutor already searches curriculum on the English
+    // version of the question.
+    final curriculum = ref.read(curriculumServiceProvider);
+    final lesson = curriculum.findBestMatch(text);
+    if (lesson != null && mounted) {
+      setState(() => _lessonForMessage[text] = lesson);
+    }
   }
 
   void _scrollToBottom() {
@@ -162,58 +158,15 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
   @override
   Widget build(BuildContext context) {
     final chat = ref.watch(chatProvider);
-    final aiStatus = ref.watch(aiStatusProvider);
 
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: const Text('Learn'),
+        title: Text(tr(context, 'Learn')),
         actions: [
-          aiStatus.when(
-            data: (status) => Padding(
-              padding: const EdgeInsets.only(right: 4),
-              child: Chip(
-                avatar: Icon(
-                  status.isDemo ? Icons.info_outline : Icons.memory,
-                  size: 14,
-                  color: status.isDemo
-                      ? const Color(0xFFB86E00)
-                      : AppColors.teachColor,
-                ),
-                label: Text(
-                  status.isDemo ? 'Demo' : (status.backendLabel ?? 'AI'),
-                  style: TextStyle(
-                    fontSize: 11,
-                    color: status.isDemo
-                        ? const Color(0xFFB86E00)
-                        : AppColors.teachColor,
-                  ),
-                ),
-                backgroundColor: status.isDemo
-                    ? const Color(0xFFFFF8E7)
-                    : AppColors.teachColor.withValues(alpha: 0.08),
-                side: BorderSide(
-                  color: status.isDemo
-                      ? const Color(0xFFE8D4A8)
-                      : AppColors.teachColor.withValues(alpha: 0.3),
-                ),
-                padding: EdgeInsets.zero,
-                visualDensity: VisualDensity.compact,
-              ),
-            ),
-            loading: () => const Padding(
-              padding: EdgeInsets.only(right: 16),
-              child: SizedBox(
-                width: 16,
-                height: 16,
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ),
-            ),
-            error: (_, __) => const SizedBox.shrink(),
-          ),
           IconButton(
             icon: const Icon(Icons.refresh),
-            tooltip: 'New session',
+            tooltip: tr(context, 'New session'),
             onPressed: () => ref.read(chatProvider.notifier).reset(),
           ),
         ],
@@ -221,7 +174,6 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
       body: MaxWidth(
         child: Column(
           children: [
-            const AiStatusBanner(),
             Expanded(
               child: chat.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
@@ -246,7 +198,10 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                       text: msg.text,
                       isUser: msg.isUser,
                       isError: msg.isError,
-                      translatedLanguage: msg.translatedLanguage,
+                      followUp: msg.followUp,
+                      stage: msg.stage,
+                      math: msg.math,
+                      mathCoach: msg.mathCoach,
                     ));
                     if (msg.isUser) {
                       final lesson = _lessonForMessage[msg.text];
@@ -256,20 +211,22 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                     }
                   }
 
-                  final showStreaming = state.isGenerating && state.streamingText.isNotEmpty;
+                  final showGenerating = state.isGenerating;
 
                   return ListView.builder(
                     controller: _scrollController,
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    itemCount: allItems.length + (showStreaming ? 1 : 0),
+                    itemCount: allItems.length + (showGenerating ? 1 : 0),
                     itemBuilder: (context, i) {
                       if (i >= allItems.length) {
-                        return _TutorBubble(
-                          text: state.streamingText,
-                          stage: null,
-                          followUp: null,
-                          isStreaming: true,
-                        );
+                        if (state.streamingText.isNotEmpty) {
+                          return _TutorBubble(
+                            text: state.streamingText,
+                            stage: null,
+                            followUp: null,
+                          );
+                        }
+                        return const GeneratingIndicator();
                       }
 
                       final entry = allItems[i];
@@ -288,12 +245,15 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
 
                       return _TutorBubble(
                         text: entry.text,
-                        stage: null,
-                        followUp: null,
-                        isStreaming: false,
+                        stage: entry.stage,
+                        followUp: entry.followUp == null
+                            ? null
+                            : tr(context, entry.followUp!),
+                        math: entry.math,
+                        mathCoach: entry.mathCoach,
+                        onChip: _sendText,
                         onReadAloud: entry.text.isNotEmpty ? () => _readAloud(entry.text) : null,
                         isSpeaking: ref.watch(voiceSpeakingProvider) == entry.text,
-                        translatedLanguage: entry.translatedLanguage,
                       );
                     },
                   );
@@ -394,22 +354,21 @@ class _TutorBubble extends StatelessWidget {
     required this.text,
     required this.stage,
     required this.followUp,
-    required this.isStreaming,
+    this.math,
+    this.mathCoach = false,
+    this.onChip,
     this.onReadAloud,
     this.isSpeaking = false,
-    this.translatedLanguage,
   });
 
   final String text;
   final TutorStage? stage;
   final String? followUp;
-  final bool isStreaming;
+  final SchoolMathSolution? math;
+  final bool mathCoach;
+  final void Function(String text)? onChip;
   final VoidCallback? onReadAloud;
   final bool isSpeaking;
-
-  /// Set when this reply was translated for display — shows a small
-  /// "Translated to <Language>" caption above the bubble.
-  final String? translatedLanguage;
 
   @override
   Widget build(BuildContext context) {
@@ -443,21 +402,6 @@ class _TutorBubble extends StatelessWidget {
                 ],
               ),
             ),
-          if (translatedLanguage != null)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 4, left: 4),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.translate, size: 12, color: Theme.of(context).hintColor),
-                  const SizedBox(width: 4),
-                  Text(
-                    'Translated to ${languageName(translatedLanguage!)}',
-                    style: TextStyle(fontSize: 11, color: Theme.of(context).hintColor),
-                  ),
-                ],
-              ),
-            ),
           Container(
             constraints: BoxConstraints(
               maxWidth: MediaQuery.sizeOf(context).width * 0.82,
@@ -474,35 +418,33 @@ class _TutorBubble extends StatelessWidget {
               ),
               border: Border.all(color: Theme.of(context).dividerColor),
             ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Expanded(
-                  child: Text(
-                    text.isEmpty ? '…' : text,
+            child: math != null
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (text.trim().isNotEmpty &&
+                          !text.trimLeft().startsWith('Step'))
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Text(
+                            text,
+                            style: TextStyle(color: cs.onSurface, height: 1.6),
+                          ),
+                        ),
+                      WorkedSolutionView(solution: math!),
+                    ],
+                  )
+                : Text(
+                    text,
                     style: TextStyle(
                       color: cs.onSurface,
                       height: 1.6,
                     ),
                   ),
-                ),
-                if (isStreaming) ...[
-                  const SizedBox(width: 8),
-                  const SizedBox(
-                    width: 12,
-                    height: 12,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      color: AppColors.primary,
-                    ),
-                  ),
-                ],
-              ],
-            ),
           ),
-          if (followUp != null && !isStreaming)
+          if (followUp != null)
             Padding(
-              padding: const EdgeInsets.only(bottom: 12, left: 4),
+              padding: const EdgeInsets.only(bottom: 4, left: 4),
               child: Text(
                 followUp!,
                 style: TextStyle(
@@ -511,8 +453,28 @@ class _TutorBubble extends StatelessWidget {
                   fontStyle: FontStyle.italic,
                 ),
               ),
-            )
-          else if (!isStreaming && onReadAloud != null && text.isNotEmpty)
+            ),
+          if (onChip != null && mathCoach)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4, left: 2),
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 6,
+                children: [
+                  ActionChip(
+                    visualDensity: VisualDensity.compact,
+                    label: Text(tr(context, 'Give me a hint')),
+                    onPressed: () => onChip!('Give me a hint'),
+                  ),
+                  ActionChip(
+                    visualDensity: VisualDensity.compact,
+                    label: Text(tr(context, 'Show the full steps')),
+                    onPressed: () => onChip!('Show the full steps'),
+                  ),
+                ],
+              ),
+            ),
+          if (onReadAloud != null && text.isNotEmpty)
             Padding(
               padding: const EdgeInsets.only(bottom: 12, left: 2),
               child: TextButton.icon(
@@ -521,7 +483,7 @@ class _TutorBubble extends StatelessWidget {
                   isSpeaking ? Icons.stop_circle_outlined : Icons.volume_up_outlined,
                   size: 18,
                 ),
-                label: Text(isSpeaking ? 'Stop reading' : 'Read aloud'),
+                label: Text(isSpeaking ? tr(context, 'Stop reading') : tr(context, 'Read aloud')),
                 style: TextButton.styleFrom(
                   visualDensity: VisualDensity.compact,
                   padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -591,7 +553,9 @@ class _InputBar extends StatelessWidget {
               controller: controller,
               onSubmitted: (_) => onSend(),
               decoration: InputDecoration(
-                hintText: isListening ? 'Listening… speak now' : 'Ask Otic anything...',
+                hintText: isListening
+                    ? tr(context, 'Listening… speak now')
+                    : tr(context, 'Ask AI anything...'),
                 border: InputBorder.none,
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,

@@ -9,10 +9,8 @@ import '../model/model_manager.dart' show ModelInfo, ModelStatus;
 
 /// Locates and installs the TranslatePsy-AfriSLM translation model (GGUF).
 ///
-/// Desktop loads this file into a local Ollama server (see
-/// OllamaModelInstaller); Android will load it directly through a llama.cpp
-/// binding once that engine exists. Both read the same canonical file below,
-/// so there is one on-disk name regardless of platform or quant tier picked.
+/// [LlamaCppEngineImpl] loads this file in-process via llama.cpp on every
+/// supported platform. One on-disk name regardless of platform or quant.
 class AfriSlmModelManager {
   static const modelFileName = 'translate-afrislm.gguf';
   static const _markerFileName = 'translate-afrislm.install.json';
@@ -20,8 +18,7 @@ class AfriSlmModelManager {
   static const _minSizeBytes = 300 * 1024 * 1024; // 300 MB
 
   /// Canonical install target — where [installFromFile] and
-  /// [downloadModel] write the file, and where [OllamaModelInstaller]
-  /// should register it from once found.
+  /// [downloadModel] write the file.
   Future<String> modelFilePath() async {
     if (defaultTargetPlatform == TargetPlatform.android) {
       final appFiles = await getApplicationDocumentsDirectory();
@@ -36,8 +33,23 @@ class AfriSlmModelManager {
   /// bundled-next-to-the-executable fallback so a self-contained release
   /// zip (exe + models/translate-afrislm.gguf) is picked up automatically.
   Future<List<String>> _candidatePaths() async {
-    final paths = <String>[await modelFilePath()];
-    if (defaultTargetPlatform != TargetPlatform.android) {
+    final paths = <String>[];
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      try {
+        final ext = await getExternalStorageDirectory();
+        if (ext != null) {
+          paths.add(
+            p.join(
+              ext.parent.parent.parent.parent.path,
+              'OTIC',
+              modelFileName,
+            ),
+          );
+        }
+      } catch (_) {}
+      paths.add(await modelFilePath());
+    } else {
+      paths.add(await modelFilePath());
       final exeDir = p.dirname(Platform.resolvedExecutable);
       paths.add(p.join(exeDir, 'models', modelFileName));
     }

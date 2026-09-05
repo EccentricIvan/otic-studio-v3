@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../collaboration/lan_discovery.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
+import '../../l10n/app_locale.dart';
 import '../../shared/widgets/responsive.dart';
 
 class CollaborateScreen extends ConsumerStatefulWidget {
@@ -79,7 +80,7 @@ class _CollaborateScreenState extends ConsumerState<CollaborateScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(title: const Text('Nearby learners')),
+      appBar: AppBar(title: Text(tr(context, 'Nearby'))),
       body: MaxWidth(
         maxWidth: 760,
         child: _starting

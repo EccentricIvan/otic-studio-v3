@@ -36,6 +36,12 @@ android {
         versionName = flutter.versionName
     }
 
+    // Keep large model assets uncompressed so AssetManager can stream them
+    // efficiently out of the fat release APK on first launch.
+    androidResources {
+        noCompress += listOf("litertlm", "gguf")
+    }
+
     signingConfigs {
         if (hasReleaseKeystore) {
             create("release") {

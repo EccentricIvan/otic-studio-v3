@@ -5,6 +5,7 @@ import '../../ai_core/providers/ai_provider.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
 import '../../gamification/badge_service.dart';
+import '../../l10n/app_locale.dart';
 import '../../shared/widgets/responsive.dart';
 
 // ── State ─────────────────────────────────────────────────────────────────────
@@ -68,9 +69,10 @@ class _TeachNotifier extends AutoDisposeNotifier<_TeachState> {
 
     try {
       final engine = await ref.read(engineLoadedProvider.future);
+      final englishExplanation = await localizeOutgoing(ref, state.explanation);
       final prompt =
           '''A student explained "${state.topic}" as follows:
-"${state.explanation}"
+"$englishExplanation"
 
 Score this explanation out of 100. Your response MUST follow this exact format:
 SCORE: [number 0-100]
@@ -99,11 +101,18 @@ Rate the explanation now:''';
         if (badges.isNotEmpty) badge = badges.first.name;
       }
 
+      final blob = await localizeIncoming(
+        ref,
+        '${parsed['strengths'] ?? 'Good attempt!'}\n---\n'
+        '${parsed['improve'] ?? 'Keep practising.'}\n---\n'
+        '${parsed['overall'] ?? 'Great effort!'}',
+      );
+      final parts = blob.split(RegExp(r'\n---\n'));
       state = state.copyWith(
         score: score,
-        strengths: parsed['strengths'] ?? 'Good attempt!',
-        improve: parsed['improve'] ?? 'Keep practising.',
-        overall: parsed['overall'] ?? 'Great effort!',
+        strengths: parts.isNotEmpty ? parts[0].trim() : 'Good attempt!',
+        improve: parts.length > 1 ? parts[1].trim() : 'Keep practising.',
+        overall: parts.length > 2 ? parts[2].trim() : 'Great effort!',
         isEvaluating: false,
         newBadge: badge,
       );
@@ -179,7 +188,7 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(title: const Text('Teach'), leading: const BackButton()),
+      appBar: AppBar(title: Text(tr(context, 'Teach')), leading: const BackButton()),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: MaxWidth(
@@ -273,19 +282,10 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: state.isEvaluating
-                      ? Center(
+                      ? const Center(
                           child: Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Column(
-                              children: [
-                                const CircularProgressIndicator(),
-                                const SizedBox(height: 10),
-                                Text(
-                                  'Your explanation is being evaluated...',
-                                  style: TextStyle(color: Theme.of(context).hintColor),
-                                ),
-                              ],
-                            ),
+                            padding: EdgeInsets.all(12),
+                            child: CircularProgressIndicator(),
                           ),
                         )
                       : FilledButton.icon(

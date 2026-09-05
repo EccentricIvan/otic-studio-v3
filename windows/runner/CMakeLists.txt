@@ -20,9 +20,11 @@ add_executable(${BINARY_NAME} WIN32
 # that need different build settings.
 apply_standard_settings(${BINARY_NAME})
 
-# Keep the internal CMake target stable, but produce a user-facing executable
-# named "AI Connect Africa.exe" in Windows builds.
-set_target_properties(${BINARY_NAME} PROPERTIES OUTPUT_NAME "AI Connect Africa")
+# Debug must match BINARY_NAME so `flutter run` can find the exe.
+# Release/Profile keep the product-facing filename for zips.
+set_target_properties(${BINARY_NAME} PROPERTIES
+  OUTPUT_NAME "$<IF:$<CONFIG:Debug>,ai_connect_africa,AI Connect Africa>"
+)
 
 # Add preprocessor definitions for the build version.
 target_compile_definitions(${BINARY_NAME} PRIVATE "FLUTTER_VERSION=\"${FLUTTER_VERSION}\"")

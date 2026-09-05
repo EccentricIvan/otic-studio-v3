@@ -7,6 +7,8 @@ import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/lesson_progress.dart';
 import '../../db/providers/db_provider.dart';
 import '../../gamification/badge_service.dart';
+import '../../l10n/app_locale.dart';
+import '../../shared/widgets/quiz_ai_answer.dart';
 
 class LessonScreen extends ConsumerStatefulWidget {
   const LessonScreen({
@@ -281,9 +283,11 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton.icon(
-                    onPressed: () => context.push('/chat?topic=${Uri.encodeComponent(lesson.title)}'),
+                    onPressed: () => context.push(
+                      '/chat?topic=${Uri.encodeComponent(lesson.title)}',
+                    ),
                     icon: const Icon(Icons.psychology, size: 18),
-                    label: const Text('Ask AI about this lesson'),
+                    label: Text(tr(context, 'Ask AI about this lesson')),
                     style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                     ),
@@ -303,7 +307,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                             );
                           },
                           icon: const Icon(Icons.arrow_back, size: 18),
-                          label: const Text('Previous'),
+                          label: Text(tr(context, 'Previous')),
                         ),
                       ),
                     if (hasPrev && hasNext) const SizedBox(width: 12),
@@ -316,7 +320,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                             );
                           },
                           icon: const Icon(Icons.arrow_forward, size: 18),
-                          label: const Text('Next Lesson'),
+                          label: Text(tr(context, 'Next')),
                           style: FilledButton.styleFrom(backgroundColor: AppColors.primary),
                         ),
                       ),
@@ -396,6 +400,7 @@ class _QuizCard extends StatelessWidget {
               color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
+          QuizAiAnswer(key: ValueKey('lesson-$index-${question.question}'), question: question),
           const SizedBox(height: 12),
           ...question.options.asMap().entries.map((entry) {
             final oi = entry.key;
