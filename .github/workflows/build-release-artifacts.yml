@@ -130,6 +130,31 @@ jobs:
       - name: Build Windows
         run: flutter build windows --release
 
+      # Windows 11 Smart App Control blocks unsigned DLLs with a "Bad Image"
+      # dialog (error 0xC0E90002), so an unsigned build cannot start on those
+      # machines at all. Signing only happens when the certificate secrets are
+      # present; without them the build stays unsigned exactly as before.
+      - name: Sign Windows binaries
+        shell: pwsh
+        env:
+          WINDOWS_CERT_PFX_BASE64: ${{ secrets.WINDOWS_CERT_PFX_BASE64 }}
+          WINDOWS_CERT_PASSWORD: ${{ secrets.WINDOWS_CERT_PASSWORD }}
+        run: |
+          if (-not $env:WINDOWS_CERT_PFX_BASE64) {
+            Write-Host '::warning::No signing certificate configured - shipping an unsigned Windows build. Machines with Smart App Control enabled will fail to start it (0xC0E90002).'
+            exit 0
+          }
+          $pfx = Join-Path $env:RUNNER_TEMP 'signing.pfx'
+          [IO.File]::WriteAllBytes($pfx, [Convert]::FromBase64String($env:WINDOWS_CERT_PFX_BASE64))
+          try {
+            ./tools/sign_windows_build.ps1 `
+              -Path 'build/windows/x64/runner/Release' `
+              -PfxPath $pfx `
+              -PfxPassword $env:WINDOWS_CERT_PASSWORD
+          } finally {
+            Remove-Item $pfx -Force -ErrorAction SilentlyContinue
+          }
+
       - name: Prepare Windows zip
         shell: pwsh
         run: |
