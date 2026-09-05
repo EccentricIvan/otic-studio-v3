@@ -144,7 +144,15 @@ final translateEngineLoadedProvider = FutureProvider<InferenceEngine?>((ref) asy
   if (kIsWeb) return null;
 
   final modelInfo = await ref.watch(translateModelInfoProvider.future);
-  if (!modelInfo.isReady) return null;
+  if (!modelInfo.isReady) {
+    // Silent until now, and the likeliest reason replies come back in
+    // English: the GGUF is still the one model extracted on first launch.
+    debugPrint(
+      'TRANSLATION OFF: translate model not ready '
+      '(status=${modelInfo.status}, path=${modelInfo.path}).',
+    );
+    return null;
+  }
 
   try {
     final engine = LlamaCppEngineImpl();
@@ -164,10 +172,21 @@ final translationPipelineProvider = FutureProvider<TranslationPipeline?>((ref) a
 });
 
 /// Student's learning-language code (`en` if unknown).
+///
+/// Returning 'en' short-circuits every translation call before the pipeline
+/// is even consulted, so a null student (guest, or a profile that has not
+/// loaded yet when the first message lands) looks exactly like "translation
+/// is broken" from the outside. Log what actually resolved.
 Future<String> studentLanguageCode(Ref ref) async {
   try {
-    return (await ref.read(activeStudentProvider.future))?.language ?? 'en';
-  } catch (_) {
+    final student = await ref.read(activeStudentProvider.future);
+    if (student == null) {
+      debugPrint('TRANSLATION OFF: no active student, defaulting to English.');
+      return 'en';
+    }
+    return student.language;
+  } catch (e) {
+    debugPrint('TRANSLATION OFF: could not read active student: $e');
     return 'en';
   }
 }
@@ -178,9 +197,13 @@ Future<String> localizeOutgoing(Ref ref, String text) async {
   if (lang == 'en' || text.trim().isEmpty) return text;
   try {
     final pipeline = await ref.read(translationPipelineProvider.future);
-    if (pipeline == null) return text;
+    if (pipeline == null) {
+      debugPrint('TRANSLATION OFF: no pipeline (in: $lang -> en).');
+      return text;
+    }
     return await pipeline.toEnglish(text, lang);
-  } catch (_) {
+  } catch (e) {
+    debugPrint('TRANSLATION FAILED (in: $lang -> en): $e');
     return text;
   }
 }
@@ -195,9 +218,13 @@ Future<String> localizeIncoming(
   if (lang == 'en' || englishText.trim().isEmpty) return englishText;
   try {
     final pipeline = await ref.read(translationPipelineProvider.future);
-    if (pipeline == null) return englishText;
+    if (pipeline == null) {
+      debugPrint('TRANSLATION OFF: no pipeline (out: en -> $lang).');
+      return englishText;
+    }
     return await pipeline.fromEnglish(englishText, lang, onToken: onToken);
-  } catch (_) {
+  } catch (e) {
+    debugPrint('TRANSLATION FAILED (out: en -> $lang): $e');
     return englishText;
   }
 }
@@ -436,7 +463,9 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
       if (lang != 'en' && response.math == null) {
         try {
           reply = await localizeIncoming(ref, reply);
-        } catch (_) {}
+        } catch (e) {
+          debugPrint('TRANSLATION FAILED for chat reply (en -> $lang): $e');
+        }
       }
 
       final msgs = List<ChatMessage>.from(state.requireValue.messages)

@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import '../inference/inference_engine.dart';
 import 'supported_languages.dart';
 
@@ -44,7 +46,14 @@ class TranslationPipeline {
       temperature: 0.0,
     );
     final cleaned = _stripThinking(result);
-    return cleaned.isEmpty ? text : cleaned;
+    if (cleaned.isEmpty) {
+      debugPrint(
+        'TRANSLATION EMPTY (in: $fromLanguageCode -> en) - keeping original. '
+        'Raw model output was ${result.length} chars.',
+      );
+      return text;
+    }
+    return cleaned;
   }
 
   Future<String> fromEnglish(
@@ -64,7 +73,15 @@ class TranslationPipeline {
       onToken: onToken,
     );
     final cleaned = _stripThinking(result);
-    return cleaned.isEmpty ? text : cleaned;
+    if (cleaned.isEmpty) {
+      // The visible symptom of this is "the reply came back in English".
+      debugPrint(
+        'TRANSLATION EMPTY (out: en -> $toLanguageCode) - falling back to '
+        'English. Raw model output was ${result.length} chars.',
+      );
+      return text;
+    }
+    return cleaned;
   }
 
   /// One model call for the tutor reply plus follow-up.
@@ -101,11 +118,22 @@ class TranslationPipeline {
     return (await fromEnglish(reply, toLanguageCode), followUp);
   }
 
+  /// Output budget for one translation call.
+  ///
+  /// This used to clamp at 120 tokens while the tutor generates replies at
+  /// maxTokens: 280, so any full-length answer was guaranteed to be cut off
+  /// mid-sentence - and if the truncated output stripped down to nothing,
+  /// the caller silently fell back to the English original. The ceiling has
+  /// to sit above what the tutor can produce, not below it.
+  ///
+  /// The multiplier is 3x rather than 2x because the African languages here
+  /// tokenize far less efficiently than English in this vocabulary: the same
+  /// sentence routinely costs more tokens coming out than going in.
   int _tokenBudget(String text) {
     final words = text.split(RegExp(r'\s+')).length;
-    final n = words * 2 + 16;
-    if (n < 40) return 40;
-    if (n > 120) return 120;
+    final n = words * 3 + 32;
+    if (n < 64) return 64;
+    if (n > 512) return 512;
     return n;
   }
 

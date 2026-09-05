@@ -37,7 +37,11 @@ class LlamaCppEngineImpl extends InferenceEngine {
     _repo?.dispose();
     _repo = llama.LlamaCppChatRepository.withModelPath(
       modelPath,
-      contextSize: 1024,
+      // A 280-token tutor reply plus instructions, plus up to 512 tokens of
+      // translated output, does not fit in 1024. Undersizing the context
+      // truncates the translation, which is what made replies fall back to
+      // English.
+      contextSize: 2048,
       batchSize: 256,
       nGpuLayers: 0,
     );
