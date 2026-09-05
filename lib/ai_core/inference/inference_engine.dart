@@ -18,11 +18,18 @@ abstract class InferenceEngine {
   Future<void> loadModel(String modelPath);
 
   /// Generate a response, streaming tokens via [onToken].
+  ///
+  /// [systemPrompt] is sent as a real system turn by engines whose runtime
+  /// renders a chat template — currently only [LlamaCppEngineImpl], which is
+  /// the one that needs it: AfriSLM was trained with its translator persona
+  /// in the system role (see TranslationPipeline). Engines that have no
+  /// system turn ignore it; nothing but translation passes it today.
   Future<String> generate({
     required String prompt,
     int maxTokens = 512,
     double temperature = 0.7,
     TokenCallback? onToken,
+    String? systemPrompt,
   });
 
   /// Release native resources.

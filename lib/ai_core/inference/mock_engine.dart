@@ -30,6 +30,7 @@ class MockEngine extends InferenceEngine {
     int maxTokens = 512,
     double temperature = 0.7,
     TokenCallback? onToken,
+    String? systemPrompt,
   }) async {
     return _mockResponse(prompt, onToken: onToken);
   }

@@ -86,6 +86,7 @@ class LlamaCppEngineImpl extends InferenceEngine {
     int maxTokens = 512,
     double temperature = 0.7,
     TokenCallback? onToken,
+    String? systemPrompt,
   }) async {
     final repo = _repo;
     final modelPath = _modelPath;
@@ -100,9 +101,16 @@ class LlamaCppEngineImpl extends InferenceEngine {
       throw StateError(dead);
     }
 
+    // A real system turn, not a string glued onto the front of the user
+    // message: llm_llamacpp renders these through the GGUF's own chat
+    // template, and AfriSLM was trained with the translator persona in the
+    // system role. Concatenating instead would put it off-distribution,
+    // which is where a 0.8B model starts inventing text.
     final stream = repo.streamChatWithGenerationOptions(
       modelPath,
       messages: [
+        if (systemPrompt != null && systemPrompt.trim().isNotEmpty)
+          llama.LLMMessage(role: llama.LLMRole.system, content: systemPrompt),
         llama.LLMMessage(role: llama.LLMRole.user, content: prompt),
       ],
       think: false,

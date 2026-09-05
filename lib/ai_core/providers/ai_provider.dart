@@ -230,12 +230,14 @@ Future<String> localizeIncoming(
   }
 }
 
-/// Translates a reply and its follow-up prompt together in one model call.
+/// Translates a reply and its follow-up prompt.
 ///
 /// This previously returned [followUp] untranslated, so follow-up questions
 /// stayed in English even when everything above them was localized.
-/// [TranslationPipeline.fromEnglishPair] already handles the A:/B: split and
-/// falls back to translating just the reply if the split cannot be parsed.
+/// [TranslationPipeline.fromEnglishPair] now translates each part in its own
+/// call — AfriSLM was trained on single-text translation, and the labelled
+/// two-part prompt this used to send was off-distribution enough that the
+/// reply regularly came back unparseable and fell through to English.
 Future<(String, String)> localizeIncomingPair(
   Ref ref,
   String reply,
