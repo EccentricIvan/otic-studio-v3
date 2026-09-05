@@ -40,10 +40,27 @@ class LiteRtLmEngineImpl extends InferenceEngine {
 
   @override
   Future<void> loadModel(String modelPath) async {
-    Future<void> install() => FlutterGemma.installModel(
-          modelType: ModelType.qwen3,
-          fileType: ModelFileType.litertlm,
-        ).fromFile(modelPath).install();
+    // A "bundled:" path means the model is still inside the APK's own
+    // assets/models/ folder. flutter_gemma's BundledSourceHandler records
+    // metadata only ("no copying required — uses native path directly"), so
+    // LiteRT-LM mmaps the asset in place and the fat APK never grows a
+    // second copy of the same ~600 MB in app storage. This relies on the
+    // `noCompress` rule for .litertlm in build.gradle.kts — a deflated
+    // asset has no mappable file descriptor.
+    final bundledName = modelPath.startsWith(ModelManager.bundledAssetPrefix)
+        ? modelPath.substring(ModelManager.bundledAssetPrefix.length)
+        : null;
+
+    Future<void> install() {
+      final builder = FlutterGemma.installModel(
+        modelType: ModelType.qwen3,
+        fileType: ModelFileType.litertlm,
+      );
+      return (bundledName == null
+              ? builder.fromFile(modelPath)
+              : builder.fromBundled(bundledName))
+          .install();
+    }
 
     try {
       final installed =

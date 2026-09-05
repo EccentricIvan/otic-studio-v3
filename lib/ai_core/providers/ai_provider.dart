@@ -49,7 +49,16 @@ final modelInfoProvider = FutureProvider<ModelInfo>((ref) async {
   if (kIsWeb) {
     return const ModelInfo(status: ModelStatus.notInstalled);
   }
-  await ref.watch(bundledModelsBootstrapProvider.future);
+  final bootstrap = await ref.watch(bundledModelsBootstrapProvider.future);
+  // Served straight from the APK - there is no file on disk to stat, and
+  // deliberately so: extracting one would store the same ~600 MB twice.
+  if (bootstrap.chatBundledInApk) {
+    return const ModelInfo(
+      status: ModelStatus.ready,
+      path: ModelManager.bundledChatModelPath,
+      platform: 'Android (LiteRT-LM, in APK)',
+    );
+  }
   return ref.watch(modelManagerProvider).checkModel();
 });
 
@@ -95,6 +104,25 @@ final engineLoadedProvider = FutureProvider<InferenceEngine>((ref) async {
     return engine;
   } catch (e, st) {
     debugPrint('engineLoadedProvider: local model load failed: $e\n$st');
+    // Reading the model in place out of the APK is the memory-cheap path
+    // but depends on the native runtime accepting an asset file
+    // descriptor. If it refuses, fall back to a real file - that costs a
+    // second ~600 MB on disk, so it only happens after an in-place load
+    // has actually failed.
+    if (modelInfo.path == ModelManager.bundledChatModelPath) {
+      try {
+        final path = await BundledModelBootstrap(
+          chatManager: ref.watch(modelManagerProvider),
+          translateManager: ref.watch(translateModelManagerProvider),
+        ).materializeChatModel();
+        final engine = createPlatformEngine();
+        await engine.loadModel(path);
+        ref.onDispose(engine.dispose);
+        return engine;
+      } catch (_) {
+        // Fall through to demo mode below.
+      }
+    }
     return demo(DemoReason.loadFailed);
   }
 });

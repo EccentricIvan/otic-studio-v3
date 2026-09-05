@@ -53,6 +53,18 @@ class ModelInfo {
 ///   Windows / Linux  → <appDocuments>\OTIC\chat-model.litertlm
 class ModelManager {
   static const chatModelFileName = 'chat-model.litertlm';
+
+  /// Marks a [ModelInfo.path] that is not a filesystem path at all but the
+  /// model sitting inside the APK's own `assets/models/` folder. LiteRT-LM
+  /// reads that asset in place (flutter_gemma's BundledSourceHandler only
+  /// records metadata — "no copying required, uses native path directly"),
+  /// so on Android the fat APK stores the chat model exactly once instead of
+  /// also extracting a second copy into app storage.
+  static const bundledAssetPrefix = 'bundled:';
+
+  /// Path value handed to the engine when the chat model is served straight
+  /// out of the APK.
+  static const bundledChatModelPath = '$bundledAssetPrefix$chatModelFileName';
   // Minimum sane file size — reject obvious truncations. Smallest supported
   // quant (Qwen3-0.6B dynamic int4) is ~330 MB; leave margin below that.
   static const _minSizeBytes = 250 * 1024 * 1024; // 250 MB
