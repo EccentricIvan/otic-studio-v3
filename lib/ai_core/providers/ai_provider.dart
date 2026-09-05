@@ -15,6 +15,7 @@ import '../tutor/tutor_pipeline.dart';
 import '../tutor/tutor_response.dart';
 import '../tutor/school_math.dart';
 import '../../curriculum/curriculum_provider.dart';
+import '../../l10n/app_locale.dart';
 import '../../db/providers/db_provider.dart';
 import '../../safety/emotional_safety.dart';
 
@@ -229,12 +230,30 @@ Future<String> localizeIncoming(
   }
 }
 
+/// Translates a reply and its follow-up prompt together in one model call.
+///
+/// This previously returned [followUp] untranslated, so follow-up questions
+/// stayed in English even when everything above them was localized.
+/// [TranslationPipeline.fromEnglishPair] already handles the A:/B: split and
+/// falls back to translating just the reply if the split cannot be parsed.
 Future<(String, String)> localizeIncomingPair(
   Ref ref,
   String reply,
   String followUp,
 ) async {
-  return (await localizeIncoming(ref, reply), followUp);
+  final lang = await studentLanguageCode(ref);
+  if (lang == 'en') return (reply, followUp);
+  try {
+    final pipeline = await ref.read(translationPipelineProvider.future);
+    if (pipeline == null) {
+      debugPrint('TRANSLATION OFF: no pipeline (pair: en -> $lang).');
+      return (reply, followUp);
+    }
+    return await pipeline.fromEnglishPair(reply, followUp, lang);
+  } catch (e) {
+    debugPrint('TRANSLATION FAILED (pair: en -> $lang): $e');
+    return (reply, followUp);
+  }
 }
 
 /// User-facing AI runtime status (real model vs demo).
@@ -407,6 +426,17 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
       return;
     }
 
+    // Resolved before generation, not after: it decides whether the raw
+    // English tokens may be shown at all.
+    final lang = await studentLanguageCode(ref);
+
+    // When the student is learning in another language the tutor's English
+    // output must never reach the screen. Streaming it live and swapping in
+    // the translation at the end meant the student read English for the
+    // whole generation. Buffer silently instead and let GeneratingIndicator
+    // hold the bubble until the translated reply is ready.
+    final mayStreamRawEnglish = lang == 'en';
+
     var streamBuf = '';
     var lastFlush = DateTime.fromMillisecondsSinceEpoch(0);
     void flushStream({bool force = false}) {
@@ -420,7 +450,7 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
 
     void onTok(String token) {
       streamBuf += token;
-      flushStream();
+      if (mayStreamRawEnglish) flushStream();
     }
 
     // Behind-the-scenes translation: the tutor pipeline (topic detection,
@@ -457,12 +487,27 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
       );
 
       var reply = streamBuf.trim().isNotEmpty ? streamBuf : response.text;
-      flushStream(force: true);
+      if (mayStreamRawEnglish) flushStream(force: true);
 
-      final lang = await studentLanguageCode(ref);
-      if (lang != 'en' && response.math == null) {
+      var followUp = response.followUpPrompt;
+      if (lang != 'en') {
+        // Math replies used to be excluded here, which left every
+        // school-math answer in English. The worked steps and formulas are
+        // rendered separately by WorkedSolution and stay language-neutral;
+        // it is the prose around them that has to be translated.
         try {
-          reply = await localizeIncoming(ref, reply);
+          // Follow-ups are usually static strings that the l10n tables
+          // already cover, and a table lookup is both instant and better
+          // than a 0.8B model. Only the interpolated ones (for example
+          // "Your turn - try this: ...") miss, and those go to the model
+          // alongside the reply in a single call.
+          if (followUp.isNotEmpty && !hasUiString(lang, followUp)) {
+            final pair = await localizeIncomingPair(ref, reply, followUp);
+            reply = pair.$1;
+            followUp = pair.$2;
+          } else {
+            reply = await localizeIncoming(ref, reply);
+          }
         } catch (e) {
           debugPrint('TRANSLATION FAILED for chat reply (en -> $lang): $e');
         }
@@ -473,7 +518,7 @@ class ChatNotifier extends AsyncNotifier<ChatState> {
           text: reply,
           isUser: false,
           stage: response.stage,
-          followUp: response.followUpPrompt,
+          followUp: followUp,
           math: response.math,
           mathCoach: response.mathCoach,
         ));

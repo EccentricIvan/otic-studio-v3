@@ -240,7 +240,10 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                       if (entry.isUser) return _UserBubble(text: entry.text);
 
                       if (entry.isError) {
-                        return _ErrorBubble(text: entry.text);
+                        // Error copy is written in English at the source, so
+                        // it has to go through the tables like any other
+                        // string or it shows English to a Swahili student.
+                        return _ErrorBubble(text: tr(context, entry.text));
                       }
 
                       return _TutorBubble(

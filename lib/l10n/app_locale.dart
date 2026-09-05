@@ -27,6 +27,17 @@ String tr(BuildContext context, String english) {
       english;
 }
 
+/// True when [english] has a real entry for [code], i.e. `tr` would return a
+/// translation rather than silently handing back the English.
+///
+/// Lets callers tell "already localized" apart from "fell through to English"
+/// and send only the latter to the translation model.
+bool hasUiString(String code, String english) {
+  if (code == 'en') return true;
+  return kUiStrings[code]?[english] != null ||
+      kUiStringsMore[code]?[english] != null;
+}
+
 String trFill(BuildContext context, String english, Map<String, String> vars) {
   var out = tr(context, english);
   vars.forEach((k, v) => out = out.replaceAll('{$k}', v));
