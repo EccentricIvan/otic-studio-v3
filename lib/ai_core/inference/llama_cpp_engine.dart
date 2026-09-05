@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:llm_llamacpp/llm_llamacpp.dart' as llama;
 
 import 'inference_engine.dart';
@@ -10,11 +12,39 @@ class LlamaCppEngineImpl extends InferenceEngine {
   llama.LlamaCppChatRepository? _repo;
   String? _modelPath;
 
+  /// True once the native stack has produced at least one token. Until then
+  /// we cannot tell a slow machine from a native layer that never came up,
+  /// so the first token gets the long deadline below.
+  bool _nativeEverWorked = false;
+
+  /// Set when the first call died without producing a token — the native
+  /// stack is broken on this machine, not merely slow. Later calls then fail
+  /// immediately instead of freezing the chat for minutes each time.
+  String? _deadReason;
+
+  /// Deadline for the first token of a call.
+  ///
+  /// It has to cover a full model load, because llm_llamacpp reloads the
+  /// GGUF on *every* request: the helper isolate frees it in a `finally`
+  /// after each one, and every LlamaCppChatRepository constructor funnels
+  /// into the same PersistentInferenceIsolate.runInference(modelPath:).
+  /// So each call pays ~670 MB of disk I/O plus prompt eval before token 1.
+  static const _firstTokenTimeout = Duration(minutes: 3);
+
+  /// Deadline between two tokens once generation is actually under way.
+  static const _betweenTokensTimeout = Duration(seconds: 60);
+
   @override
-  bool get isReady => _repo != null && _modelPath != null;
+  bool get isReady =>
+      _repo != null && _modelPath != null && _deadReason == null;
 
   @override
   String get backendLabel => 'llama.cpp · AfriSLM';
+
+  /// Why translation is unavailable, or null while it still looks healthy.
+  /// Callers use this to tell the student translation is off rather than
+  /// silently handing them English.
+  String? get failureReason => _deadReason;
 
   @override
   Future<void> loadModel(String modelPath) async {
@@ -46,6 +76,8 @@ class LlamaCppEngineImpl extends InferenceEngine {
       nGpuLayers: 0,
     );
     _modelPath = modelPath;
+    _nativeEverWorked = false;
+    _deadReason = null;
   }
 
   @override
@@ -60,9 +92,15 @@ class LlamaCppEngineImpl extends InferenceEngine {
     if (repo == null || modelPath == null) {
       throw StateError('Translation model not loaded.');
     }
+    // An earlier call proved the native stack is broken here. Fail in
+    // milliseconds rather than making the student wait out the watchdog
+    // again on every single message.
+    final dead = _deadReason;
+    if (dead != null) {
+      throw StateError(dead);
+    }
 
-    final buffer = StringBuffer();
-    await for (final chunk in repo.streamChatWithGenerationOptions(
+    final stream = repo.streamChatWithGenerationOptions(
       modelPath,
       messages: [
         llama.LLMMessage(role: llama.LLMRole.user, content: prompt),
@@ -75,11 +113,87 @@ class LlamaCppEngineImpl extends InferenceEngine {
         topK: temperature <= 0.0 ? 1 : 40,
         repeatPenalty: 1.05,
       ),
-    )) {
-      final text = chunk.message?.content;
-      if (text == null || text.isEmpty) continue;
-      buffer.write(text);
-      onToken?.call(text);
+    );
+
+    // Why this is a watchdog rather than a plain `await for`:
+    //
+    // When llm_llamacpp's helper isolate fails to initialise the native
+    // backend it prints the error and *returns* — without ever creating its
+    // receive port or answering the main isolate (see _isolateMain in
+    // persistent_inference_isolate.dart). The completer that
+    // _ensureInitialized awaits is never completed, so the inference stream
+    // emits nothing, never closes and never errors. `await for` on it hangs
+    // the caller forever, and no try/catch can ever fire.
+    //
+    // That is not theoretical. On Windows, ggml.dll carries a *load-time*
+    // import on ggml-vulkan.dll, which imports vulkan-1.dll. On a machine
+    // with no Vulkan runtime — generic display drivers, common on the
+    // low-end laptops this project targets — llama.dll cannot load at all,
+    // so translation froze the chat on its generating indicator with no
+    // recovery. Android is unaffected: libvulkan.so ships with the OS.
+    //
+    // The watchdog turns that dead silence into an ordinary error, which
+    // localizeOutgoing/localizeIncoming already soft-fail and log.
+    final buffer = StringBuffer();
+    final done = Completer<void>();
+    StreamSubscription<Object?>? sub;
+    Timer? watchdog;
+
+    void fail(String message) {
+      if (done.isCompleted) return;
+      // Only latch when nothing ever came through: a stall mid-generation
+      // can be a slow machine, but silence on the very first token means
+      // the native library never came up.
+      if (!_nativeEverWorked) _deadReason = message;
+      watchdog?.cancel();
+      unawaited(sub?.cancel());
+      done.completeError(StateError(message));
+    }
+
+    void arm(Duration limit) {
+      watchdog?.cancel();
+      watchdog = Timer(limit, () {
+        fail(
+          _nativeEverWorked
+              ? 'Translation stalled for ${limit.inSeconds}s with no new '
+                  'output.'
+              : 'Translation produced no output within ${limit.inSeconds}s. '
+                  'The llama.cpp native library most likely failed to load; '
+                  'on Windows that happens when the Vulkan runtime is '
+                  'missing, because ggml.dll imports ggml-vulkan.dll at '
+                  'load time.',
+        );
+      });
+    }
+
+    arm(_firstTokenTimeout);
+    sub = stream.listen(
+      (chunk) {
+        final text = chunk.message?.content;
+        if (text == null || text.isEmpty) return;
+        _nativeEverWorked = true;
+        buffer.write(text);
+        onToken?.call(text);
+        arm(_betweenTokensTimeout);
+      },
+      onError: (Object e, StackTrace st) {
+        if (done.isCompleted) return;
+        watchdog?.cancel();
+        done.completeError(e, st);
+      },
+      onDone: () {
+        if (done.isCompleted) return;
+        watchdog?.cancel();
+        done.complete();
+      },
+      cancelOnError: true,
+    );
+
+    try {
+      await done.future;
+    } finally {
+      watchdog?.cancel();
+      await sub.cancel();
     }
 
     final result = buffer.toString().trim();
@@ -94,5 +208,7 @@ class LlamaCppEngineImpl extends InferenceEngine {
     _repo?.dispose();
     _repo = null;
     _modelPath = null;
+    _deadReason = null;
+    _nativeEverWorked = false;
   }
 }

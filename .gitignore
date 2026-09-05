@@ -64,3 +64,4 @@ packages/ai-core/models/
 flutter_export_environment.sh
 
 android/build/
+windows/third_party/vulkan/

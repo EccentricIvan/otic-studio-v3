@@ -118,6 +118,14 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
+      # ggml.dll carries a load-time import on ggml-vulkan.dll -> vulkan-1.dll,
+      # which only ever arrives with GPU drivers. Without it llama.dll cannot
+      # load at all (error 126), llm_llamacpp's helper isolate dies during
+      # backend init, and translation stops working. See the script for detail.
+      - name: Fetch Vulkan loader
+        shell: pwsh
+        run: ./tools/fetch_vulkan_loader.ps1
+
       - name: Build Windows
         run: flutter build windows --release
 
