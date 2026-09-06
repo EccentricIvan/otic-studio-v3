@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../features/learn/path/path_provider.dart';
+import '../../l10n/app_locale.dart';
 
 const _brandLogoAsset = 'assets/branding/ai-connect-africa-logo.png';
 
@@ -92,7 +93,7 @@ class AppShell extends StatelessWidget {
                   color: Colors.transparent,
                   child: IconButton(
                     icon: Icon(Icons.menu_rounded, size: 22, color: ac.textPrimary),
-                    tooltip: 'Menu',
+                    tooltip: tr(context, 'Menu'),
                     onPressed: () => mobileScaffoldKey.currentState?.openDrawer(),
                     style: IconButton.styleFrom(
                       backgroundColor: AppColors.glassFill(context, strong: true),
@@ -135,7 +136,7 @@ class AppShell extends StatelessWidget {
                           child: _FloatingNavItem(
                             icon: _destinations[_mobileIndices[i]].icon,
                             selectedIcon: _destinations[_mobileIndices[i]].selectedIcon,
-                            label: _destinations[_mobileIndices[i]].label,
+                            label: tr(context, _destinations[_mobileIndices[i]].label),
                             selected: mobileSelected == i,
                             onTap: () =>
                                 context.go(_destinations[_mobileIndices[i]].path),
@@ -158,7 +159,7 @@ class AppShell extends StatelessWidget {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'Chat',
+                        tr(context, 'Chat'),
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight:
@@ -251,7 +252,7 @@ class _ChatFabButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       button: true,
-      label: 'AI Chat',
+      label: tr(context, 'AI Chat'),
       selected: active,
       child: Material(
       color: Colors.transparent,
@@ -370,7 +371,7 @@ class _SideNav extends StatelessWidget {
                                     const SizedBox(width: 12),
                                     Expanded(
                                       child: Text(
-                                        dest.label,
+                                        tr(context, dest.label),
                                         style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: selected
@@ -410,7 +411,7 @@ class _SideNav extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'Offline · v1.1',
+                  'Offline · v1.2',
                   style: TextStyle(fontSize: 12, color: ac.textHint),
                 ),
               ],
@@ -456,7 +457,7 @@ class _AppDrawer extends ConsumerWidget {
                         ),
                       ),
                       Text(
-                        'Learn, Create & Build',
+                        tr(context, 'Learn, Create & Build'),
                         style: TextStyle(fontSize: 11, color: ac.textHint),
                       ),
                     ],
@@ -579,7 +580,7 @@ class _AppDrawer extends ConsumerWidget {
                                   const SizedBox(width: 12),
                                   Expanded(
                                     child: Text(
-                                      dest.label,
+                                      tr(context, dest.label),
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: selected

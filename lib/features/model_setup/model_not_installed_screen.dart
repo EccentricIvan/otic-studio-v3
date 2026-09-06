@@ -7,7 +7,12 @@ import '../../ai_core/providers/ai_provider.dart';
 import '../../core/theme/app_colors.dart';
 
 class ModelNotInstalledScreen extends ConsumerStatefulWidget {
-  const ModelNotInstalledScreen({super.key, required this.info, this.onTryDemo});
+  const ModelNotInstalledScreen({
+    super.key,
+    required this.info,
+    this.onTryDemo,
+    this.bootstrapError,
+  });
 
   final ModelInfo info;
 
@@ -16,6 +21,10 @@ class ModelNotInstalledScreen extends ConsumerStatefulWidget {
   /// falls back to canned demo answers when no model is loaded. Falls back
   /// to popping the route if not provided.
   final VoidCallback? onTryDemo;
+
+  /// Set when a fat APK tried to stream bundled models out of assets and
+  /// failed (e.g. not enough free storage).
+  final String? bootstrapError;
 
   @override
   ConsumerState<ModelNotInstalledScreen> createState() =>
@@ -123,6 +132,26 @@ class _ModelNotInstalledScreenState
                     style: Theme.of(context).textTheme.bodyLarge,
                     textAlign: TextAlign.center,
                   ),
+                  if (widget.bootstrapError != null) ...[
+                    const SizedBox(height: 16),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.orange.withValues(alpha: 0.08),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: Colors.orange.withValues(alpha: 0.5),
+                        ),
+                      ),
+                      child: Text(
+                        'Could not unpack the bundled model: '
+                        '${widget.bootstrapError}\n\n'
+                        'Free about 1 GB of storage, or install from a file below.',
+                        style: const TextStyle(fontSize: 13),
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: 32),
                   if (_installing) ...[
                     _InstallProgress(progress: _progress),

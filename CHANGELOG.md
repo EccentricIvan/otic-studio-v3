@@ -7,12 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.0] — 2026-09-04
+
+### Added
+- Localized UI for the 19 AfriSLM languages plus English.
+- Dart school-math solver (MathGPT-style) for conversions, percent, linear equations, arithmetic, and rectangle measures.
+- Worked-solution step cards, hints, and practice follow-ups in Learn.
+- Conversation thread recap so later questions build on earlier teaching without repeating the first reply.
+
+### Changed
+- Tutor answers the current question; cached math and lesson notes no longer replay across unrelated turns.
+
+---
+
 ## [Unreleased]
 
 ### Added
-- Mobile-friendly download landing page with a direct Android APK link to the rolling `latest-build` release.
-- Experimental `/llama-test` screen for local Llama 3.2 1B Q4_K_M GGUF testing through `fllama`/llama.cpp.
-- Separate Llama model downloader that stores the GGUF in app documents/cache space, tracks download progress, and writes an install marker so the app does not repeatedly download the model.
+- Fat Android release APK that embeds chat + translation models; first launch streams them into app storage.
+- `tools/build_release_with_models.ps1` and `publish_release.ps1 -WithModels` so GitHub Releases get one download link with everything.
+- Optional CI `bundle_models` workflow input (uses a one-time `model-pack` release).
 
 ### Changed
 - Updated Flutter web install metadata so hosted builds present AI Connect Africa branding instead of default project boilerplate.

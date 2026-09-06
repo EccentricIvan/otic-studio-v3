@@ -8,6 +8,8 @@ import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../gamification/badge_service.dart';
+import '../../l10n/app_locale.dart';
+import '../../shared/widgets/generating_indicator.dart';
 import '../../shared/widgets/responsive.dart';
 import 'package:drift/drift.dart' show Value;
 
@@ -99,10 +101,14 @@ class _CreateNotifier extends AutoDisposeNotifier<_CreateState> {
 
     try {
       final engine = await ref.read(engineLoadedProvider.future);
-      final history = state.messages
+      final prior = state.messages.length > 1
+          ? state.messages.sublist(0, state.messages.length - 1)
+          : const <_Msg>[];
+      final history = prior
           .map((m) => '${m.isUser ? 'Student' : 'Tutor'}: ${m.text}')
           .join('\n');
 
+      final englishUser = await localizeOutgoing(ref, userText);
       final prompt =
           '''You are a creative project mentor.
 Help the student build a ${state.projectType} about "${state.topic}".
@@ -110,24 +116,20 @@ Guide them one step at a time: plan → draft → review.
 Ask one clear question or give one clear instruction. Be encouraging.
 Keep responses concise (3-5 sentences max).
 
-${history.isNotEmpty ? 'Conversation so far:\n$history\n' : ''}Student: $userText
+${history.isNotEmpty ? 'Conversation so far:\n$history\n' : ''}Student: $englishUser
 Tutor:''';
 
-      String streamed = '';
       final response = await engine.generate(
         prompt: prompt,
         maxTokens: 350,
         temperature: 0.8,
-        onToken: (t) {
-          streamed += t;
-          state = state.copyWith(streamingText: streamed);
-        },
       );
 
+      final display = await localizeIncoming(ref, response);
       state = state.copyWith(
         messages: [
           ...state.messages,
-          _Msg(text: response, isUser: false),
+          _Msg(text: display, isUser: false),
         ],
         isGenerating: false,
         streamingText: '',
@@ -232,7 +234,7 @@ class _CreateScreenState extends ConsumerState<CreateScreen> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: Text(
-          state.started ? '${state.projectType}: ${state.topic}' : 'Create',
+          state.started ? '${state.projectType}: ${state.topic}' : tr(context, 'Create'),
         ),
         actions: [
           if (state.started && state.savedProjectId == null)
@@ -242,7 +244,7 @@ class _CreateScreenState extends ConsumerState<CreateScreen> {
                   : () =>
                         ref.read(_createProvider.notifier).saveProject(context),
               icon: const Icon(Icons.save_outlined),
-              label: const Text('Save'),
+              label: Text(tr(context, 'Save')),
             ),
           if (state.started)
             IconButton(
@@ -436,9 +438,7 @@ class _ChatView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final allCount =
-        state.messages.length +
-        (state.isGenerating && state.streamingText.isNotEmpty ? 1 : 0);
+    final allCount = state.messages.length + (state.isGenerating ? 1 : 0);
 
     return MaxWidth(
       child: Column(
@@ -450,11 +450,7 @@ class _ChatView extends ConsumerWidget {
               itemCount: allCount,
               itemBuilder: (_, i) {
                 if (i == state.messages.length) {
-                  return _Bubble(
-                    text: state.streamingText,
-                    isUser: false,
-                    streaming: true,
-                  );
+                  return const GeneratingIndicator();
                 }
                 final m = state.messages[i];
                 return _Bubble(

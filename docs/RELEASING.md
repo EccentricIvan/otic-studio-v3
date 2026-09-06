@@ -1,21 +1,27 @@
 # Releasing
 
-How to build, sign, and publish an AI Connect Africa release, and how to make an
-offline update bundle for schools. Written for Windows + PowerShell.
+How to build, sign, and publish an AI Connect Africa release that includes a
+**single Android download with the AI models inside**, plus the Windows zip.
 
 ---
 
 ## 0. Prerequisites
 
-- Flutter on PATH (`D:\flutter\bin`), `flutter doctor` green for Windows + Android.
-- Android keystore present: `C:\Users\LENOVO\otic-release.jks` + password file,
-  wired through `android/key.properties` (gitignored).
-- `gh` (GitHub CLI) installed. It must be **authenticated once** before it can
-  publish — see step 4.
-- Because C: is tight, redirect build temp to D: for every build:
-  ```powershell
-  $env:TEMP='D:\temp'; $env:TMP='D:\temp'
-  ```
+- Flutter on PATH, `flutter doctor` green for Windows + Android.
+- Android keystore wired through `android/key.properties` (gitignored). `storeFile`
+  is resolved by Gradle relative to **`android/app/`**, not `android/` — a keystore
+  kept at `android/release-keystore.jks` must be written as
+  `storeFile=../release-keystore.jks`. Getting this wrong fails the build at
+  `:app:validateSigningRelease` only after the full ~50-minute compile, and the
+  "falls back to debug signing" path in `build.gradle.kts` does **not** rescue it:
+  that fallback fires only when `key.properties` is missing entirely.
+- `gh` authenticated once (`gh auth login`).
+- Model pack on disk (never commit these):
+
+```
+dist\models\chat-model.litertlm
+dist\models\translate-afrislm.gguf
+```
 
 ---
 
@@ -24,101 +30,72 @@ offline update bundle for schools. Written for Windows + PowerShell.
 In `pubspec.yaml`:
 
 ```yaml
-version: 1.1.0+2        # marketingVersion+buildNumber — bump both
+version: 1.2.0+3        # marketingVersion+buildNumber — bump both
 ```
 
-Update the in-app footer label in
-[lib/shared/widgets/app_shell.dart](../lib/shared/widgets/app_shell.dart)
-("Offline · vX.Y") and add a [CHANGELOG.md](../CHANGELOG.md) entry. Commit.
+Add a [CHANGELOG.md](../CHANGELOG.md) entry. Commit.
 
 ---
 
-## 2. Build the artifacts
+## 2. Build with models (recommended)
 
 ```powershell
-$env:TEMP='D:\temp'; $env:TMP='D:\temp'
-
-# Desktop
-flutter build windows --release
-Compress-Archive -Path build\windows\x64\runner\Release\* `
-  -DestinationPath D:\AI Connect Africa Windows v1.1.0.zip -Force
-
-# Free C: before the APK build (the windows tree is ~1 GB and regenerable)
-Remove-Item build\windows -Recurse -Force
-
-# Android (signed)
-flutter build apk --release
-Copy-Item build\app\outputs\flutter-apk\app-release.apk D:\AI Connect Africa v1.1.0.apk
+.\tools\build_release_with_models.ps1 -Version 1.2.0
 ```
 
-> Keep large outputs on **D:**. After releasing, delete `build/` to reclaim C:.
+This injects the model pack into `android/app/src/main/assets/models/`, builds
+a fat arm64 APK, clears the injected files from the tree, and builds a Windows
+zip with a `models/` folder next to the exe.
+
+Outputs in `dist\`:
+
+- `AI Connect Africa v1.2.0-with-models.apk`  (~1–1.5 GB)
+- `AI Connect Africa Windows v1.2.0.zip`
 
 ---
 
-## 3. Verify the APK signature
+## 3. Publish — get the download link
 
 ```powershell
-$bt = Get-ChildItem D:\Android\build-tools | Sort-Object Name -Descending | Select-Object -First 1
-& "$($bt.FullName)\apksigner.bat" verify --print-certs D:\AI Connect Africa v1.1.0.apk
+.\tools\publish_release.ps1 -Version 1.2.0 -WithModels
 ```
 
-Expect: `CN=Otic Studio, OU=Education, O=OTIC, L=Kampala, C=UG`. Android only
-accepts updates signed with this same key.
+The script prints the **direct Android URL**, for example:
+
+```
+https://github.com/<owner>/<repo>/releases/download/v1.2.0/AI%20Connect%20Africa%20v1.2.0-with-models.apk
+```
+
+Share that link. Installers get chat + translation with no extra model step.
+First app launch unpacks the assets once (~1 GB free space on the phone).
 
 ---
 
-## 4. Authenticate gh (one time per machine)
+## 4. One-time: CI model pack (optional rolling fat APK)
 
-`git push` works for code/tags via the credential helper, but `gh` needs its own
-login to upload release binaries. Automation **cannot** scrape the token from the
-credential store (blocked by security policy), so a human runs this once:
+So GitHub Actions can rebuild a with-models APK without checking models into git:
 
 ```powershell
-gh auth login          # choose GitHub.com → HTTPS → authenticate in browser
-gh auth status         # confirm "Logged in to github.com"
+gh release create model-pack `
+  dist\models\chat-model.litertlm `
+  dist\models\translate-afrislm.gguf `
+  --title "Model pack (not an app release)" `
+  --notes "Source assets for fat Android APK builds. Not for end users."
 ```
 
-This persists; subsequent releases don't need it again.
+Then run **Actions → Build Release Artifacts → Run workflow** with
+**bundle_models = true**. That uploads
+`ai-connect-africa-latest-with-models.apk` to the `latest-build` release.
+
+Default pushes to `main` still publish a **slim** APK (fast CI).
 
 ---
 
-## 5. Publish the GitHub release
+## 5. Offline USB bundle
 
 ```powershell
-gh release create v1.1.0 `
-  D:\AI Connect Africa v1.1.0.apk `
-  D:\AI Connect Africa Windows v1.1.0.zip `
-  --title "AI Connect Africa v1.1.0 — Website Builder" `
-  --notes-file dist\release-notes-v1.1.0.md
+.\tools\make_update_package.ps1 -WithModels -Version 1.2.0
 ```
-
-The release page then offers **both** downloads: the `.apk` for phones/tablets and
-the `.zip` for Windows desktop — anyone with the link can download from a browser.
-
-A ready-to-run helper exists at [tools/publish_release.ps1](../tools/publish_release.ps1):
-
-```powershell
-.\tools\publish_release.ps1 -Version 1.1.0
-```
-
-It checks `gh auth status` first and prints the manual login command if needed.
-
----
-
-## 6. Offline update bundle (USB / school LAN)
-
-For sites with no internet, build a bundle instead of (or in addition to) the
-GitHub release:
-
-```powershell
-.\tools\make_update_package.ps1
-```
-
-This stages the build for distribution. Copy the resulting folder (or
-`dist\otic-update-<date>\`) to a USB drive or the school LAN share. Installing an
-APK over an older version **keeps all student data** (additive DB migrations). The
-~1 GB model file travels separately and is installed in-app via **Install from
-file…**.
 
 ---
 
@@ -126,9 +103,68 @@ file…**.
 
 | Step | Command |
 |---|---|
-| Build desktop | `flutter build windows --release` |
-| Build Android | `flutter build apk --release` |
-| Verify signature | `apksigner verify --print-certs <apk>` |
+| Build fat Android + Windows | `.\tools\build_release_with_models.ps1 -Version X.Y.Z` |
+| Publish + print download URL | `.\tools\publish_release.ps1 -Version X.Y.Z -WithModels` |
+| USB bundle with models | `.\tools\make_update_package.ps1 -WithModels -Version X.Y.Z` |
 | Auth (once) | `gh auth login` |
-| Publish | `gh release create vX.Y.Z <apk> <zip> --title … --notes-file …` |
-| Offline bundle | `.\tools\make_update_package.ps1` |
+
+---
+
+## Troubleshooting: "Bad Image ... error status 0xC0E90002" on Windows
+
+A tester reports the app refusing to start, with a `Bad Image` dialog naming
+one plugin DLL after another (`flutter_tts_plugin.dll`,
+`webview_flutter_windows_plugin.dll`, `share_plus_plugin.dll`, ...).
+
+**This is not a corrupt download or a broken build.** `0xC0E90002` is a Code
+Integrity policy violation: Windows 11's **Smart App Control** (or S mode)
+refuses to load unsigned DLLs. A Flutter release folder ships
+`flutter_windows.dll` plus one unsigned DLL per plugin, so on a machine with
+SAC enabled *none* of it loads. Dropping plugins does not help.
+
+Confirm it on the affected machine: Event Viewer -> Applications and Services
+Logs -> Microsoft -> Windows -> **CodeIntegrity -> Operational**, look for
+event **3077** naming the blocked DLLs.
+
+### What the user can do now
+
+1. Right-click the downloaded `.zip` -> Properties -> tick **Unblock** ->
+   *then* extract. Clears Mark-of-the-Web. Free to try, not guaranteed.
+2. Copy the app from a USB stick instead of downloading it - files that never
+   came from the internet carry no Mark-of-the-Web.
+3. Turn Smart App Control off (Windows Security -> App & browser control).
+   This works, but **it cannot be turned back on without reinstalling
+   Windows** - do not suggest this to a school casually.
+
+### The actual fix: sign the build
+
+`tools/sign_windows_build.ps1` signs every `.exe`/`.dll` in the release
+folder with SHA-256 plus an RFC-3161 timestamp. It is already wired into the
+Windows CI job and no-ops when no certificate is configured, so unsigned
+builds keep working.
+
+Locally:
+
+```powershell
+flutter build windows --release
+.\tools\sign_windows_build.ps1 -PfxPath C:\certs\aca.pfx -PfxPassword $env:CERT_PW
+```
+
+In CI, set two repository secrets and the job signs automatically:
+
+| Secret | Value |
+|--------|-------|
+| `WINDOWS_CERT_PFX_BASE64` | the `.pfx` file, base64-encoded |
+| `WINDOWS_CERT_PASSWORD`   | its password |
+
+To produce the base64 blob:
+
+```powershell
+[Convert]::ToBase64String([IO.File]::ReadAllBytes('C:\certs\aca.pfx')) | Set-Clipboard
+```
+
+**Certificate choice matters.** Smart App Control trusts certificates with
+established reputation. A brand-new **OV** certificate can still be blocked
+until it earns that reputation, which takes time and download volume. An
+**EV** code-signing certificate is trusted immediately and is the reliable
+choice if schools must be able to install on day one.

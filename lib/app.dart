@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'ai_core/model/model_manager.dart';
 import 'ai_core/providers/ai_provider.dart';
@@ -7,6 +8,8 @@ import 'core/theme/app_colors.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_provider.dart';
 import 'features/model_setup/model_not_installed_screen.dart';
+import 'l10n/app_locale.dart';
+import 'l10n/language_provider.dart';
 
 class OticApp extends ConsumerStatefulWidget {
   const OticApp({super.key});
@@ -43,6 +46,8 @@ class _OticAppState extends ConsumerState<OticApp> {
     }
 
     final router = ref.watch(appRouterProvider);
+    // Same value the translation engine routes on — see appLanguageProvider.
+    final languageCode = ref.watch(appLanguageProvider);
     return MaterialApp.router(
       title: 'AI Connect Africa',
       theme: AppTheme.light,
@@ -50,6 +55,19 @@ class _OticAppState extends ConsumerState<OticApp> {
       themeMode: themeMode,
       routerConfig: router,
       debugShowCheckedModeBanner: false,
+      locale: const Locale('en'),
+      supportedLocales: const [Locale('en')],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      builder: (context, child) {
+        return AppLocale(
+          languageCode: languageCode,
+          child: child ?? const SizedBox.shrink(),
+        );
+      },
     );
   }
 }
@@ -100,6 +118,9 @@ class _SplashScreen extends StatelessWidget {
 /// "Try demo mode" reveals [child] for this visit without installing
 /// anything — the chat provider already falls back to canned demo answers
 /// when no model is loaded, so this just lets that path be reached.
+///
+/// On Android fat APKs, [modelInfoProvider] waits while bundled models are
+/// streamed out of APK assets into app storage (one-time).
 class ModelGate extends ConsumerStatefulWidget {
   const ModelGate({super.key, required this.child});
   final Widget child;
@@ -115,16 +136,55 @@ class _ModelGateState extends ConsumerState<ModelGate> {
   Widget build(BuildContext context) {
     if (_showDemoAnyway) return widget.child;
 
+    final bootstrap = ref.watch(bundledModelsBootstrapProvider);
     final modelInfo = ref.watch(modelInfoProvider);
+
+    final unpacking = bootstrap.isLoading ||
+        (bootstrap.hasValue &&
+            bootstrap.value!.extractedAnything &&
+            modelInfo.isLoading);
+
+    if (bootstrap.isLoading || unpacking) {
+      return Scaffold(
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(32),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Preparing AI models…',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: 24),
+                const LinearProgressIndicator(),
+                const SizedBox(height: 16),
+                Text(
+                  'One-time setup for this install. Needs about 1 GB free storage.',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: Theme.of(context).hintColor,
+                      ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
     return modelInfo.when(
       loading: () =>
           const Scaffold(body: Center(child: CircularProgressIndicator())),
       error: (_, __) => widget.child,
       data: (info) {
         if (info.status == ModelStatus.notInstalled) {
+          final err = bootstrap.asData?.value.error;
           return ModelNotInstalledScreen(
             info: info,
             onTryDemo: () => setState(() => _showDemoAnyway = true),
+            bootstrapError: err,
           );
         }
         return widget.child;

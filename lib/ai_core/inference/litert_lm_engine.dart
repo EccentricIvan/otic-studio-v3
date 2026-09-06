@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_gemma/flutter_gemma.dart';
 import '../model/model_manager.dart';
 import 'inference_engine.dart';
+import 'pinned_prompt_cache.dart';
+import 'runtime_config.dart';
 
 /// Chat engine for every desktop/mobile platform — Google LiteRT-LM runtime
 /// via flutter_gemma_litertlm, registered in main.dart. Runs Qwen3-0.6B
@@ -23,6 +27,13 @@ import 'inference_engine.dart';
 /// and this machine's finding doesn't generalize to it.
 class LiteRtLmEngineImpl extends InferenceEngine {
   InferenceModel? _model;
+  InferenceChat? _pinnedChat;
+  String? _pinnedSystem;
+  int _pinnedTurns = 0;
+  Future<void> _gate = Future.value();
+
+  /// Recreate the pinned session before KV + THREAD overflow the 1024 window.
+  static const _maxPinnedTurns = 4;
 
   static bool get _cpuOnly =>
       defaultTargetPlatform == TargetPlatform.windows ||
@@ -37,10 +48,27 @@ class LiteRtLmEngineImpl extends InferenceEngine {
 
   @override
   Future<void> loadModel(String modelPath) async {
-    Future<void> install() => FlutterGemma.installModel(
-          modelType: ModelType.qwen3,
-          fileType: ModelFileType.litertlm,
-        ).fromFile(modelPath).install();
+    // A "bundled:" path means the model is still inside the APK's own
+    // assets/models/ folder. flutter_gemma's BundledSourceHandler records
+    // metadata only ("no copying required — uses native path directly"), so
+    // LiteRT-LM mmaps the asset in place and the fat APK never grows a
+    // second copy of the same ~600 MB in app storage. This relies on the
+    // `noCompress` rule for .litertlm in build.gradle.kts — a deflated
+    // asset has no mappable file descriptor.
+    final bundledName = modelPath.startsWith(ModelManager.bundledAssetPrefix)
+        ? modelPath.substring(ModelManager.bundledAssetPrefix.length)
+        : null;
+
+    Future<void> install() {
+      final builder = FlutterGemma.installModel(
+        modelType: ModelType.qwen3,
+        fileType: ModelFileType.litertlm,
+      );
+      return (bundledName == null
+              ? builder.fromFile(modelPath)
+              : builder.fromBundled(bundledName))
+          .install();
+    }
 
     try {
       final installed =
@@ -77,29 +105,132 @@ class LiteRtLmEngineImpl extends InferenceEngine {
     int maxTokens = 512,
     double temperature = 0.7,
     TokenCallback? onToken,
+    String? systemPrompt,
+  }) async {
+    final previous = _gate;
+    final done = Completer<void>();
+    _gate = done.future;
+    try {
+      try {
+        await previous;
+      } catch (_) {}
+      return await _generateNow(
+        prompt: prompt,
+        maxTokens: maxTokens,
+        temperature: temperature,
+        onToken: onToken,
+        systemPrompt: systemPrompt,
+      );
+    } finally {
+      if (!done.isCompleted) done.complete();
+    }
+  }
+
+  Future<String> _generateNow({
+    required String prompt,
+    required int maxTokens,
+    required double temperature,
+    TokenCallback? onToken,
+    String? systemPrompt,
   }) async {
     if (_model == null) {
       throw StateError('Model not loaded. Call loadModel() first.');
     }
 
-    final chat = await _model!.createChat(maxOutputTokens: maxTokens);
-    chat.addQueryChunk(Message.text(text: prompt, isUser: true));
+    final clipped =
+        prompt.length > 1600 ? '${prompt.substring(0, 1600)}\nTutor:' : prompt;
+
+    final sys = (systemPrompt == null || systemPrompt.trim().isEmpty)
+        ? ''
+        : PinnedPromptCache.intern(systemPrompt.trim());
+    var user = clipped;
+    if (sys.isNotEmpty && user.startsWith(sys)) {
+      user = user.substring(sys.length).trim();
+    }
+
+    // Session analysis / website prompts must not append onto the pinned
+    // tutor chat — that would pollute the KV the student is learning from.
+    if (sys.isEmpty) {
+      return _oneShot(user: user, maxTokens: maxTokens, onToken: onToken);
+    }
+
+    // Pin the tutor contract once. Later turns only add the user turn, so
+    // LiteRT does not re-prefill the system instruction (KV stays warm).
+    if (_pinnedChat == null ||
+        _pinnedSystem != sys ||
+        _pinnedTurns >= _maxPinnedTurns) {
+      await _pinnedChat?.close();
+      _pinnedChat = await _model!.createChat(
+        temperature: kDoSample ? temperature : kTutorTemperature,
+        randomSeed: kRandomSeed,
+        topK: kDoSample ? 40 : kTopK,
+        topP: kTopP,
+        systemInstruction: sys,
+        maxOutputTokens: maxTokens,
+        modelType: ModelType.qwen3,
+      );
+      _pinnedSystem = sys;
+      _pinnedTurns = 0;
+    }
+
+    await _pinnedChat!.addQueryChunk(Message.text(text: user, isUser: true));
 
     final buffer = StringBuffer();
-    await for (final response in chat.generateChatResponseAsync()) {
+    await for (final response in _pinnedChat!.generateChatResponseAsync()) {
       if (response is TextResponse) {
         final token = response.token;
         if (token.isNotEmpty) {
           buffer.write(token);
-          onToken?.call(token);
+          await emitToken(onToken, token);
         }
       }
     }
+    _pinnedTurns++;
     return buffer.toString();
+  }
+
+  Future<String> _oneShot({
+    required String user,
+    required int maxTokens,
+    TokenCallback? onToken,
+  }) async {
+    final chat = await _model!.createChat(
+      temperature: kTutorTemperature,
+      randomSeed: kRandomSeed,
+      topK: kTopK,
+      topP: kTopP,
+      maxOutputTokens: maxTokens,
+      modelType: ModelType.qwen3,
+    );
+    try {
+      await chat.addQueryChunk(Message.text(text: user, isUser: true));
+      final buffer = StringBuffer();
+      await for (final response in chat.generateChatResponseAsync()) {
+        if (response is TextResponse) {
+          final token = response.token;
+          if (token.isNotEmpty) {
+            buffer.write(token);
+            await emitToken(onToken, token);
+          }
+        }
+      }
+      return buffer.toString();
+    } finally {
+      await chat.close();
+    }
+  }
+
+  @override
+  Future<void> resetSession() async {
+    await _pinnedChat?.close();
+    _pinnedChat = null;
+    _pinnedSystem = null;
+    _pinnedTurns = 0;
   }
 
   @override
   Future<void> dispose() async {
+    await resetSession();
     _model?.close();
     _model = null;
   }

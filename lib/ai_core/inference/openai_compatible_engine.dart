@@ -33,6 +33,7 @@ class OpenAiCompatibleEngine extends InferenceEngine {
     int maxTokens = 512,
     double temperature = 0.7,
     TokenCallback? onToken,
+    String? systemPrompt,
   }) async {
     if (!_ready) {
       throw StateError('Cloud AI not ready. Call loadModel() first.');
@@ -86,7 +87,7 @@ class OpenAiCompatibleEngine extends InferenceEngine {
             final token = delta?['content'] as String? ?? '';
             if (token.isNotEmpty) {
               buffer.write(token);
-              onToken?.call(token);
+              await emitToken(onToken, token);
             }
           } catch (_) {
             // skip malformed SSE chunks

@@ -1,7 +1,7 @@
 import 'inference_engine.dart';
 
 /// Canned demo replies when no real local model is available.
-/// Used on web, when Android model is missing, when Ollama is down,
+/// Used on web, when the chat model is missing, when load fails,
 /// and in unit tests.
 class MockEngine extends InferenceEngine {
   MockEngine({this.demoReason = DemoReason.generic});
@@ -30,6 +30,7 @@ class MockEngine extends InferenceEngine {
     int maxTokens = 512,
     double temperature = 0.7,
     TokenCallback? onToken,
+    String? systemPrompt,
   }) async {
     return _mockResponse(prompt, onToken: onToken);
   }
@@ -38,7 +39,7 @@ class MockEngine extends InferenceEngine {
     final response = _pickResponse(prompt);
     for (final word in response.split(' ')) {
       final token = '$word ';
-      onToken?.call(token);
+      await emitToken(onToken, token);
       await Future.delayed(const Duration(milliseconds: 40));
     }
     return response;

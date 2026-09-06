@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
+import '../../l10n/app_locale.dart';
 import '../../shared/widgets/responsive.dart';
 
 class ProjectsScreen extends ConsumerWidget {
@@ -17,7 +18,7 @@ class ProjectsScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: const Text('Projects'),
+        title: Text(tr(context, 'Projects')),
         actions: [
           IconButton(
             icon: const Icon(Icons.add),

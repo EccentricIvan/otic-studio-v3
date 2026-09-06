@@ -17,22 +17,42 @@ The AI model (Gemma 3 1B) is bundled and runs locally: LiteRT-LM on Android, lla
 
 ## Downloads
 
-Get the latest build from the [**Releases page**](https://github.com/malinzijeremiah01-lab/Otic-Studio/releases/latest). The rolling **AI Connect Africa Latest Build** release is produced automatically from `main` and provides both:
+Get the latest build from the [**Releases page**](https://github.com/malinzijeremiah01-lab/Otic-Studio/releases/latest).
 
-On Android phones and tablets, use the direct [**Download Android APK**](https://github.com/malinzijeremiah01-lab/Otic-Studio/releases/download/latest-build/ai-connect-africa-latest.apk) link, or open the mobile-friendly [download page](index.html).
+### Android — one APK with everything (recommended)
+
+Build and publish the **with-models** APK so schools get a single download:
+
+```powershell
+# 1. Put models here (gitignored):
+#    dist\models\chat-model.litertlm
+#    dist\models\translate-afrislm.gguf
+
+.\tools\build_release_with_models.ps1 -Version 1.2.0
+.\tools\publish_release.ps1 -Version 1.2.0 -WithModels
+```
+
+After publish, the direct link is:
+
+`https://github.com/<owner>/<repo>/releases/download/v1.2.0/AI%20Connect%20Africa%20v1.2.0-with-models.apk`
+
+(`publish_release.ps1` prints the exact URL for your repo.)
+
+Install that APK → first launch unpacks the bundled chat + translation models → app works offline. No separate USB model step.
+
+Rolling CI builds on `latest-build` stay **slim** by default. To publish a fat rolling APK, run the **Build Release Artifacts** workflow with **bundle_models** after uploading a one-time [`model-pack`](https://github.com/malinzijeremiah01-lab/Otic-Studio/releases) release that contains `chat-model.litertlm` and `translate-afrislm.gguf`. Then use:
+
+[**Download Android APK (with models)**](https://github.com/malinzijeremiah01-lab/Otic-Studio/releases/download/latest-build/ai-connect-africa-latest-with-models.apk)
 
 | Download | Platform | How to install |
 |---|---|---|
-| `AI Connect Africa vX.Y.Z.apk` | **Android phones/tablets** (4 GB RAM) | Copy to the device, open it, allow "Install unknown apps" |
-| `AI Connect Africa Windows vX.Y.Z.zip` | **Windows desktop** (8 GB RAM) | Extract anywhere, run `AI Connect Africa.exe` |
+| `AI Connect Africa vX.Y.Z-with-models.apk` | **Android** (4 GB+ RAM) | Install APK; first launch unpacks models (~1 GB free space) |
+| `AI Connect Africa vX.Y.Z.apk` | Android (slim) | Install APK, then **Install from file…** for models |
+| `AI Connect Africa Windows vX.Y.Z.zip` | **Windows** (8 GB RAM) | Extract; `models/` next to the exe is used automatically |
 
-Current automated artifact names are `ai-connect-africa-latest.apk` and `ai-connect-africa-windows-latest.zip`.
+Both can also be shared offline by USB, Bluetooth, or a local server. Release APKs built with `tools\build_release_with_models.ps1` are signed with the official certificate (`CN=AI Connect Africa, OU=Engineering, O=AI Connect Africa, L=Kampala, ST=Central, C=UG`); Android rejects updates not signed with the same key.
 
-Both can also be shared offline by USB, Bluetooth, or a local server. The APK is signed with the official release certificate (`CN=Otic Studio, O=OTIC, L=Kampala, C=UG`); Android rejects updates not signed with the same key.
-
-### The AI model (one extra step, once per device)
-
-The app is small; the AI tutor needs the **Qwen3-0.6B chat model file (~330–590 MB)**, distributed separately on USB or a school server — never over the internet. The app runs without it and shows a **"Model Not Installed"** screen with an **Install from file…** button: pick the model from wherever you copied it and the app validates, copies, and activates it with a progress bar.
+> **Rolling CI builds are debug-signed.** The workflow has no keystore, so `build.gradle.kts` falls back to the debug key. APKs from the `latest-build` release therefore cannot be upgraded in place to an official release — uninstall first, or hand out only the artifacts built locally by the release script.
 
 ---
 
@@ -77,8 +97,7 @@ The app is small; the AI tutor needs the **Qwen3-0.6B chat model file (~330–59
 | Role | Platform | Runtime | Model | Size |
 |---|---|---|---|---|
 | Chat/tutor | Android, Windows, Linux (4 GB+ RAM) | LiteRT-LM (Google, GPU/NPU) via `flutter_gemma`/`flutter_gemma_litertlm` | Qwen3-0.6B `.litertlm` | ~330–590 MB |
-| Translation | Windows / Linux | Local Ollama server | TranslatePsy-AfriSLM 0.8B `.gguf` | ~0.5–1 GB |
-| Translation | Android | llama.cpp binding (planned) | TranslatePsy-AfriSLM 0.8B `.gguf` | ~0.5–1 GB |
+| Translation | Android, Windows, Linux | llama.cpp in-process (`llm_llamacpp`) | TranslatePsy-AfriSLM 0.8B `.gguf` | ~0.5–1 GB |
 
 All engines implement the same `InferenceEngine` interface ([lib/ai_core/inference/](lib/ai_core/inference/)). The app detects each model at startup; when absent it falls back to a `MockEngine` so every screen still works for demonstration, and translation degrades to English-only chat.
 

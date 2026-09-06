@@ -4,13 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../ai_core/cloud/cloud_api_settings.dart';
-import '../../ai_core/inference/ollama_model_installer.dart';
 import '../../ai_core/providers/ai_provider.dart';
 import '../../ai_core/translate/supported_languages.dart';
 import '../../core/app_info_provider.dart';
+import 'fetch_packages_tile.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/theme_provider.dart';
 import '../../db/providers/db_provider.dart';
+import '../../l10n/app_locale.dart';
+import '../../l10n/language_provider.dart';
 import '../../shared/widgets/responsive.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -24,22 +26,23 @@ class SettingsScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(title: const Text('Settings')),
+      appBar: AppBar(title: Text(tr(context, 'Settings'))),
       body: MaxWidth(
         maxWidth: 760,
         child: ListView(
           children: [
             // ── AI Model ─────────────────────────────────────────────────────
             _Section('AI Model', [
+              const FetchPackagesTile(),
               ref.watch(aiStatusProvider).when(
-                loading: () => const ListTile(
-                  leading: Icon(Icons.memory, color: AppColors.primary),
-                  title: Text('Checking AI…'),
+                loading: () => ListTile(
+                  leading: const Icon(Icons.memory, color: AppColors.primary),
+                  title: Text(tr(context, 'Checking AI…')),
                 ),
-                error: (_, __) => const ListTile(
-                  leading: Icon(Icons.memory, color: Colors.red),
-                  title: Text('AI check failed'),
-                  subtitle: Text('Try restarting the app'),
+                error: (e, _) => ListTile(
+                  leading: const Icon(Icons.memory, color: Colors.red),
+                  title: const Text('AI check failed'),
+                  subtitle: Text('$e'),
                 ),
                 data: (status) => ListTile(
                   leading: Icon(
@@ -50,15 +53,15 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                   title: Text(
                     status.isDemo
-                        ? 'Demo mode'
+                        ? tr(context, 'Demo mode')
                         : (status.backendLabel?.startsWith('Cloud') == true
                             ? 'Cloud AI ready'
-                            : 'Local AI ready'),
+                            : tr(context, 'Local AI ready')),
                   ),
                   subtitle: Text(
                     status.isDemo
-                        ? status.detail
-                        : (status.backendLabel ?? status.detail),
+                        ? 'Sample answers until setup is finished in this screen.'
+                        : tr(context, 'Ready on this device.'),
                   ),
                   isThreeLine: status.isDemo,
                   trailing: Icon(
@@ -69,17 +72,21 @@ class SettingsScreen extends ConsumerWidget {
               ),
               modelAsync.when(
                 loading: () => const SizedBox.shrink(),
-                error: (_, __) => const SizedBox.shrink(),
+                error: (e, _) => ListTile(
+                  leading: const Icon(Icons.sd_storage_outlined, color: Colors.red),
+                  title: Text(tr(context, 'Chat model')),
+                  subtitle: Text('$e'),
+                ),
                 data: (info) => ListTile(
                   leading: Icon(
                     Icons.sd_storage_outlined,
                     color: info.isReady ? AppColors.teachColor : Colors.orange,
                   ),
-                  title: const Text('On-device chat model (Qwen3-0.6B)'),
+                  title: Text(tr(context, 'Chat model')),
                   subtitle: Text(
                     info.isReady
-                        ? 'Installed · ${info.platform ?? 'this device'}'
-                        : 'Not installed — transfer the .litertlm file via USB',
+                        ? 'Installed on this device'
+                        : 'Not installed — add it from a USB drive or file',
                   ),
                   trailing: info.isReady
                       ? const Icon(
@@ -94,60 +101,58 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.info_outline,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: const Text('How AI works here'),
+                title: Text(tr(context, 'How AI works here')),
                 subtitle: const Text(
-                  'Optional Cloud API key gives live answers online. '
-                  'Otherwise every device — Android, Windows, or Linux — runs '
-                  'Qwen3-0.6B on-device via the same LiteRT-LM engine. '
-                  'If neither is ready, demo answers are labeled clearly.',
+                  'Answers are generated on this device. Chat uses the '
+                  'language you chose. If a model is missing, you still get '
+                  'sample replies so you can explore the app.',
                 ),
                 isThreeLine: true,
               ),
             ]),
 
-            // ── Translation ──────────────────────────────────────────────────
-            _Section('Translation', [
-              studentAsync.when(
-                loading: () => const SizedBox.shrink(),
-                error: (_, __) => const SizedBox.shrink(),
-                data: (student) => ListTile(
-                  leading: const Icon(Icons.translate, color: AppColors.primary),
-                  title: const Text('Learning language'),
+            // ── Learning language ────────────────────────────────────────────
+            _Section(tr(context, 'Learning language'), [
+              // Drives labels and model routing together: appLanguageProvider
+              // is the same value the AfriSLM round-trip reads. Works without
+              // a profile too — a guest's choice is held in memory only, so
+              // the demo speaks their language without saving state.
+              Builder(builder: (context) {
+                final language = ref.watch(appLanguageProvider);
+                final isGuest = studentAsync.valueOrNull == null;
+                return ListTile(
+                  leading: const Icon(Icons.language, color: AppColors.primary),
+                  title: Text(tr(context, 'Learning language')),
                   subtitle: Text(
-                    student == null
-                        ? 'Complete onboarding first'
-                        : 'Chat happens in ${languageName(student.language)} — '
-                            'translated to/from English behind the scenes',
+                    isGuest
+                        ? 'Chat uses ${languageName(language)} — '
+                            'create a profile to save this'
+                        : 'Chat uses ${languageName(language)}',
                   ),
-                  trailing: student == null
-                      ? null
-                      : DropdownButton<String>(
-                          value: student.language,
-                          underline: const SizedBox.shrink(),
-                          items: [
-                            for (final lang in supportedLanguages)
-                              DropdownMenuItem(value: lang.code, child: Text(lang.name)),
-                          ],
-                          onChanged: (code) {
-                            if (code == null) return;
-                            ref.read(studentNotifierProvider.notifier).updateProfile(
-                                  id: student.id,
-                                  name: student.name,
-                                  language: code,
-                                );
-                          },
-                        ),
-                ),
-              ),
+                  trailing: DropdownButton<String>(
+                    value: language,
+                    underline: const SizedBox.shrink(),
+                    items: [
+                      for (final lang in supportedLanguages)
+                        DropdownMenuItem(value: lang.code, child: Text(lang.name)),
+                    ],
+                    onChanged: (code) {
+                      if (code == null) return;
+                      ref
+                          .read(languageOverrideProvider.notifier)
+                          .setLanguage(code);
+                    },
+                  ),
+                );
+              }),
               const _TranslateModelTile(),
-              const ListTile(
-                leading: Icon(Icons.info_outline, color: Colors.grey),
-                title: Text('How translation works'),
-                subtitle: Text(
-                  'AfriSLM translates your message to English, the tutor '
-                  'answers in English, then AfriSLM translates the reply back '
-                  '— all on-device. If it isn\'t installed, chat still works '
-                  'in English.',
+              ListTile(
+                leading: const Icon(Icons.info_outline, color: Colors.grey),
+                title: Text(tr(context, 'How chat language works')),
+                subtitle: const Text(
+                  'Ask in your learning language. Replies come back in the '
+                  'same language. Chat works this way in Learn, Create, '
+                  'Teach back, and Apply.',
                 ),
                 isThreeLine: true,
               ),
@@ -225,7 +230,7 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.edit_outlined,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: const Text('Edit profile'),
+                title: Text(tr(context, 'Edit profile')),
                 subtitle: const Text(
                   'Update your interests and learning style',
                 ),
@@ -271,7 +276,7 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.brightness_6,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: const Text('Theme'),
+                title: Text(tr(context, 'Theme')),
                 subtitle: Text(
                   ref.watch(themeModeProvider) == ThemeMode.dark
                       ? 'Dark'
@@ -309,7 +314,7 @@ class SettingsScreen extends ConsumerWidget {
                   Icons.info_outline,
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
-                title: const Text('Version'),
+                title: Text(tr(context, 'Version')),
                 subtitle: Text(
                   packageInfoAsync.when(
                     data: (info) => 'Version ${info.version} (build ${info.buildNumber})',
@@ -320,8 +325,8 @@ class SettingsScreen extends ConsumerWidget {
               ),
               ListTile(
                 leading: const Icon(Icons.wifi_off, color: AppColors.primary),
-                title: const Text('Offline mode'),
-                subtitle: const Text('100% offline — no internet required'),
+                title: Text(tr(context, 'Offline mode')),
+                subtitle: Text(tr(context, '100% offline — no internet required')),
                 trailing: Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 8,
@@ -531,9 +536,8 @@ Future<void> _editCloudApi(
   }
 }
 
-/// Install-from-file + Ollama registration for the AfriSLM translation
-/// model, mirroring ModelNotInstalledScreen's install flow but inline here
-/// since translation is optional (chat works without it).
+/// Install-from-file for the AfriSLM translation GGUF. llama.cpp loads it
+/// in-process — no Ollama step. Translation is optional (chat works without it).
 class _TranslateModelTile extends ConsumerStatefulWidget {
   const _TranslateModelTile();
 
@@ -546,9 +550,9 @@ class _TranslateModelTileState extends ConsumerState<_TranslateModelTile> {
   double? _progress;
   String? _statusMessage;
 
-  Future<void> _installAndRegister() async {
+  Future<void> _installFromFile() async {
     final result = await FilePicker.platform.pickFiles(
-      dialogTitle: 'Select the AfriSLM translation model (.gguf) file',
+      dialogTitle: 'Select the language model (.gguf) file',
       type: FileType.any,
     );
     final path = result?.files.single.path;
@@ -562,7 +566,7 @@ class _TranslateModelTileState extends ConsumerState<_TranslateModelTile> {
 
     try {
       final manager = ref.read(translateModelManagerProvider);
-      final info = await manager.installFromFile(
+      await manager.installFromFile(
         path,
         onProgress: (p) {
           if (mounted && (p - (_progress ?? 0) >= 0.01 || p >= 1)) {
@@ -571,15 +575,6 @@ class _TranslateModelTileState extends ConsumerState<_TranslateModelTile> {
         },
       );
 
-      if (mounted) {
-        setState(() {
-          _progress = null;
-          _statusMessage = 'Registering with Ollama…';
-        });
-      }
-
-      await OllamaModelInstaller().createFromGguf(ggufPath: info.path!);
-
       ref.invalidate(translateModelInfoProvider);
       ref.invalidate(translateEngineLoadedProvider);
       ref.invalidate(translationPipelineProvider);
@@ -587,14 +582,14 @@ class _TranslateModelTileState extends ConsumerState<_TranslateModelTile> {
       if (mounted) {
         setState(() => _statusMessage = null);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Translation model installed and ready.')),
+          const SnackBar(content: Text('Language model installed and ready.')),
         );
       }
     } catch (e) {
       if (mounted) {
         setState(() => _statusMessage = null);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Could not set up translation: $e')),
+          SnackBar(content: Text('Could not set up the language model: $e')),
         );
       }
     } finally {
@@ -619,11 +614,11 @@ class _TranslateModelTileState extends ConsumerState<_TranslateModelTile> {
                   ? 'Installing… ${((_progress ?? 0) * 100).toStringAsFixed(0)}%'
                   : 'Working…');
         } else if (ready) {
-          subtitle = 'Installed and registered with Ollama';
+          subtitle = 'Installed';
         } else if (info.isReady) {
-          subtitle = 'Installed — start Ollama to finish setup';
+          subtitle = 'Installed — getting ready…';
         } else {
-          subtitle = 'Not installed — translation is skipped, chat stays in English';
+          subtitle = 'Not installed — chat stays in English';
         }
 
         return ListTile(
@@ -631,7 +626,7 @@ class _TranslateModelTileState extends ConsumerState<_TranslateModelTile> {
             Icons.sd_storage_outlined,
             color: ready ? AppColors.teachColor : Colors.orange,
           ),
-          title: const Text('Translation model (AfriSLM)'),
+          title: Text(tr(context, 'Language model')),
           subtitle: Text(subtitle),
           trailing: _busy
               ? const SizedBox(
@@ -640,7 +635,7 @@ class _TranslateModelTileState extends ConsumerState<_TranslateModelTile> {
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
               : TextButton(
-                  onPressed: _installAndRegister,
+                  onPressed: _installFromFile,
                   child: Text(info.isReady ? 'Reinstall' : 'Install from file…'),
                 ),
         );

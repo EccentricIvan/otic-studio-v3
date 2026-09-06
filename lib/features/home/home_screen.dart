@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
+import '../../l10n/app_locale.dart';
 final _desktopNameProvider = FutureProvider<String>((ref) async {
   final prefs = await SharedPreferences.getInstance();
   return prefs.getString('student_name') ?? 'Learner';
@@ -56,7 +57,7 @@ class HomeScreen extends ConsumerWidget {
                           ),
                         ),
                         Text(
-                          'Learn, Create & Build',
+                          tr(context, 'Learn, Create & Build'),
                           style: TextStyle(fontSize: 13, color: ac.textHint),
                         ),
                       ],
@@ -88,7 +89,7 @@ class HomeScreen extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Welcome, $name!',
+                      trFill(context, 'Welcome, {name}!', {'name': name}),
                       style: TextStyle(
                         fontFamily: 'Saira',
                         fontSize: 18,
@@ -98,100 +99,100 @@ class HomeScreen extends ConsumerWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'What would you like to do today?',
+                      tr(context, 'What would you like to do today?'),
                       style: TextStyle(fontSize: 13, color: ac.textSecondary),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 28),
-              const _SectionLabel('LEARN'),
+              _SectionLabel(tr(context, 'LEARN')),
               const SizedBox(height: 12),
-              const Row(
+              Row(
                 children: [
                   _IconCard(
                     icon: Icons.menu_book_rounded,
-                    label: 'Subjects',
+                    label: tr(context, 'Subjects'),
                     color: AppColors.learnColor,
                     route: '/learn',
                   ),
                   _IconCard(
                     icon: Icons.quiz_rounded,
-                    label: 'Practice',
+                    label: tr(context, 'Practice'),
                     color: AppColors.practiceColor,
                     route: '/practice',
                   ),
                   _IconCard(
                     icon: Icons.chat_rounded,
-                    label: 'AI Chat',
+                    label: tr(context, 'AI Chat'),
                     color: AppColors.primary,
                     route: '/chat',
                   ),
                   _IconCard(
                     icon: Icons.school_rounded,
-                    label: 'Teach',
+                    label: tr(context, 'Teach'),
                     color: AppColors.teachColor,
                     route: '/teach',
                   ),
                 ],
               ),
               const SizedBox(height: 28),
-              const _SectionLabel('CREATE'),
+              _SectionLabel(tr(context, 'CREATE')),
               const SizedBox(height: 12),
-              const Row(
+              Row(
                 children: [
                   _IconCard(
                     icon: Icons.web_rounded,
-                    label: 'Website',
+                    label: tr(context, 'Website'),
                     color: AppColors.createColor,
                     route: '/sitechat',
                   ),
                   _IconCard(
                     icon: Icons.code_rounded,
-                    label: 'Web Lab',
+                    label: tr(context, 'Web Lab'),
                     color: AppColors.practiceColor,
                     route: '/weblab',
                   ),
                   _IconCard(
                     icon: Icons.terminal_rounded,
-                    label: 'Python*',
+                    label: tr(context, 'Python*'),
                     color: AppColors.accentDeep,
                     route: '/pythonlab',
                   ),
                   _IconCard(
                     icon: Icons.phone_android_rounded,
-                    label: 'App Lab*',
+                    label: tr(context, 'App Lab*'),
                     color: AppColors.learnColor,
                     route: '/applab',
                   ),
                 ],
               ),
               const SizedBox(height: 28),
-              const _SectionLabel('MORE'),
+              _SectionLabel(tr(context, 'MORE')),
               const SizedBox(height: 12),
-              const Row(
+              Row(
                 children: [
                   _IconCard(
                     icon: Icons.folder_rounded,
-                    label: 'Projects',
+                    label: tr(context, 'Projects'),
                     color: AppColors.secondary,
                     route: '/projects',
                   ),
                   _IconCard(
                     icon: Icons.emoji_events_rounded,
-                    label: 'Badges',
+                    label: tr(context, 'Badges'),
                     color: AppColors.gold,
                     route: '/achievements',
                   ),
                   _IconCard(
                     icon: Icons.workspace_premium_rounded,
-                    label: 'Certs',
+                    label: tr(context, 'Certs'),
                     color: AppColors.primaryLight,
                     route: '/certificates',
                   ),
                   _IconCard(
                     icon: Icons.settings_rounded,
-                    label: 'Settings',
+                    label: tr(context, 'Settings'),
                     color: AppColors.lifeSkillsColor,
                     route: '/settings',
                   ),

@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import '../inference/inference_engine.dart';
-import '../../curriculum/curriculum_models.dart';
+import '../inference/runtime_config.dart';
 import '../../curriculum/curriculum_provider.dart';
+import 'school_math.dart';
+import 'tutor_contract.dart';
 import 'tutor_response.dart';
 
 /// Implements the AI tutor contract:
@@ -20,8 +24,11 @@ class TutorPipeline {
   final CurriculumService? _curriculum;
   TutorStage _nextStage = TutorStage.answer;
   String _currentTopic = '';
-  Lesson? _activeLesson;
+  CurriculumMatch? _activeMatch;
   final List<_Turn> _history = [];
+  SchoolMathSolution? _activeMath;
+  SchoolMathSolution? _awaitingMath;
+  bool _practiceMiss = false;
 
   /// Process a student message and stream the tutor response.
   /// [onToken] fires with each new token as it arrives.
@@ -30,43 +37,69 @@ class TutorPipeline {
   /// Returns the complete [TutorResponse] when generation finishes.
   Future<TutorResponse> respond({
     required String studentMessage,
-    void Function(String token)? onToken,
+    TokenCallback? onToken,
     String? safetyNote,
   }) async {
+    final continuing = _isContinuingThread(studentMessage);
     final topic = _detectTopic(studentMessage);
-    if (topic != _currentTopic) {
+    final switched = !continuing &&
+        topic.isNotEmpty &&
+        _currentTopic.isNotEmpty &&
+        topic != _currentTopic;
+    if (switched) {
       _currentTopic = topic;
       _nextStage = TutorStage.answer;
-      // A confident lesson match from a moment ago is very likely irrelevant
-      // once the conversation has clearly moved to a different topic — keep
-      // it and we'd be grounding the model's answer in the wrong material.
-      _activeLesson = null;
+      _activeMatch = null;
+      await _engine.resetSession();
+    } else if (_currentTopic.isEmpty && topic.isNotEmpty) {
+      _currentTopic = topic;
     }
 
-    // Always search curriculum for the best matching lesson
-    final matchedLesson = _curriculum?.findBestMatch(studentMessage);
-    if (matchedLesson != null) _activeLesson = matchedLesson;
+    final matched = _curriculum?.findBestMatchDetailed(studentMessage);
+    if (matched != null) {
+      _activeMatch = matched;
+    } else if (switched) {
+      _activeMatch = null;
+    }
 
     final stage = _nextStage;
-    final lessonContext =
-        _activeLesson != null ? _curriculum?.buildContext(_activeLesson!) : null;
-    final prompt = _buildPrompt(studentMessage, stage,
-        safetyNote: safetyNote, lessonContext: lessonContext);
+
+    final mathReply = _respondWithMath(studentMessage, stage);
+    if (mathReply != null) {
+      // Do not stream the English worked plan. Formulas stay in
+      // WorkedSolution; titles/why are localized after respond() returns.
+      // Hints and short coaching lines have no formula block, so those
+      // may stream.
+      if (mathReply.math == null) {
+        onToken?.call(mathReply.text);
+      }
+      _remember(studentMessage, mathReply.text, math: mathReply.math);
+      _advanceStage();
+      return mathReply;
+    }
+
+    final notes = _activeMatch != null
+        ? _curriculum?.buildTutorNotes(_activeMatch!)
+        : null;
+    final prompt = _buildPrompt(
+      studentMessage,
+      safetyNote: safetyNote,
+      curriculumNotes: notes,
+    );
 
     final buffer = StringBuffer();
     final text = await _engine.generate(
       prompt: prompt,
-      maxTokens: 400,
-      temperature: _temperatureForStage(stage),
-      onToken: (token) {
+      systemPrompt: kTutorContract,
+      maxTokens: kMaxNewTokens,
+      temperature: kTutorTemperature,
+      onToken: (token) async {
         buffer.write(token);
-        onToken?.call(token);
+        await emitToken(onToken, token);
       },
     );
 
-    _history.add(_Turn(role: 'student', text: studentMessage));
-    _history.add(_Turn(role: 'tutor', text: text));
-    if (_history.length > 20) _history.removeRange(0, 2); // keep last 10 turns
+    _remember(studentMessage, text);
 
     final followUp = _followUpForStage(stage);
     _advanceStage();
@@ -86,55 +119,108 @@ class TutorPipeline {
   }
 
   String _buildPrompt(
-    String studentMessage,
-    TutorStage stage, {
+    String studentMessage, {
     String? safetyNote,
-    String? lessonContext,
+    String? curriculumNotes,
   }) {
-    final stageHint = {
-      TutorStage.answer: 'Explain clearly in 2-3 sentences.',
-      TutorStage.clarify: 'Ask one question to check understanding.',
-      TutorStage.practice: 'Give one short exercise.',
-      TutorStage.apply: 'Give a real-world example.',
-      TutorStage.create: 'Ask them to build something small.',
-      TutorStage.reflect: 'Ask them to summarise what they learned.',
-    }[stage] ?? 'Respond helpfully.';
+    final q = studentMessage.length > 240
+        ? '${studentMessage.substring(0, 240)}…'
+        : studentMessage;
 
-    final recentHistory = _history.length > 6
-        ? _history.sublist(_history.length - 6)
-        : _history;
-    final historyBlock = recentHistory
-        .map((t) => '${t.role == 'tutor' ? 'Tutor' : 'Student'}: ${t.text}')
-        .join('\n');
+    final notes = (curriculumNotes == null || curriculumNotes.isEmpty)
+        ? 'CURRICULUM: none matched — do not invent a syllabus. Teach at a general school level.'
+        : 'CURRICULUM:\n$curriculumNotes';
 
-    if (lessonContext != null) {
-      // Curriculum already shown — the model just adds a brief follow-up
-      return '''You are a friendly tutor. The student already sees the lesson content. Add ONE short encouraging sentence and ask if they want a quiz or have questions. Maximum 1-2 sentences. Do not repeat the lesson.
-Student: $studentMessage
-Tutor:''';
-    }
-
-    return '''You are a friendly AI tutor. Be concise and encouraging.
-${safetyNote != null ? '$safetyNote\n' : ''}Task: $stageHint
-${historyBlock.isNotEmpty ? '$historyBlock\n' : ''}Student: $studentMessage
+    // Contract is pinned as [systemPrompt] / LiteRT systemInstruction —
+    // do not prepend it again or the model re-reads the header every turn.
+    return '''$notes
+${safetyNote != null ? '$safetyNote\n' : ''}${_threadBlock()}CURRENT QUESTION: $q
 Tutor:''';
   }
 
-  double _temperatureForStage(TutorStage stage) {
-    switch (stage) {
-      case TutorStage.answer:
-        return 0.5;
-      case TutorStage.clarify:
-        return 0.6;
-      case TutorStage.practice:
-        return 0.7;
-      case TutorStage.apply:
-        return 0.8;
-      case TutorStage.create:
-        return 0.9;
-      case TutorStage.reflect:
-        return 0.6;
+  void _remember(String studentMessage, String tutorText, {SchoolMathSolution? math}) {
+    _history.add(_Turn(
+      role: 'student',
+      text: studentMessage,
+      recap: _clip(studentMessage, 120),
+    ));
+    _history.add(_Turn(
+      role: 'tutor',
+      text: tutorText,
+      recap: _tutorRecap(tutorText, math),
+    ));
+    if (_history.length > 6) _history.removeRange(0, _history.length - 6);
+  }
+
+  String _threadBlock() {
+    if (_history.isEmpty) return '';
+    final b = StringBuffer();
+    b.writeln('THREAD (understanding only — do not copy):');
+    for (final t in _history) {
+      final line = t.recap.isNotEmpty ? t.recap : _clip(t.text, 80);
+      if (t.role == 'student') {
+        b.writeln('Student asked: $line');
+      } else {
+        b.writeln('You already taught: $line');
+      }
     }
+    b.writeln('Build on that. Write a new reply for CURRENT QUESTION.');
+    return b.toString();
+  }
+
+  String _tutorRecap(String text, SchoolMathSolution? math) {
+    if (math != null) {
+      return '${math.answer} — method already shown; do not repeat those steps unless asked';
+    }
+    final answer = RegExp(
+      r'Answer:\s*(.+)',
+      caseSensitive: false,
+    ).firstMatch(text);
+    if (answer != null) {
+      return _clip(answer.group(1)!.trim(), 90);
+    }
+    final one = text.replaceAll(RegExp(r'\s+'), ' ').trim();
+    return _clip(one, 90);
+  }
+
+  String _clip(String s, int max) {
+    final t = s.replaceAll(RegExp(r'\s+'), ' ').trim();
+    if (t.length <= max) return t;
+    return '${t.substring(0, max)}…';
+  }
+
+  bool _isContinuingThread(String message) {
+    if (_history.isEmpty) return false;
+    if (_isClarifyingFollowUp(message)) return true;
+    final t = message.trim().toLowerCase();
+    final words = t.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).toList();
+    if (words.isEmpty) return false;
+    if (RegExp(
+      r'^(what about|how about|and if|so if|so then|then if|'
+      r'compared to|the same|same for|why (do|does|did|is|would)|'
+      r'how (does|do|did|is|would) that|does that|is that|and then|'
+      r'tell me more|another example|what else|go deeper|and also)\b',
+    ).hasMatch(t)) {
+      return true;
+    }
+    if (words.length <= 12 &&
+        RegExp(
+          r'\b(that|this|those|these|it|they|them|instead|'
+          r'the answer|the result|the method|the steps)\b',
+        ).hasMatch(t)) {
+      return true;
+    }
+    return false;
+  }
+
+  bool _isClarifyingFollowUp(String message) {
+    final t = message.trim().toLowerCase().replaceAll(RegExp(r'[?.!]'), '');
+    if (t.isEmpty || t.split(RegExp(r'\s+')).length > 10) return false;
+    return RegExp(
+      r'^(why|how|huh|ok|okay|yes|no|thanks|more|simpler|again|'
+      r'please explain|explain more|what do you mean|'
+      r"i don'?t understand|continue|an example|example)$",
+    ).hasMatch(t);
   }
 
   String _followUpForStage(TutorStage stage) {
@@ -190,13 +276,7 @@ Tutor:''';
     }
 
     if (bestScore > 0) return bestTopic;
-
-    return message
-        .split(' ')
-        .take(3)
-        .join('_')
-        .toLowerCase()
-        .replaceAll(RegExp(r'[^a-z_]'), '');
+    return '';
   }
 
   /// Analyzes the recent conversation to produce a real summary (for the
@@ -222,7 +302,11 @@ STRENGTH: <one short phrase describing something the student did well, or NONE>
 WEAKNESS: <one short phrase describing something the student is struggling with, or NONE>''';
 
     try {
-      final raw = await _engine.generate(prompt: prompt, maxTokens: 80, temperature: 0.3);
+      final raw = await _engine.generate(
+        prompt: prompt,
+        maxTokens: 80,
+        temperature: kTutorTemperature,
+      );
       return _parseAnalysis(raw);
     } catch (_) {
       return const SessionAnalysis(summary: '');
@@ -253,7 +337,118 @@ WEAKNESS: <one short phrase describing something the student is struggling with,
   void reset() {
     _nextStage = TutorStage.answer;
     _currentTopic = '';
+    _activeMatch = null;
     _history.clear();
+    _activeMath = null;
+    _awaitingMath = null;
+    _practiceMiss = false;
+    unawaited(_engine.resetSession());
+  }
+
+  void _clearMath() {
+    _activeMath = null;
+    _awaitingMath = null;
+    _practiceMiss = false;
+  }
+
+  TutorResponse? _respondWithMath(String studentMessage, TutorStage stage) {
+    final follow = _mathFollowUp(studentMessage, stage);
+    if (follow != null) return follow;
+
+    final solved = solveSchoolMath(studentMessage);
+    if (solved == null) return null;
+
+    if (wantsMathHint(studentMessage) && !wantsFullMathSteps(studentMessage)) {
+      _activeMath = solved;
+      _awaitingMath = solved;
+      return TutorResponse(
+        stage: stage,
+        text: solved.hintMessage,
+        followUpPrompt: 'Try it, then tell me your answer.',
+        topic: _currentTopic.isEmpty ? 'mathematics' : _currentTopic,
+        mathCoach: true,
+      );
+    }
+
+    return _emitWorked(solved, stage);
+  }
+
+  TutorResponse? _mathFollowUp(String studentMessage, TutorStage stage) {
+    if (_activeMath == null && _awaitingMath == null) return null;
+
+    if (!isMathCoachingFollowUp(studentMessage)) {
+      if (solveSchoolMath(studentMessage) == null &&
+          !_isContinuingThread(studentMessage)) {
+        _clearMath();
+      }
+      return null;
+    }
+
+    final target = _awaitingMath ?? _activeMath;
+    if (target == null) return null;
+
+    if (wantsMathHint(studentMessage)) {
+      return TutorResponse(
+        stage: stage,
+        text: target.hintMessage,
+        followUpPrompt: 'Try it, then tell me your answer.',
+        topic: 'mathematics',
+        mathCoach: true,
+      );
+    }
+
+    if (wantsFullMathSteps(studentMessage)) {
+      final show = _practiceMiss
+          ? (_awaitingMath ?? _activeMath)
+          : (_activeMath ?? _awaitingMath);
+      _practiceMiss = false;
+      if (show == null) return null;
+      return _emitWorked(show, stage);
+    }
+
+    final attempt = extractNumericAttempt(studentMessage);
+    if (attempt == null) return null;
+    final expected = target.numericAnswer;
+    if (expected == null) return null;
+
+    if (nearlyEqual(attempt, expected)) {
+      _practiceMiss = false;
+      final next = solveSchoolMath(target.practiceQuestion);
+      _activeMath = target;
+      _awaitingMath = next;
+      return TutorResponse(
+        stage: TutorStage.practice,
+        text: "That's right — ${target.answer}. Here is the method so it sticks:",
+        followUpPrompt: next == null
+            ? 'Want another problem like this?'
+            : 'Your turn — try this: ${target.practiceQuestion}',
+        topic: 'mathematics',
+        math: target,
+        mathCoach: true,
+      );
+    }
+
+    _practiceMiss = true;
+    return TutorResponse(
+      stage: TutorStage.practice,
+      text: "Not quite. ${target.hintMessage}",
+      followUpPrompt: 'Have another go, or ask me to show the full steps.',
+      topic: 'mathematics',
+      mathCoach: true,
+    );
+  }
+
+  TutorResponse _emitWorked(SchoolMathSolution solved, TutorStage stage) {
+    _activeMath = solved;
+    _awaitingMath = solveSchoolMath(solved.practiceQuestion);
+    return TutorResponse(
+      stage: stage,
+      text: solved.fullPlan,
+      followUpPrompt: 'Your turn — try this: ${solved.practiceQuestion}',
+      topic: _currentTopic.isEmpty ? 'mathematics' : _currentTopic,
+      math: solved,
+      mathCoach: true,
+    );
   }
 }
 
@@ -265,7 +460,8 @@ class SessionAnalysis {
 }
 
 class _Turn {
-  _Turn({required this.role, required this.text});
+  _Turn({required this.role, required this.text, this.recap = ''});
   final String role;
   final String text;
+  final String recap;
 }

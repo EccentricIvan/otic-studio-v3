@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/theme/app_colors.dart';
+import '../../l10n/app_locale.dart';
 
 class VoiceAskWidget extends StatefulWidget {
   const VoiceAskWidget({super.key, this.onSubmit});
@@ -57,12 +58,12 @@ class _VoiceAskWidgetState extends State<VoiceAskWidget> {
               Expanded(
                 child: TextField(
                   controller: _controller,
-                  decoration: const InputDecoration(
-                    hintText: 'Ask Otic anything...',
+                  decoration: InputDecoration(
+                    hintText: tr(context, 'Ask AI anything...'),
                     border: InputBorder.none,
                     enabledBorder: InputBorder.none,
                     focusedBorder: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(vertical: 16),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 16),
                     fillColor: Colors.transparent,
                     filled: false,
                   ),

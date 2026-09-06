@@ -70,6 +70,7 @@ class OllamaEngine extends InferenceEngine {
     int maxTokens = 512,
     double temperature = 0.7,
     TokenCallback? onToken,
+    String? systemPrompt,
   }) async {
     if (!_ready) throw StateError('Ollama not connected. Call loadModel() first.');
 
@@ -99,7 +100,7 @@ class OllamaEngine extends InferenceEngine {
           final token = json['response'] as String? ?? '';
           if (token.isNotEmpty) {
             buffer.write(token);
-            onToken?.call(token);
+            await emitToken(onToken, token);
           }
         } catch (_) {}
       }

@@ -5,6 +5,7 @@ import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../l10n/app_locale.dart';
 import 'block_models.dart';
 import 'website_provider.dart';
 
@@ -648,7 +649,7 @@ class _CanvasItem extends ConsumerWidget {
                                     size: 16,
                                     color: AppColors.createColor,
                                   ),
-                                  tooltip: 'Ask the AI tutor to write this',
+                                  tooltip: tr(context, 'Ask AI'),
                                   visualDensity: VisualDensity.compact,
                                   onPressed: () => notifier.aiFill(block.id),
                                 ),
