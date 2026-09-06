@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
+import 'model_locations.dart';
+
 enum ModelStatus {
   /// Model file found and ready to load.
   ready,
@@ -71,9 +73,14 @@ class ModelManager {
 
   Future<ModelInfo> checkModel() async {
     final candidates = await _candidatePaths();
+    debugPrint('CHAT MODEL candidates:\n  ${candidates.join('\n  ')}');
     for (final path in candidates) {
       final file = File(path);
-      if (!await file.exists()) continue;
+      try {
+        if (!await file.exists()) continue;
+      } catch (_) {
+        continue;
+      }
       final size = await file.length();
       if (size < _minSizeBytes) {
         return ModelInfo(
@@ -114,16 +121,7 @@ class ModelManager {
       final appFiles = await getApplicationDocumentsDirectory();
       paths.add(p.join(appFiles.path, 'models', chatModelFileName));
     } else {
-      // Windows / Linux — Documents/OTIC/
-      final docs = await getApplicationDocumentsDirectory();
-      paths.add(p.join(docs.path, 'OTIC', chatModelFileName));
-      // Also check next to the executable — this is what makes a
-      // self-contained release zip (exe + models/ folder) work no matter
-      // where the app is launched from (Start Menu shortcut, desktop
-      // shortcut, etc.), unlike Directory.current which only matches when
-      // launched from within its own folder.
-      final exeDir = p.dirname(Platform.resolvedExecutable);
-      paths.add(p.join(exeDir, 'models', chatModelFileName));
+      return modelCandidateFiles(chatModelFileName);
     }
     return paths;
   }

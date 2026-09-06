@@ -20,7 +20,8 @@ class SupportedLanguage {
   String get promptName => _promptName ?? name;
 }
 
-/// English plus the 19 Sub-Saharan African languages AfriSLM translates.
+/// English plus AfriSLM's Sub-Saharan pairs, and Kirundi (`rn`) which
+/// routes through the Kinyarwanda prompt name (no dedicated Kirundi pair).
 /// Order matches the model card (huggingface.co/qvac/TranslatePsy-AfriSLM-2B).
 const supportedLanguages = <SupportedLanguage>[
   SupportedLanguage('en', 'English'),
@@ -29,6 +30,9 @@ const supportedLanguages = <SupportedLanguage>[
   SupportedLanguage('ha', 'Hausa'),
   SupportedLanguage('ig', 'Igbo'),
   SupportedLanguage('rw', 'Kinyarwanda'),
+  // AfriSLM has no dedicated Kirundi pair. Route through Kinyarwanda
+  // (closely related) so the 0.8B model stays on-distribution.
+  SupportedLanguage('rn', 'Kirundi', promptName: 'Kinyarwanda'),
   SupportedLanguage('ln', 'Lingala'),
   SupportedLanguage('lg', 'Luganda'),
   SupportedLanguage('mg', 'Malagasy'),

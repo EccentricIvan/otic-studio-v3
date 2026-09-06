@@ -2,7 +2,10 @@ import 'dart:async';
 
 import 'package:llm_llamacpp/llm_llamacpp.dart' as llama;
 
+import 'engine_scheduler.dart';
 import 'inference_engine.dart';
+import 'pinned_prompt_cache.dart';
+import 'runtime_config.dart';
 
 /// In-process GGUF inference via llama.cpp (`llm_llamacpp`).
 ///
@@ -17,10 +20,28 @@ class LlamaCppEngineImpl extends InferenceEngine {
   /// so the first token gets the long deadline below.
   bool _nativeEverWorked = false;
 
-  /// Set when the first call died without producing a token — the native
-  /// stack is broken on this machine, not merely slow. Later calls then fail
-  /// immediately instead of freezing the chat for minutes each time.
-  String? _deadReason;
+  /// Set when a call died *before the native stack had ever produced a
+  /// token* — the library is broken on this machine, not merely slow. On
+  /// Windows without a Vulkan runtime, ggml.dll cannot load at all, and no
+  /// amount of retrying fixes that. Permanent for the life of the engine,
+  /// because the alternative is making the student wait out a 3-minute
+  /// watchdog on every single message.
+  String? _hardFailure;
+
+  /// Set when a call stalled *after* tokens had flowed at least once. That
+  /// is a slow or momentarily wedged machine, not a broken one, so it must
+  /// not disable translation for the rest of the session — the previous
+  /// single `_deadReason` latch did exactly that, and one unlucky timeout
+  /// meant every later reply came back silently in English.
+  String? _softFailure;
+  DateTime? _softFailureUntil;
+  int _consecutiveSoftFailures = 0;
+
+  /// Backoff after a stall: long enough that a genuinely overloaded device
+  /// is not hammered, short enough that a student who waits out one bad
+  /// reply gets translation back on the next.
+  static const _softBackoffBase = Duration(seconds: 30);
+  static const _softBackoffMax = Duration(minutes: 5);
 
   /// Deadline for the first token of a call.
   ///
@@ -36,15 +57,28 @@ class LlamaCppEngineImpl extends InferenceEngine {
 
   @override
   bool get isReady =>
-      _repo != null && _modelPath != null && _deadReason == null;
+      _repo != null && _modelPath != null && _hardFailure == null;
 
   @override
   String get backendLabel => 'llama.cpp · AfriSLM';
 
-  /// Why translation is unavailable, or null while it still looks healthy.
-  /// Callers use this to tell the student translation is off rather than
-  /// silently handing them English.
-  String? get failureReason => _deadReason;
+  /// Why translation is unavailable *right now*, or null while it looks
+  /// healthy. Callers use this to tell the student translation is off rather
+  /// than silently handing them English.
+  String? get failureReason {
+    if (_hardFailure != null) return _hardFailure;
+    if (_inSoftBackoff) return _softFailure;
+    return null;
+  }
+
+  /// True when the failure is permanent for this session (broken native
+  /// library) rather than a stall we will retry after a backoff.
+  bool get isPermanentlyUnavailable => _hardFailure != null;
+
+  bool get _inSoftBackoff {
+    final until = _softFailureUntil;
+    return until != null && DateTime.now().isBefore(until);
+  }
 
   @override
   Future<void> loadModel(String modelPath) async {
@@ -77,7 +111,10 @@ class LlamaCppEngineImpl extends InferenceEngine {
     );
     _modelPath = modelPath;
     _nativeEverWorked = false;
-    _deadReason = null;
+    _hardFailure = null;
+    _softFailure = null;
+    _softFailureUntil = null;
+    _consecutiveSoftFailures = 0;
   }
 
   @override
@@ -96,30 +133,64 @@ class LlamaCppEngineImpl extends InferenceEngine {
     // An earlier call proved the native stack is broken here. Fail in
     // milliseconds rather than making the student wait out the watchdog
     // again on every single message.
-    final dead = _deadReason;
-    if (dead != null) {
-      throw StateError(dead);
+    final hard = _hardFailure;
+    if (hard != null) {
+      throw StateError(hard);
     }
+    // A recent stall — back off briefly, then let the next call try again.
+    // Unlike the hard failure above, this one expires.
+    if (_inSoftBackoff) {
+      throw StateError(
+        '${_softFailure ?? 'Translation stalled recently.'} Retrying after a '
+        'short backoff.',
+      );
+    }
+
+    return EngineScheduler.instance.exclusive(() => _generateLocked(
+          repo: repo,
+          modelPath: modelPath,
+          prompt: prompt,
+          maxTokens: maxTokens,
+          onToken: onToken,
+          systemPrompt: systemPrompt,
+        ));
+  }
+
+  Future<String> _generateLocked({
+    required llama.LlamaCppChatRepository repo,
+    required String modelPath,
+    required String prompt,
+    required int maxTokens,
+    TokenCallback? onToken,
+    String? systemPrompt,
+  }) async {
+    final sys = (systemPrompt == null || systemPrompt.trim().isEmpty)
+        ? null
+        : PinnedPromptCache.intern(systemPrompt.trim());
 
     // A real system turn, not a string glued onto the front of the user
     // message: llm_llamacpp renders these through the GGUF's own chat
     // template, and AfriSLM was trained with the translator persona in the
     // system role. Concatenating instead would put it off-distribution,
     // which is where a 0.8B model starts inventing text.
+    //
+    // Greedy always: temperature 0, topK 1, topP 1, seed 0. The helper
+    // isolate still frees the GGUF after this call, so native prefix-KV
+    // cannot live across requests; [PinnedPromptCache] + the Drift cache
+    // skip the header work on a repeated clause.
     final stream = repo.streamChatWithGenerationOptions(
       modelPath,
       messages: [
-        if (systemPrompt != null && systemPrompt.trim().isNotEmpty)
-          llama.LLMMessage(role: llama.LLMRole.system, content: systemPrompt),
+        if (sys != null) llama.LLMMessage(role: llama.LLMRole.system, content: sys),
         llama.LLMMessage(role: llama.LLMRole.user, content: prompt),
       ],
       think: false,
       generationOptions: llama.GenerationOptions(
         maxTokens: maxTokens,
-        temperature: temperature,
-        topP: temperature <= 0.0 ? 1.0 : 0.9,
-        topK: temperature <= 0.0 ? 1 : 40,
-        repeatPenalty: 1.05,
+        temperature: kTranslateTemperature,
+        topP: kTopP,
+        topK: kTopK,
+        seed: kRandomSeed,
       ),
     );
 
@@ -149,10 +220,21 @@ class LlamaCppEngineImpl extends InferenceEngine {
 
     void fail(String message) {
       if (done.isCompleted) return;
-      // Only latch when nothing ever came through: a stall mid-generation
-      // can be a slow machine, but silence on the very first token means
-      // the native library never came up.
-      if (!_nativeEverWorked) _deadReason = message;
+      // The two failure shapes need opposite handling. Silence before the
+      // native stack has *ever* produced a token means the library never
+      // came up — permanent, and retrying costs three minutes each time. A
+      // stall after tokens have flowed is a slow or busy machine, which
+      // recovers; latching on that turned one bad turn into a session with
+      // no translation at all.
+      if (!_nativeEverWorked) {
+        _hardFailure = message;
+      } else {
+        _consecutiveSoftFailures++;
+        final backoff = _softBackoffBase * (1 << (_consecutiveSoftFailures - 1));
+        _softFailure = message;
+        _softFailureUntil = DateTime.now()
+            .add(backoff > _softBackoffMax ? _softBackoffMax : backoff);
+      }
       watchdog?.cancel();
       unawaited(sub?.cancel());
       done.completeError(StateError(message));
@@ -180,8 +262,14 @@ class LlamaCppEngineImpl extends InferenceEngine {
         final text = chunk.message?.content;
         if (text == null || text.isEmpty) return;
         _nativeEverWorked = true;
+        // Real output clears the backoff: the machine is keeping up again,
+        // so the next stall starts from the base delay rather than the
+        // doubled one an old failure left behind.
+        _consecutiveSoftFailures = 0;
+        _softFailure = null;
+        _softFailureUntil = null;
         buffer.write(text);
-        onToken?.call(text);
+        unawaited(emitToken(onToken, text));
         arm(_betweenTokensTimeout);
       },
       onError: (Object e, StackTrace st) {
@@ -216,7 +304,10 @@ class LlamaCppEngineImpl extends InferenceEngine {
     _repo?.dispose();
     _repo = null;
     _modelPath = null;
-    _deadReason = null;
+    _hardFailure = null;
+    _softFailure = null;
+    _softFailureUntil = null;
+    _consecutiveSoftFailures = 0;
     _nativeEverWorked = false;
   }
 }

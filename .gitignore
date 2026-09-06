@@ -57,6 +57,15 @@ android/key.properties
 *.litertlm
 *.task
 data/models/
+
+# Workstation AutoAWQ output (tools/quantize_awq.py). Convert onward to
+# GGUF / LiteRT; do not load these folders in the Flutter app.
+assets/models/translation_4bit/
+assets/models/brain_4bit/
+
+# Build-time model tooling: llama.cpp checkout, release binaries, converter
+# venv, and the intermediate f16 GGUF (quantize_translate_model.ps1)
+/tools/.cache/
 packages/ai-core/models/
 
 # Flutter-generated files

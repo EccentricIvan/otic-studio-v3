@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../ai_core/tutor/school_math.dart';
 import '../../core/theme/app_colors.dart';
+import '../../l10n/app_locale.dart';
 
 /// MathGPT-style named steps with formulas in their own block.
 class WorkedSolutionView extends StatelessWidget {
@@ -38,7 +39,7 @@ class WorkedSolutionView extends StatelessWidget {
             border: Border.all(color: AppColors.primary.withValues(alpha: 0.28)),
           ),
           child: Text(
-            'Answer: ${solution.answer}',
+            '${tr(context, 'Answer')}: ${solution.answer}',
             style: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: compact ? 14 : 15,

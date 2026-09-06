@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../ai_core/inference/runtime_config.dart';
 import '../../ai_core/providers/ai_provider.dart';
+import '../../l10n/language_provider.dart';
 import '../../ai_core/tutor/school_math.dart';
+import '../../ai_core/tutor/school_math_l10n.dart';
 import '../../ai_core/tutor/tutor_contract.dart';
 import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_models.dart';
@@ -53,14 +56,25 @@ Tutor:''';
         '${q.question} ${q.options.join(' ')}',
       );
       if (solved != null) {
-        if (mounted) setState(() => _math = solved);
+        final lang = ref.read(appLanguageProvider);
+        var shown = solved;
+        if (lang != 'en') {
+          final pipeline = await ref.read(translationPipelineProvider.future);
+          if (pipeline != null) {
+            shown = await localizeSchoolMath(
+              solved,
+              translate: (english) => pipeline.fromEnglish(english, lang),
+            );
+          }
+        }
+        if (mounted) setState(() => _math = shown);
         return;
       }
       final engine = await ref.read(engineLoadedProvider.future);
       final raw = await engine.generate(
         prompt: _prompt(),
-        maxTokens: 280,
-        temperature: 0.25,
+        maxTokens: kMaxNewTokens,
+        temperature: kTutorTemperature,
         onToken: (token) {
           if (!mounted) return;
           setState(() => _text += token);

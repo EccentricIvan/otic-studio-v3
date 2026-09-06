@@ -11,6 +11,7 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/theme_provider.dart';
 import '../../db/providers/db_provider.dart';
 import '../../l10n/app_locale.dart';
+import '../../l10n/language_provider.dart';
 import '../../shared/widgets/responsive.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -36,10 +37,10 @@ class SettingsScreen extends ConsumerWidget {
                   leading: const Icon(Icons.memory, color: AppColors.primary),
                   title: Text(tr(context, 'Checking AI…')),
                 ),
-                error: (_, __) => const ListTile(
-                  leading: Icon(Icons.memory, color: Colors.red),
-                  title: Text('AI check failed'),
-                  subtitle: Text('Try restarting the app'),
+                error: (e, _) => ListTile(
+                  leading: const Icon(Icons.memory, color: Colors.red),
+                  title: const Text('AI check failed'),
+                  subtitle: Text('$e'),
                 ),
                 data: (status) => ListTile(
                   leading: Icon(
@@ -69,7 +70,11 @@ class SettingsScreen extends ConsumerWidget {
               ),
               modelAsync.when(
                 loading: () => const SizedBox.shrink(),
-                error: (_, __) => const SizedBox.shrink(),
+                error: (e, _) => ListTile(
+                  leading: const Icon(Icons.sd_storage_outlined, color: Colors.red),
+                  title: Text(tr(context, 'Chat model')),
+                  subtitle: Text('$e'),
+                ),
                 data: (info) => ListTile(
                   leading: Icon(
                     Icons.sd_storage_outlined,
@@ -106,37 +111,38 @@ class SettingsScreen extends ConsumerWidget {
 
             // ── Learning language ────────────────────────────────────────────
             _Section(tr(context, 'Learning language'), [
-              studentAsync.when(
-                loading: () => const SizedBox.shrink(),
-                error: (_, __) => const SizedBox.shrink(),
-                data: (student) => ListTile(
+              // Drives labels and model routing together: appLanguageProvider
+              // is the same value the AfriSLM round-trip reads. Works without
+              // a profile too — a guest's choice is held in memory only, so
+              // the demo speaks their language without saving state.
+              Builder(builder: (context) {
+                final language = ref.watch(appLanguageProvider);
+                final isGuest = studentAsync.valueOrNull == null;
+                return ListTile(
                   leading: const Icon(Icons.language, color: AppColors.primary),
                   title: Text(tr(context, 'Learning language')),
                   subtitle: Text(
-                    student == null
-                        ? 'Complete onboarding first'
-                        : 'Chat uses ${languageName(student.language)}',
+                    isGuest
+                        ? 'Chat uses ${languageName(language)} — '
+                            'create a profile to save this'
+                        : 'Chat uses ${languageName(language)}',
                   ),
-                  trailing: student == null
-                      ? null
-                      : DropdownButton<String>(
-                          value: student.language,
-                          underline: const SizedBox.shrink(),
-                          items: [
-                            for (final lang in supportedLanguages)
-                              DropdownMenuItem(value: lang.code, child: Text(lang.name)),
-                          ],
-                          onChanged: (code) {
-                            if (code == null) return;
-                            ref.read(studentNotifierProvider.notifier).updateProfile(
-                                  id: student.id,
-                                  name: student.name,
-                                  language: code,
-                                );
-                          },
-                        ),
-                ),
-              ),
+                  trailing: DropdownButton<String>(
+                    value: language,
+                    underline: const SizedBox.shrink(),
+                    items: [
+                      for (final lang in supportedLanguages)
+                        DropdownMenuItem(value: lang.code, child: Text(lang.name)),
+                    ],
+                    onChanged: (code) {
+                      if (code == null) return;
+                      ref
+                          .read(languageOverrideProvider.notifier)
+                          .setLanguage(code);
+                    },
+                  ),
+                );
+              }),
               const _TranslateModelTile(),
               ListTile(
                 leading: const Icon(Icons.info_outline, color: Colors.grey),

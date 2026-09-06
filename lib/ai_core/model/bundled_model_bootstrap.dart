@@ -59,13 +59,23 @@ class BundledModelBootstrap {
     void Function(double progress, String label)? onProgress,
   }) async {
     if (kIsWeb || defaultTargetPlatform != TargetPlatform.android) {
-      final chat = await _chat.checkModel();
-      final translate = await _translate.checkModel();
-      return BundledModelBootstrapResult(
-        chatReady: chat.isReady,
-        translateReady: translate.isReady,
-        extractedAnything: false,
-      );
+      try {
+        final chat = await _chat.checkModel();
+        final translate = await _translate.checkModel();
+        return BundledModelBootstrapResult(
+          chatReady: chat.isReady,
+          translateReady: translate.isReady,
+          extractedAnything: false,
+        );
+      } catch (e) {
+        debugPrint('BundledModelBootstrap desktop probe failed: $e');
+        return const BundledModelBootstrapResult(
+          chatReady: false,
+          translateReady: false,
+          extractedAnything: false,
+          error: 'desktop model probe failed',
+        );
+      }
     }
 
     try {

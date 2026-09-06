@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
+import '../model/model_locations.dart';
 import '../model/model_manager.dart' show ModelInfo, ModelStatus;
 
 /// Locates and installs the TranslatePsy-AfriSLM translation model (GGUF).
@@ -49,17 +50,21 @@ class AfriSlmModelManager {
       } catch (_) {}
       paths.add(await modelFilePath());
     } else {
-      paths.add(await modelFilePath());
-      final exeDir = p.dirname(Platform.resolvedExecutable);
-      paths.add(p.join(exeDir, 'models', modelFileName));
+      return modelCandidateFiles(modelFileName);
     }
     return paths;
   }
 
   Future<ModelInfo> checkModel() async {
-    for (final path in await _candidatePaths()) {
+    final candidates = await _candidatePaths();
+    debugPrint('TRANSLATE MODEL candidates:\n  ${candidates.join('\n  ')}');
+    for (final path in candidates) {
       final file = File(path);
-      if (!await file.exists()) continue;
+      try {
+        if (!await file.exists()) continue;
+      } catch (_) {
+        continue;
+      }
       final size = await file.length();
       if (size < _minSizeBytes) {
         return ModelInfo(status: ModelStatus.corrupted, path: path, sizeBytes: size);

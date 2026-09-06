@@ -24,6 +24,9 @@ dependencies:
   ffi: ^2.1.0
 
   # Local storage — student memory, history summaries
+  # crypto: stable cache keys for the translation cache. Pure Dart, already
+  # in the tree transitively — declared directly because we import it.
+  crypto: ^3.0.3
   drift: ^2.20.0
   drift_flutter: ^0.2.1
   sqlite3_flutter_libs: ^0.5.0

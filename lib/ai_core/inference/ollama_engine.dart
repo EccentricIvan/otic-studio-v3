@@ -100,7 +100,7 @@ class OllamaEngine extends InferenceEngine {
           final token = json['response'] as String? ?? '';
           if (token.isNotEmpty) {
             buffer.write(token);
-            onToken?.call(token);
+            await emitToken(onToken, token);
           }
         } catch (_) {}
       }

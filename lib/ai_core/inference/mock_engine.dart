@@ -39,7 +39,7 @@ class MockEngine extends InferenceEngine {
     final response = _pickResponse(prompt);
     for (final word in response.split(' ')) {
       final token = '$word ';
-      onToken?.call(token);
+      await emitToken(onToken, token);
       await Future.delayed(const Duration(milliseconds: 40));
     }
     return response;

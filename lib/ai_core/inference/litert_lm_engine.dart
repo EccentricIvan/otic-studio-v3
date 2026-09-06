@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_gemma/flutter_gemma.dart';
 import '../model/model_manager.dart';
 import 'inference_engine.dart';
+import 'pinned_prompt_cache.dart';
+import 'runtime_config.dart';
 
 /// Chat engine for every desktop/mobile platform — Google LiteRT-LM runtime
 /// via flutter_gemma_litertlm, registered in main.dart. Runs Qwen3-0.6B
@@ -25,7 +27,13 @@ import 'inference_engine.dart';
 /// and this machine's finding doesn't generalize to it.
 class LiteRtLmEngineImpl extends InferenceEngine {
   InferenceModel? _model;
+  InferenceChat? _pinnedChat;
+  String? _pinnedSystem;
+  int _pinnedTurns = 0;
   Future<void> _gate = Future.value();
+
+  /// Recreate the pinned session before KV + THREAD overflow the 1024 window.
+  static const _maxPinnedTurns = 4;
 
   static bool get _cpuOnly =>
       defaultTargetPlatform == TargetPlatform.windows ||
@@ -111,6 +119,7 @@ class LiteRtLmEngineImpl extends InferenceEngine {
         maxTokens: maxTokens,
         temperature: temperature,
         onToken: onToken,
+        systemPrompt: systemPrompt,
       );
     } finally {
       if (!done.isCompleted) done.complete();
@@ -122,6 +131,7 @@ class LiteRtLmEngineImpl extends InferenceEngine {
     required int maxTokens,
     required double temperature,
     TokenCallback? onToken,
+    String? systemPrompt,
   }) async {
     if (_model == null) {
       throw StateError('Model not loaded. Call loadModel() first.');
@@ -130,24 +140,97 @@ class LiteRtLmEngineImpl extends InferenceEngine {
     final clipped =
         prompt.length > 1600 ? '${prompt.substring(0, 1600)}\nTutor:' : prompt;
 
-    final chat = await _model!.createChat(maxOutputTokens: maxTokens);
-    chat.addQueryChunk(Message.text(text: clipped, isUser: true));
+    final sys = (systemPrompt == null || systemPrompt.trim().isEmpty)
+        ? ''
+        : PinnedPromptCache.intern(systemPrompt.trim());
+    var user = clipped;
+    if (sys.isNotEmpty && user.startsWith(sys)) {
+      user = user.substring(sys.length).trim();
+    }
+
+    // Session analysis / website prompts must not append onto the pinned
+    // tutor chat — that would pollute the KV the student is learning from.
+    if (sys.isEmpty) {
+      return _oneShot(user: user, maxTokens: maxTokens, onToken: onToken);
+    }
+
+    // Pin the tutor contract once. Later turns only add the user turn, so
+    // LiteRT does not re-prefill the system instruction (KV stays warm).
+    if (_pinnedChat == null ||
+        _pinnedSystem != sys ||
+        _pinnedTurns >= _maxPinnedTurns) {
+      await _pinnedChat?.close();
+      _pinnedChat = await _model!.createChat(
+        temperature: kDoSample ? temperature : kTutorTemperature,
+        randomSeed: kRandomSeed,
+        topK: kDoSample ? 40 : kTopK,
+        topP: kTopP,
+        systemInstruction: sys,
+        maxOutputTokens: maxTokens,
+        modelType: ModelType.qwen3,
+      );
+      _pinnedSystem = sys;
+      _pinnedTurns = 0;
+    }
+
+    await _pinnedChat!.addQueryChunk(Message.text(text: user, isUser: true));
 
     final buffer = StringBuffer();
-    await for (final response in chat.generateChatResponseAsync()) {
+    await for (final response in _pinnedChat!.generateChatResponseAsync()) {
       if (response is TextResponse) {
         final token = response.token;
         if (token.isNotEmpty) {
           buffer.write(token);
-          onToken?.call(token);
+          await emitToken(onToken, token);
         }
       }
     }
+    _pinnedTurns++;
     return buffer.toString();
+  }
+
+  Future<String> _oneShot({
+    required String user,
+    required int maxTokens,
+    TokenCallback? onToken,
+  }) async {
+    final chat = await _model!.createChat(
+      temperature: kTutorTemperature,
+      randomSeed: kRandomSeed,
+      topK: kTopK,
+      topP: kTopP,
+      maxOutputTokens: maxTokens,
+      modelType: ModelType.qwen3,
+    );
+    try {
+      await chat.addQueryChunk(Message.text(text: user, isUser: true));
+      final buffer = StringBuffer();
+      await for (final response in chat.generateChatResponseAsync()) {
+        if (response is TextResponse) {
+          final token = response.token;
+          if (token.isNotEmpty) {
+            buffer.write(token);
+            await emitToken(onToken, token);
+          }
+        }
+      }
+      return buffer.toString();
+    } finally {
+      await chat.close();
+    }
+  }
+
+  @override
+  Future<void> resetSession() async {
+    await _pinnedChat?.close();
+    _pinnedChat = null;
+    _pinnedSystem = null;
+    _pinnedTurns = 0;
   }
 
   @override
   Future<void> dispose() async {
+    await resetSession();
     _model?.close();
     _model = null;
   }

@@ -25,6 +25,7 @@ class _RecordingEngine extends InferenceEngine {
     int maxTokens = 512,
     double temperature = 0.7,
     TokenCallback? onToken,
+    String? systemPrompt,
   }) async {
     prompts.add(prompt);
     return nextResponse;

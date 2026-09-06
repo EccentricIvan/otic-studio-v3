@@ -7,9 +7,9 @@ import 'core/router/app_router.dart';
 import 'core/theme/app_colors.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_provider.dart';
-import 'db/providers/db_provider.dart';
 import 'features/model_setup/model_not_installed_screen.dart';
 import 'l10n/app_locale.dart';
+import 'l10n/language_provider.dart';
 
 class OticApp extends ConsumerStatefulWidget {
   const OticApp({super.key});
@@ -46,10 +46,8 @@ class _OticAppState extends ConsumerState<OticApp> {
     }
 
     final router = ref.watch(appRouterProvider);
-    final languageCode = ref.watch(activeStudentProvider).maybeWhen(
-          data: (s) => s?.language ?? 'en',
-          orElse: () => 'en',
-        );
+    // Same value the translation engine routes on — see appLanguageProvider.
+    final languageCode = ref.watch(appLanguageProvider);
     return MaterialApp.router(
       title: 'AI Connect Africa',
       theme: AppTheme.light,

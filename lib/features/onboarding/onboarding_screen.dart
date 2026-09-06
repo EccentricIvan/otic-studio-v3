@@ -7,6 +7,7 @@ import '../../ai_core/translate/supported_languages.dart';
 import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
 import '../../l10n/app_locale.dart';
+import '../../l10n/language_provider.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -93,6 +94,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     await prefs.setString('student_name', name);
 
     // Navigate IMMEDIATELY — don't wait for database
+    // Take the chosen language as the live one before navigating: it outranks
+    // any language picked earlier as a guest, and on web (where nothing is
+    // written below) it is the only place the choice survives at all.
+    ref.read(languageOverrideProvider.notifier).adoptSaved(_language);
+
     if (mounted) context.go('/');
 
     // On every native platform (not web), also save to database in background

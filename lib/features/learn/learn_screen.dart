@@ -9,6 +9,8 @@ import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_models.dart';
 import '../../curriculum/curriculum_provider.dart';
 import '../../l10n/app_locale.dart';
+import '../../l10n/language_provider.dart';
+import '../../l10n/ui_registry.dart';
 import '../../shared/widgets/curriculum_diagram.dart';
 import '../../shared/widgets/generating_indicator.dart';
 import '../../shared/widgets/responsive.dart';
@@ -26,6 +28,7 @@ class _ChatEntry {
     this.stage,
     this.math,
     this.mathCoach = false,
+    this.translationFailure,
   });
   final String text;
   final bool isUser;
@@ -35,6 +38,11 @@ class _ChatEntry {
   final TutorStage? stage;
   final SchoolMathSolution? math;
   final bool mathCoach;
+
+  /// Non-null when this reply is shown in English because translation
+  /// failed. Rendered as a small note on the bubble — a student learning in
+  /// Swahili must not be left guessing why the tutor switched languages.
+  final String? translationFailure;
 }
 
 class LearnScreen extends ConsumerStatefulWidget {
@@ -157,16 +165,18 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Re-resolve chrome + chat I/O the same frame the picker moves.
+    ref.watch(appLanguageProvider);
     final chat = ref.watch(chatProvider);
 
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: Text(tr(context, 'Learn')),
+        title: Text(tr(context, UiRegistry.learn)),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
-            tooltip: tr(context, 'New session'),
+            tooltip: tr(context, UiRegistry.newSession),
             onPressed: () => ref.read(chatProvider.notifier).reset(),
           ),
         ],
@@ -202,6 +212,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                       stage: msg.stage,
                       math: msg.math,
                       mathCoach: msg.mathCoach,
+                      translationFailure: msg.translationFailure,
                     ));
                     if (msg.isUser) {
                       final lesson = _lessonForMessage[msg.text];
@@ -254,6 +265,7 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                             : tr(context, entry.followUp!),
                         math: entry.math,
                         mathCoach: entry.mathCoach,
+                        translationFailure: entry.translationFailure,
                         onChip: _sendText,
                         onReadAloud: entry.text.isNotEmpty ? () => _readAloud(entry.text) : null,
                         isSpeaking: ref.watch(voiceSpeakingProvider) == entry.text,
@@ -261,6 +273,19 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
                     },
                   );
                 },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  tr(context, UiRegistry.offlineChip),
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: Theme.of(context).hintColor,
+                  ),
+                ),
               ),
             ),
             _InputBar(
@@ -362,6 +387,7 @@ class _TutorBubble extends StatelessWidget {
     this.onChip,
     this.onReadAloud,
     this.isSpeaking = false,
+    this.translationFailure,
   });
 
   final String text;
@@ -372,6 +398,7 @@ class _TutorBubble extends StatelessWidget {
   final void Function(String text)? onChip;
   final VoidCallback? onReadAloud;
   final bool isSpeaking;
+  final String? translationFailure;
 
   @override
   Widget build(BuildContext context) {
@@ -396,7 +423,26 @@ class _TutorBubble extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    _label(stage!),
+                    tr(context, _label(stage!)),
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: Theme.of(context).hintColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          if (translationFailure != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4, left: 4),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.translate_outlined,
+                      size: 12, color: Theme.of(context).hintColor),
+                  const SizedBox(width: 4),
+                  Text(
+                    tr(context, 'Shown in English - translation unavailable'),
                     style: TextStyle(
                       fontSize: 11,
                       color: Theme.of(context).hintColor,
@@ -549,7 +595,9 @@ class _InputBar extends StatelessWidget {
             onPressed: isLoading ? null : onMicPressed,
             icon: Icon(isListening ? Icons.mic : Icons.mic_none_outlined),
             color: isListening ? AppColors.primary : null,
-            tooltip: isListening ? 'Stop dictation' : 'Speak your question',
+            tooltip: isListening
+                ? tr(context, 'Stop dictation')
+                : tr(context, 'Speak your question'),
           ),
           Expanded(
             child: TextField(
@@ -557,8 +605,8 @@ class _InputBar extends StatelessWidget {
               onSubmitted: (_) => onSend(),
               decoration: InputDecoration(
                 hintText: isListening
-                    ? tr(context, 'Listening… speak now')
-                    : tr(context, 'Ask AI anything...'),
+                    ? tr(context, UiRegistry.listening)
+                    : tr(context, UiRegistry.askPlaceholder),
                 border: InputBorder.none,
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
@@ -580,6 +628,7 @@ class _InputBar extends StatelessWidget {
                 )
               : IconButton.filled(
                   onPressed: onSend,
+                  tooltip: tr(context, UiRegistry.send),
                   icon: const Icon(Icons.arrow_upward),
                   style: IconButton.styleFrom(
                     backgroundColor: AppColors.primary,
@@ -633,13 +682,16 @@ class _EmptyState extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           Text(
-            'AI Chat',
+            tr(context, 'AI Chat'),
             style: Theme.of(context).textTheme.headlineSmall,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
           Text(
-            'Ask questions, get explanations, and explore any topic with your AI tutor.',
+            tr(
+              context,
+              'Ask questions, get explanations, and explore any topic with your AI tutor.',
+            ),
             textAlign: TextAlign.center,
             style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.5),
           ),
@@ -659,12 +711,15 @@ class _EmptyState extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
               ),
-              child: const Row(
+              child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.auto_awesome, size: 16, color: AppColors.primary),
-                  SizedBox(width: 8),
-                  Text('Start a conversation', style: TextStyle(fontWeight: FontWeight.w600, color: AppColors.primary)),
+                  const Icon(Icons.auto_awesome, size: 16, color: AppColors.primary),
+                  const SizedBox(width: 8),
+                  Text(
+                    tr(context, 'Start a conversation'),
+                    style: const TextStyle(fontWeight: FontWeight.w600, color: AppColors.primary),
+                  ),
                 ],
               ),
             ),

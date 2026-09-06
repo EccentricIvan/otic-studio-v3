@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import '../inference/inference_engine.dart';
+import '../inference/runtime_config.dart';
 import '../../curriculum/curriculum_provider.dart';
 import 'school_math.dart';
 import 'tutor_contract.dart';
@@ -34,7 +37,7 @@ class TutorPipeline {
   /// Returns the complete [TutorResponse] when generation finishes.
   Future<TutorResponse> respond({
     required String studentMessage,
-    void Function(String token)? onToken,
+    TokenCallback? onToken,
     String? safetyNote,
   }) async {
     final continuing = _isContinuingThread(studentMessage);
@@ -47,6 +50,7 @@ class TutorPipeline {
       _currentTopic = topic;
       _nextStage = TutorStage.answer;
       _activeMatch = null;
+      await _engine.resetSession();
     } else if (_currentTopic.isEmpty && topic.isNotEmpty) {
       _currentTopic = topic;
     }
@@ -62,7 +66,13 @@ class TutorPipeline {
 
     final mathReply = _respondWithMath(studentMessage, stage);
     if (mathReply != null) {
-      onToken?.call(mathReply.text);
+      // Do not stream the English worked plan. Formulas stay in
+      // WorkedSolution; titles/why are localized after respond() returns.
+      // Hints and short coaching lines have no formula block, so those
+      // may stream.
+      if (mathReply.math == null) {
+        onToken?.call(mathReply.text);
+      }
       _remember(studentMessage, mathReply.text, math: mathReply.math);
       _advanceStage();
       return mathReply;
@@ -80,11 +90,12 @@ class TutorPipeline {
     final buffer = StringBuffer();
     final text = await _engine.generate(
       prompt: prompt,
-      maxTokens: 280,
-      temperature: 0.25,
-      onToken: (token) {
+      systemPrompt: kTutorContract,
+      maxTokens: kMaxNewTokens,
+      temperature: kTutorTemperature,
+      onToken: (token) async {
         buffer.write(token);
-        onToken?.call(token);
+        await emitToken(onToken, token);
       },
     );
 
@@ -120,8 +131,9 @@ class TutorPipeline {
         ? 'CURRICULUM: none matched — do not invent a syllabus. Teach at a general school level.'
         : 'CURRICULUM:\n$curriculumNotes';
 
-    return '''$kTutorContract
-$notes
+    // Contract is pinned as [systemPrompt] / LiteRT systemInstruction —
+    // do not prepend it again or the model re-reads the header every turn.
+    return '''$notes
 ${safetyNote != null ? '$safetyNote\n' : ''}${_threadBlock()}CURRENT QUESTION: $q
 Tutor:''';
   }
@@ -290,7 +302,11 @@ STRENGTH: <one short phrase describing something the student did well, or NONE>
 WEAKNESS: <one short phrase describing something the student is struggling with, or NONE>''';
 
     try {
-      final raw = await _engine.generate(prompt: prompt, maxTokens: 80, temperature: 0.3);
+      final raw = await _engine.generate(
+        prompt: prompt,
+        maxTokens: 80,
+        temperature: kTutorTemperature,
+      );
       return _parseAnalysis(raw);
     } catch (_) {
       return const SessionAnalysis(summary: '');
@@ -326,6 +342,7 @@ WEAKNESS: <one short phrase describing something the student is struggling with,
     _activeMath = null;
     _awaitingMath = null;
     _practiceMiss = false;
+    unawaited(_engine.resetSession());
   }
 
   void _clearMath() {

@@ -87,7 +87,7 @@ class OpenAiCompatibleEngine extends InferenceEngine {
             final token = delta?['content'] as String? ?? '';
             if (token.isNotEmpty) {
               buffer.write(token);
-              onToken?.call(token);
+              await emitToken(onToken, token);
             }
           } catch (_) {
             // skip malformed SSE chunks

@@ -31,6 +31,15 @@ class MathStep {
   final String why;
   final String? formula;
   final String? calc;
+
+  MathStep copyWith({String? title, String? why}) {
+    return MathStep(
+      title: title ?? this.title,
+      why: why ?? this.why,
+      formula: formula,
+      calc: calc,
+    );
+  }
 }
 
 class SchoolMathSolution {
@@ -71,6 +80,20 @@ class SchoolMathSolution {
 
   String get hintMessage =>
       '$hint\n\nTry the calculation, then tell me your answer — or ask me to show the full steps.';
+
+  SchoolMathSolution copyWith({
+    List<MathStep>? steps,
+    String? hint,
+    String? practiceQuestion,
+  }) {
+    return SchoolMathSolution(
+      steps: steps ?? this.steps,
+      answer: answer,
+      hint: hint ?? this.hint,
+      practiceQuestion: practiceQuestion ?? this.practiceQuestion,
+      numericAnswer: numericAnswer,
+    );
+  }
 }
 
 String fmtNum(double n) {

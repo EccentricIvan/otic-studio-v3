@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import 'ui_strings.dart';
+import 'ui_strings_generated.dart';
 import 'ui_strings_more.dart';
 
 class AppLocale extends InheritedWidget {
@@ -22,8 +23,11 @@ class AppLocale extends InheritedWidget {
 String tr(BuildContext context, String english) {
   final code = AppLocale.of(context);
   if (code == 'en') return english;
+  // Curated tables first, machine-generated last: a reviewed translation must
+  // always outrank the 0.8B batch output for the same key.
   return kUiStrings[code]?[english] ??
       kUiStringsMore[code]?[english] ??
+      kUiStringsGenerated[code]?[english] ??
       english;
 }
 
@@ -35,7 +39,8 @@ String tr(BuildContext context, String english) {
 bool hasUiString(String code, String english) {
   if (code == 'en') return true;
   return kUiStrings[code]?[english] != null ||
-      kUiStringsMore[code]?[english] != null;
+      kUiStringsMore[code]?[english] != null ||
+      kUiStringsGenerated[code]?[english] != null;
 }
 
 String trFill(BuildContext context, String english, Map<String, String> vars) {
