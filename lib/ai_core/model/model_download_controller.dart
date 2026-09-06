@@ -68,11 +68,18 @@ class ModelDownloadController extends StateNotifier<ModelDownloadState> {
   }
 }
 
-/// True when neither model is on the device yet — the state where the app
-/// should lead with the download button rather than a USB instruction.
+/// True when a model is known to be absent — the state where the app should
+/// lead with the download button rather than a USB instruction.
+///
+/// Both lookups hit the filesystem, so they are briefly unresolved on every
+/// launch. Treating "still checking" as "missing" would flash *Download the
+/// AI models* at a student whose device already has them, so an unresolved
+/// lookup counts as present until it says otherwise.
 final anyModelMissingProvider = Provider<bool>((ref) {
-  final chat = ref.watch(modelInfoProvider).valueOrNull;
-  final translate = ref.watch(translateModelInfoProvider).valueOrNull;
-  return chat?.status != ModelStatus.ready ||
-      translate?.status != ModelStatus.ready;
+  bool missing(AsyncValue<ModelInfo> v) => v.maybeWhen(
+        data: (info) => info.status != ModelStatus.ready,
+        orElse: () => false,
+      );
+  return missing(ref.watch(modelInfoProvider)) ||
+      missing(ref.watch(translateModelInfoProvider));
 });
