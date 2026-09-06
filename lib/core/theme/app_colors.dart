@@ -31,15 +31,15 @@ class AppColors {
   Color get card => surface;
 
   static const AppColors light = AppColors._(
-    bgTop: Color(0xFFFAFCFF),
-    bgBottom: Color(0xFFFFFFFF),
-    pageGradientMid: Color(0xFFFFFFFF),
+    bgTop: Color(0xFFF7FAFD),
+    bgBottom: Color(0xFFF7FAFD),
+    pageGradientMid: Color(0xFFF7FAFD),
     surface: Color(0xFFFFFFFF),
-    textPrimary: Color(0xFF142840),
-    textSecondary: Color(0xFF3D5A73),
-    textHint: Color(0xFF6B8499),
-    border: Color(0xFFE8F2FA),
-    iconWell: Color(0xFFF3F9FD),
+    textPrimary: Color(0xFF0F2744),
+    textSecondary: Color(0xFF5A7188),
+    textHint: Color(0xFF8A9BB0),
+    border: Color(0xFFE6EEF6),
+    iconWell: Color(0xFFF0F4F8),
     isDark: false,
   );
 
@@ -68,14 +68,7 @@ class AppColors {
     if (c.isDark) {
       return BoxDecoration(color: c.bgBottom);
     }
-    return const BoxDecoration(
-      gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [Color(0xFFFAFCFF), Color(0xFFFFFFFF)],
-        stops: [0.0, 0.18],
-      ),
-    );
+    return const BoxDecoration(color: Color(0xFFF7FAFD));
   }
 
   // Brand

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../curriculum/curriculum_provider.dart';
 import '../../l10n/app_locale.dart';
+import '../../shared/widgets/studio_page.dart';
 
 class SubjectsScreen extends ConsumerWidget {
   const SubjectsScreen({super.key});
@@ -34,31 +35,54 @@ class SubjectsScreen extends ConsumerWidget {
     final subjectsAsync = ref.watch(allSubjectsProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text(tr(context, 'Learn'))),
+      backgroundColor: Colors.transparent,
+      appBar: StudioAppBar(
+        title: tr(context, 'Learn'),
+        subtitle: tr(context, 'Explore your courses'),
+      ),
       body: subjectsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error loading subjects: $e')),
-        data: (subjects) => GridView.builder(
-          padding: const EdgeInsets.all(16),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 12,
-            crossAxisSpacing: 12,
-            childAspectRatio: 1.3,
-          ),
-          itemCount: subjects.length,
-          itemBuilder: (context, i) {
-            final s = subjects[i];
-            final color = _parseColor(s.color);
-            final icon = _icons[s.icon] ?? Icons.menu_book;
-            return _SubjectCard(
-              name: s.name,
-              icon: icon,
-              color: color,
-              lessonCount: s.totalLessons,
-              onTap: () => context.push('/learn/subject/${s.id}'),
-            );
-          },
+        data: (subjects) => ListView(
+          padding: const EdgeInsets.fromLTRB(20, 4, 20, 100),
+          children: [
+            StudioHeroBanner(
+              eyebrow: tr(context, 'Curriculum'),
+              title: tr(context, 'Your subjects'),
+              body: tr(
+                context,
+                'Browse courses and keep building skills one lesson at a time.',
+              ),
+              ctaLabel: tr(context, 'Open AI Chat →'),
+              onCta: () => context.go('/chat'),
+            ),
+            const SizedBox(height: 20),
+            StudioSectionHeader(title: tr(context, 'All subjects')),
+            const SizedBox(height: 14),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 12,
+                childAspectRatio: 1.25,
+              ),
+              itemCount: subjects.length,
+              itemBuilder: (context, i) {
+                final s = subjects[i];
+                final color = _parseColor(s.color);
+                final icon = _icons[s.icon] ?? Icons.menu_book;
+                return _SubjectCard(
+                  name: s.name,
+                  icon: icon,
+                  color: color,
+                  lessonCount: s.totalLessons,
+                  onTap: () => context.push('/learn/subject/${s.id}'),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

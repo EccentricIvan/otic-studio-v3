@@ -9,6 +9,7 @@ import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/studio_page.dart';
 
 /// Admin dashboard — device, user, and update management.
 /// Admins manage the platform; they have no learning features here.
@@ -23,7 +24,10 @@ class AdminScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(title: const Text('Admin Dashboard')),
+      appBar: const StudioAppBar(
+        title: 'Admin',
+        subtitle: 'Device & learner management',
+      ),
       body: MaxWidth(
         maxWidth: 900,
         child: ListView(

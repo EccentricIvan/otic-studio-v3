@@ -82,95 +82,67 @@ class AppShell extends StatelessWidget {
       child: Scaffold(
         key: mobileScaffoldKey,
         backgroundColor: Colors.transparent,
-        body: Stack(
-          children: [
-            child,
-            Positioned(
-              top: MediaQuery.of(context).padding.top + 4,
-              right: 4,
-              child: SafeArea(
-                child: Material(
-                  color: Colors.transparent,
-                  child: IconButton(
-                    icon: Icon(Icons.menu_rounded, size: 22, color: ac.textPrimary),
-                    tooltip: tr(context, 'Menu'),
-                    onPressed: () => mobileScaffoldKey.currentState?.openDrawer(),
-                    style: IconButton.styleFrom(
-                      backgroundColor: AppColors.glassFill(context, strong: true),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        side: BorderSide(color: ac.border),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+        body: child,
         drawer: _AppDrawer(
           selectedIndex: selectedIndex,
           destinations: _destinations,
         ),
-        bottomNavigationBar: SafeArea(
-          minimum: const EdgeInsets.fromLTRB(20, 0, 20, 14),
-          child: SizedBox(
-            height: 82,
-            child: Stack(
-              clipBehavior: Clip.none,
-              alignment: Alignment.bottomCenter,
-              children: [
-                Container(
-                  height: 70,
-                  decoration: BoxDecoration(
-                    color: ac.surface,
-                    borderRadius: BorderRadius.circular(32),
-                    border: Border.all(color: ac.border),
-                    boxShadow: ac.navShadow(ac.isDark),
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                  child: Row(
-                    children: [
-                      for (var i = 0; i < _mobileIndices.length; i++) ...[
-                        Expanded(
-                          child: _FloatingNavItem(
-                            icon: _destinations[_mobileIndices[i]].icon,
-                            selectedIcon: _destinations[_mobileIndices[i]].selectedIcon,
-                            label: tr(context, _destinations[_mobileIndices[i]].label),
-                            selected: mobileSelected == i,
-                            onTap: () =>
-                                context.go(_destinations[_mobileIndices[i]].path),
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            color: ac.surface,
+            border: Border(top: BorderSide(color: ac.border)),
+            boxShadow: ac.isDark
+                ? const []
+                : const [
+                    BoxShadow(
+                      color: Color(0x141A4A7A),
+                      blurRadius: 16,
+                      offset: Offset(0, -4),
+                    ),
+                  ],
+          ),
+          child: SafeArea(
+            top: false,
+            child: SizedBox(
+              height: 72,
+              child: Stack(
+                clipBehavior: Clip.none,
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: Row(
+                      children: [
+                        for (var i = 0; i < _mobileIndices.length; i++) ...[
+                          Expanded(
+                            child: _FloatingNavItem(
+                              icon: _destinations[_mobileIndices[i]].icon,
+                              selectedIcon:
+                                  _destinations[_mobileIndices[i]].selectedIcon,
+                              label: tr(
+                                context,
+                                _destinations[_mobileIndices[i]].label,
+                              ),
+                              selected: mobileSelected == i,
+                              onTap: () => context
+                                  .go(_destinations[_mobileIndices[i]].path),
+                            ),
                           ),
-                        ),
-                        if (i == 1) const SizedBox(width: 58),
+                          if (i == 1) const SizedBox(width: 64),
+                        ],
                       ],
-                    ],
+                    ),
                   ),
-                ),
-                Positioned(
-                  top: 0,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      _ChatFabButton(
-                        active: isChatActive,
-                        ringColor: ac.isDark ? ac.surface : Colors.white,
-                        onTap: () => context.go(_chatPath),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        tr(context, 'Chat'),
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight:
-                              isChatActive ? FontWeight.w700 : FontWeight.w500,
-                          color: isChatActive ? AppColors.primary : ac.textHint,
-                        ),
-                      ),
-                    ],
+                  Positioned(
+                    top: -18,
+                    child: _ChatFabButton(
+                      active: isChatActive,
+                      ringColor: ac.isDark ? ac.surface : Colors.white,
+                      onTap: () => context.go(_chatPath),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -411,7 +383,7 @@ class _SideNav extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'Offline · v1.2',
+                  'Offline · v1.1',
                   style: TextStyle(fontSize: 12, color: ac.textHint),
                 ),
               ],

@@ -12,6 +12,7 @@ import '../../features/learn/path/path_provider.dart';
 import '../../features/learn/path/path_models.dart';
 import '../../l10n/app_locale.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/studio_page.dart';
 
 class CertificatesScreen extends ConsumerWidget {
   const CertificatesScreen({super.key});
@@ -22,7 +23,10 @@ class CertificatesScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(title: Text(tr(context, 'Certificates'))),
+appBar: StudioAppBar(
+        title: tr(context, 'Certificates'),
+        subtitle: tr(context, 'Celebrate completed paths'),
+      ),
       body: studentAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),

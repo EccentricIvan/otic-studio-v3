@@ -14,6 +14,7 @@ import '../../db/providers/db_provider.dart';
 import '../../l10n/app_locale.dart';
 import '../../l10n/language_provider.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/studio_page.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -26,7 +27,10 @@ class SettingsScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(title: Text(tr(context, 'Settings'))),
+appBar: StudioAppBar(
+        title: tr(context, 'Settings'),
+        subtitle: tr(context, 'Profile, AI model & preferences'),
+      ),
       body: MaxWidth(
         maxWidth: 760,
         child: ListView(

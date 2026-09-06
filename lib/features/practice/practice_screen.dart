@@ -10,6 +10,7 @@ import '../../gamification/badge_service.dart';
 import '../../l10n/app_locale.dart';
 import '../../shared/widgets/quiz_ai_answer.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/studio_page.dart';
 import 'practice_providers.dart';
 import 'quiz_generator.dart';
 import 'scenario_models.dart';
@@ -46,8 +47,9 @@ class PracticeScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          title: Text(tr(context, 'Practice')),
+appBar: StudioAppBar(
+          title: tr(context, 'Practice'),
+          subtitle: tr(context, 'Sharpen your skills'),
           bottom: TabBar(
             tabs: [
               Tab(icon: const Icon(Icons.quiz_outlined), text: tr(context, 'Practice')),
@@ -55,7 +57,8 @@ class PracticeScreen extends StatelessWidget {
             ],
             indicatorColor: AppColors.primary,
             labelColor: AppColors.primary,
-            unselectedLabelColor: Theme.of(context).colorScheme.onSurfaceVariant,
+            unselectedLabelColor:
+                Theme.of(context).colorScheme.onSurfaceVariant,
           ),
         ),
         body: const MaxWidth(

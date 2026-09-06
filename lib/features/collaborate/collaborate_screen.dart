@@ -9,6 +9,7 @@ import '../../core/theme/app_colors.dart';
 import '../../db/providers/db_provider.dart';
 import '../../l10n/app_locale.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/studio_page.dart';
 
 class CollaborateScreen extends ConsumerStatefulWidget {
   const CollaborateScreen({super.key});
@@ -80,7 +81,10 @@ class _CollaborateScreenState extends ConsumerState<CollaborateScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(title: Text(tr(context, 'Nearby'))),
+appBar: StudioAppBar(
+        title: tr(context, 'Nearby learners'),
+        subtitle: tr(context, 'Discover classmates on this network'),
+      ),
       body: MaxWidth(
         maxWidth: 760,
         child: _starting

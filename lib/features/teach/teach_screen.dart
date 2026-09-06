@@ -7,6 +7,7 @@ import '../../db/providers/db_provider.dart';
 import '../../gamification/badge_service.dart';
 import '../../l10n/app_locale.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/studio_page.dart';
 
 // ── State ─────────────────────────────────────────────────────────────────────
 
@@ -188,7 +189,10 @@ class _TeachScreenState extends ConsumerState<TeachScreen> {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(title: Text(tr(context, 'Teach')), leading: const BackButton()),
+appBar: StudioAppBar(
+        title: tr(context, 'Teach'),
+        subtitle: tr(context, 'Explain it to master it'),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: MaxWidth(

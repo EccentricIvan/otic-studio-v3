@@ -7,6 +7,7 @@ import '../../core/theme/app_colors.dart';
 import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/studio_page.dart';
 
 String _shortWhen(DateTime dt) {
   final local = dt.toLocal();
@@ -33,13 +34,14 @@ class TeacherDashboardScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        title: const Text('Teacher'),
+      appBar: StudioAppBar(
+        title: 'Teacher',
+        subtitle: 'Classroom progress overview',
         actions: [
-          IconButton(
+          StudioHeaderIconButton(
             tooltip: 'Refresh',
-            icon: const Icon(Icons.refresh),
-            onPressed: () => ref.invalidate(_allStudentsForTeacherProvider),
+            icon: Icons.refresh_rounded,
+            onTap: () => ref.invalidate(_allStudentsForTeacherProvider),
           ),
         ],
       ),
@@ -192,8 +194,12 @@ class TeacherStudentDetailScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        title: Text(student?.name ?? 'Learner'),
+      appBar: StudioAppBar(
+        title: student?.name ?? 'Learner',
+        subtitle: 'Student progress detail',
+        showBack: true,
+        showMenu: false,
+        showEduImage: false,
       ),
       body: MaxWidth(
         maxWidth: 900,

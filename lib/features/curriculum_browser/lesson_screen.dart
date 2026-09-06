@@ -9,6 +9,7 @@ import '../../db/providers/db_provider.dart';
 import '../../gamification/badge_service.dart';
 import '../../l10n/app_locale.dart';
 import '../../shared/widgets/quiz_ai_answer.dart';
+import '../../shared/widgets/studio_page.dart';
 
 class LessonScreen extends ConsumerStatefulWidget {
   const LessonScreen({
@@ -66,9 +67,15 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
       builder: (context, snapshot) {
         final subject = snapshot.data;
         if (subject == null) {
-          return Scaffold(
-            appBar: AppBar(),
-            body: const Center(child: CircularProgressIndicator()),
+          return const Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: StudioAppBar(
+              title: 'Lesson',
+              showBack: true,
+              showMenu: false,
+              showEduImage: false,
+            ),
+            body: Center(child: CircularProgressIndicator()),
           );
         }
 
@@ -78,11 +85,13 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
         final hasPrev = widget.lessonIndex > 0;
 
         return Scaffold(
-          appBar: AppBar(
-            title: Text(
-              'Unit ${widget.unitIndex + 1}, Lesson ${widget.lessonIndex + 1}',
-              style: const TextStyle(fontSize: 15),
-            ),
+          backgroundColor: Colors.transparent,
+          appBar: StudioAppBar(
+            title: 'Unit ${widget.unitIndex + 1}, Lesson ${widget.lessonIndex + 1}',
+            subtitle: unit.title,
+            showBack: true,
+            showMenu: false,
+            showEduImage: false,
           ),
           body: SingleChildScrollView(
             padding: const EdgeInsets.all(20),

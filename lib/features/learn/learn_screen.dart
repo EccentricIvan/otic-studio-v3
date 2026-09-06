@@ -15,6 +15,7 @@ import '../../shared/widgets/curriculum_diagram.dart';
 import '../../shared/widgets/generating_indicator.dart';
 import '../../shared/widgets/responsive.dart';
 import '../../shared/widgets/worked_solution.dart';
+import '../../shared/widgets/studio_page.dart';
 import '../../voice/voice_provider.dart';
 import '../../voice/voice_service.dart';
 
@@ -168,16 +169,54 @@ class _LearnScreenState extends ConsumerState<LearnScreen> {
     // Re-resolve chrome + chat I/O the same frame the picker moves.
     ref.watch(appLanguageProvider);
     final chat = ref.watch(chatProvider);
+    final aiStatus = ref.watch(aiStatusProvider);
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        title: Text(tr(context, UiRegistry.learn)),
+      appBar: StudioAppBar(
+        title: tr(context, 'AI Chat'),
+        subtitle: tr(context, 'Ask anything, learn together'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
+          aiStatus.when(
+            data: (status) => Chip(
+              avatar: Icon(
+                status.isDemo ? Icons.info_outline : Icons.memory,
+                size: 14,
+                color: status.isDemo
+                    ? const Color(0xFFB86E00)
+                    : AppColors.teachColor,
+              ),
+              label: Text(
+                status.isDemo ? 'Demo' : (status.backendLabel ?? 'AI'),
+                style: TextStyle(
+                  fontSize: 11,
+                  color: status.isDemo
+                      ? const Color(0xFFB86E00)
+                      : AppColors.teachColor,
+                ),
+              ),
+              backgroundColor: status.isDemo
+                  ? const Color(0xFFFFF8E7)
+                  : AppColors.teachColor.withValues(alpha: 0.08),
+              side: BorderSide(
+                color: status.isDemo
+                    ? const Color(0xFFE8D4A8)
+                    : AppColors.teachColor.withValues(alpha: 0.3),
+              ),
+              padding: EdgeInsets.zero,
+              visualDensity: VisualDensity.compact,
+            ),
+            loading: () => const SizedBox(
+              width: 16,
+              height: 16,
+              child: CircularProgressIndicator(strokeWidth: 2),
+            ),
+            error: (_, __) => const SizedBox.shrink(),
+          ),
+          StudioHeaderIconButton(
+            icon: Icons.refresh_rounded,
             tooltip: tr(context, UiRegistry.newSession),
-            onPressed: () => ref.read(chatProvider.notifier).reset(),
+            onTap: () => ref.read(chatProvider.notifier).reset(),
           ),
         ],
       ),

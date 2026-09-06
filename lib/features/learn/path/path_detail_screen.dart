@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../shared/widgets/responsive.dart';
+import '../../../shared/widgets/studio_page.dart';
 import 'path_models.dart';
 import 'path_provider.dart';
 
@@ -23,7 +24,14 @@ class _PathDetailScreenState extends ConsumerState<PathDetailScreen> {
     final pathAsync = ref.watch(pathByTopicProvider(widget.topic));
 
     return Scaffold(
-      appBar: AppBar(title: Text(widget.topic), leading: const BackButton()),
+      backgroundColor: Colors.transparent,
+      appBar: StudioAppBar(
+        title: widget.topic,
+        subtitle: 'Your learning path',
+        showBack: true,
+        showMenu: false,
+        showEduImage: false,
+      ),
       body: pathAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, _) => Center(child: Text('Error: $e')),

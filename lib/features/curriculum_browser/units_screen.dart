@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_colors.dart';
 import '../../curriculum/curriculum_provider.dart';
 import '../../l10n/app_locale.dart';
+import '../../shared/widgets/studio_page.dart';
 
 class UnitsScreen extends ConsumerWidget {
   const UnitsScreen({super.key, required this.subjectId});
@@ -19,13 +20,26 @@ class UnitsScreen extends ConsumerWidget {
         final subject = snapshot.data;
         if (subject == null) {
           return Scaffold(
-            appBar: AppBar(title: Text(tr(context, 'Loading...'))),
+            backgroundColor: Colors.transparent,
+            appBar: StudioAppBar(
+              title: tr(context, 'Loading…'),
+              showBack: true,
+              showMenu: false,
+              showEduImage: false,
+            ),
             body: const Center(child: CircularProgressIndicator()),
           );
         }
 
         return Scaffold(
-          appBar: AppBar(title: Text(subject.name)),
+          backgroundColor: Colors.transparent,
+          appBar: StudioAppBar(
+            title: subject.name,
+            subtitle: '${subject.totalLessons} lessons',
+            showBack: true,
+            showMenu: false,
+            showEduImage: false,
+          ),
           body: ListView.builder(
             padding: const EdgeInsets.all(16),
             itemCount: subject.units.length,

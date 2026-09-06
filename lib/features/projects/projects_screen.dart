@@ -7,6 +7,7 @@ import '../../db/otic_database.dart';
 import '../../db/providers/db_provider.dart';
 import '../../l10n/app_locale.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/studio_page.dart';
 
 class ProjectsScreen extends ConsumerWidget {
   const ProjectsScreen({super.key});
@@ -17,13 +18,14 @@ class ProjectsScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        title: Text(tr(context, 'Projects')),
+appBar: StudioAppBar(
+        title: tr(context, 'Projects'),
+        subtitle: tr(context, 'Your saved creations'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
+          StudioHeaderIconButton(
+            icon: Icons.add_rounded,
             tooltip: 'New project',
-            onPressed: () => context.go('/create'),
+            onTap: () => context.go('/create'),
           ),
         ],
       ),

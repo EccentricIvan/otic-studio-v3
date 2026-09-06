@@ -11,6 +11,7 @@ import '../../gamification/badge_service.dart';
 import '../../l10n/app_locale.dart';
 import '../../shared/widgets/generating_indicator.dart';
 import '../../shared/widgets/responsive.dart';
+import '../../shared/widgets/studio_page.dart';
 import 'package:drift/drift.dart' show Value;
 
 // ── Project types ─────────────────────────────────────────────────────────────
@@ -232,25 +233,28 @@ class _CreateScreenState extends ConsumerState<CreateScreen> {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        title: Text(
-          state.started ? '${state.projectType}: ${state.topic}' : tr(context, 'Create'),
-        ),
+      appBar: StudioAppBar(
+        title: state.started
+            ? '${state.projectType}: ${state.topic}'
+            : tr(context, 'Create'),
+        subtitle: state.started
+            ? tr(context, 'Build step by step with AI')
+            : tr(context, 'Turn ideas into projects'),
         actions: [
-          if (state.started && state.savedProjectId == null)
-            TextButton.icon(
-              onPressed: state.isGenerating
-                  ? null
-                  : () =>
-                        ref.read(_createProvider.notifier).saveProject(context),
-              icon: const Icon(Icons.save_outlined),
-              label: Text(tr(context, 'Save')),
+          if (state.started &&
+              state.savedProjectId == null &&
+              !state.isGenerating)
+            StudioHeaderIconButton(
+              icon: Icons.save_outlined,
+              tooltip: tr(context, 'Save'),
+              onTap: () =>
+                  ref.read(_createProvider.notifier).saveProject(context),
             ),
           if (state.started)
-            IconButton(
-              icon: const Icon(Icons.refresh),
-              tooltip: 'New project',
-              onPressed: () => ref.invalidate(_createProvider),
+            StudioHeaderIconButton(
+              icon: Icons.refresh_rounded,
+              tooltip: tr(context, 'New project'),
+              onTap: () => ref.invalidate(_createProvider),
             ),
         ],
       ),
