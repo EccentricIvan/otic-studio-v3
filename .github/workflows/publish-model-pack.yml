@@ -1,0 +1,65 @@
+# Publishes the two model files as standalone assets on the `model-pack`
+# release, which is the URL the app downloads from at runtime.
+#
+# Run this from CI rather than uploading by hand: the files total ~1.2 GB and
+# come from Hugging Face, so a datacenter-to-datacenter transfer takes minutes
+# where a home upstream can take hours.
+#
+# `model-pack` is a permanent tag. App builds already in the field point at it,
+# so replacing an asset changes what those installs download — bump the SHA
+# pins in lock step and treat it as a release, not an edit.
+name: Publish model pack
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  CHAT_URL: https://huggingface.co/litert-community/Qwen3-0.6B/resolve/main/Qwen3-0.6B.litertlm
+  CHAT_SHA: 555579ff2f4fd13379abe69c1c3ab5200f7338bc92471557f1d6614a6e5ab0b4
+  TRANSLATE_URL: https://huggingface.co/qvac/TranslatePsy-AfriSLM-0.8B-Q4-GGUF/resolve/main/TranslatePsy-AfriSLM-0.8B-Q4_K_M-imat.gguf
+  TRANSLATE_SHA: 4af8ee1df3ec9008f763ebe95e6f21df3acd8d42c541feeb13314ca22e560afc
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch and verify models
+        run: |
+          set -euo pipefail
+          mkdir -p pack
+          curl -fL --retry 3 --retry-all-errors -o pack/chat-model.litertlm "$CHAT_URL"
+          curl -fL --retry 3 --retry-all-errors -o pack/translate-afrislm.gguf "$TRANSLATE_URL"
+          # Verify before publishing: these hashes are compiled into the app
+          # and checked again on-device, so a mismatch here would ship a
+          # release every client rejects.
+          echo "$CHAT_SHA  pack/chat-model.litertlm" | sha256sum -c -
+          echo "$TRANSLATE_SHA  pack/translate-afrislm.gguf" | sha256sum -c -
+          ls -lh pack
+
+      - name: Publish the model-pack release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if ! gh release view model-pack --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create model-pack \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "Model pack (chat + translation)" \
+              --notes "Standalone model files downloaded by the app on first run.
+
+          | File | SHA-256 |
+          |------|---------|
+          | \`chat-model.litertlm\` | \`$CHAT_SHA\` |
+          | \`translate-afrislm.gguf\` | \`$TRANSLATE_SHA\` |
+
+          Both are Apache-2.0. The app verifies these hashes after download."
+          fi
+          gh release upload model-pack \
+            pack/chat-model.litertlm \
+            pack/translate-afrislm.gguf \
+            --repo "$GITHUB_REPOSITORY" --clobber

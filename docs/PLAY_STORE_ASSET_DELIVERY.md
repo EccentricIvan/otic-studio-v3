@@ -29,6 +29,98 @@ chat model alone exceeds the 500 MB base cap. Both models must leave the
 base module and become **asset packs**, and the build must become an AAB
 (`flutter build appbundle`), not an APK.
 
+## Decision: download from GitHub Releases, not asset packs
+
+**We chose this over Play Asset Delivery.** The models are no longer part of
+the app at all. The APK/AAB ships without them (base module drops to ~50 MB,
+comfortably under the 500 MB cap), and the app fetches them at runtime from
+the `model-pack` GitHub release.
+
+Why this over fast-follow asset packs:
+
+- **One code path everywhere.** Play, sideload, USB and desktop all use the
+  same downloader and the same on-disk locations. Asset packs only exist for
+  Play installs, so they would have meant maintaining two mechanisms.
+- **Model updates stop requiring app updates.** Re-quantize the translation
+  model, publish the release, done — no Play review cycle.
+- **The Play work gets much simpler.** Whoever does the Play submission does
+  not need asset-pack Gradle modules, Play Core, or `getPackLocation`
+  plumbing. They ship an ordinary AAB.
+
+The cost is that the user taps a button and waits, rather than the models
+arriving automatically during install. On metered mobile data that is
+arguably the better default anyway — see the per-model split below.
+
+### Play policy
+
+Verified against the Device and Network Abuse policy: the rule is that an app
+*"may not download executable code (such as dex, JAR, .so files) from a source
+other than Google Play."* Model weights are data consumed by the llama.cpp and
+LiteRT runtimes that are already compiled into the app — no code is fetched.
+This is the same mechanism offline translation and speech apps use. Expect the
+question during review; that sentence is the answer.
+
+## What is implemented
+
+| Piece | File |
+|---|---|
+| Release publisher (CI) | `.github/workflows/publish-model-pack.yml` |
+| Package descriptors + pinned SHA-256 | `lib/ai_core/model/model_package.dart` |
+| Resumable, verified downloader | `lib/ai_core/model/model_download_service.dart` |
+| Riverpod controller + progress state | `lib/ai_core/model/model_download_controller.dart` |
+| Tests (resume, digest, 404, ignored Range) | `test/model_download_service_test.dart` |
+
+The downloader lands bytes directly at the path model discovery already
+probes (`ModelManager.installTargetPath()` /
+`AfriSlmModelManager.modelFilePath()`), so a finished download needs no
+extraction or copy step — unlike the APK-bundled route, which spends 642 MB
+twice.
+
+Three properties worth preserving if this is refactored:
+
+1. **Resume via HTTP Range.** Verified against a real release asset: GitHub
+   redirects to objects.githubusercontent.com, which answers `206` and
+   `Accept-Ranges: bytes`. A dropped connection at 600 MB continues rather
+   than restarting — on metered data, restarting is not an acceptable
+   failure. A server that ignores the Range and replies `200` is detected
+   and the stale prefix discarded.
+2. **Streamed SHA-256**, matching the hash CI verified at publish time. A
+   resumed download replays the on-disk prefix through the digest first, so
+   the hash still covers the whole file. Corrupt bytes are deleted rather
+   than left for a later resume to append onto.
+3. **`.part` then rename.** A truncated file must never appear at a path
+   discovery will find and hand to llama.cpp.
+
+**Per-model, not one button.** Chat (586 MB) is `essential` — without it there
+is no tutor. Translation (642 MB) is not: the app works in English while it is
+missing, and `translateEngineLoadedProvider` already soft-fails to null. On
+metered data that split is the difference between usable and not.
+
+## Still to do
+
+- **UI.** `ModelDownloadController` and its progress state are wired, but no
+  screen calls them yet. The button belongs in Settings *and* on the existing
+  "Model not installed — transfer via USB" screen, which is now misleading on
+  its own for a Play user.
+- **Publish the release.** Run the `Publish model pack` workflow once. The
+  `model-pack` tag does not exist yet, so the app currently gets a 404 (the
+  downloader reports this as "not published yet" rather than a raw error).
+  This also repairs `build-release-artifacts.yml`, which already tries to
+  `gh release download model-pack` and fails today.
+- **Wi-Fi-only default.** Not implemented. 1.2 GB on mobile data is a real
+  cost for the target user; worth a preference before wide release.
+- **Foreground-only.** Android will kill a backgrounded HTTP download. v1
+  requires the app stay open; a WorkManager/foreground-service version is the
+  follow-up. The download resumes rather than restarting, so this degrades
+  rather than breaks.
+
+## Superseded: the Play Asset Delivery plan
+
+The rest of this document describes the fast-follow asset-pack approach we
+evaluated first. It is kept because the size limits and the
+`getPackLocation` reasoning are still the right reference if the download
+route is ever reconsidered — but **it is not what we are building.**
+
 ## Use `fast-follow`, not `install-time`
 
 This is the one decision that is easy to get wrong, so it is worth being
